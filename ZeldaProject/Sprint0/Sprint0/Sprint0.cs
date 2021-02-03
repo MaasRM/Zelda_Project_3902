@@ -25,7 +25,7 @@ namespace Sprint0
             IsMouseVisible = true;
             controllerList = new List<IController>();
             frame = 0;
-            //Does Everyone See This?
+            //Does Everyone See This? Yep
         }
 
         protected override void Initialize()
