@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>/Users/nathanschultz/Documents/CSE3902/Sprint0/Sprint0/Content/credits.spritefont</SourceFile>
-  <SourceTime>2021-01-21T22:18:22.9409543-05:00</SourceTime>
-  <DestFile>/Users/nathanschultz/Documents/CSE3902/Sprint0/Sprint0/Content/bin/DesktopGL/Content/credits.xnb</DestFile>
-  <DestTime>2021-01-22T20:46:01.3030849-05:00</DestTime>
+  <SourceFile>/Users/nathanschultz/Documents/CSE3902/Zelda/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/credits.spritefont</SourceFile>
+  <SourceTime>2021-02-03T16:34:23.1367606-05:00</SourceTime>
+  <DestFile>/Users/nathanschultz/Documents/CSE3902/Zelda/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/bin/DesktopGL/Content/credits.xnb</DestFile>
+  <DestTime>2021-02-03T16:34:59.1503279-05:00</DestTime>
   <Importer>FontDescriptionImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54-04:00</ImporterTime>
   <Processor>FontDescriptionProcessor</Processor>

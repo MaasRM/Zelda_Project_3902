@@ -179,11 +179,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/nathanschultz/Documents/CSE3902/Sprint0/Sprint0/Sprint0.csproj",
+      "projectUniqueName": "/Users/nathanschultz/Documents/CSE3902/Zelda/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Sprint0.csproj",
       "projectName": "Sprint0",
-      "projectPath": "/Users/nathanschultz/Documents/CSE3902/Sprint0/Sprint0/Sprint0.csproj",
+      "projectPath": "/Users/nathanschultz/Documents/CSE3902/Zelda/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Sprint0.csproj",
       "packagesPath": "/Users/nathanschultz/.nuget/packages/",
-      "outputPath": "/Users/nathanschultz/Documents/CSE3902/Sprint0/Sprint0/obj/",
+      "outputPath": "/Users/nathanschultz/Documents/CSE3902/Zelda/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/nathanschultz/.config/NuGet/NuGet.Config"
