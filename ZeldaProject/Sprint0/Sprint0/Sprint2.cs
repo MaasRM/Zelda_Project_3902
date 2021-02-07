@@ -23,7 +23,6 @@ namespace Sprint0
             IsMouseVisible = true;
             controllerList = new List<IController>();
             frame = 0;
-            //Does Everyone See This? Yep, test
         }
 
         protected override void Initialize()
@@ -40,8 +39,10 @@ namespace Sprint0
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
             characterFrames = Content.Load<Texture2D>("LinkSpriteSheet");
+            environmentFrames = Content.Load<Texture2D>("Dungeon_Tileset");
 
             gameSprite = new StationaryStillSprite(new Rectangle((int)this.GraphicsDevice.Viewport.Width / 2 - 16, (int)this.GraphicsDevice.Viewport.Height / 2 - 32, 32, 64), new Rectangle(258, 1, 16, 32), characterFrames);
+            backgroundSprite = new StationaryStillSprite(new Rectangle((int)this.GraphicsDevice.Viewport.Width / 2 - 16, (int)this.GraphicsDevice.Viewport.Height / 2 - 32, 32, 64), new Rectangle(258, 1, 16, 32), environmentFrames);
         }
 
         protected override void Update(GameTime gameTime)
