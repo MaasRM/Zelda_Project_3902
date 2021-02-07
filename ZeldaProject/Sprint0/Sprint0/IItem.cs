@@ -1,0 +1,11 @@
+﻿using System;
+using Microsoft.Xna.Framework.Graphics;
+namespace Sprint0
+{
+    public interface IItem
+    {
+        public void Update();
+
+        public void Draw(SpriteBatch spriteBatch);
+    }
+}
