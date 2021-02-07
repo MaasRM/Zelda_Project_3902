@@ -11,6 +11,8 @@ namespace Sprint0
 
         public void Execute()
         {
+            game.Link.getLinkStateMachine().FaceRight();
+            game.Link.changeXLoc(5);
         }
     }
 }

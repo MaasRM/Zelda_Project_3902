@@ -49,5 +49,6 @@ namespace Sprint0
             //LinkSpriteFactory.getRectangle(this.Direction, this.Color, );
         }
 
+        //implement commands
     }
 }

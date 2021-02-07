@@ -7,7 +7,9 @@ namespace Sprint0
 {
     public class Link : IPlayer
     {
-        LinkStateMachine stateMachine = new LinkStateMachine();
+        private LinkStateMachine stateMachine = new LinkStateMachine();
+        private int xLoc;
+        private int yLoc;
 
         public Link()
         {
@@ -18,6 +20,22 @@ namespace Sprint0
 
             //Call set methods in LinkStateMachine
         }
+
+        public void changeXLocation(int x)
+        {
+            this.xLoc += x;
+        }
+
+        public void changeYLocation(int y)
+        {
+            this.yLoc += y;
+        }
+
+        public LinkStateMachine GetLinkStateMachine()
+        {
+            return stateMachine;
+        }
+
         public void Draw(SpriteBatch spriteBatch)
         {
             //Call get LinkStateMachineMethods to draw the sprite??
