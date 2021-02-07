@@ -12,7 +12,10 @@ namespace Sprint0
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
         private List<IController> controllerList;
-        private ISprite gameSprite;
+        private IPlayer link;
+        private List<INPC> nonPlayers;
+        private List<IItem> items;
+        private List<IBlock> blocks;
         private int frame;
         public Texture2D characterFrames;
 
@@ -40,8 +43,6 @@ namespace Sprint0
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
             characterFrames = Content.Load<Texture2D>("LinkSpriteSheet");
-
-            gameSprite = new StationaryStillSprite(new Rectangle((int)this.GraphicsDevice.Viewport.Width / 2 - 16, (int)this.GraphicsDevice.Viewport.Height / 2 - 32, 32, 64), new Rectangle(258, 1, 16, 32), characterFrames);
         }
 
         protected override void Update(GameTime gameTime)
