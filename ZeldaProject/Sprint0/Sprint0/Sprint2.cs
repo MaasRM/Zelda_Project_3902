@@ -13,10 +13,8 @@ namespace Sprint0
         private SpriteBatch _spriteBatch;
         private List<IController> controllerList;
         private ISprite gameSprite;
-        private ISprite textSprite;
         private int frame;
         public Texture2D characterFrames;
-        public SpriteFont font;
 
         public Sprint2()
         {
