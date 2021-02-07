@@ -31,10 +31,8 @@ namespace Sprint0
         protected override void Initialize()
         {
             KeyboardController keyControls = new KeyboardController(this);
-            MouseController mouseControls = new MouseController(this);
 
             controllerList.Add(keyControls);
-            controllerList.Add(mouseControls);
 
             base.Initialize();
         }
@@ -43,11 +41,9 @@ namespace Sprint0
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            characterFrames = Content.Load<Texture2D>("characters");
-            font = Content.Load<SpriteFont>("credits");
+            characterFrames = Content.Load<Texture2D>("LinkSpriteSheet");
 
             gameSprite = new StationaryStillSprite(new Rectangle((int)this.GraphicsDevice.Viewport.Width / 2 - 16, (int)this.GraphicsDevice.Viewport.Height / 2 - 32, 32, 64), new Rectangle(258, 1, 16, 32), characterFrames);
-            textSprite = new TextSprite(new Vector2(200, 360), font, "Credits\nPorgram Made By: Nathan Schultz\nSprites from: http://www.mariouniverse.com/wp-content/img/sprites/nes/smb");
         }
 
         protected override void Update(GameTime gameTime)
@@ -60,10 +56,8 @@ namespace Sprint0
             {
                 controller.Update();
             }
-            if (frame % 8 == 0)
-            {
-                gameSprite.Update();
-            }
+
+            //Call updates for Link, Enemy, Block
 
             base.Update(gameTime);
         }
@@ -72,8 +66,7 @@ namespace Sprint0
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            textSprite.Draw(_spriteBatch);
-            gameSprite.Draw(_spriteBatch);
+            //Call draw for Link, Enemy, Block
 
             base.Draw(gameTime);
         }
