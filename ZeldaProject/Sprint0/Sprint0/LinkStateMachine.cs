@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -31,15 +32,15 @@ namespace Sprint0
         private Direction direction;
         private Color color;
         private Animation animation;
-        private Boolean useItem
+        private Boolean useItem;
         private Boolean isDamaged;
 
         // Enums for direction, color, etc
         public LinkStateMachine()
         {
-            direction = MoveRight;
-            color = Green;
-            animation = Idle;
+            direction = Direction.MoveRight;
+            color = Color.Green;
+            animation = Animation.Idle;
             useItem = false;
             isDamaged = false;
         }
