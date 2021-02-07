@@ -26,7 +26,6 @@ namespace Sprint0
 			controllerMappings.Add(Keys.Z, new LinkAttackCommand(game));
 			controllerMappings.Add(Keys.E, new DamageLinkCommand(game));
 			controllerMappings.Add(Keys.Q, new QuitCommand(game));
-
 		}
 
 		public void Update()
