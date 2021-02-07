@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Sprint0
 {
-    class Sprint2 : Game
+    public class Sprint2 : Game
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
