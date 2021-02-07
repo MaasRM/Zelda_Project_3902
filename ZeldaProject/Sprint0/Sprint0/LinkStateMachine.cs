@@ -6,11 +6,36 @@ namespace Sprint0
 {
     public class LinkStateMachine
     {
+        private enum Direction;
+        private enum Color;
+        private enum Animation;
+        private enum Attack
+        private boolean Health;
+
         // Enums for direction, color, etc
         public LinkStateMachine()
         {
-            //Constructor??
-        }
+            enum Direction
+            {
+                MoveUp,
+                MoveDown,
+                MoveLeft,
+                MoveRight
+            }
+
+            enum Color
+            {
+                Green,
+                Red,
+                White
+            }
+
+            enum Animation
+            {
+                Idle,
+                Walk
+            }
+    }
 
         // get/set methods for the fields
     }
