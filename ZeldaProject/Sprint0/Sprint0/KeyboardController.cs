@@ -10,19 +10,23 @@ namespace Sprint0
 	{
 		private Dictionary<Keys, ICommand> controllerMappings;
 
-		public KeyboardController(Sprint0 game)
+		public KeyboardController(Sprint2 game)
 		{
 			controllerMappings = new Dictionary<Keys, ICommand>();
-			controllerMappings.Add(Keys.NumPad0, new QuitCommand(game));
-			controllerMappings.Add(Keys.NumPad1, new StationaryStillStateCommand(game));
-			controllerMappings.Add(Keys.NumPad2, new StationaryAnimatedStateCommand(game));
-			controllerMappings.Add(Keys.NumPad3, new MovingStillStateCommand(game));
-			controllerMappings.Add(Keys.NumPad4, new MovingAnimatedStateCommand(game));
-			controllerMappings.Add(Keys.D0, new QuitCommand(game));
-			controllerMappings.Add(Keys.D1, new StationaryStillStateCommand(game));
-			controllerMappings.Add(Keys.D2, new StationaryAnimatedStateCommand(game));
-			controllerMappings.Add(Keys.D3, new MovingStillStateCommand(game));
-			controllerMappings.Add(Keys.D4, new MovingAnimatedStateCommand(game));
+			//Needs to add item swap for link
+			controllerMappings.Add(Keys.W, new LinkFaceUpCommand(game));
+			controllerMappings.Add(Keys.Up, new LinkFaceUpCommand(game));
+			controllerMappings.Add(Keys.A, new LinkFaceLeftCommand(game));
+			controllerMappings.Add(Keys.Left, new LinkFaceLeftCommand(game));
+			controllerMappings.Add(Keys.D, new LinkFaceRightCommand(game));
+			controllerMappings.Add(Keys.Right, new LinkFaceRightCommand(game));
+			controllerMappings.Add(Keys.S, new LinkFaceDownCommand(game));
+			controllerMappings.Add(Keys.Down, new LinkFaceDownCommand(game));
+			controllerMappings.Add(Keys.N, new LinkAttackCommand(game));
+			controllerMappings.Add(Keys.Z, new LinkAttackCommand(game));
+			controllerMappings.Add(Keys.E, new DamageLinkCommand(game));
+			controllerMappings.Add(Keys.Q, new QuitCommand(game));
+
 		}
 
 		public void Update()

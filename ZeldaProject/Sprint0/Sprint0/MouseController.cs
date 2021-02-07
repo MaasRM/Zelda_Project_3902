@@ -16,7 +16,7 @@ namespace Sprint0
 		private int windowHeight;
 		
 
-		public MouseController(Sprint0 game)
+		public MouseController(Sprint2 game)
 		{
 			quit = new QuitCommand(game);
 			standStill = new StationaryStillStateCommand(game);
