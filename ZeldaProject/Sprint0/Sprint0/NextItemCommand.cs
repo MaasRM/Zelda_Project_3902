@@ -1,9 +1,15 @@
 ﻿using System;
 namespace Sprint0
 {
-    public class NextItemCommand
+    public class NextItemCommand :ICommand
     {
-        public NextItemCommand()
+        private Sprint2 game;
+        public NextItemCommand(Sprint2 sprint)
+        {
+            game = sprint;
+        }
+
+        public void Execute()
         {
         }
     }
