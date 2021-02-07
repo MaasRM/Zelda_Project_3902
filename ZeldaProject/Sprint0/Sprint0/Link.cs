@@ -5,16 +5,22 @@ using System.Text;
 
 namespace Sprint0
 {
-    class Link : IPlayer
+    public class Link : IPlayer
     {
-        // Instance of LinkStateMachine
+        LinkStateMachine stateMachine = new LinkStateMachine();
+
+        public Link()
+        {
+            //Constructor??
+        }
         public void Update()
         {
-            //Call LinkStateMachineMethods
+
+            //Call set methods in LinkStateMachine
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            //Call LinkStateMachineMethods
+            //Call get LinkStateMachineMethods to draw the sprite??
         }
     }
 }
