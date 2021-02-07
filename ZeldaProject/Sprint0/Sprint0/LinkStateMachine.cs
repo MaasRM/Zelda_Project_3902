@@ -9,8 +9,8 @@ namespace Sprint0
         private enum Direction;
         private enum Color;
         private enum Animation;
-        private enum Attack
-        private boolean Health;
+        private Boolean useItem
+        private Boolean isDamaged;
 
         // Enums for direction, color, etc
         public LinkStateMachine()
@@ -33,10 +33,16 @@ namespace Sprint0
             enum Animation
             {
                 Idle,
-                Walk
+                Walk,
+                Attack
             }
-    }
 
+            useItem = false;
+
+            isDamaged = false;
+        }
+        
+        
         // get/set methods for the fields
     }
 }
