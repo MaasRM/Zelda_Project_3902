@@ -31,7 +31,7 @@ namespace Sprint0
             this.yLoc += y;
         }
 
-        public LinkStateMachine GetLinkStateMachine()
+        public LinkStateMachine getLinkStateMachine()
         {
             return stateMachine;
         }
