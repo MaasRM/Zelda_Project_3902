@@ -12,7 +12,7 @@ namespace Sprint0
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
         private List<IController> controllerList;
-        private IPlayer link;
+        public IPlayer link;
         private List<INPC> nonPlayers;
         private List<IItem> items;
         private List<IBlock> blocks;
