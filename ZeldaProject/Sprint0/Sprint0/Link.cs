@@ -10,16 +10,19 @@ namespace Sprint0
     {
         private LinkStateMachine stateMachine;
         private Texture2D linkSpriteSheet;
+        private Rectangle source;
+        private Rectangle destination;
 
         public Link(Texture2D spriteSheet)
         {
-            LinkStateMachine stateMachine = new LinkStateMachine();
+            stateMachine = new LinkStateMachine();
             linkSpriteSheet = spriteSheet;
         }
 
         public void Update()
         {
-            //Do we need this since we are using the command classes from the controller?
+            source = stateMachine.getSource();
+            destination = stateMachine.getDestination();
         }
 
         public LinkStateMachine getLinkStateMachine()
@@ -29,7 +32,7 @@ namespace Sprint0
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(linkSpriteSheet, stateMachine.getDestination(), stateMachine.getSource(), Color.White);
+            spriteBatch.Draw(linkSpriteSheet, destination, source, Color.White);
         }
     }
 }

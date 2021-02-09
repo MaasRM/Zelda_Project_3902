@@ -7,14 +7,26 @@ namespace Sprint0
 {
     public class LinkSpriteFactory
     {
+        int linkHeight;
+        int linkWidth;
         public LinkSpriteFactory()
         {
-
+            //initial height and width
         }
 
-        public Rectangle getRectangle(Direction direction, LinkColor color, Animation animation, Boolean useItem, Boolean isDamaged)
+        public Rectangle getSourceRectangle(Direction direction, LinkColor color, Animation animation, Boolean useItem, Boolean isDamaged)
         {
             //call methods to check state
+        }
+
+        public int getHeight()
+        {
+            return linkHeight;
+        }
+
+        public int getWidth()
+        {
+            return linkWidth;
         }
 
     }

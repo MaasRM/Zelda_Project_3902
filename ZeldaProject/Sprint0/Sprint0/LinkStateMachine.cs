@@ -37,8 +37,6 @@ namespace Sprint0
         private Boolean isDamaged;
         private int xLoc;
         private int yLoc;
-        private int linkHeight;
-        private int linkWidth;
 
         public LinkStateMachine()
         {
@@ -50,17 +48,16 @@ namespace Sprint0
             isDamaged = false;
             xLoc = 100; //Original Position, probably needs to change
             yLoc = 100;
-            //set link height/width
         }
 
         public Rectangle getDestination()
         {
-            return new Rectangle(this.xLoc, this.yLoc, this.linkWidth, this.linkHeight);
+            return new Rectangle(this.xLoc, this.yLoc, this.spriteFactory.getWidth(), this.spriteFactory.getHeight());
         }
 
         public Rectangle getSource()
         {
-            return spriteFactory.getRectangle(direction, color, animation, useItem, isDamaged);
+            return this.spriteFactory.getSourceRectangle(direction, color, animation, useItem, isDamaged);
         }
 
         public void faceUp()
@@ -123,16 +120,16 @@ namespace Sprint0
             this.animation = Animation.Idle;
         }
 
-        public void changeXLocation(int change)
+        public void changeXLocation(int change) //Not used but may need later??
         {
             xLoc += change;
         }
 
-        public void changeYLocation(int change)
+        public void changeYLocation(int change) //Not used but may need later??
         {
             yLoc += change;
         }
 
-        //implement commands for attack, damaged, useItem
+        //implement methods for attack, damaged, useItem
     }
 }
