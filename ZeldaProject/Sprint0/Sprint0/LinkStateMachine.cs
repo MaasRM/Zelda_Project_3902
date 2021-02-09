@@ -118,6 +118,11 @@ namespace Sprint0
             }
         }
 
+        public void setIdle()
+        {
+            this.animation = Animation.Idle;
+        }
+
         public void changeXLocation(int change)
         {
             xLoc += change;

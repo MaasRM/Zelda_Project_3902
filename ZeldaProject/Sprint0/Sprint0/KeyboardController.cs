@@ -9,6 +9,7 @@ namespace Sprint0
 	public class KeyboardController : IController
 	{
 		private Dictionary<Keys, ICommand> controllerMappings;
+		private ICommand linkIdleCommand;
 
 		public KeyboardController(Sprint2 game)
 		{
@@ -26,19 +27,26 @@ namespace Sprint0
 			controllerMappings.Add(Keys.Z, new LinkAttackCommand(game));
 			controllerMappings.Add(Keys.E, new DamageLinkCommand(game));
 			controllerMappings.Add(Keys.Q, new QuitCommand(game));
+			linkIdleCommand = new LinkIdleCommand(game);
 		}
 
 		public void Update()
 		{
 			Keys[] pressedKeys = Keyboard.GetState().GetPressedKeys();
+			Boolean keysPressed = false;
 
 			foreach (Keys key in pressedKeys)
 			{
+				keysPressed = true;
                 if (controllerMappings.ContainsKey(key))
 				{
 					controllerMappings[key].Execute();
 				}
 			}
+			if(!keysPressed)
+            {
+				linkIdleCommand.Execute();
+            }
 		}
 	}
 }
