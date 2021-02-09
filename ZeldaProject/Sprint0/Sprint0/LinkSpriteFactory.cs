@@ -17,6 +17,11 @@ namespace Sprint0
         public Rectangle getSourceRectangle(Direction direction, LinkColor color, Animation animation)
         {
             //Use params to get proper rectangle from sprite sheet and update height and width
+            if(direction == x && color == y && animation == z)
+            {
+
+            }
+            //Return a List of rectangles to then animate
         }
 
         public int getHeight()

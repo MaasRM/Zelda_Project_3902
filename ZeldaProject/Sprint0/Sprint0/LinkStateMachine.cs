@@ -56,6 +56,9 @@ namespace Sprint0
 
         public Rectangle getSource()
         {
+            //List<Rectangle> holds = new ArrayList<Rectangle> = this.spriteFactory.getSourceRectangle(direction, color, animation);
+            //getDestination(holds);
+            //return holds;
             return this.spriteFactory.getSourceRectangle(direction, color, animation);
         }
 
