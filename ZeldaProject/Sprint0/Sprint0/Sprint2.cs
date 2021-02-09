@@ -56,6 +56,7 @@ namespace Sprint0
             }
 
             //Call updates for Link, Enemy, Block
+            link.Update();
 
             base.Update(gameTime);
         }
@@ -65,6 +66,7 @@ namespace Sprint0
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             //Call draw for Link, Enemy, Block
+            link.Draw(this._spriteBatch);
 
             base.Draw(gameTime);
         }

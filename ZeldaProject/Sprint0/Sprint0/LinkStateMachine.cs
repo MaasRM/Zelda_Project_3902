@@ -24,7 +24,9 @@ namespace Sprint0
     {
         Idle,
         Walk,
-        Attack
+        Attack,
+        UsingItem,
+        IsDamaged
     }
 
     public class LinkStateMachine
@@ -33,8 +35,6 @@ namespace Sprint0
         private Direction direction;
         private LinkColor color;
         private Animation animation;
-        private Boolean useItem;
-        private Boolean isDamaged;
         private int xLoc;
         private int yLoc;
 
@@ -44,8 +44,6 @@ namespace Sprint0
             direction = Direction.MoveRight;
             color = LinkColor.Green;
             animation = Animation.Idle;
-            useItem = false;
-            isDamaged = false;
             xLoc = 100; //Original Position, probably needs to change
             yLoc = 100;
         }
@@ -57,7 +55,7 @@ namespace Sprint0
 
         public Rectangle getSource()
         {
-            return this.spriteFactory.getSourceRectangle(direction, color, animation, useItem, isDamaged);
+            return this.spriteFactory.getSourceRectangle(direction, color, animation);
         }
 
         public void faceUp()

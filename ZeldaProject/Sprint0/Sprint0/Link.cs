@@ -25,14 +25,14 @@ namespace Sprint0
             destination = stateMachine.getDestination();
         }
 
-        public LinkStateMachine getLinkStateMachine()
-        {
-            return stateMachine;
-        }
-
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(linkSpriteSheet, destination, source, Color.White);
+        }
+
+        public LinkStateMachine getLinkStateMachine()
+        {
+            return stateMachine;
         }
     }
 }
