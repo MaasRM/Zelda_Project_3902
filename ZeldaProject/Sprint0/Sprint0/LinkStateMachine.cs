@@ -35,6 +35,10 @@ namespace Sprint0
         private Animation animation;
         private Boolean useItem;
         private Boolean isDamaged;
+        private int xLoc;
+        private int yLoc;
+        private int linkHeight;
+        private int linkWidth;
 
         public LinkStateMachine()
         {
@@ -44,9 +48,17 @@ namespace Sprint0
             animation = Animation.Idle;
             useItem = false;
             isDamaged = false;
+            xLoc = 100; //Original Position, probably needs to change
+            yLoc = 100;
+            //set link height/width
         }
 
-        public Rectangle getSprite()
+        public Rectangle getDestination()
+        {
+            return new Rectangle(this.xLoc, this.yLoc, this.linkWidth, this.linkHeight);
+        }
+
+        public Rectangle getSource()
         {
             return spriteFactory.getRectangle(direction, color, animation, useItem, isDamaged);
         }
@@ -69,6 +81,16 @@ namespace Sprint0
         public void faceRight()
         {
             this.direction = Direction.MoveRight;
+        }
+
+        public void changeXLocation(int change)
+        {
+            xLoc += change;
+        }
+
+        public void changeYLocation(int change)
+        {
+            yLoc += change;
         }
 
         //implement commands for attack, moving, idle, damaged, useItem

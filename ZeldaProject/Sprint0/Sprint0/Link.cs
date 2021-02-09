@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -10,9 +11,10 @@ namespace Sprint0
         private LinkStateMachine stateMachine;
         private Texture2D linkSpriteSheet;
 
-        public Link()
+        public Link(Texture2D spriteSheet)
         {
             LinkStateMachine stateMachine = new LinkStateMachine();
+            linkSpriteSheet = spriteSheet;
         }
 
         public void Update()
@@ -27,7 +29,7 @@ namespace Sprint0
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            //spriteBatch.Draw(sheet, destination, spriteSource, Color.White);
+            spriteBatch.Draw(linkSpriteSheet, stateMachine.getDestination(), stateMachine.getSource(), Color.White);
         }
     }
 }

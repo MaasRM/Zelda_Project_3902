@@ -17,7 +17,6 @@ namespace Sprint0
         private List<IItem> items;
         private List<IBlock> blocks;
         private int frame;
-        public Texture2D characterFrames;
 
         public Sprint2()
         {
@@ -42,7 +41,7 @@ namespace Sprint0
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            characterFrames = Content.Load<Texture2D>("LinkSpriteSheet");
+            link = new Link(Content.Load<Texture2D>("LinkSpriteSheet"));
         }
 
         protected override void Update(GameTime gameTime)
