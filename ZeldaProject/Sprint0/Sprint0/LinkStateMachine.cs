@@ -118,6 +118,18 @@ namespace Sprint0
             this.animation = Animation.Idle;
         }
 
+        public void setAttack()
+        {
+            this.animation = Animation.Attack;
+        }
+
+        public void setDamaged()
+        {
+            this.animation = Animation.IsDamaged;
+        }
+
+        //implement method for useItem, needs to be passed in an int for the item number??
+
         public void changeXLocation(int change) //Not used but may need later??
         {
             xLoc += change;
@@ -127,7 +139,5 @@ namespace Sprint0
         {
             yLoc += change;
         }
-
-        //implement methods for attack, damaged, useItem
     }
 }
