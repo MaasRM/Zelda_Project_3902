@@ -3,38 +3,20 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-public class LinkSpriteFactory
+namespace Sprint0
 {
-    public enum Direction
+    public class LinkSpriteFactory
     {
-        MoveUp,
-        MoveDown,
-        MoveLeft,
-        MoveRight
-    }
+        public LinkSpriteFactory()
+        {
 
-    public enum Color
-    {
-        Green,
-        Red,
-        White
-    }
+        }
 
-    public enum Animation
-    {
-        Idle,
-        Walk,
-        Attack
-    }
+        public Rectangle getRectangle(Direction direction, LinkColor color, Animation animation, Boolean useItem, Boolean isDamaged)
+        {
+            //call methods to check state
+        }
 
-    public LinkSpriteFactory()
-    {
-
-    }
-
-    public Rectangle getRectangle(Direction direction, Color color, Animation animation, Boolean useItem, Boolean isDamaged)
-    {
-        //call methods to check state
     }
 
 }

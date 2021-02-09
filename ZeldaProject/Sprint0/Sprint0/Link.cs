@@ -13,12 +13,12 @@ namespace Sprint0
 
         public Link()
         {
-            //Constructor??
+            //Default x and y loc?
         }
         public void Update()
         {
 
-            //Call set methods in LinkStateMachine
+            //Do we need this since we are using the command classes from the controller?
         }
 
         public void changeXLocation(int x)

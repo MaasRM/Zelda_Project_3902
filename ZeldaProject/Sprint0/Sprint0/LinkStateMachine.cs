@@ -13,7 +13,7 @@ namespace Sprint0
         MoveRight
     }
 
-    public enum Color
+    public enum LinkColor
     {
         Green,
         Red,
@@ -29,27 +29,48 @@ namespace Sprint0
 
     public class LinkStateMachine
     {
+        private LinkSpriteFactory spriteFactory;
         private Direction direction;
-        private Color color;
+        private LinkColor color;
         private Animation animation;
         private Boolean useItem;
         private Boolean isDamaged;
 
-        // Enums for direction, color, etc
         public LinkStateMachine()
         {
+            spriteFactory = new LinkSpriteFactory();
             direction = Direction.MoveRight;
-            color = Color.Green;
+            color = LinkColor.Green;
             animation = Animation.Idle;
             useItem = false;
             isDamaged = false;
         }
-        
-        public Rectangle getSprite(){
-            //LinkSpriteFactory, sends current state, returns the rectangle found
-            //LinkSpriteFactory.getRectangle(this.Direction, this.Color, );
+
+        public Rectangle getSprite()
+        {
+            return spriteFactory.getRectangle(direction, color, animation, useItem, isDamaged);
         }
 
-        //implement commands
+        public void faceUp()
+        {
+            this.direction = Direction.MoveUp;
+        }
+
+        public void faceDown()
+        {
+            this.direction = Direction.MoveDown;
+        }
+
+        public void faceLeft()
+        {
+            this.direction = Direction.MoveLeft;
+        }
+
+        public void faceRight()
+        {
+            this.direction = Direction.MoveRight;
+        }
+
+        //implement commands for attack, moving, idle, damaged, useItem
     }
 }
