@@ -65,22 +65,57 @@ namespace Sprint0
 
         public void faceUp()
         {
-            this.direction = Direction.MoveUp;
+            if(this.direction == Direction.MoveUp)
+            {
+                this.animation = Animation.Walk;
+                yLoc -= 5; //May need to change value
+            } else
+            {
+                this.direction = Direction.MoveUp;
+                this.animation = Animation.Idle;
+            }
         }
 
         public void faceDown()
         {
-            this.direction = Direction.MoveDown;
+            if (this.direction == Direction.MoveDown)
+            {
+                this.animation = Animation.Walk;
+                yLoc += 5; //May need to change value
+            }
+            else
+            {
+                this.direction = Direction.MoveDown;
+                this.animation = Animation.Idle;
+            }
         }
 
         public void faceLeft()
         {
-            this.direction = Direction.MoveLeft;
+            if (this.direction == Direction.MoveLeft)
+            {
+                this.animation = Animation.Walk;
+                xLoc -= 5; //May need to change value
+            }
+            else
+            {
+                this.direction = Direction.MoveLeft;
+                this.animation = Animation.Idle;
+            }
         }
 
         public void faceRight()
         {
-            this.direction = Direction.MoveRight;
+            if (this.direction == Direction.MoveRight)
+            {
+                this.animation = Animation.Walk;
+                xLoc += 5; //May need to change value
+            }
+            else
+            {
+                this.direction = Direction.MoveRight;
+                this.animation = Animation.Idle;
+            }
         }
 
         public void changeXLocation(int change)
@@ -93,6 +128,6 @@ namespace Sprint0
             yLoc += change;
         }
 
-        //implement commands for attack, moving, idle, damaged, useItem
+        //implement commands for attack, damaged, useItem
     }
 }

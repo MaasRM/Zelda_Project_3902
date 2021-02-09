@@ -12,7 +12,6 @@ namespace Sprint0
         public void Execute()
         {
             game.getPlayer().getLinkStateMachine().faceDown();
-            game.getPlayer().getLinkStateMachine().changeYLocation(5);
         }
     }
 }
