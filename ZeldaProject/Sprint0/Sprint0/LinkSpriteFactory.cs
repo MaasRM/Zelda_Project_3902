@@ -16,7 +16,7 @@ namespace Sprint0
 
         public Rectangle getSourceRectangle(Direction direction, LinkColor color, Animation animation, Boolean useItem, Boolean isDamaged)
         {
-            //call methods to check state
+            //Use params to get proper rectangle from sprite sheet and update height and width
         }
 
         public int getHeight()
