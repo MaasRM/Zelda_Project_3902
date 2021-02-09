@@ -37,6 +37,7 @@ namespace Sprint0
         private Animation animation;
         private int xLoc;
         private int yLoc;
+        private const int linkMoveSpeed = 5; //May need to change value
 
         public LinkStateMachine()
         {
@@ -63,7 +64,7 @@ namespace Sprint0
             if(this.direction == Direction.MoveUp)
             {
                 this.animation = Animation.Walk;
-                yLoc -= 5; //May need to change value
+                yLoc -= linkMoveSpeed;
             } else
             {
                 this.direction = Direction.MoveUp;
@@ -76,7 +77,7 @@ namespace Sprint0
             if (this.direction == Direction.MoveDown)
             {
                 this.animation = Animation.Walk;
-                yLoc += 5; //May need to change value
+                yLoc += linkMoveSpeed;
             }
             else
             {
@@ -90,7 +91,7 @@ namespace Sprint0
             if (this.direction == Direction.MoveLeft)
             {
                 this.animation = Animation.Walk;
-                xLoc -= 5; //May need to change value
+                xLoc -= linkMoveSpeed;
             }
             else
             {
@@ -104,7 +105,7 @@ namespace Sprint0
             if (this.direction == Direction.MoveRight)
             {
                 this.animation = Animation.Walk;
-                xLoc += 5; //May need to change value
+                xLoc += linkMoveSpeed;
             }
             else
             {
