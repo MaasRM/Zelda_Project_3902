@@ -7,28 +7,17 @@ namespace Sprint0
 {
     public class Link : IPlayer
     {
-        private LinkStateMachine stateMachine = new LinkStateMachine();
-        private int xLoc;
-        private int yLoc;
+        private LinkStateMachine stateMachine;
+        private Texture2D linkSpriteSheet;
 
         public Link()
         {
-            //Default x and y loc?
+            LinkStateMachine stateMachine = new LinkStateMachine();
         }
+
         public void Update()
         {
-
             //Do we need this since we are using the command classes from the controller?
-        }
-
-        public void changeXLocation(int x)
-        {
-            this.xLoc += x;
-        }
-
-        public void changeYLocation(int y)
-        {
-            this.yLoc += y;
         }
 
         public LinkStateMachine getLinkStateMachine()
@@ -38,7 +27,7 @@ namespace Sprint0
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            //Call get LinkStateMachineMethods to draw the sprite??
+            //spriteBatch.Draw(sheet, destination, spriteSource, Color.White);
         }
     }
 }
