@@ -7,6 +7,18 @@ namespace Sprint0
 {
     public class StalfosStateMachine
     {
+        public enum Direction
+        {
+            Up,
+            Down,
+            Left,
+            Right
+        }
+
+        private Direction direction;
+        private int xLoc;
+        private int yLoc;
+
         public StalfosStateMachine()
         {
         }

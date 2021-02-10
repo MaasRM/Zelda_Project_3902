@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Sprint0
 {
-    public class Stalfos : INPC, IEnemy
+    public class Stalfos : INPC
     {
         private StalfosStateMachine stateMachine;
         private Texture2D stalfosSpriteSheet;
@@ -22,7 +22,7 @@ namespace Sprint0
         {
             stateMachine.move();
             destination = stateMachine.GetDestination();
-            source = stateMachine.GetDestination();
+            source = stateMachine.GetSource();
         }
 
         public void Draw(SpriteBatch spriteBatch)

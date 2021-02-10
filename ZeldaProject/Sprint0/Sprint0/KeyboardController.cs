@@ -37,6 +37,7 @@ namespace Sprint0
 			otherCommands.Add(Keys.I, new NextItemCommand(game));
 			otherCommands.Add(Keys.O, new PreviousItemCommand(game));
 			otherCommands.Add(Keys.P, new NextItemCommand(game));
+			otherCommands.Add(Keys.R, new ResetGameCommand(game));
 			otherCommands.Add(Keys.Q, new QuitCommand(game));
 		}
 

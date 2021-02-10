@@ -6,14 +6,14 @@ using System.Text;
 
 namespace Sprint0
 {
-    public class Goriya : INPC
+    public class Trap : INPC
     {
         private StalfosStateMachine stateMachine;
         private Texture2D stalfosSpriteSheet;
         private Rectangle source;
         private Rectangle destination;
 
-        public Goriya()
+        public Trap()
         {
         }
 
