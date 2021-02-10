@@ -8,42 +8,56 @@ namespace Sprint0
 {
 	public class KeyboardController : IController
 	{
-		private Dictionary<Keys, ICommand> controllerMappings;
+		private Dictionary<Keys, ICommand> linkActions;
+		private Dictionary<Keys, ICommand> otherCommands;
 		private ICommand linkIdleCommand;
 
 		public KeyboardController(Sprint2 game)
 		{
-			controllerMappings = new Dictionary<Keys, ICommand>();
-			//Needs to add item swap for link
-			controllerMappings.Add(Keys.W, new LinkFaceUpCommand(game));
-			controllerMappings.Add(Keys.Up, new LinkFaceUpCommand(game));
-			controllerMappings.Add(Keys.A, new LinkFaceLeftCommand(game));
-			controllerMappings.Add(Keys.Left, new LinkFaceLeftCommand(game));
-			controllerMappings.Add(Keys.D, new LinkFaceRightCommand(game));
-			controllerMappings.Add(Keys.Right, new LinkFaceRightCommand(game));
-			controllerMappings.Add(Keys.S, new LinkFaceDownCommand(game));
-			controllerMappings.Add(Keys.Down, new LinkFaceDownCommand(game));
-			controllerMappings.Add(Keys.N, new LinkAttackCommand(game));
-			controllerMappings.Add(Keys.Z, new LinkAttackCommand(game));
-			controllerMappings.Add(Keys.E, new DamageLinkCommand(game));
-			controllerMappings.Add(Keys.Q, new QuitCommand(game));
+			linkActions = new Dictionary<Keys, ICommand>();
+			otherCommands = new Dictionary<Keys, ICommand>();
+			linkActions.Add(Keys.W, new LinkFaceUpCommand(game));
+			linkActions.Add(Keys.Up, new LinkFaceUpCommand(game));
+			linkActions.Add(Keys.A, new LinkFaceLeftCommand(game));
+			linkActions.Add(Keys.Left, new LinkFaceLeftCommand(game));
+			linkActions.Add(Keys.D, new LinkFaceRightCommand(game));
+			linkActions.Add(Keys.Right, new LinkFaceRightCommand(game));
+			linkActions.Add(Keys.S, new LinkFaceDownCommand(game));
+			linkActions.Add(Keys.Down, new LinkFaceDownCommand(game));
+			linkActions.Add(Keys.N, new LinkAttackCommand(game));
+			linkActions.Add(Keys.Z, new LinkAttackCommand(game));
+			linkActions.Add(Keys.E, new DamageLinkCommand(game));
+
 			linkIdleCommand = new LinkIdleCommand(game);
+
+			//Commands for link item swaps
+			otherCommands.Add(Keys.T, new PreviousItemCommand(game));
+			otherCommands.Add(Keys.Y, new NextItemCommand(game));
+			otherCommands.Add(Keys.U, new PreviousItemCommand(game));
+			otherCommands.Add(Keys.I, new NextItemCommand(game));
+			otherCommands.Add(Keys.O, new PreviousItemCommand(game));
+			otherCommands.Add(Keys.P, new NextItemCommand(game));
+			otherCommands.Add(Keys.Q, new QuitCommand(game));
 		}
 
 		public void Update()
 		{
 			Keys[] pressedKeys = Keyboard.GetState().GetPressedKeys();
-			Boolean keysPressed = false;
+			Boolean idleLink = true;
 
 			foreach (Keys key in pressedKeys)
 			{
-				keysPressed = true;
-                if (controllerMappings.ContainsKey(key))
+                if (linkActions.ContainsKey(key))
 				{
-					controllerMappings[key].Execute();
+					idleLink = false;
+					linkActions[key].Execute();
+				}
+				if (otherCommands.ContainsKey(key))
+				{
+					linkActions[key].Execute();
 				}
 			}
-			if(!keysPressed)
+			if(idleLink)
             {
 				linkIdleCommand.Execute();
             }

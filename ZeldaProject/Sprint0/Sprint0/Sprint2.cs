@@ -71,7 +71,7 @@ namespace Sprint0
             base.Draw(gameTime);
         }
 
-        public IPlayer getPlayer()
+        public IPlayer GetPlayer()
         {
             return link;
         }
