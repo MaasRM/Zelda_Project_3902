@@ -30,9 +30,11 @@ namespace Sprint0
 
 			linkIdleCommand = new LinkIdleCommand(game);
 
+			//Commands for block swapping
+			otherCommands.Add(Keys.T, new PreviousBlockCommand(game));
+			otherCommands.Add(Keys.Y, new NextBlockCommand(game));
+
 			//Commands for link item swaps
-			otherCommands.Add(Keys.T, new PreviousItemCommand(game));
-			otherCommands.Add(Keys.Y, new NextItemCommand(game));
 			otherCommands.Add(Keys.U, new PreviousItemCommand(game));
 			otherCommands.Add(Keys.I, new NextItemCommand(game));
 			otherCommands.Add(Keys.O, new PreviousItemCommand(game));
