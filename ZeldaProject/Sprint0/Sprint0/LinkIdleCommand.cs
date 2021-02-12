@@ -12,9 +12,9 @@ namespace Sprint0
             game = sprint;
         }
 
-    public void Execute()
-    {
-        game.GetPlayer().getLinkStateMachine().setIdle();
+        public void Execute()
+        {
+            game.GetPlayer().getLinkStateMachine().setIdle();
+        }
     }
-}
 }
