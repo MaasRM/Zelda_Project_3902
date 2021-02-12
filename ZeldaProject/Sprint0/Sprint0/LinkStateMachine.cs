@@ -38,6 +38,8 @@ namespace Sprint0
         private int xLoc;
         private int yLoc;
         private const int linkMoveSpeed = 5; //May need to change value
+        private Boolean isBusy;
+        private int frame;
 
         public LinkStateMachine()
         {
@@ -47,6 +49,8 @@ namespace Sprint0
             animation = Animation.Idle;
             xLoc = 100; //Original Position, probably needs to change
             yLoc = 100;
+            isBusy = false;
+            frame = 0;
         }
 
         public Rectangle getDestination()
@@ -56,83 +60,160 @@ namespace Sprint0
 
         public Rectangle getSource()
         {
-            //List<Rectangle> holds = new ArrayList<Rectangle> = this.spriteFactory.getSourceRectangle(direction, color, animation);
-            //getDestination(holds);
-            //return holds;
-            return this.spriteFactory.getSourceRectangle(direction, color, animation);
+            return this.spriteFactory.getSourceRectangle(direction, color, animation, frame);
+        }
+
+        public void Update()
+        {
+            if(isBusy)
+            {
+                if(this.animation == Animation.Attack)
+                {
+                    frame++;
+                    if(frame >= 4)
+                    {
+                        frame = 0;
+                        isBusy false;
+                    }
+                } else if(this.animation == Animation.IsDamaged)
+                {
+                    frame++;
+                    if (frame >= 3) //How many frames for damage??? 
+                    {
+                        frame = 0;
+                        isBusy false;
+                    }
+                } else if (this.animation == Animation.UsingItem)
+                {
+                    frame++;
+                    if (frame >= 1) //Only one frame for using item??
+                    {
+                        frame = 0;
+                        isBusy false;
+                    }
+                }
+            }
         }
 
         public void faceUp()
         {
-            if(this.direction == Direction.MoveUp)
+            if (!isBusy)
             {
-                this.animation = Animation.Walk;
-                yLoc -= linkMoveSpeed;
-            } else
-            {
-                this.direction = Direction.MoveUp;
-                this.animation = Animation.Idle;
+                if (this.direction == Direction.MoveUp)
+                {
+                    this.animation = Animation.Walk;
+                    yLoc -= linkMoveSpeed;
+                    if (frame == 0) frame = 1;
+                    else frame = 0;
+                }
+                else
+                {
+                    this.direction = Direction.MoveUp;
+                    this.animation = Animation.Idle;
+                    frame = 0;
+                }
             }
         }
 
         public void faceDown()
         {
-            if (this.direction == Direction.MoveDown)
+            if (!isBusy)
             {
-                this.animation = Animation.Walk;
-                yLoc += linkMoveSpeed;
-            }
-            else
-            {
-                this.direction = Direction.MoveDown;
-                this.animation = Animation.Idle;
+                if (this.direction == Direction.MoveDown)
+                {
+                    this.animation = Animation.Walk;
+                    yLoc += linkMoveSpeed;
+                    if (frame == 0) frame = 1;
+                    else frame = 0;
+                }
+                else
+                {
+                    this.direction = Direction.MoveDown;
+                    this.animation = Animation.Idle;
+                    frame = 0;
+                }
             }
         }
 
         public void faceLeft()
         {
-            if (this.direction == Direction.MoveLeft)
+            if (!isBusy)
             {
-                this.animation = Animation.Walk;
-                xLoc -= linkMoveSpeed;
-            }
-            else
-            {
-                this.direction = Direction.MoveLeft;
-                this.animation = Animation.Idle;
+                if (this.direction == Direction.MoveLeft)
+                {
+                    this.animation = Animation.Walk;
+                    xLoc -= linkMoveSpeed;
+                    if (frame == 0) frame = 1;
+                    else frame = 0;
+                }
+                else
+                {
+                    this.direction = Direction.MoveLeft;
+                    this.animation = Animation.Idle;
+                    frame = 0;
+                }
             }
         }
 
         public void faceRight()
         {
-            if (this.direction == Direction.MoveRight)
+            if (!isBusy)
             {
-                this.animation = Animation.Walk;
-                xLoc += linkMoveSpeed;
-            }
-            else
-            {
-                this.direction = Direction.MoveRight;
-                this.animation = Animation.Idle;
+                if (this.direction == Direction.MoveRight)
+                {
+                    this.animation = Animation.Walk;
+                    xLoc += linkMoveSpeed;
+                    if (frame == 0) frame = 1;
+                    else frame = 0;
+                }
+                else
+                {
+                    this.direction = Direction.MoveRight;
+                    this.animation = Animation.Idle;
+                    frame = 0;
+                }
             }
         }
 
         public void setIdle()
         {
-            this.animation = Animation.Idle;
+            if (!isBusy)
+            {
+                this.animation = Animation.Idle;
+                isBusy = false;
+                frame = 0;
+            }
         }
 
         public void setAttack()
         {
-            this.animation = Animation.Attack;
+            if (!isBusy)
+            {
+                this.animation = Animation.Attack;
+                isBusy = true;
+                frame = 0;
+            }
         }
 
         public void setDamaged()
         {
-            this.animation = Animation.IsDamaged;
+            if (!isBusy) //Can Link still be damaged while busy???
+            {
+                this.animation = Animation.IsDamaged;
+                isBusy = true;
+                frame = 0;
+            }
         }
 
-        //implement method for useItem, needs to be passed in an int for the item number??
+        public void setUseItem()
+        {
+            if (!isBusy)
+            {
+                this.animation = Animation.UsingItem;
+                isBusy = true;
+                frame = 0;
+            }
+        }
 
         public void changeXLocation(int change) //Not used but may need later??
         {

@@ -23,6 +23,7 @@ namespace Sprint0
         {
             source = stateMachine.getSource();
             destination = stateMachine.getDestination();
+            stateMachine.Update();
         }
 
         public void Draw(SpriteBatch spriteBatch)
