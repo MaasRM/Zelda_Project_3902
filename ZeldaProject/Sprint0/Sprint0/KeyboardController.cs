@@ -11,6 +11,7 @@ namespace Sprint0
 		private Dictionary<Keys, ICommand> linkActions;
 		private Dictionary<Keys, ICommand> otherCommands;
 		private ICommand linkIdleCommand;
+		private int blockIndex = 0;
 
 		public KeyboardController(Sprint2 game)
 		{
@@ -31,8 +32,8 @@ namespace Sprint0
 			linkIdleCommand = new LinkIdleCommand(game);
 
 			//Commands for block swapping
-			otherCommands.Add(Keys.T, new PreviousBlockCommand(game));
-			otherCommands.Add(Keys.Y, new NextBlockCommand(game));
+			otherCommands.Add(Keys.T, new PreviousBlockCommand(game, (blockIndex - 1)));
+			otherCommands.Add(Keys.Y, new NextBlockCommand(game, (blockIndex + 1));
 
 			//Commands for link item swaps
 			otherCommands.Add(Keys.U, new PreviousItemCommand(game));

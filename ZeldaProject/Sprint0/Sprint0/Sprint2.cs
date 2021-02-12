@@ -13,6 +13,7 @@ namespace Sprint0
         private SpriteBatch _spriteBatch;
         private List<IController> controllerList;
         public IPlayer link;
+        public IBlock block;
         private List<INPC> nonPlayers;
         private List<IItem> items;
         private List<IBlock> blocks;
