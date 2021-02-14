@@ -8,25 +8,30 @@ namespace Sprint0
 {
     public class Keese : INPC
     {
-        private StalfosStateMachine stateMachine;
-        private Texture2D stalfosSpriteSheet;
+        private KeeseStateMachine stateMachine;
+        private Texture2D keeseSpriteSheet;
         private Rectangle source;
         private Rectangle destination;
+        int frame;
 
-        public Keese()
+        public Keese(int x, int y, int width, int height, Texture2D spriteSheet)
         {
+            stateMachine = new KeeseStateMachine(x, y, width, height);
+            frame = -1;
+            keeseSpriteSheet = spriteSheet;
         }
 
         public void Update()
         {
-            stateMachine.move();
+            frame++;
+            stateMachine.move(frame);
             destination = stateMachine.GetDestination();
             source = stateMachine.GetSource();
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(stalfosSpriteSheet, destination, source, Color.White);
+            spriteBatch.Draw(keeseSpriteSheet, destination, source, Color.White);
         }
     }
 }

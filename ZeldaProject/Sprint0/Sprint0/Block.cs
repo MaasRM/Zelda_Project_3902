@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Sprint0
 {
-    public class block : IBlock
+    public class Block : IBlock
     {
         private Texture2D blockSpriteSheet;
         private Rectangle blockSource;
