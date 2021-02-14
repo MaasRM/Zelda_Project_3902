@@ -39,7 +39,8 @@ namespace Sprint0
                 } 
                 else if (animation == Animation.UsingItem)
                 {
-
+                    linkRectangle = new RectangleLinkMoveUpItem();
+                    retRectangle = linkRectangle.getRectangle(color, frame);
                 } 
                 else //Animation.IsDamaged
                 {
@@ -49,12 +50,13 @@ namespace Sprint0
             {
                 if (animation == Animation.Idle)
                 {
-                    
-                    retRectangle = 
+                    linkRectangle = new RectangleLinkMoveDownIdle();
+                    retRectangle = linkRectangle.getRectangle(color, frame);
                 }
                 else if (animation == Animation.Walk)
                 {
-
+                    linkRectangle = new RectangleLinkMoveDownWalk();
+                    retRectangle = linkRectangle.getRectangle(color, frame);
                 }
                 else if (animation == Animation.Attack)
                 {

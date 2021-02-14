@@ -7,9 +7,9 @@ using System.Text;
 namespace Sprint0
 {
 
-	public class RectangleLinkMoveUpWalk : ILinkRectangle
+	public class RectangleLinkMoveDownWalk : ILinkRectangle
 	{
-		public RectangleLinkMoveUpWalk()
+		public RectangleLinkMoveDownWalk()
 		{
 		}
 
@@ -18,11 +18,11 @@ namespace Sprint0
 			Rectangle retRectangle;
 			if (frame == 0)
 			{
-				retRectangle = new Rectangle(86, 11, 15, 15);
+				retRectangle = new Rectangle(18, 11, 15, 15);
 			}
 			else
 			{
-				retRectangle = new Rectangle(69, 11, 15, 15);
+				retRectangle = new Rectangle(1, 11, 15, 15);
 			}
 			return retRectangle;
 		}
