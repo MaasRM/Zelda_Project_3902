@@ -26,17 +26,22 @@ namespace Sprint0
                 {
                     linkRectangle = new RectangleLinkMoveUpIdle();
                     retRectangle = linkRectangle.getRectangle(color, frame);
-                } else if (animation == Animation.Walk)
+                } 
+                else if (animation == Animation.Walk)
                 {
                     linkRectangle = new RectangleLinkMoveUpWalk();
                     retRectangle = linkRectangle.getRectangle(color, frame);
-                } else if (animation == Animation.Attack)
+                } 
+                else if (animation == Animation.Attack)
+                {
+                    linkRectangle = new RectangleLinkMoveUpAttack();
+                    retRectangle = linkRectangle.getRectangle(color, frame);
+                } 
+                else if (animation == Animation.UsingItem)
                 {
 
-                } else if (animation == Animation.UsingItem)
-                {
-
-                } else //Animation.IsDamaged
+                } 
+                else //Animation.IsDamaged
                 {
 
                 }

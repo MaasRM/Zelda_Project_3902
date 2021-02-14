@@ -19,7 +19,8 @@ namespace Sprint0
 			if (frame == 0)
 			{
 				retRectangle = new Rectangle(86, 11, 15, 15);
-			} else
+			} 
+			else
             {
 				retRectangle = new Rectangle(69, 11, 15, 15);
 			}
