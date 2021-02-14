@@ -18,16 +18,18 @@ namespace Sprint0
         public Rectangle getSourceRectangle(Direction direction, LinkColor color, Animation animation, int frame)
         {
             //Use params to get proper rectangle from sprite sheet and update height and width
+            ILinkRectangle linkRectangle;
             Rectangle retRectangle;
             if (direction == Direction.MoveUp)
             {
                 if (animation == Animation.Idle)
                 {
-                    RectangleLinkMoveUpIdle linkMoveUpIdle = new RectangleLinkMoveUpIdle();
-                    retRectangle = linkMoveUpIdle.getRectangle(color);
+                    linkRectangle = new RectangleLinkMoveUpIdle();
+                    retRectangle = linkRectangle.getRectangle(color, frame);
                 } else if (animation == Animation.Walk)
                 {
-
+                    linkRectangle = new RectangleLinkMoveUpWalk();
+                    retRectangle = linkRectangle.getRectangle(color, frame);
                 } else if (animation == Animation.Attack)
                 {
 
