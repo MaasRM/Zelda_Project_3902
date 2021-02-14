@@ -23,7 +23,8 @@ namespace Sprint0
             {
                 if (animation == Animation.Idle)
                 {
-                    retRectangle = 
+                    RectangleLinkMoveUpIdle linkMoveUpIdle = new RectangleLinkMoveUpIdle();
+                    retRectangle = linkMoveUpIdle.getRectangle(color);
                 } else if (animation == Animation.Walk)
                 {
 
@@ -41,7 +42,8 @@ namespace Sprint0
             {
                 if (animation == Animation.Idle)
                 {
-                    retRectangle =
+                    
+                    retRectangle = 
                 }
                 else if (animation == Animation.Walk)
                 {
