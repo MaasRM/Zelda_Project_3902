@@ -13,8 +13,8 @@ namespace Sprint0
         public LinkSpriteFactory()
         {
             //initial height and width
-            linkHeight = 16;
-            linkWidth = 16;
+            linkHeight = 15;
+            linkWidth = 15;
         }
 
         public Rectangle getSourceRectangle(Direction direction, LinkColor color, Animation animation, int frame)
@@ -28,29 +28,29 @@ namespace Sprint0
                 {
                     linkRectangle = new RectangleLinkMoveUpIdle();
                     retRectangle = linkRectangle.getRectangle(color, frame);
-                    linkHeight = 16;
-                    linkWidth = 16;
+                    linkHeight = 15;
+                    linkWidth = 15;
                 } 
                 else if (animation == Animation.Walk)
                 {
                     linkRectangle = new RectangleLinkMoveUpWalk();
                     retRectangle = linkRectangle.getRectangle(color, frame);
-                    linkHeight = 16;
-                    linkWidth = 16;
+                    linkHeight = 15;
+                    linkWidth = 15;
                 } 
                 else if (animation == Animation.Attack)
                 {
                     linkRectangle = new RectangleLinkMoveUpAttack();
                     retRectangle = linkRectangle.getRectangle(color, frame);
-                    linkHeight = 32;
-                    linkWidth = 16;
+                    linkHeight = 30;
+                    linkWidth = 15;
                 } 
                 else if (animation == Animation.UsingItem)
                 {
                     linkRectangle = new RectangleLinkMoveUpItem();
                     retRectangle = linkRectangle.getRectangle(color, frame);
-                    linkHeight = 16;
-                    linkWidth = 16;
+                    linkHeight = 15;
+                    linkWidth = 15;
                 } 
                 else //Animation.IsDamaged
                 {
@@ -63,29 +63,29 @@ namespace Sprint0
                 {
                     linkRectangle = new RectangleLinkMoveDownIdle();
                     retRectangle = linkRectangle.getRectangle(color, frame);
-                    linkHeight = 16;
-                    linkWidth = 16;
+                    linkHeight = 15;
+                    linkWidth = 15;
                 }
                 else if (animation == Animation.Walk)
                 {
                     linkRectangle = new RectangleLinkMoveDownWalk();
                     retRectangle = linkRectangle.getRectangle(color, frame);
-                    linkHeight = 16;
-                    linkWidth = 16;
+                    linkHeight = 15;
+                    linkWidth = 15;
                 }
                 else if (animation == Animation.Attack)
                 {
                     linkRectangle = new RectangleLinkMoveDownAttack();
                     retRectangle = linkRectangle.getRectangle(color, frame);
-                    linkHeight = 32;
-                    linkWidth = 16;
+                    linkHeight = 30;
+                    linkWidth = 15;
                 }
                 else if (animation == Animation.UsingItem)
                 {
                     linkRectangle = new RectangleLinkMoveDownItem();
                     retRectangle = linkRectangle.getRectangle(color, frame);
-                    linkHeight = 16;
-                    linkWidth = 16;
+                    linkHeight = 15;
+                    linkWidth = 15;
                 }
                 else //Animation.IsDamaged
                 {
@@ -96,7 +96,10 @@ namespace Sprint0
             {
                 if (animation == Animation.Idle)
                 {
-                    retRectangle =
+                    linkRectangle = new RectangleLinkMoveLeftIdle();
+                    retRectangle = linkRectangle.getRectangle(color, frame);
+                    linkHeight = 15;
+                    linkWidth = 15;
                 }
                 else if (animation == Animation.Walk)
                 {
@@ -119,19 +122,49 @@ namespace Sprint0
             {
                 if (animation == Animation.Idle)
                 {
-                    retRectangle =
+                    linkRectangle = new RectangleLinkMoveRightIdle();
+                    retRectangle = linkRectangle.getRectangle(color, frame);
+                    linkHeight = 15;
+                    linkWidth = 15;
                 }
                 else if (animation == Animation.Walk)
                 {
-
+                    linkRectangle = new RectangleLinkMoveRightWalk();
+                    retRectangle = linkRectangle.getRectangle(color, frame);
+                    linkHeight = 15;
+                    linkWidth = 15;
                 }
                 else if (animation == Animation.Attack)
                 {
-
+                    linkRectangle = new RectangleLinkMoveRightAttack();
+                    retRectangle = linkRectangle.getRectangle(color, frame);
+                    if (frame == 0)
+                    {
+                        linkHeight = 15;
+                        linkWidth = 15;
+                    }
+                    else if (frame == 1)
+                    {
+                        linkHeight = 15;
+                        linkWidth = 26;
+                    }
+                    else if (frame == 2)
+                    {
+                        linkHeight = 15;
+                        linkWidth = 22;
+                    }
+                    else //frame == 3
+                    {
+                        linkHeight = 15;
+                        linkWidth = 18;
+                    }
                 }
                 else if (animation == Animation.UsingItem)
                 {
-
+                    linkRectangle = new RectangleLinkMoveRightItem();
+                    retRectangle = linkRectangle.getRectangle(color, frame);
+                    linkHeight = 15;
+                    linkWidth = 15;
                 }
                 else //Animation.IsDamaged
                 {

@@ -7,9 +7,9 @@ using System.Text;
 namespace Sprint0
 {
 
-	public class RectangleLinkMoveLeftIdle : ILinkRectangle
+	public class RectangleLinkMoveRightIdle : ILinkRectangle
 	{
-		public RectangleLinkMoveLeftIdle()
+		public RectangleLinkMoveRightIdle()
 		{
 		}
 
@@ -17,7 +17,6 @@ namespace Sprint0
 		{
 			Rectangle retRectangle;
 			retRectangle = new Rectangle(35, 11, 15, 15);
-			//Code for moving left: spriteBatch.Draw(this.Texture, destinationRectangle, sourceRectangle, Color.White, 0, new Vector2(0, 0), SpriteEffects.FlipHorizontally, 0f);
 			return retRectangle;
 		}
 
