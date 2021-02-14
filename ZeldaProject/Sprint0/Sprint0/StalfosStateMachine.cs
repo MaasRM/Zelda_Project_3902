@@ -18,24 +18,60 @@ namespace Sprint0
         private Direction direction;
         private int xLoc;
         private int yLoc;
+        private int width;
+        private int height;
 
-        public StalfosStateMachine()
+        public StalfosStateMachine(int x, int y, int xLen, int yLen)
         {
+            xLoc = x;
+            yLoc = y;
+            width = xLen;
+            height = yLen;
         }
 
         public Rectangle GetDestination()
         {
-            return new Rectangle(1, 1, 1, 1);
+            return new Rectangle(xLoc, yLoc, width, height);
         }
 
         public Rectangle GetSource()
         {
-            return new Rectangle(1, 1, 1, 1);
+            return new Rectangle(1, 59, width, height);
         }
 
-        public void move()
+        public void move(int frame)
         {
+            if (frame % 20 == 0)
+            {
+                direction = changeDirection();
+            }
 
+            if(direction == Direction.Up)
+            {
+                yLoc -= 5;
+            }
+
+            else if (direction == Direction.Down)
+            {
+                yLoc += 5;
+            }
+
+            else if (direction == Direction.Left)
+            {
+                xLoc -= 5;
+            }
+            else
+            {
+                xLoc += 5;
+            }
+        }
+
+        private static Direction changeDirection()
+        {
+            Random rnd = new Random();
+            int num = rnd.Next(0, 3);
+
+            return (Direction) num;
         }
     }
 }
