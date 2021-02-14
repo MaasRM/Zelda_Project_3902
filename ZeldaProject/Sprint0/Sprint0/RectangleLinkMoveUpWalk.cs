@@ -7,22 +7,16 @@ using System.Text;
 namespace Sprint0
 {
 
-	public class RectangleLinkMoveUpIdle : ILinkRectangle
+	public class RectangleLinkMoveUpWalk : ILinkRectangle
 	{
-		public RectangleLinkMoveUpIdle()
+		public RectangleLinkMoveUpWalk()
 		{
 		}
 
 		public Rectangle getRectangle(LinkColor color, int frame)
 		{
 			Rectangle retRectangle;
-			if (frame == 0)
-			{
-				retRectangle = new Rectangle(86, 11, 15, 15);
-			} else
-            {
-				retRectangle = new Rectangle(69, 11, 15, 15);
-			}
+			retRectangle = new Rectangle(69, 11, 15, 15);
 			return retRectangle;
 		}
 
