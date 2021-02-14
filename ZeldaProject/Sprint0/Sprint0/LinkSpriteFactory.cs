@@ -21,281 +21,87 @@ namespace Sprint0
             Rectangle retRectangle;
             if (direction == Direction.MoveUp)
             {
-                if (color == LinkColor.Green)
+                if (animation == Animation.Idle)
                 {
-                    if (animation == Animation.Idle)
-                    {
-
-                    } else if (animation == Animation.Walk)
-                    {
-
-                    } else if (animation == Animation.Attack)
-                    {
-
-                    } else if (animation == Animation.UsingItem)
-                    {
-
-                    } else //Animation.IsDamaged
-                    {
-
-                    }
-                } else if (color == LinkColor.Red)
+                    retRectangle = 
+                } else if (animation == Animation.Walk)
                 {
-                    if (animation == Animation.Idle)
-                    {
 
-                    }
-                    else if (animation == Animation.Walk)
-                    {
-
-                    }
-                    else if (animation == Animation.Attack)
-                    {
-
-                    }
-                    else if (animation == Animation.UsingItem)
-                    {
-
-                    }
-                    else //Animation.IsDamaged
-                    {
-
-                    }
-                } else //LinkColor.White
+                } else if (animation == Animation.Attack)
                 {
-                    if (animation == Animation.Idle)
-                    {
 
-                    }
-                    else if (animation == Animation.Walk)
-                    {
+                } else if (animation == Animation.UsingItem)
+                {
 
-                    }
-                    else if (animation == Animation.Attack)
-                    {
+                } else //Animation.IsDamaged
+                {
 
-                    }
-                    else if (animation == Animation.UsingItem)
-                    {
-
-                    }
-                    else //Animation.IsDamaged
-                    {
-
-                    }
                 }
             } else if (direction == Direction.MoveDown)
             {
-                if (color == LinkColor.Green)
+                if (animation == Animation.Idle)
                 {
-                    if (animation == Animation.Idle)
-                    {
-
-                    }
-                    else if (animation == Animation.Walk)
-                    {
-
-                    }
-                    else if (animation == Animation.Attack)
-                    {
-
-                    }
-                    else if (animation == Animation.UsingItem)
-                    {
-
-                    }
-                    else //Animation.IsDamaged
-                    {
-
-                    }
+                    retRectangle =
                 }
-                else if (color == LinkColor.Red)
+                else if (animation == Animation.Walk)
                 {
-                    if (animation == Animation.Idle)
-                    {
 
-                    }
-                    else if (animation == Animation.Walk)
-                    {
-
-                    }
-                    else if (animation == Animation.Attack)
-                    {
-
-                    }
-                    else if (animation == Animation.UsingItem)
-                    {
-
-                    }
-                    else //Animation.IsDamaged
-                    {
-
-                    }
                 }
-                else //LinkColor.White
+                else if (animation == Animation.Attack)
                 {
-                    if (animation == Animation.Idle)
-                    {
 
-                    }
-                    else if (animation == Animation.Walk)
-                    {
+                }
+                else if (animation == Animation.UsingItem)
+                {
 
-                    }
-                    else if (animation == Animation.Attack)
-                    {
+                }
+                else //Animation.IsDamaged
+                {
 
-                    }
-                    else if (animation == Animation.UsingItem)
-                    {
-
-                    }
-                    else //Animation.IsDamaged
-                    {
-
-                    }
                 }
             } else if (direction == Direction.MoveLeft)
             {
-                if (color == LinkColor.Green)
+                if (animation == Animation.Idle)
                 {
-                    if (animation == Animation.Idle)
-                    {
-
-                    }
-                    else if (animation == Animation.Walk)
-                    {
-
-                    }
-                    else if (animation == Animation.Attack)
-                    {
-
-                    }
-                    else if (animation == Animation.UsingItem)
-                    {
-
-                    }
-                    else //Animation.IsDamaged
-                    {
-
-                    }
+                    retRectangle =
                 }
-                else if (color == LinkColor.Red)
+                else if (animation == Animation.Walk)
                 {
-                    if (animation == Animation.Idle)
-                    {
 
-                    }
-                    else if (animation == Animation.Walk)
-                    {
-
-                    }
-                    else if (animation == Animation.Attack)
-                    {
-
-                    }
-                    else if (animation == Animation.UsingItem)
-                    {
-
-                    }
-                    else //Animation.IsDamaged
-                    {
-
-                    }
                 }
-                else //LinkColor.White
+                else if (animation == Animation.Attack)
                 {
-                    if (animation == Animation.Idle)
-                    {
 
-                    }
-                    else if (animation == Animation.Walk)
-                    {
+                }
+                else if (animation == Animation.UsingItem)
+                {
 
-                    }
-                    else if (animation == Animation.Attack)
-                    {
+                }
+                else //Animation.IsDamaged
+                {
 
-                    }
-                    else if (animation == Animation.UsingItem)
-                    {
-
-                    }
-                    else //Animation.IsDamaged
-                    {
-
-                    }
                 }
             } else //Direction.MoveRight
             {
-                if (color == LinkColor.Green)
+                if (animation == Animation.Idle)
                 {
-                    if (animation == Animation.Idle)
-                    {
-
-                    }
-                    else if (animation == Animation.Walk)
-                    {
-
-                    }
-                    else if (animation == Animation.Attack)
-                    {
-
-                    }
-                    else if (animation == Animation.UsingItem)
-                    {
-
-                    }
-                    else //Animation.IsDamaged
-                    {
-
-                    }
+                    retRectangle =
                 }
-                else if (color == LinkColor.Red)
+                else if (animation == Animation.Walk)
                 {
-                    if (animation == Animation.Idle)
-                    {
 
-                    }
-                    else if (animation == Animation.Walk)
-                    {
-
-                    }
-                    else if (animation == Animation.Attack)
-                    {
-
-                    }
-                    else if (animation == Animation.UsingItem)
-                    {
-
-                    }
-                    else //Animation.IsDamaged
-                    {
-
-                    }
                 }
-                else //LinkColor.White
+                else if (animation == Animation.Attack)
                 {
-                    if (animation == Animation.Idle)
-                    {
 
-                    }
-                    else if (animation == Animation.Walk)
-                    {
+                }
+                else if (animation == Animation.UsingItem)
+                {
 
-                    }
-                    else if (animation == Animation.Attack)
-                    {
+                }
+                else //Animation.IsDamaged
+                {
 
-                    }
-                    else if (animation == Animation.UsingItem)
-                    {
-
-                    }
-                    else //Animation.IsDamaged
-                    {
-
-                    }
                 }
             }
             return retRectangle;
