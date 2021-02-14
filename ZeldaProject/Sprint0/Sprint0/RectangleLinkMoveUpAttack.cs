@@ -18,19 +18,19 @@ namespace Sprint0
 			Rectangle retRectangle;
 			if (frame == 0)
 			{
-				retRectangle = new Rectangle(1, 109, 15, 15);
+				retRectangle = new Rectangle(1, 109, 15, 30);
 			} 
 			else if (frame == 1)
 			{
-				retRectangle = new Rectangle(18, 97, 15, 27);
+				retRectangle = new Rectangle(18, 97, 15, 30);
 			} 
 			else if (frame == 2)
             {
-				retRectangle = new Rectangle(35, 97, 15, 27);
+				retRectangle = new Rectangle(35, 97, 15, 30);
 			} 
 			else
             {
-				retRectangle = new Rectangle(52, 97, 15, 27);
+				retRectangle = new Rectangle(52, 97, 15, 30);
 			}
 			return retRectangle;
 		}
