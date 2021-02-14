@@ -73,7 +73,7 @@ namespace Sprint0
                     if(frame >= 4)
                     {
                         frame = 0;
-                        isBusy false;
+                        isBusy = false;
                     }
                 } else if(this.animation == Animation.IsDamaged)
                 {
@@ -81,7 +81,7 @@ namespace Sprint0
                     if (frame >= 3) //How many frames for damage??? 
                     {
                         frame = 0;
-                        isBusy false;
+                        isBusy = false;
                     }
                 } else if (this.animation == Animation.UsingItem)
                 {
@@ -89,7 +89,7 @@ namespace Sprint0
                     if (frame >= 1) //Only one frame for using item??
                     {
                         frame = 0;
-                        isBusy false;
+                        isBusy = false;
                     }
                 }
             }
