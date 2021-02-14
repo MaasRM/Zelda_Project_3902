@@ -96,22 +96,49 @@ namespace Sprint0
             {
                 if (animation == Animation.Idle)
                 {
-                    linkRectangle = new RectangleLinkMoveLeftIdle();
+                    linkRectangle = new RectangleLinkMoveRightIdle();
                     retRectangle = linkRectangle.getRectangle(color, frame);
                     linkHeight = 15;
                     linkWidth = 15;
                 }
                 else if (animation == Animation.Walk)
                 {
-
+                    linkRectangle = new RectangleLinkMoveRightWalk();
+                    retRectangle = linkRectangle.getRectangle(color, frame);
+                    linkHeight = 15;
+                    linkWidth = 15;
                 }
                 else if (animation == Animation.Attack)
                 {
-
+                    linkRectangle = new RectangleLinkMoveRightAttack();
+                    retRectangle = linkRectangle.getRectangle(color, frame);
+                    if (frame == 0)
+                    {
+                        linkHeight = 15;
+                        linkWidth = 15;
+                    }
+                    else if (frame == 1)
+                    {
+                        linkHeight = 15;
+                        linkWidth = 26;
+                    }
+                    else if (frame == 2)
+                    {
+                        linkHeight = 15;
+                        linkWidth = 22;
+                    }
+                    else //frame == 3
+                    {
+                        linkHeight = 15;
+                        linkWidth = 18;
+                    }
                 }
                 else if (animation == Animation.UsingItem)
                 {
-
+                    linkRectangle = new RectangleLinkMoveRightItem();
+                    retRectangle = linkRectangle.getRectangle(color, frame);
+                    linkHeight = 15;
+                    linkWidth = 15;
                 }
                 else //Animation.IsDamaged
                 {
