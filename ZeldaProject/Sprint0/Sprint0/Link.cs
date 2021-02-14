@@ -25,7 +25,10 @@ namespace Sprint0
         {
             source = stateMachine.getSource();
             destination = stateMachine.getDestination();
-            changeColor(currentColor, stateMachine.getColor());
+            if (currentColor != stateMachine.getColor())
+            {
+                changeColor(currentColor, stateMachine.getColor());
+            }
             currentColor = stateMachine.getColor();
             stateMachine.Update();
         }
