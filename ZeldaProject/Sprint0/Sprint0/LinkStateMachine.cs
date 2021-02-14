@@ -215,6 +215,21 @@ namespace Sprint0
             }
         }
 
+        public Direction getDirection()
+        {
+            return this.direction;
+        }
+
+        public LinkColor getColor()
+        {
+            return this.color;
+        }
+
+        public Animation getAnimation()
+        {
+            return this.animation;
+        }
+
         public void changeXLocation(int change) //Not used but may need later??
         {
             xLoc += change;

@@ -28,8 +28,14 @@ namespace Sprint0
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(linkSpriteSheet, destination, source, Color.White);
-            //Code for moving left: spriteBatch.Draw(this.Texture, destinationRectangle, sourceRectangle, Color.White, 0, new Vector2(0, 0), SpriteEffects.FlipHorizontally, 0f);
+            if(stateMachine.getDirection() == Direction.MoveLeft)
+            {
+                spriteBatch.Draw(linkSpriteSheet, destination, source, Color.White, 0, new Vector2(0, 0), SpriteEffects.FlipHorizontally, 0f);
+            } 
+            else
+            {
+                spriteBatch.Draw(linkSpriteSheet, destination, source, Color.White);
+            }
         }
 
         public LinkStateMachine getLinkStateMachine()
