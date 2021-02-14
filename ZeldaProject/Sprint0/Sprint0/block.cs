@@ -9,20 +9,19 @@ namespace Sprint0
     public class block : IBlock
     {
         private Texture2D blockSpriteSheet;
-        private Rectangle source;
+        private Rectangle blockSource;
         private Rectangle destination;
 
-        public Block(Texture2D spriteSheet)
+        public Block(Rectangle startPos, Rectangle source, Texture2D spriteSheet)
         {
             blockSpriteSheet = spriteSheet;
-            //source of first block
-            //destination of first block
+            blockSource = source;
+            destination = startPos;
         }
 
         public void Update()
         {
-            source = stateMachine.getSource();
-            destination = stateMachine.getDestination();
+
         }
 
         public void Draw(SpriteBatch spriteBatch)

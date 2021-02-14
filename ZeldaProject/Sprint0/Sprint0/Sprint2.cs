@@ -16,7 +16,7 @@ namespace Sprint0
         public IBlock block;
         private List<INPC> nonPlayers;
         private List<IItem> items;
-        private List<IBlock> blocks;
+        //private List<IBlock> blocks;
         private int frame;
 
         public Sprint2()
@@ -26,7 +26,6 @@ namespace Sprint0
             IsMouseVisible = true;
             controllerList = new List<IController>();
             frame = 0;
-            //Does Everyone See This? Yep, test
         }
 
         protected override void Initialize()
@@ -43,6 +42,7 @@ namespace Sprint0
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
             link = new Link(Content.Load<Texture2D>("LinkSpriteSheet"));
+            block = new Block(Content.Load<Texture2D>("Dungeon_Tileset"));
         }
 
         protected override void Update(GameTime gameTime)
@@ -75,6 +75,11 @@ namespace Sprint0
         public IPlayer GetPlayer()
         {
             return link;
+        }
+        
+        public void UpdateGameBlock(IBlock newBlock)
+        {
+            block = newBlock;
         }
     }
 }

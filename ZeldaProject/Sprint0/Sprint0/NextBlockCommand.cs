@@ -5,6 +5,7 @@ namespace Sprint0
     {
         private Sprint2 game;
         private int blockNum;
+        private IBlock newBlock;
 
         public NextBlockCommand(Sprint2 sprint, int num)
         {
@@ -14,8 +15,18 @@ namespace Sprint0
 
         public void Execute()
         {
-            //check what the index is and change sprite
-            //may only need one class if thats how the index is handled
+            if(blockNum == 0){
+                //assign newBlock to a newly created block from Block class 
+            }else if(blockNum == 1){
+                //assign newBlock to a newly created block from Block class
+            }else if(blockNum == 2){
+                //assign newBlock to a newly created block from Block class
+            }else{
+                blockNum = blockNum % 3;
+                this.Execute();
+            }
+            
+            game.UpdateGameBlock(newBlock);
         }
     }
 }
