@@ -46,7 +46,8 @@ namespace Sprint0
                 {
 
                 }
-            } else if (direction == Direction.MoveDown)
+            } 
+            else if (direction == Direction.MoveDown)
             {
                 if (animation == Animation.Idle)
                 {
@@ -60,17 +61,20 @@ namespace Sprint0
                 }
                 else if (animation == Animation.Attack)
                 {
-
+                    linkRectangle = new RectangleLinkMoveDownAttack();
+                    retRectangle = linkRectangle.getRectangle(color, frame);
                 }
                 else if (animation == Animation.UsingItem)
                 {
-
+                    linkRectangle = new RectangleLinkMoveDownItem();
+                    retRectangle = linkRectangle.getRectangle(color, frame);
                 }
                 else //Animation.IsDamaged
                 {
 
                 }
-            } else if (direction == Direction.MoveLeft)
+            } 
+            else if (direction == Direction.MoveLeft)
             {
                 if (animation == Animation.Idle)
                 {
@@ -92,7 +96,8 @@ namespace Sprint0
                 {
 
                 }
-            } else //Direction.MoveRight
+            } 
+            else //Direction.MoveRight
             {
                 if (animation == Animation.Idle)
                 {
