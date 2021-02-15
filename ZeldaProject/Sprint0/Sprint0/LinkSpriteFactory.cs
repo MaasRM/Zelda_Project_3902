@@ -45,16 +45,12 @@ namespace Sprint0
                     linkHeight = 30;
                     linkWidth = 15;
                 } 
-                else if (animation == Animation.UsingItem)
+                else //Animation.UsingItem
                 {
                     linkRectangle = new RectangleLinkMoveUpItem();
                     retRectangle = linkRectangle.getRectangle(color, frame);
                     linkHeight = 15;
                     linkWidth = 15;
-                } 
-                else //Animation.IsDamaged
-                {
-
                 }
             } 
             else if (direction == Direction.MoveDown)
@@ -80,16 +76,12 @@ namespace Sprint0
                     linkHeight = 30;
                     linkWidth = 15;
                 }
-                else if (animation == Animation.UsingItem)
+                else //Animation.UsingItem
                 {
                     linkRectangle = new RectangleLinkMoveDownItem();
                     retRectangle = linkRectangle.getRectangle(color, frame);
                     linkHeight = 15;
                     linkWidth = 15;
-                }
-                else //Animation.IsDamaged
-                {
-
                 }
             } 
             else if (direction == Direction.MoveLeft)
@@ -133,16 +125,12 @@ namespace Sprint0
                         linkWidth = 18;
                     }
                 }
-                else if (animation == Animation.UsingItem)
+                else //Animation.UsingItem
                 {
                     linkRectangle = new RectangleLinkMoveRightItem();
                     retRectangle = linkRectangle.getRectangle(color, frame);
                     linkHeight = 15;
                     linkWidth = 15;
-                }
-                else //Animation.IsDamaged
-                {
-
                 }
             } 
             else //Direction.MoveRight
@@ -186,16 +174,12 @@ namespace Sprint0
                         linkWidth = 18;
                     }
                 }
-                else if (animation == Animation.UsingItem)
+                else //Animation.UsingItem
                 {
                     linkRectangle = new RectangleLinkMoveRightItem();
                     retRectangle = linkRectangle.getRectangle(color, frame);
                     linkHeight = 15;
                     linkWidth = 15;
-                }
-                else //Animation.IsDamaged
-                {
-
                 }
             }
             return retRectangle;

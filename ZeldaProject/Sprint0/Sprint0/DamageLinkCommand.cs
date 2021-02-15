@@ -11,7 +11,7 @@ namespace Sprint0
 
         public void Execute()
         {
-            this.game.getPlayer().getLinkStateMachine().setDamaged();
+            game.GetPlayer().getLinkStateMachine().setDamaged();
         }
     }
 }
