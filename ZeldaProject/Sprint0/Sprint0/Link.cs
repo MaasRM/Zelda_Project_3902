@@ -40,15 +40,15 @@ namespace Sprint0
             {
                 if (damageFrameCount %4 == 0)
                 {
-                    linkSpriteSheet = contentManager.Load<Texture2D>("LinkSpriteSheet");
+                    linkSpriteSheet = contentManager.Load<Texture2D>("LinkSpriteSheetBlack");
                 }
                 else if (damageFrameCount %4 == 3)
                 {
-                    linkSpriteSheet = contentManager.Load<Texture2D>("LinkSpriteSheet");
+                    linkSpriteSheet = contentManager.Load<Texture2D>("LinkSpriteSheetRed");
                 }
                 else if (damageFrameCount %4 == 2)
                 {
-                    linkSpriteSheet = contentManager.Load<Texture2D>("LinkSpriteSheet");
+                    linkSpriteSheet = contentManager.Load<Texture2D>("LinkSpriteSheetBlue");
                 }
                 else //damageFrameCount %4 == 1
                 {
