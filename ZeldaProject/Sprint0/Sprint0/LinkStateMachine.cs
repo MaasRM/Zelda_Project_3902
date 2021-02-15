@@ -249,6 +249,7 @@ namespace Sprint0
         {
             linkProjectileList.Add(projectile);
         }
+
         public void RemoveProjectile(IProjectile projectile)
         {
             linkProjectileList.Remove(projectile);
