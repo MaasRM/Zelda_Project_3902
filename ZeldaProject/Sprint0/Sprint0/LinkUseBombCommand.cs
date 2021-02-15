@@ -15,7 +15,7 @@ namespace Sprint0
         public void Execute()
         {
             game.GetPlayer().getLinkStateMachine().setUseItem();
-            //Create bomb
+            game.GetPlayer().getLinkStateMachine().addProjectile(new BombProjectile());
         }
     }
 }
