@@ -20,6 +20,7 @@ namespace Sprint0
         private int yLoc;
         private int width;
         private int height;
+        private int frame;
 
         public StalfosStateMachine(int x, int y, int xLen, int yLen)
         {
@@ -27,6 +28,7 @@ namespace Sprint0
             yLoc = y;
             width = xLen;
             height = yLen;
+            frame = -1;
         }
 
         public Rectangle GetDestination()
@@ -39,8 +41,10 @@ namespace Sprint0
             return new Rectangle(1, 59, width, height);
         }
 
-        public void move(int frame)
+        public void move()
         {
+            frame++;
+
             if (frame % 20 == 0)
             {
                 direction = changeDirection();
@@ -64,6 +68,11 @@ namespace Sprint0
             {
                 xLoc += 5;
             }
+        }
+
+        public int getFrame()
+        {
+            return frame;
         }
 
         private static Direction changeDirection()

@@ -12,19 +12,16 @@ namespace Sprint0
         private Texture2D keeseSpriteSheet;
         private Rectangle source;
         private Rectangle destination;
-        int frame;
 
-        public Keese(int x, int y, int width, int height, Texture2D spriteSheet)
+        public Keese(int x, int y, int width, int height, Color c, Texture2D spriteSheet)
         {
-            stateMachine = new KeeseStateMachine(x, y, width, height);
-            frame = -1;
+            stateMachine = new KeeseStateMachine(x, y, width, height, c);
             keeseSpriteSheet = spriteSheet;
         }
 
         public void Update()
         {
-            frame++;
-            stateMachine.move(frame);
+            stateMachine.move();
             destination = stateMachine.GetDestination();
             source = stateMachine.GetSource();
         }

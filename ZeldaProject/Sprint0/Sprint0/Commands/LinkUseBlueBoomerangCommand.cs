@@ -4,10 +4,10 @@ using System.Text;
 
 namespace Sprint0
 {
-    public class LinkUseBlueArrowCommand : ICommand
+    public class LinkUseBlueBoomerangCommand : ICommand
     {
         private Sprint2 game;
-        public LinkUseBlueArrowCommand(Sprint2 sprint)
+        public LinkUseBlueBoomerangCommand(Sprint2 sprint)
         {
             game = sprint;
         }
@@ -15,7 +15,7 @@ namespace Sprint0
         public void Execute()
         {
             game.GetPlayer().getLinkStateMachine().setUseItem();
-            //Create Arrow
+            game.GetPlayer().getLinkStateMachine().addProjectile(new BlueBoomerangProjectile());
         }
     }
 }
