@@ -17,7 +17,8 @@ namespace Sprint0
     {
         Green,
         Red,
-        White
+        White,
+        Damaged
     }
 
     public enum Animation
@@ -25,8 +26,7 @@ namespace Sprint0
         Idle,
         Walk,
         Attack,
-        UsingItem,
-        IsDamaged
+        UsingItem
     }
 
     public class LinkStateMachine
@@ -76,18 +76,10 @@ namespace Sprint0
                         frame = 0;
                         isBusy = false;
                     }
-                } else if(this.animation == Animation.IsDamaged)
+                } else if(this.animation == Animation.UsingItem)
                 {
                     frame++;
-                    if (frame >= 3) //How many frames for damage??? 
-                    {
-                        frame = 0;
-                        isBusy = false;
-                    }
-                } else if (this.animation == Animation.UsingItem)
-                {
-                    frame++;
-                    if (frame >= 1) //Only one frame for using item??
+                    if (frame >= 1)
                     {
                         frame = 0;
                         isBusy = false;
@@ -202,12 +194,7 @@ namespace Sprint0
 
         public void setDamaged()
         {
-            if (!isBusy) //Can Link still be damaged while busy???
-            {
-                this.animation = Animation.IsDamaged;
-                isBusy = true;
-                frame = 0;
-            }
+            this.color = LinkColor.Damaged;
         }
 
         public void setUseItem()

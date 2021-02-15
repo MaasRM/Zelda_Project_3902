@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Content;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -10,6 +11,7 @@ namespace Sprint0
     public class Sprint2 : Game
     {
         private GraphicsDeviceManager _graphics;
+        private ContentManager contentManager;
         private SpriteBatch _spriteBatch;
         private List<IController> controllerList;
         public IPlayer link;
@@ -26,6 +28,8 @@ namespace Sprint0
             IsMouseVisible = true;
             controllerList = new List<IController>();
             frame = 0;
+            contentManager = new ContentManager(Content.ServiceProvider, Content.RootDirectory);
+            contentManager.RootDirectory = "Content";
         }
 
         protected override void Initialize()
@@ -41,7 +45,7 @@ namespace Sprint0
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            link = new Link(Content.Load<Texture2D>("LinkSpriteSheet"));
+            link = new Link(Content.Load<Texture2D>("LinkSpriteSheet"), contentManager);
             block = new Block(Content.Load<Texture2D>("Dungeon_Tileset"));
         }
 
