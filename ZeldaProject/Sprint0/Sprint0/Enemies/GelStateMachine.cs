@@ -2,7 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-namespace Sprint0.Enemies
+
+namespace Sprint0
 {
     public class GelStateMachine
     {
@@ -83,5 +84,4 @@ namespace Sprint0.Enemies
             return (Direction)num;
         }
     }
-}
 }
