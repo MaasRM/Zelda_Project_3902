@@ -40,6 +40,7 @@ namespace Sprint0
         private const int linkMoveSpeed = 5; //May need to change value
         private Boolean isBusy;
         private int frame;
+        private List<IProjectile> linkProjectileList = new List<IProjectile>();
 
         public LinkStateMachine()
         {
@@ -92,6 +93,10 @@ namespace Sprint0
                         isBusy = false;
                     }
                 }
+            }
+            foreach (IProjectile projectile in linkProjectileList)
+            {
+                projectile.Update();
             }
         }
 
@@ -238,6 +243,15 @@ namespace Sprint0
         public void changeYLocation(int change) //Not used but may need later??
         {
             yLoc += change;
+        }
+
+        public void addProjectile(IProjectile projectile)
+        {
+            linkProjectileList.Add(projectile);
+        }
+        public void RemoveProjectile(IProjectile projectile)
+        {
+            linkProjectileList.Remove(projectile);
         }
     }
 }
