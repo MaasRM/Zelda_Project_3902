@@ -21,6 +21,7 @@ namespace Sprint0
         private int width;
         private int height;
         private int frame;
+        private const int moveDist = 2;
 
         public StalfosStateMachine(int x, int y, int xLen, int yLen)
         {
@@ -45,28 +46,28 @@ namespace Sprint0
         {
             frame++;
 
-            if (frame % 20 == 0)
+            if (frame % 5 == 0)
             {
                 direction = changeDirection();
             }
 
             if(direction == Direction.Up)
             {
-                yLoc -= 5;
+                yLoc -= moveDist;
             }
 
             else if (direction == Direction.Down)
             {
-                yLoc += 5;
+                yLoc += moveDist;
             }
 
             else if (direction == Direction.Left)
             {
-                xLoc -= 5;
+                xLoc -= moveDist;
             }
             else
             {
-                xLoc += 5;
+                xLoc += moveDist;
             }
         }
 
