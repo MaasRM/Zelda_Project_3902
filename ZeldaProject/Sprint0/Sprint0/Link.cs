@@ -43,6 +43,10 @@ namespace Sprint0
             {
                 spriteBatch.Draw(linkSpriteSheet, destination, source, Color.White);
             }
+            foreach (IProjectile projectile in stateMachine.getProjectiles())
+            {
+                projectile.Draw(linkSpriteSheet, spriteBatch);
+            }
         }
 
         public void changeColor(LinkColor currentColor, LinkColor newColor)
