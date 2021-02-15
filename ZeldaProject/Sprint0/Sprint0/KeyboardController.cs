@@ -28,6 +28,16 @@ namespace Sprint0
 			linkActions.Add(Keys.N, new LinkAttackCommand(game));
 			linkActions.Add(Keys.Z, new LinkAttackCommand(game));
 			linkActions.Add(Keys.E, new DamageLinkCommand(game));
+			linkActions.Add(Keys.D1, new LinkUseBrownArrowCommand(game));
+			linkActions.Add(Keys.NumPad1, new LinkUseBrownArrowCommand(game));
+			linkActions.Add(Keys.D2, new LinkUseBlueArrowCommand(game));
+			linkActions.Add(Keys.NumPad2, new LinkUseBlueArrowCommand(game));
+			linkActions.Add(Keys.D3, new LinkUseBrownBoomerangCommand(game));
+			linkActions.Add(Keys.NumPad3, new LinkUseBrownBoomerangCommand(game));
+			linkActions.Add(Keys.D4, new LinkUseBlueBoomerangCommand(game));
+			linkActions.Add(Keys.NumPad4, new LinkUseBlueBoomerangCommand(game));
+			linkActions.Add(Keys.D5, new LinkUseBombCommand(game));
+			linkActions.Add(Keys.NumPad5, new LinkUseBombCommand(game));
 
 			linkIdleCommand = new LinkIdleCommand(game);
 

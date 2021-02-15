@@ -4,18 +4,18 @@ using System.Text;
 
 namespace Sprint0
 {
-    public class LinkUseItemCommand : ICommand
+    public class LinkUseBrownBoomerangCommand : ICommand
     {
         private Sprint2 game;
-        public LinkUseItemCommand(Sprint2 sprint)
+        public LinkUseBrownBoomerangCommand(Sprint2 sprint)
         {
             game = sprint;
         }
 
-        public void Execute(int item)
+        public void Execute()
         {
             game.GetPlayer().getLinkStateMachine().setUseItem();
-            //Create item corresponding to param
+            //Create boomerang
         }
     }
 }
