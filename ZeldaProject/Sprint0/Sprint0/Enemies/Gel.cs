@@ -8,8 +8,8 @@ namespace Sprint0
 {
     public class Gel : INPC
     {
-        private StalfosStateMachine stateMachine;
-        private Texture2D stalfosSpriteSheet;
+        private GelStateMachine stateMachine;
+        private Texture2D gelSpriteSheet;
         private Rectangle source;
         private Rectangle destination;
 
@@ -26,7 +26,7 @@ namespace Sprint0
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(stalfosSpriteSheet, destination, source, Color.White);
+            spriteBatch.Draw(gelSpriteSheet, destination, source, Color.White);
         }
     }
 }
