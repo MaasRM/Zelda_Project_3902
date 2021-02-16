@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\ZeldaProject",
+    "\\ZeldaProject\\Sprint0",
+    "\\ZeldaProject\\Sprint0\\Sprint0",
+    "\\ZeldaProject\\Sprint0\\Sprint0\\Content"
   ],
-  "SelectedNode": "\\Sprint0.zip",
+  "SelectedNode": "\\ZeldaProject\\Sprint0\\Sprint0\\IProjectile.cs",
   "PreviewInSolutionExplorer": false
 }

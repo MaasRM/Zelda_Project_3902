@@ -50,3 +50,9 @@
 /Users/nathanschultz/Documents/CSE3902/Zelda/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/obj/Debug/netcoreapp3.1/Sprint0.dll
 /Users/nathanschultz/Documents/CSE3902/Zelda/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/obj/Debug/netcoreapp3.1/Sprint0.pdb
 /Users/nathanschultz/Documents/CSE3902/Zelda/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/obj/Debug/netcoreapp3.1/Sprint0.genruntimeconfig.cache
+C:\Users\jrkso\Source\Repos\MaasRM\Zelda_Project_3902\ZeldaProject\Sprint0\Sprint0\obj\Debug\netcoreapp3.1\Sprint0.dll
+C:\Users\jrkso\Source\Repos\MaasRM\Zelda_Project_3902\ZeldaProject\Sprint0\Sprint0\obj\Debug\netcoreapp3.1\Sprint0.pdb
+C:\Users\jrkso\Source\Repos\MaasRM\Zelda_Project_3902\ZeldaProject\Sprint0\Sprint0\obj\Debug\netcoreapp3.1\Sprint0.csprojAssemblyReference.cache
+C:\Users\jrkso\Source\Repos\MaasRM\Zelda_Project_3902\ZeldaProject\Sprint0\Sprint0\obj\Debug\netcoreapp3.1\Sprint0.AssemblyInfoInputs.cache
+C:\Users\jrkso\Source\Repos\MaasRM\Zelda_Project_3902\ZeldaProject\Sprint0\Sprint0\obj\Debug\netcoreapp3.1\Sprint0.AssemblyInfo.cs
+C:\Users\jrkso\Source\Repos\MaasRM\Zelda_Project_3902\ZeldaProject\Sprint0\Sprint0\obj\Debug\netcoreapp3.1\Sprint0.csproj.CoreCompileInputs.cache

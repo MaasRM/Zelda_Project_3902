@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "JKmNGCriKclAHDR3CSqocR+zRJPh3JIZGasVWk3guMxXF6buqM2iDClTL70ApdIGjsyBXtp33S9W7hFCuuU0dg==",
+  "dgSpecHash": "BEQ6giyUMcRC92/4ZRGuENwVMuqzPQj/3nrlqiwHpQYepD7qGuaeAjz0Wch8h494hm8JjdAIGTd9pyZsqLto3A==",
   "success": true,
-  "projectFilePath": "/Users/nathanschultz/Documents/CSE3902/Zelda/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Sprint0.csproj",
+  "projectFilePath": "C:\\Users\\jrkso\\Source\\Repos\\MaasRM\\Zelda_Project_3902\\ZeldaProject\\Sprint0\\Sprint0\\Sprint0.csproj",
   "expectedPackageFiles": [
-    "/Users/nathanschultz/.nuget/packages/monogame.content.builder.task/3.8.0.1641/monogame.content.builder.task.3.8.0.1641.nupkg.sha512",
-    "/Users/nathanschultz/.nuget/packages/monogame.framework.desktopgl/3.8.0.1641/monogame.framework.desktopgl.3.8.0.1641.nupkg.sha512"
+    "C:\\Users\\jrkso\\.nuget\\packages\\monogame.content.builder.task\\3.8.0.1641\\monogame.content.builder.task.3.8.0.1641.nupkg.sha512",
+    "C:\\Users\\jrkso\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.0.1641\\monogame.framework.desktopgl.3.8.0.1641.nupkg.sha512"
   ],
   "logs": []
 }

@@ -222,6 +222,16 @@ namespace Sprint0
             return this.animation;
         }
 
+        public int getXLoc()
+        {
+            return this.xLoc;
+        }
+
+        public int getYLoc()
+        {
+            return this.yLoc;
+        }
+
         public void changeXLocation(int change) //Not used but may need later??
         {
             xLoc += change;

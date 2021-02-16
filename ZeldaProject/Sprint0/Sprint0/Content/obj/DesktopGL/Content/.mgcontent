@@ -4,8 +4,8 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>/Users/nathanschultz/Documents/CSE3902/Zelda/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/characters.png</File>
-    <File>/Users/nathanschultz/Documents/CSE3902/Zelda/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/credits.spritefont</File>
+    <File>C:/Users/jrkso/source/repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/characters.png</File>
+    <File>C:/Users/jrkso/source/repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/credits.spritefont</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />
