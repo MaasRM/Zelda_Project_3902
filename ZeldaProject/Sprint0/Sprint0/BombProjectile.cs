@@ -7,6 +7,12 @@ namespace Sprint0
 {
     class BombProjectile : IProjectile
     {
+        private LinkStateMachine stateMachine;
+        public BombProjectile(LinkStateMachine stateMachine)
+        {
+            this.stateMachine = stateMachine;
+        }
+
         public void Update()
         {
 

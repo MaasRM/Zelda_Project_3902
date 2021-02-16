@@ -7,6 +7,12 @@ namespace Sprint0
 {
     class BlueBoomerangProjectile : IProjectile
     {
+        private LinkStateMachine stateMachine;
+        public BlueBoomerangProjectile(LinkStateMachine stateMachine)
+        {
+            this.stateMachine = stateMachine;
+        }
+
         public void Update()
         {
 

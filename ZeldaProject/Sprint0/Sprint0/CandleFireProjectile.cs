@@ -7,6 +7,12 @@ namespace Sprint0
 {
     class CandleFireProjectile: IProjectile
     {
+
+        private LinkStateMachine stateMachine;
+        public CandleFireProjectile(LinkStateMachine stateMachine)
+        {
+            this.stateMachine = stateMachine;
+        }
         public void Update()
         {
 
