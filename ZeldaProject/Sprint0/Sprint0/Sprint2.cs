@@ -55,13 +55,12 @@ namespace Sprint0
                 Exit();
             frame++;
 
-            foreach (IController controller in controllerList)
+            if (frame % 4 == 0)
             {
-                controller.Update();
-            }
-
-            if (gameTime.TotalGameTime.Ticks % 4 == 0)
-            {
+                foreach (IController controller in controllerList)
+                {
+                    controller.Update();
+                }
                 //Call updates for Link, Enemy, Block
                 link.Update();
             }
@@ -74,7 +73,7 @@ namespace Sprint0
             GraphicsDevice.Clear(Color.CornflowerBlue);
             this._spriteBatch.Begin();
 
-            //if (gameTime.TotalGameTime.Ticks % 4 == 0)
+            //if (frame % 4 == 0)
             //{
                 //Call draw for Link, Enemy, Block
                 link.Draw(this._spriteBatch);
