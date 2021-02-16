@@ -59,7 +59,17 @@ namespace Sprint0
 
         public Rectangle getDestination()
         {
-            return new Rectangle(this.xLoc, this.yLoc, this.spriteFactory.getWidth(), this.spriteFactory.getHeight());
+            Rectangle ret;
+            if (direction == Direction.MoveUp && animation == Animation.Attack)
+            {
+                ret = new Rectangle(this.xLoc, this.yLoc - 45, this.spriteFactory.getWidth() * 3, this.spriteFactory.getHeight() * 3);
+            }
+            else
+            {
+                ret = new Rectangle(this.xLoc, this.yLoc, this.spriteFactory.getWidth() * 3, this.spriteFactory.getHeight() * 3);
+            }
+
+            return ret;
         }
 
         public Rectangle getSource()
