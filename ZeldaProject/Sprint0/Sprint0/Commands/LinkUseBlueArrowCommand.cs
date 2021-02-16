@@ -15,7 +15,7 @@ namespace Sprint0
         public void Execute()
         {
             game.GetPlayer().getLinkStateMachine().setUseItem();
-            game.GetPlayer().getLinkStateMachine().addProjectile(new BlueArrowProjectile());
+            game.GetPlayer().getLinkStateMachine().addProjectile(new BlueArrowProjectile(game.GetPlayer().getLinkStateMachine()));
         }
     }
 }

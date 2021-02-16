@@ -15,7 +15,7 @@ namespace Sprint0.Commands
         public void Execute()
         {
             game.GetPlayer().getLinkStateMachine().setUseItem();
-            game.GetPlayer().getLinkStateMachine().addProjectile(new CandleFireProjectile());
+            game.GetPlayer().getLinkStateMachine().addProjectile(new CandleFireProjectile(game.GetPlayer().getLinkStateMachine()));
         }
     }
 }
