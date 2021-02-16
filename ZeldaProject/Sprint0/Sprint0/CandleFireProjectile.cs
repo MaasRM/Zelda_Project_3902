@@ -14,7 +14,7 @@ namespace Sprint0
         private int xLoc;
         private int yLoc;
         private int candleSpeed;
-        private const int candleSize = 15;
+        private const int candleSize = 45;
         private int frame;
         private Boolean flip;
         private Direction projectileDirection;
@@ -46,7 +46,7 @@ namespace Sprint0
             flip = false;
             sourceRectangle = new Rectangle(191, 185, 15, 15);
             destinationRectangle = new Rectangle(xLoc, yLoc, candleSize, candleSize);
-            candleSpeed = 3;
+            candleSpeed = 9;
             frame = 0;
         }
         public void Update()
