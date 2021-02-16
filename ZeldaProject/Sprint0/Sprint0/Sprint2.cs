@@ -69,9 +69,12 @@ namespace Sprint0
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
+            this._spriteBatch.Begin();
 
             //Call draw for Link, Enemy, Block
             link.Draw(this._spriteBatch);
+
+            this._spriteBatch.End();
 
             base.Draw(gameTime);
         }

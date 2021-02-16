@@ -40,7 +40,8 @@ namespace Sprint0
         private const int linkMoveSpeed = 5; //May need to change value
         private Boolean isBusy;
         private int frame;
-        private List<IProjectile> linkProjectileList = new List<IProjectile>();
+        private List<IProjectile> linkProjectileList;
+        private List<IProjectile> linkProjectileToRemoveList;
 
         public LinkStateMachine()
         {
@@ -52,6 +53,8 @@ namespace Sprint0
             yLoc = 100;
             isBusy = false;
             frame = 0;
+            linkProjectileList = new List<IProjectile>();
+            linkProjectileToRemoveList = new List<IProjectile>();
         }
 
         public Rectangle getDestination()
@@ -90,6 +93,11 @@ namespace Sprint0
             {
                 projectile.Update();
             }
+            foreach (IProjectile projectile in linkProjectileToRemoveList)
+            {
+                linkProjectileList.Remove(projectile);
+            }
+            linkProjectileToRemoveList.Clear();
         }
 
         public void faceUp()
@@ -249,7 +257,7 @@ namespace Sprint0
 
         public void RemoveProjectile(IProjectile projectile)
         {
-            linkProjectileList.Remove(projectile);
+            linkProjectileToRemoveList.Add(projectile);
         }
 
         public List<IProjectile> getProjectiles()
