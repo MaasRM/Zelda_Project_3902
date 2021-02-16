@@ -37,9 +37,10 @@ namespace Sprint0
         private Animation animation;
         private int xLoc;
         private int yLoc;
-        private const int linkMoveSpeed = 5; //May need to change value
+        private const int linkMoveSpeed = 10; //May need to change value
         private Boolean isBusy;
         private int frame;
+        private int sizeFactor;
         private List<IProjectile> linkProjectileList;
         private List<IProjectile> linkProjectileToRemoveList;
 
@@ -52,6 +53,7 @@ namespace Sprint0
             xLoc = 100; //Original Position, probably needs to change
             yLoc = 100;
             isBusy = false;
+            sizeFactor = 4;
             frame = 0;
             linkProjectileList = new List<IProjectile>();
             linkProjectileToRemoveList = new List<IProjectile>();
@@ -62,23 +64,23 @@ namespace Sprint0
             Rectangle ret;
             if (direction == Direction.MoveUp && animation == Animation.Attack)
             {
-                ret = new Rectangle(this.xLoc, this.yLoc - 45, this.spriteFactory.getWidth() * 3, this.spriteFactory.getHeight() * 3);
+                ret = new Rectangle(this.xLoc, this.yLoc - (sizeFactor * 15), this.spriteFactory.getWidth() * sizeFactor, this.spriteFactory.getHeight() * sizeFactor);
             }
             else if (direction == Direction.MoveLeft && animation == Animation.Attack && frame == 1)
             {
-                ret = new Rectangle(this.xLoc - 33, this.yLoc, this.spriteFactory.getWidth() * 3, this.spriteFactory.getHeight() * 3);
+                ret = new Rectangle(this.xLoc - (sizeFactor * 11), this.yLoc, this.spriteFactory.getWidth() * sizeFactor, this.spriteFactory.getHeight() * sizeFactor);
             }
             else if (direction == Direction.MoveLeft && animation == Animation.Attack && frame == 2)
             {
-                ret = new Rectangle(this.xLoc - 21, this.yLoc, this.spriteFactory.getWidth() * 3, this.spriteFactory.getHeight() * 3);
+                ret = new Rectangle(this.xLoc - (sizeFactor * 7), this.yLoc, this.spriteFactory.getWidth() * sizeFactor, this.spriteFactory.getHeight() * sizeFactor);
             }
             else if (direction == Direction.MoveLeft && animation == Animation.Attack && frame == 3)
             {
-                ret = new Rectangle(this.xLoc - 9, this.yLoc, this.spriteFactory.getWidth() * 3, this.spriteFactory.getHeight() * 3);
+                ret = new Rectangle(this.xLoc - (sizeFactor * 3), this.yLoc, this.spriteFactory.getWidth() * sizeFactor, this.spriteFactory.getHeight() * sizeFactor);
             }
             else
             {
-                ret = new Rectangle(this.xLoc, this.yLoc, this.spriteFactory.getWidth() * 3, this.spriteFactory.getHeight() * 3);
+                ret = new Rectangle(this.xLoc, this.yLoc, this.spriteFactory.getWidth() * sizeFactor, this.spriteFactory.getHeight() * sizeFactor);
             }
 
             return ret;
