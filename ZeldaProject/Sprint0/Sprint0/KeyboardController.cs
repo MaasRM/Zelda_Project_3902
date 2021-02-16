@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework.Input;
+using Sprint0.Commands;
 
 namespace Sprint0
 {
@@ -38,6 +39,8 @@ namespace Sprint0
 			linkActions.Add(Keys.NumPad4, new LinkUseBlueBoomerangCommand(game));
 			linkActions.Add(Keys.D5, new LinkUseBombCommand(game));
 			linkActions.Add(Keys.NumPad5, new LinkUseBombCommand(game));
+			linkActions.Add(Keys.D6, new LinkUseCandleCommand(game));
+			linkActions.Add(Keys.NumPad6, new LinkUseCandleCommand(game));
 
 			linkIdleCommand = new LinkIdleCommand(game);
 

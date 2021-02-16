@@ -5,9 +5,8 @@ using System.Text;
 
 namespace Sprint0
 {
-    class SwordProjectile : IProjectile
+    class CandleFireProjectile: IProjectile
     {
-        //This class is for the sword beam mechanic when link is at full health. Not used in sprint 2
         public void Update()
         {
 
