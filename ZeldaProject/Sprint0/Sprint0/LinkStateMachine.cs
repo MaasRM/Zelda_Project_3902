@@ -82,7 +82,7 @@ namespace Sprint0
                 } else if(this.animation == Animation.UsingItem)
                 {
                     frame++;
-                    if (frame >= 1)
+                    if (frame >= 4)
                     {
                         frame = 0;
                         isBusy = false;
@@ -213,6 +213,11 @@ namespace Sprint0
                 isBusy = true;
                 frame = 0;
             }
+        }
+
+        public Boolean getIsBusy()
+        {
+            return this.isBusy;
         }
 
         public Direction getDirection()
