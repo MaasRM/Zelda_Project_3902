@@ -60,8 +60,11 @@ namespace Sprint0
                 controller.Update();
             }
 
-            //Call updates for Link, Enemy, Block
-            link.Update();
+            if (gameTime.TotalGameTime.Ticks % 4 == 0)
+            {
+                //Call updates for Link, Enemy, Block
+                link.Update();
+            }
 
             base.Update(gameTime);
         }
@@ -71,8 +74,11 @@ namespace Sprint0
             GraphicsDevice.Clear(Color.CornflowerBlue);
             this._spriteBatch.Begin();
 
-            //Call draw for Link, Enemy, Block
-            link.Draw(this._spriteBatch);
+            //if (gameTime.TotalGameTime.Ticks % 4 == 0)
+            //{
+                //Call draw for Link, Enemy, Block
+                link.Draw(this._spriteBatch);
+            //}
 
             this._spriteBatch.End();
 
