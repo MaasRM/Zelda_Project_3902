@@ -14,9 +14,10 @@ namespace Sprint0
         private int xLoc;
         private int yLoc;
         private int candleSpeed;
-        private int frame = 0;
+        private int frame;
         private Boolean flip;
         private Direction projectileDirection;
+
         public CandleFireProjectile(LinkStateMachine stateMachine)
         {
             this.stateMachine = stateMachine;
@@ -44,12 +45,13 @@ namespace Sprint0
             flip = false;
             sourceRectangle = new Rectangle(191, 185, 15, 15);
             destinationRectangle = new Rectangle(xLoc, yLoc, 15, 15);
-            candleSpeed = 5;
+            candleSpeed = 3;
+            frame = 0;
         }
         public void Update()
         {
-            if (frame >= 12) stateMachine.RemoveProjectile(this);
-            if (frame < 6)
+            if (frame >= 40) stateMachine.RemoveProjectile(this);
+            if (frame < 10)
             {
                 if (projectileDirection == Direction.MoveUp)
                 {
