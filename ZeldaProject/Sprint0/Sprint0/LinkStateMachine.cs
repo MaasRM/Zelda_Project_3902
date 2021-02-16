@@ -64,6 +64,18 @@ namespace Sprint0
             {
                 ret = new Rectangle(this.xLoc, this.yLoc - 45, this.spriteFactory.getWidth() * 3, this.spriteFactory.getHeight() * 3);
             }
+            else if (direction == Direction.MoveLeft && animation == Animation.Attack && frame == 1)
+            {
+                ret = new Rectangle(this.xLoc - 33, this.yLoc, this.spriteFactory.getWidth() * 3, this.spriteFactory.getHeight() * 3);
+            }
+            else if (direction == Direction.MoveLeft && animation == Animation.Attack && frame == 2)
+            {
+                ret = new Rectangle(this.xLoc - 21, this.yLoc, this.spriteFactory.getWidth() * 3, this.spriteFactory.getHeight() * 3);
+            }
+            else if (direction == Direction.MoveLeft && animation == Animation.Attack && frame == 3)
+            {
+                ret = new Rectangle(this.xLoc - 9, this.yLoc, this.spriteFactory.getWidth() * 3, this.spriteFactory.getHeight() * 3);
+            }
             else
             {
                 ret = new Rectangle(this.xLoc, this.yLoc, this.spriteFactory.getWidth() * 3, this.spriteFactory.getHeight() * 3);
