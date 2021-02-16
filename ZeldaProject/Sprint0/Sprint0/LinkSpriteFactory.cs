@@ -156,22 +156,22 @@ namespace Sprint0
                     if (frame == 0)
                     {
                         linkHeight = 15;
-                        linkWidth = 15;
+                        linkWidth = 16;
                     }
                     else if (frame == 1)
                     {
                         linkHeight = 15;
-                        linkWidth = 26;
+                        linkWidth = 27;
                     }
                     else if (frame == 2)
                     {
                         linkHeight = 15;
-                        linkWidth = 22;
+                        linkWidth = 23;
                     }
                     else //frame == 3
                     {
                         linkHeight = 15;
-                        linkWidth = 18;
+                        linkWidth = 19;
                     }
                 }
                 else //Animation.UsingItem
