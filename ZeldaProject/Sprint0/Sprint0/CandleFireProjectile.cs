@@ -14,6 +14,7 @@ namespace Sprint0
         private int xLoc;
         private int yLoc;
         private int candleSpeed;
+        private const int candleSize = 15;
         private int frame;
         private Boolean flip;
         private Direction projectileDirection;
@@ -25,26 +26,26 @@ namespace Sprint0
             if(projectileDirection == Direction.MoveUp)
             {
                 xLoc = stateMachine.getXLoc();
-                yLoc = stateMachine.getYLoc() - 15;
+                yLoc = stateMachine.getYLoc() - candleSize;
             } 
             else if(projectileDirection == Direction.MoveDown)
             {
                 xLoc = stateMachine.getXLoc();
-                yLoc = stateMachine.getYLoc() + 15;
+                yLoc = stateMachine.getYLoc() + candleSize;
             }
             else if (projectileDirection == Direction.MoveLeft)
             {
-                xLoc = stateMachine.getXLoc() - 15;
+                xLoc = stateMachine.getXLoc() - candleSize;
                 yLoc = stateMachine.getYLoc();
             }
             else //MoveRight
             {
-                xLoc = stateMachine.getXLoc() + 15;
+                xLoc = stateMachine.getXLoc() + candleSize;
                 yLoc = stateMachine.getYLoc();
             }
             flip = false;
             sourceRectangle = new Rectangle(191, 185, 15, 15);
-            destinationRectangle = new Rectangle(xLoc, yLoc, 15, 15);
+            destinationRectangle = new Rectangle(xLoc, yLoc, candleSize, candleSize);
             candleSpeed = 3;
             frame = 0;
         }
@@ -70,7 +71,7 @@ namespace Sprint0
                     xLoc += candleSpeed;
                 }
             }
-            destinationRectangle = new Rectangle(xLoc, yLoc, 15, 15);
+            destinationRectangle = new Rectangle(xLoc, yLoc, candleSize, candleSize);
             flip = !flip;
             frame++;
         }
