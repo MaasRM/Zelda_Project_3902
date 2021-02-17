@@ -13,8 +13,8 @@ namespace Sprint0
         private Rectangle destinationRectangle;
         private int xLoc;
         private int yLoc;
-        private const int candleSpeed = 9;
-        private const int candleSize = 45;
+        private const int candleSpeed = 12;
+        private const int candleSize = 60;
         private int frame;
         private Boolean flip;
         private Direction projectileDirection;
