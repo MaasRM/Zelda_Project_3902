@@ -13,7 +13,7 @@ namespace Sprint0
         private Rectangle destinationRectangle;
         private int xLoc;
         private int yLoc;
-        private const int candleSpeed = 12;
+        private const int candleSpeed = 12; //x4 specs
         private const int candleSize = 60;
         private int frame;
         private Boolean flip;
@@ -50,7 +50,7 @@ namespace Sprint0
         }
         public void Update()
         {
-            if (frame >= 40) stateMachine.RemoveProjectile(this);
+            if (frame >= 20) stateMachine.RemoveProjectile(this);
             if (frame < 10)
             {
                 if (projectileDirection == Direction.MoveUp)

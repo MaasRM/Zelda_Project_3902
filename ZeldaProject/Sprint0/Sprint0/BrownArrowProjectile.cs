@@ -15,13 +15,12 @@ namespace Sprint0
         private int yLoc;
         private int xSize;
         private int ySize;
-        private const int ArrowSpeed = 20;
+        private const int ArrowSpeed = 20; //x4 specs
         private int ArrowLength = 60;
         private int ArrowWidth = 30;
         private int frame;
         private Direction projectileDirection;
         private SpriteEffects flip;
-        private float rotation;
         public BrownArrowProjectile(LinkStateMachine stateMachine)
         {
             this.stateMachine = stateMachine;
@@ -67,12 +66,11 @@ namespace Sprint0
             }
             destinationRectangle = new Rectangle(xLoc, yLoc, xSize, ySize);
             frame = 0;
-            rotation = 0;
         }
 
         public void Update()
         {
-            if (frame >= 18) stateMachine.RemoveProjectile(this);
+            if (frame >= 16) stateMachine.RemoveProjectile(this);
             if (frame < 15)
             {
                 if (projectileDirection == Direction.MoveUp)
@@ -91,24 +89,29 @@ namespace Sprint0
                 {
                     xLoc += ArrowSpeed;
                 }
+                destinationRectangle = new Rectangle(xLoc, yLoc, xSize, ySize);
             } else
             {
                 sourceRectangle = new Rectangle(53, 185, 8, 15);
-                if (projectileDirection == Direction.MoveLeft)
+                if (projectileDirection == Direction.MoveLeft || projectileDirection == Direction.MoveRight)
                 {
-                    //rotation = 0.75f;
-                }
-                else if (projectileDirection == Direction.MoveRight)
+                    if (frame == 15)
+                    {
+                        yLoc -= ySize / 2;
+                        if (projectileDirection == Direction.MoveLeft) xLoc -= xSize;
+                        else xLoc += xSize;
+                    }
+                    destinationRectangle = new Rectangle(xLoc, yLoc, ySize, xSize);
+                } else
                 {
-                    //rotation = 0.25f;
+                    destinationRectangle = new Rectangle(xLoc, yLoc, xSize, ySize);
                 }
             }
-            destinationRectangle = new Rectangle(xLoc, yLoc, xSize, ySize);
             frame++;
         }
         public void Draw(Texture2D spritesheet, SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(spritesheet, destinationRectangle, sourceRectangle, Color.White, rotation, new Vector2(0, 0), flip, 0f);
+            spriteBatch.Draw(spritesheet, destinationRectangle, sourceRectangle, Color.White, 0, new Vector2(0, 0), flip, 0f);
         }
     }
 }
