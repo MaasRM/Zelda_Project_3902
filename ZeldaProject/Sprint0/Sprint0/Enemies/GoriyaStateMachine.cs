@@ -63,7 +63,7 @@ namespace Sprint0
                 }
                 else
                 {
-                    return new Rectangle(273 + 17 * (int)direction, 11 + 17 * (int)color, width, height);
+                    return new Rectangle(273, 11 + 17 * (int)color, width, height);
                 }
             }
         }
