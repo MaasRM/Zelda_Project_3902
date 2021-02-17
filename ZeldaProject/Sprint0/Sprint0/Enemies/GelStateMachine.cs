@@ -70,7 +70,7 @@ namespace Sprint0
             }
         }
 
-        public void move()
+        public void Move()
         {
             frame++;
 
@@ -83,7 +83,7 @@ namespace Sprint0
 
             if(frame == 0)
             {
-                direction = changeDirection();
+                direction = ChangeDirection();
             }
 
             if(!wait)
@@ -109,12 +109,12 @@ namespace Sprint0
             }
         }
 
-        public int getFrame()
+        public int GetFrame()
         {
             return frame;
         }
 
-        private static Direction changeDirection()
+        private static Direction ChangeDirection()
         {
             int num = RandomNumberGenerator.GetInt32(4);
 

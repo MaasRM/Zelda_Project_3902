@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace Sprint0
@@ -9,34 +10,38 @@ namespace Sprint0
     {
         public enum Direction
         {
-            Up,
             Down,
+            Up,
             Left,
             Right
         }
 
         public enum GoriyaColor
         {
-            Blue,
-            Red
+            Red,
+            Blue
         }
 
         private Direction direction;
+        private GoriyaColor color;
         private int xLoc;
         private int yLoc;
         private int width;
         private int height;
         private int frame;
+        private bool throwing;
         private const int PIXELSCALER = 2;
         private const int moveDist = 2;
 
-        public GoriyaStateMachine(int x, int y, int xLen, int yLen)
+        public GoriyaStateMachine(int x, int y, int xLen, int yLen, GoriyaColor c)
         {
             xLoc = x;
             yLoc = y;
             width = xLen;
             height = yLen;
             frame = -1;
+            color = c;
+            throwing = false;
         }
 
         public Rectangle GetDestination()
@@ -46,49 +51,86 @@ namespace Sprint0
 
         public Rectangle GetSource()
         {
-            return new Rectangle(1, 59, width, height);
-        }
-
-        public void move()
-        {
-            frame++;
-
-            if (frame % 5 == 0)
+            if(direction == Direction.Down || direction == Direction.Up)
             {
-                direction = changeDirection();
-            }
-
-            if (direction == Direction.Up)
-            {
-                yLoc -= moveDist * PIXELSCALER;
-            }
-
-            else if (direction == Direction.Down)
-            {
-                yLoc += moveDist * PIXELSCALER;
-            }
-
-            else if (direction == Direction.Left)
-            {
-                xLoc -= moveDist * PIXELSCALER;
+                return new Rectangle(222 + 17 * (int)direction, 11 + 17 * (int)color, width, height);
             }
             else
             {
-                xLoc += moveDist * PIXELSCALER;
+                if(frame % 2 == 0)
+                {
+                    return new Rectangle(256, 11 + 17 * (int)color, width, height);
+                }
+                else
+                {
+                    return new Rectangle(273 + 17 * (int)direction, 11 + 17 * (int)color, width, height);
+                }
             }
         }
 
-        public int getFrame()
+        public void Move()
+        {
+            frame++;
+
+            if(!throwing)
+            {
+                if (frame % 5 == 0)
+                {
+                    direction = ChangeDirection();
+                }
+
+                if (direction == Direction.Up)
+                {
+                    yLoc -= moveDist * PIXELSCALER;
+                }
+
+                else if (direction == Direction.Down)
+                {
+                    yLoc += moveDist * PIXELSCALER;
+                }
+
+                else if (direction == Direction.Left)
+                {
+                    xLoc -= moveDist * PIXELSCALER;
+                }
+                else
+                {
+                    xLoc += moveDist * PIXELSCALER;
+                }
+            }
+        }
+
+        public int GetFrame()
         {
             return frame;
         }
 
-        private static Direction changeDirection()
+        private static Direction ChangeDirection()
         {
-            Random rnd = new Random();
-            int num = rnd.Next(0, 3);
+            int num = RandomNumberGenerator.GetInt32(4);
 
             return (Direction)num;
+        }
+
+        private void ThrowChance()
+        {
+            int num = RandomNumberGenerator.GetInt32(100);
+
+            if(num % 10 == 0)
+            {
+                throwing = !throwing;
+            }
+        }
+
+        public void BoomerangReturned()
+        {
+            throwing = !throwing;
+        }
+
+        public bool tryToThrow()
+        {
+            ThrowChance();
+            return throwing;
         }
     }
 }

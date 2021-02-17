@@ -76,32 +76,26 @@ namespace Sprint0
             }
         }
 
-        public void move()
+        public void Move()
         {
             currFrame++;
             if (currFrame == slowFrameCount || currFrame == fastFrameCount || currFrame == waitFrameCount)
             {
-                resetFrames();
-                changeMovement();
+                ResetFrames();
+                ChangeMovement();
             }
 
             if((mov == Movement.Slow && currFrame % 4 == 0) || mov == Movement.Fast)
             {
-                changePosition();
+                ChangePosition();
             }
         }
 
-        private void changePosition()
+        private void ChangePosition()
         {
             if (currFrame % 10 == 0)
             {
-                direction = changeDirection();
-            }
-
-            double slowScaler = 1;
-            if (mov == Movement.Slow)
-            {
-                slowScaler = 0.5;
+                direction = ChangeDirection();
             }
 
             if (direction == Direction.North)
@@ -142,7 +136,7 @@ namespace Sprint0
             }
         }
 
-        private static Direction changeDirection()
+        private static Direction ChangeDirection()
         {
             Random rnd = new Random();
             int num = RandomNumberGenerator.GetInt32(3);
@@ -154,14 +148,14 @@ namespace Sprint0
             return (Direction)num;
         }
 
-        private void resetFrames()
+        private void ResetFrames()
         {
             currFrame = -1;
             fastFrameCount = (RandomNumberGenerator.GetInt32(8) + 5) * 5;
             waitFrameCount = (RandomNumberGenerator.GetInt32(3) + 3) * 5;
         }
 
-        private void changeMovement()
+        private void ChangeMovement()
         {
             movementIndex++;
 

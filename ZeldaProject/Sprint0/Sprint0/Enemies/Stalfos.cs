@@ -23,14 +23,14 @@ namespace Sprint0
 
         public void Update()
         {
-            stateMachine.move();
+            stateMachine.Move();
             destination = stateMachine.GetDestination();
             source = stateMachine.GetSource();
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            int frame = stateMachine.getFrame();
+            int frame = stateMachine.GetFrame();
 
             if(frame % 2 == 1)
             {

@@ -19,7 +19,7 @@ namespace Sprint0
 
         public void Update()
         {
-            stateMachine.move();
+            stateMachine.Move();
             destination = stateMachine.GetDestination();
             source = stateMachine.GetSource();
         }

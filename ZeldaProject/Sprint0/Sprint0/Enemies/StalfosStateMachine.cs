@@ -44,13 +44,13 @@ namespace Sprint0
             return new Rectangle(1, 59, width, height);
         }
 
-        public void move()
+        public void Move()
         {
             frame++;
 
             if (frame % 5 == 0)
             {
-                direction = changeDirection();
+                direction = ChangeDirection();
             }
 
             if(direction == Direction.Up)
@@ -73,12 +73,12 @@ namespace Sprint0
             }
         }
 
-        public int getFrame()
+        public int GetFrame()
         {
             return frame;
         }
 
-        private static Direction changeDirection()
+        private static Direction ChangeDirection()
         {
             int num = RandomNumberGenerator.GetInt32(4);
 
