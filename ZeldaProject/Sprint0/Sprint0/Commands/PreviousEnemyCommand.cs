@@ -13,6 +13,7 @@ namespace Sprint0
             nonPlayers = new List<INPC>();
             nonPlayers.Add(new Stalfos(520, 222, 16, 16, game.GetEnemySpriteSheet()));
             nonPlayers.Add(new Keese(520, 222, 16, 16, KeeseStateMachine.KeeseColor.Blue, game.GetEnemySpriteSheet()));
+            nonPlayers.Add(new Gel(520, 222, 8, 16, GelStateMachine.GelColor.Teal, game.GetEnemySpriteSheet()));
         }
 
         public void Execute()

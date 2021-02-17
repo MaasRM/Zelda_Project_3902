@@ -55,7 +55,7 @@ namespace Sprint0
 
         public Rectangle GetDestination()
         {
-            return new Rectangle(xLoc, yLoc, width, height);
+            return new Rectangle(xLoc, yLoc, width * SCALER, height * SCALER);
         }
 
         public Rectangle GetSource()
