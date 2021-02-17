@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace Sprint0
@@ -37,6 +38,7 @@ namespace Sprint0
         private const int moveDist = 2;
         private bool wait;
         private int waitFrames;
+        private const int SCALER = 2;
         private const int moveFrames = 10;
 
 
@@ -58,35 +60,49 @@ namespace Sprint0
 
         public Rectangle GetSource()
         {
-            return new Rectangle(1 + 19*((int)color % 4), 11 + 17 *((int)color % 2), width, height);
+            if (frame % 2 == 0)
+            {
+                return new Rectangle(1 + 18 * ((int)color % 4), 11 + 17 * ((int)color % 2), width, height);
+            }
+            else
+            {
+                return new Rectangle(10 + 18 * ((int)color % 4), 11 + 17 * ((int)color % 2), width, height);
+            }
         }
 
         public void move()
         {
             frame++;
 
-            if (frame % 5 == 0)
+            if(frame > waitFrames || frame > moveFrames)
             {
-                direction = changeDirection();
+                wait = !wait;
+                frame = 0;
+                waitFrames = (RandomNumberGenerator.GetInt32(6) + 2) * 5;
+            }
+
+            if(frame == 0)
+            {
+                changeDirection();
             }
 
             if (direction == Direction.Up)
             {
-                yLoc -= moveDist;
+                yLoc -= moveDist * SCALER;
             }
 
             else if (direction == Direction.Down)
             {
-                yLoc += moveDist;
+                yLoc += moveDist * SCALER;
             }
 
             else if (direction == Direction.Left)
             {
-                xLoc -= moveDist;
+                xLoc -= moveDist * SCALER;
             }
             else
             {
-                xLoc += moveDist;
+                xLoc += moveDist * SCALER;
             }
         }
 
@@ -97,8 +113,7 @@ namespace Sprint0
 
         private static Direction changeDirection()
         {
-            Random rnd = new Random();
-            int num = rnd.Next(0, 3);
+            int num = RandomNumberGenerator.GetInt32(4);
 
             return (Direction)num;
         }

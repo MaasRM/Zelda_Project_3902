@@ -12,13 +12,13 @@ namespace Sprint0
         private Texture2D stalfosSpriteSheet;
         private Rectangle source;
         private Rectangle destination;
-        private Tuple<int, int, int, int> initPos;
+        private Tuple<int, int, int, int> init;
 
         public Stalfos(int x, int y, int width, int height, Texture2D spriteSheet)
         {
             stateMachine = new StalfosStateMachine(x, y, width, height);
             stalfosSpriteSheet = spriteSheet;
-            initPos = new Tuple<int, int, int, int>(x, y, width, height);
+            init = new Tuple<int, int, int, int>(x, y, width, height);
         }
 
         public void Update()
@@ -44,7 +44,7 @@ namespace Sprint0
 
         public void Reset()
         {
-            stateMachine = new StalfosStateMachine(initPos.Item1, initPos.Item2, initPos.Item3, initPos.Item4);
+            stateMachine = new StalfosStateMachine(init.Item1, init.Item2, init.Item3, init.Item4);
         }
     }
 }
