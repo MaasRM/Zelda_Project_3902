@@ -17,10 +17,18 @@ namespace Sprint0
 
         public enum GelColor
         {
-
+            Teal,
+            Emerald,
+            Blue,
+            Orange,
+            Green,
+            Grey,
+            Oil,
+            Black
         }
 
         private Direction direction;
+        private GelColor color;
         private int xLoc;
         private int yLoc;
         private int width;
@@ -32,13 +40,15 @@ namespace Sprint0
         private const int moveFrames = 10;
 
 
-        public GelStateMachine(int x, int y, int xLen, int yLen)
+        public GelStateMachine(int x, int y, int xLen, int yLen, GelColor c)
         {
             xLoc = x;
             yLoc = y;
             width = xLen;
             height = yLen;
             frame = -1;
+            color = c;
+            wait = false;
         }
 
         public Rectangle GetDestination()
@@ -48,7 +58,7 @@ namespace Sprint0
 
         public Rectangle GetSource()
         {
-            return new Rectangle(1, 59, width, height);
+            return new Rectangle(1 + 19*((int)color % 4), 11 + 17 *((int)color % 2), width, height);
         }
 
         public void move()

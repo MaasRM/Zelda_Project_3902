@@ -68,25 +68,11 @@ namespace Sprint0
         {
             if(currFrame % 2 == 0 || mov == Movement.Wait)
             {
-                if(color == KeeseColor.Blue)
-                {
-                    return new Rectangle(183, 11, width, height);
-                }
-                else
-                {
-                    return new Rectangle(183, 28, width, height);
-                }
+                return new Rectangle(183, 11 + 17 * (int)color, width, height);
             }
             else
             {
-                if (color == KeeseColor.Blue)
-                {
-                    return new Rectangle(200, 11, width, height);
-                }
-                else
-                {
-                    return new Rectangle(200, 28, width, height);
-                }
+                return new Rectangle(183, 11 + 17 * (int)color, width, height);
             }
         }
 
