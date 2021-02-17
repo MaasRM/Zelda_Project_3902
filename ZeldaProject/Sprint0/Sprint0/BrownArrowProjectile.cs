@@ -30,7 +30,7 @@ namespace Sprint0
             {
                 xSize = ArrowWidth;
                 ySize = ArrowLength;
-                xLoc = stateMachine.getXLoc() + xSize/4;
+                xLoc = stateMachine.getXLoc() + xSize/2;
                 yLoc = stateMachine.getYLoc() - ySize;
                 flip = SpriteEffects.None;
             }
@@ -38,7 +38,7 @@ namespace Sprint0
             {
                 xSize = ArrowWidth;
                 ySize = ArrowLength;
-                xLoc = stateMachine.getXLoc() + xSize/4;
+                xLoc = stateMachine.getXLoc() + xSize/2;
                 yLoc = stateMachine.getYLoc() + ySize;
                 flip = SpriteEffects.FlipVertically;
             }
@@ -47,7 +47,7 @@ namespace Sprint0
                 xSize = ArrowLength;
                 ySize = ArrowWidth;
                 xLoc = stateMachine.getXLoc() - xSize;
-                yLoc = stateMachine.getYLoc() + ySize/4;
+                yLoc = stateMachine.getYLoc() + ySize/2;
                 flip = SpriteEffects.FlipHorizontally;
             }
             else //MoveRight
@@ -55,7 +55,7 @@ namespace Sprint0
                 xSize = ArrowLength;
                 ySize = ArrowWidth;
                 xLoc = stateMachine.getXLoc() + xSize;
-                yLoc = stateMachine.getYLoc() + ySize/4;
+                yLoc = stateMachine.getYLoc() + ySize/2;
                 flip = SpriteEffects.None;
             }
             if(projectileDirection == Direction.MoveUp || projectileDirection == Direction.MoveDown)
