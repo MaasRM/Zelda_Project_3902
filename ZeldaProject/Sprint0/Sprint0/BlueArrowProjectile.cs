@@ -16,7 +16,7 @@ namespace Sprint0
         private int yLoc;
         private int xSize;
         private int ySize;
-        private const int ArrowSpeed = 20; //x4 specs
+        private const int ArrowSpeed = 30; //x4 specs
         private int ArrowLength = 60;
         private int ArrowWidth = 30;
         private int frame;
