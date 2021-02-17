@@ -1,10 +1,24 @@
-﻿<Properties StartupConfiguration="{7DF9E545-60F3-43AB-B585-CBA6D0074959}|Default">
+﻿<Properties GitUserInfo="UsingMD" StartupConfiguration="{7DF9E545-60F3-43AB-B585-CBA6D0074959}|Default">
   <MonoDevelop.Ide.ItemProperties.Sprint0 PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench>
+    <Files>
+      <File FileName="Sprint0/GoriyaBoomerang.cs" Line="100" Column="20" />
+      <File FileName="Sprint0/Enemies/GoriyaStateMachine.cs" Line="153" Column="34" />
+      <File FileName="Sprint0/Enemies/Goriya.cs" Line="47" Column="14" />
+      <File FileName="Sprint0/Commands/NextEnemyCommand.cs" Line="17" Column="51" />
+      <File FileName="Sprint0/Commands/PreviousEnemyCommand.cs" Line="11" Column="10" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="Sprint0" selected="True" />
+          <Node name="Sprint0" expanded="True">
+            <Node name="Sprint0" expanded="True">
+              <Node name="Commands" expanded="True" />
+              <Node name="Content" expanded="True" />
+              <Node name="Enemies" expanded="True" />
+              <Node name="GoriyaBoomerang.cs" selected="True" />
+            </Node>
+          </Node>
         </State>
       </Pad>
     </Pads>

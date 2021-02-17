@@ -105,6 +105,11 @@ namespace Sprint0
             return frame;
         }
 
+        public Direction GetDirection()
+        {
+            return direction;
+        }
+
         private static Direction ChangeDirection()
         {
             int num = RandomNumberGenerator.GetInt32(4);
@@ -127,10 +132,25 @@ namespace Sprint0
             throwing = !throwing;
         }
 
-        public bool tryToThrow()
+        public bool TryToThrow()
         {
             ThrowChance();
             return throwing;
+        }
+
+        public bool Throwing()
+        {
+            return throwing;
+        }
+
+        public int GetWidth()
+        {
+            return width * PIXELSCALER;
+        }
+
+        public int GetHeight()
+        {
+            return height * PIXELSCALER;
         }
     }
 }

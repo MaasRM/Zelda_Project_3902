@@ -9,6 +9,7 @@ namespace Sprint0
     public class Goriya : INPC
     {
         private GoriyaStateMachine stateMachine;
+        private GoriyaBoomerang boomerang;
         private Texture2D goriyaSpriteSheet;
         private Rectangle source;
         private Rectangle destination;
@@ -19,10 +20,20 @@ namespace Sprint0
             stateMachine = new GoriyaStateMachine(x, y, width, height, c);
             goriyaSpriteSheet = spriteSheet;
             init = new Tuple<int, int, int, int, GoriyaStateMachine.GoriyaColor>(x, y, width, height, c);
+            boomerang = new GoriyaBoomerang(goriyaSpriteSheet, stateMachine);
         }
 
         public void Update()
         {
+            if(!stateMachine.Throwing() && stateMachine.TryToThrow())
+            {
+                boomerang = new GoriyaBoomerang(goriyaSpriteSheet, stateMachine);
+            }
+            if(stateMachine.Throwing())
+            {
+                boomerang.Update();
+            }
+
             stateMachine.Move();
             destination = stateMachine.GetDestination();
             source = stateMachine.GetSource();
@@ -30,7 +41,33 @@ namespace Sprint0
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(goriyaSpriteSheet, destination, source, Color.White);
+            if (stateMachine.Throwing())
+            {
+                boomerang.Draw(spriteBatch);
+            }
+
+            if (stateMachine.GetFrame() % 2 == 0)
+            {
+                if(stateMachine.GetDirection() == GoriyaStateMachine.Direction.Left)
+                {
+                    spriteBatch.Draw(goriyaSpriteSheet, destination, source, Color.White, 0, new Vector2(0, 0), SpriteEffects.FlipHorizontally, 0f);
+                }
+                else
+                {
+                    spriteBatch.Draw(goriyaSpriteSheet, destination, source, Color.White);
+                }
+            }
+            else
+            {
+                if(stateMachine.GetDirection() == GoriyaStateMachine.Direction.Right)
+                {
+                    spriteBatch.Draw(goriyaSpriteSheet, destination, source, Color.White);
+                }
+                else
+                {
+                    spriteBatch.Draw(goriyaSpriteSheet, destination, source, Color.White, 0, new Vector2(0, 0), SpriteEffects.FlipHorizontally, 0f);
+                }
+            }
         }
 
         public void Reset()
