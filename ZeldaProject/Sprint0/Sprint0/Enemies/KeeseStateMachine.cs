@@ -44,7 +44,7 @@ namespace Sprint0
         private int fastFrameCount;
         private const int PIXELSCALER = 2;
         private static int slowFrameCount = 30;
-        private static double axialMoveDist = 2;
+        private static double axialMoveDist = 3;
         private static double diagonalMoveDist = axialMoveDist * Math.Sqrt(2.0);
         private static Movement[] movements = new Movement[] {Movement.Slow, Movement.Fast, Movement.Slow, Movement.Wait };
 
@@ -106,39 +106,39 @@ namespace Sprint0
 
             if (direction == Direction.North)
             {
-                yLoc -= axialMoveDist * PIXELSCALER * slowScaler;
+                yLoc -= axialMoveDist * PIXELSCALER;
             }
             else if (direction == Direction.NorthEast)
             {
-                xLoc += diagonalMoveDist * PIXELSCALER * slowScaler;
-                yLoc -= diagonalMoveDist * PIXELSCALER * slowScaler;
+                xLoc += diagonalMoveDist * PIXELSCALER;
+                yLoc -= diagonalMoveDist * PIXELSCALER;
             }
             else if (direction == Direction.East)
             {
-                xLoc += axialMoveDist * PIXELSCALER * slowScaler;
+                xLoc += axialMoveDist * PIXELSCALER;
             }
             else if (direction == Direction.SouthEast)
             {
-                xLoc += diagonalMoveDist * PIXELSCALER * slowScaler;
-                yLoc += diagonalMoveDist * PIXELSCALER * slowScaler;
+                xLoc += diagonalMoveDist * PIXELSCALER;
+                yLoc += diagonalMoveDist * PIXELSCALER;
             }
             else if (direction == Direction.South)
             {
-                yLoc += axialMoveDist * PIXELSCALER * slowScaler;
+                yLoc += axialMoveDist * PIXELSCALER;
             }
             else if (direction == Direction.SouthWest)
             {
-                xLoc -= diagonalMoveDist * PIXELSCALER * slowScaler;
-                yLoc += diagonalMoveDist * PIXELSCALER * slowScaler;
+                xLoc -= diagonalMoveDist * PIXELSCALER;
+                yLoc += diagonalMoveDist * PIXELSCALER;
             }
             else if (direction == Direction.West)
             {
-                xLoc -= axialMoveDist * PIXELSCALER * slowScaler;
+                xLoc -= axialMoveDist * PIXELSCALER;
             }
             else
             {
-                xLoc -= diagonalMoveDist * PIXELSCALER * slowScaler;
-                yLoc -= diagonalMoveDist * PIXELSCALER * slowScaler;
+                xLoc -= diagonalMoveDist * PIXELSCALER;
+                yLoc -= diagonalMoveDist * PIXELSCALER;
             }
         }
 
