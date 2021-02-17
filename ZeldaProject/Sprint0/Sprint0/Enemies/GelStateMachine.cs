@@ -83,7 +83,7 @@ namespace Sprint0
 
             if(frame == 0)
             {
-                changeDirection();
+                direction = changeDirection();
             }
 
             if(!wait)
