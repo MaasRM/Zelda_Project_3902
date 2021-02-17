@@ -8,7 +8,7 @@ namespace Sprint0
 {
     public class Wallmaster : INPC
     {
-        private StalfosStateMachine stateMachine;
+        private WallmasterStateMachine stateMachine;
         private Texture2D stalfosSpriteSheet;
         private Rectangle source;
         private Rectangle destination;
