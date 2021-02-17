@@ -51,8 +51,8 @@ namespace Sprint0
 			//Commands for link item swaps
 			otherCommands.Add(Keys.U, new PreviousItemCommand(game));
 			otherCommands.Add(Keys.I, new NextItemCommand(game));
-			otherCommands.Add(Keys.O, new PreviousItemCommand(game));
-			otherCommands.Add(Keys.P, new NextItemCommand(game));
+			otherCommands.Add(Keys.O, new PreviousEnemyCommand(game));
+			otherCommands.Add(Keys.P, new NextEnemyCommand(game));
 			otherCommands.Add(Keys.R, new ResetGameCommand(game));
 			otherCommands.Add(Keys.Q, new QuitCommand(game));
 		}
@@ -71,7 +71,7 @@ namespace Sprint0
 				}
 				if (otherCommands.ContainsKey(key))
 				{
-					linkActions[key].Execute();
+					otherCommands[key].Execute();
 				}
 			}
 			if(idleLink)
