@@ -74,7 +74,7 @@ namespace Sprint0
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(new Color(115, 115, 115, 255));
+            GraphicsDevice.Clear(Color.CornflowerBlue);
             this._spriteBatch.Begin();
 
             //if (frame % 4 == 0)
