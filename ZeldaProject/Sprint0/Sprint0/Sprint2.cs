@@ -17,7 +17,6 @@ namespace Sprint0
         public IPlayer link;
         public IBlock block;
         private INPC npc;
-        //private List<INPC> nonPlayers;
         private List<IItem> items;
         //private List<IBlock> blocks;
         private int frame;

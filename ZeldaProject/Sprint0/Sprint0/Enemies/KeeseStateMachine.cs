@@ -152,10 +152,10 @@ namespace Sprint0
         private static Direction changeDirection()
         {
             Random rnd = new Random();
-            int num = rnd.Next(0, 2);
+            int num = rnd.Next(0, 34321234) % 2;
             if(num == 0)
             {
-                num = rnd.Next(0, 7);
+                num = rnd.Next(0, 6321609) % 8;
             }
 
             return (Direction)num;
@@ -165,8 +165,8 @@ namespace Sprint0
         {
             Random rnd = new Random();
             currFrame = -1;
-            fastFrameCount = rnd.Next(5, 12) * 5;
-            waitFrameCount = rnd.Next(3, 6) * 5;
+            fastFrameCount = (rnd.Next(0, 456743) % 7 + 6) * 5;
+            waitFrameCount = (rnd.Next(0, 226893) % 3 + 3) * 5;
         }
 
         private void changeMovement()

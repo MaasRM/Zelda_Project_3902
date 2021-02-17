@@ -80,7 +80,7 @@ namespace Sprint0
         private static Direction changeDirection()
         {
             Random rnd = new Random();
-            int num = rnd.Next(0, 3);
+            int num = rnd.Next(0, 76520) % 4;
 
             return (Direction) num;
         }
