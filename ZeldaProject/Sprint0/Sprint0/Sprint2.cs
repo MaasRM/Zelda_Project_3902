@@ -18,7 +18,9 @@ namespace Sprint0
         public IBlock block;
         private INPC npc;
         private List<IItem> items;
+        public Texture2D dungeonSheet;
         //private List<IBlock> blocks;
+        public int blockIndex = 0;
         private int frame;
         private int npcIndex;
 
@@ -48,7 +50,8 @@ namespace Sprint0
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
             link = new Link(contentManager.Load<Texture2D>("LinkSpriteSheet"), contentManager);
-            block = new Block(contentManager.Load<Texture2D>("Dungeon_Tileset"));
+            dungeonSheet = contentManager.Load<Texture2D>("Dungeon_Tileset");
+            block = new Block(new Rectangle (200, 200, 15, 15), new Rectangle(984, 11, 15, 15), dungeonSheet);
             npc = new Stalfos(520, 222, 16, 16, contentManager.Load<Texture2D>("Dungeon_Enemies"));
         }
 
@@ -82,6 +85,7 @@ namespace Sprint0
             //Call draw for Link, Enemy, Block
             link.Draw(this._spriteBatch);
             npc.Draw(this._spriteBatch);
+            block.Draw(this._spriteBatch);
 
             this._spriteBatch.End();
 

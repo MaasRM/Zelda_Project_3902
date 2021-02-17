@@ -10,13 +10,13 @@ namespace Sprint0
     {
         private Texture2D blockSpriteSheet;
         private Rectangle blockSource;
-        private Rectangle destination;
+        private Rectangle blockDestination;
 
-        public Block(Texture2D spriteSheet)
+        public Block(Rectangle destination, Rectangle source, Texture2D spriteSheet)
         {
             blockSpriteSheet = spriteSheet;
-            blockSource = new Rectangle(0, 0, 0, 0); //Origional Block position
-            destination = new Rectangle(0, 0, 0, 0); // Need to change
+            blockSource = source; 
+            blockDestination = destination; 
         }
 
         public void Update()
@@ -26,7 +26,7 @@ namespace Sprint0
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(blockSpriteSheet, destination, blockSource, Color.White);
+            spriteBatch.Draw(blockSpriteSheet, blockDestination, blockSource, Color.White);
         }
 
     }
