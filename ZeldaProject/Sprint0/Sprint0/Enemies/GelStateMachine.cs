@@ -38,7 +38,7 @@ namespace Sprint0
         private const int moveDist = 2;
         private bool wait;
         private int waitFrames;
-        private const int SCALER = 2;
+        private const int PIXELSCALER = 2;
         private const int moveFrames = 10;
 
 
@@ -55,7 +55,7 @@ namespace Sprint0
 
         public Rectangle GetDestination()
         {
-            return new Rectangle(xLoc, yLoc, width * SCALER, height * SCALER);
+            return new Rectangle(xLoc, yLoc, width * PIXELSCALER, height * PIXELSCALER);
         }
 
         public Rectangle GetSource()
@@ -86,23 +86,26 @@ namespace Sprint0
                 changeDirection();
             }
 
-            if (direction == Direction.Up)
+            if(!wait)
             {
-                yLoc -= moveDist * SCALER;
-            }
+                if (direction == Direction.Up)
+                {
+                    yLoc -= moveDist * PIXELSCALER;
+                }
 
-            else if (direction == Direction.Down)
-            {
-                yLoc += moveDist * SCALER;
-            }
+                else if (direction == Direction.Down)
+                {
+                    yLoc += moveDist * PIXELSCALER;
+                }
 
-            else if (direction == Direction.Left)
-            {
-                xLoc -= moveDist * SCALER;
-            }
-            else
-            {
-                xLoc += moveDist * SCALER;
+                else if (direction == Direction.Left)
+                {
+                    xLoc -= moveDist * PIXELSCALER;
+                }
+                else
+                {
+                    xLoc += moveDist * PIXELSCALER;
+                }
             }
         }
 

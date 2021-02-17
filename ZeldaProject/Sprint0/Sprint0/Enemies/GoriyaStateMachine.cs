@@ -27,7 +27,7 @@ namespace Sprint0
         private int width;
         private int height;
         private int frame;
-        private const int SCALER = 2;
+        private const int PIXELSCALER = 2;
         private const int moveDist = 2;
 
         public GoriyaStateMachine(int x, int y, int xLen, int yLen)
@@ -41,7 +41,7 @@ namespace Sprint0
 
         public Rectangle GetDestination()
         {
-            return new Rectangle(xLoc, yLoc, width * SCALER, height * SCALER);
+            return new Rectangle(xLoc, yLoc, width * PIXELSCALER, height * PIXELSCALER);
         }
 
         public Rectangle GetSource()
@@ -60,21 +60,21 @@ namespace Sprint0
 
             if (direction == Direction.Up)
             {
-                yLoc -= moveDist * SCALER;
+                yLoc -= moveDist * PIXELSCALER;
             }
 
             else if (direction == Direction.Down)
             {
-                yLoc += moveDist * SCALER;
+                yLoc += moveDist * PIXELSCALER;
             }
 
             else if (direction == Direction.Left)
             {
-                xLoc -= moveDist * SCALER;
+                xLoc -= moveDist * PIXELSCALER;
             }
             else
             {
-                xLoc += moveDist * SCALER;
+                xLoc += moveDist * PIXELSCALER;
             }
         }
 
