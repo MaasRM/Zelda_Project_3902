@@ -100,8 +100,8 @@ namespace Sprint0
                     if (frame == 10)
                     {
                         yLoc -= ySize / 2;
-                        if (projectileDirection == Direction.MoveLeft) xLoc -= xSize;
-                        else xLoc += xSize;
+                        if (projectileDirection == Direction.MoveLeft) xLoc -= xSize/2;
+                        else xLoc += xSize/2;
                     }
                     destinationRectangle = new Rectangle(xLoc, yLoc, ySize, xSize);
                 } else

@@ -34,7 +34,7 @@ namespace Sprint0
             }
             else if (projectileDirection == Direction.MoveLeft)
             {
-                xLoc = stateMachine.getXLoc() - bombSizeX * 2;
+                xLoc = stateMachine.getXLoc() - bombSizeX;
                 yLoc = stateMachine.getYLoc();
             }
             else //MoveRight
