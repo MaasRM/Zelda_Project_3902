@@ -72,8 +72,8 @@ namespace Sprint0
 
         public void Update()
         {
-            if (frame >= 16) stateMachine.RemoveProjectile(this);
-            if (frame < 15)
+            if (frame >= 12) stateMachine.RemoveProjectile(this);
+            if (frame < 10)
             {
                 if (projectileDirection == Direction.MoveUp)
                 {
@@ -97,7 +97,7 @@ namespace Sprint0
                 sourceRectangle = new Rectangle(53, 185, 8, 15);
                 if (projectileDirection == Direction.MoveLeft || projectileDirection == Direction.MoveRight)
                 {
-                    if (frame == 15)
+                    if (frame == 10)
                     {
                         yLoc -= ySize / 2;
                         if (projectileDirection == Direction.MoveLeft) xLoc -= xSize;
