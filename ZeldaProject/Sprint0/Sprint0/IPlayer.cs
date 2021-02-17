@@ -10,5 +10,6 @@ namespace Sprint0
         public void Update();
         public void Draw(SpriteBatch spriteBatch);
         public LinkStateMachine getLinkStateMachine();
+        public Texture2D GetSpriteSheet();
     }
 }

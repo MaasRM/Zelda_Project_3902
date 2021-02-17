@@ -8,15 +8,17 @@ namespace Sprint0
     class BlueArrowProjectile : IProjectile
     {
         private LinkStateMachine stateMachine;
-        public BlueArrowProjectile(LinkStateMachine stateMachine)
+        private Texture2D spritesheet;
+        public BlueArrowProjectile(Texture2D spritesheet, LinkStateMachine stateMachine)
         {
             this.stateMachine = stateMachine;
+            this.spritesheet = spritesheet;
         }
         public void Update()
         {
 
         }
-        public void Draw(Texture2D spritesheet, SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch)
         {
 
         }

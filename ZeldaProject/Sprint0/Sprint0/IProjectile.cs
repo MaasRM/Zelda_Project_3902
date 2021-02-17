@@ -6,6 +6,6 @@ namespace Sprint0
     {
         public void Update();
 
-        public void Draw(Texture2D spritesheet, SpriteBatch spriteBatch);
+        public void Draw(SpriteBatch spriteBatch);
     }
 }

@@ -81,7 +81,7 @@ namespace Sprint0
             }
             foreach (IProjectile projectile in stateMachine.getProjectiles())
             {
-                projectile.Draw(linkSpriteSheet, spriteBatch);
+                projectile.Draw(spriteBatch);
             }
         }
 
@@ -132,6 +132,11 @@ namespace Sprint0
         public LinkStateMachine getLinkStateMachine()
         {
             return stateMachine;
+        }
+
+        public Texture2D GetSpriteSheet()
+        {
+            return linkSpriteSheet;
         }
     }
 }

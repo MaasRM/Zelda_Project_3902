@@ -11,6 +11,7 @@ namespace Sprint0
         private LinkStateMachine stateMachine;
         private Rectangle sourceRectangle;
         private Rectangle destinationRectangle;
+        private Texture2D spritesheet;
         private int xLoc;
         private int yLoc;
         private int xSize;
@@ -109,7 +110,7 @@ namespace Sprint0
             }
             frame++;
         }
-        public void Draw(Texture2D spritesheet, SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(spritesheet, destinationRectangle, sourceRectangle, Color.White, 0, new Vector2(0, 0), flip, 0f);
         }

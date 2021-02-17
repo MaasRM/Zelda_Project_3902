@@ -10,9 +10,11 @@ namespace Sprint0
         //This class is for the sword beam mechanic when link is at full health. Not used in sprint 2
 
         private LinkStateMachine stateMachine;
-        public SwordProjectile(LinkStateMachine stateMachine)
+        private Texture2D spritesheet;
+        public SwordProjectile(Texture2D spritesheet, LinkStateMachine stateMachine)
         {
             this.stateMachine = stateMachine;
+            this.spritesheet = spritesheet;
         }
 
         public void Update()
@@ -20,7 +22,7 @@ namespace Sprint0
 
         }
 
-        public void Draw(Texture2D spritesheet, SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch)
         {
 
         }

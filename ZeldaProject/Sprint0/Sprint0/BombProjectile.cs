@@ -8,9 +8,11 @@ namespace Sprint0
     class BombProjectile : IProjectile
     {
         private LinkStateMachine stateMachine;
-        public BombProjectile(LinkStateMachine stateMachine)
+        private Texture2D spritesheet;
+        public BombProjectile(Texture2D spritesheet, LinkStateMachine stateMachine)
         {
             this.stateMachine = stateMachine;
+            this.spritesheet = spritesheet;
         }
 
         public void Update()
@@ -18,7 +20,7 @@ namespace Sprint0
 
         }
 
-        public void Draw(Texture2D spritesheet, SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch)
         {
 
         }

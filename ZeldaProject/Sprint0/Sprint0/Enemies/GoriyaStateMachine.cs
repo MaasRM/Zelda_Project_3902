@@ -15,6 +15,12 @@ namespace Sprint0
             Right
         }
 
+        public enum GoriyaColor
+        {
+            Blue,
+            Red
+        }
+
         private Direction direction;
         private int xLoc;
         private int yLoc;
