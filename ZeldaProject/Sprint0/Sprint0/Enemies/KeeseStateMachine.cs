@@ -18,6 +18,11 @@ namespace Sprint0
             NorthWest
         }
 
+        public enum KeeseColor
+        {
+            Blue, Red
+        }
+
         public enum Movement
         {
             Fast,
@@ -26,7 +31,7 @@ namespace Sprint0
         }
 
         private Direction direction;
-        private Color color;
+        private KeeseColor color;
         private Movement mov;
         private double xLoc;
         private double yLoc;
@@ -41,7 +46,7 @@ namespace Sprint0
         private static double diagonalMoveDist = axialMoveDist * Math.Sqrt(2.0);
         private static Movement[] movements = new Movement[] {Movement.Slow, Movement.Fast, Movement.Slow, Movement.Wait };
 
-        public KeeseStateMachine(int x, int y, int xLen, int yLen, Color c)
+        public KeeseStateMachine(int x, int y, int xLen, int yLen, KeeseColor c)
         {
             xLoc = x;
             yLoc = y;
@@ -61,7 +66,7 @@ namespace Sprint0
         {
             if(currFrame % 2 == 0 || mov == Movement.Wait)
             {
-                if(color == Color.Blue)
+                if(color == KeeseColor.Blue)
                 {
                     return new Rectangle(183, 11, width, height);
                 }
@@ -72,7 +77,7 @@ namespace Sprint0
             }
             else
             {
-                if (color == Color.Blue)
+                if (color == KeeseColor.Blue)
                 {
                     return new Rectangle(200, 11, width, height);
                 }

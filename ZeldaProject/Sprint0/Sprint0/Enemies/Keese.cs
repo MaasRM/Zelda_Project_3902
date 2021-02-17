@@ -13,7 +13,7 @@ namespace Sprint0
         private Rectangle source;
         private Rectangle destination;
 
-        public Keese(int x, int y, int width, int height, Color c, Texture2D spriteSheet)
+        public Keese(int x, int y, int width, int height, KeeseStateMachine.KeeseColor c, Texture2D spriteSheet)
         {
             stateMachine = new KeeseStateMachine(x, y, width, height, c);
             keeseSpriteSheet = spriteSheet;
