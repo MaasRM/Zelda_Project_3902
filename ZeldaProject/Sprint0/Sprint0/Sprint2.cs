@@ -22,7 +22,6 @@ namespace Sprint0
         //private List<IBlock> blocks;
         private int frame;
         private int npcIndex;
-        private Texture2D enemySheet;
 
         public Sprint2()
         {
@@ -51,8 +50,7 @@ namespace Sprint0
 
             link = new Link(contentManager.Load<Texture2D>("LinkSpriteSheet"), contentManager);
             block = new Block(contentManager.Load<Texture2D>("Dungeon_Tileset"));
-            enemySheet = contentManager.Load<Texture2D>("Dungeon_Enemies");
-            npc = new Stalfos(520, 222, 16, 16, enemySheet);
+            npc = new Stalfos(520, 222, 16, 16, contentManager.Load<Texture2D>("Dungeon_Enemies"));
         }
 
         protected override void Update(GameTime gameTime)
@@ -119,7 +117,7 @@ namespace Sprint0
 
         public Texture2D GetEnemySpriteSheet()
         {
-            return enemySheet;
+            return contentManager.Load<Texture2D>("Dungeon_Enemies");
         }
     }
 }
