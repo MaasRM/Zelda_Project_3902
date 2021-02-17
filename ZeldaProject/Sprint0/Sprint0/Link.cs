@@ -36,7 +36,7 @@ namespace Sprint0
                 changeColor(currentColor, stateMachine.getColor());
             }
             */
-            if(stateMachine.getColor() == LinkColor.Damaged && damageFrameCount > 24)
+            if(stateMachine.getColor() == LinkColor.Damaged && damageFrameCount <= 24)
             {
                 if (damageFrameCount %4 == 0)
                 {
@@ -53,6 +53,10 @@ namespace Sprint0
                 else //damageFrameCount %4 == 1
                 {
                     linkSpriteSheet = contentManager.Load<Texture2D>("LinkSpriteSheet");
+                }
+                if (damageFrameCount == 24)
+                {
+                    stateMachine.setOriginalColor();
                 }
                 damageFrameCount++;
             }

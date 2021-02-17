@@ -229,6 +229,11 @@ namespace Sprint0
             this.color = LinkColor.Damaged;
         }
 
+        public void setOriginalColor()
+        {
+            this.color = LinkColor.Green;
+        }
+
         public void setUseItem()
         {
             if (!isBusy)
