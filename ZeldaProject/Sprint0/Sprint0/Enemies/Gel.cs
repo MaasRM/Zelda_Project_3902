@@ -13,8 +13,10 @@ namespace Sprint0
         private Rectangle source;
         private Rectangle destination;
 
-        public Gel()
+        public Gel(int x, int y, int width, int height, Texture2D spriteSheet)
         {
+            stateMachine = new GelStateMachine(x, y, width, height);
+            gelSpriteSheet = spriteSheet;
         }
 
         public void Update()

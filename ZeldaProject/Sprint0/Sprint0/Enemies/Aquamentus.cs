@@ -8,13 +8,15 @@ namespace Sprint0
 {
     public class Aquamentus : INPC
     {
-        private StalfosStateMachine stateMachine;
-        private Texture2D stalfosSpriteSheet;
+        private AquamentusStateMachine stateMachine;
+        private Texture2D aquamentusSpriteSheet;
         private Rectangle source;
         private Rectangle destination;
 
-        public Aquamentus()
+        public Aquamentus(int x, int y, int width, int height, Texture2D spriteSheet)
         {
+            stateMachine = new AquamentusStateMachine(x, y, width, height);
+            aquamentusSpriteSheet = spriteSheet;
         }
 
         public void Update()
@@ -26,7 +28,7 @@ namespace Sprint0
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(stalfosSpriteSheet, destination, source, Color.White);
+            spriteBatch.Draw(aquamentusSpriteSheet, destination, source, Color.White);
         }
     }
 }

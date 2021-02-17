@@ -2,10 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-
 namespace Sprint0
 {
-    public class GelStateMachine
+    public class AquamentusStateMachine
     {
         public enum Direction
         {
@@ -15,11 +14,6 @@ namespace Sprint0
             Right
         }
 
-        public enum GelColor
-        {
-
-        }
-
         private Direction direction;
         private int xLoc;
         private int yLoc;
@@ -27,12 +21,8 @@ namespace Sprint0
         private int height;
         private int frame;
         private const int moveDist = 2;
-        private bool wait;
-        private int waitFrames;
-        private const int moveFrames = 10;
 
-
-        public GelStateMachine(int x, int y, int xLen, int yLen)
+        public AquamentusStateMachine(int x, int y, int xLen, int yLen)
         {
             xLoc = x;
             yLoc = y;
