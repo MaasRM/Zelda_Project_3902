@@ -75,7 +75,7 @@ namespace Sprint0
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(new Color(115, 115, 115, 255));
             this._spriteBatch.Begin();
 
             //if (frame % 4 == 0)
@@ -103,6 +103,7 @@ namespace Sprint0
         public void UpdateNPC(INPC newNPC)
         {
             npc = newNPC;
+            npc.Reset();
         }
 
         public int GetNPCIndex()

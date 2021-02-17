@@ -9,23 +9,31 @@ namespace Sprint0
     public class OldMan : INPC
     {
         private StalfosStateMachine stateMachine;
-        private Texture2D stalfosSpriteSheet;
+        private Texture2D oldManSpriteSheet;
         private Rectangle source;
         private Rectangle destination;
+        private const int SCALER = 2;
 
-        public OldMan()
+        public OldMan(int x, int y, Texture2D spriteSheet)
         {
+            destination = new Rectangle(x, y, 1 * SCALER, 1 * SCALER);
+            source = new Rectangle(1, 1, 1, 1);
+            oldManSpriteSheet = spriteSheet;
         }
 
         public void Update()
         {
-            destination = stateMachine.GetDestination();
-            source = stateMachine.GetSource();
+            //doesn't move so do nothing
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(stalfosSpriteSheet, destination, source, Color.White);
+            spriteBatch.Draw(oldManSpriteSheet, destination, source, Color.White);
+        }
+
+        public void Reset()
+        {
+            //Doesn't move so do nothing
         }
     }
 }

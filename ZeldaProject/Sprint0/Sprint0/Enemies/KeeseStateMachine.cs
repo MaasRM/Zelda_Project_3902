@@ -41,8 +41,9 @@ namespace Sprint0
         private int currFrame;
         private int waitFrameCount;
         private int fastFrameCount;
+        private const int SCALER = 2;
         private static int slowFrameCount = 40;
-        private static double axialMoveDist = 3;
+        private static double axialMoveDist = 2;
         private static double diagonalMoveDist = axialMoveDist * Math.Sqrt(2.0);
         private static Movement[] movements = new Movement[] {Movement.Slow, Movement.Fast, Movement.Slow, Movement.Wait };
 
@@ -59,7 +60,7 @@ namespace Sprint0
 
         public Rectangle GetDestination()
         {
-            return new Rectangle((int) xLoc, (int) yLoc, width, height);
+            return new Rectangle((int) xLoc, (int) yLoc, width * SCALER, height * SCALER);
         }
 
         public Rectangle GetSource()
@@ -112,46 +113,46 @@ namespace Sprint0
 
             if (direction == Direction.North)
             {
-                yLoc -= axialMoveDist;
+                yLoc -= axialMoveDist * SCALER;
             }
             else if (direction == Direction.NorthEast)
             {
-                xLoc += diagonalMoveDist;
-                yLoc -= diagonalMoveDist;
+                xLoc += diagonalMoveDist * SCALER;
+                yLoc -= diagonalMoveDist * SCALER;
             }
             else if (direction == Direction.East)
             {
-                xLoc += axialMoveDist;
+                xLoc += axialMoveDist * SCALER;
             }
             else if (direction == Direction.SouthEast)
             {
-                xLoc += diagonalMoveDist;
-                yLoc += diagonalMoveDist;
+                xLoc += diagonalMoveDist * SCALER;
+                yLoc += diagonalMoveDist * SCALER;
             }
             else if (direction == Direction.South)
             {
-                yLoc += axialMoveDist;
+                yLoc += axialMoveDist * SCALER;
             }
             else if (direction == Direction.SouthWest)
             {
-                xLoc -= diagonalMoveDist;
-                yLoc += diagonalMoveDist;
+                xLoc -= diagonalMoveDist * SCALER;
+                yLoc += diagonalMoveDist * SCALER;
             }
             else if (direction == Direction.West)
             {
-                xLoc -= axialMoveDist;
+                xLoc -= axialMoveDist * SCALER;
             }
             else
             {
-                xLoc -= diagonalMoveDist;
-                yLoc -= diagonalMoveDist;
+                xLoc -= diagonalMoveDist * SCALER;
+                yLoc -= diagonalMoveDist * SCALER;
             }
         }
 
         private static Direction changeDirection()
         {
             Random rnd = new Random();
-            int num = rnd.Next(0, 3);
+            int num = rnd.Next(0, 2);
             if(num == 0)
             {
                 num = rnd.Next(0, 7);

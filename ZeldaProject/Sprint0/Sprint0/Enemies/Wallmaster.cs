@@ -28,5 +28,10 @@ namespace Sprint0
         {
             spriteBatch.Draw(stalfosSpriteSheet, destination, source, Color.White);
         }
+
+        public void Reset()
+        {
+
+        }
     }
 }

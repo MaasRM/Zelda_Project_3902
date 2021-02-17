@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Sprint0
 {
-    public class StalfosStateMachine
+    public class GoriyaStateMachine
     {
         public enum Direction
         {
@@ -24,7 +24,7 @@ namespace Sprint0
         private const int SCALER = 2;
         private const int moveDist = 2;
 
-        public StalfosStateMachine(int x, int y, int xLen, int yLen)
+        public GoriyaStateMachine(int x, int y, int xLen, int yLen)
         {
             xLoc = x;
             yLoc = y;
@@ -52,7 +52,7 @@ namespace Sprint0
                 direction = changeDirection();
             }
 
-            if(direction == Direction.Up)
+            if (direction == Direction.Up)
             {
                 yLoc -= moveDist * SCALER;
             }
@@ -82,7 +82,7 @@ namespace Sprint0
             Random rnd = new Random();
             int num = rnd.Next(0, 3);
 
-            return (Direction) num;
+            return (Direction)num;
         }
     }
 }
