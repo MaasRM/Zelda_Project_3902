@@ -20,7 +20,6 @@ namespace Sprint0
         private List<IItem> items;
         public Texture2D dungeonSheet;
         //private List<IBlock> blocks;
-        public int blockIndex = 0;
         private int frame;
         private int npcIndex;
 
@@ -51,7 +50,7 @@ namespace Sprint0
 
             link = new Link(contentManager.Load<Texture2D>("LinkSpriteSheet"), contentManager);
             dungeonSheet = contentManager.Load<Texture2D>("Dungeon_Tileset");
-            block = new Block(new Rectangle (200, 200, 15, 15), new Rectangle(984, 11, 15, 15), dungeonSheet);
+            block = new Block(new Rectangle (200, 200, 15, 15), new Rectangle(984, 11, 15, 15), dungeonSheet, this);
             npc = new Stalfos(520, 222, 16, 16, contentManager.Load<Texture2D>("Dungeon_Enemies"));
         }
 
@@ -66,6 +65,7 @@ namespace Sprint0
                 //Call updates for Link, Enemy, Block
                 link.Update();
                 npc.Update();
+                block.Update();
 
                 foreach (IController controller in controllerList)
                 {
