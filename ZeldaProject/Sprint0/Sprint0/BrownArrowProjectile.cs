@@ -22,8 +22,9 @@ namespace Sprint0
         private int frame;
         private Direction projectileDirection;
         private SpriteEffects flip;
-        public BrownArrowProjectile(LinkStateMachine stateMachine)
+        public BrownArrowProjectile(Texture2D spritesheet, LinkStateMachine stateMachine)
         {
+            this.spritesheet = spritesheet;
             this.stateMachine = stateMachine;
             projectileDirection = stateMachine.getDirection();
             if (projectileDirection == Direction.MoveUp)
