@@ -16,10 +16,13 @@ namespace Sprint0
         private List<IController> controllerList;
         public IPlayer link;
         public IBlock block;
-        private List<INPC> nonPlayers;
+        private INPC npc;
+        //private List<INPC> nonPlayers;
         private List<IItem> items;
         //private List<IBlock> blocks;
         private int frame;
+        private int npcIndex;
+        private Texture2D enemySheet;
 
         public Sprint2()
         {
@@ -28,6 +31,7 @@ namespace Sprint0
             IsMouseVisible = true;
             controllerList = new List<IController>();
             frame = 0;
+            npcIndex = 0;
             contentManager = new ContentManager(Content.ServiceProvider, Content.RootDirectory);
             contentManager.RootDirectory = "Content";
         }
@@ -47,6 +51,8 @@ namespace Sprint0
 
             link = new Link(contentManager.Load<Texture2D>("LinkSpriteSheet"), contentManager);
             block = new Block(contentManager.Load<Texture2D>("Dungeon_Tileset"));
+            enemySheet = contentManager.Load<Texture2D>("Dungeon_Enemies");
+            npc = new Stalfos(520, 222, 16, 16, enemySheet);
         }
 
         protected override void Update(GameTime gameTime)
@@ -63,6 +69,7 @@ namespace Sprint0
                 }
                 //Call updates for Link, Enemy, Block
                 link.Update();
+                npc.Update();
             }
 
             base.Update(gameTime);
@@ -77,6 +84,7 @@ namespace Sprint0
             //{
                 //Call draw for Link, Enemy, Block
                 link.Draw(this._spriteBatch);
+                npc.Draw(this._spriteBatch);
             //}
 
             this._spriteBatch.End();
@@ -92,6 +100,26 @@ namespace Sprint0
         public void UpdateGameBlock(IBlock newBlock)
         {
             block = newBlock;
+        }
+
+        public void UpdateNPC(INPC newNPC)
+        {
+            npc = newNPC;
+        }
+
+        public int GetNPCIndex()
+        {
+            return npcIndex;
+        }
+
+        public void SetNPCIndex(int index)
+        {
+            npcIndex = index;
+        }
+
+        public Texture2D GetEnemySpriteSheet()
+        {
+            return enemySheet;
         }
     }
 }

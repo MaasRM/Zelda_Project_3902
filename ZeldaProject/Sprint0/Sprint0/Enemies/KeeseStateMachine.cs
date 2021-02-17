@@ -36,8 +36,8 @@ namespace Sprint0
         private int currFrame;
         private int waitFrameCount;
         private int fastFrameCount;
-        private static int slowFrameCount = 20;
-        private static double axialMoveDist = 5;
+        private static int slowFrameCount = 40;
+        private static double axialMoveDist = 3;
         private static double diagonalMoveDist = axialMoveDist * Math.Sqrt(2.0);
         private static Movement[] movements = new Movement[] {Movement.Slow, Movement.Fast, Movement.Slow, Movement.Wait };
 
@@ -49,7 +49,7 @@ namespace Sprint0
             height = yLen;
             color = c;
             mov = Movement.Slow;
-            movementIndex = 0;
+            movementIndex = -1;
         }
 
         public Rectangle GetDestination()
@@ -59,32 +59,33 @@ namespace Sprint0
 
         public Rectangle GetSource()
         {
-            if (color == Color.Blue)
+            if(currFrame % 2 == 0 || mov == Movement.Wait)
             {
-                if (currFrame % 2 == 1)
-                {
-                    return new Rectangle(200, 11, width, height);
-                }
-                else
+                if(color == Color.Blue)
                 {
                     return new Rectangle(183, 11, width, height);
-                }
-            }
-            else
-            {
-                if (currFrame % 2 == 1)
-                {
-                    return new Rectangle(200, 28, width, height);
                 }
                 else
                 {
                     return new Rectangle(183, 28, width, height);
                 }
             }
+            else
+            {
+                if (color == Color.Blue)
+                {
+                    return new Rectangle(200, 11, width, height);
+                }
+                else
+                {
+                    return new Rectangle(200, 28, width, height);
+                }
+            }
         }
 
         public void move()
         {
+            currFrame++;
             if (currFrame == slowFrameCount || currFrame == fastFrameCount || currFrame == waitFrameCount)
             {
                 resetFrames();
@@ -99,8 +100,6 @@ namespace Sprint0
 
         private void changePosition()
         {
-            currFrame++;
-
             if (currFrame % 5 == 0)
             {
                 direction = changeDirection();
@@ -160,15 +159,15 @@ namespace Sprint0
         {
             Random rnd = new Random();
             currFrame = -1;
-            fastFrameCount = rnd.Next(3, 8) * 5;
-            waitFrameCount = rnd.Next(1, 5) * 5;
+            fastFrameCount = rnd.Next(5, 12) * 5;
+            waitFrameCount = rnd.Next(3, 6) * 5;
         }
 
         private void changeMovement()
         {
             movementIndex++;
 
-            if(movementIndex > movements.Length)
+            if(movementIndex >= movements.Length)
             {
                 movementIndex = 0;
             }
