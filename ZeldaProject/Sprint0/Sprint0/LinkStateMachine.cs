@@ -37,7 +37,7 @@ namespace Sprint0
         private Animation animation;
         private int xLoc;
         private int yLoc;
-        private const int linkMoveSpeed = 12; //May need to change value
+        private const int linkMoveSpeed = 10; //May need to change value
         private Boolean isBusy;
         private int frame;
         private int sizeFactor;

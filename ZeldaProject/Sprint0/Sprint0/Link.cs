@@ -36,7 +36,7 @@ namespace Sprint0
                 changeColor(currentColor, stateMachine.getColor());
             }
             */
-            if(stateMachine.getColor() == LinkColor.Damaged && damageFrameCount != 25)
+            if(stateMachine.getColor() == LinkColor.Damaged && damageFrameCount > 24)
             {
                 if (damageFrameCount %4 == 0)
                 {
