@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using System.Text;
 namespace Sprint0
 {
@@ -42,7 +43,7 @@ namespace Sprint0
         private int waitFrameCount;
         private int fastFrameCount;
         private const int SCALER = 2;
-        private static int slowFrameCount = 40;
+        private static int slowFrameCount = 30;
         private static double axialMoveDist = 2;
         private static double diagonalMoveDist = axialMoveDist * Math.Sqrt(2.0);
         private static Movement[] movements = new Movement[] {Movement.Slow, Movement.Fast, Movement.Slow, Movement.Wait };
@@ -98,7 +99,7 @@ namespace Sprint0
                 changeMovement();
             }
 
-            if((mov == Movement.Slow && currFrame % 2 == 0) || mov == Movement.Fast)
+            if((mov == Movement.Slow && currFrame % 4 == 0) || mov == Movement.Fast)
             {
                 changePosition();
             }
@@ -152,10 +153,10 @@ namespace Sprint0
         private static Direction changeDirection()
         {
             Random rnd = new Random();
-            int num = rnd.Next(0, 34321234) % 2;
-            if(num == 0)
+            int num = RandomNumberGenerator.GetInt32(2);
+            if (num == 0)
             {
-                num = rnd.Next(0, 6321609) % 8;
+                num = RandomNumberGenerator.GetInt32(8);
             }
 
             return (Direction)num;
@@ -163,10 +164,9 @@ namespace Sprint0
 
         private void resetFrames()
         {
-            Random rnd = new Random();
             currFrame = -1;
-            fastFrameCount = (rnd.Next(0, 456743) % 7 + 6) * 5;
-            waitFrameCount = (rnd.Next(0, 226893) % 3 + 3) * 5;
+            fastFrameCount = (RandomNumberGenerator.GetInt32(8) + 5) * 5;
+            waitFrameCount = (RandomNumberGenerator.GetInt32(3) + 3) * 5;
         }
 
         private void changeMovement()

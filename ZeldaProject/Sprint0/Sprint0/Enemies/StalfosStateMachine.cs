@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace Sprint0
@@ -79,8 +80,7 @@ namespace Sprint0
 
         private static Direction changeDirection()
         {
-            Random rnd = new Random();
-            int num = rnd.Next(0, 76520) % 4;
+            int num = RandomNumberGenerator.GetInt32(4);
 
             return (Direction) num;
         }
