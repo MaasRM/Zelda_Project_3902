@@ -16,7 +16,7 @@ namespace Sprint0
         {
             if (!game.GetPlayer().getLinkStateMachine().getIsBusy())
             {
-                game.GetPlayer().getLinkStateMachine().addProjectile(new BrownArrowProjectile(game.GetPlayer().getLinkStateMachine()));
+                game.GetPlayer().getLinkStateMachine().addProjectile(new BrownArrowProjectile(game.GetPlayer().GetSpriteSheet(), game.GetPlayer().getLinkStateMachine()));
             }
             game.GetPlayer().getLinkStateMachine().setUseItem();
         }

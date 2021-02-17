@@ -11,6 +11,7 @@ namespace Sprint0
         private LinkStateMachine stateMachine;
         private Rectangle sourceRectangle;
         private Rectangle destinationRectangle;
+        private Texture2D spritesheet;
         private int xLoc;
         private int yLoc;
         private int xSize;
@@ -22,7 +23,7 @@ namespace Sprint0
         private Direction projectileDirection;
         private SpriteEffects flip;
         private float rotation;
-        public BrownArrowProjectile(LinkStateMachine stateMachine)
+        public BrownArrowProjectile(Texture2D spritesheet, LinkStateMachine stateMachine)
         {
             this.stateMachine = stateMachine;
             projectileDirection = stateMachine.getDirection();
@@ -106,7 +107,7 @@ namespace Sprint0
             destinationRectangle = new Rectangle(xLoc, yLoc, xSize, ySize);
             frame++;
         }
-        public void Draw(Texture2D spritesheet, SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(spritesheet, destinationRectangle, sourceRectangle, Color.White, rotation, new Vector2(0, 0), flip, 0f);
         }

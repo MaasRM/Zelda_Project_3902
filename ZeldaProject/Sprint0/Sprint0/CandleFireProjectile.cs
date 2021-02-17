@@ -11,6 +11,7 @@ namespace Sprint0
         private LinkStateMachine stateMachine;
         private Rectangle sourceRectangle;
         private Rectangle destinationRectangle;
+        private Texture2D spritesheet;
         private int xLoc;
         private int yLoc;
         private const int candleSpeed = 12;
@@ -19,7 +20,7 @@ namespace Sprint0
         private Boolean flip;
         private Direction projectileDirection;
 
-        public CandleFireProjectile(LinkStateMachine stateMachine)
+        public CandleFireProjectile(Texture2D spritesheet, LinkStateMachine stateMachine)
         {
             this.stateMachine = stateMachine;
             projectileDirection = stateMachine.getDirection();
@@ -47,6 +48,7 @@ namespace Sprint0
             sourceRectangle = new Rectangle(191, 185, 15, 15);
             destinationRectangle = new Rectangle(xLoc, yLoc, candleSize, candleSize);
             frame = 0;
+            this.spritesheet = spritesheet;
         }
         public void Update()
         {
@@ -75,7 +77,7 @@ namespace Sprint0
             frame++;
         }
 
-        public void Draw(Texture2D spritesheet, SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch)
         {
             if(!flip)
             {

@@ -8,16 +8,18 @@ namespace Sprint0
     class BlueBoomerangProjectile : IProjectile
     {
         private LinkStateMachine stateMachine;
-        public BlueBoomerangProjectile(LinkStateMachine stateMachine)
+        private Texture2D spritesheet;
+        public BlueBoomerangProjectile(Texture2D spritesheet, LinkStateMachine stateMachine)
         {
             this.stateMachine = stateMachine;
+            this.spritesheet = spritesheet;
         }
 
         public void Update()
         {
 
         }
-        public void Draw(Texture2D spritesheet, SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch)
         {
 
         }
