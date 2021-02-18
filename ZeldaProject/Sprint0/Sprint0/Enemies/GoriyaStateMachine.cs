@@ -121,7 +121,7 @@ namespace Sprint0
         {
             int num = RandomNumberGenerator.GetInt32(100);
 
-            if(num % 10 == 0)
+            if(num % 17 == 0)
             {
                 throwing = !throwing;
             }
