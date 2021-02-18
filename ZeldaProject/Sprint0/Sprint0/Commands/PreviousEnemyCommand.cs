@@ -17,7 +17,8 @@ namespace Sprint0
             nonPlayers.Add(new Goriya(520, 222, GoriyaStateMachine.GoriyaColor.Red, game.GetEnemySpriteSheet()));
             nonPlayers.Add(new Trap(400, 240, game.GetEnemySpriteSheet(), (Link)game.GetPlayer()));
             nonPlayers.Add(new Wallmaster(400, 400, WallmasterStateMachine.Direction.Down, game.GetEnemySpriteSheet(), (Link)game.GetPlayer()));
-            nonPlayers.Add(new Aquamentus(520, 222, game.getBossSpriteSheet(), (Link)game.GetPlayer()));
+            nonPlayers.Add(new Aquamentus(520, 222, game.GetBossSpriteSheet(), (Link)game.GetPlayer()));
+            nonPlayers.Add(new OldMan(520, 222, game.GetNPCSpriteSheet()));
         }
 
         public void Execute()

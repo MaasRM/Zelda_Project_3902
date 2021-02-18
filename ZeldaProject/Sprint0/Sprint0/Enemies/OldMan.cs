@@ -12,18 +12,20 @@ namespace Sprint0
         private Texture2D oldManSpriteSheet;
         private Rectangle source;
         private Rectangle destination;
+        private Tuple<int, int> init;
         private const int SCALER = 2;
 
         public OldMan(int x, int y, Texture2D spriteSheet)
         {
-            destination = new Rectangle(x, y, 1 * SCALER, 1 * SCALER);
-            source = new Rectangle(1, 1, 1, 1);
+            destination = new Rectangle(x, y, 16 * SCALER, 16 * SCALER);
+            source = new Rectangle(1, 11, 16, 16);
             oldManSpriteSheet = spriteSheet;
+            init = new Tuple<int, int>(x, y);
         }
 
         public void Update()
         {
-            //doesn't move so do nothing
+            
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -33,7 +35,8 @@ namespace Sprint0
 
         public void Reset()
         {
-            //Doesn't move so do nothing
+            destination = new Rectangle(init.Item1, init.Item2, 16 * SCALER, 16 * SCALER);
+            source = new Rectangle(1, 11, 16, 16);
         }
     }
 }
