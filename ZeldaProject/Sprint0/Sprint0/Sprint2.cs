@@ -129,12 +129,12 @@ namespace Sprint0
             return contentManager.Load<Texture2D>("Dungeon_Enemies");
         } 
         
-        public int getItemIndex()
+        public int GetItemIndex()
         {
             return itemIndex;
         }
 
-        public void setItemIndex(int index)
+        public void SetItemIndex(int index)
         {
             itemIndex = index;
         }
@@ -144,14 +144,19 @@ namespace Sprint0
             item = newItem;
         }
 
-        public Texture2D getItemSpreiteSheet()
+        public Texture2D GetItemSpriteSheet()
         {
             return contentManager.Load<Texture2D>("Dungeon_Items");
         }
 
-        public Texture2D getBossSpriteSheet()
+        public Texture2D GetBossSpriteSheet()
         {
             return contentManager.Load<Texture2D>("Dungeon_Bosses");
+        }
+
+        public Texture2D GetNPCSpriteSheet()
+        {
+            return contentManager.Load<Texture2D>("Zelda_NPCs");
         }
     }
 }
