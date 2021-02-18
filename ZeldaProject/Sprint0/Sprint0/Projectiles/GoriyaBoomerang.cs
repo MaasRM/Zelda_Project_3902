@@ -15,6 +15,7 @@ namespace Sprint0
         private int height;
         private GoriyaStateMachine.Direction direction;
         private int frame;
+        private SpriteEffects flip;
         private const int frameCount = 21;
         private const int moveDist = 8;
         private const int PIXELSCALER = 2;
@@ -75,7 +76,7 @@ namespace Sprint0
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(spritesheet, GetDestination(), GetSource(), Color.White);
+            spriteBatch.Draw(spritesheet, GetDestination(), GetSource(), Color.White, 0, new Vector2(0, 0), flip, 0f);
 
             if (frame == frameCount)
             {
@@ -118,7 +119,35 @@ namespace Sprint0
 
         private Rectangle GetSource()
         {
-            return new Rectangle(290 + 9 * (frame % 3), 11, width, height);
+            if (frame % 8 == 0 || frame % 8 == 1 || frame % 8 == 2)
+            {
+                flip = SpriteEffects.None;
+            }
+            else if (frame % 8 == 3 || frame % 8 == 4)
+            {
+                flip = SpriteEffects.FlipHorizontally;
+            }
+            else if (frame % 8 == 5)
+            {
+                flip = SpriteEffects.FlipHorizontally | SpriteEffects.FlipVertically;
+            }
+            else if (frame % 8 == 6 || frame % 8 == 7)
+            {
+                flip = SpriteEffects.FlipVertically;
+            }
+
+            if (frame % 4 == 0)
+            {
+                return new Rectangle(290, 11, 8, 15);
+            }
+            else if (frame % 4 == 1 || frame % 4 == 3)
+            {
+                return new Rectangle(299, 11, 8, 15);
+            }
+            else
+            {
+                return new Rectangle(308, 11, 8, 15);
+            }
         }
     }
 }
