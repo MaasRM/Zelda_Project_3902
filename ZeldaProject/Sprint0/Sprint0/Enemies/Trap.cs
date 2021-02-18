@@ -8,8 +8,8 @@ namespace Sprint0
 {
     public class Trap : INPC
     {
-        private StalfosStateMachine stateMachine;
-        private Texture2D stalfosSpriteSheet;
+        private TrapStateMachine stateMachine;
+        private Texture2D trapSpriteSheet;
         private Rectangle source;
         private Rectangle destination;
 
@@ -26,7 +26,7 @@ namespace Sprint0
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(stalfosSpriteSheet, destination, source, Color.White);
+            spriteBatch.Draw(trapSpriteSheet, destination, source, Color.White);
         }
 
         public void Reset()
