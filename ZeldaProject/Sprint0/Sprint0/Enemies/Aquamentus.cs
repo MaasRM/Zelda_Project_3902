@@ -12,30 +12,46 @@ namespace Sprint0
         private Texture2D aquamentusSpriteSheet;
         private Rectangle source;
         private Rectangle destination;
-        private Tuple<int, int, int, int> init;
+        private AquamentusFireballTriad fireballs;
+        private Link linkRef;
+        private Tuple<int, int> init;
 
-        public Aquamentus(int x, int y, int width, int height, Texture2D spriteSheet, Link link)
+        public Aquamentus(int x, int y, Texture2D spriteSheet, Link link)
         {
-            stateMachine = new AquamentusStateMachine(x, y, width, height);
+            stateMachine = new AquamentusStateMachine(x, y);
             aquamentusSpriteSheet = spriteSheet;
-            init = new Tuple<int, int, int, int>(x, y, width, height);
+            init = new Tuple<int, int>(x, y);
+            linkRef = link;
+            fireballs = new AquamentusFireballTriad(-1, -1, spriteSheet, link);
         }
 
         public void Update()
         {
             stateMachine.Move();
+            
             destination = stateMachine.GetDestination();
             source = stateMachine.GetSource();
+
+            if (!stateMachine.IsFiring())
+            {
+                if (stateMachine.TryToFire())
+                {
+                    int fireballX = destination.X + destination.Width / 4;
+                    int fireballY = destination.Y + destination.Width / 2;
+                    fireballs = new AquamentusFireballTriad(fireballX, fireballY, aquamentusSpriteSheet, linkRef);
+                }
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(aquamentusSpriteSheet, destination, source, Color.White);
+            fireballs.Draw(spriteBatch);
         }
 
         public void Reset()
         {
-            stateMachine = new AquamentusStateMachine(init.Item1, init.Item2, init.Item3, init.Item4);
+            stateMachine = new AquamentusStateMachine(init.Item1, init.Item2);
         }
     }
 }

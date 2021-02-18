@@ -25,12 +25,12 @@ namespace Sprint0
         private const int moveDist = 2;
         private bool firing;
 
-        public AquamentusStateMachine(int x, int y, int xLen, int yLen)
+        public AquamentusStateMachine(int x, int y)
         {
             xLoc = x;
             yLoc = y;
-            width = xLen;
-            height = yLen;
+            width = 24;
+            height = 32;
             frame = -1;
             lastFire = FIRECOOLDOWN * -1;
             firing = false;
@@ -126,6 +126,11 @@ namespace Sprint0
             {
                 firing = !firing;
             }
+        }
+
+        public bool IsFiring()
+        {
+            return firing;
         }
     }
 }
