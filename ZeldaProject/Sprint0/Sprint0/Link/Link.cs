@@ -138,5 +138,10 @@ namespace Sprint0
         {
             return linkSpriteSheet;
         }
+
+        public Rectangle LinkPosition()
+        {
+            return destination;
+        }
     }
 }
