@@ -17,11 +17,12 @@ namespace Sprint0
         public IPlayer link;
         public IBlock block;
         private INPC npc;
-        private List<IItem> items;
+        private IItem item;
         public Texture2D dungeonSheet;
         //private List<IBlock> blocks;
         private int frame;
         private int npcIndex;
+        private int itemIndex;
 
         public Sprint2()
         {
@@ -31,6 +32,7 @@ namespace Sprint0
             controllerList = new List<IController>();
             frame = 0;
             npcIndex = 0;
+            itemIndex = 0;
             contentManager = new ContentManager(Content.ServiceProvider, Content.RootDirectory);
             contentManager.RootDirectory = "Content";
         }
@@ -52,6 +54,7 @@ namespace Sprint0
             dungeonSheet = contentManager.Load<Texture2D>("Dungeon_Tileset");
             block = new Block(new Rectangle (200, 200, 16, 16), new Rectangle(984, 11, 16, 16), dungeonSheet);
             npc = new Stalfos(520, 222, 16, 16, contentManager.Load<Texture2D>("Dungeon_Enemies"));
+            item = new BlueRupeeItem(new Rectangle(500, 100, 24, 48), new Rectangle(72, 16, 8, 16), contentManager.Load<Texture2D>("Dungeon_Items")); 
         }
 
         protected override void Update(GameTime gameTime)
@@ -66,6 +69,7 @@ namespace Sprint0
                 link.Update();
                 npc.Update();
                 block.Update();
+                item.Update();
 
 
                 foreach (IController controller in controllerList)
@@ -87,6 +91,7 @@ namespace Sprint0
             link.Draw(this._spriteBatch);
             npc.Draw(this._spriteBatch);
             block.Draw(this._spriteBatch);
+            item.Draw(this._spriteBatch);
 
             this._spriteBatch.End();
 
@@ -117,11 +122,31 @@ namespace Sprint0
         public void SetNPCIndex(int index)
         {
             npcIndex = index;
-        }
+        }       
 
         public Texture2D GetEnemySpriteSheet()
         {
             return contentManager.Load<Texture2D>("Dungeon_Enemies");
+        } 
+        
+        public int getItemIndex()
+        {
+            return itemIndex;
+        }
+
+        public void setItemIndex(int index)
+        {
+            itemIndex = index;
+        }
+
+        public void SetItem(IItem newItem)
+        {
+            item = newItem;
+        }
+
+        public Texture2D getItemSpreiteSheet()
+        {
+            return contentManager.Load<Texture2D>("Dungeon_Items");
         }
     }
 }
