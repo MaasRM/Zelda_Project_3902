@@ -8,8 +8,8 @@ namespace Sprint0
 {
     public class Wallmaster : INPC
     {
-        private StalfosStateMachine stateMachine;
-        private Texture2D stalfosSpriteSheet;
+        private WallmasterStateMachine stateMachine;
+        private Texture2D wallmasterSpriteSheet;
         private Rectangle source;
         private Rectangle destination;
 
@@ -26,7 +26,7 @@ namespace Sprint0
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(stalfosSpriteSheet, destination, source, Color.White);
+            spriteBatch.Draw(wallmasterSpriteSheet, destination, source, Color.White);
         }
 
         public void Reset()
