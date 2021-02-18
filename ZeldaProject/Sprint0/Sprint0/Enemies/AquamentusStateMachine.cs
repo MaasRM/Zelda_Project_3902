@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using System.Text;
 namespace Sprint0
 {
@@ -8,8 +9,6 @@ namespace Sprint0
     {
         public enum Direction
         {
-            Up,
-            Down,
             Left,
             Right
         }
@@ -20,7 +19,11 @@ namespace Sprint0
         private int width;
         private int height;
         private int frame;
+        private int lastFire;
+        private const int FIRECOOLDOWN = 40;
+        private const int PIXELSCALER = 2;
         private const int moveDist = 2;
+        private bool firing;
 
         public AquamentusStateMachine(int x, int y, int xLen, int yLen)
         {
@@ -29,58 +32,100 @@ namespace Sprint0
             width = xLen;
             height = yLen;
             frame = -1;
+            lastFire = FIRECOOLDOWN * -1;
+            firing = false;
+            direction = Direction.Left;
         }
 
         public Rectangle GetDestination()
         {
-            return new Rectangle(xLoc, yLoc, width, height);
+            return new Rectangle(xLoc, yLoc, width * PIXELSCALER, height * PIXELSCALER);
         }
 
         public Rectangle GetSource()
         {
-            return new Rectangle(1, 59, width, height);
+            if(firing)
+            {
+                if(frame % 2 == 0)
+                {
+                    return new Rectangle(1, 11, width, height);
+                }
+                else
+                {
+                    return new Rectangle(26, 11, width, height);
+                }
+            }
+            else
+            {
+                if (frame % 2 == 0)
+                {
+                    return new Rectangle(51, 11, width, height);
+                }
+                else
+                {
+                    return new Rectangle(76, 11, width, height);
+                }
+            }
         }
 
         public void Move()
         {
             frame++;
 
-            if (frame % 5 == 0)
+            if (frame % 10 == 0)
             {
                 direction = ChangeDirection();
             }
 
-            if (direction == Direction.Up)
+            if (direction == Direction.Left)
             {
-                yLoc -= moveDist;
-            }
-
-            else if (direction == Direction.Down)
-            {
-                yLoc += moveDist;
-            }
-
-            else if (direction == Direction.Left)
-            {
-                xLoc -= moveDist;
+                xLoc -= moveDist * PIXELSCALER;
             }
             else
             {
-                xLoc += moveDist;
+                xLoc += moveDist * PIXELSCALER;
+            }
+
+            if(firing)
+            {
+                StopFiring();
             }
         }
 
-        public int VetFrame()
+        public int GetFrame()
         {
             return frame;
         }
 
         private static Direction ChangeDirection()
         {
-            Random rnd = new Random();
-            int num = rnd.Next(0, 3);
+            int num = RandomNumberGenerator.GetInt32(2);
 
             return (Direction)num;
+        }
+
+        public bool TryToFire()
+        {
+            if(frame - lastFire >= FIRECOOLDOWN)
+            {
+                int num = RandomNumberGenerator.GetInt32(30);
+
+                if(num % 15 == 0)
+                {
+                    firing = true;
+                    lastFire = frame;
+                }
+            }
+
+            return firing;
+        }
+
+        private void StopFiring()
+        {
+            if(frame - lastFire == 8)
+            {
+                firing = !firing;
+            }
         }
     }
 }

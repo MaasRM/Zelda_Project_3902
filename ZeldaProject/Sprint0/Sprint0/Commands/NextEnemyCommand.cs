@@ -15,6 +15,7 @@ namespace Sprint0
             nonPlayers.Add(new Keese(520, 222, 16, 16, KeeseStateMachine.KeeseColor.Blue, game.GetEnemySpriteSheet()));
             nonPlayers.Add(new Gel(520, 222, 8, 16, GelStateMachine.GelColor.Teal, game.GetEnemySpriteSheet()));
             nonPlayers.Add(new Goriya(520, 222, 16, 16, GoriyaStateMachine.GoriyaColor.Red, game.GetEnemySpriteSheet()));
+            nonPlayers.Add(new Aquamentus(520, 222, 24, 32, game.getBossSpriteSheet(), (Link)game.GetPlayer()));
         }
 
         public void Execute()

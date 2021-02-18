@@ -14,7 +14,7 @@ namespace Sprint0
         private Rectangle destination;
         private Tuple<int, int, int, int> init;
 
-        public Aquamentus(int x, int y, int width, int height, Texture2D spriteSheet)
+        public Aquamentus(int x, int y, int width, int height, Texture2D spriteSheet, Link link)
         {
             stateMachine = new AquamentusStateMachine(x, y, width, height);
             aquamentusSpriteSheet = spriteSheet;

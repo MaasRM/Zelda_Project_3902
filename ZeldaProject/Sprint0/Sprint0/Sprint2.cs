@@ -27,7 +27,7 @@ namespace Sprint0
         public Sprint2()
         {
             _graphics = new GraphicsDeviceManager(this);
-            //Content.RootDirectory = "Content";
+            Content.RootDirectory = "Content";
             IsMouseVisible = true;
             controllerList = new List<IController>();
             frame = 0;
@@ -147,6 +147,11 @@ namespace Sprint0
         public Texture2D getItemSpreiteSheet()
         {
             return contentManager.Load<Texture2D>("Dungeon_Items");
+        }
+
+        public Texture2D getBossSpriteSheet()
+        {
+            return contentManager.Load<Texture2D>("Dungeon_Bosses");
         }
     }
 }
