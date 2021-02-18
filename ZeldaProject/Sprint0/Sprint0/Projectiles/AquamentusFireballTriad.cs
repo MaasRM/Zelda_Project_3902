@@ -46,20 +46,20 @@ namespace Sprint0
 
             if (angle == Angle.Above)
             {
-                y1 += xMoveDist * Math.Tan(65 * Math.PI / 180) * PIXELSCALER;
-                y2 += xMoveDist * Math.Tan(35 * Math.PI / 180) * PIXELSCALER;
-                y3 += xMoveDist * Math.Tan(5 * Math.PI / 180) * PIXELSCALER;
+                y1 -= xMoveDist * Math.Tan(65 * Math.PI / 180) * PIXELSCALER;
+                y2 -= xMoveDist * Math.Tan(35 * Math.PI / 180) * PIXELSCALER;
+                y3 -= xMoveDist * Math.Tan(5 * Math.PI / 180) * PIXELSCALER;
             }
             else if (angle == Angle.Middle)
             {
-                y1 += xMoveDist * Math.Tan(30 * Math.PI / 180) * PIXELSCALER;
+                y1 -= xMoveDist * Math.Tan(30 * Math.PI / 180) * PIXELSCALER;
                 y3 += xMoveDist * Math.Tan(30 * Math.PI / 180) * PIXELSCALER;
             }
             else
             {
-                y1 -= xMoveDist * Math.Tan(65 * Math.PI / 180) * PIXELSCALER;
-                y2 -= xMoveDist * Math.Tan(35 * Math.PI / 180) * PIXELSCALER;
-                y3 -= xMoveDist * Math.Tan(5 * Math.PI / 180) * PIXELSCALER;
+                y1 += xMoveDist * Math.Tan(65 * Math.PI / 180) * PIXELSCALER;
+                y2 += xMoveDist * Math.Tan(35 * Math.PI / 180) * PIXELSCALER;
+                y3 += xMoveDist * Math.Tan(5 * Math.PI / 180) * PIXELSCALER;
             }
         }
 
@@ -88,22 +88,22 @@ namespace Sprint0
         {
             Rectangle linkPos = link.LinkPosition();
             int xLink = linkPos.X + linkPos.Width  / 2;
-            int ylink = linkPos.Y + linkPos.Height / 2;
+            int yLink = linkPos.Y + linkPos.Height / 2;
 
             double xDiff = xLink - x1;
-            double yDiff = ylink - y1;
+            double yDiff = yLink - y1;
 
             double linkAngle;
 
             if(xDiff != 0)
             {
-                linkAngle = Math.Atan((x1 - xLink) / (ylink - y1)) * (180 / Math.PI);
+                linkAngle = Math.Atan(yDiff / xDiff) * (180 / Math.PI);
 
-                if (linkAngle < -30)
+                if (linkAngle < 30)
                 {
                     angle = Angle.Above;
                 }
-                else if (linkAngle > 30)
+                else if (linkAngle > -30)
                 {
                     angle = Angle.Below;
                 }
