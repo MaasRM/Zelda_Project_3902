@@ -12,9 +12,15 @@ namespace Sprint0
         private Texture2D trapSpriteSheet;
         private Rectangle source;
         private Rectangle destination;
+        private Link linkRef;
+        private Tuple<int, int, Link> init;
 
-        public Trap()
+        public Trap(int x, int y, Texture2D spritesheet, Link link)
         {
+            stateMachine = new TrapStateMachine(x, y, link);
+            linkRef = link;
+            trapSpriteSheet = spritesheet;
+            init = new Tuple<int, int, Link>(x, y, link);
         }
 
         public void Update()
@@ -31,7 +37,7 @@ namespace Sprint0
 
         public void Reset()
         {
-
+            stateMachine = new TrapStateMachine(init.Item1, init.Item2,init.Item3);
         }
     }
 }

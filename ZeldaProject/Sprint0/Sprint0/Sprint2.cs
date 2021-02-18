@@ -53,7 +53,7 @@ namespace Sprint0
             link = new Link(contentManager.Load<Texture2D>("LinkSpriteSheet"), contentManager);
             dungeonSheet = contentManager.Load<Texture2D>("Dungeon_Tileset");
             block = new Block(new Rectangle (200, 200, 16, 16), new Rectangle(984, 11, 16, 16), dungeonSheet);
-            npc = new Stalfos(520, 222, 16, 16, contentManager.Load<Texture2D>("Dungeon_Enemies"));
+            npc = new Stalfos(520, 222, contentManager.Load<Texture2D>("Dungeon_Enemies"));
             item = new BlueRupeeItem(new Rectangle(500, 100, 24, 48), new Rectangle(72, 16, 8, 16), contentManager.Load<Texture2D>("Dungeon_Items")); 
         }
 
