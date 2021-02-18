@@ -16,22 +16,42 @@ namespace Sprint0
             Right
         }
 
-        private Direction direction;
+        public enum Activity
+        {
+            Waiting,
+            OutWall,
+            Moving,
+            BackIn
+        }
+
+        private Direction initialDirection;
+        private Direction secondDirection;
+        private Activity activity;
+        private Link LinkRef;
         private int xLoc;
         private int yLoc;
         private int width;
         private int height;
         private int frame;
+        private const int wallFrames = 10;
+        private const int moveFrames = 40;
         private const int PIXELSCALER = 2;
-        private const int moveDist = 2;
+        private const int wallMoveDist = 1;
+        private const int floorMoveDist = 3;
+        private Tuple<int, int> initial;
+        private bool grab;
 
-        public WallmasterStateMachine(int x, int y)
+        public WallmasterStateMachine(int x, int y, Link link, Direction d)
         {
             xLoc = x;
             yLoc = y;
             width = 16;
             height = 16;
-            frame = -1;
+            frame = 0;
+            initial = new Tuple<int, int>(x, y);
+            grab = false;
+            activity = Activity.Waiting;
+            initialDirection = d;
         }
 
         public Rectangle GetDestination()
@@ -41,35 +61,87 @@ namespace Sprint0
 
         public Rectangle GetSource()
         {
-            return new Rectangle(1, 59, width, height);
+            if (grab || (activity == Activity.Moving && frame % 2 == 1))
+            {
+                return new Rectangle(410, 11, width, height);
+            }
+            else
+            {
+                return new Rectangle(392, 11, width, height);
+            }
         }
 
         public void Move()
         {
+
             frame++;
 
-            if (frame % 5 == 0)
+            if (activity == Activity.Waiting)
             {
-                direction = ChangeDirection();
+                CheckLink();
             }
 
-            if (direction == Direction.Up)
+            if (activity == Activity.OutWall)
             {
-                yLoc -= moveDist * PIXELSCALER;
+                if(initialDirection == Direction.Down)
+                {
+                    yLoc += wallMoveDist * PIXELSCALER;
+                }
+                if (initialDirection == Direction.Up)
+                {
+                    yLoc -= wallMoveDist * PIXELSCALER;
+                }
+                if (initialDirection == Direction.Left)
+                {
+                    xLoc -= wallMoveDist * PIXELSCALER;
+                }
+                else
+                {
+                    xLoc += wallMoveDist * PIXELSCALER;
+                }
+                GetOutWall();
             }
+            else if (activity == Activity.Moving)
+            {
+                if (secondDirection == Direction.Down)
+                {
+                    yLoc += floorMoveDist * PIXELSCALER;
+                }
+                if (secondDirection == Direction.Up)
+                {
+                    yLoc -= floorMoveDist * PIXELSCALER;
+                }
+                if (secondDirection == Direction.Left)
+                {
+                    xLoc -= floorMoveDist * PIXELSCALER;
+                }
+                else
+                {
+                    xLoc += floorMoveDist * PIXELSCALER;
+                }
+                GrabLink();
+                BackInWall();
+            }
+            else if (activity == Activity.BackIn)
+            {
+                if (initialDirection == Direction.Down)
+                {
+                    yLoc -= wallMoveDist * PIXELSCALER;
+                }
+                if (initialDirection == Direction.Up)
+                {
+                    yLoc += wallMoveDist * PIXELSCALER;
+                }
+                if (initialDirection == Direction.Left)
+                {
+                    xLoc += wallMoveDist * PIXELSCALER;
+                }
+                else
+                {
+                    xLoc -= wallMoveDist * PIXELSCALER;
+                }
 
-            else if (direction == Direction.Down)
-            {
-                yLoc += moveDist * PIXELSCALER;
-            }
-
-            else if (direction == Direction.Left)
-            {
-                xLoc -= moveDist * PIXELSCALER;
-            }
-            else
-            {
-                xLoc += moveDist * PIXELSCALER;
+                ResetPosition();
             }
         }
 
@@ -78,11 +150,101 @@ namespace Sprint0
             return frame;
         }
 
-        private static Direction ChangeDirection()
+        public bool IsWaiting()
         {
-            int num = RandomNumberGenerator.GetInt32(4);
+            return activity == Activity.Waiting;
+        }
 
-            return (Direction)num;
+        private void GetOutWall()
+        {
+            if(frame > wallFrames)
+            {
+                frame = -1;
+                activity = Activity.Moving;
+            }
+        }
+
+        private void BackInWall()
+        {
+            if(frame > moveFrames)
+            {
+                frame = -1;
+                activity = Activity.BackIn;
+            }
+        }
+
+        private void ResetPosition()
+        {
+            if (frame > wallFrames)
+            {
+                grab = false;
+                frame = 0;
+                activity = Activity.Waiting;
+                xLoc = initial.Item1;
+                yLoc = initial.Item2;
+            }
+        }
+
+        private void CheckLink()
+        {
+            Rectangle linkPos = LinkRef.LinkPosition();
+
+            int linkX = linkPos.X + linkPos.Width / 2;
+            int linkY = linkPos.Y + linkPos.Height / 2;
+
+            if(Math.Abs(linkX - xLoc) < 20 * PIXELSCALER && Math.Abs(linkY - yLoc) < 20 * PIXELSCALER)
+            {
+                activity = Activity.OutWall;
+                frame = 0;
+
+                int num = RandomNumberGenerator.GetInt32(2);
+
+                if(initialDirection == Direction.Down || initialDirection == Direction.Up)
+                {
+                    if(num == 0)
+                    {
+                        secondDirection = Direction.Left;
+                    }
+                    else
+                    {
+                        secondDirection = Direction.Right;
+                    }
+                }
+                else
+                {
+                    if (num == 0)
+                    {
+                        secondDirection = Direction.Up;
+                    }
+                    else
+                    {
+                        secondDirection = Direction.Down;
+                    }
+                }
+            }
+        }
+
+        private void GrabLink()
+        {
+            Rectangle linkPos = LinkRef.LinkPosition();
+
+            int linkX = linkPos.X + linkPos.Width / 2;
+            int linkY = linkPos.Y + linkPos.Height / 2;
+
+            if(linkX >= xLoc && linkX < xLoc + width * PIXELSCALER && linkY > yLoc && linkY < yLoc + height * PIXELSCALER)
+            {
+                grab = true;
+            }
+        }
+
+        public Direction GetInitialDirection()
+        {
+            return initialDirection;
+        }
+
+        public Direction GetSecondDirection()
+        {
+            return secondDirection;
         }
     }
 }

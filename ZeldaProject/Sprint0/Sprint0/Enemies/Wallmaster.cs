@@ -12,9 +12,16 @@ namespace Sprint0
         private Texture2D wallmasterSpriteSheet;
         private Rectangle source;
         private Rectangle destination;
+        private Link linkRef;
+        private SpriteEffects flip;
+        private Tuple<int, int, Link, WallmasterStateMachine.Direction> init;
 
-        public Wallmaster()
+        public Wallmaster(int x, int y, WallmasterStateMachine.Direction d, Texture2D spritesheet, Link link)
         {
+            stateMachine = new WallmasterStateMachine(x, y, link, d);
+            linkRef = link;
+            wallmasterSpriteSheet = spritesheet;
+            init = new Tuple<int, int, Link, WallmasterStateMachine.Direction>(x, y, link, d);
         }
 
         public void Update()
@@ -26,12 +33,34 @@ namespace Sprint0
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(wallmasterSpriteSheet, destination, source, Color.White);
+            if(!stateMachine.IsWaiting())
+            {
+                WallmasterStateMachine.Direction initial = stateMachine.GetInitialDirection();
+                WallmasterStateMachine.Direction second = stateMachine.GetInitialDirection();
+
+                bool directionLeft = initial == WallmasterStateMachine.Direction.Left || second == WallmasterStateMachine.Direction.Left;
+                bool directionDown = initial == WallmasterStateMachine.Direction.Down || second == WallmasterStateMachine.Direction.Down;
+
+                if (directionLeft && directionDown)
+                {
+                    flip = SpriteEffects.FlipHorizontally | SpriteEffects.FlipVertically;
+                }
+                else if (directionLeft)
+                {
+                    flip = SpriteEffects.FlipHorizontally;
+                }
+                else if (directionDown)
+                {
+                    flip = SpriteEffects.FlipVertically;
+                }
+
+                spriteBatch.Draw(wallmasterSpriteSheet, destination, source, Color.White, 0, new Vector2(0, 0), flip, 0f);
+            }   
         }
 
         public void Reset()
         {
-
+            stateMachine = new WallmasterStateMachine(init.Item1, init.Item2, init.Item3, init.Item4);
         }
     }
 }
