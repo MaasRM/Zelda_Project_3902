@@ -11,6 +11,8 @@ namespace Sprint0
 
         public void Execute()
         {
+            using (var game = new Sprint2())
+                game.Run();
         }
     }
 }
