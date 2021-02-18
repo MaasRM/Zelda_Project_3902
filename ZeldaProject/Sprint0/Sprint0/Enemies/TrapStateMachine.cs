@@ -128,7 +128,7 @@ namespace Sprint0
             int linkX = linkPos.X + linkPos.Width / 2;
             int linkY = linkPos.Y + linkPos.Height / 2;
 
-            if(linkX > xLoc && linkX < xLoc + width)
+            if(linkX >= xLoc && linkX < xLoc + width)
             {
                 if(linkY < yLoc)
                 {
@@ -141,7 +141,7 @@ namespace Sprint0
                     active = Activity.Charging;
                 }
             }
-            else if (linkY > yLoc && linkY < yLoc + height)
+            else if (linkY >= yLoc && linkY < yLoc + height)
             {
                 if (linkX < xLoc)
                 {
