@@ -42,12 +42,12 @@ namespace Sprint0
         private const int moveFrames = 10;
 
 
-        public GelStateMachine(int x, int y, int xLen, int yLen, GelColor c)
+        public GelStateMachine(int x, int y, GelColor c)
         {
             xLoc = x;
             yLoc = y;
-            width = xLen;
-            height = yLen;
+            width = 8;
+            height = 16;
             frame = -1;
             color = c;
             wait = false;

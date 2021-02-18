@@ -48,12 +48,12 @@ namespace Sprint0
         private static double diagonalMoveDist = axialMoveDist * Math.Sqrt(2.0);
         private static Movement[] movements = new Movement[] {Movement.Slow, Movement.Fast, Movement.Slow, Movement.Wait };
 
-        public KeeseStateMachine(int x, int y, int xLen, int yLen, KeeseColor c)
+        public KeeseStateMachine(int x, int y, KeeseColor c)
         {
             xLoc = x;
             yLoc = y;
-            width = xLen;
-            height = yLen;
+            width = 16;
+            height = 16;
             color = c;
             mov = Movement.Slow;
             movementIndex = -1;

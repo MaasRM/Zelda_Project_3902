@@ -11,10 +11,10 @@ namespace Sprint0
         {
             game = sprint;
             nonPlayers = new List<INPC>();
-            nonPlayers.Add(new Stalfos(520, 222, 16, 16, game.GetEnemySpriteSheet()));
-            nonPlayers.Add(new Keese(520, 222, 16, 16, KeeseStateMachine.KeeseColor.Blue, game.GetEnemySpriteSheet()));
-            nonPlayers.Add(new Gel(520, 222, 8, 16, GelStateMachine.GelColor.Teal, game.GetEnemySpriteSheet()));
-            nonPlayers.Add(new Goriya(520, 222, 16, 16, GoriyaStateMachine.GoriyaColor.Red, game.GetEnemySpriteSheet()));
+            nonPlayers.Add(new Stalfos(520, 222, game.GetEnemySpriteSheet()));
+            nonPlayers.Add(new Keese(520, 222, KeeseStateMachine.KeeseColor.Blue, game.GetEnemySpriteSheet()));
+            nonPlayers.Add(new Gel(520, 222, GelStateMachine.GelColor.Teal, game.GetEnemySpriteSheet()));
+            nonPlayers.Add(new Goriya(520, 222, GoriyaStateMachine.GoriyaColor.Red, game.GetEnemySpriteSheet()));
             nonPlayers.Add(new Aquamentus(520, 222, game.getBossSpriteSheet(), (Link)game.GetPlayer()));
         }
 

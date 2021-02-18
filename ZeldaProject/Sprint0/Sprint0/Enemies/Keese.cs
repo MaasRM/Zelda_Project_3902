@@ -12,13 +12,13 @@ namespace Sprint0
         private Texture2D keeseSpriteSheet;
         private Rectangle source;
         private Rectangle destination;
-        private Tuple<int, int, int, int, KeeseStateMachine.KeeseColor> init;
+        private Tuple<int, int, KeeseStateMachine.KeeseColor> init;
 
-        public Keese(int x, int y, int width, int height, KeeseStateMachine.KeeseColor c, Texture2D spriteSheet)
+        public Keese(int x, int y, KeeseStateMachine.KeeseColor c, Texture2D spriteSheet)
         {
-            stateMachine = new KeeseStateMachine(x, y, width, height, c);
+            stateMachine = new KeeseStateMachine(x, y, c);
             keeseSpriteSheet = spriteSheet;
-            init = new Tuple<int, int, int, int, KeeseStateMachine.KeeseColor>(x, y, width, height, c);
+            init = new Tuple<int, int, KeeseStateMachine.KeeseColor>(x, y, c);
         }
 
         public void Update()
@@ -35,7 +35,7 @@ namespace Sprint0
 
         public void Reset()
         {
-            stateMachine = new KeeseStateMachine(init.Item1, init.Item2, init.Item3, init.Item4, init.Item5);
+            stateMachine = new KeeseStateMachine(init.Item1, init.Item2, init.Item3);
         }
     }
 }

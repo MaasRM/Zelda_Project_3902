@@ -33,12 +33,12 @@ namespace Sprint0
         private const int PIXELSCALER = 2;
         private const int moveDist = 2;
 
-        public GoriyaStateMachine(int x, int y, int xLen, int yLen, GoriyaColor c)
+        public GoriyaStateMachine(int x, int y, GoriyaColor c)
         {
             xLoc = x;
             yLoc = y;
-            width = xLen;
-            height = yLen;
+            width = 16;
+            height = 16;
             frame = -1;
             color = c;
             throwing = false;

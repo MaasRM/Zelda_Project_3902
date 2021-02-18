@@ -25,12 +25,12 @@ namespace Sprint0
         private const int PIXELSCALER = 2;
         private const int moveDist = 2;
 
-        public TrapStateMachine(int x, int y, int xLen, int yLen)
+        public TrapStateMachine(int x, int y)
         {
             xLoc = x;
             yLoc = y;
-            width = xLen;
-            height = yLen;
+            width = 16;
+            height = 16;
             frame = -1;
         }
 

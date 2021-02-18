@@ -13,13 +13,13 @@ namespace Sprint0
         private Texture2D goriyaSpriteSheet;
         private Rectangle source;
         private Rectangle destination;
-        private Tuple<int, int, int, int, GoriyaStateMachine.GoriyaColor> init;
+        private Tuple<int, int, GoriyaStateMachine.GoriyaColor> init;
 
-        public Goriya(int x, int y, int width, int height, GoriyaStateMachine.GoriyaColor c, Texture2D spriteSheet)
+        public Goriya(int x, int y, GoriyaStateMachine.GoriyaColor c, Texture2D spriteSheet)
         {
-            stateMachine = new GoriyaStateMachine(x, y, width, height, c);
+            stateMachine = new GoriyaStateMachine(x, y, c);
             goriyaSpriteSheet = spriteSheet;
-            init = new Tuple<int, int, int, int, GoriyaStateMachine.GoriyaColor>(x, y, width, height, c);
+            init = new Tuple<int, int, GoriyaStateMachine.GoriyaColor>(x, y, c);
             boomerang = new GoriyaBoomerang(goriyaSpriteSheet, stateMachine);
         }
 
@@ -72,7 +72,7 @@ namespace Sprint0
 
         public void Reset()
         {
-            stateMachine = new GoriyaStateMachine(init.Item1, init.Item2, init.Item3, init.Item4, init.Item5);
+            stateMachine = new GoriyaStateMachine(init.Item1, init.Item2, init.Item3);
         }
     }
 }

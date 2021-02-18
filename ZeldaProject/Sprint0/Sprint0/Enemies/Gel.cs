@@ -12,13 +12,13 @@ namespace Sprint0
         private Texture2D gelSpriteSheet;
         private Rectangle source;
         private Rectangle destination;
-        private Tuple<int, int, int, int, GelStateMachine.GelColor> init;
+        private Tuple<int, int, GelStateMachine.GelColor> init;
 
-        public Gel(int x, int y, int width, int height, GelStateMachine.GelColor c, Texture2D spriteSheet)
+        public Gel(int x, int y, GelStateMachine.GelColor c, Texture2D spriteSheet)
         {
-            stateMachine = new GelStateMachine(x, y, width, height, c);
+            stateMachine = new GelStateMachine(x, y, c);
             gelSpriteSheet = spriteSheet;
-            init = new Tuple<int, int, int, int, GelStateMachine.GelColor>(x, y, width, height, c);
+            init = new Tuple<int, int, GelStateMachine.GelColor>(x, y, c);
 
         }
 
@@ -36,7 +36,7 @@ namespace Sprint0
 
         public void Reset()
         {
-            stateMachine = new GelStateMachine(init.Item1, init.Item2, init.Item3, init.Item4, init.Item5);
+            stateMachine = new GelStateMachine(init.Item1, init.Item2, init.Item3);
         }
     }
 }
