@@ -33,7 +33,7 @@ namespace Sprint0
             height = 16;
             frame = -1;
             this.spritesheet = spritesheet;
-            setAngle(link);
+            SetAngle(link);
         }
 
         public void Update()
@@ -99,7 +99,7 @@ namespace Sprint0
             }
         }
 
-        private void setAngle(IPlayer link)
+        private void SetAngle(IPlayer link)
         {
             Rectangle linkPos = link.LinkPosition();
             int xLink = linkPos.X + linkPos.Width / 2;

@@ -32,6 +32,8 @@ namespace Sprint0
             destination = stateMachine.GetDestination();
             source = stateMachine.GetSource();
 
+            fireballs.Update();
+
             if (!stateMachine.IsFiring())
             {
                 if (stateMachine.TryToFire())
