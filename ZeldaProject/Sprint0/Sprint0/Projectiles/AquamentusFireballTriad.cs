@@ -102,7 +102,7 @@ namespace Sprint0
         private void setAngle(IPlayer link)
         {
             Rectangle linkPos = link.LinkPosition();
-            int xLink = linkPos.X + linkPos.Width  / 2;
+            int xLink = linkPos.X + linkPos.Width / 2;
             int yLink = linkPos.Y + linkPos.Height / 2;
 
             double xDiff = xLink - x1;
@@ -114,11 +114,11 @@ namespace Sprint0
             {
                 linkAngle = Math.Atan(yDiff / xDiff) * (180 / Math.PI);
 
-                if (linkAngle < 30)
+                if (linkAngle > 30)
                 {
                     angle = Angle.Above;
                 }
-                else if (linkAngle > -30)
+                else if (linkAngle < -30)
                 {
                     angle = Angle.Below;
                 }

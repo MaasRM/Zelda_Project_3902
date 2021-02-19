@@ -5,7 +5,7 @@
       <File FileName="Sprint0/Sprint2.cs" Line="1" Column="1" />
       <File FileName="Sprint0/Enemies/AquamentusStateMachine.cs" Line="115" Column="32" />
       <File FileName="Sprint0/Enemies/Aquamentus.cs" Line="41" Column="17" />
-      <File FileName="Sprint0/Projectiles/AquamentusFireballTriad.cs" Line="98" Column="41" />
+      <File FileName="Sprint0/Projectiles/AquamentusFireballTriad.cs" Line="121" Column="37" />
       <File FileName="Sprint0/Commands/NextItemCommand.cs" Line="27" Column="62" />
       <File FileName="Sprint0/Commands/PreviousItemCommand.cs" Line="27" Column="62" />
     </Files>
@@ -15,13 +15,13 @@
           <Node name="Sprint0" expanded="True">
             <Node name="Sprint0" expanded="True">
               <Node name="Dependencies" expanded="True" />
-              <Node name="Commands" expanded="True">
-                <Node name="PreviousItemCommand.cs" selected="True" />
-              </Node>
+              <Node name="Commands" expanded="True" />
               <Node name="Content" expanded="True" />
               <Node name="Enemies" expanded="True" />
               <Node name="Items" expanded="True" />
-              <Node name="Projectiles" expanded="True" />
+              <Node name="Projectiles" expanded="True">
+                <Node name="AquamentusFireballTriad.cs" selected="True" />
+              </Node>
             </Node>
           </Node>
         </State>
