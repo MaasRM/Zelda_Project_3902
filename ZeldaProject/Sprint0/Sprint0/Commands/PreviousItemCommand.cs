@@ -24,7 +24,7 @@ namespace Sprint0
             items.Add(new MapItem(new Rectangle(500, 100, 24, 48), new Rectangle(88, 0, 8, 16), game.GetItemSpriteSheet()));
             items.Add(new TriforceShardItem(new Rectangle(500, 100, 30, 48), new Rectangle(275, 3, 10, 16), game.GetItemSpriteSheet()));
             items.Add(new YellowRupeeItem(new Rectangle(500, 100, 24, 48), new Rectangle(72, 0, 8, 16), game.GetItemSpriteSheet()));
-            items.Add(new Fire(new Rectangle(500, 100, 16, 16), new Rectangle(52, 11, 16, 16), game.GetNPCSpriteSheet()));
+            items.Add(new Fire(new Rectangle(500, 100, 48, 48), new Rectangle(52, 11, 16, 16), game.GetNPCSpriteSheet()));
         }
 
         public void Execute()
