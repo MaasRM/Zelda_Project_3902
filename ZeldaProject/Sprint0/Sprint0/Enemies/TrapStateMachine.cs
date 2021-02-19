@@ -45,9 +45,9 @@ namespace Sprint0
             height = 16;
             frame = -1;
             linkRef = link;
-            maxX = 800 - width;
+            maxX = 800 - width * PIXELSCALER;
             minX = 0;
-            maxY = 800 - height;
+            maxY = 800 - height * PIXELSCALER;
             minY = 0;
             initial = new Tuple<int, int>(x, y);
             active = Activity.Still;
@@ -158,19 +158,19 @@ namespace Sprint0
 
         private void ShouldReturn()
         {
-            if(direction == Direction.Down && yLoc == maxY)
+            if(direction == Direction.Down && yLoc >= maxY)
             {
                 active = Activity.Returning;
             }
-            else if (direction == Direction.Up && yLoc == minY)
+            else if (direction == Direction.Up && yLoc <= minY)
             {
                 active = Activity.Returning;
             }
-            else if (direction == Direction.Left && xLoc == minX)
+            else if (direction == Direction.Left && xLoc <= minX)
             {
                 active = Activity.Returning;
             }
-            else if (direction == Direction.Right && xLoc == maxX)
+            else if (direction == Direction.Right && xLoc >= maxX)
             {
                 active = Activity.Returning;
             }
