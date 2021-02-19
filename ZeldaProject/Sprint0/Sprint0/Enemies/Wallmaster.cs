@@ -12,16 +12,16 @@ namespace Sprint0
         private Texture2D wallmasterSpriteSheet;
         private Rectangle source;
         private Rectangle destination;
-        private Link linkRef;
+        private IPlayer linkRef;
         private SpriteEffects flip;
-        private Tuple<int, int, Link, WallmasterStateMachine.Direction> init;
+        private Tuple<int, int, IPlayer, WallmasterStateMachine.Direction> init;
 
-        public Wallmaster(int x, int y, WallmasterStateMachine.Direction d, Texture2D spritesheet, Link link)
+        public Wallmaster(int x, int y, WallmasterStateMachine.Direction d, Texture2D spritesheet, IPlayer link)
         {
             stateMachine = new WallmasterStateMachine(x, y, link, d);
             linkRef = link;
             wallmasterSpriteSheet = spritesheet;
-            init = new Tuple<int, int, Link, WallmasterStateMachine.Direction>(x, y, link, d);
+            init = new Tuple<int, int, IPlayer, WallmasterStateMachine.Direction>(x, y, link, d);
         }
 
         public void Update()
