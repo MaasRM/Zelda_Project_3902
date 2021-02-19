@@ -45,9 +45,9 @@ namespace Sprint0
             height = 16;
             frame = -1;
             linkRef = link;
-            maxX = 800 - xLoc + width;
+            maxX = 800 - width;
             minX = 0;
-            maxY = 800 - yLoc + height;
+            maxY = 800 - height;
             minY = 0;
             initial = new Tuple<int, int>(x, y);
             active = Activity.Still;
