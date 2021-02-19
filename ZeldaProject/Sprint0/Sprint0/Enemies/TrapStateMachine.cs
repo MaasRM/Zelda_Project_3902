@@ -160,19 +160,19 @@ namespace Sprint0
         {
             if(direction == Direction.Down && yLoc == maxY)
             {
-                active = Activity.Still;
+                active = Activity.Returning;
             }
             else if (direction == Direction.Up && yLoc == minY)
             {
-                active = Activity.Still;
+                active = Activity.Returning;
             }
             else if (direction == Direction.Left && xLoc == minX)
             {
-                active = Activity.Still;
+                active = Activity.Returning;
             }
             else if (direction == Direction.Right && xLoc == maxX)
             {
-                active = Activity.Still;
+                active = Activity.Returning;
             }
 
         }
