@@ -21,7 +21,7 @@ namespace Sprint0
         private const int xMoveDist = 5;
         private const int PIXELSCALER = 2;
 
-        public AquamentusFireballTriad(int x, int y, Texture2D spritesheet, Link link)
+        public AquamentusFireballTriad(int x, int y, Texture2D spritesheet, IPlayer link)
         {
             x1 = x;
             x2 = x;
@@ -84,7 +84,7 @@ namespace Sprint0
             return new Rectangle(101 + frame % 4 * (width + 1), 11, width, height);
         }
 
-        private void setAngle(Link link)
+        private void setAngle(IPlayer link)
         {
             Rectangle linkPos = link.LinkPosition();
             int xLink = linkPos.X + linkPos.Width  / 2;
