@@ -25,7 +25,7 @@ namespace Sprint0
 
         private Direction direction;
         private Activity active;
-        private IPlayer LinkRef;
+        private IPlayer linkRef;
         private int xLoc;
         private int yLoc;
         private int width;
@@ -44,7 +44,7 @@ namespace Sprint0
             width = 16;
             height = 16;
             frame = -1;
-            LinkRef = link;
+            linkRef = link;
             maxX = xLoc + 800 - width;
             minX = 0;
             maxY = yLoc + 800 - height;
@@ -123,7 +123,7 @@ namespace Sprint0
 
         private void CheckLink()
         {
-            Rectangle linkPos = LinkRef.LinkPosition();
+            Rectangle linkPos = linkRef.LinkPosition();
 
             int linkX = linkPos.X + linkPos.Width / 2;
             int linkY = linkPos.Y + linkPos.Height / 2;

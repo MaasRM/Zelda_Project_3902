@@ -6,11 +6,10 @@ namespace Sprint0
     public class Fire : IItem
     {
         private Rectangle destination;
-        private Rectangle frame1;
-        private Rectangle frame2;
         private Rectangle spriteSource;
         private int frameIndex;
         private Texture2D sheet;
+        private SpriteEffects flip;
 
         public Fire(Rectangle startPos, Rectangle source, Texture2D spriteSheet)
         {
@@ -18,23 +17,15 @@ namespace Sprint0
             spriteSource = source;
             frameIndex = 0;
             sheet = spriteSheet;
-            frame1 = source;
-            frame2 = new Rectangle(source.X, source.Y + 8, source.Width, source.Height);
+            flip = SpriteEffects.FlipHorizontally;
+
         }
 
         public void Update()
         {
             frameIndex++;
-            if (frameIndex % 2 == 0)
-            {
-                spriteSource = frame1;
-            }
-            else if (frameIndex % 2 == 1)
-            {
-                spriteSource = frame2;
-            }
 
-            if (frameIndex > 40)
+            if(frameIndex >= 40)
             {
                 frameIndex = 0;
             }
@@ -43,7 +34,15 @@ namespace Sprint0
         public void Draw(SpriteBatch spriteBatch)
         {
 
-            spriteBatch.Draw(sheet, destination, spriteSource, Color.White);
+            if(frameIndex % 2  == 0)
+            {
+                spriteBatch.Draw(sheet, destination, spriteSource, Color.White);
+            }
+            else
+            {
+                spriteBatch.Draw(sheet, destination, spriteSource, Color.White, 0, new Vector2(0, 0), flip, 0f)
+            }
+            
 
         }
     }
