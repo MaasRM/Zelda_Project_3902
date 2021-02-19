@@ -27,7 +27,7 @@ namespace Sprint0
         private Direction initialDirection;
         private Direction secondDirection;
         private Activity activity;
-        private Link LinkRef;
+        private IPlayer LinkRef;
         private int xLoc;
         private int yLoc;
         private int width;
@@ -41,7 +41,7 @@ namespace Sprint0
         private Tuple<int, int> initial;
         private bool grab;
 
-        public WallmasterStateMachine(int x, int y, Link link, Direction d)
+        public WallmasterStateMachine(int x, int y, IPlayer link, Direction d)
         {
             xLoc = x;
             yLoc = y;

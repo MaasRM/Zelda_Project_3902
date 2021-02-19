@@ -13,10 +13,10 @@ namespace Sprint0
         private Rectangle source;
         private Rectangle destination;
         private AquamentusFireballTriad fireballs;
-        private Link linkRef;
+        private IPlayer linkRef;
         private Tuple<int, int> init;
 
-        public Aquamentus(int x, int y, Texture2D spriteSheet, Link link)
+        public Aquamentus(int x, int y, Texture2D spriteSheet, IPlayer link)
         {
             stateMachine = new AquamentusStateMachine(x, y);
             aquamentusSpriteSheet = spriteSheet;

@@ -25,7 +25,7 @@ namespace Sprint0
 
         private Direction direction;
         private Activity active;
-        private Link LinkRef;
+        private IPlayer LinkRef;
         private int xLoc;
         private int yLoc;
         private int width;
@@ -37,7 +37,7 @@ namespace Sprint0
         private const int returnMoveDist = 2;
         private Tuple<int, int> initial;
 
-        public TrapStateMachine(int x, int y, Link link)
+        public TrapStateMachine(int x, int y, IPlayer link)
         {
             xLoc = x;
             yLoc = y;

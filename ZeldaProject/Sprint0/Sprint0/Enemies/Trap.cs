@@ -12,15 +12,15 @@ namespace Sprint0
         private Texture2D trapSpriteSheet;
         private Rectangle source;
         private Rectangle destination;
-        private Link linkRef;
-        private Tuple<int, int, Link> init;
+        private IPlayer linkRef;
+        private Tuple<int, int, IPlayer> init;
 
-        public Trap(int x, int y, Texture2D spritesheet, Link link)
+        public Trap(int x, int y, Texture2D spritesheet, IPlayer link)
         {
             stateMachine = new TrapStateMachine(x, y, link);
             linkRef = link;
             trapSpriteSheet = spritesheet;
-            init = new Tuple<int, int, Link>(x, y, link);
+            init = new Tuple<int, int, IPlayer>(x, y, link);
         }
 
         public void Update()
