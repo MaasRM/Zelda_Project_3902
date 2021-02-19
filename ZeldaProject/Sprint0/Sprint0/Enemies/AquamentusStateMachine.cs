@@ -122,7 +122,7 @@ namespace Sprint0
 
         private void StopFiring()
         {
-            if(frame - lastFire == 8)
+            if(frame - lastFire == 8 && !firing)
             {
                 firing = !firing;
             }
