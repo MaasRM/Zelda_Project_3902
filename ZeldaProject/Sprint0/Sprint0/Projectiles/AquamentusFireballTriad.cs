@@ -81,7 +81,22 @@ namespace Sprint0
 
         public Rectangle GetSource()
         {
-            return new Rectangle(101 + frame % 4 * (width + 1), 11, width, height);
+            if(frame % 4 == 0)
+            {
+                return new Rectangle(101, 11, width, height);
+            }
+            else if (frame % 4 == 1)
+            {
+                return new Rectangle(110, 11, width, height);
+            }
+            else if (frame % 4 == 2)
+            {
+                return new Rectangle(119, 11, width, height);
+            }
+            else
+            {
+                return new Rectangle(128, 11, width, height);
+            }
         }
 
         private void setAngle(IPlayer link)
