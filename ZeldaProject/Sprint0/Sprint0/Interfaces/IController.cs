@@ -6,5 +6,6 @@ namespace Sprint0
     public interface IController
     {
         public void Update();
+        public void SetCommands(Sprint2 game);
     }
 }

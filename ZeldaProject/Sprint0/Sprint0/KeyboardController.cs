@@ -13,10 +13,14 @@ namespace Sprint0
 		private Dictionary<Keys, ICommand> otherCommands;
 		private ICommand linkIdleCommand;
 
-		public KeyboardController(Sprint2 game)
+		public KeyboardController()
 		{
 			linkActions = new Dictionary<Keys, ICommand>();
 			otherCommands = new Dictionary<Keys, ICommand>();
+		}
+
+		public void SetCommands(Sprint2 game)
+        {
 			linkActions.Add(Keys.W, new LinkFaceUpCommand(game));
 			linkActions.Add(Keys.Up, new LinkFaceUpCommand(game));
 			linkActions.Add(Keys.A, new LinkFaceLeftCommand(game));

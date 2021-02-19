@@ -39,7 +39,7 @@ namespace Sprint0
 
         protected override void Initialize()
         {
-            KeyboardController keyControls = new KeyboardController(this);
+            KeyboardController keyControls = new KeyboardController();
 
             controllerList.Add(keyControls);
 
@@ -54,7 +54,12 @@ namespace Sprint0
             dungeonSheet = contentManager.Load<Texture2D>("Dungeon_Tileset");
             block = new Block(new Rectangle (200, 200, 16, 16), new Rectangle(984, 11, 16, 16), dungeonSheet);
             npc = new Stalfos(520, 222, contentManager.Load<Texture2D>("Dungeon_Enemies"));
-            item = new BlueRupeeItem(new Rectangle(500, 100, 24, 48), new Rectangle(72, 16, 8, 16), contentManager.Load<Texture2D>("Dungeon_Items")); 
+            item = new BlueRupeeItem(new Rectangle(500, 100, 24, 48), new Rectangle(72, 16, 8, 16), contentManager.Load<Texture2D>("Dungeon_Items"));
+
+            foreach(IController controller in controllerList)
+            {
+                controller.SetCommands(this);
+            }
         }
 
         protected override void Update(GameTime gameTime)

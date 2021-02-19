@@ -28,6 +28,11 @@ namespace Sprint0
 			windowHeight = game.GraphicsDevice.Viewport.Height;
 		}
 
+		public void SetCommands(Sprint2 game)
+        {
+
+        }
+
 		public void Update()
 		{
 			MouseState state = Mouse.GetState();
