@@ -40,7 +40,7 @@ namespace Sprint0
             }
             else
             {
-                spriteBatch.Draw(sheet, destination, spriteSource, Color.White, 0, new Vector2(0, 0), flip, 0f)
+                spriteBatch.Draw(sheet, destination, spriteSource, Color.White, 0, new Vector2(0, 0), flip, 0f);
             }
             
 
