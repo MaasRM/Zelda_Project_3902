@@ -27,7 +27,7 @@ namespace Sprint0
         private Direction initialDirection;
         private Direction secondDirection;
         private Activity activity;
-        private IPlayer LinkRef;
+        private IPlayer linkRef;
         private int xLoc;
         private int yLoc;
         private int width;
@@ -52,6 +52,7 @@ namespace Sprint0
             grab = false;
             activity = Activity.Waiting;
             initialDirection = d;
+            linkRef = link;
         }
 
         public Rectangle GetDestination()
@@ -187,7 +188,7 @@ namespace Sprint0
 
         private void CheckLink()
         {
-            Rectangle linkPos = LinkRef.LinkPosition();
+            Rectangle linkPos = linkRef.LinkPosition();
 
             int linkX = linkPos.X + linkPos.Width / 2;
             int linkY = linkPos.Y + linkPos.Height / 2;
@@ -226,7 +227,7 @@ namespace Sprint0
 
         private void GrabLink()
         {
-            Rectangle linkPos = LinkRef.LinkPosition();
+            Rectangle linkPos = linkRef.LinkPosition();
 
             int linkX = linkPos.X + linkPos.Width / 2;
             int linkY = linkPos.Y + linkPos.Height / 2;

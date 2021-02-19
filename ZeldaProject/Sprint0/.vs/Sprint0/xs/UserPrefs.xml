@@ -2,10 +2,10 @@
   <MonoDevelop.Ide.ItemProperties.Sprint0 PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="Sprint0/Sprint2.cs" Line="60" Column="14" />
-      <File FileName="Sprint0/KeyboardController.cs" Line="11" Column="3" />
-      <File FileName="Sprint0/MouseController.cs" Line="31" Column="39" />
-      <File FileName="Sprint0/Interfaces/IController.cs" Line="9" Column="45" />
+      <File FileName="Sprint0/Sprint2.cs" Line="12" Column="6" />
+      <File FileName="Sprint0/Enemies/Wallmaster.cs" Line="1" Column="1" />
+      <File FileName="Sprint0/Enemies/WallmasterStateMachine.cs" Line="191" Column="34" />
+      <File FileName="Sprint0/Interfaces/IPlayer.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -15,9 +15,10 @@
               <Node name="Dependencies" expanded="True" />
               <Node name="Commands" expanded="True" />
               <Node name="Enemies" expanded="True" />
-              <Node name="Interfaces" expanded="True" />
+              <Node name="Interfaces" expanded="True">
+                <Node name="IPlayer.cs" selected="True" />
+              </Node>
               <Node name="Link" expanded="True" />
-              <Node name="Sprint2.cs" selected="True" />
             </Node>
           </Node>
         </State>
