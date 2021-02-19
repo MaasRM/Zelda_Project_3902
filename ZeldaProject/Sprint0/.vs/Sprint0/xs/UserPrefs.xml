@@ -2,10 +2,10 @@
   <MonoDevelop.Ide.ItemProperties.Sprint0 PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="Sprint0/Sprint2.cs" Line="12" Column="6" />
-      <File FileName="Sprint0/Enemies/Wallmaster.cs" Line="1" Column="1" />
-      <File FileName="Sprint0/Enemies/WallmasterStateMachine.cs" Line="191" Column="34" />
-      <File FileName="Sprint0/Interfaces/IPlayer.cs" Line="1" Column="1" />
+      <File FileName="Sprint0/Sprint2.cs" Line="1" Column="1" />
+      <File FileName="Sprint0/Enemies/AquamentusStateMachine.cs" Line="115" Column="32" />
+      <File FileName="Sprint0/Enemies/Aquamentus.cs" Line="41" Column="17" />
+      <File FileName="Sprint0/Projectiles/AquamentusFireballTriad.cs" Line="98" Column="41" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -13,12 +13,11 @@
           <Node name="Sprint0" expanded="True">
             <Node name="Sprint0" expanded="True">
               <Node name="Dependencies" expanded="True" />
-              <Node name="Commands" expanded="True" />
+              <Node name="Content" expanded="True" />
               <Node name="Enemies" expanded="True" />
-              <Node name="Interfaces" expanded="True">
-                <Node name="IPlayer.cs" selected="True" />
+              <Node name="Projectiles" expanded="True">
+                <Node name="AquamentusFireballTriad.cs" selected="True" />
               </Node>
-              <Node name="Link" expanded="True" />
             </Node>
           </Node>
         </State>
