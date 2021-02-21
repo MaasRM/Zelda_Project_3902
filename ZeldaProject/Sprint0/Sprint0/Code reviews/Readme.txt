@@ -28,7 +28,7 @@ Restart: R
 ************************************************************************************************************
 Enemies Wander Off The Screen: No edge detection present
 Link Can Move Off The Screen: No edge detection present
-Switching Between Items And Blocks Has No Delay, Skipping Over An Item or Block: Add in a delay for input reads
+Switching Between Items And Blocks Has No Delay, Potentially Skipping Over An Item or Block: Add in a delay for input reads
 
 ************************************************************************************************************
 											Other Tools
@@ -38,4 +38,4 @@ Used github respository and GitHub Extention For Visual Studio
 ************************************************************************************************************
 											Code Analysis
 ************************************************************************************************************
-
+0 Errors and 0 Warnings Present
