@@ -27,7 +27,7 @@ has little to do with the rest of the method.
 ************************************************************************************************************
 
 Nathan Schultz 2/21/2021 Sprint2
-RectangleLinkMoveRightAttack.cs - 
+RectangleLinkMoveRightAttack.cs - Riley Maas
 Comments on maintainability:
 	- Class is simple in fucntionality, perhaps too simple.
 	- Magic numbers only used for sprite positions on spritesheet, makes sense though would need to be  redone if the sheet changed.
