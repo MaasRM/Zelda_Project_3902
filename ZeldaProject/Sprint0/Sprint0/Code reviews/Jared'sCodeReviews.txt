@@ -1,0 +1,47 @@
+﻿************************************************************************************************************
+								 Team 3, Jared Zins Code Reviews
+************************************************************************************************************
+
+Jared Zins: Review FairyItem.cs for readability, Review Link.cs for maintainability
+
+************************************************************************************************************
+											Readability
+************************************************************************************************************
+
+Jared Zins
+2/22/2021
+Sprint 2
+Review of FairyItem.cs
+Written by Phil Brocker
+Number of minutes taken to complete review: 5 minutes
+
+Comments on Readability:
+	- Very short class so readability is not based on much
+	- Frame1 and frame2 are a bit vague but I assume it is the item animating
+	- The main body of the code is part of the update method which is straight-forward checking the frame
+	and changes which sprite to use/draw.
+
+	Overall the code is very readable. There are very few fields and even fewer methods. Making it very clear
+	what is going on in the class. 
+
+************************************************************************************************************
+											Maintainability
+************************************************************************************************************
+
+Jared Zins
+2/22/2021
+Sprint 2
+Review of Link.cs
+Written by Riley Maas
+
+Comments on Maintainability:
+	- There are not as many magic numbers as I thought there would be in one of the main classes.
+	- Use of enums is good
+	- perhaps changing how the spritesheets are handled could reduce the amount of loading to be done multiple times
+
+Hypothetical changes:
+	- If it is possible, create an array or collection of the various spritesheets to be passed to the class. This
+	will cause the spritesheets to be loaded one time rather than multiple times.
+	- If prior comment is possible it will remove the need to pass the contentmanager to the class.
+	- Remove unused variable from the class as it is only passed into a method and compared in if statements
+
