@@ -39,3 +39,6 @@ Hypothetical Changes:
 	- If a new color or direction needed to be implimented, this could easily be added with the use of enums
 	- If for some reason the enemy needed to move in the x and y direction at the same time, this would increase the complexity
 		of the move method. I think the use of vectors could combat this problem.
+
+Overall this class is in good shape for maintaining it in the future. My two reccomendations would be to reduce the number
+of magic numbers as well as using a position and velocity vector to compute and update the enemies location.
