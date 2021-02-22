@@ -1,0 +1,46 @@
+************************************************************************************************************
+											Riley's Code Reviews
+************************************************************************************************************
+
+Riley Maas: Review LinkStateMachine.cs for readability, Review BowItem.cs for maintainability
+
+************************************************************************************************************
+											Readability
+************************************************************************************************************
+
+Riley Maas 2/22/2021 Sprint2
+LinkStateMachine.cs - Jacob Kline
+Minutes: 18 
+Comments on readability:
+	- 3 Enumerated types present, their names are understandable and logical
+	- There are many private data types at the top of the class, however these seem needed and are well-named
+	- In the constructor all private instance data is used and it is easy to understand what they're used for
+	- getDestination() method is a little confusing on first glance, however makes sense that it is needed to shift sprite location
+	- getSource() method very clear and easy to read
+	- Update() method used to update the current frame of animation and projectiles, clear purpose
+	- 4 methods for updating position depending on the direction and state of Link, makes it very easy to understand
+			what gets changed and why, as these are well-named
+	- 3 set methods in order to change the Link state, uses enumerated types provided
+	- 6 get methods with clear names and simple purposes
+
+All in all, many single-purpose methods are used, which make code easily readable and understandable. No problems in understanding
+code are present.
+
+************************************************************************************************************
+											Maintainability
+************************************************************************************************************
+
+Riley Maas 2/22/2021 Sprint2
+BowItem.cs - Phil Brocker
+Comments on maintainability:
+	- No magic numbers are present, should be flexable enough to refactor logic
+	- 3 private instance data types are given, all of which are used in the constructor, would be easy to change types or update constructor
+	- Empty update method given, would be easy to refactor the class to add functionality
+	- Simple draw method given, uses the spriteBatch passed in and instance data to call. Again, easy to refactor
+
+Hypothetical Changes:
+	- If object despawing or other object functionality is needed, the update method could be refactored for this purpose
+	- No magic numbers or local scope members are present, meaning the code would be easy to change if new functionality is necessary
+
+Overall, this class should be easy to refactor, as it only uses 3 private instance data values and has a simple constructor
+		any necessary change would be easy to implement.
