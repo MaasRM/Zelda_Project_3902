@@ -24,6 +24,13 @@ Quit: Q
 Restart: R
 
 ************************************************************************************************************
+										Notes on Functionality
+************************************************************************************************************
+
+Wallmaster enemy only appears when Link is nearby, so its location for testing purposes was hardcoded at
+(400, 400) or in the middle of the screen towrads the bottom.
+
+************************************************************************************************************
 											Known Bugs
 ************************************************************************************************************
 Enemies Wander Off The Screen: No edge detection present
