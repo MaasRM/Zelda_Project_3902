@@ -1,0 +1,42 @@
+﻿************************************************************************************************************
+								 Team 3, Nathan Schultz Code Reviews
+************************************************************************************************************
+
+Nathan Schultz: Review Block.cs for readability, Review RectangleLinkMoveRightAttack.cs for maintainability
+
+************************************************************************************************************
+											Readability
+************************************************************************************************************
+
+Nathan Schultz 2/22/2021 Sprint2
+Block.cs - Jared Zins
+Minutes: 20 
+Comments on readability:
+	- Methods an fields have names which clearly show their functions.
+	- Most private fields used, although the field game seems to not be used ever.
+	- blockIndex field intialized outside consturctor and is public though seemingly never used in outside classes.
+	- Code that deals with updating blockIndex found within update method away from other methods updating the blocks.
+	- Update() method long, but deals with grabbing rectangles so that makes sense.
+
+Class is very readible overall since all methods and fields have claer names which show their functionality. Code is
+easy to undersand, although the first section of the Update() method may be separated into its own method since it
+has little to do with the rest of the method.
+
+************************************************************************************************************
+											Maintainability
+************************************************************************************************************
+
+Nathan Schultz 2/21/2021 Sprint2
+RectangleLinkMoveRightAttack.cs - Riley Maas
+Comments on maintainability:
+	- Class is simple in fucntionality, perhaps too simple.
+	- Magic numbers only used for sprite positions on spritesheet, makes sense though would need to be  redone if the sheet changed.
+	- Empty constructor due to lack of fields for class to store.
+
+Hypothetical Changes:
+	- Removal of color parameter from getRectangle() method as it is not urrently used.
+	- Possible combination with other Link Rectanngels by sending in enum values to the getRectangle() method as to reduce the number of classes.
+
+The simplicity of this class makes it easy in terms of maintainability. Suggestions for improvement include removing the unused color parameter
+from the getRectangle() method since it is not used, and possibly combininig this class with otehrs to reduce the amount of classes present in
+the final build.

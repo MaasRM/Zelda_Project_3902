@@ -174,7 +174,6 @@ namespace Sprint0
             {
                 active = Activity.Returning;
             }
-
         }
 
         private void Returned()
