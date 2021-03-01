@@ -11,16 +11,16 @@ namespace Sprint0
     {
         private LinkStateMachine stateMachine;
         private Texture2D linkSpriteSheet;
-        private ContentManager contentManager;
+        private List<Texture2D> linkSheetList;
         private Rectangle source;
         private Rectangle destination;
         private LinkColor currentColor;
         private int damageFrameCount;
 
-        public Link(Texture2D spriteSheet, ContentManager contentManager)
+        public Link(Texture2D spriteSheet, List<Texture2D> linkSheetList)
         {
             stateMachine = new LinkStateMachine();
-            this.contentManager = contentManager;
+            this.linkSheetList = linkSheetList;
             linkSpriteSheet = spriteSheet;
             currentColor = LinkColor.Green;
             damageFrameCount = 0;
@@ -40,19 +40,20 @@ namespace Sprint0
             {
                 if (damageFrameCount %4 == 0)
                 {
-                    linkSpriteSheet = contentManager.Load<Texture2D>("LinkSpriteSheetBlack");
+                    linkSpriteSheet = linkSheetList[1];
+                        //contentManager.Load<Texture2D>("LinkSpriteSheetBlack");
                 }
                 else if (damageFrameCount %4 == 3)
                 {
-                    linkSpriteSheet = contentManager.Load<Texture2D>("LinkSpriteSheetRed");
+                    linkSpriteSheet = linkSheetList[2];
                 }
                 else if (damageFrameCount %4 == 2)
                 {
-                    linkSpriteSheet = contentManager.Load<Texture2D>("LinkSpriteSheetBlue");
+                    linkSpriteSheet = linkSheetList[3];
                 }
                 else //damageFrameCount %4 == 1
                 {
-                    linkSpriteSheet = contentManager.Load<Texture2D>("LinkSpriteSheet");
+                    linkSpriteSheet = linkSheetList[0];
                 }
                 if (damageFrameCount == 24)
                 {
@@ -63,7 +64,7 @@ namespace Sprint0
             else
             {
                 damageFrameCount = 0;
-                linkSpriteSheet = contentManager.Load<Texture2D>("LinkSpriteSheet");
+                linkSpriteSheet = linkSheetList[0];
             }
             currentColor = stateMachine.getColor();
             stateMachine.Update();

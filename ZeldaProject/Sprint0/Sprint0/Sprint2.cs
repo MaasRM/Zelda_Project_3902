@@ -14,6 +14,7 @@ namespace Sprint0
         private ContentManager contentManager;
         private SpriteBatch _spriteBatch;
         private List<IController> controllerList;
+        private List<Texture2D> linkSheetList;
         public IPlayer link;
         public IBlock block;
         private INPC npc;
@@ -30,6 +31,7 @@ namespace Sprint0
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
             controllerList = new List<IController>();
+            linkSheetList = new List<Texture2D>();
             frame = 0;
             npcIndex = 0;
             itemIndex = 0;
@@ -50,7 +52,11 @@ namespace Sprint0
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            link = new Link(contentManager.Load<Texture2D>("LinkSpriteSheet"), contentManager);
+            linkSheetList.Add(contentManager.Load<Texture2D>("LinkSpriteSheet")); // 0 is green
+            linkSheetList.Add(contentManager.Load<Texture2D>("LinkSpriteSheetBlack")); // 1 is black
+            linkSheetList.Add(contentManager.Load<Texture2D>("LinkSpriteSheetRed")); // 2 is red
+            linkSheetList.Add(contentManager.Load<Texture2D>("LinkSpriteSheetBlue")); // 3 is blue
+            link = new Link(contentManager.Load<Texture2D>("LinkSpriteSheet"), linkSheetList);
             dungeonSheet = contentManager.Load<Texture2D>("Dungeon_Tileset");
             block = new Block(new Rectangle (200, 200, 16, 16), new Rectangle(984, 11, 16, 16), dungeonSheet);
             npc = new Stalfos(520, 222, contentManager.Load<Texture2D>("Dungeon_Enemies"));
@@ -89,6 +95,7 @@ namespace Sprint0
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
+
             this._spriteBatch.Begin();
 
             
