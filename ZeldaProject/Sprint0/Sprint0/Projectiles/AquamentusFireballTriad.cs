@@ -46,7 +46,7 @@ namespace Sprint0
 
             if (angle == Angle.Above)
             {
-                y1 -= xMoveDist * Math.Tan(40 * Math.PI / 180) * PIXELSCALER;
+                y1 -= xMoveDist * Math.Tan(36 * Math.PI / 180) * PIXELSCALER;
                 y2 -= xMoveDist * Math.Tan(22 * Math.PI / 180) * PIXELSCALER;
                 y3 -= xMoveDist * Math.Tan(5 * Math.PI / 180) * PIXELSCALER;
             }
@@ -57,7 +57,7 @@ namespace Sprint0
             }
             else
             {
-                y1 += xMoveDist * Math.Tan(40 * Math.PI / 180) * PIXELSCALER;
+                y1 += xMoveDist * Math.Tan(36 * Math.PI / 180) * PIXELSCALER;
                 y2 += xMoveDist * Math.Tan(22 * Math.PI / 180) * PIXELSCALER;
                 y3 += xMoveDist * Math.Tan(5 * Math.PI / 180) * PIXELSCALER;
             }
