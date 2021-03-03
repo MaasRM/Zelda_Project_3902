@@ -88,11 +88,11 @@ namespace Sprint0
                 {
                     yLoc += wallMoveDist * PIXELSCALER;
                 }
-                if (initialDirection == Direction.Up)
+                else if (initialDirection == Direction.Up)
                 {
                     yLoc -= wallMoveDist * PIXELSCALER;
                 }
-                if (initialDirection == Direction.Left)
+                else if (initialDirection == Direction.Left)
                 {
                     xLoc -= wallMoveDist * PIXELSCALER;
                 }
@@ -108,11 +108,11 @@ namespace Sprint0
                 {
                     yLoc += floorMoveDist * PIXELSCALER;
                 }
-                if (secondDirection == Direction.Up)
+                else if (secondDirection == Direction.Up)
                 {
                     yLoc -= floorMoveDist * PIXELSCALER;
                 }
-                if (secondDirection == Direction.Left)
+                else if (secondDirection == Direction.Left)
                 {
                     xLoc -= floorMoveDist * PIXELSCALER;
                 }
@@ -129,11 +129,11 @@ namespace Sprint0
                 {
                     yLoc -= wallMoveDist * PIXELSCALER;
                 }
-                if (initialDirection == Direction.Up)
+                else if (initialDirection == Direction.Up)
                 {
                     yLoc += wallMoveDist * PIXELSCALER;
                 }
-                if (initialDirection == Direction.Left)
+                else if (initialDirection == Direction.Left)
                 {
                     xLoc += wallMoveDist * PIXELSCALER;
                 }
