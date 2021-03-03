@@ -8,7 +8,6 @@ namespace Sprint0
 {
     public class OldMan : INPC
     {
-        private StalfosStateMachine stateMachine;
         private Texture2D oldManSpriteSheet;
         private Rectangle source;
         private Rectangle destination;
