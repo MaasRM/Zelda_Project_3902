@@ -46,19 +46,19 @@ namespace Sprint0
 
             if (angle == Angle.Above)
             {
-                y1 -= xMoveDist * Math.Tan(65 * Math.PI / 180) * PIXELSCALER;
-                y2 -= xMoveDist * Math.Tan(35 * Math.PI / 180) * PIXELSCALER;
+                y1 -= xMoveDist * Math.Tan(40 * Math.PI / 180) * PIXELSCALER;
+                y2 -= xMoveDist * Math.Tan(22 * Math.PI / 180) * PIXELSCALER;
                 y3 -= xMoveDist * Math.Tan(5 * Math.PI / 180) * PIXELSCALER;
             }
             else if (angle == Angle.Middle)
             {
-                y1 -= xMoveDist * Math.Tan(30 * Math.PI / 180) * PIXELSCALER;
-                y3 += xMoveDist * Math.Tan(30 * Math.PI / 180) * PIXELSCALER;
+                y1 -= xMoveDist * Math.Tan(20 * Math.PI / 180) * PIXELSCALER;
+                y3 += xMoveDist * Math.Tan(20 * Math.PI / 180) * PIXELSCALER;
             }
             else
             {
-                y1 += xMoveDist * Math.Tan(65 * Math.PI / 180) * PIXELSCALER;
-                y2 += xMoveDist * Math.Tan(35 * Math.PI / 180) * PIXELSCALER;
+                y1 += xMoveDist * Math.Tan(40 * Math.PI / 180) * PIXELSCALER;
+                y2 += xMoveDist * Math.Tan(22 * Math.PI / 180) * PIXELSCALER;
                 y3 += xMoveDist * Math.Tan(5 * Math.PI / 180) * PIXELSCALER;
             }
         }
