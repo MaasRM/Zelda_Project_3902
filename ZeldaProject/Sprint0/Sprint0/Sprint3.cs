@@ -24,6 +24,7 @@ namespace Sprint0
         private int frame;
         private int npcIndex;
         private int itemIndex;
+        private Tuple<IPlayer, List<IBlock>, List<IItem>, List<INPC>, List<IProjectile>> gameObjects;
 
         public Sprint3()
         {
