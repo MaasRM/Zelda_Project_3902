@@ -11,7 +11,6 @@ namespace Sprint0
         private Texture2D blockSpriteSheet;
         private Rectangle blockSource;
         private Rectangle blockDestination;
-        private Sprint2 game;
         private int scale = 3;
         public int blockIndex = 0;
 
