@@ -6,7 +6,6 @@ namespace Sprint0
     public class AllCollisionHandler
     {
 
-
         public AllCollisionHandler()
         {
             
