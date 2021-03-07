@@ -16,7 +16,7 @@ namespace Sprint0
 		private int windowHeight;
 		
 
-		public MouseController(Sprint2 game)
+		public MouseController(Sprint3 game)
 		{
 			quit = new QuitCommand(game);
 			standStill = new StationaryStillStateCommand(game);
@@ -28,7 +28,7 @@ namespace Sprint0
 			windowHeight = game.GraphicsDevice.Viewport.Height;
 		}
 
-		public void SetCommands(Sprint2 game)
+		public void SetCommands(Sprint3 game)
         {
 
         }
