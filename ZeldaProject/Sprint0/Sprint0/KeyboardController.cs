@@ -19,7 +19,7 @@ namespace Sprint0
 			otherCommands = new Dictionary<Keys, ICommand>();
 		}
 
-		public void SetCommands(Sprint2 game)
+		public void SetCommands(Sprint3 game)
         {
 			linkActions.Add(Keys.W, new LinkFaceUpCommand(game));
 			linkActions.Add(Keys.Up, new LinkFaceUpCommand(game));

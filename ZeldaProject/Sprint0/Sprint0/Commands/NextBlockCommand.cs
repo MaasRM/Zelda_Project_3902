@@ -5,9 +5,9 @@ namespace Sprint0
 {
     public class NextBlockCommand : ICommand
     {
-        private Sprint2 game;
+        private Sprint3 game;
 
-        public NextBlockCommand(Sprint2 sprint)
+        public NextBlockCommand(Sprint3 sprint)
         {
             game = sprint;
         }

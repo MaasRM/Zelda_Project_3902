@@ -5,9 +5,9 @@ namespace Sprint0
 {
     public class PreviousEnemyCommand : ICommand
     {
-        private Sprint2 game;
+        private Sprint3 game;
         private List<INPC> nonPlayers;
-        public PreviousEnemyCommand(Sprint2 sprint)
+        public PreviousEnemyCommand(Sprint3 sprint)
         {
             game = sprint;
             nonPlayers = new List<INPC>();

@@ -6,8 +6,8 @@ namespace Sprint0
 {
     public class LinkIdleCommand : ICommand
     {
-        private Sprint2 game;
-        public LinkIdleCommand(Sprint2 sprint)
+        private Sprint3 game;
+        public LinkIdleCommand(Sprint3 sprint)
         {
             game = sprint;
         }

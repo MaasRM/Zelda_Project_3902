@@ -5,9 +5,9 @@ namespace Sprint0
 {
     public class PreviousItemCommand : ICommand
     {
-        private Sprint2 game;
+        private Sprint3 game;
         private List<IItem> items;
-        public PreviousItemCommand(Sprint2 sprint)
+        public PreviousItemCommand(Sprint3 sprint)
         {
             game = sprint;
             items = new List<IItem>();

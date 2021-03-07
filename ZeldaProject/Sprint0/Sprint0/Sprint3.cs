@@ -8,7 +8,7 @@ using System.Text;
 
 namespace Sprint0
 {
-    public class Sprint2 : Game
+    public class Sprint3 : Game
     {
         private GraphicsDeviceManager _graphics;
         private ContentManager contentManager;
@@ -25,7 +25,7 @@ namespace Sprint0
         private int npcIndex;
         private int itemIndex;
 
-        public Sprint2()
+        public Sprint3()
         {
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
