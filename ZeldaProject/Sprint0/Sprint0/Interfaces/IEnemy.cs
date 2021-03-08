@@ -3,7 +3,6 @@ namespace Sprint0
 {
     public interface IEnemy
     {
-        public void BlockCollide();
-        public void PlayerCollide();
+        public void Damage();
     }
 }

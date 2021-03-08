@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Sprint0
 {
-    public class Wallmaster : INPC
+    public class Wallmaster : INPC, IEnemy
     {
         private WallmasterStateMachine stateMachine;
         private Texture2D wallmasterSpriteSheet;
@@ -61,6 +61,11 @@ namespace Sprint0
         public void Reset()
         {
             stateMachine = new WallmasterStateMachine(init.Item1, init.Item2, init.Item3, init.Item4);
+        }
+
+        public void Damage()
+        {
+
         }
     }
 }

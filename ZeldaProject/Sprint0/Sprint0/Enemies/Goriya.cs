@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Sprint0
 {
-    public class Goriya : INPC
+    public class Goriya : INPC, IEnemy
     {
         private GoriyaStateMachine stateMachine;
         private GoriyaBoomerang boomerang;
@@ -73,6 +73,11 @@ namespace Sprint0
         public void Reset()
         {
             stateMachine = new GoriyaStateMachine(init.Item1, init.Item2, init.Item3);
+        }
+
+        public void Damage()
+        {
+
         }
     }
 }

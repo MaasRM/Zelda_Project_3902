@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Sprint0
 {
-    public class Keese : INPC
+    public class Keese : INPC, IEnemy
     {
         private KeeseStateMachine stateMachine;
         private Texture2D keeseSpriteSheet;
@@ -36,6 +36,11 @@ namespace Sprint0
         public void Reset()
         {
             stateMachine = new KeeseStateMachine(init.Item1, init.Item2, init.Item3);
+        }
+
+        public void Damage()
+        {
+
         }
     }
 }

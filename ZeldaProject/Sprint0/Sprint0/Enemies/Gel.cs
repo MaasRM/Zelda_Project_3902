@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Sprint0
 {
-    public class Gel : INPC
+    public class Gel : INPC, IEnemy
     {
         private GelStateMachine stateMachine;
         private Texture2D gelSpriteSheet;
@@ -37,6 +37,11 @@ namespace Sprint0
         public void Reset()
         {
             stateMachine = new GelStateMachine(init.Item1, init.Item2, init.Item3);
+        }
+
+        public void Damage()
+        {
+
         }
     }
 }

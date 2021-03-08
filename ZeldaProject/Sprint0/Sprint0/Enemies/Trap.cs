@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Sprint0
 {
-    public class Trap : INPC
+    public class Trap : INPC, IEnemy
     {
         private TrapStateMachine stateMachine;
         private Texture2D trapSpriteSheet;
@@ -37,7 +37,12 @@ namespace Sprint0
 
         public void Reset()
         {
-            stateMachine = new TrapStateMachine(init.Item1, init.Item2,init.Item3);
+            stateMachine = new TrapStateMachine(init.Item1, init.Item2, init.Item3);
+        }
+
+        public void Damage()
+        {
+
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Sprint0
 {
-    public class Stalfos : INPC
+    public class Stalfos : INPC, IEnemy
     {
         private StalfosStateMachine stateMachine;
         private Texture2D stalfosSpriteSheet;
@@ -45,6 +45,11 @@ namespace Sprint0
         public void Reset()
         {
             stateMachine = new StalfosStateMachine(init.Item1, init.Item2);
+        }
+
+        public void Damage()
+        {
+
         }
     }
 }

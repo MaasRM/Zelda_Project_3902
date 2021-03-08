@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Sprint0
 {
-    public class Aquamentus : INPC
+    public class Aquamentus : INPC, IEnemy
     {
         private AquamentusStateMachine stateMachine;
         private Texture2D aquamentusSpriteSheet;
@@ -54,6 +54,11 @@ namespace Sprint0
         public void Reset()
         {
             stateMachine = new AquamentusStateMachine(init.Item1, init.Item2);
+        }
+
+        public void Damage()
+        {
+
         }
     }
 }
