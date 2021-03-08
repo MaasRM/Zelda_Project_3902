@@ -20,7 +20,6 @@ namespace Sprint0
         private INPC npc;
         private IItem item;
         public Texture2D dungeonSheet;
-        //private List<IBlock> blocks;
         private int frame;
         private int npcIndex;
         private int itemIndex;
