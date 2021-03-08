@@ -6,11 +6,39 @@ namespace Sprint0
 {
     public class AllCollisionHandler
     {
-        private Tuple<IPlayer, List<IBlock>, List<IItem>, List<INPC>, List<IProjectile>> gameObjects;
+        private int cameraWallMinX;
+        private int cameraWallMinY;
+        private int cameraWallMaxX;
+        private int cameraWallMaxY;
 
-        public AllCollisionHandler(Tuple<IPlayer, List<IBlock>, List<IItem>, List<INPC>, List<IProjectile>> obs)
+        public AllCollisionHandler(int x1, int x2, int y1, int y2)
         {
-            gameObjects = obs;
+            cameraWallMinX = x1;
+            cameraWallMinY = y1;
+            cameraWallMaxX = x2;
+            cameraWallMaxY = y2;
+        }
+
+        public void HandleCollisions(IPlayer player, List<INPC> npcs, List<IItem> items, List<IBlock> blocks, List<IProjectile> projectiles)
+        {
+            CheckWalls(player, npcs, blocks);
+            PlayerEnemyCollisions(player, npcs);
+        }
+
+        private void CheckWalls(IPlayer player, List<INPC> npcs, List<IBlock> blocks)
+        {
+
+        }
+
+        private void PlayerEnemyCollisions(IPlayer player, List<INPC> npcs)
+        {
+            foreach(INPC nPC in npcs)
+            {
+                if(nPC is IEnemy)
+                {
+
+                }
+            }
         }
     }
 }
