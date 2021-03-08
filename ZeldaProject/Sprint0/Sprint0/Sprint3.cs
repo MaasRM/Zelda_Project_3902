@@ -23,7 +23,11 @@ namespace Sprint0
         private int frame;
         private int npcIndex;
         private int itemIndex;
-        private Tuple<IPlayer, List<IBlock>, List<IItem>, List<INPC>, List<IProjectile>> gameObjects;
+        //Tuples are immutable turns out, so just update these instead on room switch
+        private List<IBlock> blocks;
+        private List<IItem> items;
+        private List<INPC> npcs;
+        private List<IProjectile> projectiles;
 
         public Sprint3()
         {
