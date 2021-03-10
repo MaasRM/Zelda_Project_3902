@@ -37,7 +37,17 @@ namespace Sprint0
             {
                 if(nPC is IEnemy)
                 {
+                    if(nPC is Trap)
+                    {
+                        EnemyProximityTrigger.CheckToTriggerTrap(player, (Trap)nPC);
+                    }
 
+                    if (nPC is Wallmaster)
+                    {
+                        EnemyProximityTrigger.CheckToTriggerWallmaster(player, (Wallmaster) nPC);
+                    }
+
+                    
                 }
             }
         }
