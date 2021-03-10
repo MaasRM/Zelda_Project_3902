@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 namespace Sprint0
 {
@@ -7,5 +8,7 @@ namespace Sprint0
         public void Update();
 
         public void Draw(SpriteBatch spriteBatch);
+
+        public Rectangle GetLocationRectangle();
     }
 }

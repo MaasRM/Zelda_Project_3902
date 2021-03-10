@@ -1,11 +1,13 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System.Text;
 
 namespace Sprint0
 {
-    class SwordProjectile : IProjectile
+    class SwordProjectile : IProjectile, IPlayerProjectile
     {
         //This class is for the sword beam mechanic when link is at full health. Not used in sprint 2
 
@@ -25,6 +27,11 @@ namespace Sprint0
         public void Draw(SpriteBatch spriteBatch)
         {
 
+        }
+
+        public Rectangle GetProjectileLocation()
+        {
+            return new Rectangle(1, 1, 1, 1);
         }
     }
 }

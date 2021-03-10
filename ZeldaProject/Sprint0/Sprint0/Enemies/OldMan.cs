@@ -37,5 +37,10 @@ namespace Sprint0
             destination = new Rectangle(init.Item1, init.Item2, 16 * SCALER, 16 * SCALER);
             source = new Rectangle(1, 11, 16, 16);
         }
+
+        public Rectangle GetNPCLocation()
+        {
+            return destination;
+        }
     }
 }

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 namespace Sprint0
 {
-    public class GoriyaBoomerang : IProjectile
+    public class GoriyaBoomerang : IProjectile, IEnemyProjectile
     {
         private GoriyaStateMachine goriyaState;
         private Texture2D spritesheet;
@@ -82,6 +82,11 @@ namespace Sprint0
             {
                 goriyaState.BoomerangReturned();
             }
+        }
+
+        public Rectangle GetProjectileLocation()
+        {
+            return GetDestination();
         }
 
         private void InitialPosition()

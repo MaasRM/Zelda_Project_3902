@@ -45,5 +45,10 @@ namespace Sprint0
             
 
         }
+
+        public Rectangle GetLocationRectangle()
+        {
+            return destination;
+        }
     }
 }

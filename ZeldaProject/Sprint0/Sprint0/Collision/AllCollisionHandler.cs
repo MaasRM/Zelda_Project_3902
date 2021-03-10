@@ -23,6 +23,9 @@ namespace Sprint0
         {
             CheckWalls(player, npcs, blocks);
             PlayerEnemyCollisions(player, npcs);
+            PlayerItemCollisions(player, items);
+            BlockCollisions(player, npcs, blocks);
+            ProjectileCollisions(player, npcs, projectiles);
         }
 
         private void CheckWalls(IPlayer player, List<INPC> npcs, List<IBlock> blocks)
@@ -36,7 +39,57 @@ namespace Sprint0
             {
                 if(nPC is IEnemy)
                 {
+                    if(nPC is Trap)
+                    {
+                        EnemyProximityTrigger.CheckToTriggerTrap(player, (Trap) nPC);
+                    }
 
+                    if (nPC is Wallmaster)
+                    {
+                        EnemyProximityTrigger.CheckToTriggerWallmaster(player, (Wallmaster) nPC);
+                    }
+
+                    if (nPC.GetNPCLocation().Intersects(player.LinkPosition()))
+                    {
+                        LinkEnemyHandler.HandleCollision(player, (IEnemy) nPC);
+                    }
+
+                }
+            }
+        }
+
+        private void PlayerItemCollisions(IPlayer player, List<IItem> items)
+        {
+            foreach (IItem item in items)
+            {
+                if (item.GetLocationRectangle().Intersects(player.LinkPosition()))
+                {
+                    LinkItemHandler(player, item);
+                }
+            }
+        }
+
+        private void BlockCollisions(IPlayer player, List<INPC> npcs, List<IBlock> blocks)
+        {
+            foreach (IBlock block in blocks)
+            {
+                
+            }
+        }
+
+        private void ProjectileCollisions(IPlayer player, List<INPC> npcs, List<IProjectile> projectiles)
+        {
+            foreach (IProjectile projectile in projectiles)
+            {
+                if(projectile is IPlayerProjectile)
+                {
+                    foreach(INPC nPC in npcs)
+                    {
+                        if(nPC is IEnemy)
+                        {
+
+                        }
+                    }
                 }
             }
         }

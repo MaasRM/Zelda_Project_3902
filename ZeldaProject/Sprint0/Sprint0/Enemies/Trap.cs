@@ -40,6 +40,11 @@ namespace Sprint0
             stateMachine = new TrapStateMachine(init.Item1, init.Item2, init.Item3);
         }
 
+        public Rectangle GetNPCLocation()
+        {
+            return destination;
+        }
+
         public void Damage()
         {
 

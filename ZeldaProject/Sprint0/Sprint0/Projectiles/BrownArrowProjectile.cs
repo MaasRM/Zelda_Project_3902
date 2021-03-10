@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Sprint0
 {
-    class BrownArrowProjectile : IProjectile
+    class BrownArrowProjectile : IProjectile, IPlayerProjectile
     {
         private LinkStateMachine stateMachine;
         private Rectangle sourceRectangle;
@@ -114,6 +114,11 @@ namespace Sprint0
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(spritesheet, destinationRectangle, sourceRectangle, Color.White, 0, new Vector2(0, 0), flip, 0f);
+        }
+
+        public Rectangle GetProjectileLocation()
+        {
+            return destinationRectangle;
         }
     }
 }

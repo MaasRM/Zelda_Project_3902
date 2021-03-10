@@ -47,6 +47,11 @@ namespace Sprint0
             stateMachine = new StalfosStateMachine(init.Item1, init.Item2);
         }
 
+        public Rectangle GetNPCLocation()
+        {
+            return destination;
+        }
+
         public void Damage()
         {
 

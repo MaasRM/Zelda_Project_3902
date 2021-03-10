@@ -63,6 +63,11 @@ namespace Sprint0
             stateMachine = new WallmasterStateMachine(init.Item1, init.Item2, init.Item3, init.Item4);
         }
 
+        public Rectangle GetNPCLocation()
+        {
+            return destination;
+        }
+
         public void Damage()
         {
 
