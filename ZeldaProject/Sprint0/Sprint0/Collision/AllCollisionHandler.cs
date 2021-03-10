@@ -46,7 +46,11 @@ namespace Sprint0
                         EnemyProximityTrigger.CheckToTriggerWallmaster(player, (Wallmaster) nPC);
                     }
 
-                    
+                    if (nPC.GetNPCLocation().Intersects(player.LinkPosition()))
+                    {
+                        LinkEnemyHandler.HandleCollision(player, (IEnemy) nPC);
+                    }
+
                 }
             }
         }

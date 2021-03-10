@@ -43,5 +43,10 @@ namespace Sprint0
         {
 
         }
+
+        public Rectangle GetNPCLocation()
+        {
+            return destination;
+        }
     }
 }
