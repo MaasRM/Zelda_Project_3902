@@ -56,14 +56,14 @@ namespace Sprint0
             stateMachine = new AquamentusStateMachine(init.Item1, init.Item2);
         }
 
-        public void Damage()
-        {
-
-        }
-
         public Rectangle GetNPCLocation()
         {
             return destination;
+        }
+
+        public void Damage()
+        {
+
         }
     }
 }
