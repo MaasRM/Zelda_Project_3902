@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics;
+
 namespace Sprint0
 {
     public class NextRoomCommand : ICommand
@@ -11,7 +13,7 @@ namespace Sprint0
 
         public void Execute()
         {
-            Console.WriteLine("Next Room Selected");
+            Debug.WriteLine("Next Room Selected");
         }
     }
 }
