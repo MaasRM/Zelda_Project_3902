@@ -79,9 +79,18 @@ namespace Sprint0
 
         private void ProjectileCollisions(IPlayer player, List<INPC> npcs, List<IProjectile> projectiles)
         {
-            foreach (IProjectile projerctiles in projectiles)
+            foreach (IProjectile projectile in projectiles)
             {
+                if(projectile is IPlayerProjectile)
+                {
+                    foreach(INPC nPC in npcs)
+                    {
+                        if(nPC is IEnemy)
+                        {
 
+                        }
+                    }
+                }
             }
         }
     }

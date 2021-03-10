@@ -5,13 +5,20 @@ using System.Collections.Generic;
 using System.Text;
 namespace Sprint0
 {
-    public class AquamentusFireballTriad : IProjectile
+    public class AquamentusFireballTriad : IProjectile, IEnemyProjectile
     {
         private enum Angle
         {
             Above,
             Middle,
             Below
+        }
+
+        private enum Ball
+        {
+            Up,
+            Center,
+            Down
         }
 
         private Texture2D spritesheet;
@@ -79,7 +86,12 @@ namespace Sprint0
             }
         }
 
-        public Rectangle GetSource()
+        public Rectangle GetProjectileLocation()
+        {
+            return new Rectangle((int)x1, (int)y1, width * PIXELSCALER, height * PIXELSCALER);
+        }
+
+        private Rectangle GetSource()
         {
             if(frame % 4 == 0)
             {
