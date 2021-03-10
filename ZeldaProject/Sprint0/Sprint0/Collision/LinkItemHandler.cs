@@ -6,7 +6,7 @@ namespace Sprint0
     public class LinkItemHandler
     {
         private IPlayer link;
-        private IItem itemToAdd
+        private IItem itemToAdd;
 
         public LinkItemHandler(IPlayer player, IItem item)
         {
