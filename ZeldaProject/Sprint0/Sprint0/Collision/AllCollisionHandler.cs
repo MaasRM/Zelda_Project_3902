@@ -23,6 +23,7 @@ namespace Sprint0
         {
             CheckWalls(player, npcs, blocks);
             PlayerEnemyCollisions(player, npcs);
+            PlayerItemCollisions(player, items);
         }
 
         private void CheckWalls(IPlayer player, List<INPC> npcs, List<IBlock> blocks)
@@ -37,6 +38,17 @@ namespace Sprint0
                 if(nPC is IEnemy)
                 {
 
+                }
+            }
+        }
+
+        private void PlayerItemCollisions(IPlayer player, List<IItem> items)
+        {
+            foreach(IItem item in items)
+            {
+                if(item.GetLocationRectangle.Intersects(player.LinkPosition))
+                {
+                    LinkItemHandler(player, item);
                 }
             }
         }

@@ -48,6 +48,11 @@ namespace Sprint0
             spriteBatch.Draw(sheet, destination, spriteSource, Color.White);
 
         }
+
+        public Rectangle GetLocationRectangle()
+        {
+            return destination;
+        }
     }
 }
 

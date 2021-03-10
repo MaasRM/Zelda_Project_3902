@@ -5,11 +5,13 @@ namespace Sprint0
 {
     public class LinkItemHandler
     {
+        private IPlayer link;
+        private IItem itemToAdd
 
-
-        public LinkItemHandler()
+        public LinkItemHandler(IPlayer player, IItem item)
         {
-            
+            link = player;
+            itemToAdd = item;
         }
     }
 }
