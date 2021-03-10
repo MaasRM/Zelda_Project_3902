@@ -14,6 +14,7 @@ namespace Sprint0
         private ContentManager contentManager;
         private SpriteBatch _spriteBatch;
         private List<IController> controllerList;
+        private MouseController mouseControls;
         private List<Texture2D> linkSheetList;
         public IPlayer link;
         public IBlock block;
@@ -46,9 +47,8 @@ namespace Sprint0
         protected override void Initialize()
         {
             KeyboardController keyControls = new KeyboardController();
-
+            this.mouseControls = new MouseController(this);
             controllerList.Add(keyControls);
-
             base.Initialize();
         }
 
@@ -85,7 +85,7 @@ namespace Sprint0
                 npc.Update();
                 block.Update();
                 item.Update();
-
+                mouseControls.Update();
 
                 foreach (IController controller in controllerList)
                 {
