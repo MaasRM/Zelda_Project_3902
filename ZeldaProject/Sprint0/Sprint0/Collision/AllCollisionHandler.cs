@@ -23,6 +23,9 @@ namespace Sprint0
         {
             CheckWalls(player, npcs, blocks);
             PlayerEnemyCollisions(player, npcs);
+            PlayerItemCollisions(player, items);
+            BlockCollisions(player, npcs, blocks);
+            ProjectileCollisions(player, npcs, projectiles);
         }
 
         private void CheckWalls(IPlayer player, List<INPC> npcs, List<IBlock> blocks)
@@ -38,7 +41,7 @@ namespace Sprint0
                 {
                     if(nPC is Trap)
                     {
-                        EnemyProximityTrigger.CheckToTriggerTrap(player, (Trap)nPC);
+                        EnemyProximityTrigger.CheckToTriggerTrap(player, (Trap) nPC);
                     }
 
                     if (nPC is Wallmaster)
@@ -63,6 +66,22 @@ namespace Sprint0
                 {
                     LinkItemHandler(player, item);
                 }
+            }
+        }
+
+        private void BlockCollisions(IPlayer player, List<INPC> npcs, List<IBlock> blocks)
+        {
+            foreach (IBlock block in blocks)
+            {
+                
+            }
+        }
+
+        private void ProjectileCollisions(IPlayer player, List<INPC> npcs, List<IProjectile> projectiles)
+        {
+            foreach (IProjectile projerctiles in projectiles)
+            {
+
             }
         }
     }
