@@ -36,18 +36,18 @@ namespace Sprint0
                 changeColor(currentColor, stateMachine.getColor());
             }
             */
-            if(stateMachine.getColor() == LinkColor.Damaged && damageFrameCount <= 24)
+            if (stateMachine.getColor() == LinkColor.Damaged && damageFrameCount <= 24)
             {
-                if (damageFrameCount %4 == 0)
+                if (damageFrameCount % 4 == 0)
                 {
                     linkSpriteSheet = linkSheetList[1];
-                        //contentManager.Load<Texture2D>("LinkSpriteSheetBlack");
+                    //contentManager.Load<Texture2D>("LinkSpriteSheetBlack");
                 }
-                else if (damageFrameCount %4 == 3)
+                else if (damageFrameCount % 4 == 3)
                 {
                     linkSpriteSheet = linkSheetList[2];
                 }
-                else if (damageFrameCount %4 == 2)
+                else if (damageFrameCount % 4 == 2)
                 {
                     linkSpriteSheet = linkSheetList[3];
                 }
@@ -75,7 +75,7 @@ namespace Sprint0
             if (stateMachine.getDirection() == Direction.MoveLeft)
             {
                 spriteBatch.Draw(linkSpriteSheet, destination, source, Color.White, 0, new Vector2(0, 0), SpriteEffects.FlipHorizontally, 0f);
-            } 
+            }
             else
             {
                 spriteBatch.Draw(linkSpriteSheet, destination, source, Color.White);
@@ -143,6 +143,26 @@ namespace Sprint0
         public Rectangle LinkPosition()
         {
             return destination;
+        }
+
+        public void SetPosition(Rectangle newPos)
+        {
+            destination = newPos;
+        }
+
+        public void MakeImmobile()
+        {
+            stateMachine.MakeBusy();
+        }
+
+        public bool Attacking()
+        {
+            return stateMachine.getAnimation() != Animation.Attack;
+        }
+
+        public void Damage()
+        {
+
         }
     }
 }

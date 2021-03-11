@@ -12,15 +12,13 @@ namespace Sprint0
         private Texture2D trapSpriteSheet;
         private Rectangle source;
         private Rectangle destination;
-        private IPlayer linkRef;
-        private Tuple<int, int, IPlayer> init;
+        private Tuple<int, int> init;
 
-        public Trap(int x, int y, Texture2D spritesheet, IPlayer link)
+        public Trap(int x, int y, Texture2D spritesheet)
         {
-            stateMachine = new TrapStateMachine(x, y, link);
-            linkRef = link;
+            stateMachine = new TrapStateMachine(x, y);
             trapSpriteSheet = spritesheet;
-            init = new Tuple<int, int, IPlayer>(x, y, link);
+            init = new Tuple<int, int>(x, y);
         }
 
         public void Update()
@@ -37,7 +35,7 @@ namespace Sprint0
 
         public void Reset()
         {
-            stateMachine = new TrapStateMachine(init.Item1, init.Item2, init.Item3);
+            stateMachine = new TrapStateMachine(init.Item1, init.Item2);
         }
 
         public Rectangle GetNPCLocation()
@@ -48,6 +46,16 @@ namespace Sprint0
         public void Damage()
         {
 
+        }
+
+        public void SetCharge(Rectangle playerPos)
+        {
+            stateMachine.SetCharge(playerPos);
+        }
+
+        public bool IsStill()
+        {
+            return stateMachine.IsStill();
         }
     }
 }

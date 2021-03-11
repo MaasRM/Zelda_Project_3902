@@ -87,9 +87,13 @@ namespace Sprint0
                     {
                         if(nPC is IEnemy)
                         {
-
+//                            EnemyProjectileHandler();
                         }
                     }
+                }
+                else
+                {
+ //                   LinkProjectileHandler();
                 }
             }
         }

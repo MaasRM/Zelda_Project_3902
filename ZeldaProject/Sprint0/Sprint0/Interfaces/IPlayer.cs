@@ -13,5 +13,9 @@ namespace Sprint0
         public LinkStateMachine getLinkStateMachine();
         public Texture2D GetSpriteSheet();
         public Rectangle LinkPosition();
+        public void SetPosition(Rectangle newPos);
+        public void MakeImmobile();
+        public bool Attacking();
+        public void Damage();
     }
 }

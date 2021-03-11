@@ -27,7 +27,6 @@ namespace Sprint0
         private Direction initialDirection;
         private Direction secondDirection;
         private Activity activity;
-        private IPlayer linkRef;
         private int xLoc;
         private int yLoc;
         private int width;
@@ -41,7 +40,7 @@ namespace Sprint0
         private Tuple<int, int> initial;
         private bool grab;
 
-        public WallmasterStateMachine(int x, int y, IPlayer link, Direction d)
+        public WallmasterStateMachine(int x, int y, Direction d)
         {
             xLoc = x;
             yLoc = y;
@@ -52,7 +51,6 @@ namespace Sprint0
             grab = false;
             activity = Activity.Waiting;
             initialDirection = d;
-            linkRef = link;
         }
 
         public Rectangle GetDestination()
@@ -76,11 +74,6 @@ namespace Sprint0
         {
 
             frame++;
-
-            if (activity == Activity.Waiting)
-            {
-                CheckLink();
-            }
 
             if (activity == Activity.OutWall)
             {
@@ -120,7 +113,6 @@ namespace Sprint0
                 {
                     xLoc += floorMoveDist * PIXELSCALER;
                 }
-                GrabLink();
                 BackInWall();
             }
             else if (activity == Activity.BackIn)
@@ -186,56 +178,40 @@ namespace Sprint0
             }
         }
 
-        private void CheckLink()
+        public void SetWallmaster()
         {
-            Rectangle linkPos = linkRef.LinkPosition();
+            activity = Activity.OutWall;
+            frame = 0;
 
-            int linkX = linkPos.X + linkPos.Width / 2;
-            int linkY = linkPos.Y + linkPos.Height / 2;
+            int num = RandomNumberGenerator.GetInt32(2);
 
-            if(Math.Abs(linkX - xLoc) < 20 * PIXELSCALER && Math.Abs(linkY - yLoc) < 20 * PIXELSCALER)
+            if (initialDirection == Direction.Down || initialDirection == Direction.Up)
             {
-                activity = Activity.OutWall;
-                frame = 0;
-
-                int num = RandomNumberGenerator.GetInt32(2);
-
-                if(initialDirection == Direction.Down || initialDirection == Direction.Up)
+                if (num == 0)
                 {
-                    if(num == 0)
-                    {
-                        secondDirection = Direction.Left;
-                    }
-                    else
-                    {
-                        secondDirection = Direction.Right;
-                    }
+                    secondDirection = Direction.Left;
                 }
                 else
                 {
-                    if (num == 0)
-                    {
-                        secondDirection = Direction.Up;
-                    }
-                    else
-                    {
-                        secondDirection = Direction.Down;
-                    }
+                    secondDirection = Direction.Right;
+                }
+            }
+            else
+            {
+                if (num == 0)
+                {
+                    secondDirection = Direction.Up;
+                }
+                else
+                {
+                    secondDirection = Direction.Down;
                 }
             }
         }
 
-        private void GrabLink()
+        public void GrabLink()
         {
-            Rectangle linkPos = linkRef.LinkPosition();
-
-            int linkX = linkPos.X + linkPos.Width / 2;
-            int linkY = linkPos.Y + linkPos.Height / 2;
-
-            if(linkX >= xLoc && linkX < xLoc + width * PIXELSCALER && linkY > yLoc && linkY < yLoc + height * PIXELSCALER)
-            {
-                grab = true;
-            }
+            grab = true;
         }
 
         public Direction GetInitialDirection()
@@ -246,6 +222,11 @@ namespace Sprint0
         public Direction GetSecondDirection()
         {
             return secondDirection;
+        }
+
+        public bool GetGrabStatus()
+        {
+            return grab;
         }
     }
 }

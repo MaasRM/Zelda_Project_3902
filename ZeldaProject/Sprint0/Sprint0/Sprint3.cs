@@ -90,6 +90,10 @@ namespace Sprint0
                 npc.Update();
                 block.Update();
                 item.Update();
+                foreach(IProjectile proj in projectiles)
+                {
+                    proj.Update();
+                }
                 mouseControls.Update();
 
                 foreach (IController controller in controllerList)
@@ -113,6 +117,9 @@ namespace Sprint0
             npc.Draw(this._spriteBatch);
             block.Draw(this._spriteBatch);
             item.Draw(this._spriteBatch);
+
+            foreach (IProjectile projectile in projectiles)
+                projectile.Draw(this._spriteBatch);
 
             this._spriteBatch.End();
 
@@ -178,6 +185,16 @@ namespace Sprint0
         public Texture2D GetNPCSpriteSheet()
         {
             return contentManager.Load<Texture2D>("Zelda_NPCs");
+        }
+
+        public void AddProjectile(IProjectile projectile)
+        {
+            projectiles.Add(projectile);
+        }
+
+        public void RemoveProjectile(IProjectile projectile)
+        {
+            projectiles.Remove(projectile);
         }
     }
 }

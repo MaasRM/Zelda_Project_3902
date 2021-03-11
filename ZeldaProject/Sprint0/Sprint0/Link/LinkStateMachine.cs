@@ -298,5 +298,10 @@ namespace Sprint0
         {
             return linkProjectileList;
         }
+
+        public void MakeBusy()
+        {
+            isBusy = true;
+        }
     }
 }
