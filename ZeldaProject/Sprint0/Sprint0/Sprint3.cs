@@ -5,6 +5,8 @@ using Microsoft.Xna.Framework.Content;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.IO;
+using System.Xml;
 
 namespace Sprint0
 {
@@ -29,6 +31,7 @@ namespace Sprint0
         private List<IItem> items;
         private List<INPC> npcs;
         private List<IProjectile> projectiles;
+        private RoomManager roomManager;
 
         public Sprint3()
         {
@@ -40,6 +43,7 @@ namespace Sprint0
             frame = 0;
             npcIndex = 0;
             itemIndex = 0;
+            roomManager = new RoomManager();
             contentManager = new ContentManager(Content.ServiceProvider, Content.RootDirectory);
             contentManager.RootDirectory = "Content";
         }
@@ -65,6 +69,7 @@ namespace Sprint0
             block = new Block(new Rectangle (200, 200, 16, 16), new Rectangle(984, 11, 16, 16), dungeonSheet);
             npc = new Stalfos(520, 222, contentManager.Load<Texture2D>("Dungeon_Enemies"));
             item = new BlueRupeeItem(new Rectangle(500, 100, 24, 48), new Rectangle(72, 16, 8, 16), contentManager.Load<Texture2D>("Dungeon_Items"));
+            roomManager.SetUpRooms(XmlReader.Create(new FileStream("ZeldaRoomLayout.xml", FileMode.Open)));
 
             foreach(IController controller in controllerList)
             {
