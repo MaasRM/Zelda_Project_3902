@@ -16,7 +16,6 @@ namespace Sprint0
         private ContentManager contentManager;
         private SpriteBatch _spriteBatch;
         private List<IController> controllerList;
-        private MouseController mouseControls;
         private List<Texture2D> linkSheetList;
         public IPlayer link;
         public IBlock block;
@@ -51,8 +50,9 @@ namespace Sprint0
         protected override void Initialize()
         {
             KeyboardController keyControls = new KeyboardController();
-            this.mouseControls = new MouseController(this);
+            MouseController mouseControls = new MouseController(this);
             controllerList.Add(keyControls);
+            controllerList.Add(mouseControls);
             base.Initialize();
         }
 
@@ -69,7 +69,9 @@ namespace Sprint0
             block = new Block(new Rectangle (200, 200, 16, 16), new Rectangle(984, 11, 16, 16), dungeonSheet);
             npc = new Stalfos(520, 222, contentManager.Load<Texture2D>("Dungeon_Enemies"));
             item = new BlueRupeeItem(new Rectangle(500, 100, 24, 48), new Rectangle(72, 16, 8, 16), contentManager.Load<Texture2D>("Dungeon_Items"));
-            roomManager.SetUpRooms(XmlReader.Create(new FileStream("ZeldaRoomLayout.xml", FileMode.Open)));
+            XmlDocument doc = new XmlDocument();
+            doc.Load(new FileStream("ZeldaRoomLayout.xml", FileMode.Open));
+            roomManager.SetUpRooms(doc);
 
             foreach(IController controller in controllerList)
             {
@@ -85,16 +87,18 @@ namespace Sprint0
 
             if (frame % 4 == 0)
             {
-                //Call updates for Link, Enemy, Block
+                //Call updates for Link, Enemy, Block  NEED TO CHANGE FOR SPRINT 3
                 link.Update();
                 npc.Update();
                 block.Update();
                 item.Update();
+
+                roomManager.Update();
+
                 foreach(IProjectile proj in projectiles)
                 {
                     proj.Update();
                 }
-                mouseControls.Update();
 
                 foreach (IController controller in controllerList)
                 {
@@ -112,11 +116,13 @@ namespace Sprint0
             this._spriteBatch.Begin();
 
             
-            //Call draw for Link, Enemy, Block
+            //Call draw for Link, Enemy, Block  NEED TO CHANGE FOR SPRINT 3
             link.Draw(this._spriteBatch);
             npc.Draw(this._spriteBatch);
             block.Draw(this._spriteBatch);
             item.Draw(this._spriteBatch);
+
+            roomManager.Draw();
 
             foreach (IProjectile projectile in projectiles)
                 projectile.Draw(this._spriteBatch);
