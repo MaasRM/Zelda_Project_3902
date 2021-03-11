@@ -12,16 +12,14 @@ namespace Sprint0
         private Texture2D wallmasterSpriteSheet;
         private Rectangle source;
         private Rectangle destination;
-        private IPlayer linkRef;
         private SpriteEffects flip;
-        private Tuple<int, int, IPlayer, WallmasterStateMachine.Direction> init;
+        private Tuple<int, int, WallmasterStateMachine.Direction> init;
 
-        public Wallmaster(int x, int y, WallmasterStateMachine.Direction d, Texture2D spritesheet, IPlayer link)
+        public Wallmaster(int x, int y, WallmasterStateMachine.Direction d, Texture2D spritesheet)
         {
-            stateMachine = new WallmasterStateMachine(x, y, link, d);
-            linkRef = link;
+            stateMachine = new WallmasterStateMachine(x, y, d);
             wallmasterSpriteSheet = spritesheet;
-            init = new Tuple<int, int, IPlayer, WallmasterStateMachine.Direction>(x, y, link, d);
+            init = new Tuple<int, int, WallmasterStateMachine.Direction>(x, y, d);
         }
 
         public void Update()
@@ -58,9 +56,24 @@ namespace Sprint0
             }   
         }
 
+        public void TriggerWallmaster()
+        {
+            stateMachine.SetWallmaster();
+        }
+
+        public bool Grabbing()
+        {
+            return stateMachine.GetGrabStatus();
+        }
+
+        public void GrabPlayer()
+        {
+            stateMachine.GrabLink();
+        }
+
         public void Reset()
         {
-            stateMachine = new WallmasterStateMachine(init.Item1, init.Item2, init.Item3, init.Item4);
+            stateMachine = new WallmasterStateMachine(init.Item1, init.Item2, init.Item3);
         }
 
         public Rectangle GetNPCLocation()
