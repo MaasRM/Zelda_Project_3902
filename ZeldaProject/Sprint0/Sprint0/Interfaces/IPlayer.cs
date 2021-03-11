@@ -16,5 +16,6 @@ namespace Sprint0
         public void SetPosition(Rectangle newPos);
         public void MakeImmobile();
         public bool Attacking();
+        public void Damage();
     }
 }

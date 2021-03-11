@@ -16,6 +16,10 @@ namespace Sprint0
             {
                 PlayerWallmasterCollisionHandler(player, (Wallmaster)enemy);
             }
+            else if(enemy is Trap)
+            {
+                player.Damage();
+            }
         }
 
         private static void PlayerWallmasterCollisionHandler(IPlayer player, Wallmaster wallmaster)
@@ -26,7 +30,7 @@ namespace Sprint0
             int linkX = linkPos.X + linkPos.Width / 2;
             int linkY = linkPos.Y + linkPos.Height / 2;
 
-            if(!player.Attacking())
+            if (!player.Attacking())
             {
                 if (!wallmaster.Grabbing() && linkX >= wallPos.X && linkX < wallPos.X + wallPos.Width && linkY > wallPos.Y && linkY < wallPos.Y + wallPos.Height)
                 {

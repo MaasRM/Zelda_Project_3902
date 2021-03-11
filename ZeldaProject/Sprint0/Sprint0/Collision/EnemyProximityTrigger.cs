@@ -17,8 +17,8 @@ namespace Sprint0
 
             int linkX = linkPos.X + linkPos.Width / 2;
             int linkY = linkPos.Y + linkPos.Height / 2;
-            int xLoc = linkPos.X + linkPos.Width / 2;
-            int yLoc = linkPos.Y + linkPos.Height / 2;
+            int xLoc = wallPos.X + wallPos.Width / 2;
+            int yLoc = wallPos.Y + wallPos.Height / 2;
 
             if (Math.Abs(linkX - xLoc) < 20 * PIXELSCALER && Math.Abs(linkY - yLoc) < 20 * PIXELSCALER)
             {
@@ -28,7 +28,16 @@ namespace Sprint0
 
         public static void CheckToTriggerTrap(IPlayer player, Trap trap)
         {
+            Rectangle linkPos = player.LinkPosition();
+            Rectangle trapPos = trap.GetNPCLocation();
 
+            int linkX = linkPos.X + linkPos.Width / 2;
+            int linkY = linkPos.Y + linkPos.Height / 2;
+
+            if (trap.IsStill() && (linkX >= trapPos.X && linkX < trapPos.X + trapPos.Width) || (linkY >= trapPos.Y && linkY < trapPos.Y + trapPos.Height))
+            {
+                trap.SetCharge(linkPos);
+            }
         }
     }
 }

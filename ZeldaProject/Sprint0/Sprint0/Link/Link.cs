@@ -159,5 +159,10 @@ namespace Sprint0
         {
             return stateMachine.getAnimation() != Animation.Attack;
         }
+
+        public void Damage()
+        {
+
+        }
     }
 }

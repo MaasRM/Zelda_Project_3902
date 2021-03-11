@@ -25,7 +25,6 @@ namespace Sprint0
 
         private Direction direction;
         private Activity active;
-        private IPlayer linkRef;
         private int xLoc;
         private int yLoc;
         private int width;
@@ -37,14 +36,13 @@ namespace Sprint0
         private const int returnMoveDist = 2;
         private Tuple<int, int> initial;
 
-        public TrapStateMachine(int x, int y, IPlayer link)
+        public TrapStateMachine(int x, int y)
         {
             xLoc = x;
             yLoc = y;
             width = 16;
             height = 16;
             frame = -1;
-            linkRef = link;
             maxX = 800 - width * PIXELSCALER;
             minX = 0;
             maxY = 800 - height * PIXELSCALER;
@@ -66,11 +64,6 @@ namespace Sprint0
         public void Move()
         {
             frame++;
-
-            if(active == Activity.Still)
-            {
-                CheckLink();
-            }
 
             if(active == Activity.Charging)
             {
@@ -121,24 +114,22 @@ namespace Sprint0
             return frame;
         }
 
-        private void CheckLink()
+        public void SetCharge(Rectangle linkPos)
         {
-            Rectangle linkPos = linkRef.LinkPosition();
-
             int linkX = linkPos.X + linkPos.Width / 2;
             int linkY = linkPos.Y + linkPos.Height / 2;
 
-            if(linkX >= xLoc && linkX < xLoc + width)
+            active = Activity.Charging;
+
+            if (linkX >= xLoc && linkX < xLoc + width)
             {
                 if(linkY < yLoc)
                 {
                     direction = Direction.Up;
-                    active = Activity.Charging;
                 }
                 else
                 {
                     direction = Direction.Down;
-                    active = Activity.Charging;
                 }
             }
             else if (linkY >= yLoc && linkY < yLoc + height)
@@ -146,12 +137,10 @@ namespace Sprint0
                 if (linkX < xLoc)
                 {
                     direction = Direction.Left;
-                    active = Activity.Charging;
                 }
                 else
                 {
                     direction = Direction.Right;
-                    active = Activity.Charging;
                 }
             }
         }
@@ -182,6 +171,11 @@ namespace Sprint0
             {
                 active = Activity.Still;
             }
+        }
+
+        public bool IsStill()
+        {
+            return active == Activity.Still;
         }
     }
 }
