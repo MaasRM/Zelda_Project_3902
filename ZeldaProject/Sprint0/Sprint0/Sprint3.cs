@@ -113,6 +113,9 @@ namespace Sprint0
             block.Draw(this._spriteBatch);
             item.Draw(this._spriteBatch);
 
+            foreach (IProjectile projectile in projectiles)
+                projectile.Draw(this._spriteBatch);
+
             this._spriteBatch.End();
 
             base.Draw(gameTime);
