@@ -178,5 +178,15 @@ namespace Sprint0
         {
             return contentManager.Load<Texture2D>("Zelda_NPCs");
         }
+
+        public void AddProjectile(IProjectile projectile)
+        {
+            projectiles.Add(projectile);
+        }
+
+        public void RemoveProjectile(IProjectile projectile)
+        {
+            projectiles.Remove(projectile);
+        }
     }
 }

@@ -23,22 +23,24 @@ namespace Sprint0
 
         private Texture2D spritesheet;
         private double x, y;
-        private int width, height, frame;
+        private int frame;
+        private const int WIDTH = 8;
+        private const int HEIGHT = 16;
         private Angle angle;
         private Position pos;
         private const int xMoveDist = 5;
         private const int PIXELSCALER = 2;
+        private Sprint3 game;
 
-        public AquamentusFireball(int x, int y, Position pos, Texture2D spritesheet, IPlayer link)
+        public AquamentusFireball(int x, int y, Position pos, Texture2D spritesheet, Sprint3 game)
         {
             this.x = x;
             this.y = y;
-            width = 8;
-            height = 16;
             frame = -1;
             this.spritesheet = spritesheet;
             this.pos = pos;
-            SetAngle(link);
+            this.game = game;
+            SetAngle(game.GetPlayer());
         }
 
         public void Update()
@@ -88,6 +90,8 @@ namespace Sprint0
                     y += xMoveDist * Math.Tan(5 * Math.PI / 180) * PIXELSCALER;
                 }
             }
+
+            CheckForRemoval();
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -97,26 +101,26 @@ namespace Sprint0
 
         public Rectangle GetProjectileLocation()
         {
-            return new Rectangle((int)x, (int)y, width * PIXELSCALER, height * PIXELSCALER);
+            return new Rectangle((int)x, (int)y, WIDTH * PIXELSCALER, HEIGHT * PIXELSCALER);
         }
 
         private Rectangle GetSource()
         {
-            if(frame % 4 == 0)
+            if (frame % 4 == 0)
             {
-                return new Rectangle(101, 11, width, height);
+                return new Rectangle(101, 11, WIDTH, HEIGHT);
             }
             else if (frame % 4 == 1)
             {
-                return new Rectangle(110, 11, width, height);
+                return new Rectangle(110, 11, WIDTH, HEIGHT);
             }
             else if (frame % 4 == 2)
             {
-                return new Rectangle(119, 11, width, height);
+                return new Rectangle(119, 11, WIDTH, HEIGHT);
             }
             else
             {
-                return new Rectangle(128, 11, width, height);
+                return new Rectangle(128, 11, WIDTH, HEIGHT);
             }
         }
 
@@ -151,6 +155,16 @@ namespace Sprint0
             else
             {
                 angle = Angle.Middle;
+            }
+        }
+
+        private void CheckForRemoval()
+        {
+            double xCenter = x + WIDTH * PIXELSCALER / 2;
+            double yCenter = y + HEIGHT * PIXELSCALER / 2;
+            if((xCenter < 0 || xCenter >= game.GraphicsDevice.Viewport.Width) && (yCenter < 0 || yCenter >= game.GraphicsDevice.Viewport.Height))
+            {
+                game.RemoveProjectile(this);
             }
         }
     }

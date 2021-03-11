@@ -11,24 +11,24 @@ namespace Sprint0
         private Texture2D spritesheet;
         private int x;
         private int y;
-        private int width;
-        private int height;
+        private const int WIDTH = 8;
+        private const int HEIGHT = 16;
         private GoriyaStateMachine.Direction direction;
         private int frame;
         private SpriteEffects flip;
+        private Sprint3 game;
         private const int frameCount = 21;
         private const int moveDist = 8;
         private const int PIXELSCALER = 2;
 
-        public GoriyaBoomerang(Texture2D spritesheet, GoriyaStateMachine state)
+        public GoriyaBoomerang(Texture2D spritesheet, GoriyaStateMachine state,  Sprint3 game)
         {
             goriyaState = state;
             direction = goriyaState.GetDirection();
-            width = 8;
-            height = 16;
             InitialPosition();
             frame = 0;
             this.spritesheet = spritesheet;
+            this.game = game;
         }
 
         public void Update()
@@ -72,6 +72,8 @@ namespace Sprint0
                     x -= moveDist * PIXELSCALER;
                 }
             }
+
+            CheckForRemoval();
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -97,29 +99,29 @@ namespace Sprint0
 
             if(direction == GoriyaStateMachine.Direction.Down)
             {
-                x += goriyaState.GetWidth() / 2 - width * PIXELSCALER / 2;
+                x += goriyaState.GetWidth() / 2 - WIDTH * PIXELSCALER / 2;
                 y += goriyaState.GetHeight();
             }
             else if (direction == GoriyaStateMachine.Direction.Up)
             {
-                x += goriyaState.GetWidth() / 2 - width * PIXELSCALER / 2;
-                y -= height * PIXELSCALER;
+                x += goriyaState.GetWidth() / 2 - WIDTH * PIXELSCALER / 2;
+                y -= HEIGHT * PIXELSCALER;
             }
             else if (direction == GoriyaStateMachine.Direction.Left)
             {
-                x -= width * PIXELSCALER;
-                y += goriyaState.GetHeight() / 2 - height * PIXELSCALER / 2;
+                x -= WIDTH * PIXELSCALER;
+                y += goriyaState.GetHeight() / 2 - HEIGHT * PIXELSCALER / 2;
             }
             else
             {
                 x += goriyaState.GetWidth();
-                y += goriyaState.GetHeight() / 2 - height * PIXELSCALER / 2;
+                y += goriyaState.GetHeight() / 2 - HEIGHT * PIXELSCALER / 2;
             }
         }
 
         private Rectangle GetDestination()
         {
-            return new Rectangle(x, y, width * PIXELSCALER, height * PIXELSCALER);
+            return new Rectangle(x, y, WIDTH * PIXELSCALER, HEIGHT * PIXELSCALER);
         }
 
         private Rectangle GetSource()
@@ -153,6 +155,21 @@ namespace Sprint0
             {
                 return new Rectangle(308, 11, 8, 15);
             }
+        }
+
+        private void CheckForRemoval()
+        {
+            int xTemp = x;
+            int yTemp = y;
+            InitialPosition();
+
+            if(x == xTemp && y == yTemp)
+            {
+                game.RemoveProjectile(this);
+            }
+
+            y = yTemp;
+            x = xTemp;
         }
     }
 }

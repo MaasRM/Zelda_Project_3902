@@ -13,21 +13,21 @@ namespace Sprint0
         private Texture2D goriyaSpriteSheet;
         private Rectangle source;
         private Rectangle destination;
+        private Sprint3 game;
         private Tuple<int, int, GoriyaStateMachine.GoriyaColor> init;
 
-        public Goriya(int x, int y, GoriyaStateMachine.GoriyaColor c, Texture2D spriteSheet)
+        public Goriya(int x, int y, GoriyaStateMachine.GoriyaColor c, Texture2D spriteSheet, Sprint3 game)
         {
             stateMachine = new GoriyaStateMachine(x, y, c);
             goriyaSpriteSheet = spriteSheet;
             init = new Tuple<int, int, GoriyaStateMachine.GoriyaColor>(x, y, c);
-            boomerang = new GoriyaBoomerang(goriyaSpriteSheet, stateMachine);
         }
 
         public void Update()
         {
             if(!stateMachine.Throwing() && stateMachine.TryToThrow())
             {
-                boomerang = new GoriyaBoomerang(goriyaSpriteSheet, stateMachine);
+                game.AddProjectile(new GoriyaBoomerang(goriyaSpriteSheet, stateMachine, game));
             }
             if(stateMachine.Throwing())
             {
@@ -41,11 +41,6 @@ namespace Sprint0
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (stateMachine.Throwing())
-            {
-                boomerang.Draw(spriteBatch);
-            }
-
             if (stateMachine.GetFrame() % 2 == 0)
             {
                 if(stateMachine.GetDirection() == GoriyaStateMachine.Direction.Left)
