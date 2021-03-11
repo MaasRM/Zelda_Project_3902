@@ -85,6 +85,10 @@ namespace Sprint0
                 npc.Update();
                 block.Update();
                 item.Update();
+                foreach(IProjectile proj in projectiles)
+                {
+                    proj.Update();
+                }
                 mouseControls.Update();
 
                 foreach (IController controller in controllerList)
