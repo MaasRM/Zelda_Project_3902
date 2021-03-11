@@ -12,7 +12,7 @@ namespace Sprint0
         private Texture2D aquamentusSpriteSheet;
         private Rectangle source;
         private Rectangle destination;
-        private AquamentusFireballTriad fireballs;
+        private AquamentusFireball fireballTop, fireballCenter, fireballBottom;
         private IPlayer linkRef;
         private Tuple<int, int> init;
 
@@ -22,7 +22,9 @@ namespace Sprint0
             aquamentusSpriteSheet = spriteSheet;
             init = new Tuple<int, int>(x, y);
             linkRef = link;
-            fireballs = new AquamentusFireballTriad(-1, -1, spriteSheet, link);
+            fireballTop = new AquamentusFireball(-1, -1, AquamentusFireball.Position.Top, spriteSheet, link);
+            fireballCenter = new AquamentusFireball(-1, -1, AquamentusFireball.Position.Center, spriteSheet, link);
+            fireballBottom = new AquamentusFireball(-1, -1, AquamentusFireball.Position.Bottom, spriteSheet, link);
         }
 
         public void Update()
@@ -32,7 +34,9 @@ namespace Sprint0
             destination = stateMachine.GetDestination();
             source = stateMachine.GetSource();
 
-            fireballs.Update();
+            fireballTop.Update();
+            fireballCenter.Update();
+            fireballBottom.Update();
 
             if (!stateMachine.IsFiring())
             {
@@ -40,7 +44,9 @@ namespace Sprint0
                 {
                     int fireballX = destination.X + destination.Width / 4;
                     int fireballY = destination.Y + destination.Width / 2;
-                    fireballs = new AquamentusFireballTriad(fireballX, fireballY, aquamentusSpriteSheet, linkRef);
+                    fireballTop = new AquamentusFireball(fireballX, fireballY, AquamentusFireball.Position.Top, aquamentusSpriteSheet, linkRef);
+                    fireballCenter = new AquamentusFireball(fireballX, fireballY, AquamentusFireball.Position.Center, aquamentusSpriteSheet, linkRef);
+                    fireballBottom = new AquamentusFireball(fireballX, fireballY, AquamentusFireball.Position.Bottom, aquamentusSpriteSheet, linkRef);
                 }
             }
         }
@@ -48,7 +54,9 @@ namespace Sprint0
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(aquamentusSpriteSheet, destination, source, Color.White);
-            fireballs.Draw(spriteBatch);
+            fireballTop.Draw(spriteBatch);
+            fireballCenter.Draw(spriteBatch);
+            fireballBottom.Draw(spriteBatch);
         }
 
         public void Reset()

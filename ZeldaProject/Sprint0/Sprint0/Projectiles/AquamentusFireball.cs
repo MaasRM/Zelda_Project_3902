@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 namespace Sprint0
 {
-    public class AquamentusFireballTriad : IProjectile, IEnemyProjectile
+    public class AquamentusFireball : IProjectile, IEnemyProjectile
     {
         private enum Angle
         {
@@ -14,32 +14,30 @@ namespace Sprint0
             Below
         }
 
-        private enum Ball
+        public enum Position
         {
-            Up,
+            Top,
             Center,
-            Down
+            Bottom
         }
 
         private Texture2D spritesheet;
-        private double x1, x2, x3, y1, y2, y3;
+        private double x, y;
         private int width, height, frame;
         private Angle angle;
+        private Position pos;
         private const int xMoveDist = 5;
         private const int PIXELSCALER = 2;
 
-        public AquamentusFireballTriad(int x, int y, Texture2D spritesheet, IPlayer link)
+        public AquamentusFireball(int x, int y, Position pos, Texture2D spritesheet, IPlayer link)
         {
-            x1 = x;
-            x2 = x;
-            x3 = x;
-            y1 = y;
-            y2 = y;
-            y3 = y;
+            this.x = x;
+            this.y = y;
             width = 8;
             height = 16;
             frame = -1;
             this.spritesheet = spritesheet;
+            this.pos = pos;
             SetAngle(link);
         }
 
@@ -47,48 +45,59 @@ namespace Sprint0
         {
             frame++;
 
-            x1 -= xMoveDist * PIXELSCALER;
-            x2 -= xMoveDist * PIXELSCALER;
-            x3 -= xMoveDist * PIXELSCALER;
+            x -= xMoveDist * PIXELSCALER;
 
             if (angle == Angle.Above)
             {
-                y1 -= xMoveDist * Math.Tan(36 * Math.PI / 180) * PIXELSCALER;
-                y2 -= xMoveDist * Math.Tan(22 * Math.PI / 180) * PIXELSCALER;
-                y3 -= xMoveDist * Math.Tan(5 * Math.PI / 180) * PIXELSCALER;
+                if (pos == Position.Top)
+                {
+                    y -= xMoveDist * Math.Tan(36 * Math.PI / 180) * PIXELSCALER;
+                }
+                else if(pos == Position.Center)
+                {
+                    y -= xMoveDist * Math.Tan(22 * Math.PI / 180) * PIXELSCALER;
+                }
+                else
+                {
+                    y -= xMoveDist * Math.Tan(5 * Math.PI / 180) * PIXELSCALER;
+                }
             }
             else if (angle == Angle.Middle)
             {
-                y1 -= xMoveDist * Math.Tan(20 * Math.PI / 180) * PIXELSCALER;
-                y3 += xMoveDist * Math.Tan(20 * Math.PI / 180) * PIXELSCALER;
+                if (pos == Position.Top)
+                {
+                    y -= xMoveDist * Math.Tan(20 * Math.PI / 180) * PIXELSCALER;
+                }
+                else
+                {
+                    y += xMoveDist * Math.Tan(20 * Math.PI / 180) * PIXELSCALER;
+                }
             }
             else
             {
-                y1 += xMoveDist * Math.Tan(36 * Math.PI / 180) * PIXELSCALER;
-                y2 += xMoveDist * Math.Tan(22 * Math.PI / 180) * PIXELSCALER;
-                y3 += xMoveDist * Math.Tan(5 * Math.PI / 180) * PIXELSCALER;
+                if (pos == Position.Top)
+                {
+                    y += xMoveDist * Math.Tan(36 * Math.PI / 180) * PIXELSCALER;
+                }
+                else if (pos == Position.Center)
+                {
+                    y += xMoveDist * Math.Tan(22 * Math.PI / 180) * PIXELSCALER;
+                }
+                else
+                {
+                    y += xMoveDist * Math.Tan(5 * Math.PI / 180) * PIXELSCALER;
+                }
             }
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            if(x1 >= 0 && x1 < 800 && y1 >=0 && y1 < 480)
-            {
-                spriteBatch.Draw(spritesheet, new Rectangle((int)x1, (int)y1, width * PIXELSCALER, height * PIXELSCALER), GetSource(), Color.White);
-            }
-            if(x2 >= 0 && x2 < 800 && y2 >= 0 && y2 < 480)
-            {
-                spriteBatch.Draw(spritesheet, new Rectangle((int)x2, (int)y2, width * PIXELSCALER, height * PIXELSCALER), GetSource(), Color.White);
-            }
-            if(x3 >= 0 && x3 < 800 && y3 >= 0 && y3 < 480)
-            {
-                spriteBatch.Draw(spritesheet, new Rectangle((int)x3, (int)y3, width * PIXELSCALER, height * PIXELSCALER), GetSource(), Color.White);
-            }
+            spriteBatch.Draw(spritesheet, GetProjectileLocation(), GetSource(), Color.White);
         }
 
         public Rectangle GetProjectileLocation()
         {
-            return new Rectangle((int)x1, (int)y1, width * PIXELSCALER, height * PIXELSCALER);
+            return new Rectangle((int)x, (int)y, width * PIXELSCALER, height * PIXELSCALER);
         }
 
         private Rectangle GetSource()
@@ -117,8 +126,8 @@ namespace Sprint0
             int xLink = linkPos.X + linkPos.Width / 2;
             int yLink = linkPos.Y + linkPos.Height / 2;
 
-            double xDiff = xLink - x1;
-            double yDiff = yLink - y1;
+            double xDiff = xLink - x;
+            double yDiff = yLink - y;
 
             double linkAngle;
 
