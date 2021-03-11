@@ -18,13 +18,11 @@ namespace Sprint0
         private List<IController> controllerList;
         private List<Texture2D> linkSheetList;
         public IPlayer link;
-        public IBlock block;
-        private INPC npc;
-        private IItem item;
         public Texture2D dungeonSheet;
         private int frame;
-        private int npcIndex;
-        private int itemIndex;
+        private int npcIndex; //Do we need these
+        private int itemIndex; //this too?
+
         //Tuples are immutable turns out, so just update these instead on room switch
         private List<IBlock> blocks;
         private List<IItem> items;
@@ -87,15 +85,23 @@ namespace Sprint0
 
             if (frame % 4 == 0)
             {
-                //Call updates for Link, Enemy, Block  NEED TO CHANGE FOR SPRINT 3
+                //Call updates for Link, Enemies, Blocks, etc.
                 link.Update();
-                npc.Update();
-                block.Update();
-                item.Update();
-
                 roomManager.Update();
 
-                foreach(IProjectile proj in projectiles)
+                foreach (IBlock block in blocks)
+                {
+                    block.Update();
+                }
+                foreach (IItem item in items)
+                {
+                    item.Update();
+                }
+                foreach (INPC npc in npcs)
+                {
+                    npc.Update();
+                }
+                foreach (IProjectile proj in projectiles)
                 {
                     proj.Update();
                 }
@@ -116,16 +122,26 @@ namespace Sprint0
             this._spriteBatch.Begin();
 
             
-            //Call draw for Link, Enemy, Block  NEED TO CHANGE FOR SPRINT 3
+            //Call draw for Link, Enemies, Blocks, etc
             link.Draw(this._spriteBatch);
-            npc.Draw(this._spriteBatch);
-            block.Draw(this._spriteBatch);
-            item.Draw(this._spriteBatch);
+            roomManager.Draw(this._spriteBatch);
 
-            roomManager.Draw();
-
-            foreach (IProjectile projectile in projectiles)
-                projectile.Draw(this._spriteBatch);
+            foreach (IBlock block in blocks)
+            {
+                block.Draw(this._spriteBatch);
+            }
+            foreach (IItem item in items)
+            {
+                item.Draw(this._spriteBatch);
+            }
+            foreach (INPC npc in npcs)
+            {
+                npc.Draw(this._spriteBatch);
+            }
+            foreach (IProjectile proj in projectiles)
+            {
+                proj.Draw(this._spriteBatch);
+            }
 
             this._spriteBatch.End();
 
