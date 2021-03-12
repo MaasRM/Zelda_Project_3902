@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/Users/nathanschultz/Documents/CSE3902/Zelda/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Sprint0.csproj": {}
+    "C:\\Users\\jrkso\\Source\\Repos\\MaasRM\\Zelda_Project_3902\\ZeldaProject\\Sprint0\\Sprint0\\Sprint0.csproj": {}
   },
   "projects": {
-    "/Users/nathanschultz/Documents/CSE3902/Zelda/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Sprint0.csproj": {
+    "C:\\Users\\jrkso\\Source\\Repos\\MaasRM\\Zelda_Project_3902\\ZeldaProject\\Sprint0\\Sprint0\\Sprint0.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/nathanschultz/Documents/CSE3902/Zelda/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Sprint0.csproj",
+        "projectUniqueName": "C:\\Users\\jrkso\\Source\\Repos\\MaasRM\\Zelda_Project_3902\\ZeldaProject\\Sprint0\\Sprint0\\Sprint0.csproj",
         "projectName": "Sprint0",
-        "projectPath": "/Users/nathanschultz/Documents/CSE3902/Zelda/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Sprint0.csproj",
-        "packagesPath": "/Users/nathanschultz/.nuget/packages/",
-        "outputPath": "/Users/nathanschultz/Documents/CSE3902/Zelda/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/obj/",
+        "projectPath": "C:\\Users\\jrkso\\Source\\Repos\\MaasRM\\Zelda_Project_3902\\ZeldaProject\\Sprint0\\Sprint0\\Sprint0.csproj",
+        "packagesPath": "C:\\Users\\jrkso\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\jrkso\\Source\\Repos\\MaasRM\\Zelda_Project_3902\\ZeldaProject\\Sprint0\\Sprint0\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/nathanschultz/.config/NuGet/NuGet.Config"
+          "C:\\Users\\jrkso\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -62,7 +64,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.103/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

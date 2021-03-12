@@ -76,17 +76,17 @@ namespace Sprint0
             switch (itemInfo["ItemType"].InnerText)
             {
                 case "KeyItem":
-                    return new KeyItem(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText) * scale, int.Parse(itemInfo["YLoc"].InnerText) * scale, 7, 15), new Rectangle(240, 0, 7, 15), itemsSheet);
+                    return new KeyItem(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText) * scale, int.Parse(itemInfo["YLoc"].InnerText) * scale, 7 * scale, 15 * scale), new Rectangle(240, 0, 7, 15), itemsSheet);
                 case "HeartContainerItem":
-                    return new HeartContainerItem(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText) * scale, int.Parse(itemInfo["YLoc"].InnerText) * scale, 15, 15), new Rectangle(23, 0, 15, 15), itemsSheet);
+                    return new HeartContainerItem(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText) * scale, int.Parse(itemInfo["YLoc"].InnerText) * scale, 15 * scale, 15 * scale), new Rectangle(23, 0, 15, 15), itemsSheet);
                 case "TriforceShardItem":
-                    return new TriforceShardItem(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText) * scale, int.Parse(itemInfo["YLoc"].InnerText) * scale, 15, 15), new Rectangle(272, 0, 15, 15), itemsSheet);
+                    return new TriforceShardItem(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText) * scale, int.Parse(itemInfo["YLoc"].InnerText) * scale, 15 * scale, 15 * scale), new Rectangle(272, 0, 15, 15), itemsSheet);
                 case "Fire":
-                    return new Fire(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText) * scale, int.Parse(itemInfo["YLoc"].InnerText) * scale, 15, 15), new Rectangle(52, 11, 15, 15), npcSheet);
+                    return new Fire(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText) * scale, int.Parse(itemInfo["YLoc"].InnerText) * scale, 15 * scale, 15 * scale), new Rectangle(52, 11, 15, 15), npcSheet);
                 case "MapItem":
-                    return new MapItem(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText) * scale, int.Parse(itemInfo["YLoc"].InnerText) * scale, 7, 15), new Rectangle(88, 0, 7, 15), itemsSheet);
+                    return new MapItem(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText) * scale, int.Parse(itemInfo["YLoc"].InnerText) * scale, 7 * scale, 15 * scale), new Rectangle(88, 0, 7, 15), itemsSheet);
                 case "CompassItem":
-                    return new CompassItem(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText) * scale, int.Parse(itemInfo["YLoc"].InnerText) * scale, 15, 15), new Rectangle(256, 0, 15, 15), itemsSheet);
+                    return new CompassItem(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText) * scale, int.Parse(itemInfo["YLoc"].InnerText) * scale, 15 * scale, 15 * scale), new Rectangle(256, 0, 15, 15), itemsSheet);
                 default:
                     return new KeyItem(new Rectangle(0, 0, 7, 15), new Rectangle(240, 0, 7, 15), itemsSheet);
             }

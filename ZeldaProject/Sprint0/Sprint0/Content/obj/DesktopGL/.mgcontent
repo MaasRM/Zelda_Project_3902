@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Profile>Reach</Profile>
+  <Platform>DesktopGL</Platform>
+  <Config />
+  <SourceFiles>
+    <File>C:/Users/jrkso/source/repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/characters.png</File>
+    <File>C:/Users/jrkso/source/repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/credits.spritefont</File>
+    <File>C:/Users/jrkso/source/repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/Dungeon_Bosses.png</File>
+    <File>C:/Users/jrkso/source/repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/Dungeon_Enemies.png</File>
+    <File>C:/Users/jrkso/source/repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/Dungeon_Items.png</File>
+    <File>C:/Users/jrkso/source/repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/Dungeon_Tileset.png</File>
+    <File>C:/Users/jrkso/source/repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/LinkSpriteSheet.png</File>
+    <File>C:/Users/jrkso/source/repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/LinkSpriteSheetBlack.png</File>
+    <File>C:/Users/jrkso/source/repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/LinkSpriteSheetBlue.png</File>
+    <File>C:/Users/jrkso/source/repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/LinkSpriteSheetRed.png</File>
+    <File>C:/Users/jrkso/source/repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/Zelda_NPCs.png</File>
+  </SourceFiles>
+  <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+  </DestFiles>
+</SourceFileCollection>
