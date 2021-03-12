@@ -23,7 +23,7 @@ namespace Sprint0
 
             if (enemy is Trap)
             {
-                DamageThePlayer(player, overlap);
+                //DamageThePlayer(player, overlap);
             }
             else if (player.Attacking())
             {
@@ -35,7 +35,7 @@ namespace Sprint0
             }
             else
             {
-                DamageThePlayer(player, overlap);
+                //DamageThePlayer(player, overlap);
             }
         }
 
@@ -100,11 +100,11 @@ namespace Sprint0
             player.MakeImmobile();
         }
 
-        private static void DamageThePlayer(IPlayer player, IEnemy enmey, OverlapInRelationToPlayer overlap)
+        private static void DamageThePlayer(IPlayer player, IEnemy enemy, OverlapInRelationToPlayer overlap)
         {
             Vector2 damageDirection = PlayerDamageVector(overlap);
 
-            player.SetDamageState(enemy.GetDamageValue, damageDirection);
+            player.SetDamageState(enemy.GetDamageValue(), damageDirection);
         }
 
         private static void DamageTheEnemy(INPC enemy, int damage, OverlapInRelationToPlayer overlap)
