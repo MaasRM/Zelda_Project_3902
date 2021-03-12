@@ -15,24 +15,23 @@ namespace Sprint0
 
         public LinkEnemyHandler()
         {
-            
         }
 
         public static void HandleCollision(IPlayer player, INPC enemy)
         {
             OverlapInRelationToPlayer overlap = GetOverlapDirection(player, enemy);
 
-            if(enemy is Trap)
+            if (enemy is Trap)
             {
                 DamageThePlayer(player);
             }
-            else if(player.Attacking())
+            else if (player.Attacking())
             {
                 PlayerAttackingCollisionHandler(player, enemy);
             }
-            else if(enemy is Wallmaster)
+            else if (enemy is Wallmaster)
             {
-                WallmasterCollisionHandler(player, (Wallmaster) enemy);
+                WallmasterCollisionHandler(player, (Wallmaster)enemy);
             }
             else
             {
@@ -49,7 +48,7 @@ namespace Sprint0
 
             int yOverDist = 0, xOverDist = 0;
 
-            if(playerPos.Y < enemyPos.Y + enemyPos.Height && playerPos.Y >= enemyPos.Y)
+            if (playerPos.Y < enemyPos.Y + enemyPos.Height && playerPos.Y >= enemyPos.Y)
             {
                 yOverDist = enemyPos.Y + enemyPos.Height - playerPos.Y;
                 overlapY = OverlapInRelationToPlayer.Up;
@@ -70,7 +69,7 @@ namespace Sprint0
                 overlapY = OverlapInRelationToPlayer.Left;
             }
 
-            if(yOverDist > xOverDist)
+            if (yOverDist > xOverDist)
             {
                 return overlapY;
             }
@@ -103,7 +102,7 @@ namespace Sprint0
 
         private static void DamageThePlayer(IPlayer player)
         {
-            
+
         }
 
         private static void DamageTheEnemy(INPC enemy)
