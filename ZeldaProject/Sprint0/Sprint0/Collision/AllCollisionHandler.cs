@@ -51,7 +51,7 @@ namespace Sprint0
 
                     if (nPC.GetNPCLocation().Intersects(player.LinkPosition()))
                     {
-                        LinkEnemyHandler.HandleCollision(player, (IEnemy) nPC);
+                        LinkEnemyHandler.HandleCollision(player, nPC);
                     }
 
                 }

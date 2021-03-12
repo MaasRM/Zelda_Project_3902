@@ -48,7 +48,7 @@ namespace Sprint0
         {
             frame++;
 
-            if (frame % 5 == 0)
+            if (frame % 8 == 0)
             {
                 direction = ChangeDirection();
             }
