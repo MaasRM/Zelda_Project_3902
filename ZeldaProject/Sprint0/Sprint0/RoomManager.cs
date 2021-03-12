@@ -125,13 +125,13 @@ namespace Sprint0
                     yOffset = 0;
                     break;
                 case "bottom":
-                    yOffset = 33;
+                    yOffset = 99;
                     break;
                 case "left":
-                    yOffset = 66;
+                    yOffset = 33;
                     break;
                 case "right":
-                    yOffset = 99;
+                    yOffset = 66;
                     break;
                 default:
                     break;
@@ -161,12 +161,19 @@ namespace Sprint0
 
         public void Update()
         {
-            //door changes eventually?
+            game.SetBlocks(currentRoom.getBlocks());
+            game.SetItems(currentRoom.getItems());
+            game.SetNPCs(currentRoom.getNPCs());
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            //Draw the room
+            spriteBatch.Draw(dungeonSheet, new Rectangle(0, 0, 255, 175), currentRoom.getWall(), Color.White);
+            spriteBatch.Draw(dungeonSheet, new Rectangle(32, 32, 191, 111), currentRoom.getFloor(), Color.White);
+            spriteBatch.Draw(dungeonSheet, new Rectangle(112, 0, 31, 31), currentRoom.getTopDoor(), Color.White);
+            spriteBatch.Draw(dungeonSheet, new Rectangle(112, 144, 31, 31), currentRoom.getBottomDoor(), Color.White);
+            spriteBatch.Draw(dungeonSheet, new Rectangle(0, 72, 31, 31), currentRoom.getLeftDoor(), Color.White);
+            spriteBatch.Draw(dungeonSheet, new Rectangle(224, 72, 31, 31), currentRoom.getRightDoor(), Color.White);
         }
 
         public void NextRoom()

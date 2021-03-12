@@ -65,7 +65,7 @@ namespace Sprint0
             Texture2D bossesSheet = contentManager.Load<Texture2D>("Dungeon_Bosses");
             Texture2D npcSheet = contentManager.Load<Texture2D>("Zelda_NPCs");
             XmlDocument doc = new XmlDocument();
-            doc.Load(new FileStream("Content/ZeldaRoomLayout.xml", FileMode.Open));
+            doc.Load(new FileStream("Content\\ZeldaRoomLayout.xml", FileMode.Open));
             roomManager.SetUpRooms(doc, dungeonSheet , enemiesSheet, itemsSheet, bossesSheet, npcSheet);
 
             foreach(IController controller in controllerList)
@@ -161,6 +161,21 @@ namespace Sprint0
         public void RemoveProjectile(IProjectile projectile)
         {
             projectiles.Remove(projectile);
+        }
+
+        public void SetBlocks(List<IBlock> newBlocks)
+        {
+            blocks = newBlocks;
+        }
+
+        public void SetItems(List<IItem> newItems)
+        {
+            items = newItems;
+        }
+
+        public void SetNPCs(List<INPC> newNPCs)
+        {
+            npcs = newNPCs;
         }
     }
 }
