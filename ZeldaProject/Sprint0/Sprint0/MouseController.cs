@@ -11,6 +11,8 @@ namespace Sprint0
 	{
 		private NextRoomCommand nextRoom;
 		private PreviousRoomCommand previousRoom;
+		private Boolean rightIsPressed;
+		private Boolean leftIsPressed;
 
 		public MouseController(Sprint3 game)
 		{
@@ -26,13 +28,24 @@ namespace Sprint0
 		public void Update()
 		{
 			MouseState state = Mouse.GetState();
-			
+
 			if (state.LeftButton == ButtonState.Pressed)
+			{
+				leftIsPressed = true;
+			}
+			else if (state.RightButton == ButtonState.Pressed)
+			{
+				rightIsPressed = true;
+			}
+
+			if (state.LeftButton == ButtonState.Released && leftIsPressed == true)
             {
 				previousRoom.Execute();
-            } else if (state.RightButton == ButtonState.Pressed)
+				leftIsPressed = false;
+			} else if (state.RightButton == ButtonState.Released && rightIsPressed == true)
 			{
 				nextRoom.Execute();
+				rightIsPressed = false;
             }
 		}
 	}
