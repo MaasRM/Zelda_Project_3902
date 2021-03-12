@@ -18,6 +18,7 @@ namespace Sprint0
         private Texture2D itemsSheet;
         private Texture2D bossesSheet;
         private Texture2D npcSheet;
+        private const int scale = 4;
 
         public RoomManager(Sprint3 game)
         {
@@ -66,7 +67,8 @@ namespace Sprint0
 
         private IBlock CreateBlock(XmlNode blockInfo)
         {
-            return new Block(int.Parse(blockInfo.InnerText), dungeonSheet);
+            XmlNode parent = blockInfo.ParentNode;
+            return new Block(int.Parse(blockInfo["BlockType"].InnerText), dungeonSheet, int.Parse(blockInfo["XLoc"].InnerText) * scale, int.Parse(blockInfo["YLoc"].InnerText) * scale);
         }
 
         private IItem CreateItem(XmlNode itemInfo)
@@ -74,17 +76,17 @@ namespace Sprint0
             switch (itemInfo["ItemType"].InnerText)
             {
                 case "KeyItem":
-                    return new KeyItem(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText), int.Parse(itemInfo["YLoc"].InnerText), 7, 15), new Rectangle(240, 0, 7, 15), itemsSheet);
+                    return new KeyItem(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText) * scale, int.Parse(itemInfo["YLoc"].InnerText) * scale, 7, 15), new Rectangle(240, 0, 7, 15), itemsSheet);
                 case "HeartContainerItem":
-                    return new HeartContainerItem(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText), int.Parse(itemInfo["YLoc"].InnerText), 15, 15), new Rectangle(23, 0, 15, 15), itemsSheet);
+                    return new HeartContainerItem(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText) * scale, int.Parse(itemInfo["YLoc"].InnerText) * scale, 15, 15), new Rectangle(23, 0, 15, 15), itemsSheet);
                 case "TriforceShardItem":
-                    return new TriforceShardItem(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText), int.Parse(itemInfo["YLoc"].InnerText), 15, 15), new Rectangle(272, 0, 15, 15), itemsSheet);
+                    return new TriforceShardItem(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText) * scale, int.Parse(itemInfo["YLoc"].InnerText) * scale, 15, 15), new Rectangle(272, 0, 15, 15), itemsSheet);
                 case "Fire":
-                    return new Fire(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText), int.Parse(itemInfo["YLoc"].InnerText), 15, 15), new Rectangle(52, 11, 15, 15), npcSheet);
+                    return new Fire(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText) * scale, int.Parse(itemInfo["YLoc"].InnerText) * scale, 15, 15), new Rectangle(52, 11, 15, 15), npcSheet);
                 case "MapItem":
-                    return new MapItem(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText), int.Parse(itemInfo["YLoc"].InnerText), 7, 15), new Rectangle(88, 0, 7, 15), itemsSheet);
+                    return new MapItem(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText) * scale, int.Parse(itemInfo["YLoc"].InnerText) * scale, 7, 15), new Rectangle(88, 0, 7, 15), itemsSheet);
                 case "CompassItem":
-                    return new CompassItem(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText), int.Parse(itemInfo["YLoc"].InnerText), 15, 15), new Rectangle(256, 0, 15, 15), itemsSheet);
+                    return new CompassItem(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText) * scale, int.Parse(itemInfo["YLoc"].InnerText) * scale, 15, 15), new Rectangle(256, 0, 15, 15), itemsSheet);
                 default:
                     return new KeyItem(new Rectangle(0, 0, 7, 15), new Rectangle(240, 0, 7, 15), itemsSheet);
             }
@@ -95,21 +97,21 @@ namespace Sprint0
             switch (npcInfo["EnemyType"].InnerText)
             {
                 case "Aquamentus":
-                    return new Aquamentus(int.Parse(npcInfo["XLoc"].InnerText), int.Parse(npcInfo["YLoc"].InnerText), bossesSheet, game);
+                    return new Aquamentus(int.Parse(npcInfo["XLoc"].InnerText) * scale, int.Parse(npcInfo["YLoc"].InnerText) * scale, bossesSheet, game);
                 case "Gel":
-                    return new Gel(int.Parse(npcInfo["XLoc"].InnerText), int.Parse(npcInfo["YLoc"].InnerText), GelStateMachine.GelColor.Teal, enemiesSheet);
+                    return new Gel(int.Parse(npcInfo["XLoc"].InnerText) * scale, int.Parse(npcInfo["YLoc"].InnerText) * scale, GelStateMachine.GelColor.Teal, enemiesSheet);
                 case "Goriya":
-                    return new Goriya(int.Parse(npcInfo["XLoc"].InnerText), int.Parse(npcInfo["YLoc"].InnerText), GoriyaStateMachine.GoriyaColor.Blue, enemiesSheet, game);
+                    return new Goriya(int.Parse(npcInfo["XLoc"].InnerText) * scale, int.Parse(npcInfo["YLoc"].InnerText) * scale, GoriyaStateMachine.GoriyaColor.Blue, enemiesSheet, game);
                 case "Keese":
-                    return new Keese(int.Parse(npcInfo["XLoc"].InnerText), int.Parse(npcInfo["YLoc"].InnerText), KeeseStateMachine.KeeseColor.Blue, enemiesSheet);
+                    return new Keese(int.Parse(npcInfo["XLoc"].InnerText) * scale, int.Parse(npcInfo["YLoc"].InnerText) * scale, KeeseStateMachine.KeeseColor.Blue, enemiesSheet);
                 case "OldMan":
-                    return new OldMan(int.Parse(npcInfo["XLoc"].InnerText), int.Parse(npcInfo["YLoc"].InnerText), enemiesSheet);
+                    return new OldMan(int.Parse(npcInfo["XLoc"].InnerText) * scale, int.Parse(npcInfo["YLoc"].InnerText) * scale, enemiesSheet);
                 case "Stalfos":
-                    return new Stalfos(int.Parse(npcInfo["XLoc"].InnerText), int.Parse(npcInfo["YLoc"].InnerText), enemiesSheet);
+                    return new Stalfos(int.Parse(npcInfo["XLoc"].InnerText) * scale, int.Parse(npcInfo["YLoc"].InnerText) * scale, enemiesSheet);
                 case "Trap":
-                    return new Trap(int.Parse(npcInfo["XLoc"].InnerText), int.Parse(npcInfo["YLoc"].InnerText), enemiesSheet);
+                    return new Trap(int.Parse(npcInfo["XLoc"].InnerText) * scale, int.Parse(npcInfo["YLoc"].InnerText) * scale, enemiesSheet);
                 case "Wallmaster":
-                    return new Wallmaster(int.Parse(npcInfo["XLoc"].InnerText), int.Parse(npcInfo["YLoc"].InnerText), WallmasterStateMachine.Direction.Up ,enemiesSheet); //Should this be up?
+                    return new Wallmaster(int.Parse(npcInfo["XLoc"].InnerText) * scale, int.Parse(npcInfo["YLoc"].InnerText) * scale, WallmasterStateMachine.Direction.Up ,enemiesSheet); //Should this be up?
                 default:
                     return new Aquamentus(0, 0, bossesSheet, game);
             }
@@ -168,12 +170,12 @@ namespace Sprint0
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(dungeonSheet, new Rectangle(0, 0, 255, 175), currentRoom.getWall(), Color.White);
-            spriteBatch.Draw(dungeonSheet, new Rectangle(32, 32, 192, 112), currentRoom.getFloor(), Color.White);
-            spriteBatch.Draw(dungeonSheet, new Rectangle(112, 0, 32, 32), currentRoom.getTopDoor(), Color.White);
-            spriteBatch.Draw(dungeonSheet, new Rectangle(112, 144, 32, 32), currentRoom.getBottomDoor(), Color.White);
-            spriteBatch.Draw(dungeonSheet, new Rectangle(0, 72, 32, 32), currentRoom.getLeftDoor(), Color.White);
-            spriteBatch.Draw(dungeonSheet, new Rectangle(224, 72, 32, 32), currentRoom.getRightDoor(), Color.White);
+            spriteBatch.Draw(dungeonSheet, new Rectangle(0 * scale, 0 * scale, 255 * scale, 175 * scale), currentRoom.getWall(), Color.White);
+            spriteBatch.Draw(dungeonSheet, new Rectangle(32 * scale, 32 * scale, 192 * scale, 112 * scale), currentRoom.getFloor(), Color.White);
+            spriteBatch.Draw(dungeonSheet, new Rectangle(112 * scale, 0 * scale, 32 * scale, 32 * scale), currentRoom.getTopDoor(), Color.White);
+            spriteBatch.Draw(dungeonSheet, new Rectangle(112 * scale, 144 * scale, 32 * scale, 32 * scale), currentRoom.getBottomDoor(), Color.White);
+            spriteBatch.Draw(dungeonSheet, new Rectangle(0 * scale, 72 * scale, 32 * scale, 32 * scale), currentRoom.getLeftDoor(), Color.White);
+            spriteBatch.Draw(dungeonSheet, new Rectangle(224 * scale, 72 * scale, 32 * scale, 32 * scale), currentRoom.getRightDoor(), Color.White);
         }
 
         public void NextRoom()

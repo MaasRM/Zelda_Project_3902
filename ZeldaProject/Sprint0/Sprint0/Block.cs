@@ -11,59 +11,50 @@ namespace Sprint0
         private Texture2D blockSpriteSheet;
         private Rectangle blockSource;
         private Rectangle blockDestination;
-        private int scale = 2;
+        private int scale = 4;
 
-        public Block(int blockIndex, Texture2D spriteSheet)
+        public Block(int blockIndex, Texture2D spriteSheet, int x, int y)
         {
             blockSpriteSheet = spriteSheet;
+            blockDestination = new Rectangle(x, y, 16 * scale, 16 * scale);
             if (blockIndex == 0)
             {
-                blockDestination = new Rectangle(200, 200, 16 * scale, 16 * scale);
                 blockSource = new Rectangle(984, 11, 16, 16);
             }
             else if (blockIndex == 1)
             {
-                blockDestination = new Rectangle(200, 200, 16 * scale, 16 * scale);
                 blockSource = new Rectangle(1001, 11, 16, 16);
             }
             else if (blockIndex == 2)
             {
-                blockDestination = new Rectangle(200, 200, 16 * scale, 16 * scale);
                 blockSource = new Rectangle(1018, 11, 16, 16);
             }
             else if (blockIndex == 3)
             {
-                blockDestination = new Rectangle(200, 200, 16 * scale, 16 * scale);
                 blockSource = new Rectangle(1035, 11, 16, 16);
             }
             else if (blockIndex == 4)
             {
-                blockDestination = new Rectangle(200, 200, 16 * scale, 16 * scale);
                 blockSource = new Rectangle(984, 28, 16, 16);
             }
             else if (blockIndex == 5)
             {
-                blockDestination = new Rectangle(200, 200, 16 * scale, 16 * scale);
                 blockSource = new Rectangle(1001, 28, 16, 16);
             }
             else if (blockIndex == 6)
             {
-                blockDestination = new Rectangle(200, 200, 16 * scale, 16 * scale);
                 blockSource = new Rectangle(1018, 28, 16, 16);
             }
             else if (blockIndex == 7)
             {
-                blockDestination = new Rectangle(200, 200, 16 * scale, 16 * scale);
                 blockSource = new Rectangle(1035, 28, 16, 16);
             }
             else if (blockIndex == 8)
             {
-                blockDestination = new Rectangle(200, 200, 16 * scale, 16 * scale);
                 blockSource = new Rectangle(984, 45, 16, 16);
             }
             else if (blockIndex == 9)
             {
-                blockDestination = new Rectangle(200, 200, 16 * scale, 16 * scale);
                 blockSource = new Rectangle(1001, 45, 16, 16);
             }
         }

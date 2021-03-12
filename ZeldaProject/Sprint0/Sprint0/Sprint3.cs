@@ -49,6 +49,9 @@ namespace Sprint0
             MouseController mouseControls = new MouseController(this);
             controllerList.Add(keyControls);
             controllerList.Add(mouseControls);
+            _graphics.PreferredBackBufferWidth = 255 * 4;
+            _graphics.PreferredBackBufferHeight = 175 * 4;
+            _graphics.ApplyChanges();
             base.Initialize();
         }
 
