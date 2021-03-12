@@ -105,7 +105,7 @@ namespace Sprint0
                 case "Keese":
                     return new Keese(int.Parse(npcInfo["XLoc"].InnerText) * scale, int.Parse(npcInfo["YLoc"].InnerText) * scale, KeeseStateMachine.KeeseColor.Blue, enemiesSheet);
                 case "OldMan":
-                    return new OldMan(int.Parse(npcInfo["XLoc"].InnerText) * scale, int.Parse(npcInfo["YLoc"].InnerText) * scale, enemiesSheet);
+                    return new OldMan(int.Parse(npcInfo["XLoc"].InnerText) * scale, int.Parse(npcInfo["YLoc"].InnerText) * scale, npcSheet);
                 case "Stalfos":
                     return new Stalfos(int.Parse(npcInfo["XLoc"].InnerText) * scale, int.Parse(npcInfo["YLoc"].InnerText) * scale, enemiesSheet);
                 case "Trap":
