@@ -169,11 +169,11 @@ namespace Sprint0
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(dungeonSheet, new Rectangle(0, 0, 255, 175), currentRoom.getWall(), Color.White);
-            spriteBatch.Draw(dungeonSheet, new Rectangle(32, 32, 191, 111), currentRoom.getFloor(), Color.White);
-            spriteBatch.Draw(dungeonSheet, new Rectangle(112, 0, 31, 31), currentRoom.getTopDoor(), Color.White);
-            spriteBatch.Draw(dungeonSheet, new Rectangle(112, 144, 31, 31), currentRoom.getBottomDoor(), Color.White);
-            spriteBatch.Draw(dungeonSheet, new Rectangle(0, 72, 31, 31), currentRoom.getLeftDoor(), Color.White);
-            spriteBatch.Draw(dungeonSheet, new Rectangle(224, 72, 31, 31), currentRoom.getRightDoor(), Color.White);
+            spriteBatch.Draw(dungeonSheet, new Rectangle(32, 32, 192, 112), currentRoom.getFloor(), Color.White);
+            spriteBatch.Draw(dungeonSheet, new Rectangle(112, 0, 32, 32), currentRoom.getTopDoor(), Color.White);
+            spriteBatch.Draw(dungeonSheet, new Rectangle(112, 144, 32, 32), currentRoom.getBottomDoor(), Color.White);
+            spriteBatch.Draw(dungeonSheet, new Rectangle(0, 72, 32, 32), currentRoom.getLeftDoor(), Color.White);
+            spriteBatch.Draw(dungeonSheet, new Rectangle(224, 72, 32, 32), currentRoom.getRightDoor(), Color.White);
         }
 
         public void NextRoom()

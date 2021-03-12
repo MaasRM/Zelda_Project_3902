@@ -21,13 +21,15 @@ namespace Sprint0
             stateMachine = new GoriyaStateMachine(x, y, c);
             goriyaSpriteSheet = spriteSheet;
             init = new Tuple<int, int, GoriyaStateMachine.GoriyaColor>(x, y, c);
+            this.game = game;
         }
 
         public void Update()
         {
             if(!stateMachine.Throwing() && stateMachine.TryToThrow())
             {
-                game.AddProjectile(new GoriyaBoomerang(goriyaSpriteSheet, stateMachine, game));
+                boomerang = new GoriyaBoomerang(goriyaSpriteSheet, stateMachine, game);
+                game.AddProjectile(boomerang);
             }
             if(stateMachine.Throwing())
             {
