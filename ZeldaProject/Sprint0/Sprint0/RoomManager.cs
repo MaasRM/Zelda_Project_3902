@@ -18,7 +18,6 @@ namespace Sprint0
         private Texture2D itemsSheet;
         private Texture2D bossesSheet;
         private Texture2D npcSheet;
-        private Texture2D linkSheet;
 
         public RoomManager(Sprint3 game)
         {
@@ -27,14 +26,13 @@ namespace Sprint0
             roomIndex = 0;
         }
 
-        public void SetUpRooms(XmlDocument xmlDoc, Texture2D dungeon, Texture2D enemies, Texture2D items, Texture2D bosses, Texture2D npcs, Texture2D link)
+        public void SetUpRooms(XmlDocument xmlDoc, Texture2D dungeon, Texture2D enemies, Texture2D items, Texture2D bosses, Texture2D npcs)
         {
             dungeonSheet = dungeon;
             enemiesSheet = enemies;
             itemsSheet = bosses;
             bossesSheet = bosses;
             npcSheet = npcs;
-            linkSheet = link;
 
         XmlNode root = xmlDoc.FirstChild;
             for (int i = 0; i < root.ChildNodes.Count; i++)
@@ -82,19 +80,39 @@ namespace Sprint0
                 case "TriforceShardItem":
                     return new TriforceShardItem(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText), int.Parse(itemInfo["YLoc"].InnerText), 15, 15), new Rectangle(272, 0, 15, 15), itemsSheet);
                 case "Fire":
-                    return new Fire(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText), int.Parse(itemInfo["YLoc"].InnerText), 15, 15), new Rectangle(191, 185, 15, 15), linkSheet);
+                    return new Fire(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText), int.Parse(itemInfo["YLoc"].InnerText), 15, 15), new Rectangle(52, 11, 15, 15), npcSheet);
                 case "MapItem":
                     return new MapItem(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText), int.Parse(itemInfo["YLoc"].InnerText), 7, 15), new Rectangle(88, 0, 7, 15), itemsSheet);
                 case "CompassItem":
                     return new CompassItem(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText), int.Parse(itemInfo["YLoc"].InnerText), 15, 15), new Rectangle(256, 0, 15, 15), itemsSheet);
                 default:
-                    return new KeyItem(new Rectangle(0, 0, 7, 15), new Rectangle(240, 0, 7, 15), itemsSheet); ;
+                    return new KeyItem(new Rectangle(0, 0, 7, 15), new Rectangle(240, 0, 7, 15), itemsSheet);
             }
         }
 
         private INPC CreateNPC(XmlNode npcInfo)
         {
-
+            switch (npcInfo["EnemyType"].InnerText)
+            {
+                case "Aquamentus":
+                    return new Aquamentus(int.Parse(npcInfo["XLoc"].InnerText), int.Parse(npcInfo["YLoc"].InnerText), bossesSheet, game);
+                case "Gel":
+                    return new Gel(int.Parse(npcInfo["XLoc"].InnerText), int.Parse(npcInfo["YLoc"].InnerText), GelStateMachine.GelColor.Teal, enemiesSheet);
+                case "Goriya":
+                    return new Goriya(int.Parse(npcInfo["XLoc"].InnerText), int.Parse(npcInfo["YLoc"].InnerText), GoriyaStateMachine.GoriyaColor.Blue, enemiesSheet, game);
+                case "Keese":
+                    return new Keese(int.Parse(npcInfo["XLoc"].InnerText), int.Parse(npcInfo["YLoc"].InnerText), KeeseStateMachine.KeeseColor.Blue, enemiesSheet);
+                case "OldMan":
+                    return new OldMan(int.Parse(npcInfo["XLoc"].InnerText), int.Parse(npcInfo["YLoc"].InnerText), enemiesSheet);
+                case "Stalfos":
+                    return new Stalfos(int.Parse(npcInfo["XLoc"].InnerText), int.Parse(npcInfo["YLoc"].InnerText), enemiesSheet);
+                case "Trap":
+                    return new Trap(int.Parse(npcInfo["XLoc"].InnerText), int.Parse(npcInfo["YLoc"].InnerText), enemiesSheet);
+                case "Wallmaster":
+                    return new Wallmaster(int.Parse(npcInfo["XLoc"].InnerText), int.Parse(npcInfo["YLoc"].InnerText), WallmasterStateMachine.Direction.Up ,enemiesSheet); //Should this be up?
+                default:
+                    return new Aquamentus(0, 0, bossesSheet, game);
+            }
         }
 
         private Rectangle GetDoorSource(String direction, String doorType)
