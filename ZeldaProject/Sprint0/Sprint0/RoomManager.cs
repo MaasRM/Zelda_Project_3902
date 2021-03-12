@@ -18,6 +18,7 @@ namespace Sprint0
         private Texture2D itemsSheet;
         private Texture2D bossesSheet;
         private Texture2D npcSheet;
+        private Texture2D linkSheet;
 
         public RoomManager(Sprint3 game)
         {
@@ -26,13 +27,14 @@ namespace Sprint0
             roomIndex = 0;
         }
 
-        public void SetUpRooms(XmlDocument xmlDoc, Texture2D dungeon, Texture2D enemies, Texture2D items, Texture2D bosses, Texture2D npcs)
+        public void SetUpRooms(XmlDocument xmlDoc, Texture2D dungeon, Texture2D enemies, Texture2D items, Texture2D bosses, Texture2D npcs, Texture2D link)
         {
             dungeonSheet = dungeon;
             enemiesSheet = enemies;
             itemsSheet = bosses;
             bossesSheet = bosses;
             npcSheet = npcs;
+            linkSheet = link;
 
         XmlNode root = xmlDoc.FirstChild;
             for (int i = 0; i < root.ChildNodes.Count; i++)
@@ -71,7 +73,23 @@ namespace Sprint0
 
         private IItem CreateItem(XmlNode itemInfo)
         {
-
+            switch (itemInfo["ItemType"].InnerText)
+            {
+                case "KeyItem":
+                    return new KeyItem(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText), int.Parse(itemInfo["YLoc"].InnerText), 7, 15), new Rectangle(240, 0, 7, 15), itemsSheet);
+                case "HeartContainerItem":
+                    return new HeartContainerItem(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText), int.Parse(itemInfo["YLoc"].InnerText), 15, 15), new Rectangle(23, 0, 15, 15), itemsSheet);
+                case "TriforceShardItem":
+                    return new TriforceShardItem(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText), int.Parse(itemInfo["YLoc"].InnerText), 15, 15), new Rectangle(272, 0, 15, 15), itemsSheet);
+                case "Fire":
+                    return new Fire(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText), int.Parse(itemInfo["YLoc"].InnerText), 15, 15), new Rectangle(191, 185, 15, 15), linkSheet);
+                case "MapItem":
+                    return new MapItem(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText), int.Parse(itemInfo["YLoc"].InnerText), 7, 15), new Rectangle(88, 0, 7, 15), itemsSheet);
+                case "CompassItem":
+                    return new CompassItem(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText), int.Parse(itemInfo["YLoc"].InnerText), 15, 15), new Rectangle(256, 0, 15, 15), itemsSheet);
+                default:
+                    return new KeyItem(new Rectangle(0, 0, 7, 15), new Rectangle(240, 0, 7, 15), itemsSheet); ;
+            }
         }
 
         private INPC CreateNPC(XmlNode npcInfo)

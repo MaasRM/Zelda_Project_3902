@@ -66,7 +66,7 @@ namespace Sprint0
             Texture2D npcSheet = contentManager.Load<Texture2D>("Zelda_NPCs");
             XmlDocument doc = new XmlDocument();
             doc.Load(new FileStream("Content/ZeldaRoomLayout.xml", FileMode.Open));
-            roomManager.SetUpRooms(doc, dungeonSheet , enemiesSheet, itemsSheet, bossesSheet, npcSheet);
+            roomManager.SetUpRooms(doc, dungeonSheet , enemiesSheet, itemsSheet, bossesSheet, npcSheet, linkSheetList[0]);
 
             foreach(IController controller in controllerList)
             {
