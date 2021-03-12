@@ -12,7 +12,7 @@ namespace Sprint0
         private Rectangle source;
         private Rectangle destination;
         private Tuple<int, int> init;
-        private const int SCALER = 2;
+        private const int SCALER = 4;
 
         public OldMan(int x, int y, Texture2D spriteSheet)
         {

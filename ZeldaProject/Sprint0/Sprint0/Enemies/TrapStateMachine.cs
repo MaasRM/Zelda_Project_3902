@@ -31,7 +31,7 @@ namespace Sprint0
         private int height;
         private int frame;
         private int maxX, minX, maxY, minY;
-        private const int PIXELSCALER = 2;
+        private const int PIXELSCALER = 4;
         private const int chargeMoveDist = 4;
         private const int returnMoveDist = 2;
         private Tuple<int, int> initial;

@@ -19,7 +19,7 @@ namespace Sprint0
         private Sprint3 game;
         private const int frameCount = 21;
         private const int moveDist = 8;
-        private const int PIXELSCALER = 2;
+        private const int PIXELSCALER = 4;
 
         public GoriyaBoomerang(Texture2D spritesheet, GoriyaStateMachine state,  Sprint3 game)
         {

@@ -21,7 +21,7 @@ namespace Sprint0
         private int frame;
         private int lastFire;
         private const int FIRECOOLDOWN = 40;
-        private const int PIXELSCALER = 2;
+        private const int PIXELSCALER = 4;
         private const int moveDist = 2;
         private bool firing;
 

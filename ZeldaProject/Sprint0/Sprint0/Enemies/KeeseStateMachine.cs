@@ -42,7 +42,7 @@ namespace Sprint0
         private int currFrame;
         private int waitFrameCount;
         private int fastFrameCount;
-        private const int PIXELSCALER = 2;
+        private const int PIXELSCALER = 4;
         private static int slowFrameCount = 30;
         private static double axialMoveDist = 3;
         private static double diagonalMoveDist = axialMoveDist * Math.Sqrt(2.0);

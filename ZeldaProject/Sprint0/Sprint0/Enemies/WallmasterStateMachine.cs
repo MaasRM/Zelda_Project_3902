@@ -34,7 +34,7 @@ namespace Sprint0
         private int frame;
         private const int wallFrames = 10;
         private const int moveFrames = 40;
-        private const int PIXELSCALER = 2;
+        private const int PIXELSCALER = 4;
         private const int wallMoveDist = 1;
         private const int floorMoveDist = 3;
         private Tuple<int, int> initial;

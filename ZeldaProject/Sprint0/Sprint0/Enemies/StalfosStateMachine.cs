@@ -22,7 +22,7 @@ namespace Sprint0
         private int width;
         private int height;
         private int frame;
-        private const int PIXELSCALER = 2;
+        private const int PIXELSCALER = 4;
         private const int moveDist = 2;
 
         public StalfosStateMachine(int x, int y)

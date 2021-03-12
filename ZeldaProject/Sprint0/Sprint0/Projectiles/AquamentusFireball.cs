@@ -29,7 +29,7 @@ namespace Sprint0
         private Angle angle;
         private Position pos;
         private const int xMoveDist = 5;
-        private const int PIXELSCALER = 2;
+        private const int PIXELSCALER = 4;
         private Sprint3 game;
 
         public AquamentusFireball(int x, int y, Position pos, Texture2D spritesheet, Sprint3 game)

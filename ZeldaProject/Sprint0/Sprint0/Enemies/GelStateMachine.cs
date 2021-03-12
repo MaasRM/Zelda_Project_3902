@@ -38,7 +38,7 @@ namespace Sprint0
         private const int moveDist = 2;
         private bool wait;
         private int waitFrames;
-        private const int PIXELSCALER = 2;
+        private const int PIXELSCALER = 4;
         private const int moveFrames = 10;
 
 
