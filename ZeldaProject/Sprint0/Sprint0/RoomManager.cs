@@ -9,38 +9,49 @@ namespace Sprint0
 {
     public class RoomManager
     {
+        private Sprint3 game;
         private List<Room> roomList;
         private int roomIndex;
         private Room currentRoom;
-        private Texture2D dungeonTileSet;
+        private Texture2D dungeonSheet;
+        private Texture2D enemiesSheet;
+        private Texture2D itemsSheet;
+        private Texture2D bossesSheet;
+        private Texture2D npcSheet;
 
-        public RoomManager()
+        public RoomManager(Sprint3 game)
         {
+            this.game = game;
             roomList = new List<Room>();
             roomIndex = 0;
         }
 
-        public void SetUpRooms(XmlDocument xmlDoc, Texture2D tileset)
+        public void SetUpRooms(XmlDocument xmlDoc, Texture2D dungeon, Texture2D enemies, Texture2D items, Texture2D bosses, Texture2D npcs)
         {
-            dungeonTileSet = tileset;
-            XmlNode root = xmlDoc.FirstChild;
+            dungeonSheet = dungeon;
+            enemiesSheet = enemies;
+            itemsSheet = bosses;
+            bossesSheet = bosses;
+            npcSheet = npcs;
+
+        XmlNode root = xmlDoc.FirstChild;
             for (int i = 0; i < root.ChildNodes.Count; i++)
             {
                 XmlNode currentRoom = root.ChildNodes[i];
-                List<IBlock> blocks = new List<IBlock>();
+                List<IBlock> blockList = new List<IBlock>();
                 for (int b = 0; b < currentRoom["Blocks"].ChildNodes.Count; b++)
                 {
-                    blocks.Add(CreateBlock(currentRoom["Blocks"].ChildNodes[b]));
+                    blockList.Add(CreateBlock(currentRoom["Blocks"].ChildNodes[b]));
                 }
-                List<IItem> items = new List<IItem>();
+                List<IItem> itemList = new List<IItem>();
                 for (int it = 0; it < currentRoom["Items"].ChildNodes.Count; it++)
                 {
-                    items.Add(CreateItem(currentRoom["Items"].ChildNodes[it]));
+                    itemList.Add(CreateItem(currentRoom["Items"].ChildNodes[it]));
                 }
-                List<INPC> npcs = new List<INPC>();
+                List<INPC> npcList = new List<INPC>();
                 for (int n = 0; n < currentRoom["Enemies"].ChildNodes.Count; n++)
                 {
-                    npcs.Add(CreateNPC(currentRoom["Enemies"].ChildNodes[n]));
+                    npcList.Add(CreateNPC(currentRoom["Enemies"].ChildNodes[n]));
                 }
                 Rectangle floor = new Rectangle(int.Parse(currentRoom["Background"]["Xloc"].InnerText), int.Parse(currentRoom["Background"]["Yloc"].InnerText), 191, 111);
                 Rectangle walls = new Rectangle(521, 11, 255, 175);
@@ -48,14 +59,14 @@ namespace Sprint0
                 Rectangle bottomDoor = GetDoorSource("bottom", currentRoom["Doors"]["DownDoor"]["DoorType"].InnerText);
                 Rectangle leftDoor = GetDoorSource("left", currentRoom["Doors"]["LeftDoor"]["DoorType"].InnerText);
                 Rectangle rightDoor = GetDoorSource("right", currentRoom["Doors"]["RightDoor"]["DoorType"].InnerText);
-                roomList.Add(new Room(blocks, items, npcs, floor, walls, topDoor, bottomDoor, leftDoor, rightDoor));
+                roomList.Add(new Room(blockList, itemList, npcList, floor, walls, topDoor, bottomDoor, leftDoor, rightDoor));
             }
             currentRoom = roomList[0];
         }
 
         private IBlock CreateBlock(XmlNode blockInfo)
         {
-            return new Block(int.Parse(blockInfo["BlockType"].InnerText), dungeonTileSet);
+            return new Block(int.Parse(blockInfo["BlockType"].InnerText), dungeonSheet);
         }
 
         private IItem CreateItem(XmlNode itemInfo)

@@ -16,9 +16,7 @@ namespace Sprint0
         private ContentManager contentManager;
         private SpriteBatch _spriteBatch;
         private List<IController> controllerList;
-        private List<Texture2D> linkSheetList;
         public IPlayer link;
-        public Texture2D dungeonSheet;
         private int frame;
 
         //Tuples are immutable turns out, so just update these instead on room switch
@@ -33,12 +31,12 @@ namespace Sprint0
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
-            controllerList = new List<IController>();
-            linkSheetList = new List<Texture2D>();
-            frame = 0;
-            roomManager = new RoomManager();
             contentManager = new ContentManager(Content.ServiceProvider, Content.RootDirectory);
             contentManager.RootDirectory = "Content";
+
+            controllerList = new List<IController>();
+            frame = 0;
+            roomManager = new RoomManager(this);
         }
 
         protected override void Initialize()
@@ -54,15 +52,21 @@ namespace Sprint0
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            List<Texture2D> linkSheetList = new List<Texture2D>();
             linkSheetList.Add(contentManager.Load<Texture2D>("LinkSpriteSheet")); // 0 is green
             linkSheetList.Add(contentManager.Load<Texture2D>("LinkSpriteSheetBlack")); // 1 is black
             linkSheetList.Add(contentManager.Load<Texture2D>("LinkSpriteSheetRed")); // 2 is red
             linkSheetList.Add(contentManager.Load<Texture2D>("LinkSpriteSheetBlue")); // 3 is blue
             link = new Link(contentManager.Load<Texture2D>("LinkSpriteSheet"), linkSheetList);
-            dungeonSheet = contentManager.Load<Texture2D>("Dungeon_Tileset");
+
+            Texture2D dungeonSheet = contentManager.Load<Texture2D>("Dungeon_Tileset");
+            Texture2D enemiesSheet = contentManager.Load<Texture2D>("Dungeon_Enemies");
+            Texture2D itemsSheet = contentManager.Load<Texture2D>("Dungeon_Items");
+            Texture2D bossesSheet = contentManager.Load<Texture2D>("Dungeon_Bosses");
+            Texture2D npcSheet = contentManager.Load<Texture2D>("Zelda_NPCs");
             XmlDocument doc = new XmlDocument();
-            doc.Load(new FileStream("ZeldaRoomLayout.xml", FileMode.Open));
-            roomManager.SetUpRooms(doc, dungeonSheet);
+            doc.Load(new FileStream("Content/ZeldaRoomLayout.xml", FileMode.Open));
+            roomManager.SetUpRooms(doc, dungeonSheet , enemiesSheet, itemsSheet, bossesSheet, npcSheet);
 
             foreach(IController controller in controllerList)
             {
@@ -143,26 +147,6 @@ namespace Sprint0
         {
             return link;
         }      
-
-        public Texture2D GetEnemySpriteSheet()
-        {
-            return contentManager.Load<Texture2D>("Dungeon_Enemies");
-        }
-
-        public Texture2D GetItemSpriteSheet()
-        {
-            return contentManager.Load<Texture2D>("Dungeon_Items");
-        }
-
-        public Texture2D GetBossSpriteSheet()
-        {
-            return contentManager.Load<Texture2D>("Dungeon_Bosses");
-        }
-
-        public Texture2D GetNPCSpriteSheet()
-        {
-            return contentManager.Load<Texture2D>("Zelda_NPCs");
-        }
 
         public void AddProjectile(IProjectile projectile)
         {
