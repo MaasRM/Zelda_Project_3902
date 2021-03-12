@@ -46,6 +46,7 @@ namespace Sprint0
                 Rectangle bottomDoor = GetDoorSource("bottom", currentRoom["Doors"]["DownDoor"]["DoorType"].InnerText);
                 Rectangle leftDoor = GetDoorSource("left", currentRoom["Doors"]["LeftDoor"]["DoorType"].InnerText);
                 Rectangle rightDoor = GetDoorSource("right", currentRoom["Doors"]["RightDoor"]["DoorType"].InnerText);
+                roomList.Add(new Room(blocks, items, npcs, floor, walls, topDoor, bottomDoor, leftDoor, rightDoor));
             }
             currentRoom = roomList[0];
         }

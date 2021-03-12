@@ -20,8 +20,6 @@ namespace Sprint0
         public IPlayer link;
         public Texture2D dungeonSheet;
         private int frame;
-        private int npcIndex; //Do we need these
-        private int itemIndex; //this too?
 
         //Tuples are immutable turns out, so just update these instead on room switch
         private List<IBlock> blocks;
@@ -38,8 +36,6 @@ namespace Sprint0
             controllerList = new List<IController>();
             linkSheetList = new List<Texture2D>();
             frame = 0;
-            npcIndex = 0;
-            itemIndex = 0;
             roomManager = new RoomManager();
             contentManager = new ContentManager(Content.ServiceProvider, Content.RootDirectory);
             contentManager.RootDirectory = "Content";
@@ -64,9 +60,6 @@ namespace Sprint0
             linkSheetList.Add(contentManager.Load<Texture2D>("LinkSpriteSheetBlue")); // 3 is blue
             link = new Link(contentManager.Load<Texture2D>("LinkSpriteSheet"), linkSheetList);
             dungeonSheet = contentManager.Load<Texture2D>("Dungeon_Tileset");
-            block = new Block(new Rectangle (200, 200, 16, 16), new Rectangle(984, 11, 16, 16), dungeonSheet);
-            npc = new Stalfos(520, 222, contentManager.Load<Texture2D>("Dungeon_Enemies"));
-            item = new BlueRupeeItem(new Rectangle(500, 100, 24, 48), new Rectangle(72, 16, 8, 16), contentManager.Load<Texture2D>("Dungeon_Items"));
             XmlDocument doc = new XmlDocument();
             doc.Load(new FileStream("ZeldaRoomLayout.xml", FileMode.Open));
             roomManager.SetUpRooms(doc);
@@ -79,8 +72,6 @@ namespace Sprint0
 
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
             frame++;
 
             if (frame % 4 == 0)
@@ -151,47 +142,11 @@ namespace Sprint0
         public IPlayer GetPlayer()
         {
             return link;
-        }
-        
-        public void UpdateGameBlock(IBlock newBlock)
-        {
-            block = newBlock;
-        }
-
-        public void UpdateNPC(INPC newNPC)
-        {
-            npc = newNPC;
-            npc.Reset();
-        }
-
-        public int GetNPCIndex()
-        {
-            return npcIndex;
-        }
-
-        public void SetNPCIndex(int index)
-        {
-            npcIndex = index;
-        }       
+        }      
 
         public Texture2D GetEnemySpriteSheet()
         {
             return contentManager.Load<Texture2D>("Dungeon_Enemies");
-        } 
-        
-        public int GetItemIndex()
-        {
-            return itemIndex;
-        }
-
-        public void SetItemIndex(int index)
-        {
-            itemIndex = index;
-        }
-
-        public void SetItem(IItem newItem)
-        {
-            item = newItem;
         }
 
         public Texture2D GetItemSpriteSheet()
