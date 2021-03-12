@@ -37,6 +37,7 @@ namespace Sprint0
             controllerList = new List<IController>();
             frame = 0;
             roomManager = new RoomManager(this);
+            projectiles = new List<IProjectile>();
         }
 
         protected override void Initialize()
@@ -178,6 +179,11 @@ namespace Sprint0
         public void SetNPCs(List<INPC> newNPCs)
         {
             npcs = newNPCs;
+        }
+
+        public void ClearProjectiles()
+        {
+            projectiles.Clear();
         }
     }
 }

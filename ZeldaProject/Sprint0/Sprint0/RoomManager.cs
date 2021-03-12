@@ -66,7 +66,7 @@ namespace Sprint0
 
         private IBlock CreateBlock(XmlNode blockInfo)
         {
-            return new Block(int.Parse(blockInfo["BlockType"].InnerText), dungeonSheet);
+            return new Block(int.Parse(blockInfo.InnerText), dungeonSheet);
         }
 
         private IItem CreateItem(XmlNode itemInfo)
@@ -181,6 +181,7 @@ namespace Sprint0
             roomIndex++;
             if (roomIndex >= roomList.Count) roomIndex = 0;
             currentRoom = roomList[roomIndex];
+            game.ClearProjectiles();
         }
 
         public void PreviousRoom()
@@ -188,6 +189,7 @@ namespace Sprint0
             roomIndex--;
             if (roomIndex < 0) roomIndex = roomList.Count - 1;
             currentRoom = roomList[roomIndex];
+            game.ClearProjectiles();
         }
     }
 }
