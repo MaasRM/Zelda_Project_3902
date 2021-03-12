@@ -11,41 +11,11 @@ namespace Sprint0
         private Texture2D blockSpriteSheet;
         private Rectangle blockSource;
         private Rectangle blockDestination;
-        private int scale = 3;
-        public int blockIndex = 0;
+        private int scale = 2;
 
-        public Block(Rectangle destination, Rectangle source, Texture2D spriteSheet)
+        public Block(int blockIndex, Texture2D spriteSheet)
         {
             blockSpriteSheet = spriteSheet;
-            blockSource = source; 
-            blockDestination = destination;
-
-        }
-
-        public void incrementIndex()
-        {
-            blockIndex++;
-        }
-
-        public void decrementIndex()
-        {
-            blockIndex--;
-        }
-
-        public void Update()
-        {
-            if (blockIndex < 0 || blockIndex == 10)
-            {
-                if(blockIndex < 0)
-                {
-                    blockIndex += 10;
-                }
-                else if(blockIndex == 10)
-                {
-                    blockIndex -= 10;
-                }
-            }
-
             if (blockIndex == 0)
             {
                 blockDestination = new Rectangle(200, 200, 16 * scale, 16 * scale);
@@ -96,6 +66,11 @@ namespace Sprint0
                 blockDestination = new Rectangle(200, 200, 16 * scale, 16 * scale);
                 blockSource = new Rectangle(1001, 45, 16, 16);
             }
+        }
+
+        public void Update()
+        {
+            //moving block mechanics??
         }
 
         public void Draw(SpriteBatch spriteBatch)

@@ -62,7 +62,7 @@ namespace Sprint0
             dungeonSheet = contentManager.Load<Texture2D>("Dungeon_Tileset");
             XmlDocument doc = new XmlDocument();
             doc.Load(new FileStream("ZeldaRoomLayout.xml", FileMode.Open));
-            roomManager.SetUpRooms(doc);
+            roomManager.SetUpRooms(doc, dungeonSheet);
 
             foreach(IController controller in controllerList)
             {

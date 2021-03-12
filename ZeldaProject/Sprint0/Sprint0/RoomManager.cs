@@ -12,6 +12,7 @@ namespace Sprint0
         private List<Room> roomList;
         private int roomIndex;
         private Room currentRoom;
+        private Texture2D dungeonTileSet;
 
         public RoomManager()
         {
@@ -19,8 +20,9 @@ namespace Sprint0
             roomIndex = 0;
         }
 
-        public void SetUpRooms(XmlDocument xmlDoc)
+        public void SetUpRooms(XmlDocument xmlDoc, Texture2D tileset)
         {
+            dungeonTileSet = tileset;
             XmlNode root = xmlDoc.FirstChild;
             for (int i = 0; i < root.ChildNodes.Count; i++)
             {
@@ -53,7 +55,7 @@ namespace Sprint0
 
         private IBlock CreateBlock(XmlNode blockInfo)
         {
-
+            return new Block(int.Parse(blockInfo["BlockType"].InnerText), dungeonTileSet);
         }
 
         private IItem CreateItem(XmlNode itemInfo)
