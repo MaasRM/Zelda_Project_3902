@@ -160,7 +160,12 @@ namespace Sprint0
             return stateMachine.getAnimation() != Animation.Attack;
         }
 
-        public void Damage()
+        public int GetDamageValue()
+        {
+            return 1;
+        }
+
+        public void SetDamageState(int damage, Vector2 direction)
         {
 
         }

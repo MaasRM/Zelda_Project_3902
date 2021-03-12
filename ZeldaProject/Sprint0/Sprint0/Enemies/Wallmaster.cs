@@ -81,7 +81,12 @@ namespace Sprint0
             return destination;
         }
 
-        public void Damage()
+        public int GetDamageValue()
+        {
+            return 1;
+        }
+
+        public void SetDamageState(int damage, Vector2 direction)
         {
 
         }

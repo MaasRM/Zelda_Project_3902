@@ -16,6 +16,7 @@ namespace Sprint0
         public void SetPosition(Rectangle newPos);
         public void MakeImmobile();
         public bool Attacking();
-        public void Damage();
+        public int GetDamageValue();
+        public void SetDamageState(int damage, Vector2 direction);
     }
 }

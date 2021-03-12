@@ -57,5 +57,15 @@ namespace Sprint0
         {
             return stateMachine.IsStill();
         }
+
+        public int GetDamageValue()
+        {
+            return 1;
+        }
+
+        public void SetDamageState(int damage, Vector2 direction)
+        {
+
+        }
     }
 }

@@ -23,11 +23,11 @@ namespace Sprint0
 
             if (enemy is Trap)
             {
-                DamageThePlayer(player);
+                DamageThePlayer(player, overlap);
             }
             else if (player.Attacking())
             {
-                PlayerAttackingCollisionHandler(player, enemy);
+                PlayerAttackingCollisionHandler(player, enemy, overlap);
             }
             else if (enemy is Wallmaster)
             {
@@ -35,7 +35,7 @@ namespace Sprint0
             }
             else
             {
-                DamageThePlayer(player);
+                DamageThePlayer(player, overlap);
             }
         }
 
@@ -79,7 +79,7 @@ namespace Sprint0
             }
         }
 
-        private static void PlayerAttackingCollisionHandler(IPlayer player, INPC enemy)
+        private static void PlayerAttackingCollisionHandler(IPlayer player, INPC enemy, OverlapInRelationToPlayer overlap)
         {
 
         }
@@ -100,24 +100,66 @@ namespace Sprint0
             player.MakeImmobile();
         }
 
-        private static void DamageThePlayer(IPlayer player)
+        private static void DamageThePlayer(IPlayer player, IEnemy enmey, OverlapInRelationToPlayer overlap)
         {
+            Vector2 damageDirection = PlayerDamageVector(overlap);
 
+            player.SetDamageState(enemy.GetDamageValue, damageDirection);
         }
 
-        private static void DamageTheEnemy(INPC enemy)
+        private static void DamageTheEnemy(INPC enemy, int damage, OverlapInRelationToPlayer overlap)
         {
-
+            Vector2 damageDirection = EnemyDamageVector(overlap);
         }
 
-        private Vector2 PlayerDamageVector(IPlayer Player)
+        private static Vector2 PlayerDamageVector(OverlapInRelationToPlayer overlap)
         {
             Vector2 up = new Vector2(0, -3);
             Vector2 right = new Vector2(3, 0);
             Vector2 down = new Vector2(0, 3);
             Vector2 left = new Vector2(-3, 0);
 
-            return up;
+            if(overlap == OverlapInRelationToPlayer.Up)
+            {
+                return down;
+            }
+            else if(overlap == OverlapInRelationToPlayer.Down)
+            {
+                return up;
+            }
+            else if (overlap == OverlapInRelationToPlayer.Left)
+            {
+                return right;
+            }
+            else
+            {
+                return left;
+            }
+        }
+
+        private static Vector2 EnemyDamageVector(OverlapInRelationToPlayer overlap)
+        {
+            Vector2 up = new Vector2(0, -3);
+            Vector2 right = new Vector2(3, 0);
+            Vector2 down = new Vector2(0, 3);
+            Vector2 left = new Vector2(-3, 0);
+
+            if (overlap == OverlapInRelationToPlayer.Up)
+            {
+                return up;
+            }
+            else if (overlap == OverlapInRelationToPlayer.Down)
+            {
+                return down;
+            }
+            else if (overlap == OverlapInRelationToPlayer.Left)
+            {
+                return left;
+            }
+            else
+            {
+                return right;
+            }
         }
     }
 }
