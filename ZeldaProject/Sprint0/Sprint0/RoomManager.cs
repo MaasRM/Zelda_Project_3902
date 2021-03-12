@@ -31,7 +31,7 @@ namespace Sprint0
         {
             dungeonSheet = dungeon;
             enemiesSheet = enemies;
-            itemsSheet = bosses;
+            itemsSheet = items;
             bossesSheet = bosses;
             npcSheet = npcs;
 
