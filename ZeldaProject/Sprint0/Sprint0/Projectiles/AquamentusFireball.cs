@@ -70,7 +70,7 @@ namespace Sprint0
                 {
                     y -= xMoveDist * Math.Tan(20 * Math.PI / 180) * PIXELSCALER;
                 }
-                else
+                else if (pos == Position.Bottom)
                 {
                     y += xMoveDist * Math.Tan(20 * Math.PI / 180) * PIXELSCALER;
                 }
@@ -90,8 +90,6 @@ namespace Sprint0
                     y += xMoveDist * Math.Tan(5 * Math.PI / 180) * PIXELSCALER;
                 }
             }
-
-            CheckForRemoval();
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -158,14 +156,11 @@ namespace Sprint0
             }
         }
 
-        private void CheckForRemoval()
+        public bool CheckForRemoval()
         {
             double xCenter = x + WIDTH * PIXELSCALER / 2;
             double yCenter = y + HEIGHT * PIXELSCALER / 2;
-            if((xCenter < 0 || xCenter >= game.GraphicsDevice.Viewport.Width) && (yCenter < 0 || yCenter >= game.GraphicsDevice.Viewport.Height))
-            {
-                game.RemoveProjectile(this);
-            }
+            return (xCenter < 0 || xCenter >= game.GraphicsDevice.Viewport.Width) && (yCenter < 0 || yCenter >= game.GraphicsDevice.Viewport.Height);
         }
     }
 }
