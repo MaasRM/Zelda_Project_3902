@@ -37,6 +37,9 @@ namespace Sprint0
             controllerList = new List<IController>();
             frame = 0;
             roomManager = new RoomManager(this);
+            blocks = new List<IBlock>();
+            items = new List<IItem>();
+            npcs = new List<INPC>();
             projectiles = new List<IProjectile>();
         }
 
