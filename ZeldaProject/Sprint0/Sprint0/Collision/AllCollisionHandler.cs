@@ -64,7 +64,7 @@ namespace Sprint0
             {
                 if (item.GetLocationRectangle().Intersects(player.LinkPosition()))
                 {
-                    LinkItemHandler(player, item);
+                    //LinkItemHandler(player, item);
                 }
             }
         }
