@@ -34,7 +34,7 @@ namespace Sprint0
             bossesSheet = bosses;
             npcSheet = npcs;
 
-        XmlNode root = xmlDoc.FirstChild;
+            XmlNode root = xmlDoc["Rooms"];
             for (int i = 0; i < root.ChildNodes.Count; i++)
             {
                 XmlNode currentRoom = root.ChildNodes[i];
@@ -53,7 +53,7 @@ namespace Sprint0
                 {
                     npcList.Add(CreateNPC(currentRoom["Enemies"].ChildNodes[n]));
                 }
-                Rectangle floor = new Rectangle(int.Parse(currentRoom["Background"]["Xloc"].InnerText), int.Parse(currentRoom["Background"]["Yloc"].InnerText), 191, 111);
+                Rectangle floor = new Rectangle(int.Parse(currentRoom["Background"]["XLoc"].InnerText), int.Parse(currentRoom["Background"]["YLoc"].InnerText), 191, 111);
                 Rectangle walls = new Rectangle(521, 11, 255, 175);
                 Rectangle topDoor = GetDoorSource("top", currentRoom["Doors"]["UpDoor"]["DoorType"].InnerText);
                 Rectangle bottomDoor = GetDoorSource("bottom", currentRoom["Doors"]["DownDoor"]["DoorType"].InnerText);
