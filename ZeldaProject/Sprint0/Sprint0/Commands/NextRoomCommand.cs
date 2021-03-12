@@ -13,7 +13,7 @@ namespace Sprint0
 
         public void Execute()
         {
-            Debug.WriteLine("Next Room Selected");
+            game.GetRoomManager().NextRoom();
         }
     }
 }

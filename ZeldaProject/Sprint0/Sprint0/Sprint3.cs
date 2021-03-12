@@ -146,7 +146,12 @@ namespace Sprint0
         public IPlayer GetPlayer()
         {
             return link;
-        }      
+        }
+
+        public RoomManager GetRoomManager()
+        {
+            return roomManager;
+        }
 
         public void AddProjectile(IProjectile projectile)
         {
