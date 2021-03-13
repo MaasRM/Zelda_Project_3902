@@ -19,36 +19,40 @@ namespace Sprint0
         {
         }
 
-        public static void HandleCollision(IPlayer player, IBlock block)
+        public static void HandleCollision(IPlayer player, IBlock block, Rectangle overlap)
         {
             //the idea is that if the player is trying to go through a block to just set the 
             //position of Link to where the collision first occured so that it won't look like Link is going through the block
 
-            OverlapInRelationToPlayer overlap = GetOverlapDirection(player, block);
+            OverlapInRelationToPlayer overlapSide = GetOverlapDirection(player, block);
             Rectangle playerRect = player.LinkPosition();
 
-            if (overlap == OverlapInRelationToPlayer.Up && (Keyboard.GetState().IsKeyDown(Keys.W) || Keyboard.GetState().IsKeyDown(Keys.Up)))
+            if ((overlapSide == OverlapInRelationToPlayer.Up) && (Keyboard.GetState().IsKeyDown(Keys.W) || Keyboard.GetState().IsKeyDown(Keys.Up)))
             {
                 //return down;
-                playerRect.Y = playerRect.Y - 12;
+                player.getLinkStateMachine().disableUp();
+                playerRect.Y = playerRect.Y - overlap.Height;
                 player.SetPosition(playerRect);
             }
-            else if (overlap == OverlapInRelationToPlayer.Down && (Keyboard.GetState().IsKeyDown(Keys.S) || Keyboard.GetState().IsKeyDown(Keys.Down)))
+            else if ((overlapSide == OverlapInRelationToPlayer.Down) && (Keyboard.GetState().IsKeyDown(Keys.S) || Keyboard.GetState().IsKeyDown(Keys.Down)))
             {
                 //return up;
-                playerRect.Y = playerRect.Y + 12;
+                player.getLinkStateMachine().disableDown();
+                playerRect.Y = playerRect.Y + overlap.Height;
                 player.SetPosition(playerRect);
             }
-            else if (overlap == OverlapInRelationToPlayer.Left && (Keyboard.GetState().IsKeyDown(Keys.A) || Keyboard.GetState().IsKeyDown(Keys.Left)))
+            else if ((overlapSide == OverlapInRelationToPlayer.Left) && (Keyboard.GetState().IsKeyDown(Keys.A) || Keyboard.GetState().IsKeyDown(Keys.Left)))
             {
                 //return right;
-                playerRect.X = playerRect.X + 12;
+                player.getLinkStateMachine().disableLeft();
+                playerRect.X = playerRect.X + playerRect.Width + overlap.Width;
                 player.SetPosition(playerRect);
             }
-            else
+            else 
             {
                 //return left;
-                playerRect.X = playerRect.X - 12;
+                player.getLinkStateMachine().disableRight();
+                playerRect.X = playerRect.X - overlap.Width;
                 player.SetPosition(playerRect);
             }
         }
@@ -58,7 +62,7 @@ namespace Sprint0
             Rectangle playerPos = player.LinkPosition();
             Rectangle blockPos = block.GetBlockLocation();
             OverlapInRelationToPlayer overlapX = OverlapInRelationToPlayer.Right;
-            OverlapInRelationToPlayer overlapY = OverlapInRelationToPlayer.Left;
+            OverlapInRelationToPlayer overlapY = OverlapInRelationToPlayer.Down;
 
             int yOverDist = 0, xOverDist = 0;
 
@@ -66,18 +70,17 @@ namespace Sprint0
             {
                 yOverDist = blockPos.Y + blockPos.Height - playerPos.Y;
                 overlapY = OverlapInRelationToPlayer.Up;
-            }
-            if (blockPos.Y < playerPos.Y + playerPos.Height && blockPos.Y >= playerPos.Y)
+            }else if (blockPos.Y < playerPos.Y + playerPos.Height && blockPos.Y >= playerPos.Y)
             {
                 yOverDist = playerPos.Y + playerPos.Height - blockPos.Y;
                 overlapY = OverlapInRelationToPlayer.Down;
             }
+
             if (playerPos.X < blockPos.X + blockPos.Width && playerPos.X >= blockPos.X)
             {
                 xOverDist = blockPos.X + blockPos.Width - playerPos.X;
                 overlapY = OverlapInRelationToPlayer.Right;
-            }
-            if (blockPos.X < playerPos.X + playerPos.Width && blockPos.X >= playerPos.X)
+            }else if (blockPos.X < playerPos.X + playerPos.Width && blockPos.X >= playerPos.X)
             {
                 xOverDist = playerPos.X + playerPos.Width - blockPos.X;
                 overlapY = OverlapInRelationToPlayer.Left;

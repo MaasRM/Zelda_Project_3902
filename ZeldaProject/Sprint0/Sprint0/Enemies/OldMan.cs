@@ -42,5 +42,9 @@ namespace Sprint0
         {
             return destination;
         }
+        public void SetPosition(Rectangle newPos)
+        {
+            destination = newPos;
+        }
     }
 }

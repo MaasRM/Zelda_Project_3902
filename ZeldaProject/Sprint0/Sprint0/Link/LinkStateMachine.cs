@@ -39,6 +39,10 @@ namespace Sprint0
         private int yLoc;
         private const int linkMoveSpeed = 20; //May need to change value
         private Boolean isBusy;
+        private Boolean disUp;
+        private Boolean disDown;
+        private Boolean disRight;
+        private Boolean disLeft;
         private int frame;
         private int sizeFactor;
         private List<IProjectile> linkProjectileList;
@@ -53,7 +57,11 @@ namespace Sprint0
             xLoc = 100; //Original Position, probably needs to change
             yLoc = 100;
             isBusy = false;
-            sizeFactor = 4;
+            disUp = false;
+            disDown = false;
+            disRight = false;
+            disLeft = false;
+        sizeFactor = 4;
             frame = 0;
             linkProjectileList = new List<IProjectile>();
             linkProjectileToRemoveList = new List<IProjectile>();
@@ -128,18 +136,25 @@ namespace Sprint0
         {
             if (!isBusy)
             {
-                if (this.direction == Direction.MoveUp)
+                if (!disUp)
                 {
-                    this.animation = Animation.Walk;
-                    yLoc -= linkMoveSpeed;
-                    if (frame == 0) frame = 1;
-                    else frame = 0;
-                }
-                else
-                {
-                    this.direction = Direction.MoveUp;
-                    this.animation = Animation.Idle;
-                    frame = 0;
+                    disDown = false;
+                    disRight = false;
+                    disLeft = false;
+
+                    if (this.direction == Direction.MoveUp)
+                    {
+                        this.animation = Animation.Walk;
+                        yLoc -= linkMoveSpeed;
+                        if (frame == 0) frame = 1;
+                        else frame = 0;
+                    }
+                    else
+                    {
+                        this.direction = Direction.MoveUp;
+                        this.animation = Animation.Idle;
+                        frame = 0;
+                    }
                 }
             }
         }
@@ -148,18 +163,25 @@ namespace Sprint0
         {
             if (!isBusy)
             {
-                if (this.direction == Direction.MoveDown)
+                if (!disDown)
                 {
-                    this.animation = Animation.Walk;
-                    yLoc += linkMoveSpeed;
-                    if (frame == 0) frame = 1;
-                    else frame = 0;
-                }
-                else
-                {
-                    this.direction = Direction.MoveDown;
-                    this.animation = Animation.Idle;
-                    frame = 0;
+                    disUp = false;
+                    disRight = false;
+                    disLeft = false;
+
+                    if (this.direction == Direction.MoveDown)
+                    {
+                        this.animation = Animation.Walk;
+                        yLoc += linkMoveSpeed;
+                        if (frame == 0) frame = 1;
+                        else frame = 0;
+                    }
+                    else
+                    {
+                        this.direction = Direction.MoveDown;
+                        this.animation = Animation.Idle;
+                        frame = 0;
+                    }
                 }
             }
         }
@@ -168,18 +190,25 @@ namespace Sprint0
         {
             if (!isBusy)
             {
-                if (this.direction == Direction.MoveLeft)
+                if (!disLeft)
                 {
-                    this.animation = Animation.Walk;
-                    xLoc -= linkMoveSpeed;
-                    if (frame == 0) frame = 1;
-                    else frame = 0;
-                }
-                else
-                {
-                    this.direction = Direction.MoveLeft;
-                    this.animation = Animation.Idle;
-                    frame = 0;
+                    disUp = false;
+                    disDown = false;
+                    disRight = false;
+
+                    if (this.direction == Direction.MoveLeft)
+                    {
+                        this.animation = Animation.Walk;
+                        xLoc -= linkMoveSpeed;
+                        if (frame == 0) frame = 1;
+                        else frame = 0;
+                    }
+                    else
+                    {
+                        this.direction = Direction.MoveLeft;
+                        this.animation = Animation.Idle;
+                        frame = 0;
+                    }
                 }
             }
         }
@@ -188,18 +217,25 @@ namespace Sprint0
         {
             if (!isBusy)
             {
-                if (this.direction == Direction.MoveRight)
+                if (!disRight)
                 {
-                    this.animation = Animation.Walk;
-                    xLoc += linkMoveSpeed;
-                    if (frame == 0) frame = 1;
-                    else frame = 0;
-                }
-                else
-                {
-                    this.direction = Direction.MoveRight;
-                    this.animation = Animation.Idle;
-                    frame = 0;
+                    disUp = false;
+                    disDown = false;
+                    disLeft = false;
+
+                    if (this.direction == Direction.MoveRight)
+                    {
+                        this.animation = Animation.Walk;
+                        xLoc += linkMoveSpeed;
+                        if (frame == 0) frame = 1;
+                        else frame = 0;
+                    }
+                    else
+                    {
+                        this.direction = Direction.MoveRight;
+                        this.animation = Animation.Idle;
+                        frame = 0;
+                    }
                 }
             }
         }
@@ -302,6 +338,22 @@ namespace Sprint0
         public void MakeBusy()
         {
             isBusy = true;
+        }
+        public void disableUp()
+        {
+            disUp = true;
+        }
+        public void disableDown()
+        {
+            disDown = true;
+        }
+        public void disableRight()
+        {
+            disRight = true;
+        }
+        public void disableLeft()
+        {
+            disLeft = true;
         }
     }
 }

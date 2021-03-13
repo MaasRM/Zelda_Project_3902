@@ -28,29 +28,29 @@ namespace Sprint0
                 {
                     linkRectangle = new RectangleLinkMoveUpIdle();
                     retRectangle = linkRectangle.getRectangle(color, frame);
-                    linkHeight = 15;
-                    linkWidth = 15;
+                    linkHeight = 16;
+                    linkWidth = 16;
                 } 
                 else if (animation == Animation.Walk)
                 {
                     linkRectangle = new RectangleLinkMoveUpWalk();
                     retRectangle = linkRectangle.getRectangle(color, frame);
-                    linkHeight = 15;
-                    linkWidth = 15;
+                    linkHeight = 16;
+                    linkWidth = 16;
                 } 
                 else if (animation == Animation.Attack)
                 {
                     linkRectangle = new RectangleLinkMoveUpAttack();
                     retRectangle = linkRectangle.getRectangle(color, frame);
                     linkHeight = 30;
-                    linkWidth = 15;
+                    linkWidth = 16;
                 } 
                 else //Animation.UsingItem
                 {
                     linkRectangle = new RectangleLinkMoveUpItem();
                     retRectangle = linkRectangle.getRectangle(color, frame);
-                    linkHeight = 15;
-                    linkWidth = 15;
+                    linkHeight = 16;
+                    linkWidth = 16;
                 }
             } 
             else if (direction == Direction.MoveDown)
@@ -59,29 +59,29 @@ namespace Sprint0
                 {
                     linkRectangle = new RectangleLinkMoveDownIdle();
                     retRectangle = linkRectangle.getRectangle(color, frame);
-                    linkHeight = 15;
-                    linkWidth = 15;
+                    linkHeight = 16;
+                    linkWidth = 16;
                 }
                 else if (animation == Animation.Walk)
                 {
                     linkRectangle = new RectangleLinkMoveDownWalk();
                     retRectangle = linkRectangle.getRectangle(color, frame);
-                    linkHeight = 15;
-                    linkWidth = 15;
+                    linkHeight = 16;
+                    linkWidth = 16;
                 }
                 else if (animation == Animation.Attack)
                 {
                     linkRectangle = new RectangleLinkMoveDownAttack();
                     retRectangle = linkRectangle.getRectangle(color, frame);
                     linkHeight = 30;
-                    linkWidth = 15;
+                    linkWidth = 16;
                 }
                 else //Animation.UsingItem
                 {
                     linkRectangle = new RectangleLinkMoveDownItem();
                     retRectangle = linkRectangle.getRectangle(color, frame);
-                    linkHeight = 15;
-                    linkWidth = 15;
+                    linkHeight = 16;
+                    linkWidth = 16;
                 }
             } 
             else if (direction == Direction.MoveLeft)
@@ -90,15 +90,15 @@ namespace Sprint0
                 {
                     linkRectangle = new RectangleLinkMoveRightIdle();
                     retRectangle = linkRectangle.getRectangle(color, frame);
-                    linkHeight = 15;
-                    linkWidth = 15;
+                    linkHeight = 16;
+                    linkWidth = 16;
                 }
                 else if (animation == Animation.Walk)
                 {
                     linkRectangle = new RectangleLinkMoveRightWalk();
                     retRectangle = linkRectangle.getRectangle(color, frame);
-                    linkHeight = 15;
-                    linkWidth = 15;
+                    linkHeight = 16;
+                    linkWidth = 16;
                 }
                 else if (animation == Animation.Attack)
                 {
@@ -106,22 +106,22 @@ namespace Sprint0
                     retRectangle = linkRectangle.getRectangle(color, frame);
                     if (frame == 0)
                     {
-                        linkHeight = 15;
-                        linkWidth = 15;
+                        linkHeight = 16;
+                        linkWidth = 16;
                     }
                     else if (frame == 1)
                     {
-                        linkHeight = 15;
+                        linkHeight = 16;
                         linkWidth = 26;
                     }
                     else if (frame == 2)
                     {
-                        linkHeight = 15;
+                        linkHeight = 16;
                         linkWidth = 22;
                     }
                     else //frame == 3
                     {
-                        linkHeight = 15;
+                        linkHeight = 16;
                         linkWidth = 18;
                     }
                 }
@@ -129,8 +129,8 @@ namespace Sprint0
                 {
                     linkRectangle = new RectangleLinkMoveRightItem();
                     retRectangle = linkRectangle.getRectangle(color, frame);
-                    linkHeight = 15;
-                    linkWidth = 15;
+                    linkHeight = 16;
+                    linkWidth = 16;
                 }
             } 
             else //Direction.MoveRight
@@ -139,15 +139,15 @@ namespace Sprint0
                 {
                     linkRectangle = new RectangleLinkMoveRightIdle();
                     retRectangle = linkRectangle.getRectangle(color, frame);
-                    linkHeight = 15;
-                    linkWidth = 15;
+                    linkHeight = 16;
+                    linkWidth = 16;
                 }
                 else if (animation == Animation.Walk)
                 {
                     linkRectangle = new RectangleLinkMoveRightWalk();
                     retRectangle = linkRectangle.getRectangle(color, frame);
-                    linkHeight = 15;
-                    linkWidth = 15;
+                    linkHeight = 16;
+                    linkWidth = 16;
                 }
                 else if (animation == Animation.Attack)
                 {
@@ -155,22 +155,22 @@ namespace Sprint0
                     retRectangle = linkRectangle.getRectangle(color, frame);
                     if (frame == 0)
                     {
-                        linkHeight = 15;
+                        linkHeight = 16;
                         linkWidth = 16;
                     }
                     else if (frame == 1)
                     {
-                        linkHeight = 15;
+                        linkHeight = 16;
                         linkWidth = 27;
                     }
                     else if (frame == 2)
                     {
-                        linkHeight = 15;
+                        linkHeight = 16;
                         linkWidth = 23;
                     }
                     else //frame == 3
                     {
-                        linkHeight = 15;
+                        linkHeight = 16;
                         linkWidth = 19;
                     }
                 }
@@ -178,8 +178,8 @@ namespace Sprint0
                 {
                     linkRectangle = new RectangleLinkMoveRightItem();
                     retRectangle = linkRectangle.getRectangle(color, frame);
-                    linkHeight = 15;
-                    linkWidth = 15;
+                    linkHeight = 16;
+                    linkWidth = 16;
                 }
             }
             return retRectangle;

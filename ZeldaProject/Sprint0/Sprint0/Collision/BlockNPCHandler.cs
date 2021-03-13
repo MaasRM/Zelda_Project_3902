@@ -29,18 +29,26 @@ namespace Sprint0
             if (overlap == OverlapInRelationToEnemy.Up)
             {
                 //return down;
+                enemyRect.Y = enemyRect.Y - 12;
+                enemy.SetPosition(enemyRect);
             }
             else if (overlap == OverlapInRelationToEnemy.Down)
             {
                 //return up;
+                enemyRect.Y = enemyRect.Y + 12;
+                enemy.SetPosition(enemyRect);
             }
             else if (overlap == OverlapInRelationToEnemy.Left)
             {
                 //return right;
+                enemyRect.X = enemyRect.X + 12;
+                enemy.SetPosition(enemyRect);
             }
             else
             {
                 //return left;
+                enemyRect.X = enemyRect.X - 12;
+                enemy.SetPosition(enemyRect);
             }
         }
 

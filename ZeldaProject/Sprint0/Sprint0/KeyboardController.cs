@@ -50,6 +50,7 @@ namespace Sprint0
 			//Commands for quit and reset			
 			otherCommands.Add(Keys.R, new ResetGameCommand(game));
 			otherCommands.Add(Keys.Q, new QuitCommand(game));
+			otherCommands.Add(Keys.Escape, new QuitCommand(game));
 		}
 
 		public void Update()

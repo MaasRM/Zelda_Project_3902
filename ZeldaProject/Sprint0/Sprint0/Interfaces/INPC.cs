@@ -11,5 +11,6 @@ namespace Sprint0
         public void Draw(SpriteBatch spriteBatch);
         public void Reset();
         public Rectangle GetNPCLocation();
+        public void SetPosition(Rectangle newPos);
     }
 }

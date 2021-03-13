@@ -25,6 +25,7 @@ namespace Sprint0
         private List<INPC> npcs;
         private List<IProjectile> projectiles;
         private RoomManager roomManager;
+        private AllCollisionHandler allCollisionHandler;
 
         public Sprint3()
         {
@@ -79,6 +80,8 @@ namespace Sprint0
             {
                 controller.SetCommands(this);
             }
+
+            allCollisionHandler = new AllCollisionHandler(this.GraphicsDevice.Viewport.Bounds.X, this.GraphicsDevice.Viewport.Bounds.Width, this.GraphicsDevice.Viewport.Bounds.Y, this.GraphicsDevice.Viewport.Bounds.Height);
         }
 
         protected override void Update(GameTime gameTime)
@@ -89,6 +92,7 @@ namespace Sprint0
             {
                 //Call updates for Link, Enemies, Blocks, etc.
                 link.Update();
+                allCollisionHandler.HandleCollisions(link, npcs, items, blocks, projectiles);
                 roomManager.Update();
 
                 foreach (IBlock block in blocks)
@@ -113,6 +117,8 @@ namespace Sprint0
                     controller.Update();
                 }
             }
+
+            
 
             base.Update(gameTime);
         }
@@ -142,9 +148,11 @@ namespace Sprint0
             {
                 proj.Draw(this._spriteBatch);
             }
-            
+
+            allCollisionHandler.HandleCollisions(link, npcs, items, blocks, projectiles);
+
             link.Draw(this._spriteBatch);
-            
+
             this._spriteBatch.End();
 
             base.Draw(gameTime);
