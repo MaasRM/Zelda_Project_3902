@@ -123,11 +123,9 @@ namespace Sprint0
 
             this._spriteBatch.Begin();
 
-
             //Call draw for Link, Enemies, Blocks, etc
             roomManager.Draw(this._spriteBatch);
-            link.Draw(this._spriteBatch);
-
+            
             foreach (IBlock block in blocks)
             {
                 block.Draw(this._spriteBatch);
@@ -144,7 +142,9 @@ namespace Sprint0
             {
                 proj.Draw(this._spriteBatch);
             }
-
+            
+            link.Draw(this._spriteBatch);
+            
             this._spriteBatch.End();
 
             base.Draw(gameTime);

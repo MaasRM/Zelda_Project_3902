@@ -69,5 +69,9 @@ namespace Sprint0
             spriteBatch.Draw(blockSpriteSheet, blockDestination, blockSource, Color.White);
         }
 
+        public Rectangle GetBlockLocation()
+        {
+            return blockDestination;
+        }
     }
 }

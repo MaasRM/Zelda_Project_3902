@@ -36,6 +36,7 @@ namespace Sprint0
             npcSheet = npcs;
 
             XmlNode root = xmlDoc["Rooms"];
+
             for (int i = 0; i < root.ChildNodes.Count; i++)
             {
                 XmlNode currentRoom = root.ChildNodes[i];

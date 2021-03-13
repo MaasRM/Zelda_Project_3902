@@ -73,7 +73,18 @@ namespace Sprint0
         {
             foreach (IBlock block in blocks)
             {
-                
+                if (block.GetBlockLocation().Intersects(player.LinkPosition()))
+                {
+                    LinkBlockHandler.HandleCollision(player, block);
+                }
+
+                foreach (INPC nPC in npcs)
+                {
+                    if (block.GetBlockLocation().Intersects(nPC.GetNPCLocation()))
+                    {
+                        //BlockNPCHandler.HandleCollision(nPC, block);
+                    }
+                }
             }
         }
 
