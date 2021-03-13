@@ -339,21 +339,30 @@ namespace Sprint0
         {
             isBusy = true;
         }
+
         public void disableUp()
         {
             disUp = true;
         }
+
         public void disableDown()
         {
             disDown = true;
         }
+
         public void disableRight()
         {
             disRight = true;
         }
+
         public void disableLeft()
         {
             disLeft = true;
+        }
+        public void SetPositions(Rectangle newPos)
+        {
+            yLoc = newPos.Y;
+            xLoc = newPos.X;
         }
     }
 }

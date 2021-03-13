@@ -73,7 +73,7 @@ namespace Sprint0
         {
             foreach (IBlock block in blocks)
             {
-                if (block.GetBlockLocation().Intersects(player.LinkPosition()))
+                if (player.LinkPosition().Intersects(block.GetBlockLocation()))
                 {
                     Rectangle overlap = Rectangle.Intersect(block.GetBlockLocation(), player.LinkPosition());
 

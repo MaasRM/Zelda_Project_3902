@@ -27,33 +27,35 @@ namespace Sprint0
             OverlapInRelationToPlayer overlapSide = GetOverlapDirection(player, block);
             Rectangle playerRect = player.LinkPosition();
 
+            //overlapSide = OverlapInRelationToPlayer.Up;
+
             if ((overlapSide == OverlapInRelationToPlayer.Up) && (Keyboard.GetState().IsKeyDown(Keys.W) || Keyboard.GetState().IsKeyDown(Keys.Up)))
             {
                 //return down;
                 player.getLinkStateMachine().disableUp();
                 playerRect.Y = playerRect.Y - overlap.Height;
-                player.SetPosition(playerRect);
+                updatePlayer(player, playerRect);
             }
             else if ((overlapSide == OverlapInRelationToPlayer.Down) && (Keyboard.GetState().IsKeyDown(Keys.S) || Keyboard.GetState().IsKeyDown(Keys.Down)))
             {
-                //return up;
+                //return up;  
                 player.getLinkStateMachine().disableDown();
                 playerRect.Y = playerRect.Y + overlap.Height;
-                player.SetPosition(playerRect);
+                updatePlayer(player, playerRect);
             }
             else if ((overlapSide == OverlapInRelationToPlayer.Left) && (Keyboard.GetState().IsKeyDown(Keys.A) || Keyboard.GetState().IsKeyDown(Keys.Left)))
             {
                 //return right;
                 player.getLinkStateMachine().disableLeft();
-                playerRect.X = playerRect.X + playerRect.Width + overlap.Width;
-                player.SetPosition(playerRect);
+                playerRect.X = playerRect.X + overlap.Width;
+                updatePlayer(player, playerRect);
             }
             else 
             {
                 //return left;
                 player.getLinkStateMachine().disableRight();
                 playerRect.X = playerRect.X - overlap.Width;
-                player.SetPosition(playerRect);
+                updatePlayer(player, playerRect);
             }
         }
 
@@ -94,6 +96,11 @@ namespace Sprint0
             {
                 return overlapX;
             }
+        }
+        private static void updatePlayer(IPlayer player, Rectangle newPlayerRect)
+        {
+            player.getLinkStateMachine().SetPositions(newPlayerRect);
+            player.SetPosition(newPlayerRect);
         }
     }
 }
