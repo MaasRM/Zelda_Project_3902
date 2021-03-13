@@ -6,6 +6,7 @@ namespace Sprint0
 {
     public class AllCollisionHandler
     {
+        
         private int cameraWallMinX;
         private int cameraWallMinY;
         private int cameraWallMaxX;
@@ -13,6 +14,7 @@ namespace Sprint0
 
         public AllCollisionHandler(int x1, int x2, int y1, int y2)
         {
+            
             cameraWallMinX = x1;
             cameraWallMinY = y1;
             cameraWallMaxX = x2;
@@ -60,12 +62,19 @@ namespace Sprint0
 
         private void PlayerItemCollisions(IPlayer player, List<IItem> items)
         {
+            List<IItem> collidedItems;
+            collidedItems = new List<IItem>();
             foreach (IItem item in items)
             {
                 if (item.GetLocationRectangle().Intersects(player.LinkPosition()))
                 {
-                    //LinkItemHandler(player, item);
+                    collidedItems.Add(item);   
                 }
+            }
+
+            foreach (IItem item in collidedItems)
+            {
+                items.Remove(item);
             }
         }
 
