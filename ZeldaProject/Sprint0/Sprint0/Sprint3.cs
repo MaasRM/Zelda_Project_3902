@@ -178,6 +178,11 @@ namespace Sprint0
             projectiles.Remove(projectile);
         }
 
+        public void RemoveItem(IItem item)
+        {
+            items.Remove(item);
+        }
+
         public void SetBlocks(List<IBlock> newBlocks)
         {
             blocks = newBlocks;

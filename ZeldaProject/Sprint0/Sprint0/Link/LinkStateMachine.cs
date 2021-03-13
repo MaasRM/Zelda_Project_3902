@@ -37,7 +37,7 @@ namespace Sprint0
         private Animation animation;
         private int xLoc;
         private int yLoc;
-        private const int linkMoveSpeed = 20; //May need to change value
+        private int linkMoveSpeed = 20; //May need to change value
         private Boolean isBusy;
         private Boolean disUp;
         private Boolean disDown;
@@ -318,6 +318,16 @@ namespace Sprint0
         public void changeYLocation(int change) //Not used but may need later??
         {
             yLoc += change;
+        }
+
+        public void setMoveSpeedToZero()
+        {
+            linkMoveSpeed = 0;
+        }
+
+        public void resetMoveSpeed()
+        {
+            linkMoveSpeed = 20;
         }
 
         public void addProjectile(IProjectile projectile)

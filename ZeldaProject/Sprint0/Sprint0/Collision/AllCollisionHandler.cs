@@ -32,7 +32,24 @@ namespace Sprint0
 
         private void CheckWalls(IPlayer player, List<INPC> npcs, List<IBlock> blocks)
         {
-
+            new LinkWallHandler(player, cameraWallMaxX, cameraWallMaxY);
+            
+            if(player.getLinkStateMachine().getXLoc() < 120)
+            {
+                LinkWallHandler.HandleLeftWall();
+            }
+            if (player.getLinkStateMachine().getYLoc() < 117)
+            {
+                LinkWallHandler.HandleTopWall();
+            }
+            if (player.getLinkStateMachine().getXLoc() > cameraWallMaxX - 175)
+            {
+                LinkWallHandler.HandleRightWall();
+            }
+            if (player.getLinkStateMachine().getYLoc() > cameraWallMaxY - 175)
+            {
+                LinkWallHandler.HandleBottomWall();
+            }
         }
 
         private void PlayerEnemyCollisions(IPlayer player, List<INPC> npcs)
