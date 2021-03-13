@@ -23,11 +23,11 @@ namespace Sprint0
 
             if (enemy is Trap)
             {
-                //DamageThePlayer(player, overlap);
+                DamageThePlayer(player, ((IEnemy)enemy).GetDamageValue(), overlap);
             }
-            else if (player.Attacking())
+            else if (player.Attacking() && CheckAttackDirection(player, overlap))
             {
-                PlayerAttackingCollisionHandler(player, enemy, overlap);
+                DamageTheEnemy((IEnemy)enemy, player.GetMeleeDamage(), overlap);
             }
             else if (enemy is Wallmaster)
             {
@@ -35,7 +35,7 @@ namespace Sprint0
             }
             else
             {
-                //DamageThePlayer(player, overlap);
+                DamageThePlayer(player, ((IEnemy)enemy).GetDamageValue(), overlap);
             }
         }
 
@@ -79,11 +79,6 @@ namespace Sprint0
             }
         }
 
-        private static void PlayerAttackingCollisionHandler(IPlayer player, INPC enemy, OverlapInRelationToPlayer overlap)
-        {
-
-        }
-
         private static void WallmasterCollisionHandler(IPlayer player, Wallmaster wallmaster)
         {
             Rectangle linkPos = player.LinkPosition();
@@ -100,16 +95,18 @@ namespace Sprint0
             player.MakeImmobile();
         }
 
-        private static void DamageThePlayer(IPlayer player, IEnemy enemy, OverlapInRelationToPlayer overlap)
+        private static void DamageThePlayer(IPlayer player, int damage, OverlapInRelationToPlayer overlap)
         {
             Vector2 damageDirection = PlayerDamageVector(overlap);
 
-            player.SetDamageState(enemy.GetDamageValue(), damageDirection);
+            player.SetDamageState(damage, damageDirection);
         }
 
-        private static void DamageTheEnemy(INPC enemy, int damage, OverlapInRelationToPlayer overlap)
+        private static void DamageTheEnemy(IEnemy enemy, int damage, OverlapInRelationToPlayer overlap)
         {
             Vector2 damageDirection = EnemyDamageVector(overlap);
+
+            enemy.SetDamageState(damage, damageDirection);
         }
 
         private static Vector2 PlayerDamageVector(OverlapInRelationToPlayer overlap)
@@ -160,6 +157,16 @@ namespace Sprint0
             {
                 return right;
             }
+        }
+
+        private static bool CheckAttackDirection(IPlayer player, OverlapInRelationToPlayer overlap)
+        {
+            Direction dir = player.getLinkStateMachine().getDirection();
+
+            return ((dir == Direction.MoveLeft && overlap == OverlapInRelationToPlayer.Left)
+                || (dir == Direction.MoveRight && overlap == OverlapInRelationToPlayer.Right)
+                || (dir == Direction.MoveUp && overlap == OverlapInRelationToPlayer.Up)
+                || (dir == Direction.MoveDown && overlap == OverlapInRelationToPlayer.Down));
         }
     }
 }

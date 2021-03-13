@@ -160,7 +160,7 @@ namespace Sprint0
             return stateMachine.getAnimation() != Animation.Attack;
         }
 
-        public int GetDamageValue()
+        public int GetMeleeDamage()
         {
             return 1;
         }
