@@ -25,7 +25,7 @@ namespace Sprint0
             {
                 DamageTheEnemy((IEnemy)enemy, projectile, overlap);
             }
-            else if (projectile is BrownBoomerangProjectile || projectile is BlueBoomerangProjectile)
+            else if (projectile is IBoomerang)
             {
                 if (enemy is Keese || enemy is Gel)
                 {
@@ -33,8 +33,10 @@ namespace Sprint0
                 }
                 else
                 {
-                    StunEnemy((IEnemy)enemy, projectile, overlap);
+                    StunEnemy((IEnemy)enemy);
                 }
+
+                ((IBoomerang)projectile).GoBack();
             }
             else
             {
@@ -114,9 +116,9 @@ namespace Sprint0
             }
         }
 
-        private static void StunEnemy(IEnemy enemy, IProjectile projectile, OverlapInRelationToEnemy overlap)
+        private static void StunEnemy(IEnemy enemy)
         {
-
+            enemy.Stun();
         }
     }
 }

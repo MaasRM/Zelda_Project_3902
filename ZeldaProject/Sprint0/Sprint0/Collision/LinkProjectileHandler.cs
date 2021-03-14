@@ -29,7 +29,14 @@ namespace Sprint0
                 }
                 else
                 {
-                    DeflectProjectile(projectile, overlap);
+                    if (projectile is IBoomerang)
+                    {
+                        ((IBoomerang)projectile).GoBack();
+                    }
+                    else
+                    {
+                        DeflectProjectile(projectile, overlap);
+                    }
                 }
             }
             else
