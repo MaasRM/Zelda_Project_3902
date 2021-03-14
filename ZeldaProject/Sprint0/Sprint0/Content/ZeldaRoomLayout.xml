@@ -74,7 +74,7 @@
 		</Enemies>
 		<Background>
 			<XLoc>1</XLoc>
-			<YLoc>422</YLoc>
+			<YLoc>192</YLoc>
 		</Background>
 		<Doors>
 			<RightDoor>
@@ -884,7 +884,7 @@
 	<Room>
 		<Blocks>
 			<Block>
-				<BlockType>1</BlockType>
+				<BlockType>10</BlockType>
 				<XLoc>113</XLoc>
 				<YLoc>80</YLoc>
 			</Block>
@@ -910,7 +910,7 @@
 		</Enemies>
 		<Background>
 			<XLoc>1</XLoc>
-			<YLoc>307</YLoc>
+			<YLoc>192</YLoc>
 		</Background>
 		<Doors>
 			<RightDoor>
