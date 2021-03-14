@@ -236,7 +236,10 @@ namespace Sprint0
 
         public void GrabLink()
         {
-            grab = true;
+            if(activity == Activity.OutWall)
+            {
+                grab = true;
+            }
         }
 
         public Direction GetInitialDirection()
