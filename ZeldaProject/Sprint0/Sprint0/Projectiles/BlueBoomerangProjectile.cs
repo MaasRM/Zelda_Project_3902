@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Sprint0
 {
-    class BlueBoomerangProjectile : IProjectile, IPlayerProjectile
+    class BlueBoomerangProjectile : IProjectile, IPlayerProjectile, IBoomerang
     {
         private LinkStateMachine stateMachine;
         private Rectangle sourceRectangle;
@@ -136,6 +136,11 @@ namespace Sprint0
         public Rectangle GetProjectileLocation()
         {
             return destinationRectangle;
+        }
+
+        public void GoBack()
+        {
+            goBack = true;
         }
     }
 }

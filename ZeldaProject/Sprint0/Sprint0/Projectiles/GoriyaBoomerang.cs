@@ -5,10 +5,11 @@ using System.Collections.Generic;
 using System.Text;
 namespace Sprint0
 {
-    public class GoriyaBoomerang : IProjectile, IEnemyProjectile
+    public class GoriyaBoomerang : IProjectile, IEnemyProjectile, IBoomerang
     {
         private GoriyaStateMachine goriyaState;
         private Texture2D spritesheet;
+        private bool goBack;
         private int x;
         private int y;
         private const int WIDTH = 8;
@@ -16,25 +17,29 @@ namespace Sprint0
         private GoriyaStateMachine.Direction direction;
         private int frame;
         private SpriteEffects flip;
-        private Sprint3 game;
-        private const int frameCount = 21;
+        private const int maxframeCount = 21;
         private const int moveDist = 8;
         private const int PIXELSCALER = 4;
 
-        public GoriyaBoomerang(Texture2D spritesheet, GoriyaStateMachine state,  Sprint3 game)
+        public GoriyaBoomerang(Texture2D spritesheet, GoriyaStateMachine state)
         {
             goriyaState = state;
             direction = goriyaState.GetDirection();
             InitialPosition();
             frame = 0;
+            goBack = false;
             this.spritesheet = spritesheet;
-            this.game = game;
         }
 
         public void Update()
         {
             frame++;
-            if (frame < frameCount / 2)
+            if(frame > maxframeCount / 2)
+            {
+                GoBack();
+            }
+
+            if (!goBack)
             {
                 if(direction == GoriyaStateMachine.Direction.Down)
                 {
@@ -53,7 +58,7 @@ namespace Sprint0
                     x += moveDist * PIXELSCALER;
                 }
             }
-            else if (frame > frameCount / 2 + 2)
+            else if (goBack)
             {
                 if (direction == GoriyaStateMachine.Direction.Down)
                 {
@@ -72,17 +77,17 @@ namespace Sprint0
                     x -= moveDist * PIXELSCALER;
                 }
             }
-
-            CheckForRemoval();
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(spritesheet, GetDestination(), GetSource(), Color.White, 0, new Vector2(0, 0), flip, 0f);
-
-            if (frame == frameCount)
+            if (CheckForRemoval())
             {
                 goriyaState.BoomerangReturned();
+            }
+            else
+            {
+                spriteBatch.Draw(spritesheet, GetDestination(), GetSource(), Color.White, 0, new Vector2(0, 0), flip, 0f);
             }
         }
 
@@ -157,19 +162,49 @@ namespace Sprint0
             }
         }
 
-        private void CheckForRemoval()
+        public bool CheckForRemoval()
         {
             int xTemp = x;
             int yTemp = y;
+            bool result;
             InitialPosition();
 
-            if(x == xTemp && y == yTemp)
+            if (direction == GoriyaStateMachine.Direction.Down)
             {
-                game.RemoveProjectile(this);
+                result = yTemp <= y;
+            }
+            else if (direction == GoriyaStateMachine.Direction.Up)
+            {
+                result = yTemp >= y;
+            }
+            else if (direction == GoriyaStateMachine.Direction.Left)
+            {
+                result = xTemp >= x;
+            }
+            else
+            {
+                result = xTemp <= x;
             }
 
             y = yTemp;
             x = xTemp;
+
+            return result;
+        }
+
+        public void GoBack()
+        {
+            goBack = true;
+        }
+
+        public int GetDamage()
+        {
+            return 1;
+        }
+
+        public void Deflect(Vector2 deflection)
+        {
+            GoBack();
         }
     }
 }
