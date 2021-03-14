@@ -232,5 +232,10 @@ namespace Sprint0
                 state = State.Normal;
             }
         }
+
+        public bool IsDamaged()
+        {
+            return state == State.Damaged;
+        }
     }
 }

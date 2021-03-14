@@ -288,6 +288,11 @@ namespace Sprint0
                 damageDirection = new Vector2(0, 0);
             }
         }
+
+        public bool IsDamaged()
+        {
+            return state == State.Damaged;
+        }
     }
 }
 

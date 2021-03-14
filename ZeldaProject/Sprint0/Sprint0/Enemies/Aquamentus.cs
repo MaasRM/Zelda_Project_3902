@@ -83,5 +83,10 @@ namespace Sprint0
         {
             //Won't get stunned
         }
+
+        public bool IsDamaged()
+        {
+            return stateMachine.IsDamaged();
+        }
     }
 }

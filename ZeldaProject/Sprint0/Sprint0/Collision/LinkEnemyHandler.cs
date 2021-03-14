@@ -33,7 +33,7 @@ namespace Sprint0
             {
                 WallmasterCollisionHandler(player, (Wallmaster)enemy);
             }
-            else
+            else if (!((IEnemy)enemy).IsDamaged())
             {
                 DamageThePlayer(player, ((IEnemy)enemy).GetDamageValue(), overlap);
             }
