@@ -65,7 +65,7 @@ namespace Sprint0
 
         public void SetDamageState(int damage, Vector2 direction)
         {
-
+            //Can't be damged
         }
         public void SetPosition(Rectangle newPos)
         {
@@ -80,7 +80,7 @@ namespace Sprint0
 
         public void Stun()
         {
-
+            //Can't be stunned
         }
 
         public void Return()
