@@ -13,6 +13,7 @@ namespace Sprint0
         private Rectangle source;
         private Rectangle destination;
         private Sprint3 game;
+        private int DAMAGE = 2;
         private Tuple<int, int> init;
 
         public Aquamentus(int x, int y, Texture2D spriteSheet, Sprint3 game)
@@ -60,12 +61,12 @@ namespace Sprint0
 
         public int GetDamageValue()
         {
-            return 1;
+            return DAMAGE;
         }
 
         public void SetDamageState(int damage, Vector2 direction)
         {
-
+            stateMachine.TakeDamage(damage);
         }
         public void SetPosition(Rectangle newPos)
         {
@@ -75,12 +76,12 @@ namespace Sprint0
 
         public bool StillAlive()
         {
-            return true;
+            return stateMachine.HasHealth();
         }
 
         public void Stun()
         {
-
+            //Won't get stunned
         }
     }
 }
