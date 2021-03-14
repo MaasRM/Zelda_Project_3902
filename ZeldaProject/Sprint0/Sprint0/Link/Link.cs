@@ -165,19 +165,28 @@ namespace Sprint0
             return 1;
         }
 
+        public void Heal(int health)
+        {
+            stateMachine.Heal(health);
+        }
+
         public void SetDamageState(int damage, Vector2 direction)
         {
-
+            if(stateMachine.getColor() != LinkColor.Damaged)
+            {
+                damageFrameCount = 0;
+                stateMachine.TakeDamage(damage, direction);
+            }
         }
 
         public bool IsAlive()
         {
-            return true;
+            return stateMachine.HasHealth();
         }
 
         public void Reset()
         {
-
+            stateMachine = new LinkStateMachine();
         }
     }
 }

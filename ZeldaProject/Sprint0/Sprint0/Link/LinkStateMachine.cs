@@ -45,6 +45,9 @@ namespace Sprint0
         private Boolean disLeft;
         private int frame;
         private int sizeFactor;
+        private int health;
+        private int maxHealth;
+        private Vector2 damageVector;
         private List<IProjectile> linkProjectileList;
         private List<IProjectile> linkProjectileToRemoveList;
 
@@ -61,10 +64,13 @@ namespace Sprint0
             disDown = false;
             disRight = false;
             disLeft = false;
-        sizeFactor = 4;
+            health = 6;
+            maxHealth = 6;
+            sizeFactor = 4;
             frame = 0;
             linkProjectileList = new List<IProjectile>();
             linkProjectileToRemoveList = new List<IProjectile>();
+            damageVector = new Vector2(0, 0);
         }
 
         public Rectangle getDestination()
@@ -121,6 +127,13 @@ namespace Sprint0
                     }
                 }
             }
+
+            if(color == LinkColor.Damaged)
+            {
+                xLoc += (int)damageVector.X;
+                yLoc += (int)damageVector.Y;
+            }
+
             foreach (IProjectile projectile in linkProjectileList)
             {
                 projectile.Update();
@@ -134,7 +147,7 @@ namespace Sprint0
 
         public void faceUp()
         {
-            if (!isBusy)
+            if (!isBusy && color != LinkColor.Damaged)
             {
                 if (!disUp)
                 {
@@ -161,7 +174,7 @@ namespace Sprint0
 
         public void faceDown()
         {
-            if (!isBusy)
+            if (!isBusy && color != LinkColor.Damaged)
             {
                 if (!disDown)
                 {
@@ -188,7 +201,7 @@ namespace Sprint0
 
         public void faceLeft()
         {
-            if (!isBusy)
+            if (!isBusy && color != LinkColor.Damaged)
             {
                 if (!disLeft)
                 {
@@ -215,7 +228,7 @@ namespace Sprint0
 
         public void faceRight()
         {
-            if (!isBusy)
+            if (!isBusy && color != LinkColor.Damaged)
             {
                 if (!disRight)
                 {
@@ -242,7 +255,7 @@ namespace Sprint0
 
         public void setIdle()
         {
-            if (!isBusy)
+            if (!isBusy && color == LinkColor.Damaged)
             {
                 this.animation = Animation.Idle;
                 isBusy = false;
@@ -252,7 +265,7 @@ namespace Sprint0
 
         public void setAttack()
         {
-            if (!isBusy)
+            if (!isBusy && color != LinkColor.Damaged)
             {
                 this.animation = Animation.Attack;
                 isBusy = true;
@@ -373,6 +386,28 @@ namespace Sprint0
         {
             yLoc = newPos.Y;
             xLoc = newPos.X;
+        }
+
+        public void Heal(int newHealth)
+        {
+            health += newHealth;
+
+            if(health > maxHealth)
+            {
+                health = maxHealth;
+            }
+        }
+
+        public void TakeDamage(int damage, Vector2 direction)
+        {
+            health -= damage;
+            damageVector = direction;
+            setDamaged();
+        }
+
+        public bool HasHealth()
+        {
+            return health > 0;
         }
     }
 }

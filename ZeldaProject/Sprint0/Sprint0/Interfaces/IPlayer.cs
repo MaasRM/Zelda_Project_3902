@@ -20,5 +20,6 @@ namespace Sprint0
         public void SetDamageState(int damage, Vector2 direction);
         public bool IsAlive();
         public void Reset();
+        public void Heal(int health);
     }
 }
