@@ -9,17 +9,19 @@ namespace Sprint0
     public class Wallmaster : INPC, IEnemy
     {
         private WallmasterStateMachine stateMachine;
-        private Texture2D wallmasterSpriteSheet;
+        private List<Texture2D> wallmasterSpriteSheet;
+        private Texture2D currentSheet;
         private Rectangle source;
         private Rectangle destination;
         private SpriteEffects flip;
         private const int DAMAGE = 1;
         private Tuple<int, int, WallmasterStateMachine.Direction> init;
 
-        public Wallmaster(int x, int y, WallmasterStateMachine.Direction d, Texture2D spritesheet)
+        public Wallmaster(int x, int y, WallmasterStateMachine.Direction d, List<Texture2D> spritesheet)
         {
             stateMachine = new WallmasterStateMachine(x, y, d);
             wallmasterSpriteSheet = spritesheet;
+            currentSheet = spritesheet[0];
             init = new Tuple<int, int, WallmasterStateMachine.Direction>(x, y, d);
         }
 
@@ -28,6 +30,7 @@ namespace Sprint0
             stateMachine.Move();
             destination = stateMachine.GetDestination();
             source = stateMachine.GetSource();
+            ChangeSpriteSheet();
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -53,8 +56,43 @@ namespace Sprint0
                     flip = SpriteEffects.FlipVertically;
                 }
 
-                spriteBatch.Draw(wallmasterSpriteSheet, destination, source, Color.White, 0, new Vector2(0, 0), flip, 0f);
+                spriteBatch.Draw(currentSheet, destination, source, Color.White, 0, new Vector2(0, 0), flip, 0f);
             }   
+        }
+
+        private void ChangeSpriteSheet()
+        {
+            if(stateMachine.IsDamaged())
+            {
+                int damageFrame = stateMachine.GetDamageFrame();
+
+                if (damageFrame % 4 == 3)
+                {
+                    currentSheet = wallmasterSpriteSheet[1];
+                    //contentManager.Load<Texture2D>("LinkSpriteSheetBlack");
+                }
+                else if (damageFrame % 4 == 2)
+                {
+                    currentSheet = wallmasterSpriteSheet[2];
+                }
+                else if (damageFrame % 4 == 1)
+                {
+                    currentSheet = wallmasterSpriteSheet[3];
+                }
+                else //damageFrameCount %4 == 0
+                {
+                    currentSheet = wallmasterSpriteSheet[0];
+                }
+            }
+            else
+            {
+                SetOriginalColor();
+            }
+        }
+
+        private void SetOriginalColor()
+        {
+            currentSheet = wallmasterSpriteSheet[0];
         }
 
         public void TriggerWallmaster()
@@ -91,6 +129,7 @@ namespace Sprint0
         {
             stateMachine.TakeDamage(damage, direction);
         }
+
         public void SetPosition(Rectangle newPos)
         {
             destination = newPos;

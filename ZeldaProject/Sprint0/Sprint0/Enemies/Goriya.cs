@@ -10,16 +10,18 @@ namespace Sprint0
     {
         private GoriyaStateMachine stateMachine;
         private GoriyaBoomerang boomerang;
-        private Texture2D goriyaSpriteSheet;
+        private List<Texture2D> goriyaSpriteSheet;
+        private Texture2D currentSheet;
         private Rectangle source;
         private Rectangle destination;
         private Sprint3 game;
         private Tuple<int, int, GoriyaStateMachine.GoriyaColor> init;
 
-        public Goriya(int x, int y, GoriyaStateMachine.GoriyaColor c, Texture2D spriteSheet, Sprint3 game)
+        public Goriya(int x, int y, GoriyaStateMachine.GoriyaColor c, List<Texture2D> spriteSheet, Sprint3 game)
         {
             stateMachine = new GoriyaStateMachine(x, y, c);
             goriyaSpriteSheet = spriteSheet;
+            currentSheet = spriteSheet[0];
             init = new Tuple<int, int, GoriyaStateMachine.GoriyaColor>(x, y, c);
             this.game = game;
         }
@@ -28,13 +30,14 @@ namespace Sprint0
         {
             if(!stateMachine.Throwing() && stateMachine.TryToThrow())
             {
-                boomerang = new GoriyaBoomerang(goriyaSpriteSheet, stateMachine);
+                boomerang = new GoriyaBoomerang(goriyaSpriteSheet[0], stateMachine);
                 game.AddProjectile(boomerang);
             }
 
             stateMachine.Move();
             destination = stateMachine.GetDestination();
             source = stateMachine.GetSource();
+            ChangeSpriteSheet();
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -43,24 +46,59 @@ namespace Sprint0
             {
                 if(stateMachine.GetDirection() == GoriyaStateMachine.Direction.Left)
                 {
-                    spriteBatch.Draw(goriyaSpriteSheet, destination, source, Color.White, 0, new Vector2(0, 0), SpriteEffects.FlipHorizontally, 0f);
+                    spriteBatch.Draw(currentSheet, destination, source, Color.White, 0, new Vector2(0, 0), SpriteEffects.FlipHorizontally, 0f);
                 }
                 else
                 {
-                    spriteBatch.Draw(goriyaSpriteSheet, destination, source, Color.White);
+                    spriteBatch.Draw(currentSheet, destination, source, Color.White);
                 }
             }
             else
             {
                 if(stateMachine.GetDirection() == GoriyaStateMachine.Direction.Right)
                 {
-                    spriteBatch.Draw(goriyaSpriteSheet, destination, source, Color.White);
+                    spriteBatch.Draw(currentSheet, destination, source, Color.White);
                 }
                 else
                 {
-                    spriteBatch.Draw(goriyaSpriteSheet, destination, source, Color.White, 0, new Vector2(0, 0), SpriteEffects.FlipHorizontally, 0f);
+                    spriteBatch.Draw(currentSheet, destination, source, Color.White, 0, new Vector2(0, 0), SpriteEffects.FlipHorizontally, 0f);
                 }
             }
+        }
+
+        private void ChangeSpriteSheet()
+        {
+            if (stateMachine.IsDamaged())
+            {
+                int damageFrame = stateMachine.GetDamageFrame();
+
+                if (damageFrame % 4 == 3)
+                {
+                    currentSheet = goriyaSpriteSheet[1];
+                    //contentManager.Load<Texture2D>("LinkSpriteSheetBlack");
+                }
+                else if (damageFrame % 4 == 2)
+                {
+                    currentSheet = goriyaSpriteSheet[2];
+                }
+                else if (damageFrame % 4 == 1)
+                {
+                    currentSheet = goriyaSpriteSheet[3];
+                }
+                else //damageFrameCount %4 == 0
+                {
+                    currentSheet = goriyaSpriteSheet[0];
+                }
+            }
+            else
+            {
+                SetOriginalColor();
+            }
+        }
+
+        private void SetOriginalColor()
+        {
+            currentSheet = goriyaSpriteSheet[0];
         }
 
         public void Reset()

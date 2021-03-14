@@ -28,6 +28,7 @@ namespace Sprint0
         private int frame;
         private int lastFire;
         private int health;
+        private int damageFrames;
         private const int MAXHEALTH = 16;
         private const int FIRECOOLDOWN = 40;
         private const int PIXELSCALER = 4;
@@ -41,6 +42,7 @@ namespace Sprint0
             width = 24;
             height = 32;
             frame = -1;
+            damageFrames = 0;
             lastFire = FIRECOOLDOWN * -1;
             firing = false;
             health = MAXHEALTH;
@@ -107,6 +109,13 @@ namespace Sprint0
             {
                 StopFiring();
             }
+
+            if(state == State.Damaged)
+            {
+                damageFrames++;
+            }
+
+            ReturnToNormal();
         }
 
         public int GetFrame()
@@ -161,12 +170,26 @@ namespace Sprint0
             {
                 health -= damage;
                 state = State.Damaged;
+                damageFrames = 1;
+            }
+        }
+
+        public void ReturnToNormal()
+        {
+            if (damageFrames > 24 )
+            {
+                state = State.Normal;
             }
         }
 
         public bool IsDamaged()
         {
             return state == State.Damaged;
+        }
+
+        public int GetDamageFrame()
+        {
+            return damageFrames;
         }
     }
 }
