@@ -57,8 +57,8 @@ namespace Sprint0
             direction = Direction.MoveRight;
             color = LinkColor.Green;
             animation = Animation.Idle;
-            xLoc = 100; //Original Position, probably needs to change
-            yLoc = 100;
+            xLoc = 200; //Original Position, probably needs to change
+            yLoc = 240;
             isBusy = false;
             disUp = false;
             disDown = false;
