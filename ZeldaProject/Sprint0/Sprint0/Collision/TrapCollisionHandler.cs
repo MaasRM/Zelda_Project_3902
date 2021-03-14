@@ -20,12 +20,12 @@ namespace Sprint0
 
         public static void HandleCollision(Trap one, Trap two)
         {
-            OverlapInRelationToTrapOne overlap = GetOverlapDirection(one, two);
-            AdjustTrapLocations(one, two, overlap);
             one.Return();
             two.Return();
         }
 
+        
+        //unused
         private static OverlapInRelationToTrapOne GetOverlapDirection(Trap one, Trap two)
         {
             Rectangle onePos = one.GetNPCLocation();
@@ -66,6 +66,7 @@ namespace Sprint0
             }
         }
 
+        //unused
         private static void AdjustTrapLocations(Trap one, Trap two, OverlapInRelationToTrapOne overlap)
         {
             Rectangle onePos = one.GetNPCLocation();
