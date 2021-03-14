@@ -1,0 +1,14 @@
+﻿************************************************************************************************************
+											Team 3 Reflection file
+************************************************************************************************************
+
+Jacob Kline, Jared Zins, Phil Brocker, Riley Maas, Nathan Schultz
+
+Overall, we believe that we performed are tasks in a timely and organized manner. However, during the
+first week of sprint2 being assigned we experienced a plethora of problems in trying to set up a
+github repository. Only after the first weekend of the project were we able to start coding individually,
+which set our progress back a bit. Using the burndown chart, we were able to assign idividual tasks to each
+group member which allowed all of us to work independently and efficiently. However, once we started working
+on our own portions of the sprint, we did largely forgo using the burndown chart. In future sprints we are
+going to try to use this feature more in order to keep track of everybody's progress in a more organized
+manner. All in all, we worked well as a group and are excited to move further with the project.

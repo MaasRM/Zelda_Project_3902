@@ -1,0 +1,50 @@
+﻿************************************************************************************************************
+											Phil's Code Reviews
+************************************************************************************************************
+
+Phil Brocker: Review Stalfos.cs for readability, Review Block.cs for maintainability
+
+************************************************************************************************************
+											Readability
+************************************************************************************************************ 
+
+Phil Brocker 2/22/2021 Sprint2
+Stalfos.cs - Nathan Schultz
+Minutes: 13 
+Comments on readability:
+	- There are five private data types at the top of the class; they all have clear, self documenting names;
+	  the only initial question was what x and y were, but looking through the rest of the code made it more
+	  clear
+	- The constructor does not use all of the private data types, but what is set makes sense
+	- The Update() method is very clear and gives a little bit of insight on how the statemachine for 
+	  Stalfos is used
+	- The Draw() method makes sense; everything is self documenting
+	- The Reset() method is very simple and clear
+
+Overall, very readable. I have no questions on what any of the private data types are used for or how any of
+the methods work.
+
+************************************************************************************************************
+											Maintainability
+************************************************************************************************************ 
+
+Phil Brocker 2/22/2021 Sprint2
+Block.cs - Jared Zins
+Comments on maintainability:
+	- Many magic numbers are present in order to get the location of each block from the sprite sheet, so if
+	  the sprite sheet for the blocks is not changed then it should be fine
+	- There are six private instance data types at the top of the class; three of these are set in the 
+	  constructor and two are initialized in their declaration so these all should be easy to maintain
+	- One of the private instance data types is not used at all in the class
+	- The Draw() method is only one line so it will be very easy to refactor 
+	- The Update() method is long, and since the implementation of blocks will change after this sprint it
+	  may have to be completely changed
+
+Hypothetical Changes:
+	- Get rid of the private instance data type 'game' because it it never referenced in the class
+	- Since blocks will become much more complex after this sprint, it will most likely be necessary to add
+	  several other block classes to implement collision and movable blocks; this is just a comment ablout 
+	  what my need to be changed in the future
+
+Overall, this class is very maintainable. Should be able to work well with what will be added to blocks in 
+the upcoming sprints.
