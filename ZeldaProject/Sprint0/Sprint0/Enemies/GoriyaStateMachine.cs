@@ -56,6 +56,7 @@ namespace Sprint0
             color = c;
             throwing = false;
             health = MAXHEALTH;
+            state = State.Normal;
         }
 
         public Rectangle GetDestination()
