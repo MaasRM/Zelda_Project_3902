@@ -255,7 +255,7 @@ namespace Sprint0
 
         public void setIdle()
         {
-            if (!isBusy && color == LinkColor.Damaged)
+            if (!isBusy)
             {
                 this.animation = Animation.Idle;
                 isBusy = false;
