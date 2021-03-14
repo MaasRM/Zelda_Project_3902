@@ -2,8 +2,9 @@
   <MonoDevelop.Ide.ItemProperties.Sprint0 PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="Sprint0/Enemies/GoriyaStateMachine.cs" Line="59" Column="34" />
-      <File FileName="Sprint0/Enemies/Goriya.cs" Line="35" Column="30" />
+      <File FileName="Sprint0/Enemies/Wallmaster.cs" Line="1" Column="1" />
+      <File FileName="Sprint0/Enemies/WallmasterStateMachine.cs" Line="239" Column="24" />
+      <File FileName="Sprint0/Collision/LinkEnemyHandler.cs" Line="96" Column="43" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -11,9 +12,10 @@
           <Node name="Sprint0" expanded="True">
             <Node name="Sprint0" expanded="True">
               <Node name="Dependencies" expanded="True" />
-              <Node name="Enemies" expanded="True">
-                <Node name="GoriyaStateMachine.cs" selected="True" />
+              <Node name="Collision" expanded="True">
+                <Node name="LinkEnemyHandler.cs" selected="True" />
               </Node>
+              <Node name="Enemies" expanded="True" />
             </Node>
           </Node>
         </State>

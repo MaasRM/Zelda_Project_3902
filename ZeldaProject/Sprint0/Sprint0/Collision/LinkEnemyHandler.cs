@@ -90,8 +90,11 @@ namespace Sprint0
             if (!wallmaster.Grabbing() && linkX >= wallPos.X && linkX < wallPos.X + wallPos.Width && linkY > wallPos.Y && linkY < wallPos.Y + wallPos.Height)
             {
                 wallmaster.GrabPlayer();
-                player.SetPosition(new Rectangle(wallPos.X, wallPos.Y, linkPos.Width, linkPos.Height));
-                player.MakeImmobile();
+                if(wallmaster.Grabbing())
+                {
+                    player.SetPosition(new Rectangle(wallPos.X, wallPos.Y, linkPos.Width, linkPos.Height));
+                    player.MakeImmobile();
+                }
             }
             else
             {
