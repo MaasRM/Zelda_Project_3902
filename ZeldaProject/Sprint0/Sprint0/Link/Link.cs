@@ -55,7 +55,7 @@ namespace Sprint0
                 {
                     linkSpriteSheet = linkSheetList[0];
                 }
-                if (damageFrameCount == 24)
+                if (damageFrameCount == 12)
                 {
                     stateMachine.setOriginalColor();
                 }
