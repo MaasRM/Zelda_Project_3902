@@ -93,13 +93,6 @@ namespace Sprint0
             {
                 //Call updates for Link, Enemies, Blocks, etc.
                 link.Update();
-                allCollisionHandler.HandleCollisions(link, npcs, items, blocks, projectiles, roomManager);
-
-                if(roomManager.RoomChange())
-                {
-                    roomManager.Update();
-                    roomManager.RoomFixed();
-                }
 
                 foreach (IBlock block in blocks)
                 {
@@ -127,6 +120,14 @@ namespace Sprint0
                     {
                         projectiles.RemoveAt(i);
                     }
+                }
+
+                allCollisionHandler.HandleCollisions(link, npcs, items, blocks, projectiles, roomManager);
+
+                if (roomManager.RoomChange())
+                {
+                    roomManager.Update();
+                    roomManager.RoomFixed();
                 }
 
                 foreach (IController controller in controllerList)
@@ -165,8 +166,6 @@ namespace Sprint0
             {
                 proj.Draw(this._spriteBatch);
             }
-
-            allCollisionHandler.HandleCollisions(link, npcs, items, blocks, projectiles);
 
             link.Draw(this._spriteBatch);
 
