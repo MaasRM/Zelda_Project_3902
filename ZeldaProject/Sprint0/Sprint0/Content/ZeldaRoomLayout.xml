@@ -853,7 +853,7 @@
 		<Enemies>
 			<Enemy>
 				<EnemyType>OldMan</EnemyType>
-				<XLoc>129</XLoc>
+				<XLoc>122</XLoc>
 				<YLoc>64</YLoc>
 			</Enemy>
 		</Enemies>
