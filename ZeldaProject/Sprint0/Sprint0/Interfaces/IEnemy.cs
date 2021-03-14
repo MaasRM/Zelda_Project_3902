@@ -7,5 +7,6 @@ namespace Sprint0
     {
         public int GetDamageValue();
         public void SetDamageState(int damage, Vector2 direction);
+        public bool StillAlive();
     }
 }

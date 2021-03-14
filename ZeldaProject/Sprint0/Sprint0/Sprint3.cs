@@ -86,6 +86,7 @@ namespace Sprint0
 
         protected override void Update(GameTime gameTime)
         {
+            int i;
             frame++;
 
             if (frame % 4 == 0)
@@ -103,13 +104,24 @@ namespace Sprint0
                 {
                     item.Update();
                 }
-                foreach (INPC npc in npcs)
+                for(i = npcs.Count; i >= 0; i--)
                 {
-                    npc.Update();
+                    npcs[i].Update();
+                    if(npcs[i] is IEnemy)
+                    {
+                        if(!((IEnemy)npcs[i]).StillAlive())
+                        {
+                            npcs.RemoveAt(i);
+                        }
+                    }
                 }
-                foreach (IProjectile proj in projectiles)
+                for(i = projectiles.Count; i >= 0; i--)
                 {
-                    proj.Update();
+                    projectiles[i].Update();
+                    if(projectiles[i].CheckForRemoval())
+                    {
+                        projectiles.RemoveAt(i);
+                    }
                 }
 
                 foreach (IController controller in controllerList)
