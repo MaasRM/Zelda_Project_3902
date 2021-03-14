@@ -55,6 +55,7 @@ namespace Sprint0
             frame = -1;
             color = c;
             throwing = false;
+            health = MAXHEALTH;
         }
 
         public Rectangle GetDestination()
