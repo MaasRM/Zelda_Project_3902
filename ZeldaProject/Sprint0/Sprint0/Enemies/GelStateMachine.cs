@@ -45,6 +45,7 @@ namespace Sprint0
         private const int moveDist = 2;
         private bool wait;
         private int waitFrames;
+        public int stunFrames;
         private int health;
         private const int MAXHEALTH = 1;
         private const int PIXELSCALER = 4;
@@ -61,6 +62,7 @@ namespace Sprint0
             color = c;
             wait = false;
             health = MAXHEALTH;
+            stunFrames = 0;
             state = State.Normal;
         }
 
@@ -89,7 +91,7 @@ namespace Sprint0
 
         public void Move()
         {
-            if(state == )
+            if(state == State.Normal)
             {
                 frame++;
 
@@ -127,6 +129,10 @@ namespace Sprint0
                     }
                 }
             }
+            else if(state == State.Stun)
+            {
+                stunFrames++;
+            }
         }
 
         public int GetFrame()
@@ -150,6 +156,20 @@ namespace Sprint0
         {
             
             health -= damage;
+        }
+
+        public void SetStun()
+        {
+            state = State.Stun;
+            stunFrames = 0;
+        }
+
+        public void ReturnToNormal()
+        {
+            if (stunFrames > 60)
+            {
+                state = State.Normal;
+            }
         }
     }
 }
