@@ -70,7 +70,7 @@ namespace Sprint0
 
         public void Move()
         {
-            if(state == State.Normal || (state == State.Damaged && damageDirection == new Vector2(0,0)))
+            if(state == State.Normal || damageDirection == new Vector2(0,0))
             {
                 frame++;
 
