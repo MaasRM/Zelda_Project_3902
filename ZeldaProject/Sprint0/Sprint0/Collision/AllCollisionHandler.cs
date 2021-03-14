@@ -148,7 +148,7 @@ namespace Sprint0
                     {
                         if(nPC is IEnemy)
                         {
-//                            EnemyProjectileHandler();
+                            EnemyProjectileHandler.HandleCollision(nPC, projectile);
                         }
                     }
                 }
