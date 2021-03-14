@@ -57,6 +57,10 @@ namespace Sprint0
             {
                 blockSource = new Rectangle(1001, 45, 16, 16);
             }
+            else if (blockIndex == 10) //movable block 1
+            {
+                blockSource = new Rectangle(1001, 11, 16, 16);
+            }
         }
 
         public void Update()
