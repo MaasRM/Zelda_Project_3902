@@ -51,33 +51,29 @@ namespace Sprint0
         {
             Rectangle playerPos = player.LinkPosition();
             Rectangle projPos = projectile.GetProjectileLocation();
+            Rectangle overlap = Rectangle.Intersect(playerPos, projPos);
             OverlapInRelationToPlayer overlapX = OverlapInRelationToPlayer.Right;
             OverlapInRelationToPlayer overlapY = OverlapInRelationToPlayer.Left;
 
-            int yOverDist = 0, xOverDist = 0;
-
-            if (playerPos.Y < projPos.Y + projPos.Height && playerPos.Y >= projPos.Y)
+            if (overlap.Y == projPos.Y)
             {
-                yOverDist = projPos.Y + projPos.Height - playerPos.Y;
-                overlapY = OverlapInRelationToPlayer.Up;
-            }
-            if (projPos.Y < playerPos.Y + playerPos.Height && projPos.Y >= playerPos.Y)
-            {
-                yOverDist = playerPos.Y + playerPos.Height - projPos.Y;
                 overlapY = OverlapInRelationToPlayer.Down;
             }
-            if (playerPos.X < projPos.X + projPos.Width && playerPos.X >= projPos.X)
+            else if (overlap.Y == playerPos.Y)
             {
-                xOverDist = projPos.X + projPos.Width - playerPos.X;
-                overlapY = OverlapInRelationToPlayer.Right;
-            }
-            if (projPos.X < playerPos.X + playerPos.Width && projPos.X >= playerPos.X)
-            {
-                xOverDist = playerPos.X + playerPos.Width - projPos.X;
-                overlapY = OverlapInRelationToPlayer.Left;
+                overlapY = OverlapInRelationToPlayer.Up;
             }
 
-            if (yOverDist > xOverDist)
+            if (overlap.X == playerPos.X)
+            {
+                overlapX = OverlapInRelationToPlayer.Left;
+            }
+            else if (overlap.X == projPos.X)
+            {
+                overlapX = OverlapInRelationToPlayer.Right;
+            }
+
+            if (overlap.Height < overlap.Width)
             {
                 return overlapY;
             }
