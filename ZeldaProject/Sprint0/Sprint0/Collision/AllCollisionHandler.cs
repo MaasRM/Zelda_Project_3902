@@ -176,7 +176,9 @@ namespace Sprint0
                 {
                     if (block.GetBlockLocation().Intersects(nPC.GetNPCLocation()))
                     {
-                        BlockNPCHandler.HandleCollision(nPC, block);
+                        Rectangle overlap = Rectangle.Intersect(block.GetBlockLocation(), nPC.GetNPCLocation());
+
+                        BlockNPCHandler.HandleCollision(nPC, block, overlap);
                     }
                 }
             }
