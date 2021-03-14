@@ -26,25 +26,25 @@ namespace Sprint0
             {
                 if (overlapSide == OverlapInRelationToBlock.Up)
                 {
-                    //return down;
+                    //move down;
                     blockRect.Y = blockRect.Y + overlap.Height;
                     block.setPosition(blockRect);
                 }
                 else if (overlapSide == OverlapInRelationToBlock.Down)
                 {
-                    //return up;  
+                    //move up;  
                     blockRect.Y = blockRect.Y - overlap.Height;
                     block.setPosition(blockRect);
                 }
                 else if (overlapSide == OverlapInRelationToBlock.Left)
                 {
-                    //return right;
+                    //move right;
                     blockRect.X = blockRect.X + overlap.Width;
                     block.setPosition(blockRect);
                 }
                 else if (overlapSide == OverlapInRelationToBlock.Right)
                 {
-                    //return left;
+                    //move left;
                     blockRect.X = blockRect.X - overlap.Width;
                     block.setPosition(blockRect);
                 }
