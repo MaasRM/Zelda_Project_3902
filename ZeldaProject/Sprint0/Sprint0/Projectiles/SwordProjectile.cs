@@ -12,10 +12,14 @@ namespace Sprint0
 
         private LinkStateMachine stateMachine;
         private Texture2D spritesheet;
+        private int damage;
+        private bool remove;
         public SwordProjectile(Texture2D spritesheet, LinkStateMachine stateMachine)
         {
             this.stateMachine = stateMachine;
             this.spritesheet = spritesheet;
+            remove = false;
+            damage = 1;
         }
 
         public void Update()
@@ -35,17 +39,17 @@ namespace Sprint0
 
         public bool CheckForRemoval()
         {
-            return true;
+            return remove;
         }
 
         public int GetDamage()
         {
-            return 1;
+            return damage;
         }
 
         public void Hit()
         {
-
+            remove = true;
         }
     }
 }
