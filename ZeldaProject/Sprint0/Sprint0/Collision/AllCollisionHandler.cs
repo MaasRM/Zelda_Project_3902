@@ -23,11 +23,11 @@ namespace Sprint0
 
         public void HandleCollisions(IPlayer player, List<INPC> npcs, List<IItem> items, List<IBlock> blocks, List<IProjectile> projectiles, RoomManager roomManager)
         {
-            PlayerEnemyCollisions(player, npcs);
             PlayerItemCollisions(player, items, npcs);
             BlockCollisions(player, npcs, blocks);
             ProjectileCollisions(player, npcs, projectiles);
             CheckTraps(npcs);
+            PlayerEnemyCollisions(player, npcs);
             CheckWalls(player, npcs, blocks, roomManager);
             CheckLink(player, roomManager);
         }
