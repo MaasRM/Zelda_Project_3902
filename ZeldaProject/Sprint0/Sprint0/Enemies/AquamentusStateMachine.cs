@@ -28,7 +28,6 @@ namespace Sprint0
         private int frame;
         private int lastFire;
         private int health;
-        private Vector2 damageVector;
         private const int MAXHEALTH = 16;
         private const int FIRECOOLDOWN = 40;
         private const int PIXELSCALER = 4;
