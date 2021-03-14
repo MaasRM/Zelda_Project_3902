@@ -8,7 +8,6 @@ namespace Sprint0
 {
     class BrownArrowProjectile : IProjectile, IPlayerProjectile
     {
-        private LinkStateMachine stateMachine;
         private Rectangle sourceRectangle;
         private Rectangle destinationRectangle;
         private Texture2D spritesheet;
@@ -17,6 +16,7 @@ namespace Sprint0
         private int xSize;
         private int ySize;
         private const int ArrowSpeed = 20; //x4 specs
+        private const int DAMAGE = 1;
         private int ArrowLength = 60;
         private int ArrowWidth = 30;
         private int frame;
@@ -25,7 +25,6 @@ namespace Sprint0
         public BrownArrowProjectile(Texture2D spritesheet, LinkStateMachine stateMachine)
         {
             this.spritesheet = spritesheet;
-            this.stateMachine = stateMachine;
             projectileDirection = stateMachine.getDirection();
             if (projectileDirection == Direction.MoveUp)
             {
@@ -72,7 +71,6 @@ namespace Sprint0
 
         public void Update()
         {
-            if (frame >= 12) stateMachine.RemoveProjectile(this);
             if (frame < 10)
             {
                 if (projectileDirection == Direction.MoveUp)
@@ -123,17 +121,17 @@ namespace Sprint0
 
         public bool CheckForRemoval()
         {
-            return true;
+            return frame >= 17;
         }
 
         public int GetDamage()
         {
-            return 1;
+            return DAMAGE;
         }
 
         public void Hit()
         {
-
+            frame = 14;
         }
     }
 }
