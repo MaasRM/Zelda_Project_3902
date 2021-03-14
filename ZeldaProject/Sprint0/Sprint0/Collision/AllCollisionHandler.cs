@@ -50,6 +50,28 @@ namespace Sprint0
             {
                 LinkWallHandler.HandleBottomWall();
             }
+
+            foreach(INPC npc in npcs)
+            {
+                new EnemyWallHandler(npc, cameraWallMaxX, cameraWallMaxY);
+
+                if(npc.GetNPCLocation().X < 120)
+                {
+                    EnemyWallHandler.HandleLeftWall();
+                }
+                if (npc.GetNPCLocation().Y < 117)
+                {
+                    EnemyWallHandler.HandleTopWall();
+                }
+                if (npc.GetNPCLocation().X > cameraWallMaxX - 175)
+                {
+                    EnemyWallHandler.HandleRightWall();
+                }
+                if (npc.GetNPCLocation().Y > cameraWallMaxY - 175)
+                {
+                    EnemyWallHandler.HandleBottomWall();
+                }
+            }
         }
 
         private void PlayerEnemyCollisions(IPlayer player, List<INPC> npcs)

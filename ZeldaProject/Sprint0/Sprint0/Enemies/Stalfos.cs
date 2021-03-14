@@ -64,6 +64,7 @@ namespace Sprint0
         public void SetPosition(Rectangle newPos)
         {
             destination = newPos;
+            stateMachine.SetDestination(destination.X, destination.Y);
         }
     }
 }

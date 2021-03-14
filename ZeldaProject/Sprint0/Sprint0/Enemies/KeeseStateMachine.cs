@@ -64,6 +64,12 @@ namespace Sprint0
             return new Rectangle((int) xLoc, (int) yLoc, width * PIXELSCALER, height * PIXELSCALER);
         }
 
+        public void SetDestination(int x, int y)
+        {
+            xLoc = x;
+            yLoc = y;
+        }
+
         public Rectangle GetSource()
         {
             if(currFrame % 2 == 0 || mov == Movement.Wait)

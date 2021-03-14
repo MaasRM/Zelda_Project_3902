@@ -58,6 +58,12 @@ namespace Sprint0
             return new Rectangle(xLoc, yLoc, width * PIXELSCALER, height * PIXELSCALER);
         }
 
+        public void SetDestination(int x, int y)
+        {
+            xLoc = x;
+            yLoc = y;
+        }
+
         public Rectangle GetSource()
         {
             if (frame % 2 == 0)
