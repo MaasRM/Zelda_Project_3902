@@ -34,7 +34,7 @@ namespace Sprint0
         private int stunFrames;
         private int damageFrames;
         private int health;
-        private int MAXHEALTH = 4;
+        private int MAXHEALTH = 2;
         private const int PIXELSCALER = 4;
         private const int moveDist = 2;
 
