@@ -14,9 +14,9 @@ namespace Sprint0
         private int roomIndex;
         private Room currentRoom;
         private Texture2D dungeonSheet;
-        private Texture2D enemiesSheet;
+        private List<Texture2D> enemiesSheets;
         private Texture2D itemsSheet;
-        private Texture2D bossesSheet;
+        private List<Texture2D> bossesSheets;
         private Texture2D npcSheet;
         private bool roomChange;
         private const int scale = 4;
@@ -28,12 +28,12 @@ namespace Sprint0
             roomIndex = 0;
         }
 
-        public void SetUpRooms(XmlDocument xmlDoc, Texture2D dungeon, Texture2D enemies, Texture2D items, Texture2D bosses, Texture2D npcs)
+        public void SetUpRooms(XmlDocument xmlDoc, Texture2D dungeon, List<Texture2D> enemies, Texture2D items, List<Texture2D> bosses, Texture2D npcs)
         {
             dungeonSheet = dungeon;
-            enemiesSheet = enemies;
+            enemiesSheets = enemies;
             itemsSheet = items;
-            bossesSheet = bosses;
+            bossesSheets = bosses;
             npcSheet = npcs;
             roomChange = false;
 
@@ -100,23 +100,23 @@ namespace Sprint0
             switch (npcInfo["EnemyType"].InnerText)
             {
                 case "Aquamentus":
-                    return new Aquamentus(int.Parse(npcInfo["XLoc"].InnerText) * scale, int.Parse(npcInfo["YLoc"].InnerText) * scale, bossesSheet, game);
+                    return new Aquamentus(int.Parse(npcInfo["XLoc"].InnerText) * scale, int.Parse(npcInfo["YLoc"].InnerText) * scale, bossesSheets, game);
                 case "Gel":
-                    return new Gel(int.Parse(npcInfo["XLoc"].InnerText) * scale, int.Parse(npcInfo["YLoc"].InnerText) * scale, GelStateMachine.GelColor.Teal, enemiesSheet);
+                    return new Gel(int.Parse(npcInfo["XLoc"].InnerText) * scale, int.Parse(npcInfo["YLoc"].InnerText) * scale, GelStateMachine.GelColor.Teal, enemiesSheets[0]);
                 case "Goriya":
-                    return new Goriya(int.Parse(npcInfo["XLoc"].InnerText) * scale, int.Parse(npcInfo["YLoc"].InnerText) * scale, GoriyaStateMachine.GoriyaColor.Red, enemiesSheet, game);
+                    return new Goriya(int.Parse(npcInfo["XLoc"].InnerText) * scale, int.Parse(npcInfo["YLoc"].InnerText) * scale, GoriyaStateMachine.GoriyaColor.Red, enemiesSheets, game);
                 case "Keese":
-                    return new Keese(int.Parse(npcInfo["XLoc"].InnerText) * scale, int.Parse(npcInfo["YLoc"].InnerText) * scale, KeeseStateMachine.KeeseColor.Blue, enemiesSheet);
+                    return new Keese(int.Parse(npcInfo["XLoc"].InnerText) * scale, int.Parse(npcInfo["YLoc"].InnerText) * scale, KeeseStateMachine.KeeseColor.Blue, enemiesSheets[0]);
                 case "OldMan":
                     return new OldMan(int.Parse(npcInfo["XLoc"].InnerText) * scale, int.Parse(npcInfo["YLoc"].InnerText) * scale, npcSheet);
                 case "Stalfos":
-                    return new Stalfos(int.Parse(npcInfo["XLoc"].InnerText) * scale, int.Parse(npcInfo["YLoc"].InnerText) * scale, enemiesSheet);
+                    return new Stalfos(int.Parse(npcInfo["XLoc"].InnerText) * scale, int.Parse(npcInfo["YLoc"].InnerText) * scale, enemiesSheets);
                 case "Trap":
-                    return new Trap(int.Parse(npcInfo["XLoc"].InnerText) * scale, int.Parse(npcInfo["YLoc"].InnerText) * scale, enemiesSheet);
+                    return new Trap(int.Parse(npcInfo["XLoc"].InnerText) * scale, int.Parse(npcInfo["YLoc"].InnerText) * scale, enemiesSheets[0]);
                 case "Wallmaster":
-                    return new Wallmaster(int.Parse(npcInfo["XLoc"].InnerText) * scale, int.Parse(npcInfo["YLoc"].InnerText) * scale, WallmasterStateMachine.Direction.Up ,enemiesSheet); //Should this be up?
+                    return new Wallmaster(int.Parse(npcInfo["XLoc"].InnerText) * scale, int.Parse(npcInfo["YLoc"].InnerText) * scale, WallmasterStateMachine.Direction.Up ,enemiesSheets); //Should this be up?
                 default:
-                    return new Aquamentus(0, 0, bossesSheet, game);
+                    return new Aquamentus(0, 0, bossesSheets, game);
             }
         }
 
