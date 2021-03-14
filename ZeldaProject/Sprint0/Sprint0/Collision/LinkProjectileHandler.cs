@@ -41,30 +41,30 @@ namespace Sprint0
         private static OverlapInRelationToPlayer GetOverlapDirection(IPlayer player, IProjectile projectile)
         {
             Rectangle playerPos = player.LinkPosition();
-            Rectangle enemyPos = projectile.GetProjectileLocation();
+            Rectangle projPos = projectile.GetProjectileLocation();
             OverlapInRelationToPlayer overlapX = OverlapInRelationToPlayer.Right;
             OverlapInRelationToPlayer overlapY = OverlapInRelationToPlayer.Left;
 
             int yOverDist = 0, xOverDist = 0;
 
-            if (playerPos.Y < enemyPos.Y + enemyPos.Height && playerPos.Y >= enemyPos.Y)
+            if (playerPos.Y < projPos.Y + projPos.Height && playerPos.Y >= projPos.Y)
             {
-                yOverDist = enemyPos.Y + enemyPos.Height - playerPos.Y;
+                yOverDist = projPos.Y + projPos.Height - playerPos.Y;
                 overlapY = OverlapInRelationToPlayer.Up;
             }
-            if (enemyPos.Y < playerPos.Y + playerPos.Height && enemyPos.Y >= playerPos.Y)
+            if (projPos.Y < playerPos.Y + playerPos.Height && projPos.Y >= playerPos.Y)
             {
-                yOverDist = playerPos.Y + playerPos.Height - enemyPos.Y;
+                yOverDist = playerPos.Y + playerPos.Height - projPos.Y;
                 overlapY = OverlapInRelationToPlayer.Down;
             }
-            if (playerPos.X < enemyPos.X + enemyPos.Width && playerPos.X >= enemyPos.X)
+            if (playerPos.X < projPos.X + projPos.Width && playerPos.X >= projPos.X)
             {
-                xOverDist = enemyPos.X + enemyPos.Width - playerPos.X;
+                xOverDist = projPos.X + projPos.Width - playerPos.X;
                 overlapY = OverlapInRelationToPlayer.Right;
             }
-            if (enemyPos.X < playerPos.X + playerPos.Width && enemyPos.X >= playerPos.X)
+            if (projPos.X < playerPos.X + playerPos.Width && projPos.X >= playerPos.X)
             {
-                xOverDist = playerPos.X + playerPos.Width - enemyPos.X;
+                xOverDist = playerPos.X + playerPos.Width - projPos.X;
                 overlapY = OverlapInRelationToPlayer.Left;
             }
 
