@@ -400,9 +400,12 @@ namespace Sprint0
 
         public void TakeDamage(int damage, Vector2 direction)
         {
-            health -= damage;
-            damageVector = direction;
-            setDamaged();
+            if(color != LinkColor.Damaged)
+            {
+                health -= damage;
+                damageVector = direction;
+                setDamaged();
+            }
         }
 
         public bool HasHealth()
