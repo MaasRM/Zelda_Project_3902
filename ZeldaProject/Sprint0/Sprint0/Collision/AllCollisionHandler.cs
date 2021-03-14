@@ -24,10 +24,11 @@ namespace Sprint0
         public void HandleCollisions(IPlayer player, List<INPC> npcs, List<IItem> items, List<IBlock> blocks, List<IProjectile> projectiles, RoomManager roomManager)
         {
             PlayerEnemyCollisions(player, npcs);
-            PlayerItemCollisions(player, items);
+            PlayerItemCollisions(player, items, npcs);
             BlockCollisions(player, npcs, blocks);
             ProjectileCollisions(player, npcs, projectiles);
             CheckWalls(player, npcs, blocks, roomManager);
+            CheckLink(player, roomManager);
         }
 
         private void CheckWalls(IPlayer player, List<INPC> npcs, List<IBlock> blocks, RoomManager roomManager)
@@ -122,7 +123,7 @@ namespace Sprint0
             }
         }
 
-        private void PlayerItemCollisions(IPlayer player, List<IItem> items)
+        private void PlayerItemCollisions(IPlayer player, List<IItem> items, List<INPC> npcs)
         {
             List<IItem> collidedItems;
             collidedItems = new List<IItem>();
@@ -130,7 +131,21 @@ namespace Sprint0
             {
                 if (item.GetLocationRectangle().Intersects(player.LinkPosition()))
                 {
-                    collidedItems.Add(item);   
+                    if(!(item is Fire))
+                    {
+                        collidedItems.Add(item);
+                    }
+
+                    if(item is ClockItem)
+                    {
+                        foreach (INPC nPC in npcs)
+                        {
+                            if(nPC is IEnemy)
+                            {
+                                ((IEnemy)nPC).Stun();
+                            }
+                        }
+                    }
                 }
             }
 
@@ -163,6 +178,7 @@ namespace Sprint0
 
         private void ProjectileCollisions(IPlayer player, List<INPC> npcs, List<IProjectile> projectiles)
         {
+            List<INPC> DeadEnemies = new List<INPC>();
             foreach (IProjectile projectile in projectiles)
             {
                 if(projectile is IPlayerProjectile)
@@ -171,19 +187,39 @@ namespace Sprint0
                     {
                         if(nPC is IEnemy)
                         {
-                            EnemyProjectileHandler.HandleCollision(nPC, projectile);
-
-                            if (!((IEnemy)nPC).StillAlive())
+                            if (projectile.GetProjectileLocation().Intersects(nPC.GetNPCLocation()))
                             {
-                                DeadEnemies.Add(nPC);
+                                EnemyProjectileHandler.HandleCollision(nPC, projectile);
+
+                                if (!((IEnemy)nPC).StillAlive())
+                                {
+                                    DeadEnemies.Add(nPC);
+                                }
                             }
                         }
+                    }
+
+                    foreach(INPC nPC in DeadEnemies)
+                    {
+                        npcs.Remove(nPC);
                     }
                 }
                 else
                 {
-                    LinkProjectileHandler.HandleCollision(player, projectile);
+                    if(projectile.GetProjectileLocation().Intersects(player.LinkPosition()))
+                    {
+                        LinkProjectileHandler.HandleCollision(player, projectile);
+                    }
                 }
+            }
+        }
+
+        private void CheckLink(IPlayer player, RoomManager roomManager)
+        {
+            if(!player.IsAlive())
+            {
+                roomManager.FirstRoom();
+                player.Reset();
             }
         }
     }
