@@ -72,5 +72,10 @@ namespace Sprint0
         {
             return destinationRectangle;
         }
+
+        public bool Exploding()
+        {
+            return frame >= 20;
+        }
     }
 }
