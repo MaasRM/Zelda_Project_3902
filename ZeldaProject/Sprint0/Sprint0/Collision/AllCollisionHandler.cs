@@ -169,7 +169,7 @@ namespace Sprint0
                 {
                     Rectangle overlap = Rectangle.Intersect(block.GetBlockLocation(), player.LinkPosition());
 
-                    LinkBlockHandler.HandleCollision(player, block, overlap);
+                     LinkBlockHandler.HandleCollision(player, block, overlap);
                 }
                 else if (player.LinkPosition().Intersects(block.GetBlockLocation()) && (block.getIndex() == 10))
                 {
