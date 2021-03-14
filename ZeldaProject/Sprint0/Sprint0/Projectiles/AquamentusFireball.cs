@@ -24,6 +24,7 @@ namespace Sprint0
         private Texture2D spritesheet;
         private double x, y;
         private int frame;
+        private int gameMaxX, gameMaxY;
         private const int WIDTH = 8;
         private const int HEIGHT = 16;
         private Angle angle;
@@ -31,7 +32,6 @@ namespace Sprint0
         private const int xMoveDist = 5;
         private const int PIXELSCALER = 4;
         private const int DAMAGE = 1;
-        private Sprint3 game;
 
         public AquamentusFireball(int x, int y, Position pos, Texture2D spritesheet, Sprint3 game)
         {
@@ -40,7 +40,8 @@ namespace Sprint0
             frame = -1;
             this.spritesheet = spritesheet;
             this.pos = pos;
-            this.game = game;
+            gameMaxX = game.GraphicsDevice.Viewport.Width;
+            gameMaxY = game.GraphicsDevice.Viewport.Height;
             SetAngle(game.GetPlayer());
         }
 
@@ -161,7 +162,7 @@ namespace Sprint0
         {
             double xCenter = x + WIDTH * PIXELSCALER / 2;
             double yCenter = y + HEIGHT * PIXELSCALER / 2;
-            return (xCenter < 0 || xCenter >= game.GraphicsDevice.Viewport.Width) && (yCenter < 0 || yCenter >= game.GraphicsDevice.Viewport.Height);
+            return (xCenter < 0 || xCenter >= gameMaxX) && (yCenter < 0 || yCenter >= gameMaxY);
         }
 
         public int GetDamage()
