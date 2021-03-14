@@ -36,7 +36,7 @@ namespace Sprint0
 
         public static void HandleBottomWall()
         {
-            Rectangle newPosition = new Rectangle(player.getLinkStateMachine().getXLoc(), maxY-175, player.LinkPosition().Width, player.LinkPosition().Height);
+            Rectangle newPosition = new Rectangle(player.getLinkStateMachine().getXLoc(), maxY-185, player.LinkPosition().Width, player.LinkPosition().Height);
             player.getLinkStateMachine().SetPositions(newPosition);
         }
     }

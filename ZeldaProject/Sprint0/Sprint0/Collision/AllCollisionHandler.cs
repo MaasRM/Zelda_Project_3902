@@ -82,7 +82,7 @@ namespace Sprint0
                 {
                     LinkWallHandler.HandleRightWall();
                 }
-                if (player.getLinkStateMachine().getYLoc() > cameraWallMaxY - 175)
+                if (player.getLinkStateMachine().getYLoc() > cameraWallMaxY - 185)
                 {
                     LinkWallHandler.HandleBottomWall();
                 }
