@@ -31,7 +31,7 @@ namespace Sprint0
             }
             else if (enemy is Wallmaster)
             {
-                WallmasterCollisionHandler(player, (Wallmaster)enemy);
+                WallmasterCollisionHandler(player, (Wallmaster)enemy, overlap);
             }
             else if (!((IEnemy)enemy).IsDamaged())
             {
@@ -79,7 +79,7 @@ namespace Sprint0
             }
         }
 
-        private static void WallmasterCollisionHandler(IPlayer player, Wallmaster wallmaster)
+        private static void WallmasterCollisionHandler(IPlayer player, Wallmaster wallmaster, OverlapInRelationToPlayer overlap)
         {
             Rectangle linkPos = player.LinkPosition();
             Rectangle wallPos = wallmaster.GetNPCLocation();
@@ -90,9 +90,17 @@ namespace Sprint0
             if (!wallmaster.Grabbing() && linkX >= wallPos.X && linkX < wallPos.X + wallPos.Width && linkY > wallPos.Y && linkY < wallPos.Y + wallPos.Height)
             {
                 wallmaster.GrabPlayer();
+                if(wallmaster.Grabbing())
+                {
+                    player.SetPosition(new Rectangle(wallPos.X, wallPos.Y, linkPos.Width, linkPos.Height));
+                    player.MakeImmobile();
+                }
             }
-            player.SetPosition(new Rectangle(wallPos.X, wallPos.Y, linkPos.Width, linkPos.Height));
-            player.MakeImmobile();
+            else
+            {
+                DamageTheEnemy(wallmaster, player.GetMeleeDamage(), overlap);
+            }
+            
         }
 
         private static void DamageThePlayer(IPlayer player, int damage, OverlapInRelationToPlayer overlap)
