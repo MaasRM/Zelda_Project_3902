@@ -8,7 +8,6 @@ namespace Sprint0
 {
     class BombProjectile : IProjectile, IPlayerProjectile
     {
-        private LinkStateMachine stateMachine;
         private Rectangle sourceRectangle;
         private Rectangle destinationRectangle;
         private Texture2D spritesheet;
@@ -16,11 +15,11 @@ namespace Sprint0
         private int yLoc;
         private const int bombSizeX = 30; //x4 specs
         private const int bombSizeY = 60;
+        private const int DAMAGE = 4;
         private int frame;
         private Direction projectileDirection;
         public BombProjectile(Texture2D spritesheet, LinkStateMachine stateMachine)
         {
-            this.stateMachine = stateMachine;
             projectileDirection = stateMachine.getDirection();
             if (projectileDirection == Direction.MoveUp)
             {
@@ -50,13 +49,12 @@ namespace Sprint0
 
         public void Update()
         {
-            if (frame >= 22) stateMachine.RemoveProjectile(this);
             if(frame == 20)
             {
                 xLoc -= bombSizeX/2;
                 destinationRectangle = new Rectangle(xLoc, yLoc, bombSizeY, bombSizeY);
             }
-            if (frame >= 20)
+            if (frame > 20)
             {
                 sourceRectangle = new Rectangle(138 + (frame - 20)*17, 185, 15, 15);
             }
@@ -80,17 +78,17 @@ namespace Sprint0
 
         public bool CheckForRemoval()
         {
-            return true;
+            return frame >=22;
         }
 
         public int GetDamage()
         {
-            return 1;
+            return DAMAGE;
         }
 
         public void Hit()
         {
-
+            //do nothing
         }
     }
 }
