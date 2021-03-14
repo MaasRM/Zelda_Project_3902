@@ -93,8 +93,13 @@ namespace Sprint0
             {
                 //Call updates for Link, Enemies, Blocks, etc.
                 link.Update();
-                allCollisionHandler.HandleCollisions(link, npcs, items, blocks, projectiles);
-                roomManager.Update();
+                allCollisionHandler.HandleCollisions(link, npcs, items, blocks, projectiles, roomManager);
+
+                if(roomManager.RoomChange())
+                {
+                    roomManager.Update();
+                    roomManager.RoomFixed();
+                }
 
                 foreach (IBlock block in blocks)
                 {

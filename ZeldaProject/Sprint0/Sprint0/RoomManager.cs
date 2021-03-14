@@ -18,6 +18,7 @@ namespace Sprint0
         private Texture2D itemsSheet;
         private Texture2D bossesSheet;
         private Texture2D npcSheet;
+        private bool roomChange;
         private const int scale = 4;
 
         public RoomManager(Sprint3 game)
@@ -34,6 +35,7 @@ namespace Sprint0
             itemsSheet = items;
             bossesSheet = bosses;
             npcSheet = npcs;
+            roomChange = false;
 
             XmlNode root = xmlDoc["Rooms"];
 
@@ -185,6 +187,7 @@ namespace Sprint0
             if (roomIndex >= roomList.Count) roomIndex = 0;
             currentRoom = roomList[roomIndex];
             game.ClearProjectiles();
+            roomChange = true;
         }
 
         public void PreviousRoom()
@@ -193,6 +196,25 @@ namespace Sprint0
             if (roomIndex < 0) roomIndex = roomList.Count - 1;
             currentRoom = roomList[roomIndex];
             game.ClearProjectiles();
+            roomChange = true;
+        }
+
+        public void FirstRoom()
+        {
+            roomIndex = 0;
+            currentRoom = roomList[roomIndex];
+            game.ClearProjectiles();
+            roomChange = true;
+        }
+
+        public bool RoomChange()
+        {
+            return roomChange;
+        }
+
+        public void RoomFixed()
+        {
+            roomChange = false;
         }
     }
 }

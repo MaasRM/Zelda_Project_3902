@@ -21,62 +21,76 @@ namespace Sprint0
             cameraWallMaxY = y2;
         }
 
-        public void HandleCollisions(IPlayer player, List<INPC> npcs, List<IItem> items, List<IBlock> blocks, List<IProjectile> projectiles)
+        public void HandleCollisions(IPlayer player, List<INPC> npcs, List<IItem> items, List<IBlock> blocks, List<IProjectile> projectiles, RoomManager roomManager)
         {
-            CheckWalls(player, npcs, blocks);
             PlayerEnemyCollisions(player, npcs);
             PlayerItemCollisions(player, items);
             BlockCollisions(player, npcs, blocks);
             ProjectileCollisions(player, npcs, projectiles);
+            CheckWalls(player, npcs, blocks, roomManager);
         }
 
-        private void CheckWalls(IPlayer player, List<INPC> npcs, List<IBlock> blocks)
+        private void CheckWalls(IPlayer player, List<INPC> npcs, List<IBlock> blocks, RoomManager roomManager)
         {
-            new LinkWallHandler(player, cameraWallMaxX, cameraWallMaxY);
-            
-            if(player.getLinkStateMachine().getXLoc() < 120)
-            {
-                LinkWallHandler.HandleLeftWall();
-            }
-            if (player.getLinkStateMachine().getYLoc() < 117)
-            {
-                LinkWallHandler.HandleTopWall();
-            }
-            if (player.getLinkStateMachine().getXLoc() > cameraWallMaxX - 175)
-            {
-                LinkWallHandler.HandleRightWall();
-            }
-            if (player.getLinkStateMachine().getYLoc() > cameraWallMaxY - 175)
-            {
-                LinkWallHandler.HandleBottomWall();
-            }
+            bool grabbed = false;
 
             foreach(INPC npc in npcs)
             {
-                new EnemyWallHandler(npc, cameraWallMaxX, cameraWallMaxY);
+                if(!(npc is Wallmaster))
+                {
+                    new EnemyWallHandler(npc, cameraWallMaxX, cameraWallMaxY);
 
-                if(npc.GetNPCLocation().X < 120)
-                {
-                    EnemyWallHandler.HandleLeftWall();
+                    if (npc.GetNPCLocation().X < 120)
+                    {
+                        EnemyWallHandler.HandleLeftWall();
+                    }
+                    if (npc.GetNPCLocation().Y < 117)
+                    {
+                        EnemyWallHandler.HandleTopWall();
+                    }
+                    if (npc.GetNPCLocation().X > cameraWallMaxX - 175)
+                    {
+                        EnemyWallHandler.HandleRightWall();
+                    }
+                    if (npc.GetNPCLocation().Y > cameraWallMaxY - 175)
+                    {
+                        EnemyWallHandler.HandleBottomWall();
+                    }
                 }
-                if (npc.GetNPCLocation().Y < 117)
+            }
+
+            new LinkWallHandler(player, cameraWallMaxX, cameraWallMaxY);
+
+            if(!grabbed)
+            {
+                if (player.getLinkStateMachine().getXLoc() < 120)
                 {
-                    EnemyWallHandler.HandleTopWall();
+                    LinkWallHandler.HandleLeftWall();
                 }
-                if (npc.GetNPCLocation().X > cameraWallMaxX - 175)
+                if (player.getLinkStateMachine().getYLoc() < 117)
                 {
-                    EnemyWallHandler.HandleRightWall();
+                    LinkWallHandler.HandleTopWall();
                 }
-                if (npc.GetNPCLocation().Y > cameraWallMaxY - 175)
+                if (player.getLinkStateMachine().getXLoc() > cameraWallMaxX - 175)
                 {
-                    EnemyWallHandler.HandleBottomWall();
+                    LinkWallHandler.HandleRightWall();
                 }
+                if (player.getLinkStateMachine().getYLoc() > cameraWallMaxY - 175)
+                {
+                    LinkWallHandler.HandleBottomWall();
+                }
+            }
+            else
+            {
+                roomManager.FirstRoom();
             }
         }
 
         private void PlayerEnemyCollisions(IPlayer player, List<INPC> npcs)
         {
-            foreach(INPC nPC in npcs)
+            List<INPC> DeadEnemies = new List<INPC>();
+
+            foreach (INPC nPC in npcs)
             {
                 if(nPC is IEnemy)
                 {
@@ -93,9 +107,18 @@ namespace Sprint0
                     if (nPC.GetNPCLocation().Intersects(player.LinkPosition()))
                     {
                         LinkEnemyHandler.HandleCollision(player, nPC);
-                    }
 
+                        if(!((IEnemy)nPC).StillAlive())
+                        {
+                            DeadEnemies.Add(nPC);
+                        }
+                    }
                 }
+            }
+
+            foreach(INPC nPC in DeadEnemies)
+            {
+                npcs.Remove(nPC);
             }
         }
 
@@ -149,6 +172,11 @@ namespace Sprint0
                         if(nPC is IEnemy)
                         {
                             EnemyProjectileHandler.HandleCollision(nPC, projectile);
+
+                            if (!((IEnemy)nPC).StillAlive())
+                            {
+                                DeadEnemies.Add(nPC);
+                            }
                         }
                     }
                 }
