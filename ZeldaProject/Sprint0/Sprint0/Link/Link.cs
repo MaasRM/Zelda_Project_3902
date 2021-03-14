@@ -157,7 +157,7 @@ namespace Sprint0
 
         public bool Attacking()
         {
-            return stateMachine.getAnimation() != Animation.Attack;
+            return stateMachine.getAnimation() == Animation.Attack;
         }
 
         public int GetMeleeDamage()
