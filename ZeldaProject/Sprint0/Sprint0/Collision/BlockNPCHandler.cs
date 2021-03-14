@@ -19,11 +19,11 @@ namespace Sprint0
         {
         }
 
-        public static void HandleCollision(INPC enemy, IBlock block)
+        public static void HandleCollision(INPC enemy, IBlock block, Rectangle overlap)
         {
             //the idea is 
 
-            OverlapInRelationToEnemy overlap = GetOverlapDirection(enemy, block);
+            OverlapInRelationToEnemy overlapSide = GetOverlapDirection(enemy, block, overlap);
             Rectangle enemyRect = enemy.GetNPCLocation();
 
             if(!(enemy is Keese))
@@ -33,64 +33,59 @@ namespace Sprint0
                     ((Trap)enemy).Return();
                 }
 
-                if (overlap == OverlapInRelationToEnemy.Up)
+                if (overlapSide == OverlapInRelationToEnemy.Up)
                 {
                     //return down;
-                    enemyRect.Y = enemyRect.Y - 12;
+                    enemyRect.Y = enemyRect.Y + overlap.Height;
                     enemy.SetPosition(enemyRect);
                 }
-                else if (overlap == OverlapInRelationToEnemy.Down)
+                else if (overlapSide == OverlapInRelationToEnemy.Down)
                 {
                     //return up;
-                    enemyRect.Y = enemyRect.Y + 12;
+                    enemyRect.Y = enemyRect.Y - overlap.Height;
                     enemy.SetPosition(enemyRect);
                 }
-                else if (overlap == OverlapInRelationToEnemy.Left)
+                else if (overlapSide == OverlapInRelationToEnemy.Left)
                 {
                     //return right;
-                    enemyRect.X = enemyRect.X + 12;
+                    enemyRect.X = enemyRect.X + overlap.Width;
                     enemy.SetPosition(enemyRect);
                 }
-                else
+                else if (overlapSide == OverlapInRelationToEnemy.Right)
                 {
                     //return left;
-                    enemyRect.X = enemyRect.X - 12;
+                    enemyRect.X = enemyRect.X - overlap.Width;
                     enemy.SetPosition(enemyRect);
                 }
             }
         }
 
-        private static OverlapInRelationToEnemy GetOverlapDirection(INPC enemy, IBlock block)
+        private static OverlapInRelationToEnemy GetOverlapDirection(INPC enemy, IBlock block, Rectangle overlap)
         {
             Rectangle enemyPos = enemy.GetNPCLocation();
             Rectangle blockPos = block.GetBlockLocation();
             OverlapInRelationToEnemy overlapX = OverlapInRelationToEnemy.Right;
-            OverlapInRelationToEnemy overlapY = OverlapInRelationToEnemy.Left;
+            OverlapInRelationToEnemy overlapY = OverlapInRelationToEnemy.Up;
 
-            int yOverDist = 0, xOverDist = 0;
-
-            if (enemyPos.Y < blockPos.Y + blockPos.Height && enemyPos.Y >= blockPos.Y)
+            if (overlap.Y == enemyPos.Y)
             {
-                yOverDist = blockPos.Y + blockPos.Height - enemyPos.Y;
                 overlapY = OverlapInRelationToEnemy.Up;
             }
-            if (blockPos.Y < enemyPos.Y + enemyPos.Height && blockPos.Y >= enemyPos.Y)
+            else if (overlap.Y == blockPos.Y)
             {
-                yOverDist = enemyPos.Y + enemyPos.Height - blockPos.Y;
                 overlapY = OverlapInRelationToEnemy.Down;
             }
-            if (enemyPos.X < blockPos.X + blockPos.Width && enemyPos.X >= blockPos.X)
+
+            if (overlap.X == blockPos.X)
             {
-                xOverDist = blockPos.X + blockPos.Width - enemyPos.X;
-                overlapY = OverlapInRelationToEnemy.Right;
+                overlapX = OverlapInRelationToEnemy.Right;
             }
-            if (blockPos.X < enemyPos.X + enemyPos.Width && blockPos.X >= enemyPos.X)
+            else if (overlap.X == enemyPos.X)
             {
-                xOverDist = enemyPos.X + enemyPos.Width - blockPos.X;
-                overlapY = OverlapInRelationToEnemy.Left;
+                overlapX = OverlapInRelationToEnemy.Left;
             }
 
-            if (yOverDist > xOverDist)
+            if (overlap.Height < overlap.Width)
             {
                 return overlapY;
             }

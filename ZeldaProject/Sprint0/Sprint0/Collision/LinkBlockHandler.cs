@@ -21,9 +21,6 @@ namespace Sprint0
 
         public static void HandleCollision(IPlayer player, IBlock block, Rectangle overlap)
         {
-            //the idea is that if the player is trying to go through a block to just set the 
-            //position of Link to where the collision first occured so that it won't look like Link is going through the block
-
             OverlapInRelationToPlayer overlapSide = GetOverlapDirection(player, block, overlap);
             Rectangle playerRect = player.LinkPosition();
 
