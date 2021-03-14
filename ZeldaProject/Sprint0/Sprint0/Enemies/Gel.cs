@@ -12,6 +12,7 @@ namespace Sprint0
         private Texture2D gelSpriteSheet;
         private Rectangle source;
         private Rectangle destination;
+        private const int DAMAGE = 1;
         private Tuple<int, int, GelStateMachine.GelColor> init;
 
         public Gel(int x, int y, GelStateMachine.GelColor c, Texture2D spriteSheet)
@@ -46,12 +47,12 @@ namespace Sprint0
 
         public int GetDamageValue()
         {
-            return 1;
+            return DAMAGE;
         }
 
         public void SetDamageState(int damage, Vector2 direction)
         {
-
+            stateMachine.TakeDamage(damage);
         }
         public void SetPosition(Rectangle newPos)
         {
@@ -61,12 +62,12 @@ namespace Sprint0
 
         public bool StillAlive()
         {
-            return true;
+            return stateMachine.HasHealth();
         }
 
         public void Stun()
         {
-
+            //Won't get stunned
         }
     }
 }

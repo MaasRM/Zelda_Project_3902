@@ -2,8 +2,10 @@
   <MonoDevelop.Ide.ItemProperties.Sprint0 PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="Sprint0/Link/LinkStateMachine.cs" Line="407" Column="30" />
-      <File FileName="Sprint0/Collision/BlockNPCHandler.cs" Line="29" Column="34" />
+      <File FileName="Sprint0/Enemies/Gel.cs" Line="15" Column="38" />
+      <File FileName="Sprint0/Enemies/GelStateMachine.cs" Line="56" Column="32" />
+      <File FileName="Sprint0/Enemies/Aquamentus.cs" Line="82" Column="27" />
+      <File FileName="Sprint0/Enemies/AquamentusStateMachine.cs" Line="165" Column="10" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -11,10 +13,11 @@
           <Node name="Sprint0" expanded="True">
             <Node name="Sprint0" expanded="True">
               <Node name="Dependencies" expanded="True" />
-              <Node name="Collision" expanded="True">
-                <Node name="BlockNPCHandler.cs" selected="True" />
+              <Node name="Collision" expanded="True" />
+              <Node name="Enemies" expanded="True">
+                <Node name="GelStateMachine.cs" selected="True" />
               </Node>
-              <Node name="Content" expanded="True" />
+              <Node name="Link" expanded="True" />
             </Node>
           </Node>
         </State>
