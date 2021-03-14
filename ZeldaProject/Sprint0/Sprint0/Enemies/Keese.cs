@@ -12,6 +12,7 @@ namespace Sprint0
         private Texture2D keeseSpriteSheet;
         private Rectangle source;
         private Rectangle destination;
+        private const int DAMAGE = 1;
         private Tuple<int, int, KeeseStateMachine.KeeseColor> init;
 
         public Keese(int x, int y, KeeseStateMachine.KeeseColor c, Texture2D spriteSheet)
@@ -45,14 +46,13 @@ namespace Sprint0
 
         public int GetDamageValue()
         {
-            return 1;
+            return DAMAGE;
         }
 
         public void SetDamageState(int damage, Vector2 direction)
         {
-
+            stateMachine.TakeDamage(damage);
         }
-
         public void SetPosition(Rectangle newPos)
         {
             destination = newPos;
@@ -61,12 +61,12 @@ namespace Sprint0
 
         public bool StillAlive()
         {
-            return true;
+            return stateMachine.HasHealth();
         }
 
         public void Stun()
         {
-
+            //Won't get stunned
         }
     }
 }
