@@ -21,7 +21,7 @@ namespace Sprint0
         {
             OverlapInRelationToPlayer overlap = GetOverlapDirection(player, projectile);
 
-            if (!player.Attacking() && CheckAttackDirection(player, overlap))
+            if (!player.Attacking() && CheckPlayerDirection(player, overlap))
             {
                 DeflectProjectile();
             }
@@ -133,7 +133,7 @@ namespace Sprint0
             }
         }
 
-        private static bool CheckAttackDirection(IPlayer player, OverlapInRelationToPlayer overlap)
+        private static bool CheckPlayerDirection(IPlayer player, OverlapInRelationToPlayer overlap)
         {
             Direction dir = player.getLinkStateMachine().getDirection();
 
