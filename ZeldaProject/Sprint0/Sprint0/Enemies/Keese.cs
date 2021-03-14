@@ -66,7 +66,7 @@ namespace Sprint0
 
         public void Stun()
         {
-            //Won't get stunned
+            stateMachine.SetStun();
         }
     }
 }

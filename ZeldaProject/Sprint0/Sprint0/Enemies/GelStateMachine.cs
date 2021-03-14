@@ -28,8 +28,15 @@ namespace Sprint0
             Black
         }
 
+        private enum State
+        {
+            Normal,
+            Stun
+        }
+
         private Direction direction;
         private GelColor color;
+        private State state;
         private int xLoc;
         private int yLoc;
         private int width;
@@ -54,6 +61,7 @@ namespace Sprint0
             color = c;
             wait = false;
             health = MAXHEALTH;
+            state = State.Normal;
         }
 
         public Rectangle GetDestination()
@@ -81,39 +89,42 @@ namespace Sprint0
 
         public void Move()
         {
-            frame++;
-
-            if(frame > waitFrames || frame > moveFrames)
+            if(state == )
             {
-                wait = !wait;
-                frame = 0;
-                waitFrames = (RandomNumberGenerator.GetInt32(6) + 2) * 5;
-            }
+                frame++;
 
-            if(frame == 0)
-            {
-                direction = ChangeDirection();
-            }
-
-            if(!wait)
-            {
-                if (direction == Direction.Up)
+                if (frame > waitFrames || frame > moveFrames)
                 {
-                    yLoc -= moveDist * PIXELSCALER;
+                    wait = !wait;
+                    frame = 0;
+                    waitFrames = (RandomNumberGenerator.GetInt32(6) + 2) * 5;
                 }
 
-                else if (direction == Direction.Down)
+                if (frame == 0)
                 {
-                    yLoc += moveDist * PIXELSCALER;
+                    direction = ChangeDirection();
                 }
 
-                else if (direction == Direction.Left)
+                if (!wait)
                 {
-                    xLoc -= moveDist * PIXELSCALER;
-                }
-                else
-                {
-                    xLoc += moveDist * PIXELSCALER;
+                    if (direction == Direction.Up)
+                    {
+                        yLoc -= moveDist * PIXELSCALER;
+                    }
+
+                    else if (direction == Direction.Down)
+                    {
+                        yLoc += moveDist * PIXELSCALER;
+                    }
+
+                    else if (direction == Direction.Left)
+                    {
+                        xLoc -= moveDist * PIXELSCALER;
+                    }
+                    else
+                    {
+                        xLoc += moveDist * PIXELSCALER;
+                    }
                 }
             }
         }

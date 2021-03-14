@@ -31,9 +31,16 @@ namespace Sprint0
             Wait
         }
 
+        private enum State
+        {
+            Normal,
+            Stun
+        }
+
         private Direction direction;
         private KeeseColor color;
         private Movement mov;
+        private State state;
         private double xLoc;
         private double yLoc;
         private int width;
@@ -43,6 +50,7 @@ namespace Sprint0
         private int waitFrameCount;
         private int fastFrameCount;
         private int health;
+        private int stunFrames;
         private const int MAXHEALTH = 1;
         private const int PIXELSCALER = 4;
         private static int slowFrameCount = 30;
@@ -60,6 +68,7 @@ namespace Sprint0
             mov = Movement.Slow;
             movementIndex = -1;
             health = MAXHEALTH;
+            stunFrames = 0;
         }
 
         public Rectangle GetDestination()
@@ -102,47 +111,55 @@ namespace Sprint0
 
         private void ChangePosition()
         {
-            if (currFrame % 10 == 0)
+            if(state == State.Normal)
             {
-                direction = ChangeDirection();
+                if (currFrame % 10 == 0)
+                {
+                    direction = ChangeDirection();
+                }
+
+                if (direction == Direction.North)
+                {
+                    yLoc -= axialMoveDist * PIXELSCALER;
+                }
+                else if (direction == Direction.NorthEast)
+                {
+                    xLoc += diagonalMoveDist * PIXELSCALER;
+                    yLoc -= diagonalMoveDist * PIXELSCALER;
+                }
+                else if (direction == Direction.East)
+                {
+                    xLoc += axialMoveDist * PIXELSCALER;
+                }
+                else if (direction == Direction.SouthEast)
+                {
+                    xLoc += diagonalMoveDist * PIXELSCALER;
+                    yLoc += diagonalMoveDist * PIXELSCALER;
+                }
+                else if (direction == Direction.South)
+                {
+                    yLoc += axialMoveDist * PIXELSCALER;
+                }
+                else if (direction == Direction.SouthWest)
+                {
+                    xLoc -= diagonalMoveDist * PIXELSCALER;
+                    yLoc += diagonalMoveDist * PIXELSCALER;
+                }
+                else if (direction == Direction.West)
+                {
+                    xLoc -= axialMoveDist * PIXELSCALER;
+                }
+                else
+                {
+                    xLoc -= diagonalMoveDist * PIXELSCALER;
+                    yLoc -= diagonalMoveDist * PIXELSCALER;
+                }
+            }
+            else if(state == State.Stun)
+            {
+                stunFrames++;
             }
 
-            if (direction == Direction.North)
-            {
-                yLoc -= axialMoveDist * PIXELSCALER;
-            }
-            else if (direction == Direction.NorthEast)
-            {
-                xLoc += diagonalMoveDist * PIXELSCALER;
-                yLoc -= diagonalMoveDist * PIXELSCALER;
-            }
-            else if (direction == Direction.East)
-            {
-                xLoc += axialMoveDist * PIXELSCALER;
-            }
-            else if (direction == Direction.SouthEast)
-            {
-                xLoc += diagonalMoveDist * PIXELSCALER;
-                yLoc += diagonalMoveDist * PIXELSCALER;
-            }
-            else if (direction == Direction.South)
-            {
-                yLoc += axialMoveDist * PIXELSCALER;
-            }
-            else if (direction == Direction.SouthWest)
-            {
-                xLoc -= diagonalMoveDist * PIXELSCALER;
-                yLoc += diagonalMoveDist * PIXELSCALER;
-            }
-            else if (direction == Direction.West)
-            {
-                xLoc -= axialMoveDist * PIXELSCALER;
-            }
-            else
-            {
-                xLoc -= diagonalMoveDist * PIXELSCALER;
-                yLoc -= diagonalMoveDist * PIXELSCALER;
-            }
         }
 
         private static Direction ChangeDirection()
@@ -183,6 +200,20 @@ namespace Sprint0
         {
 
             health -= damage;
+        }
+
+        public void SetStun()
+        {
+            state = State.Stun;
+            stunFrames = 0;
+        }
+
+        public void ReturnToNormal()
+        {
+            if (stunFrames > 60)
+            {
+                state = State.Normal;
+            }
         }
     }
 }
