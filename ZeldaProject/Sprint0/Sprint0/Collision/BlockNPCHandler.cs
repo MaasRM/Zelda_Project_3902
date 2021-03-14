@@ -26,34 +26,37 @@ namespace Sprint0
             OverlapInRelationToEnemy overlap = GetOverlapDirection(enemy, block);
             Rectangle enemyRect = enemy.GetNPCLocation();
 
-            if (enemy is Trap)
+            if(!(enemy is Keese))
             {
-                ((Trap)enemy).Return();
-            }
+                if (enemy is Trap)
+                {
+                    ((Trap)enemy).Return();
+                }
 
-            if (overlap == OverlapInRelationToEnemy.Up)
-            {
-                //return down;
-                enemyRect.Y = enemyRect.Y - 12;
-                enemy.SetPosition(enemyRect);
-            }
-            else if (overlap == OverlapInRelationToEnemy.Down)
-            {
-                //return up;
-                enemyRect.Y = enemyRect.Y + 12;
-                enemy.SetPosition(enemyRect);
-            }
-            else if (overlap == OverlapInRelationToEnemy.Left)
-            {
-                //return right;
-                enemyRect.X = enemyRect.X + 12;
-                enemy.SetPosition(enemyRect);
-            }
-            else
-            {
-                //return left;
-                enemyRect.X = enemyRect.X - 12;
-                enemy.SetPosition(enemyRect);
+                if (overlap == OverlapInRelationToEnemy.Up)
+                {
+                    //return down;
+                    enemyRect.Y = enemyRect.Y - 12;
+                    enemy.SetPosition(enemyRect);
+                }
+                else if (overlap == OverlapInRelationToEnemy.Down)
+                {
+                    //return up;
+                    enemyRect.Y = enemyRect.Y + 12;
+                    enemy.SetPosition(enemyRect);
+                }
+                else if (overlap == OverlapInRelationToEnemy.Left)
+                {
+                    //return right;
+                    enemyRect.X = enemyRect.X + 12;
+                    enemy.SetPosition(enemyRect);
+                }
+                else
+                {
+                    //return left;
+                    enemyRect.X = enemyRect.X - 12;
+                    enemy.SetPosition(enemyRect);
+                }
             }
         }
 
