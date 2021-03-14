@@ -173,5 +173,10 @@ namespace Sprint0
         {
             //Doesn't deflect
         }
+
+        public void Hit()
+        {
+
+        }
     }
 }

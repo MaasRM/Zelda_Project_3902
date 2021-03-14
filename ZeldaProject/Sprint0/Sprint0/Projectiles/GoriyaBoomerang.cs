@@ -34,18 +34,18 @@ namespace Sprint0
         public void Update()
         {
             frame++;
-            if(frame > maxframeCount / 2)
+            if (frame > maxframeCount / 2)
             {
                 GoBack();
             }
 
             if (!goBack)
             {
-                if(direction == GoriyaStateMachine.Direction.Down)
+                if (direction == GoriyaStateMachine.Direction.Down)
                 {
                     y += moveDist * PIXELSCALER;
                 }
-                else if(direction == GoriyaStateMachine.Direction.Up)
+                else if (direction == GoriyaStateMachine.Direction.Up)
                 {
                     y -= moveDist * PIXELSCALER;
                 }
@@ -102,7 +102,7 @@ namespace Sprint0
             x = initial.X;
             y = initial.Y;
 
-            if(direction == GoriyaStateMachine.Direction.Down)
+            if (direction == GoriyaStateMachine.Direction.Down)
             {
                 x += goriyaState.GetWidth() / 2 - WIDTH * PIXELSCALER / 2;
                 y += goriyaState.GetHeight();
@@ -203,6 +203,11 @@ namespace Sprint0
         }
 
         public void Deflect(Vector2 deflection)
+        {
+            GoBack();
+        }
+
+        public void Hit()
         {
             GoBack();
         }

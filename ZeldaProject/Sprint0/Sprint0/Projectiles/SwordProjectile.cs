@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using System.Text;
 
 namespace Sprint0
@@ -32,6 +31,21 @@ namespace Sprint0
         public Rectangle GetProjectileLocation()
         {
             return new Rectangle(1, 1, 1, 1);
+        }
+
+        public bool CheckForRemoval()
+        {
+            return true;
+        }
+
+        public int GetDamage()
+        {
+            return 1;
+        }
+
+        public void Hit()
+        {
+
         }
     }
 }

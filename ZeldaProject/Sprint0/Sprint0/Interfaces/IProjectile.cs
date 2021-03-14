@@ -10,5 +10,6 @@ namespace Sprint0
         public Rectangle GetProjectileLocation();
         public bool CheckForRemoval();
         public int GetDamage();
+        public void Hit();
     }
 }

@@ -92,5 +92,20 @@ namespace Sprint0
         {
             return destinationRectangle;
         }
+
+        public bool CheckForRemoval()
+        {
+            return true;
+        }
+
+        public int GetDamage()
+        {
+            return 1;
+        }
+
+        public void Hit()
+        {
+
+        }
     }
 }

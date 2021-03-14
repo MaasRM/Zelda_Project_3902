@@ -142,5 +142,20 @@ namespace Sprint0
         {
             goBack = true;
         }
+
+        public bool CheckForRemoval()
+        {
+            return true;
+        }
+
+        public int GetDamage()
+        {
+            return 1;
+        }
+
+        public void Hit()
+        {
+            GoBack();
+        }
     }
 }
