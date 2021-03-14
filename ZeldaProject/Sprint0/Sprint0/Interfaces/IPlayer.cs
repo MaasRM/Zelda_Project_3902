@@ -18,5 +18,7 @@ namespace Sprint0
         public bool Attacking();
         public int GetMeleeDamage();
         public void SetDamageState(int damage, Vector2 direction);
+        public bool IsAlive();
+        public void Reset();
     }
 }

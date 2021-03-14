@@ -169,5 +169,15 @@ namespace Sprint0
         {
 
         }
+
+        public bool IsAlive()
+        {
+            return true;
+        }
+
+        public void Reset()
+        {
+
+        }
     }
 }

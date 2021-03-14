@@ -27,6 +27,7 @@ namespace Sprint0
             PlayerItemCollisions(player, items, npcs);
             BlockCollisions(player, npcs, blocks);
             ProjectileCollisions(player, npcs, projectiles);
+            CheckTraps(npcs);
             CheckWalls(player, npcs, blocks, roomManager);
             CheckLink(player, roomManager);
         }
@@ -209,6 +210,20 @@ namespace Sprint0
                     if(projectile.GetProjectileLocation().Intersects(player.LinkPosition()))
                     {
                         LinkProjectileHandler.HandleCollision(player, projectile);
+                    }
+                }
+            }
+        }
+
+        private void CheckTraps(List<INPC> npcs)
+        {
+            for (int i = 0; i < npcs.Count; i++)
+            {
+                for (int j = i + 1; j < npcs.Count; j++)
+                {
+                    if(npcs[i] is Trap && npcs[j] is Trap && npcs[i].GetNPCLocation().Intersects(npcs[j].GetNPCLocation()))
+                    {
+                        TrapCollisionHandler.HandleCollision((Trap)npcs[i], (Trap)npcs[j]);
                     }
                 }
             }
