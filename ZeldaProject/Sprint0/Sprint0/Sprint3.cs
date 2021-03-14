@@ -87,7 +87,7 @@ namespace Sprint0
 
             XmlDocument doc = new XmlDocument();
             doc.Load(new FileStream("..\\..\\..\\Content\\ZeldaRoomLayout.xml", FileMode.Open));
-            roomManager.SetUpRooms(doc, dungeonSheet , enemiesSheets, itemsSheet, bossesSheets, npcSheet);
+            roomManager.SetUpRooms(doc, dungeonSheet , enemySheets, itemsSheet, bossSheets, npcSheet);
 
             foreach(IController controller in controllerList)
             {
