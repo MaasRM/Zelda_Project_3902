@@ -18,6 +18,8 @@ namespace Sprint0
         private int xSize = 30;
         private int ySize = 60;
         private int frame;
+        private bool remove;
+        private const int DAMAGE = 1;
         private Boolean goBack;
         private Direction projectileDirection;
         private SpriteEffects flip;
@@ -26,6 +28,7 @@ namespace Sprint0
             this.spritesheet = spritesheet;
             this.stateMachine = stateMachine;
             projectileDirection = stateMachine.getDirection();
+            remove = false;
             if (projectileDirection == Direction.MoveUp)
             {
                 xLoc = stateMachine.getXLoc() + xSize / 2;
@@ -77,7 +80,6 @@ namespace Sprint0
             }
             else
             {
-                goBack = true;
                 boomerangSpeed += 1;
                 if (xLoc - stateMachine.getXLoc() >= boomerangSpeed)
                 {
@@ -95,7 +97,7 @@ namespace Sprint0
                 {
                     yLoc += boomerangSpeed;
                 }
-                if (Math.Abs(xLoc - stateMachine.getXLoc()) <= boomerangSpeed && Math.Abs(yLoc - stateMachine.getYLoc()) <= boomerangSpeed) stateMachine.RemoveProjectile(this);
+                if (Math.Abs(xLoc - stateMachine.getXLoc()) <= boomerangSpeed && Math.Abs(yLoc - stateMachine.getYLoc()) <= boomerangSpeed) remove = true;
             }
             destinationRectangle = new Rectangle(xLoc, yLoc, xSize, ySize);
             if (frame % 4 == 0)
@@ -145,12 +147,12 @@ namespace Sprint0
 
         public bool CheckForRemoval()
         {
-            return true;
+            return remove;
         }
 
         public int GetDamage()
         {
-            return 1;
+            return DAMAGE;
         }
 
         public void Hit()

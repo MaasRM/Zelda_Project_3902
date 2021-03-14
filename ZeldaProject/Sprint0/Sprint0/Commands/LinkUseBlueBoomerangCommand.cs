@@ -16,7 +16,7 @@ namespace Sprint0
         {
             if (!game.GetPlayer().getLinkStateMachine().getIsBusy())
             {
-                game.GetPlayer().getLinkStateMachine().addProjectile(new BlueBoomerangProjectile(game.GetPlayer().GetSpriteSheet(), game.GetPlayer().getLinkStateMachine()));
+                game.AddProjectile(new BlueBoomerangProjectile(game.GetPlayer().GetSpriteSheet(), game.GetPlayer().getLinkStateMachine()));
             }
             game.GetPlayer().getLinkStateMachine().setUseItem();
         }
