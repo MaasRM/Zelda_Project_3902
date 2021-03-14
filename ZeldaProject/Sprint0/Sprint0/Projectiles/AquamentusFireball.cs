@@ -30,6 +30,7 @@ namespace Sprint0
         private Position pos;
         private const int xMoveDist = 5;
         private const int PIXELSCALER = 4;
+        private const int DAMAGE = 1;
         private Sprint3 game;
 
         public AquamentusFireball(int x, int y, Position pos, Texture2D spritesheet, Sprint3 game)
@@ -161,6 +162,16 @@ namespace Sprint0
             double xCenter = x + WIDTH * PIXELSCALER / 2;
             double yCenter = y + HEIGHT * PIXELSCALER / 2;
             return (xCenter < 0 || xCenter >= game.GraphicsDevice.Viewport.Width) && (yCenter < 0 || yCenter >= game.GraphicsDevice.Viewport.Height);
+        }
+
+        public int GetDamage()
+        {
+            return DAMAGE;
+        }
+
+        public void Deflect(Vector2 deflectVector)
+        {
+            //Doesn't deflect
         }
     }
 }

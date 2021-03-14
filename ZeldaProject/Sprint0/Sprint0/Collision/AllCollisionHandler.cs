@@ -154,7 +154,7 @@ namespace Sprint0
                 }
                 else
                 {
- //                   LinkProjectileHandler();
+                    LinkProjectileHandler.HandleCollision(player, projectile);
                 }
             }
         }

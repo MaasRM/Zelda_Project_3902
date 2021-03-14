@@ -8,5 +8,7 @@ namespace Sprint0
         public void Update();
         public void Draw(SpriteBatch spriteBatch);
         public Rectangle GetProjectileLocation();
+        public bool CheckForRemoval();
+        public int GetDamage();
     }
 }

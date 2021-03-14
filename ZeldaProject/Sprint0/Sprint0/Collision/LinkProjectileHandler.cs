@@ -23,7 +23,14 @@ namespace Sprint0
 
             if (!player.Attacking() && CheckPlayerDirection(player, overlap))
             {
-                DeflectProjectile();
+                if(projectile is AquamentusFireball)
+                {
+                    DamageThePlayer(player, projectile, overlap);
+                }
+                else
+                {
+                    DeflectProjectile(projectile, overlap);
+                }
             }
             else
             {
@@ -75,12 +82,14 @@ namespace Sprint0
         {
             Vector2 damageDirection = PlayerDamageVector(overlap);
 
-            player.SetDamageState(1, damageDirection);
+            player.SetDamageState(projectile.GetDamage(), damageDirection);
         }
 
-        private static void DeflectProjectile()
+        private static void DeflectProjectile(IProjectile projectile, OverlapInRelationToPlayer overlap)
         {
+            Vector2 deflectorDirection = ProjectileDeflectionVector(overlap);
 
+            ((IEnemyProjectile)projectile).Deflect(deflectorDirection);
         }
 
         private static Vector2 PlayerDamageVector(OverlapInRelationToPlayer overlap)
