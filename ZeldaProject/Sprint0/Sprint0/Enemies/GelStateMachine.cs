@@ -161,12 +161,12 @@ namespace Sprint0
         public void SetStun()
         {
             state = State.Stun;
-            stunFrames = 0;
+            stunFrames = 1;
         }
 
         public void ReturnToNormal()
         {
-            if (stunFrames > 60)
+            if (stunFrames > 30)
             {
                 state = State.Normal;
             }

@@ -117,6 +117,7 @@ namespace Sprint0
                     xLoc += moveDist * PIXELSCALER;
                 }
                 frame++;
+                damageFrames++;
             }
             else if(state == State.Damaged)
             {
@@ -227,7 +228,7 @@ namespace Sprint0
 
         public void ReturnToNormal()
         {
-            if(damageFrames > 24 || stunFrames > 60)
+            if(damageFrames > 12 || stunFrames > 30)
             {
                 state = State.Normal;
                 stunFrames = 0;

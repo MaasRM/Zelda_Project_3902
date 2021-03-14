@@ -96,16 +96,23 @@ namespace Sprint0
 
         public void Move()
         {
-            currFrame++;
-            if (currFrame == slowFrameCount || currFrame == fastFrameCount || currFrame == waitFrameCount)
+            if(state == State.Normal)
             {
-                ResetFrames();
-                ChangeMovement();
-            }
+                currFrame++;
+                if (currFrame == slowFrameCount || currFrame == fastFrameCount || currFrame == waitFrameCount)
+                {
+                    ResetFrames();
+                    ChangeMovement();
+                }
 
-            if((mov == Movement.Slow && currFrame % 4 == 0) || mov == Movement.Fast)
+                if ((mov == Movement.Slow && currFrame % 4 == 0) || mov == Movement.Fast)
+                {
+                    ChangePosition();
+                }
+            }
+            else if(state == State.Stun)
             {
-                ChangePosition();
+                stunFrames++;
             }
         }
 
@@ -205,12 +212,12 @@ namespace Sprint0
         public void SetStun()
         {
             state = State.Stun;
-            stunFrames = 0;
+            stunFrames = 1;
         }
 
         public void ReturnToNormal()
         {
-            if (stunFrames > 60)
+            if (stunFrames > 30)
             {
                 state = State.Normal;
             }

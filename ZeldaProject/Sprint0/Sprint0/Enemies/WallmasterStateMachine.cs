@@ -98,68 +98,81 @@ namespace Sprint0
         public void Move()
         {
 
-            frame++;
+            if (state == State.Normal)
+            {
+                frame++;
 
-            if (activity == Activity.OutWall)
-            {
-                if(initialDirection == Direction.Down)
+                if (activity == Activity.OutWall)
                 {
-                    yLoc += wallMoveDist * PIXELSCALER;
+                    if (initialDirection == Direction.Down)
+                    {
+                        yLoc += wallMoveDist * PIXELSCALER;
+                    }
+                    else if (initialDirection == Direction.Up)
+                    {
+                        yLoc -= wallMoveDist * PIXELSCALER;
+                    }
+                    else if (initialDirection == Direction.Left)
+                    {
+                        xLoc -= wallMoveDist * PIXELSCALER;
+                    }
+                    else
+                    {
+                        xLoc += wallMoveDist * PIXELSCALER;
+                    }
+                    GetOutWall();
                 }
-                else if (initialDirection == Direction.Up)
+                else if (activity == Activity.Moving)
                 {
-                    yLoc -= wallMoveDist * PIXELSCALER;
+                    if (secondDirection == Direction.Down)
+                    {
+                        yLoc += floorMoveDist * PIXELSCALER;
+                    }
+                    else if (secondDirection == Direction.Up)
+                    {
+                        yLoc -= floorMoveDist * PIXELSCALER;
+                    }
+                    else if (secondDirection == Direction.Left)
+                    {
+                        xLoc -= floorMoveDist * PIXELSCALER;
+                    }
+                    else
+                    {
+                        xLoc += floorMoveDist * PIXELSCALER;
+                    }
+                    BackInWall();
                 }
-                else if (initialDirection == Direction.Left)
+                else if (activity == Activity.BackIn)
                 {
-                    xLoc -= wallMoveDist * PIXELSCALER;
-                }
-                else
-                {
-                    xLoc += wallMoveDist * PIXELSCALER;
-                }
-                GetOutWall();
-            }
-            else if (activity == Activity.Moving)
-            {
-                if (secondDirection == Direction.Down)
-                {
-                    yLoc += floorMoveDist * PIXELSCALER;
-                }
-                else if (secondDirection == Direction.Up)
-                {
-                    yLoc -= floorMoveDist * PIXELSCALER;
-                }
-                else if (secondDirection == Direction.Left)
-                {
-                    xLoc -= floorMoveDist * PIXELSCALER;
-                }
-                else
-                {
-                    xLoc += floorMoveDist * PIXELSCALER;
-                }
-                BackInWall();
-            }
-            else if (activity == Activity.BackIn)
-            {
-                if (initialDirection == Direction.Down)
-                {
-                    yLoc -= wallMoveDist * PIXELSCALER;
-                }
-                else if (initialDirection == Direction.Up)
-                {
-                    yLoc += wallMoveDist * PIXELSCALER;
-                }
-                else if (initialDirection == Direction.Left)
-                {
-                    xLoc += wallMoveDist * PIXELSCALER;
-                }
-                else
-                {
-                    xLoc -= wallMoveDist * PIXELSCALER;
-                }
+                    if (initialDirection == Direction.Down)
+                    {
+                        yLoc -= wallMoveDist * PIXELSCALER;
+                    }
+                    else if (initialDirection == Direction.Up)
+                    {
+                        yLoc += wallMoveDist * PIXELSCALER;
+                    }
+                    else if (initialDirection == Direction.Left)
+                    {
+                        xLoc += wallMoveDist * PIXELSCALER;
+                    }
+                    else
+                    {
+                        xLoc -= wallMoveDist * PIXELSCALER;
+                    }
 
-                ResetPosition();
+                    ResetPosition();
+                }
+            }
+            else if(state == State.Damaged)
+            {
+                xLoc += (int)damageDirection.X;
+                yLoc += (int)damageDirection.Y;
+                damageFrames++;
+            }
+            else if(state == State.Stun)
+            {
+                stunFrames++;
             }
         }
 
@@ -283,7 +296,7 @@ namespace Sprint0
 
         public void ReturnToNormal()
         {
-            if (damageFrames > 24 || stunFrames > 60)
+            if (damageFrames > 12 || stunFrames > 30)
             {
                 state = State.Normal;
                 stunFrames = 0;
