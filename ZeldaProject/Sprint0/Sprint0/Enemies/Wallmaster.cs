@@ -13,6 +13,7 @@ namespace Sprint0
         private Rectangle source;
         private Rectangle destination;
         private SpriteEffects flip;
+        private const int DAMAGE = 1;
         private Tuple<int, int, WallmasterStateMachine.Direction> init;
 
         public Wallmaster(int x, int y, WallmasterStateMachine.Direction d, Texture2D spritesheet)
@@ -83,12 +84,12 @@ namespace Sprint0
 
         public int GetDamageValue()
         {
-            return 1;
+            return DAMAGE;
         }
 
         public void SetDamageState(int damage, Vector2 direction)
         {
-
+            stateMachine.TakeDamage(damage, direction);
         }
         public void SetPosition(Rectangle newPos)
         {
@@ -98,12 +99,12 @@ namespace Sprint0
 
         public bool StillAlive()
         {
-            return true;
+            return stateMachine.HasHealth();
         }
 
         public void Stun()
         {
-
+            stateMachine.SetStun();
         }
     }
 }

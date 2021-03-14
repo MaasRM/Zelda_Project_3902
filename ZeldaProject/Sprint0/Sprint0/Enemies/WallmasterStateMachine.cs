@@ -24,14 +24,27 @@ namespace Sprint0
             BackIn
         }
 
+        private enum State
+        {
+            Normal,
+            Damaged,
+            Stun
+        }
+
         private Direction initialDirection;
         private Direction secondDirection;
         private Activity activity;
+        private State state;
+        private Vector2 damageDirection;
         private int xLoc;
         private int yLoc;
         private int width;
         private int height;
         private int frame;
+        private int stunFrames;
+        private int damageFrames;
+        private int health;
+        private int MAXHEALTH = 4;
         private const int wallFrames = 10;
         private const int moveFrames = 40;
         private const int PIXELSCALER = 4;
@@ -47,10 +60,16 @@ namespace Sprint0
             width = 16;
             height = 16;
             frame = 0;
+            health = 0;
             initial = new Tuple<int, int>(x, y);
             grab = false;
             activity = Activity.Waiting;
             initialDirection = d;
+            stunFrames = 0;
+            damageFrames = 0;
+            health = MAXHEALTH;
+            state = State.Normal;
+            damageDirection = new Vector2(0, 0);
         }
 
         public Rectangle GetDestination()
@@ -233,6 +252,41 @@ namespace Sprint0
         public bool GetGrabStatus()
         {
             return grab;
+        }
+
+        public bool HasHealth()
+        {
+            return health > 0;
+        }
+
+        public void TakeDamage(int damage, Vector2 direction)
+        {
+            if (state != State.Damaged)
+            {
+                health -= damage;
+                state = State.Damaged;
+                stunFrames = 0;
+                damageFrames = 0;
+
+                damageDirection = direction;
+            }
+        }
+
+        public void SetStun()
+        {
+            state = State.Stun;
+            stunFrames = 0;
+        }
+
+        public void ReturnToNormal()
+        {
+            if (damageFrames > 24 || stunFrames > 60)
+            {
+                state = State.Normal;
+                stunFrames = 0;
+                damageFrames = 0;
+                damageDirection = new Vector2(0, 0);
+            }
         }
     }
 }

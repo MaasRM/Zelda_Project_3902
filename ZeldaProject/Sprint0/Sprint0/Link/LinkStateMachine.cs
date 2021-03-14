@@ -64,8 +64,8 @@ namespace Sprint0
             disDown = false;
             disRight = false;
             disLeft = false;
-            health = 6;
-            maxHealth = 6;
+            health = 18;
+            maxHealth = 18;
             sizeFactor = 4;
             frame = 0;
             linkProjectileList = new List<IProjectile>();
