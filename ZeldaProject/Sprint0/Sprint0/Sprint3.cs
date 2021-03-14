@@ -102,7 +102,7 @@ namespace Sprint0
                 {
                     item.Update();
                 }
-                for(i = npcs.Count; i >= 0; i--)
+                for(i = npcs.Count-1; i >= 0; i--)
                 {
                     npcs[i].Update();
                     if(npcs[i] is IEnemy)
@@ -113,7 +113,7 @@ namespace Sprint0
                         }
                     }
                 }
-                for(i = projectiles.Count; i >= 0; i--)
+                for(i = projectiles.Count-1; i >= 0; i--)
                 {
                     projectiles[i].Update();
                     if(projectiles[i].CheckForRemoval())
