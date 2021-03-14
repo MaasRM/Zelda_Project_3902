@@ -66,5 +66,15 @@ namespace Sprint0
             destination = newPos;
             stateMachine.SetDestination(destination.X, destination.Y);
         }
+
+        public bool StillAlive()
+        {
+            return true;
+        }
+
+        public void Stun()
+        {
+
+        }
     }
 }

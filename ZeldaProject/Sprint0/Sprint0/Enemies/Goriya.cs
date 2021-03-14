@@ -28,7 +28,7 @@ namespace Sprint0
         {
             if(!stateMachine.Throwing() && stateMachine.TryToThrow())
             {
-                boomerang = new GoriyaBoomerang(goriyaSpriteSheet, stateMachine, game);
+                boomerang = new GoriyaBoomerang(goriyaSpriteSheet, stateMachine);
                 game.AddProjectile(boomerang);
             }
             if(stateMachine.Throwing())
@@ -90,6 +90,16 @@ namespace Sprint0
         {
             destination = newPos;
             stateMachine.SetDestination(destination.X, destination.Y);
+        }
+
+        public bool StillAlive()
+        {
+            return true;
+        }
+
+        public void Stun()
+        {
+
         }
     }
 }
