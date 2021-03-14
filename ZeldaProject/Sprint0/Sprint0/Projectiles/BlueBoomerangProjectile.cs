@@ -80,6 +80,7 @@ namespace Sprint0
             }
             else
             {
+                goBack = true;
                 boomerangSpeed += 1;
                 if (xLoc - stateMachine.getXLoc() >= boomerangSpeed)
                 {
