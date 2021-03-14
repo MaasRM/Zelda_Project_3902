@@ -80,9 +80,9 @@ namespace Sprint0
             Texture2D itemsSheet = contentManager.Load<Texture2D>("Dungeon_Items");
 
             bossSheets.Add(contentManager.Load<Texture2D>("Dungeon_Bosses"));
-            bossSheets.Add(contentManager.Load<Texture2D>("Dungeon_Enemies_DamageOne"));
-            bossSheets.Add(contentManager.Load<Texture2D>("Dungeon_Enemies_DamageTwo"));
-            bossSheets.Add(contentManager.Load<Texture2D>("Dungeon_Enemies_DamageThree"));
+            bossSheets.Add(contentManager.Load<Texture2D>("Dungeon_Bosses_DamageOne"));
+            bossSheets.Add(contentManager.Load<Texture2D>("Dungeon_Bosses_DamageTwo"));
+            bossSheets.Add(contentManager.Load<Texture2D>("Dungeon_Bosses_DamageThree"));
 
             Texture2D npcSheet = contentManager.Load<Texture2D>("Zelda_NPCs");
 
