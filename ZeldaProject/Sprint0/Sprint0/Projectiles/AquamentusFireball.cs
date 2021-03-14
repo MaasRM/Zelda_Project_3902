@@ -176,7 +176,7 @@ namespace Sprint0
 
         public void Hit()
         {
-
+            //Doesn't hit
         }
     }
 }
