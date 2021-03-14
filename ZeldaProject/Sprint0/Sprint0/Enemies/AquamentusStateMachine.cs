@@ -13,13 +13,22 @@ namespace Sprint0
             Right
         }
 
+        private enum State
+        {
+            Normal,
+            Damaged,
+        }
+
         private Direction direction;
+        private State state;
         private int xLoc;
         private int yLoc;
         private int width;
         private int height;
         private int frame;
         private int lastFire;
+        private int health;
+        private const int MAXHEALTH = 16;
         private const int FIRECOOLDOWN = 40;
         private const int PIXELSCALER = 4;
         private const int moveDist = 2;
@@ -34,7 +43,9 @@ namespace Sprint0
             frame = -1;
             lastFire = FIRECOOLDOWN * -1;
             firing = false;
+            health = MAXHEALTH;
             direction = Direction.Left;
+            state = State.Normal;
         }
 
         public Rectangle GetDestination()
@@ -137,6 +148,20 @@ namespace Sprint0
         public bool IsFiring()
         {
             return firing;
+        }
+
+        public bool HasHealth()
+        {
+            return health > 0;
+        }
+
+        public void TakeDamage(int damage)
+        {
+            if (state != State.Damaged)
+            {
+                health -= damage;
+                state = State.Damaged;
+            }
         }
     }
 }

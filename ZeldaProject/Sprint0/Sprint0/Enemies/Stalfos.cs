@@ -12,6 +12,7 @@ namespace Sprint0
         private Texture2D stalfosSpriteSheet;
         private Rectangle source;
         private Rectangle destination;
+        private const int DAMAGE = 1;
         private Tuple<int, int> init;
 
         public Stalfos(int x, int y, Texture2D spriteSheet)
@@ -54,12 +55,12 @@ namespace Sprint0
 
         public int GetDamageValue()
         {
-            return 1;
+            return DAMAGE;
         }
 
         public void SetDamageState(int damage, Vector2 direction)
         {
-
+            stateMachine.TakeDamage(damage, direction);
         }
         public void SetPosition(Rectangle newPos)
         {
@@ -69,12 +70,12 @@ namespace Sprint0
 
         public bool StillAlive()
         {
-            return true;
+            return stateMachine.HasHealth();
         }
 
         public void Stun()
         {
-
+            stateMachine.SetStun();
         }
     }
 }

@@ -104,7 +104,7 @@ namespace Sprint0
                 case "Gel":
                     return new Gel(int.Parse(npcInfo["XLoc"].InnerText) * scale, int.Parse(npcInfo["YLoc"].InnerText) * scale, GelStateMachine.GelColor.Teal, enemiesSheet);
                 case "Goriya":
-                    return new Goriya(int.Parse(npcInfo["XLoc"].InnerText) * scale, int.Parse(npcInfo["YLoc"].InnerText) * scale, GoriyaStateMachine.GoriyaColor.Blue, enemiesSheet, game);
+                    return new Goriya(int.Parse(npcInfo["XLoc"].InnerText) * scale, int.Parse(npcInfo["YLoc"].InnerText) * scale, GoriyaStateMachine.GoriyaColor.Red, enemiesSheet, game);
                 case "Keese":
                     return new Keese(int.Parse(npcInfo["XLoc"].InnerText) * scale, int.Parse(npcInfo["YLoc"].InnerText) * scale, KeeseStateMachine.KeeseColor.Blue, enemiesSheet);
                 case "OldMan":

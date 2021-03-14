@@ -22,14 +22,27 @@ namespace Sprint0
             Blue
         }
 
+        private enum State
+        {
+            Normal,
+            Damaged,
+            Stun
+        }
+
         private Direction direction;
         private GoriyaColor color;
+        private State state;
+        private Vector2 damageDirection;
         private int xLoc;
         private int yLoc;
         private int width;
         private int height;
         private int frame;
         private bool throwing;
+        private int health;
+        private int damageFrames;
+        private int stunFrames;
+        private const int MAXHEALTH = 3;
         private const int PIXELSCALER = 4;
         private const int moveDist = 2;
 
@@ -76,11 +89,9 @@ namespace Sprint0
 
         public void Move()
         {
-            frame++;
-
-            if(!throwing)
+            if(!throwing && state == State.Normal)
             {
-                if (frame % 5 == 0)
+                if (frame % 10 == 0)
                 {
                     direction = ChangeDirection();
                 }
@@ -103,7 +114,20 @@ namespace Sprint0
                 {
                     xLoc += moveDist * PIXELSCALER;
                 }
+                frame++;
             }
+            else if(state == State.Damaged)
+            {
+                xLoc += (int)damageDirection.X;
+                yLoc += (int)damageDirection.Y;
+                damageFrames++;
+            }
+            else if(state == State.Stun)
+            {
+                stunFrames++;
+            }
+
+            ReturnToNormal();
         }
 
         public int GetFrame()
@@ -157,6 +181,54 @@ namespace Sprint0
         public int GetHeight()
         {
             return height * PIXELSCALER;
+        }
+
+        public bool HasHealth()
+        {
+            return health > 0;
+        }
+
+        public void TakeDamage(int damage, Vector2 direction)
+        {
+            if (state != State.Damaged)
+            {
+                health -= damage;
+                state = State.Damaged;
+                stunFrames = 0;
+                damageFrames = 0;
+
+                if(!throwing)
+                {
+                    damageDirection = direction;
+                }
+            }
+        }
+
+        public void SetStun()
+        {
+            state = State.Stun;
+            stunFrames = 0;
+        }
+
+        public int GetDamage()
+        {
+            if(color == GoriyaColor.Red)
+            {
+                return 1;
+            }
+            else
+            {
+                return 2;
+            }
+
+        }
+
+        public void ReturnToNormal()
+        {
+            if(damageFrames > 24 || stunFrames > 60)
+            {
+                state = State.Normal;
+            }
         }
     }
 }

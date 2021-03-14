@@ -42,6 +42,8 @@ namespace Sprint0
         private int currFrame;
         private int waitFrameCount;
         private int fastFrameCount;
+        private int health;
+        private const int MAXHEALTH = 1;
         private const int PIXELSCALER = 4;
         private static int slowFrameCount = 30;
         private static double axialMoveDist = 3;
@@ -57,6 +59,7 @@ namespace Sprint0
             color = c;
             mov = Movement.Slow;
             movementIndex = -1;
+            health = MAXHEALTH;
         }
 
         public Rectangle GetDestination()
@@ -145,11 +148,9 @@ namespace Sprint0
         private static Direction ChangeDirection()
         {
             Random rnd = new Random();
-            int num = RandomNumberGenerator.GetInt32(3);
-            if (num != 0)
-            {
-                num = RandomNumberGenerator.GetInt32(8);
-            }
+            int num;
+         
+            num = RandomNumberGenerator.GetInt32(8);
 
             return (Direction)num;
         }
@@ -171,6 +172,17 @@ namespace Sprint0
             }
 
             mov = movements[movementIndex];
+        }
+
+        public bool HasHealth()
+        {
+            return health > 0;
+        }
+
+        public void TakeDamage(int damage)
+        {
+
+            health -= damage;
         }
     }
 }

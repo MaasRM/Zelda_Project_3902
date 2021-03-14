@@ -31,10 +31,6 @@ namespace Sprint0
                 boomerang = new GoriyaBoomerang(goriyaSpriteSheet, stateMachine);
                 game.AddProjectile(boomerang);
             }
-            if(stateMachine.Throwing())
-            {
-                boomerang.Update();
-            }
 
             stateMachine.Move();
             destination = stateMachine.GetDestination();
@@ -79,12 +75,12 @@ namespace Sprint0
 
         public int GetDamageValue()
         {
-            return 1;
+            return stateMachine.GetDamage();
         }
 
         public void SetDamageState(int damage, Vector2 direction)
         {
-
+            stateMachine.TakeDamage(damage, direction);
         }
         public void SetPosition(Rectangle newPos)
         {
@@ -94,12 +90,12 @@ namespace Sprint0
 
         public bool StillAlive()
         {
-            return true;
+            return stateMachine.HasHealth();
         }
 
         public void Stun()
         {
-
+            stateMachine.SetStun();
         }
     }
 }

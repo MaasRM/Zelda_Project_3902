@@ -38,6 +38,8 @@ namespace Sprint0
         private const int moveDist = 2;
         private bool wait;
         private int waitFrames;
+        private int health;
+        private const int MAXHEALTH = 1;
         private const int PIXELSCALER = 4;
         private const int moveFrames = 10;
 
@@ -51,6 +53,7 @@ namespace Sprint0
             frame = -1;
             color = c;
             wait = false;
+            health = MAXHEALTH;
         }
 
         public Rectangle GetDestination()
@@ -125,6 +128,17 @@ namespace Sprint0
             int num = RandomNumberGenerator.GetInt32(4);
 
             return (Direction)num;
+        }
+
+        public bool HasHealth()
+        {
+            return health > 0;
+        }
+
+        public void TakeDamage(int damage)
+        {
+            
+            health -= damage;
         }
     }
 }
