@@ -69,5 +69,10 @@ namespace Sprint0
         {
             stateMachine.SetStun();
         }
+
+        public bool IsDamaged()
+        {
+            return false;
+        }
     }
 }

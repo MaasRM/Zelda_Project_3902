@@ -59,6 +59,11 @@ namespace Sprint0
                         EnemyWallHandler.HandleBottomWall();
                     }
                 }
+                else
+                {
+                    grabbed = grabbed || ((Wallmaster)npc).Grabbing();
+                }
+
             }
 
             new LinkWallHandler(player, cameraWallMaxX, cameraWallMaxY);
