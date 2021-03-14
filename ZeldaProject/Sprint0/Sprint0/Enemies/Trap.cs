@@ -60,7 +60,7 @@ namespace Sprint0
 
         public int GetDamageValue()
         {
-            return 1;
+            return stateMachine.GetDamage();
         }
 
         public void SetDamageState(int damage, Vector2 direction)
@@ -81,6 +81,11 @@ namespace Sprint0
         public void Stun()
         {
 
+        }
+
+        public void Return()
+        {
+            stateMachine.Return();
         }
     }
 }

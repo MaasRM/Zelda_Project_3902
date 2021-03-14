@@ -34,6 +34,7 @@ namespace Sprint0
         private const int PIXELSCALER = 4;
         private const int chargeMoveDist = 4;
         private const int returnMoveDist = 2;
+        private const int DAMAGE = 4;
         private Tuple<int, int> initial;
 
         public TrapStateMachine(int x, int y)
@@ -89,8 +90,6 @@ namespace Sprint0
                 {
                     xLoc += chargeMoveDist * PIXELSCALER;
                 }
-
-                ShouldReturn();
             }
             else if (active == Activity.Returning)
             {
@@ -151,37 +150,50 @@ namespace Sprint0
             }
         }
 
-        private void ShouldReturn()
-        {
-            if(direction == Direction.Down && yLoc >= maxY)
-            {
-                active = Activity.Returning;
-            }
-            else if (direction == Direction.Up && yLoc <= minY)
-            {
-                active = Activity.Returning;
-            }
-            else if (direction == Direction.Left && xLoc <= minX)
-            {
-                active = Activity.Returning;
-            }
-            else if (direction == Direction.Right && xLoc >= maxX)
-            {
-                active = Activity.Returning;
-            }
-        }
-
         private void Returned()
         {
-            if(initial.Item1 == xLoc && initial.Item2 == yLoc)
+            if (direction == Direction.Down && yLoc <= initial.Item2)
             {
                 active = Activity.Still;
+                xLoc = initial.Item1;
+                yLoc = initial.Item2;
+            }
+            else if (direction == Direction.Up && yLoc >= initial.Item2)
+            {
+                active = Activity.Still;
+                xLoc = initial.Item1;
+                yLoc = initial.Item2;
+            }
+            else if (direction == Direction.Left && xLoc >= initial.Item1)
+            {
+                active = Activity.Still;
+                xLoc = initial.Item1;
+                yLoc = initial.Item2;
+            }
+            else if (direction == Direction.Right && xLoc <= initial.Item1)
+            {
+                active = Activity.Still;
+                xLoc = initial.Item1;
+                yLoc = initial.Item2;
             }
         }
 
         public bool IsStill()
         {
             return active == Activity.Still;
+        }
+
+        public void Return()
+        {
+            if(active == Activity.Charging)
+            {
+                active = Activity.Returning;
+            }
+        }
+
+        public int GetDamage()
+        {
+            return DAMAGE;
         }
     }
 }

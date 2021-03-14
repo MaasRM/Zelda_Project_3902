@@ -26,6 +26,11 @@ namespace Sprint0
             OverlapInRelationToEnemy overlap = GetOverlapDirection(enemy, block);
             Rectangle enemyRect = enemy.GetNPCLocation();
 
+            if (enemy is Trap)
+            {
+                ((Trap)enemy).Return();
+            }
+
             if (overlap == OverlapInRelationToEnemy.Up)
             {
                 //return down;

@@ -18,24 +18,44 @@ namespace Sprint0
 
         public static void HandleLeftWall()
         {
-            Rectangle newPosition = new Rectangle (120, npc.GetNPCLocation().Y, npc.GetNPCLocation().Width, npc.GetNPCLocation().Height);
+            if(npc is Trap)
+            {
+                ((Trap)npc).Return();
+            }
+
+            Rectangle newPosition = new Rectangle(120, npc.GetNPCLocation().Y, npc.GetNPCLocation().Width, npc.GetNPCLocation().Height);
             npc.SetPosition(newPosition);
         }
 
         public static void HandleTopWall()
         {
+            if (npc is Trap)
+            {
+                ((Trap)npc).Return();
+            }
+
             Rectangle newPosition = new Rectangle(npc.GetNPCLocation().X, 117, npc.GetNPCLocation().Width, npc.GetNPCLocation().Height);
             npc.SetPosition(newPosition);
         }
 
         public static void HandleRightWall()
         {
+            if (npc is Trap)
+            {
+                ((Trap)npc).Return();
+            }
+
             Rectangle newPosition = new Rectangle(maxX - 175, npc.GetNPCLocation().Y, npc.GetNPCLocation().Width, npc.GetNPCLocation().Height);
             npc.SetPosition(newPosition);
         }
 
         public static void HandleBottomWall()
         {
+            if (npc is Trap)
+            {
+                ((Trap)npc).Return();
+            }
+
             Rectangle newPosition = new Rectangle(npc.GetNPCLocation().X, maxY-175, npc.GetNPCLocation().Width, npc.GetNPCLocation().Height);
             npc.SetPosition(newPosition);
         }
