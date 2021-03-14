@@ -54,6 +54,7 @@ namespace Sprint0
             _graphics.PreferredBackBufferHeight = 175 * 4;
             _graphics.ApplyChanges();
             base.Initialize();
+            roomManager.Update();
         }
 
         protected override void LoadContent()

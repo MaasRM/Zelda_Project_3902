@@ -3,11 +3,12 @@
   <MonoDevelop.Ide.Workbench>
     <Files>
       <File FileName="Sprint0/Enemies/AquamentusStateMachine.cs" Line="179" Column="34" />
-      <File FileName="Sprint0/Enemies/GoriyaStateMachine.cs" Line="241" Column="43" />
-      <File FileName="Sprint0/Enemies/StalfosStateMachine.cs" Line="100" Column="32" />
-      <File FileName="Sprint0/Enemies/WallmasterStateMachine.cs" Line="299" Column="31" />
-      <File FileName="Sprint0/Enemies/KeeseStateMachine.cs" Line="113" Column="29" />
+      <File FileName="Sprint0/Enemies/GoriyaStateMachine.cs" />
+      <File FileName="Sprint0/Enemies/StalfosStateMachine.cs" />
+      <File FileName="Sprint0/Enemies/WallmasterStateMachine.cs" />
+      <File FileName="Sprint0/Enemies/KeeseStateMachine.cs" />
       <File FileName="Sprint0/Enemies/GelStateMachine.cs" Line="164" Column="27" />
+      <File FileName="Sprint0/Sprint3.cs" Line="57" Column="34" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -15,9 +16,8 @@
           <Node name="Sprint0" expanded="True">
             <Node name="Sprint0" expanded="True">
               <Node name="Dependencies" expanded="True" />
-              <Node name="Enemies" expanded="True">
-                <Node name="GelStateMachine.cs" selected="True" />
-              </Node>
+              <Node name="Enemies" expanded="True" />
+              <Node name="Sprint3.cs" selected="True" />
             </Node>
           </Node>
         </State>
