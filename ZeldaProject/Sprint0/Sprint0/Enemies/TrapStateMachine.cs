@@ -30,7 +30,6 @@ namespace Sprint0
         private int width;
         private int height;
         private int frame;
-        private int maxX, minX, maxY, minY;
         private const int PIXELSCALER = 4;
         private const int chargeMoveDist = 4;
         private const int returnMoveDist = 2;
