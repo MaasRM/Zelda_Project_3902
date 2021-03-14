@@ -43,10 +43,6 @@ namespace Sprint0
             width = 16;
             height = 16;
             frame = -1;
-            maxX = 800 - width * PIXELSCALER;
-            minX = 0;
-            maxY = 800 - height * PIXELSCALER;
-            minY = 0;
             initial = new Tuple<int, int>(x, y);
             active = Activity.Still;
         }
