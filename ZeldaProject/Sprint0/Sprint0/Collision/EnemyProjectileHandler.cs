@@ -50,33 +50,29 @@ namespace Sprint0
         {
             Rectangle projectilePos = projectile.GetProjectileLocation();
             Rectangle enemyPos = enemy.GetNPCLocation();
+            Rectangle overlap = Rectangle.Intersect(enemyPos, projectilePos);
             OverlapInRelationToEnemy overlapX = OverlapInRelationToEnemy.Right;
             OverlapInRelationToEnemy overlapY = OverlapInRelationToEnemy.Left;
 
-            int yOverDist = 0, xOverDist = 0;
-
-            if (enemyPos.Y < projectilePos.Y + projectilePos.Height && enemyPos.Y >= projectilePos.Y)
+            if (overlap.Y == projectilePos.Y)
             {
-                yOverDist = projectilePos.Y + projectilePos.Height - enemyPos.Y;
-                overlapY = OverlapInRelationToEnemy.Up;
-            }
-            if (enemyPos.Y < enemyPos.Y + enemyPos.Height && projectilePos.Y >= enemyPos.Y)
-            {
-                yOverDist = enemyPos.Y + enemyPos.Height - projectilePos.Y;
                 overlapY = OverlapInRelationToEnemy.Down;
             }
-            if (enemyPos.X < projectilePos.X + projectilePos.Width && enemyPos.X >= projectilePos.X)
+            else if (overlap.Y == enemyPos.Y)
             {
-                xOverDist = projectilePos.X + projectilePos.Width - enemyPos.X;
-                overlapY = OverlapInRelationToEnemy.Right;
-            }
-            if (enemyPos.X < enemyPos.X + enemyPos.Width && projectilePos.X >= enemyPos.X)
-            {
-                xOverDist = enemyPos.X + enemyPos.Width - projectilePos.X;
-                overlapY = OverlapInRelationToEnemy.Left;
+                overlapY = OverlapInRelationToEnemy.Up;
             }
 
-            if (yOverDist > xOverDist)
+            if (overlap.X == enemyPos.X)
+            {
+                overlapX = OverlapInRelationToEnemy.Left;
+            }
+            else if (overlap.X == projectilePos.X)
+            {
+                overlapX = OverlapInRelationToEnemy.Right;
+            }
+
+            if (overlap.Height < overlap.Width)
             {
                 return overlapY;
             }
