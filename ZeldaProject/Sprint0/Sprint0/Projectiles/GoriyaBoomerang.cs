@@ -81,14 +81,7 @@ namespace Sprint0
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (CheckForRemoval())
-            {
-                goriyaState.BoomerangReturned();
-            }
-            else
-            {
-                spriteBatch.Draw(spritesheet, GetDestination(), GetSource(), Color.White, 0, new Vector2(0, 0), flip, 0f);
-            }
+            spriteBatch.Draw(spritesheet, GetDestination(), GetSource(), Color.White, 0, new Vector2(0, 0), flip, 0f);
         }
 
         public Rectangle GetProjectileLocation()
