@@ -2,7 +2,10 @@
   <MonoDevelop.Ide.ItemProperties.Sprint0 PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="Sprint0/Projectiles/BombProjectile.cs" Line="81" Column="28" />
+      <File FileName="Sprint0/Sprint3.cs" Line="90" Column="38" />
+      <File FileName="Sprint0/Enemies/TrapStateMachine.cs" Line="45" Column="24" />
+      <File FileName="Sprint0/Enemies/Stalfos.cs" Line="1" Column="1" />
+      <File FileName="Sprint0/Enemies/StalfosStateMachine.cs" Line="113" Column="30" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -10,10 +13,8 @@
           <Node name="Sprint0" expanded="True">
             <Node name="Sprint0" expanded="True">
               <Node name="Dependencies" expanded="True" />
-              <Node name="Collision" expanded="True" />
-              <Node name="Content" expanded="True" />
-              <Node name="Projectiles" expanded="True">
-                <Node name="BombProjectile.cs" selected="True" />
+              <Node name="Enemies" expanded="True">
+                <Node name="StalfosStateMachine.cs" selected="True" />
               </Node>
             </Node>
           </Node>

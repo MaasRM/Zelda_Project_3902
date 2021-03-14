@@ -109,6 +109,8 @@ namespace Sprint0
             {
                 stunFrames++;
             }
+
+            ReturnToNormal();
         }
 
         public int GetFrame()
