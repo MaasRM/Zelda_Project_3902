@@ -42,6 +42,8 @@ namespace Sprint0
             {
                 DamageTheEnemy((IEnemy)enemy, projectile, overlap);
             }
+
+            projectile.Hit();
         }
 
         private static OverlapInRelationToEnemy GetOverlapDirection(INPC enemy, IProjectile projectile)

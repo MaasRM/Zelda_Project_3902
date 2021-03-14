@@ -43,6 +43,8 @@ namespace Sprint0
             {
                 DamageThePlayer(player, projectile, overlap);
             }
+
+            projectile.Hit();
         }
 
         private static OverlapInRelationToPlayer GetOverlapDirection(IPlayer player, IProjectile projectile)
