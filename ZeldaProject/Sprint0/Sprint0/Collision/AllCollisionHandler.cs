@@ -204,6 +204,18 @@ namespace Sprint0
                     {
                         npcs.Remove(nPC);
                     }
+
+                    if (projectile.GetProjectileLocation().X < 120 || projectile.GetProjectileLocation().Y < 117 
+                        || projectile.GetProjectileLocation().X > cameraWallMaxX - 175 || projectile.GetProjectileLocation().Y > cameraWallMaxY - 175)
+                    {
+                        if (projectile is IBoomerang)
+                        {
+                            ((IBoomerang)projectile).GoBack();
+                        } else
+                        {
+                            projectile.Hit();
+                        }
+                    }                    
                 }
                 else
                 {
