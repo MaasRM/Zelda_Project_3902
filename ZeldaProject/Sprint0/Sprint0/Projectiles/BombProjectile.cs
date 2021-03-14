@@ -73,12 +73,12 @@ namespace Sprint0
 
         public bool Exploding()
         {
-            return frame >= 20;
+            return frame > 20;
         }
 
         public bool CheckForRemoval()
         {
-            return frame >=22;
+            return frame > 22;
         }
 
         public int GetDamage()
