@@ -131,7 +131,10 @@ namespace Sprint0
 
         public void Hit()
         {
-            frame = 14;
+            if (frame < 14)
+            {
+                frame = 14;
+            }
         }
     }
 }

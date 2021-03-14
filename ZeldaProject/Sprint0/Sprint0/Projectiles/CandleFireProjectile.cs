@@ -103,7 +103,7 @@ namespace Sprint0
 
         public void Hit()
         {
-            frame = 20;
+            // Do nothing
         }
     }
 }
