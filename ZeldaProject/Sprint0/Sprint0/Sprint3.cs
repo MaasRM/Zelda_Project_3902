@@ -60,6 +60,8 @@ namespace Sprint0
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            List<Texture2D> enemySheets = new List<Texture2D>();
+            List<Texture2D> bossSheets = new List<Texture2D>();
             List<Texture2D> linkSheetList = new List<Texture2D>();
             linkSheetList.Add(contentManager.Load<Texture2D>("LinkSpriteSheet")); // 0 is green
             linkSheetList.Add(contentManager.Load<Texture2D>("LinkSpriteSheetBlack")); // 1 is black
@@ -68,13 +70,24 @@ namespace Sprint0
             link = new Link(contentManager.Load<Texture2D>("LinkSpriteSheet"), linkSheetList);
 
             Texture2D dungeonSheet = contentManager.Load<Texture2D>("Dungeon_Tileset");
-            Texture2D enemiesSheet = contentManager.Load<Texture2D>("Dungeon_Enemies");
+
+            enemySheets.Add(contentManager.Load<Texture2D>("Dungeon_Enemies"));
+            enemySheets.Add(contentManager.Load<Texture2D>("Dungeon_Enemies_DamageOne"));
+            enemySheets.Add(contentManager.Load<Texture2D>("Dungeon_Enemies_DamageTwo"));
+            enemySheets.Add(contentManager.Load<Texture2D>("Dungeon_Enemies_DamageThree"));
+
             Texture2D itemsSheet = contentManager.Load<Texture2D>("Dungeon_Items");
-            Texture2D bossesSheet = contentManager.Load<Texture2D>("Dungeon_Bosses");
+
+            bossSheets.Add(contentManager.Load<Texture2D>("Dungeon_Bosses"));
+            bossSheets.Add(contentManager.Load<Texture2D>("Dungeon_Enemies_DamageOne"));
+            bossSheets.Add(contentManager.Load<Texture2D>("Dungeon_Enemies_DamageTwo"));
+            bossSheets.Add(contentManager.Load<Texture2D>("Dungeon_Enemies_DamageThree"));
+
             Texture2D npcSheet = contentManager.Load<Texture2D>("Zelda_NPCs");
+
             XmlDocument doc = new XmlDocument();
             doc.Load(new FileStream("..\\..\\..\\Content\\ZeldaRoomLayout.xml", FileMode.Open));
-            roomManager.SetUpRooms(doc, dungeonSheet , enemiesSheet, itemsSheet, bossesSheet, npcSheet);
+            roomManager.SetUpRooms(doc, dungeonSheet , enemySheets, itemsSheet, bossSheets, npcSheet);
 
             foreach(IController controller in controllerList)
             {

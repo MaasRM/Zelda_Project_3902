@@ -268,8 +268,8 @@ namespace Sprint0
             {
                 health -= damage;
                 state = State.Damaged;
-                stunFrames = 0;
-                damageFrames = 0;
+                stunFrames = 1;
+                damageFrames = 1;
 
                 damageDirection = direction;
             }
@@ -278,7 +278,7 @@ namespace Sprint0
         public void SetStun()
         {
             state = State.Stun;
-            stunFrames = 0;
+            stunFrames = 1;
         }
 
         public void ReturnToNormal()
@@ -295,6 +295,11 @@ namespace Sprint0
         public bool IsDamaged()
         {
             return state == State.Damaged;
+        }
+
+        public int GetDamageFrame()
+        {
+            return damageFrames;
         }
     }
 }
