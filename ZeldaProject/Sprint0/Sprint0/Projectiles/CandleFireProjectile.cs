@@ -8,7 +8,6 @@ namespace Sprint0
 {
     class CandleFireProjectile: IProjectile, IPlayerProjectile
     {
-        private LinkStateMachine stateMachine;
         private Rectangle sourceRectangle;
         private Rectangle destinationRectangle;
         private Texture2D spritesheet;
@@ -16,13 +15,13 @@ namespace Sprint0
         private int yLoc;
         private const int candleSpeed = 12; //x4 specs
         private const int candleSize = 60;
+        private const int DAMAGE = 1;
         private int frame;
         private Boolean flip;
         private Direction projectileDirection;
 
         public CandleFireProjectile(Texture2D spritesheet, LinkStateMachine stateMachine)
         {
-            this.stateMachine = stateMachine;
             projectileDirection = stateMachine.getDirection();
             if(projectileDirection == Direction.MoveUp)
             {
@@ -52,7 +51,6 @@ namespace Sprint0
         }
         public void Update()
         {
-            if (frame >= 20) stateMachine.RemoveProjectile(this);
             if (frame < 10)
             {
                 if (projectileDirection == Direction.MoveUp)
@@ -95,17 +93,17 @@ namespace Sprint0
 
         public bool CheckForRemoval()
         {
-            return true;
+            return frame >= 20;
         }
 
         public int GetDamage()
         {
-            return 1;
+            return DAMAGE;
         }
 
         public void Hit()
         {
-
+            frame = 20;
         }
     }
 }
