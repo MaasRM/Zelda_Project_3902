@@ -11,12 +11,17 @@ namespace Sprint0
         private Texture2D blockSpriteSheet;
         private Rectangle blockSource;
         private Rectangle blockDestination;
+        private Rectangle startingPosition;
+        private int blockIndex;
         private int scale = 4;
 
-        public Block(int blockIndex, Texture2D spriteSheet, int x, int y)
+        public Block(int blockNum, Texture2D spriteSheet, int x, int y)
         {
             blockSpriteSheet = spriteSheet;
+            blockIndex = blockNum;
             blockDestination = new Rectangle(x, y, 16 * scale, 16 * scale);
+            startingPosition = blockDestination;
+
             if (blockIndex == 0)
             {
                 blockSource = new Rectangle(984, 11, 16, 16);
@@ -76,6 +81,25 @@ namespace Sprint0
         public Rectangle GetBlockLocation()
         {
             return blockDestination;
+        }
+
+        public int getIndex()
+        {
+            return blockIndex;
+        }
+
+        public void setPosition(Rectangle newRect)
+        {
+            blockDestination = newRect;
+        }
+
+        public Rectangle startPos()
+        {
+            return startingPosition;
+        }
+        public void setBlockIndex(int num)
+        {
+            blockIndex = num;
         }
     }
 }

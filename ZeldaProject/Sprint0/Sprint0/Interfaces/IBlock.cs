@@ -10,5 +10,9 @@ namespace Sprint0
         public void Update();
         public void Draw(SpriteBatch spriteBatch);
         public Rectangle GetBlockLocation();
+        public int getIndex();
+        public void setPosition(Rectangle newRect);
+        public void setBlockIndex(int num);
+        public Rectangle startPos();
     }
 }
