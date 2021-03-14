@@ -27,33 +27,31 @@ namespace Sprint0
             OverlapInRelationToPlayer overlapSide = GetOverlapDirection(player, block, overlap);
             Rectangle playerRect = player.LinkPosition();
 
-            //overlapSide = OverlapInRelationToPlayer.Left;
-
             if ((overlapSide == OverlapInRelationToPlayer.Up) && (player.getLinkStateMachine().getDirection() == Direction.MoveUp))
             {
                 //return down;
-                player.getLinkStateMachine().disableUp();
+                //player.getLinkStateMachine().disableUp();
                 playerRect.Y = playerRect.Y + overlap.Height;
                 player.getLinkStateMachine().SetPositions(playerRect);
             }
             else if ((overlapSide == OverlapInRelationToPlayer.Down) && (player.getLinkStateMachine().getDirection() == Direction.MoveDown))
             {
                 //return up;  
-                player.getLinkStateMachine().disableDown();
+                //player.getLinkStateMachine().disableDown();
                 playerRect.Y = playerRect.Y - overlap.Height;
                 player.getLinkStateMachine().SetPositions(playerRect);
             }
             else if ((overlapSide == OverlapInRelationToPlayer.Left) && (player.getLinkStateMachine().getDirection() == Direction.MoveLeft))
             {
                 //return right;
-                player.getLinkStateMachine().disableLeft();
+                //player.getLinkStateMachine().disableLeft();
                 playerRect.X = playerRect.X + overlap.Width;
                 player.getLinkStateMachine().SetPositions(playerRect);
             }
             else if ((overlapSide == OverlapInRelationToPlayer.Right) && (player.getLinkStateMachine().getDirection() == Direction.MoveRight))
             {
                 //return left;
-                player.getLinkStateMachine().disableRight();
+                //player.getLinkStateMachine().disableRight();
                 playerRect.X = playerRect.X - overlap.Width;
                 player.getLinkStateMachine().SetPositions(playerRect);
             }
@@ -64,22 +62,22 @@ namespace Sprint0
             Rectangle playerPos = player.LinkPosition();
             Rectangle blockPos = block.GetBlockLocation();
             OverlapInRelationToPlayer overlapX = OverlapInRelationToPlayer.Right;
-            OverlapInRelationToPlayer overlapY = OverlapInRelationToPlayer.Down;
+            OverlapInRelationToPlayer overlapY = OverlapInRelationToPlayer.Up;
 
-            if (overlap.Y < playerPos.Y)
+            if (overlap.Y == playerPos.Y)
             {
                 overlapY = OverlapInRelationToPlayer.Up;
             }
-            else
+            else if (overlap.Y == blockPos.Y)
             {
                 overlapY = OverlapInRelationToPlayer.Down;
             }
 
-            if (overlap.X < playerPos.X)
+            if (overlap.X == blockPos.X)
             {
                 overlapX = OverlapInRelationToPlayer.Right;
             }
-            else
+            else if (overlap.X == playerPos.X)
             {
                 overlapX = OverlapInRelationToPlayer.Left;
             }
