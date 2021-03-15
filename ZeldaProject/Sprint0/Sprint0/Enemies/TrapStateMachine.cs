@@ -116,60 +116,66 @@ namespace Sprint0
 
         public void SetCharge(Rectangle linkPos)
         {
-            int linkX = linkPos.X + linkPos.Width / 2;
-            int linkY = linkPos.Y + linkPos.Height / 2;
-
-            active = Activity.Charging;
-
-            if (linkX >= xLoc && linkX < xLoc + width)
+            if(IsStill())
             {
-                if(linkY < yLoc)
+                int linkX = linkPos.X + linkPos.Width / 2;
+                int linkY = linkPos.Y + linkPos.Height / 2;
+
+                active = Activity.Charging;
+
+                if (linkX >= xLoc && linkX < xLoc + width)
                 {
-                    direction = Direction.Up;
+                    if (linkY < yLoc)
+                    {
+                        direction = Direction.Up;
+                    }
+                    else
+                    {
+                        direction = Direction.Down;
+                    }
                 }
-                else
+                else if (linkY >= yLoc && linkY < yLoc + height)
                 {
-                    direction = Direction.Down;
-                }
-            }
-            else if (linkY >= yLoc && linkY < yLoc + height)
-            {
-                if (linkX < xLoc)
-                {
-                    direction = Direction.Left;
-                }
-                else
-                {
-                    direction = Direction.Right;
+                    if (linkX < xLoc)
+                    {
+                        direction = Direction.Left;
+                    }
+                    else
+                    {
+                        direction = Direction.Right;
+                    }
                 }
             }
         }
 
         private void Returned()
         {
-            if (direction == Direction.Down && yLoc <= initial.Item2)
+            if(active == Activity.Returning)
             {
-                active = Activity.Still;
-                xLoc = initial.Item1;
-                yLoc = initial.Item2;
-            }
-            else if (direction == Direction.Up && yLoc >= initial.Item2)
-            {
-                active = Activity.Still;
-                xLoc = initial.Item1;
-                yLoc = initial.Item2;
-            }
-            else if (direction == Direction.Left && xLoc >= initial.Item1)
-            {
-                active = Activity.Still;
-                xLoc = initial.Item1;
-                yLoc = initial.Item2;
-            }
-            else if (direction == Direction.Right && xLoc <= initial.Item1)
-            {
-                active = Activity.Still;
-                xLoc = initial.Item1;
-                yLoc = initial.Item2;
+                if (direction == Direction.Down && yLoc <= initial.Item2)
+                {
+                    active = Activity.Still;
+                    xLoc = initial.Item1;
+                    yLoc = initial.Item2;
+                }
+                else if (direction == Direction.Up && yLoc >= initial.Item2)
+                {
+                    active = Activity.Still;
+                    xLoc = initial.Item1;
+                    yLoc = initial.Item2;
+                }
+                else if (direction == Direction.Left && xLoc >= initial.Item1)
+                {
+                    active = Activity.Still;
+                    xLoc = initial.Item1;
+                    yLoc = initial.Item2;
+                }
+                else if (direction == Direction.Right && xLoc <= initial.Item1)
+                {
+                    active = Activity.Still;
+                    xLoc = initial.Item1;
+                    yLoc = initial.Item2;
+                }
             }
         }
 
