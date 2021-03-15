@@ -28,7 +28,7 @@ numbers.
 ************************************************************************************************************  
 
 Phil Brocker 3/15/2021 Sprint3
-Sprint3.cs - Riley Maas (everyone has added something to this file)
+Sprint3.cs - Jake Kline (everyone has added something to this file)
 Comments on maintainability:
 	- There are some magic numbers in Initialize and Update
 	- There are many sprite sheets that need to be loaded in. These all have clear names which will make 
