@@ -1,0 +1,37 @@
+﻿************************************************************************************************************
+								 Team 3, Nathan Schultz Code Reviews
+************************************************************************************************************
+
+Nathan Schultz: Review RoomManager.cs for readability, Review Room.cs for maintainability
+
+************************************************************************************************************
+											Readability
+************************************************************************************************************
+
+Nathan Schultz 3/15/2021 Sprint2
+RoomManager.cs - 
+Minutes: 20 
+Comments on readability:
+	- 
+
+
+
+************************************************************************************************************
+											Maintainability
+************************************************************************************************************
+
+Nathan Schultz 3/15/2021 Sprint2
+Room.cs - 
+Comments on maintainability:
+	- No magic numbers
+	- Fields have names which signify their functions
+	- Functions have clear names which show functionality
+
+Hypothetical Changes:
+	- Methods should be editied to have Pascal Case names
+	- Addition of references to nearby rooms for room switching in the future
+
+Mainting this file will not be difficult. All the fields and methods of the class have distinct names which
+imply functionality. Changing the names of the methods is the only thing revlevant tto Sprint 3 which could
+be improved. For future sprints references to nearby rooms could make room switching easier.
+

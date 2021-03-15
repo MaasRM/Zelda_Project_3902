@@ -17,18 +17,10 @@ Move Link: W(Up), A(Left), S(Down), D(Right)
 Damage Link: E
 Link Items: 1(Green Arrow), 2(Blue Arrow), 3(Normal Boomerang), 4(Blue Boomerang), 5(Bomb), 6(Fireball)
 Attack: Z, N
-Changing Block: T(Previous), Y(Next)
-Enemies: O(Previous), P(Next)
-Items: U(Previous), I(Next)
 Quit: Q, Escape
 Restart: R
+Changing Room: 
 
-************************************************************************************************************
-										Notes on Functionality
-************************************************************************************************************
-
-Wallmaster enemy only appears when Link is nearby, so its location for testing purposes was hardcoded at
-(400, 400) or in the middle of the screen towrads the bottom.
 
 ************************************************************************************************************
 											Known Bugs
