@@ -1,0 +1,44 @@
+﻿************************************************************************************************************
+								 Team 3, Jacob Kline Code Reviews
+************************************************************************************************************
+
+Jacob Kline: Review LinkBlockHandler.cs for readability, Review LinkEnemyHandler.cs for maintainability
+
+************************************************************************************************************
+											Readability
+************************************************************************************************************
+
+Jacob Kline 2/21/2021 Sprint2
+LinkBlockHandler.cs - Jared Zins
+Minutes: 20 
+Comments on readability:
+	- Only 2 fields for hieght and width, constructor sets fields to default values. Makes sense
+	- Only 3 additional methods: get methods for height and weight(self explainitory), and getSourceRectangle(very long)
+	- Parameters for getSourceRectangle make sense, passed from linkStateMachine
+	- getSourceRectangle interacts with implimentations of ILinkRectangle, names of these classes explain the rectangle being grabbed
+	- getSourceRectangle is long but it has to be given all of the cases and possible sprites. It is easy to tell what if statements
+		correspond with what sprite rectangles on the sprite sheet
+
+Overall this class is very readable and understandable. There are few fields and methods making it very clear what the purpose of the
+class is. The getSourceRectangle method is long but the different cases are well documented and the method makes sense.
+
+************************************************************************************************************
+											Maintainability
+************************************************************************************************************
+
+Jacob Kline 2/21/2021 Sprint2
+GelStateMachine.cs - Nathan Schultz
+Comments on maintainability:
+	- Lots of magic numbers, may be teadious to tweek enemy behavoir
+	- const int fields are good to combat the magic numbers disussed above, some are already present
+	- use of enums is good
+	- perhaps the use of a position and movedDist vector could reduce complexity
+
+Hypothetical Changes:
+	- Tweeking the enemies behavoir may be challenging since there is a lot of magic numbers
+	- If a new color or direction needed to be implimented, this could easily be added with the use of enums
+	- If for some reason the enemy needed to move in the x and y direction at the same time, this would increase the complexity
+		of the move method. I think the use of vectors could combat this problem.
+
+Overall this class is in good shape for maintaining it in the future. My two reccomendations would be to reduce the number
+of magic numbers as well as using a position and velocity vector to compute and update the enemies location.
