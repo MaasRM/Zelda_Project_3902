@@ -34,7 +34,7 @@ namespace Sprint0
             int linkX = linkPos.X + linkPos.Width / 2;
             int linkY = linkPos.Y + linkPos.Height / 2;
 
-            if (trap.IsStill() && (linkX >= trapPos.X && linkX < trapPos.X + trapPos.Width) || (linkY >= trapPos.Y && linkY < trapPos.Y + trapPos.Height))
+            if (trap.IsStill() && ((linkX >= trapPos.X && linkX < trapPos.X + trapPos.Width) || (linkY >= trapPos.Y && linkY < trapPos.Y + trapPos.Height)))
             {
                 trap.SetCharge(linkPos);
             }
