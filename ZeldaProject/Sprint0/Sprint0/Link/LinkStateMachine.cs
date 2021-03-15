@@ -60,10 +60,6 @@ namespace Sprint0
             xLoc = 200; //Original Position, probably needs to change
             yLoc = 240;
             isBusy = false;
-            disUp = false;
-            disDown = false;
-            disRight = false;
-            disLeft = false;
             health = 18;
             maxHealth = 18;
             sizeFactor = 4;
@@ -149,25 +145,18 @@ namespace Sprint0
         {
             if (!isBusy && color != LinkColor.Damaged)
             {
-                if (!disUp)
+                if (this.direction == Direction.MoveUp)
                 {
-                    disDown = false;
-                    disRight = false;
-                    disLeft = false;
-
-                    if (this.direction == Direction.MoveUp)
-                    {
-                        this.animation = Animation.Walk;
-                        yLoc -= linkMoveSpeed;
-                        if (frame == 0) frame = 1;
-                        else frame = 0;
-                    }
-                    else
-                    {
-                        this.direction = Direction.MoveUp;
-                        this.animation = Animation.Idle;
-                        frame = 0;
-                    }
+                    this.animation = Animation.Walk;
+                    yLoc -= linkMoveSpeed;
+                    if (frame == 0) frame = 1;
+                    else frame = 0;
+                }
+                else
+                {
+                    this.direction = Direction.MoveUp;
+                    this.animation = Animation.Idle;
+                    frame = 0;
                 }
             }
         }
@@ -176,25 +165,18 @@ namespace Sprint0
         {
             if (!isBusy && color != LinkColor.Damaged)
             {
-                if (!disDown)
+                if (this.direction == Direction.MoveDown)
                 {
-                    disUp = false;
-                    disRight = false;
-                    disLeft = false;
-
-                    if (this.direction == Direction.MoveDown)
-                    {
-                        this.animation = Animation.Walk;
-                        yLoc += linkMoveSpeed;
-                        if (frame == 0) frame = 1;
-                        else frame = 0;
-                    }
-                    else
-                    {
-                        this.direction = Direction.MoveDown;
-                        this.animation = Animation.Idle;
-                        frame = 0;
-                    }
+                    this.animation = Animation.Walk;
+                    yLoc += linkMoveSpeed;
+                    if (frame == 0) frame = 1;
+                    else frame = 0;
+                }
+                else
+                {
+                    this.direction = Direction.MoveDown;
+                    this.animation = Animation.Idle;
+                    frame = 0;
                 }
             }
         }
@@ -203,25 +185,18 @@ namespace Sprint0
         {
             if (!isBusy && color != LinkColor.Damaged)
             {
-                if (!disLeft)
+                if (this.direction == Direction.MoveLeft)
                 {
-                    disUp = false;
-                    disDown = false;
-                    disRight = false;
-
-                    if (this.direction == Direction.MoveLeft)
-                    {
-                        this.animation = Animation.Walk;
-                        xLoc -= linkMoveSpeed;
-                        if (frame == 0) frame = 1;
-                        else frame = 0;
-                    }
-                    else
-                    {
-                        this.direction = Direction.MoveLeft;
-                        this.animation = Animation.Idle;
-                        frame = 0;
-                    }
+                    this.animation = Animation.Walk;
+                    xLoc -= linkMoveSpeed;
+                    if (frame == 0) frame = 1;
+                    else frame = 0;
+                }
+                else
+                {
+                    this.direction = Direction.MoveLeft;
+                    this.animation = Animation.Idle;
+                    frame = 0;
                 }
             }
         }
@@ -230,25 +205,18 @@ namespace Sprint0
         {
             if (!isBusy && color != LinkColor.Damaged)
             {
-                if (!disRight)
+                if (this.direction == Direction.MoveRight)
                 {
-                    disUp = false;
-                    disDown = false;
-                    disLeft = false;
-
-                    if (this.direction == Direction.MoveRight)
-                    {
-                        this.animation = Animation.Walk;
-                        xLoc += linkMoveSpeed;
-                        if (frame == 0) frame = 1;
-                        else frame = 0;
-                    }
-                    else
-                    {
-                        this.direction = Direction.MoveRight;
-                        this.animation = Animation.Idle;
-                        frame = 0;
-                    }
+                    this.animation = Animation.Walk;
+                    xLoc += linkMoveSpeed;
+                    if (frame == 0) frame = 1;
+                    else frame = 0;
+                }
+                else
+                {
+                    this.direction = Direction.MoveRight;
+                    this.animation = Animation.Idle;
+                    frame = 0;
                 }
             }
         }
@@ -363,25 +331,6 @@ namespace Sprint0
             isBusy = true;
         }
 
-        public void disableUp()
-        {
-            disUp = true;
-        }
-
-        public void disableDown()
-        {
-            disDown = true;
-        }
-
-        public void disableRight()
-        {
-            disRight = true;
-        }
-
-        public void disableLeft()
-        {
-            disLeft = true;
-        }
         public void SetPositions(Rectangle newPos)
         {
             yLoc = newPos.Y;
