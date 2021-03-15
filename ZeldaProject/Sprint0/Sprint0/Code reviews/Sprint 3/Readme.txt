@@ -27,6 +27,7 @@ Changing Room: Left and right mouse buttons
 ************************************************************************************************************
 - Movable block will overlap with the blocks around it if it is pushed up or down before being pushing right
 - Enemies can push link through blocks when he is in his damage state
+- Wallmaster behavoir needs to be tweeked
 
 ************************************************************************************************************
 											Other Tools

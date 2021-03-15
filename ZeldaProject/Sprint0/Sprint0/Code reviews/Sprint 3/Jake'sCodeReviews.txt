@@ -2,43 +2,38 @@
 								 Team 3, Jacob Kline Code Reviews
 ************************************************************************************************************
 
-Jacob Kline: Review LinkBlockHandler.cs for readability, Review LinkEnemyHandler.cs for maintainability
+Jacob Kline: Review LinkBlockHandler.cs(Jared) for readability, Review LinkMoveBlock.cs(Jared) for maintainability
 
 ************************************************************************************************************
 											Readability
 ************************************************************************************************************
 
-Jacob Kline 2/21/2021 Sprint2
+Jacob Kline 3/15/2021 Sprint3
 LinkBlockHandler.cs - Jared Zins
-Minutes: 20 
+Minutes: 15
 Comments on readability:
-	- Only 2 fields for hieght and width, constructor sets fields to default values. Makes sense
-	- Only 3 additional methods: get methods for height and weight(self explainitory), and getSourceRectangle(very long)
-	- Parameters for getSourceRectangle make sense, passed from linkStateMachine
-	- getSourceRectangle interacts with implimentations of ILinkRectangle, names of these classes explain the rectangle being grabbed
-	- getSourceRectangle is long but it has to be given all of the cases and possible sprites. It is easy to tell what if statements
-		correspond with what sprite rectangles on the sprite sheet
+	- No fields necessary, empty constructor. Only 2 methods that boil down to handling a block-player collision. Very simple structure.
+	- HandleCollision method makes sense, takes in the player and block object and a rectangle for the overlap
+	- Makes a lot of sense to split the collision handling into two methods. GetOverlapDirection is very straight forward.
+	- My only critique of the class is not it may not be necessary. It's quite short and has a simple concrete purpose.
 
-Overall this class is very readable and understandable. There are few fields and methods making it very clear what the purpose of the
-class is. The getSourceRectangle method is long but the different cases are well documented and the method makes sense.
+Overall this class is very simple, readable and understandable
 
 ************************************************************************************************************
 											Maintainability
 ************************************************************************************************************
 
-Jacob Kline 2/21/2021 Sprint2
-GelStateMachine.cs - Nathan Schultz
+Jacob Kline 3/15/2021 Sprint3
+LinkMoveBlock.cs - Jared Zins
 Comments on maintainability:
-	- Lots of magic numbers, may be teadious to tweek enemy behavoir
-	- const int fields are good to combat the magic numbers disussed above, some are already present
-	- use of enums is good
-	- perhaps the use of a position and movedDist vector could reduce complexity
+	- A couple magic numbers
+	- Enum for overlap direction is helpful
+	- Cool idea to change the block type once it reaches a certain distance away
 
 Hypothetical Changes:
-	- Tweeking the enemies behavoir may be challenging since there is a lot of magic numbers
-	- If a new color or direction needed to be implimented, this could easily be added with the use of enums
-	- If for some reason the enemy needed to move in the x and y direction at the same time, this would increase the complexity
-		of the move method. I think the use of vectors could combat this problem.
+	- Since the behavoir of the block moving is a little buggy, I would maybe recommend locking the blocks movement to a specific
+		direction once the block starts moving. You could do this by adding an additional "blockMoveDirection" field to the block
+		class and only moving the block if the collision is in the same direction. Direction Enum will be helpful here. 
 
-Overall this class is in good shape for maintaining it in the future. My two reccomendations would be to reduce the number
-of magic numbers as well as using a position and velocity vector to compute and update the enemies location.
+Overall this class is in good shape for maintaining it in the future. My recommendation is to lock the blocks movement in one direction
+once it is moved for the first time. Using the direction Enum, this functionality could be added somewhat easily.
