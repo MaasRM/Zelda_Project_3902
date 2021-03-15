@@ -1,0 +1,44 @@
+﻿************************************************************************************************************
+											Riley's Code Reviews
+************************************************************************************************************
+
+Riley Maas: Review LinkWallHandler.cs for readability, Review LinkItemHandler.cs for maintainability
+
+************************************************************************************************************
+											Readability
+************************************************************************************************************
+
+Riley Maas 3/15/2021 Sprint2
+LinkWallHandler.cs - Phil Brocker
+Minutes: 17
+Comments on readability:
+	- 3 static instance data members present, their names are logical and take in very clear data
+	- There are for well-named methods in the class, each one is clearly named
+	- Method names reflect which wall collision is being handled for, simple and clear
+	- These methods have clear purpose, each one creates a newPosition rectangle in case Link moves into a wall
+			each adjusts Links position in one understandable line
+	- The methods called in each are well named as well, for example getLinkStateMachine().SetPositions(newPosition)
+
+Overall, all 4 methods are single-purpose that are well-named and easily readable. Nothing is difficult to understand
+takes very little time to understand what each method does
+
+************************************************************************************************************
+											Maintainability
+************************************************************************************************************
+
+Riley Maas 2/22/2021 Sprint2
+LinkItemHandler.cs - Phil Brocker
+Comments on maintainability:
+	- No magic numbers are present, making the class flexable
+	- Only two private instance members, an IPlayer player and an IItem itemToAdd: each used in the constructor
+	- These could be used in multiple different games and make sense
+	- This doesn't have any methods, as it is used to hold player data
+
+Hypothetical Changes:
+	- Some accessor methods could be useful, despite the current implimentation not necesitizing this
+	- This is used to assist in creating Link's item list, this could be refactored to keep track of other traits
+				aswell, such as potential quest items
+	- Additionally, you could use this method as a way to determine if an item was currently usable or not.
+
+Overall, this class is simple and easy to understand, the use of 2 private data members and a simple constructor make
+		future improvements quick and painless, as major refactoring would not be necessary
