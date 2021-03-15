@@ -91,7 +91,8 @@ namespace Sprint0
 
         public void Move()
         {
-            if(!throwing && state == State.Normal)
+            frame++;
+            if (!throwing && state == State.Normal)
             {
                 if (frame % 10 == 0)
                 {
@@ -116,8 +117,6 @@ namespace Sprint0
                 {
                     xLoc += moveDist * PIXELSCALER;
                 }
-                frame++;
-                damageFrames++;
             }
             else if(state == State.Damaged)
             {
@@ -156,13 +155,14 @@ namespace Sprint0
 
             if(num % 17 == 0)
             {
-                throwing = !throwing;
+                throwing = true;
+                damageFrames = 0;
             }
         }
 
         public void BoomerangReturned()
         {
-            throwing = !throwing;
+            throwing = false;
         }
 
         public bool TryToThrow()

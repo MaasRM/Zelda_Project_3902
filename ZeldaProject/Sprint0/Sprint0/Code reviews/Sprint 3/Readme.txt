@@ -20,7 +20,7 @@ Attack: Z, N
 Changing Block: T(Previous), Y(Next)
 Enemies: O(Previous), P(Next)
 Items: U(Previous), I(Next)
-Quit: Q
+Quit: Q, Escape
 Restart: R
 
 ************************************************************************************************************
@@ -33,9 +33,10 @@ Wallmaster enemy only appears when Link is nearby, so its location for testing p
 ************************************************************************************************************
 											Known Bugs
 ************************************************************************************************************
-Enemies Wander Off The Screen: No edge detection present
-Link Can Move Off The Screen: No edge detection present
-Switching Between Items And Blocks Has No Delay, Potentially Skipping Over An Item or Block: Add in a delay for input reads
+- Enemies Wander Off The Screen: No edge detection present
+- Link Can Move Off The Screen: No edge detection present
+- Switching Between Items And Blocks Has No Delay, Potentially Skipping Over An Item or Block: Add in a delay
+  for input reads
 
 ************************************************************************************************************
 											Other Tools

@@ -165,21 +165,22 @@ namespace Sprint0
             if (direction == GoriyaStateMachine.Direction.Down)
             {
                 result = yTemp <= y;
-                goriyaState.BoomerangReturned();
             }
             else if (direction == GoriyaStateMachine.Direction.Up)
             {
                 result = yTemp >= y;
-                goriyaState.BoomerangReturned();
             }
             else if (direction == GoriyaStateMachine.Direction.Left)
             {
                 result = xTemp >= x;
-                goriyaState.BoomerangReturned();
             }
             else
             {
                 result = xTemp <= x;
+            }
+
+            if(result)
+            {
                 goriyaState.BoomerangReturned();
             }
 
