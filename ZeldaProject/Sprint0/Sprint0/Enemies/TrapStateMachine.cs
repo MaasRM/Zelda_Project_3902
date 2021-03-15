@@ -125,7 +125,7 @@ namespace Sprint0
 
                 if (linkX >= xLoc && linkX < xLoc + width)
                 {
-                    if (linkY < yLoc)
+                    if (linkPos.Y < yLoc)
                     {
                         direction = Direction.Up;
                     }
@@ -136,7 +136,7 @@ namespace Sprint0
                 }
                 else if (linkY >= yLoc && linkY < yLoc + height)
                 {
-                    if (linkX < xLoc)
+                    if (linkPos.X < xLoc)
                     {
                         direction = Direction.Left;
                     }
