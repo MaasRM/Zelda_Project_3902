@@ -4,11 +4,11 @@
 
 Jacob Kline, Jared Zins, Phil Brocker, Riley Maas, Nathan Schultz
 
-Jacob Kline: Review LinkBlockHandler.cs for readability, Review LinkEnemyHandler.cs for maintainability
-Riley Maas: Review LinkWallHandler.cs for readability, Review LinkItemHandler.cs for maintainability
-Jared Zins: Review EnemyProximityTrigger.cs for readability, Review NextRoomCommand.cs for maintainability
-Phil Brocker: Review EnemyProjectileHandler.cs for readability, Review Sprint3.cs for maintainability
-Nathan Schultz: Review RoomManager.cs for readability, Review Room.cs for maintainability
+Jacob Kline: Review LinkBlockHandler.cs(Jared) for readability, Review LinkMoveBlock.cs(Jared) for maintainability
+Riley Maas: Review LinkWallHandler.cs(Phil) for readability, Review LinkItemHandler.cs(Phil) for maintainability
+Jared Zins: Review  NextRoomCommand.cs(Riley) for readability, Review EnemyProximityTrigger.cs(Nathan) for maintainability
+Phil Brocker: Review EnemyProjectileHandler.cs(Nathan) for readability, Review Sprint3.cs(Jacob) for maintainability
+Nathan Schultz: Review RoomManager.cs(Jacob) for readability, Review Room.cs(Riley) for maintainability
 
 ************************************************************************************************************
 											Program Controls
@@ -25,10 +25,10 @@ Changing Room:
 ************************************************************************************************************
 											Known Bugs
 ************************************************************************************************************
-- Enemies Wander Off The Screen: No edge detection present
-- Link Can Move Off The Screen: No edge detection present
-- Switching Between Items And Blocks Has No Delay, Potentially Skipping Over An Item or Block: Add in a delay
-  for input reads
+- Traps will sometimes shake in place when link is in their row or column
+- Traps will sometimes move in the wrong direction while attempting to seek out link
+- Movable block will overlap with the blocks around it if it is pushed up or down before being pushing right
+- Enemies can push link through blocks when he is in his damage state
 
 ************************************************************************************************************
 											Other Tools
