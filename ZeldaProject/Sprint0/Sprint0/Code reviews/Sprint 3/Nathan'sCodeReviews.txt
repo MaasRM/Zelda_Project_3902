@@ -9,10 +9,16 @@ Nathan Schultz: Review RoomManager.cs for readability, Review Room.cs for mainta
 ************************************************************************************************************
 
 Nathan Schultz 3/15/2021 Sprint2
-RoomManager.cs - 
+RoomManager.cs - Jake Kline
 Minutes: 20 
 Comments on readability:
-	- 
+	- Variables and methods have clear and distinct names
+	- Some magic number, but most deal with rectangle locations
+	- Switch cases to parse xml are well organized
+
+Overall this class is very readable. All the variables, fields, and methods have clear names which show their functions.
+The switch cases to read in from the xml are also well organized. The few magic numbers that exist are mainly there to
+set Rectangle values for drawing.
 
 
 
@@ -21,7 +27,7 @@ Comments on readability:
 ************************************************************************************************************
 
 Nathan Schultz 3/15/2021 Sprint2
-Room.cs - 
+Room.cs - Riley Maas
 Comments on maintainability:
 	- No magic numbers
 	- Fields have names which signify their functions
