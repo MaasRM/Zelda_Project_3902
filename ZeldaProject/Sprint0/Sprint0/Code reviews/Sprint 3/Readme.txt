@@ -19,14 +19,12 @@ Link Items: 1(Green Arrow), 2(Blue Arrow), 3(Normal Boomerang), 4(Blue Boomerang
 Attack: Z, N
 Quit: Q, Escape
 Restart: R
-Changing Room: 
+Changing Room: Left and right mouse buttons
 
 
 ************************************************************************************************************
 											Known Bugs
 ************************************************************************************************************
-- Traps will sometimes shake in place when link is in their row or column
-- Traps will sometimes move in the wrong direction while attempting to seek out link
 - Movable block will overlap with the blocks around it if it is pushed up or down before being pushing right
 - Enemies can push link through blocks when he is in his damage state
 
