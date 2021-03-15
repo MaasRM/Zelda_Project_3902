@@ -1,0 +1,46 @@
+﻿************************************************************************************************************
+								 Team 3, Phil Brocker Code Reviews
+************************************************************************************************************
+
+Phil Brocker: Review EnemyProjectileHandler.cs for readability, Review Sprint3.cs for maintainability
+
+************************************************************************************************************
+											Readability
+************************************************************************************************************
+
+Phil Brocker 3/15/2021 Sprint3
+EnemyProjectileHandler.cs - Nathan Schultz
+Minutes: 20 
+Comments on readability:
+	- Enum that is created has a very clear name and purpose. 
+	- Each method has a very clear name that specifies what it does.
+	- HandleCollision, OverlapInRelationToEnemy, DamageTheEnemy, and StunEnemy are all make sense and are 
+	  self documenting. 
+	- EnemyDamageVector has some magic numbers so it isn't clear what these numbers are. 
+	- All parameters are clear and make sense.
+
+This class is very readable and I was able to understand how all the methods worked very easily. The only 
+comment I have is that it might be easier to understand if their are constant variables instead of magic 
+numbers.
+
+************************************************************************************************************
+											Maintainability
+************************************************************************************************************  
+
+Phil Brocker 3/15/2021 Sprint3
+Sprint3.cs - Riley Maas (everyone has added something to this file)
+Comments on maintainability:
+	- There are some magic numbers in Initialize and Update
+	- There are many sprite sheets that need to be loaded in. These all have clear names which will make 
+	  it easier if anything needs to be removed or added in the future.
+	- There are many different get and set methods at the bottom of this file. 
+
+Hypothetical Changes:
+	- Using constant variables will make maintainability easier than having magic numbers. 
+	- The get and set methods are good for now but in the future we may want abstract whatever the get and 
+	  set methods are using to another class. This may not be possible for things like the sprite sheets 
+	  that are loaded in initially but some of the lists can be abstracted. This will make maintaining this
+	  file easier in the future.
+
+This file is in a good spot. Maintaining it for the future should not be difficult, and my suggestions for 
+making it easier to maintain are listed above.
