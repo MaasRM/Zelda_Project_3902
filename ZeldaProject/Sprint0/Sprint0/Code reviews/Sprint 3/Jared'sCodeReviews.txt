@@ -1,0 +1,43 @@
+﻿************************************************************************************************************
+								 Team 3, Jared Zins Code Reviews
+************************************************************************************************************
+
+Jared Zins: Review NextRoomCommand.cs for readability, Review EnemyProximityTrigger.cs for maintainability
+
+************************************************************************************************************
+											Readability
+************************************************************************************************************
+
+Jared Zins
+3/15/2021
+Sprint 3
+Review of NextRoomCommand.cs
+Written by Riley Maas
+Number of minutes taken to complete review: 5 minutes
+
+Comments on Readability:
+	- Extremely short class so readability is not based on much
+	- This class is fairly straight forward as there is not much to it. You are getting the Room manager and
+	  telling it to change to the next room.
+
+	Overall the code is very readable. There are very few lines of codes to cover. This makes it very clear
+	what is going on in the class. 
+
+************************************************************************************************************
+											Maintainability
+************************************************************************************************************
+
+Jared Zins
+3/15/2021
+Sprint 3
+Review of EnemyProximityTrigger.cs
+Written by Nathan Schultz
+
+Comments on Maintainability:
+	- There are not as many magic numbers except for the trigger distance which would be a constant anyway.
+	- All of variables come from the variables that were passed in.
+	- It seems that there is not much that needs to be done. It is all fairly contained.
+
+Hypothetical changes:
+	- Remove the magic number by creating some kind of variable named int triggerDistance.
+
