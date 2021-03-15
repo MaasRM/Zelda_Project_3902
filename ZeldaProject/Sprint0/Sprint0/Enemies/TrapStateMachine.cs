@@ -123,7 +123,7 @@ namespace Sprint0
 
                 active = Activity.Charging;
 
-                if (linkX >= xLoc && linkX < xLoc + width)
+                if (linkX >= xLoc && linkX < xLoc + width * PIXELSCALER)
                 {
                     if (linkPos.Y < yLoc)
                     {
@@ -134,7 +134,7 @@ namespace Sprint0
                         direction = Direction.Down;
                     }
                 }
-                else if (linkY >= yLoc && linkY < yLoc + height)
+                else if (linkY >= yLoc && linkY < yLoc + height * PIXELSCALER)
                 {
                     if (linkPos.X < xLoc)
                     {
