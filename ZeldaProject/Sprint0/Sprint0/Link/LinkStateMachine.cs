@@ -39,10 +39,6 @@ namespace Sprint0
         private int yLoc;
         private int linkMoveSpeed = 20; //May need to change value
         private Boolean isBusy;
-        private Boolean disUp;
-        private Boolean disDown;
-        private Boolean disRight;
-        private Boolean disLeft;
         private int frame;
         private int sizeFactor;
         private int health;
