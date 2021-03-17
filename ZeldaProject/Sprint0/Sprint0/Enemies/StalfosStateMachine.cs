@@ -101,8 +101,8 @@ namespace Sprint0
             }
             else if(state == State.Damaged)
             {
-                xLoc += (int)damageDirection.X;
-                yLoc += (int)damageDirection.Y;
+                xLoc += (int)damageDirection.X * PIXELSCALER;
+                yLoc += (int)damageDirection.Y * PIXELSCALER;
                 damageFrames++;
             }
             else if(state == State.Stun)
@@ -151,7 +151,7 @@ namespace Sprint0
 
         public void ReturnToNormal()
         {
-            if (damageFrames > 12 || stunFrames > 30)
+            if (damageFrames > 8 || stunFrames > 30)
             {
                 state = State.Normal;
                 stunFrames = 0;

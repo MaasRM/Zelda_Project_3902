@@ -48,6 +48,7 @@ namespace Sprint0
         private int health;
         private int maxHealth;
         private Vector2 damageVector;
+        private const int scale = 4;
         private List<IProjectile> linkProjectileList;
         private List<IProjectile> linkProjectileToRemoveList;
 
@@ -126,8 +127,8 @@ namespace Sprint0
 
             if(color == LinkColor.Damaged)
             {
-                xLoc += (int)damageVector.X;
-                yLoc += (int)damageVector.Y;
+                xLoc += (int)damageVector.X * scale;
+                yLoc += (int)damageVector.Y * scale;
             }
 
             foreach (IProjectile projectile in linkProjectileList)
