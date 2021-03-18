@@ -163,28 +163,38 @@ namespace Sprint0
 
         private void BlockCollisions(IPlayer player, List<INPC> npcs, List<IBlock> blocks)
         {
-            foreach (IBlock block in blocks)
+            foreach (IBlock block1 in blocks)
             {
-                if (player.LinkPosition().Intersects(block.GetBlockLocation()) && (block.getIndex() != 10))
+                if (player.LinkPosition().Intersects(block1.GetBlockLocation()) && (block1.getIndex() != 10))
                 {
-                    Rectangle overlap = Rectangle.Intersect(block.GetBlockLocation(), player.LinkPosition());
+                    Rectangle overlap = Rectangle.Intersect(block1.GetBlockLocation(), player.LinkPosition());
 
-                     LinkBlockHandler.HandleCollision(player, block, overlap);
+                    LinkBlockHandler.HandleCollision(player, block1, overlap);
                 }
-                else if (player.LinkPosition().Intersects(block.GetBlockLocation()) && (block.getIndex() == 10))
+                else if (player.LinkPosition().Intersects(block1.GetBlockLocation()) && (block1.getIndex() == 10))
                 {
-                    Rectangle overlap = Rectangle.Intersect(block.GetBlockLocation(), player.LinkPosition());
+                    Rectangle overlap = Rectangle.Intersect(block1.GetBlockLocation(), player.LinkPosition());
 
-                    LinkMoveBlockHandler.HandleCollision(player, block, overlap);
+                    LinkMoveBlockHandler.HandleCollision(player, block1, overlap);
+
+                    /*foreach (IBlock block2 in blocks)
+                    {
+                        if (block1.GetBlockLocation().Intersects(block2.GetBlockLocation()) && (block1.getIndex() == 10))
+                        {
+                            Rectangle overlap2 = Rectangle.Intersect(block1.GetBlockLocation(), block2.GetBlockLocation());
+
+                            BlockBlockHandler.HandleCollision(block1, block2, overlap2);
+                        }
+                    }*/
                 }
 
                 foreach (INPC nPC in npcs)
                 {
-                    if (block.GetBlockLocation().Intersects(nPC.GetNPCLocation()))
+                    if (block1.GetBlockLocation().Intersects(nPC.GetNPCLocation()))
                     {
-                        Rectangle overlap = Rectangle.Intersect(block.GetBlockLocation(), nPC.GetNPCLocation());
+                        Rectangle overlap = Rectangle.Intersect(block1.GetBlockLocation(), nPC.GetNPCLocation());
 
-                        BlockNPCHandler.HandleCollision(nPC, block, overlap);
+                        BlockNPCHandler.HandleCollision(nPC, block1, overlap);
                     }
                 }
             }
