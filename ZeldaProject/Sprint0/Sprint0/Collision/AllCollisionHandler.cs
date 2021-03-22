@@ -24,7 +24,7 @@ namespace Sprint0
         public void HandleCollisions(IPlayer player, List<INPC> npcs, List<IItem> items, List<IBlock> blocks, List<IProjectile> projectiles, RoomManager roomManager)
         {
             PlayerItemCollisions(player, items, npcs);
-            BlockCollisions(player, npcs, blocks);
+            BlockCollisions(player, npcs, blocks, roomManager);
             ProjectileCollisions(player, npcs, projectiles);
             CheckTraps(npcs);
             PlayerEnemyCollisions(player, npcs);
@@ -161,7 +161,7 @@ namespace Sprint0
             }
         }
 
-        private void BlockCollisions(IPlayer player, List<INPC> npcs, List<IBlock> blocks)
+        private void BlockCollisions(IPlayer player, List<INPC> npcs, List<IBlock> blocks, RoomManager roomManager)
         {
             foreach (IBlock block1 in blocks)
             {
@@ -179,7 +179,7 @@ namespace Sprint0
                 } 
                 else if (block1.getIndex() == 0)
                 {
-
+                    roomManager.UnlockDoor(Direction.MoveLeft);
                 }
 
                 foreach (INPC nPC in npcs)
