@@ -99,7 +99,7 @@ namespace Sprint0
                     leftDoorSource = newSource;
                     break;
                 case Direction.MoveRight:
-                    rightDoorSource =  = newSource;
+                    rightDoorSource = newSource;
                     break;
                 default:
                     break;

@@ -165,27 +165,18 @@ namespace Sprint0
         {
             foreach (IBlock block1 in blocks)
             {
-                if (player.LinkPosition().Intersects(block1.GetBlockLocation()) && (block1.getIndex() != 10))
+                if (player.LinkPosition().Intersects(block1.GetBlockLocation()) && (block1.getIndex() != 10) && (block1.getIndex() != 5))
                 {
                     Rectangle overlap = Rectangle.Intersect(block1.GetBlockLocation(), player.LinkPosition());
 
                     LinkBlockHandler.HandleCollision(player, block1, overlap);
                 }
-                else if (player.LinkPosition().Intersects(block1.GetBlockLocation()) && (block1.getIndex() == 10))
+                else if (player.LinkPosition().Intersects(block1.GetBlockLocation()) && (block1.getIndex() == 10) && (block1.getIndex() != 5))
                 {
                     Rectangle overlap = Rectangle.Intersect(block1.GetBlockLocation(), player.LinkPosition());
 
                     LinkMoveBlockHandler.HandleCollision(player, block1, overlap);
 
-                    /*foreach (IBlock block2 in blocks)
-                    {
-                        if (block1.GetBlockLocation().Intersects(block2.GetBlockLocation()) && (block1.getIndex() == 10))
-                        {
-                            Rectangle overlap2 = Rectangle.Intersect(block1.GetBlockLocation(), block2.GetBlockLocation());
-
-                            BlockBlockHandler.HandleCollision(block1, block2, overlap2);
-                        }
-                    }*/
                 }
 
                 foreach (INPC nPC in npcs)
