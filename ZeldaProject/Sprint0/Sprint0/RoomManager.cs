@@ -205,7 +205,7 @@ namespace Sprint0
             roomChange = true;
         }
 
-        public void SwapRoom(Direction dir)
+        public Boolean SwapRoom(Direction dir)
         {
             int index = currentRoom.getAdjacentRoomIndex(dir);
             if (index != -1 && (currentRoom.getDoorSource(dir).X == 815 + 33 || currentRoom.getDoorSource(dir).X == 815 + 132))
@@ -214,6 +214,10 @@ namespace Sprint0
                 currentRoom = roomList[roomIndex];
                 game.ClearProjectiles();
                 roomChange = true;
+                return true;
+            } else
+            {
+                return false;
             }
         }
 
