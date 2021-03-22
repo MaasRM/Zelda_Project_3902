@@ -205,44 +205,31 @@ namespace Sprint0
             roomChange = true;
         }
 
-        public void TopRoom()
+        public void SwapRoom(Direction dir)
         {
-            if (currentRoom.GetTopRoom() != -1)
+            int index;
+            switch (dir)
             {
-                roomIndex = currentRoom.GetTopRoom();
-                currentRoom = roomList[roomIndex];
-                game.ClearProjectiles();
-                roomChange = true;
+                case Direction.MoveUp:
+                    index = currentRoom.GetTopRoom();
+                    break;
+                case Direction.MoveDown:
+                    index = currentRoom.GetBottomRoom();
+                    break;
+                case Direction.MoveLeft:
+                    index = currentRoom.GetLeftRoom();
+                    break;
+                case Direction.MoveRight:
+                    index = currentRoom.GetRightRoom();
+                    break;
+                default:
+                    //shouldn't happen
+                    index = -1;
+                    break;
             }
-        }
-
-        public void BottomRoom()
-        {
-            if (currentRoom.GetBottomRoom() != -1)
+            if (index != -1)
             {
-                roomIndex = currentRoom.GetBottomRoom();
-                currentRoom = roomList[roomIndex];
-                game.ClearProjectiles();
-                roomChange = true;
-            }
-        }
-
-        public void LeftRoom()
-        {
-            if (currentRoom.GetLeftRoom() != -1)
-            {
-                roomIndex = currentRoom.GetLeftRoom();
-                currentRoom = roomList[roomIndex];
-                game.ClearProjectiles();
-                roomChange = true;
-            }
-        }
-
-        public void RightRoom()
-        {
-            if (currentRoom.GetRightRoom() != -1)
-            {
-                roomIndex = currentRoom.GetRightRoom();
+                roomIndex = index;
                 currentRoom = roomList[roomIndex];
                 game.ClearProjectiles();
                 roomChange = true;
