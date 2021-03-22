@@ -1,6 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Rooms>
 	<Room>
+		<Info>
+			<RoomNumber>0</RoomNumber>
+			<TopRoomNumber>-1</TopRoomNumber>
+			<BottomRoomNumber>-1</BottomRoomNumber>
+			<LeftRoomNumber>-1</LeftRoomNumber>
+			<RightRoomNumber>1</RightRoomNumber>
+		</Info>
 		<Blocks>
 			<Block>
 				<BlockType>1</BlockType>
@@ -92,6 +99,13 @@
 		</Doors>
 	</Room>
 	<Room>
+		<Info>
+			<RoomNumber>1</RoomNumber>
+			<TopRoomNumber>-1</TopRoomNumber>
+			<BottomRoomNumber>2</BottomRoomNumber>
+			<LeftRoomNumber>0</LeftRoomNumber>
+			<RightRoomNumber>-1</RightRoomNumber>
+		</Info>
 		<Blocks>
 			<Block>
 				<BlockType>6</BlockType>
@@ -263,6 +277,13 @@
 		</Doors>
 	</Room>
 	<Room>
+		<Info>
+			<RoomNumber>2</RoomNumber>
+			<TopRoomNumber>1</TopRoomNumber>
+			<BottomRoomNumber>7</BottomRoomNumber>
+			<LeftRoomNumber>-1</LeftRoomNumber>
+			<RightRoomNumber>-1</RightRoomNumber>
+		</Info>
 		<Blocks>
 			<Block>
 				<BlockType>6</BlockType>
@@ -534,6 +555,13 @@
 		</Doors>
 	</Room>
 	<Room>
+		<Info>
+			<RoomNumber>3</RoomNumber>
+			<TopRoomNumber>-1</TopRoomNumber>
+			<BottomRoomNumber>9</BottomRoomNumber>
+			<LeftRoomNumber>-1</LeftRoomNumber>
+			<RightRoomNumber>4</RightRoomNumber>
+		</Info>
 		<Blocks>
 			<Block>
 				<BlockType>1</BlockType>
@@ -670,6 +698,13 @@
 		</Doors>
 	</Room>
 	<Room>
+		<Info>
+			<RoomNumber>4</RoomNumber>
+			<TopRoomNumber>-1</TopRoomNumber>
+			<BottomRoomNumber>-1</BottomRoomNumber>
+			<LeftRoomNumber>3</LeftRoomNumber>
+			<RightRoomNumber>-1</RightRoomNumber>
+		</Info>
 		<Blocks>
 			<Block>
 				<BlockType>1</BlockType>
@@ -841,6 +876,13 @@
 		</Doors>
 	</Room>
 	<Room>
+		<Info>
+			<RoomNumber>5</RoomNumber>
+			<TopRoomNumber>-1</TopRoomNumber>
+			<BottomRoomNumber>-1</BottomRoomNumber>
+			<LeftRoomNumber>-1</LeftRoomNumber>
+			<RightRoomNumber>6</RightRoomNumber>
+		</Info>
 		<Blocks>
 		</Blocks>
 		<Items>
@@ -882,6 +924,13 @@
 		</Doors>
 	</Room>
 	<Room>
+		<Info>
+			<RoomNumber>6</RoomNumber>
+			<TopRoomNumber>-1</TopRoomNumber>
+			<BottomRoomNumber>10</BottomRoomNumber>
+			<LeftRoomNumber>5</LeftRoomNumber>
+			<RightRoomNumber>7</RightRoomNumber>
+		</Info>
 		<Blocks>
 			<Block>
 				<BlockType>10</BlockType>
@@ -928,6 +977,13 @@
 		</Doors>
 	</Room>
 	<Room>
+		<Info>
+			<RoomNumber>7</RoomNumber>
+			<TopRoomNumber>2</TopRoomNumber>
+			<BottomRoomNumber>11</BottomRoomNumber>
+			<LeftRoomNumber>6</LeftRoomNumber>
+			<RightRoomNumber>8</RightRoomNumber>
+		</Info>
 		<Blocks>
 			<Block>
 				<BlockType>1</BlockType>
@@ -1034,6 +1090,13 @@
 		</Doors>
 	</Room>
 	<Room>
+		<Info>
+			<RoomNumber>8</RoomNumber>
+			<TopRoomNumber>-1</TopRoomNumber>
+			<BottomRoomNumber>12</BottomRoomNumber>
+			<LeftRoomNumber>7</LeftRoomNumber>
+			<RightRoomNumber>9</RightRoomNumber>
+		</Info>
 		<Blocks>
 			<Block>
 				<BlockType>1</BlockType>
@@ -1095,6 +1158,13 @@
 		</Doors>
 	</Room>
 	<Room>
+		<Info>
+			<RoomNumber>9</RoomNumber>
+			<TopRoomNumber>3</TopRoomNumber>
+			<BottomRoomNumber>-1</BottomRoomNumber>
+			<LeftRoomNumber>8</LeftRoomNumber>
+			<RightRoomNumber>-1</RightRoomNumber>
+		</Info>
 		<Blocks>
 			<Block>
 				<BlockType>1</BlockType>
@@ -1256,6 +1326,13 @@
 		</Doors>
 	</Room>
 	<Room>
+		<Info>
+			<RoomNumber>10</RoomNumber>
+			<TopRoomNumber>6</TopRoomNumber>
+			<BottomRoomNumber>-1</BottomRoomNumber>
+			<LeftRoomNumber>-1</LeftRoomNumber>
+			<RightRoomNumber>11</RightRoomNumber>
+		</Info>
 		<Blocks>
 			<Block>
 				<BlockType>1</BlockType>
@@ -1342,6 +1419,13 @@
 		</Doors>
 	</Room>
 	<Room>
+		<Info>
+			<RoomNumber>11</RoomNumber>
+			<TopRoomNumber>7</TopRoomNumber>
+			<BottomRoomNumber>13</BottomRoomNumber>
+			<LeftRoomNumber>10</LeftRoomNumber>
+			<RightRoomNumber>12</RightRoomNumber>
+		</Info>
 		<Blocks>
 			<Block>
 				<BlockType>1</BlockType>
@@ -1418,6 +1502,13 @@
 		</Doors>
 	</Room>
 	<Room>
+		<Info>
+			<RoomNumber>12</RoomNumber>
+			<TopRoomNumber>8</TopRoomNumber>
+			<BottomRoomNumber>-1</BottomRoomNumber>
+			<LeftRoomNumber>11</LeftRoomNumber>
+			<RightRoomNumber>-1</RightRoomNumber>
+		</Info>
 		<Blocks>
 			<Block>
 				<BlockType>1</BlockType>
@@ -1509,6 +1600,13 @@
 		</Doors>
 	</Room>
 	<Room>
+		<Info>
+			<RoomNumber>13</RoomNumber>
+			<TopRoomNumber>11</TopRoomNumber>
+			<BottomRoomNumber>15</BottomRoomNumber>
+			<LeftRoomNumber>-1</LeftRoomNumber>
+			<RightRoomNumber>-1</RightRoomNumber>
+		</Info>
 		<Blocks>
 			<Block>
 				<BlockType>1</BlockType>
@@ -1580,6 +1678,13 @@
 		</Doors>
 	</Room>
 	<Room>
+		<Info>
+			<RoomNumber>14</RoomNumber>
+			<TopRoomNumber>-1</TopRoomNumber>
+			<BottomRoomNumber>-1</BottomRoomNumber>
+			<LeftRoomNumber>-1</LeftRoomNumber>
+			<RightRoomNumber>15</RightRoomNumber>
+		</Info>
 		<Blocks>
 		</Blocks>
 		<Items>
@@ -1626,6 +1731,13 @@
 		</Doors>
 	</Room>
 	<Room>
+		<Info>
+			<RoomNumber>15</RoomNumber>
+			<TopRoomNumber>13</TopRoomNumber>
+			<BottomRoomNumber>-1</BottomRoomNumber>
+			<LeftRoomNumber>14</LeftRoomNumber>
+			<RightRoomNumber>16</RightRoomNumber>
+		</Info>
 		<Blocks>
 			<Block>
 				<BlockType>2</BlockType>
@@ -1772,6 +1884,13 @@
 		</Doors>
 	</Room>
 	<Room>
+		<Info>
+			<RoomNumber>16</RoomNumber>
+			<TopRoomNumber>-1</TopRoomNumber>
+			<BottomRoomNumber>-1</BottomRoomNumber>
+			<LeftRoomNumber>15</LeftRoomNumber>
+			<RightRoomNumber>-1</RightRoomNumber>
+		</Info>
 		<Blocks>
 			<Block>
 				<BlockType>1</BlockType>

@@ -17,9 +17,11 @@ namespace Sprint0
         private Rectangle bottomDoorSource;
         private Rectangle leftDoorSource;
         private Rectangle rightDoorSource;
+        private int roomNum;
+        private int[] nextRoomNums;
 
-        public Room(List<IBlock> blocks, List<IItem> items, List<INPC> npcs, Rectangle floor, Rectangle wall, 
-            Rectangle topDoor, Rectangle bottomDoor, Rectangle leftDoor, Rectangle rightDoor)
+        public Room(List<IBlock> blocks, List<IItem> items, List<INPC> npcs, Rectangle floor, Rectangle wall,
+            Rectangle topDoor, Rectangle bottomDoor, Rectangle leftDoor, Rectangle rightDoor, int room, int[] nextRooms)
         {
             this.blocks = blocks;
             this.items = items;
@@ -30,6 +32,8 @@ namespace Sprint0
             bottomDoorSource = bottomDoor;
             leftDoorSource = leftDoor;
             rightDoorSource = rightDoor;
+            roomNum = room;
+            nextRoomNums = nextRooms;
         }
 
         public List<IBlock> getBlocks()
@@ -75,6 +79,25 @@ namespace Sprint0
         public Rectangle getRightDoor()
         {
             return rightDoorSource;
+        }
+
+        public int GetTopRoom()
+        {
+            return nextRoomIndexes[0];
+        }
+
+        public int GetBottomRoom()
+        {
+            return nextRoomIndexes[1];
+        }
+        public int GetLeftRoom()
+        {
+            return nextRoomIndexes[2];
+        }
+
+        public int GetRightRoom()
+        {
+            return nextRoomIndexes[3];
         }
 
     }

@@ -63,7 +63,13 @@ namespace Sprint0
                 Rectangle bottomDoor = GetDoorSource("bottom", currentRoom["Doors"]["DownDoor"]["DoorType"].InnerText);
                 Rectangle leftDoor = GetDoorSource("left", currentRoom["Doors"]["LeftDoor"]["DoorType"].InnerText);
                 Rectangle rightDoor = GetDoorSource("right", currentRoom["Doors"]["RightDoor"]["DoorType"].InnerText);
-                roomList.Add(new Room(blockList, itemList, npcList, floor, walls, topDoor, bottomDoor, leftDoor, rightDoor));
+                int roomNum = int.Parse(currentRoom["Info"]["RoomNumber"].InnerText);
+                int[] nextRoomNums = new int[4];
+                nextRoomNums[0] = int.Parse(currentRoom["Info"]["TopRoomNumber"].InnerText);
+                nextRoomNums[1] = int.Parse(currentRoom["Info"]["BottomRoomNumber"].InnerText);
+                nextRoomNums[2] = int.Parse(currentRoom["Info"]["LeftRoomNumber"].InnerText);
+                nextRoomNums[3] = int.Parse(currentRoom["Info"]["RightRoomNumber"].InnerText);
+                roomList.Add(new Room(blockList, itemList, npcList, floor, walls, topDoor, bottomDoor, leftDoor, rightDoor, roomNum, nextRoomNums));
             }
             currentRoom = roomList[0];
         }
