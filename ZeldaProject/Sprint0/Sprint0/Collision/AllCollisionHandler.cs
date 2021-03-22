@@ -66,10 +66,10 @@ namespace Sprint0
 
             }
 
-            new LinkWallHandler(player, cameraWallMaxX, cameraWallMaxY);
+            new LinkWallHandler(player, roomManager, cameraWallMaxX, cameraWallMaxY);
 
             if(!grabbed)
-            {
+            {                
                 if (player.getLinkStateMachine().getXLoc() < 120)
                 {
                     LinkWallHandler.HandleLeftWall();
