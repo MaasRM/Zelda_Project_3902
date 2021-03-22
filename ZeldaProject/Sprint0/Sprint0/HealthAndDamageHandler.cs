@@ -3,7 +3,7 @@ namespace Sprint0
 {
     public class HealthAndDamageHandler
     {
-        private int damage;
+        private int damageValue;
         private int currentHealth;
         private int maxHealth;
 
@@ -11,7 +11,7 @@ namespace Sprint0
         {
             maxHealth = health;
             currentHealth = health;
-            this.damage = damage;
+            damageValue = damage;
         }
 
         public bool IsAlive()
@@ -47,12 +47,12 @@ namespace Sprint0
 
         public int DealDamage()
         {
-            return damage;
+            return damageValue;
         }
 
         public void SetDamage(int damage)
         {
-            this.damage = damage;
+            damageValue = damage;
         }
     }
 }
