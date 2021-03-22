@@ -177,7 +177,7 @@ namespace Sprint0
 
                     LinkMoveBlockHandler.HandleCollision(player, block1, overlap);
                 } 
-                else if (block1.getIndex() == 0)
+                else if (player.LinkPosition().Intersects(block1.GetBlockLocation()) && block1.getIndex() == 0)
                 {
                     roomManager.UnlockDoor(Direction.MoveLeft);
                 }
