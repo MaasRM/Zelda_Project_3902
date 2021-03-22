@@ -83,21 +83,21 @@ namespace Sprint0
 
         public int GetTopRoom()
         {
-            return nextRoomIndexes[0];
+            return nextRoomNums[0];
         }
 
         public int GetBottomRoom()
         {
-            return nextRoomIndexes[1];
+            return nextRoomNums[1];
         }
         public int GetLeftRoom()
         {
-            return nextRoomIndexes[2];
+            return nextRoomNums[2];
         }
 
         public int GetRightRoom()
         {
-            return nextRoomIndexes[3];
+            return nextRoomNums[3];
         }
 
     }
