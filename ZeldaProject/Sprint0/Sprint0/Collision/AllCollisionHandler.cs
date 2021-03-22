@@ -165,17 +165,20 @@ namespace Sprint0
         {
             foreach (IBlock block1 in blocks)
             {
-                if (player.LinkPosition().Intersects(block1.GetBlockLocation()) && (block1.getIndex() != 10) && (block1.getIndex() != 5))
+                if (player.LinkPosition().Intersects(block1.GetBlockLocation()) && (block1.getIndex() != 10) && (block1.getIndex() != 5) && (block1.getIndex() != 0))
                 {
                     Rectangle overlap = Rectangle.Intersect(block1.GetBlockLocation(), player.LinkPosition());
 
                     LinkBlockHandler.HandleCollision(player, block1, overlap);
                 }
-                else if (player.LinkPosition().Intersects(block1.GetBlockLocation()) && (block1.getIndex() == 10) && (block1.getIndex() != 5))
+                else if (player.LinkPosition().Intersects(block1.GetBlockLocation()) && (block1.getIndex() == 10) && (block1.getIndex() != 5) && (block1.getIndex() != 0))
                 {
                     Rectangle overlap = Rectangle.Intersect(block1.GetBlockLocation(), player.LinkPosition());
 
                     LinkMoveBlockHandler.HandleCollision(player, block1, overlap);
+                } 
+                else if (block1.getIndex() == 0)
+                {
 
                 }
 

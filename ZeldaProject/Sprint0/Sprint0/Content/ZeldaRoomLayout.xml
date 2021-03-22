@@ -25,6 +25,11 @@
 				<YLoc>64</YLoc>
 			</Block>
 			<Block>
+				<BlockType>0</BlockType>
+				<XLoc>97</XLoc>
+				<YLoc>80</YLoc>
+			</Block>
+			<Block>
 				<BlockType>10</BlockType>
 				<XLoc>97</XLoc>
 				<YLoc>80</YLoc>
@@ -81,7 +86,7 @@
 		</Enemies>
 		<Background>
 			<XLoc>1</XLoc>
-			<YLoc>192</YLoc>
+			<YLoc>422</YLoc>
 		</Background>
 		<Doors>
 			<RightDoor>
@@ -933,6 +938,11 @@
 		</Info>
 		<Blocks>
 			<Block>
+				<BlockType>0</BlockType>
+				<XLoc>113</XLoc>
+				<YLoc>80</YLoc>
+			</Block>
+			<Block>
 				<BlockType>10</BlockType>
 				<XLoc>113</XLoc>
 				<YLoc>80</YLoc>
@@ -959,7 +969,7 @@
 		</Enemies>
 		<Background>
 			<XLoc>1</XLoc>
-			<YLoc>192</YLoc>
+			<YLoc>307</YLoc>
 		</Background>
 		<Doors>
 			<RightDoor>
