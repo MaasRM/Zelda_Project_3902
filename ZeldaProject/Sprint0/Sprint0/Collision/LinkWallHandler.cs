@@ -6,38 +6,111 @@ namespace Sprint0
     public class LinkWallHandler
     {
         static IPlayer player;
+        static RoomManager room;
         static int maxX;
         static int maxY;
 
-        public LinkWallHandler(IPlayer link, int x, int y)
+        public LinkWallHandler(IPlayer link, RoomManager currentRoom, int x, int y)
         {
             player = link;
+            room = currentRoom;
             maxX = x;
             maxY = y;
         }
 
         public static void HandleLeftWall()
         {
-            Rectangle newPosition = new Rectangle (120, player.getLinkStateMachine().getYLoc(), player.LinkPosition().Width, player.LinkPosition().Height);
-            player.getLinkStateMachine().SetPositions(newPosition);
+            Boolean isSwapped;
+            if (player.getLinkStateMachine().getYLoc() > 288 && player.getLinkStateMachine().getYLoc() + player.LinkPosition().Height < 416)
+            {
+                isSwapped = room.SwapRoom(Direction.MoveLeft);
+                if (isSwapped)
+                {
+                    Rectangle newPosition = new Rectangle(maxX - 175, player.getLinkStateMachine().getYLoc(), player.LinkPosition().Width, player.LinkPosition().Height);
+                    player.getLinkStateMachine().SetPositions(newPosition);
+                } else
+                {
+                    Rectangle newPosition = new Rectangle(120, player.getLinkStateMachine().getYLoc(), player.LinkPosition().Width, player.LinkPosition().Height);
+                    player.getLinkStateMachine().SetPositions(newPosition);
+                }
+            }
+            else
+            {
+                Rectangle newPosition = new Rectangle(120, player.getLinkStateMachine().getYLoc(), player.LinkPosition().Width, player.LinkPosition().Height);
+                player.getLinkStateMachine().SetPositions(newPosition);
+            }
         }
 
         public static void HandleTopWall()
         {
-            Rectangle newPosition = new Rectangle(player.getLinkStateMachine().getXLoc(), 117, player.LinkPosition().Width, player.LinkPosition().Height);
-            player.getLinkStateMachine().SetPositions(newPosition);
+            Boolean isSwapped;
+            if (player.getLinkStateMachine().getXLoc() > 448 && player.getLinkStateMachine().getXLoc() + player.LinkPosition().Width < 576)
+            {
+                isSwapped = room.SwapRoom(Direction.MoveUp);
+                if (isSwapped)
+                {
+                    Rectangle newPosition = new Rectangle(player.getLinkStateMachine().getXLoc(), maxY - 185, player.LinkPosition().Width, player.LinkPosition().Height);
+                    player.getLinkStateMachine().SetPositions(newPosition);
+                }
+                else
+                {
+                    Rectangle newPosition = new Rectangle(player.getLinkStateMachine().getXLoc(), 117, player.LinkPosition().Width, player.LinkPosition().Height);
+                    player.getLinkStateMachine().SetPositions(newPosition);
+                }
+            }
+            else
+            {
+                Rectangle newPosition = new Rectangle(player.getLinkStateMachine().getXLoc(), 117, player.LinkPosition().Width, player.LinkPosition().Height);
+                player.getLinkStateMachine().SetPositions(newPosition);
+            }
         }
 
         public static void HandleRightWall()
         {
-            Rectangle newPosition = new Rectangle(maxX - 175, player.getLinkStateMachine().getYLoc(), player.LinkPosition().Width, player.LinkPosition().Height);
-            player.getLinkStateMachine().SetPositions(newPosition);
+            Boolean isSwapped;
+            if (player.getLinkStateMachine().getYLoc() > 288 && player.getLinkStateMachine().getYLoc() + player.LinkPosition().Height < 416)
+            {
+                isSwapped = room.SwapRoom(Direction.MoveRight);
+                if (isSwapped)
+                {
+                    Rectangle newPosition = new Rectangle(120, player.getLinkStateMachine().getYLoc(), player.LinkPosition().Width, player.LinkPosition().Height);
+                    player.getLinkStateMachine().SetPositions(newPosition);
+                }
+                else
+                {
+                    Rectangle newPosition = new Rectangle(maxX - 175, player.getLinkStateMachine().getYLoc(), player.LinkPosition().Width, player.LinkPosition().Height);
+                    player.getLinkStateMachine().SetPositions(newPosition);
+                }
+            }
+            else
+            {
+                Rectangle newPosition = new Rectangle(maxX - 175, player.getLinkStateMachine().getYLoc(), player.LinkPosition().Width, player.LinkPosition().Height);
+                player.getLinkStateMachine().SetPositions(newPosition);
+            }
         }
 
         public static void HandleBottomWall()
         {
-            Rectangle newPosition = new Rectangle(player.getLinkStateMachine().getXLoc(), maxY-185, player.LinkPosition().Width, player.LinkPosition().Height);
-            player.getLinkStateMachine().SetPositions(newPosition);
+            Boolean isSwapped;
+            if (player.getLinkStateMachine().getXLoc() > 448 && player.getLinkStateMachine().getXLoc() + player.LinkPosition().Width < 576)
+            {
+                isSwapped = room.SwapRoom(Direction.MoveDown);
+                if (isSwapped)
+                {
+                    Rectangle newPosition = new Rectangle(player.getLinkStateMachine().getXLoc(), 117, player.LinkPosition().Width, player.LinkPosition().Height);
+                    player.getLinkStateMachine().SetPositions(newPosition);
+                }
+                else
+                {
+                    Rectangle newPosition = new Rectangle(player.getLinkStateMachine().getXLoc(), maxY - 185, player.LinkPosition().Width, player.LinkPosition().Height);
+                    player.getLinkStateMachine().SetPositions(newPosition);
+                }
+            }
+            else
+            {
+                Rectangle newPosition = new Rectangle(player.getLinkStateMachine().getXLoc(), maxY - 185, player.LinkPosition().Width, player.LinkPosition().Height);
+                player.getLinkStateMachine().SetPositions(newPosition);
+            }
         }
     }
 }
