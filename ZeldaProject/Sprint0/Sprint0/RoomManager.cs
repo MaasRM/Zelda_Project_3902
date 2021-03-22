@@ -205,6 +205,50 @@ namespace Sprint0
             roomChange = true;
         }
 
+        public void TopRoom()
+        {
+            if (currentRoom.GetTopRoom() != -1)
+            {
+                roomIndex = currentRoom.GetTopRoom();
+                currentRoom = roomList[roomIndex];
+                game.ClearProjectiles();
+                roomChange = true;
+            }
+        }
+
+        public void BottomRoom()
+        {
+            if (currentRoom.GetBottomRoom() != -1)
+            {
+                roomIndex = currentRoom.GetBottomRoom();
+                currentRoom = roomList[roomIndex];
+                game.ClearProjectiles();
+                roomChange = true;
+            }
+        }
+
+        public void LeftRoom()
+        {
+            if (currentRoom.GetLeftRoom() != -1)
+            {
+                roomIndex = currentRoom.GetLeftRoom();
+                currentRoom = roomList[roomIndex];
+                game.ClearProjectiles();
+                roomChange = true;
+            }
+        }
+
+        public void RightRoom()
+        {
+            if (currentRoom.GetRightRoom() != -1)
+            {
+                roomIndex = currentRoom.GetRightRoom();
+                currentRoom = roomList[roomIndex];
+                game.ClearProjectiles();
+                roomChange = true;
+            }
+        }
+
         public void FirstRoom()
         {
             roomIndex = 0;
