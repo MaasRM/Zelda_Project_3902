@@ -21,7 +21,7 @@ namespace Sprint0
             OverlapInRelationToBlock overlapBlock = GetOverlapDirectionBlock(player, block, overlap);
             Rectangle blockRect = block.GetBlockLocation();
 
-            if (blockRect.Y <= block.startPos().Y + blockRect.Height - 3 && blockRect.Y >= block.startPos().Y - blockRect.Height + 5)// && notMoved(block.startPos().X, blockRect.X))
+            if (blockRect.Y <= block.startPos().Y + blockRect.Height - 3 && blockRect.Y >= block.startPos().Y - blockRect.Height + 5)
             {
                 if (overlapBlock == OverlapInRelationToBlock.Up && notMoved(block.startPos().X, blockRect.X))
                 {
@@ -41,7 +41,7 @@ namespace Sprint0
                 } 
             }
             
-            if (blockRect.X >= block.startPos().X - blockRect.Width && blockRect.X <= block.startPos().X + blockRect.Width - 9)// && notMoved(block.startPos().Y, blockRect.Y))
+            if (blockRect.X >= block.startPos().X - blockRect.Width && blockRect.X <= block.startPos().X + blockRect.Width - 9)
             {
                 if (overlapBlock == OverlapInRelationToBlock.Left && notMoved(block.startPos().Y, blockRect.Y))
                 {
