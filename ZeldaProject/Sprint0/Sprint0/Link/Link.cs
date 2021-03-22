@@ -162,7 +162,7 @@ namespace Sprint0
 
         public int GetMeleeDamage()
         {
-            return 1;
+            return stateMachine.GetDamage();
         }
 
         public void Heal(int health)

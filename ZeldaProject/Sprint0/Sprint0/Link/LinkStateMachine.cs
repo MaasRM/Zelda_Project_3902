@@ -41,8 +41,7 @@ namespace Sprint0
         private Boolean isBusy;
         private int frame;
         private int sizeFactor;
-        private int health;
-        private int maxHealth;
+        private HealthAndDamageHandler healthAndDamage;
         private Vector2 damageVector;
         private const int scale = 4;
         private List<IProjectile> linkProjectileList;
@@ -57,8 +56,7 @@ namespace Sprint0
             xLoc = 200; //Original Position, probably needs to change
             yLoc = 240;
             isBusy = false;
-            health = 18;
-            maxHealth = 18;
+            healthAndDamage = new HealthAndDamageHandler(18, 1);
             sizeFactor = 4;
             frame = 0;
             linkProjectileList = new List<IProjectile>();
@@ -326,19 +324,14 @@ namespace Sprint0
 
         public void Heal(int newHealth)
         {
-            health += newHealth;
-
-            if(health > maxHealth)
-            {
-                health = maxHealth;
-            }
+            healthAndDamage.Heal(newHealth);
         }
 
         public void TakeDamage(int damage, Vector2 direction)
         {
             if(color != LinkColor.Damaged)
             {
-                health -= damage;
+                healthAndDamage.GetDamaged(damage);
                 damageVector = direction;
                 setDamaged();
             }
@@ -346,7 +339,12 @@ namespace Sprint0
 
         public bool HasHealth()
         {
-            return health > 0;
+            return healthAndDamage.IsAlive();
+        }
+
+        public int GetDamage()
+        {
+            return healthAndDamage.DealDamage();
         }
     }
 }
