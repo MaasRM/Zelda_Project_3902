@@ -61,43 +61,73 @@ namespace Sprint0
             return wallSource;
         }
 
-        public Rectangle getTopDoor()
+        public Rectangle getDoorSource(Direction dir)
         {
-            return topDoorSource;
+            Rectangle door;
+            switch (dir)
+            {
+                case Direction.MoveUp:
+                    door = topDoorSource;
+                    break;
+                case Direction.MoveDown:
+                    door = bottomDoorSource;
+                    break;
+                case Direction.MoveLeft:
+                    door = leftDoorSource;
+                    break;
+                case Direction.MoveRight:
+                    door = rightDoorSource;
+                    break;
+                default:
+                    door = new Rectangle(0, 0, 0, 0);
+                    break;
+            }
+            return door;
         }
 
-        public Rectangle getBottomDoor()
+        public void setDoorSource(Direction dir, Rectangle newSource)
         {
-            return bottomDoorSource;
+            switch (dir)
+            {
+                case Direction.MoveUp:
+                    topDoorSource = newSource;
+                    break;
+                case Direction.MoveDown:
+                    bottomDoorSource = newSource;
+                    break;
+                case Direction.MoveLeft:
+                    leftDoorSource = newSource;
+                    break;
+                case Direction.MoveRight:
+                    rightDoorSource =  = newSource;
+                    break;
+                default:
+                    break;
+            }
         }
 
-        public Rectangle getLeftDoor()
+        public int getAdjacentRoomIndex(Direction dir)
         {
-            return leftDoorSource;
-        }
-
-        public Rectangle getRightDoor()
-        {
-            return rightDoorSource;
-        }
-
-        public int GetTopRoom()
-        {
-            return nextRoomNums[0];
-        }
-
-        public int GetBottomRoom()
-        {
-            return nextRoomNums[1];
-        }
-        public int GetLeftRoom()
-        {
-            return nextRoomNums[2];
-        }
-
-        public int GetRightRoom()
-        {
-            return nextRoomNums[3];
+            int room;
+            switch (dir)
+            {
+                case Direction.MoveUp:
+                    room = nextRoomNums[0];
+                    break;
+                case Direction.MoveDown:
+                    room = nextRoomNums[1];
+                    break;
+                case Direction.MoveLeft:
+                    room = nextRoomNums[2];
+                    break;
+                case Direction.MoveRight:
+                    room = nextRoomNums[3];
+                    break;
+                default:
+                    room = -1;
+                    break;
+            }
+            return room;
         }
 
     }

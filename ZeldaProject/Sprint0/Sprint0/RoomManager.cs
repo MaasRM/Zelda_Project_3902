@@ -180,10 +180,10 @@ namespace Sprint0
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(dungeonSheet, new Rectangle(0 * scale, 0 * scale, 255 * scale, 175 * scale), currentRoom.getWall(), Color.White);
-            spriteBatch.Draw(dungeonSheet, new Rectangle(112 * scale, 0 * scale, 32 * scale, 32 * scale), currentRoom.getTopDoor(), Color.White);
-            spriteBatch.Draw(dungeonSheet, new Rectangle(112 * scale, 144 * scale, 32 * scale, 32 * scale), currentRoom.getBottomDoor(), Color.White);
-            spriteBatch.Draw(dungeonSheet, new Rectangle(0 * scale, 72 * scale, 32 * scale, 32 * scale), currentRoom.getLeftDoor(), Color.White);
-            spriteBatch.Draw(dungeonSheet, new Rectangle(224 * scale, 72 * scale, 32 * scale, 32 * scale), currentRoom.getRightDoor(), Color.White);
+            spriteBatch.Draw(dungeonSheet, new Rectangle(112 * scale, 0 * scale, 32 * scale, 32 * scale), currentRoom.getDoorSource(Direction.MoveUp), Color.White);
+            spriteBatch.Draw(dungeonSheet, new Rectangle(112 * scale, 144 * scale, 32 * scale, 32 * scale), currentRoom.getDoorSource(Direction.MoveDown), Color.White);
+            spriteBatch.Draw(dungeonSheet, new Rectangle(0 * scale, 72 * scale, 32 * scale, 32 * scale), currentRoom.getDoorSource(Direction.MoveLeft), Color.White);
+            spriteBatch.Draw(dungeonSheet, new Rectangle(224 * scale, 72 * scale, 32 * scale, 32 * scale), currentRoom.getDoorSource(Direction.MoveRight), Color.White);
             spriteBatch.Draw(dungeonSheet, new Rectangle(32 * scale, 32 * scale, 192 * scale, 112 * scale), currentRoom.getFloor(), Color.White);
         }
 
@@ -207,32 +207,31 @@ namespace Sprint0
 
         public void SwapRoom(Direction dir)
         {
-            int index;
-            switch (dir)
-            {
-                case Direction.MoveUp:
-                    index = currentRoom.GetTopRoom();
-                    break;
-                case Direction.MoveDown:
-                    index = currentRoom.GetBottomRoom();
-                    break;
-                case Direction.MoveLeft:
-                    index = currentRoom.GetLeftRoom();
-                    break;
-                case Direction.MoveRight:
-                    index = currentRoom.GetRightRoom();
-                    break;
-                default:
-                    //shouldn't happen
-                    index = -1;
-                    break;
-            }
-            if (index != -1)
+            int index = currentRoom.getAdjacentRoomIndex(dir);
+            if (index != -1 && (currentRoom.getDoorSource(dir).X == 815 + 33 || currentRoom.getDoorSource(dir).X == 815 + 132))
             {
                 roomIndex = index;
                 currentRoom = roomList[roomIndex];
                 game.ClearProjectiles();
                 roomChange = true;
+            }
+        }
+
+        public void BlowDoor(Direction dir)
+        {
+            int index = currentRoom.getAdjacentRoomIndex(dir);
+            if (index != -1 && currentRoom.getDoorSource(dir).X == 815)
+            {
+                currentRoom.setDoorSource(dir, new Rectangle(815 + 132, currentRoom.getDoorSource(dir).Y, 32, 32));
+            }
+        }
+
+        public void UnlockDoor(Direction dir)
+        {
+            int index = currentRoom.getAdjacentRoomIndex(dir);
+            if (index != -1 && (currentRoom.getDoorSource(dir).X == 815 + 66 || currentRoom.getDoorSource(dir).X == 815 + 99))
+            {
+                currentRoom.setDoorSource(dir, new Rectangle(815 + 33, currentRoom.getDoorSource(dir).Y, 32, 32));
             }
         }
 
