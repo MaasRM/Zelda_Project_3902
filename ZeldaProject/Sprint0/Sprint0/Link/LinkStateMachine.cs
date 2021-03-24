@@ -50,11 +50,11 @@ namespace Sprint0
         public LinkStateMachine()
         {
             spriteFactory = new LinkSpriteFactory();
-            direction = Direction.MoveRight;
+            direction = Direction.MoveUp;
             color = LinkColor.Green;
             animation = Animation.Idle;
-            xLoc = 200; //Original Position, probably needs to change
-            yLoc = 240;
+            xLoc = 120 * scale; //Original Position, probably needs to change
+            yLoc = 128 * scale;
             isBusy = false;
             healthAndDamage = new HealthAndDamageHandler(18, 1);
             sizeFactor = 4;
