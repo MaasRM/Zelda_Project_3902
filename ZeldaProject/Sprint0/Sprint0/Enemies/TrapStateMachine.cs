@@ -27,9 +27,8 @@ namespace Sprint0
         private Activity active;
         private int xLoc;
         private int yLoc;
-        private int width;
-        private int height;
         private int frame;
+        private const int WIDTHANDHEIGHT = 16;
         private const int PIXELSCALER = 4;
         private const int chargeMoveDist = 4;
         private const int returnMoveDist = 2;
@@ -40,8 +39,6 @@ namespace Sprint0
         {
             xLoc = x;
             yLoc = y;
-            width = 16;
-            height = 16;
             frame = -1;
             initial = new Tuple<int, int>(x, y);
             active = Activity.Still;
@@ -49,7 +46,7 @@ namespace Sprint0
 
         public Rectangle GetDestination()
         {
-            return new Rectangle(xLoc, yLoc, width * PIXELSCALER, height * PIXELSCALER);
+            return new Rectangle(xLoc, yLoc, WIDTHANDHEIGHT * PIXELSCALER, WIDTHANDHEIGHT * PIXELSCALER);
         }
 
         public void SetDestination(int x, int y)
@@ -60,7 +57,7 @@ namespace Sprint0
 
         public Rectangle GetSource()
         {
-            return new Rectangle(164, 59, width, height);
+            return new Rectangle(164, 59, WIDTHANDHEIGHT, WIDTHANDHEIGHT);
         }
 
         public void Move()
@@ -123,7 +120,7 @@ namespace Sprint0
 
                 active = Activity.Charging;
 
-                if (linkX >= xLoc && linkX < xLoc + width * PIXELSCALER)
+                if (linkX >= xLoc && linkX < xLoc + WIDTHANDHEIGHT * PIXELSCALER)
                 {
                     if (linkPos.Y < yLoc)
                     {
@@ -134,7 +131,7 @@ namespace Sprint0
                         direction = Direction.Down;
                     }
                 }
-                else if (linkY >= yLoc && linkY < yLoc + height * PIXELSCALER)
+                else if (linkY >= yLoc && linkY < yLoc + WIDTHANDHEIGHT * PIXELSCALER)
                 {
                     if (linkPos.X < xLoc)
                     {

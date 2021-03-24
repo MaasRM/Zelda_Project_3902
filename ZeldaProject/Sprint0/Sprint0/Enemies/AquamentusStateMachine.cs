@@ -23,12 +23,12 @@ namespace Sprint0
         private State state;
         private int xLoc;
         private int yLoc;
-        private int width;
-        private int height;
         private int frame;
         private int lastFire;
         private int health;
         private int damageFrames;
+        private const int WIDTH = 16;
+        private const int HEIGHT = 32;
         private const int MAXHEALTH = 16;
         private const int FIRECOOLDOWN = 40;
         private const int PIXELSCALER = 4;
@@ -39,8 +39,6 @@ namespace Sprint0
         {
             xLoc = x;
             yLoc = y;
-            width = 24;
-            height = 32;
             frame = -1;
             damageFrames = 0;
             lastFire = FIRECOOLDOWN * -1;
@@ -52,7 +50,7 @@ namespace Sprint0
 
         public Rectangle GetDestination()
         {
-            return new Rectangle(xLoc, yLoc, width * PIXELSCALER, height * PIXELSCALER);
+            return new Rectangle(xLoc, yLoc, WIDTH * PIXELSCALER, HEIGHT * PIXELSCALER);
         }
 
         public void SetDestination(int x, int y)
@@ -67,22 +65,22 @@ namespace Sprint0
             {
                 if(frame % 2 == 0)
                 {
-                    return new Rectangle(1, 11, width, height);
+                    return new Rectangle(1, 11, WIDTH, HEIGHT);
                 }
                 else
                 {
-                    return new Rectangle(26, 11, width, height);
+                    return new Rectangle(26, 11, WIDTH, HEIGHT);
                 }
             }
             else
             {
                 if (frame % 2 == 0)
                 {
-                    return new Rectangle(51, 11, width, height);
+                    return new Rectangle(51, 11, WIDTH, HEIGHT);
                 }
                 else
                 {
-                    return new Rectangle(76, 11, width, height);
+                    return new Rectangle(76, 11, WIDTH, HEIGHT);
                 }
             }
         }

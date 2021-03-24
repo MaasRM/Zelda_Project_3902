@@ -12,12 +12,13 @@ namespace Sprint0
         private Rectangle source;
         private Rectangle destination;
         private Tuple<int, int> init;
+        public const int WIDTHANDHEIGHT = 16;
         private const int SCALER = 4;
 
         public OldMan(int x, int y, Texture2D spriteSheet)
         {
-            destination = new Rectangle(x, y, 16 * SCALER, 16 * SCALER);
-            source = new Rectangle(1, 11, 16, 16);
+            destination = new Rectangle(x, y, WIDTHANDHEIGHT * SCALER, WIDTHANDHEIGHT * SCALER);
+            source = new Rectangle(1, 11, WIDTHANDHEIGHT, WIDTHANDHEIGHT);
             oldManSpriteSheet = spriteSheet;
             init = new Tuple<int, int>(x, y);
         }
@@ -34,8 +35,8 @@ namespace Sprint0
 
         public void Reset()
         {
-            destination = new Rectangle(init.Item1, init.Item2, 16 * SCALER, 16 * SCALER);
-            source = new Rectangle(1, 11, 16, 16);
+            destination = new Rectangle(init.Item1, init.Item2, WIDTHANDHEIGHT * SCALER, WIDTHANDHEIGHT * SCALER);
+            source = new Rectangle(1, 11, WIDTHANDHEIGHT, WIDTHANDHEIGHT);
         }
 
         public Rectangle GetNPCLocation()

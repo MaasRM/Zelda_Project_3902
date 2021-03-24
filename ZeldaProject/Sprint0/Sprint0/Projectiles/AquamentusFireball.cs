@@ -32,6 +32,12 @@ namespace Sprint0
         private const int xMoveDist = 5;
         private const int PIXELSCALER = 4;
         private const int DAMAGE = 1;
+        private const double RADTODEGREE = 180 / Math.PI;
+        private const double DEGREE36 = 36;
+        private const double DEGREE30 = 30;
+        private const double DEGREE22 = 22;
+        private const double DEGREE20 = 20;
+        private const double DEGREE5 = 5;
 
         public AquamentusFireball(int x, int y, Position pos, Texture2D spritesheet, Sprint3 game)
         {
@@ -55,41 +61,41 @@ namespace Sprint0
             {
                 if (pos == Position.Top)
                 {
-                    y -= xMoveDist * Math.Tan(36 * Math.PI / 180) * PIXELSCALER;
+                    y -= xMoveDist * Math.Tan(DEGREE36 / RADTODEGREE) * PIXELSCALER;
                 }
                 else if(pos == Position.Center)
                 {
-                    y -= xMoveDist * Math.Tan(22 * Math.PI / 180) * PIXELSCALER;
+                    y -= xMoveDist * Math.Tan(DEGREE22 / RADTODEGREE) * PIXELSCALER;
                 }
                 else
                 {
-                    y -= xMoveDist * Math.Tan(5 * Math.PI / 180) * PIXELSCALER;
+                    y -= xMoveDist * Math.Tan(DEGREE5 / RADTODEGREE) * PIXELSCALER;
                 }
             }
             else if (angle == Angle.Middle)
             {
                 if (pos == Position.Top)
                 {
-                    y -= xMoveDist * Math.Tan(20 * Math.PI / 180) * PIXELSCALER;
+                    y -= xMoveDist * Math.Tan(DEGREE20 / RADTODEGREE) * PIXELSCALER;
                 }
                 else if (pos == Position.Bottom)
                 {
-                    y += xMoveDist * Math.Tan(20 * Math.PI / 180) * PIXELSCALER;
+                    y += xMoveDist * Math.Tan(DEGREE20 / RADTODEGREE) * PIXELSCALER;
                 }
             }
             else
             {
                 if (pos == Position.Top)
                 {
-                    y += xMoveDist * Math.Tan(36 * Math.PI / 180) * PIXELSCALER;
+                    y += xMoveDist * Math.Tan(DEGREE5 / RADTODEGREE) * PIXELSCALER;
                 }
                 else if (pos == Position.Center)
                 {
-                    y += xMoveDist * Math.Tan(22 * Math.PI / 180) * PIXELSCALER;
+                    y += xMoveDist * Math.Tan(DEGREE22 / RADTODEGREE) * PIXELSCALER;
                 }
                 else
                 {
-                    y += xMoveDist * Math.Tan(5 * Math.PI / 180) * PIXELSCALER;
+                    y += xMoveDist * Math.Tan(DEGREE36 / RADTODEGREE) * PIXELSCALER;
                 }
             }
         }
@@ -137,13 +143,13 @@ namespace Sprint0
 
             if(xDiff != 0)
             {
-                linkAngle = Math.Atan(yDiff / xDiff) * (180 / Math.PI);
+                linkAngle = Math.Atan(yDiff / xDiff) * RADTODEGREE;
 
-                if (linkAngle > 30)
+                if (linkAngle > DEGREE30)
                 {
                     angle = Angle.Above;
                 }
-                else if (linkAngle < -30)
+                else if (linkAngle < -1 * DEGREE30)
                 {
                     angle = Angle.Below;
                 }

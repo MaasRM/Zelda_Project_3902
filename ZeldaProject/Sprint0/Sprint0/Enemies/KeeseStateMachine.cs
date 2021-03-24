@@ -43,14 +43,14 @@ namespace Sprint0
         private State state;
         private double xLoc;
         private double yLoc;
-        private int width;
-        private int height;
         private int movementIndex;
         private int currFrame;
         private int waitFrameCount;
         private int fastFrameCount;
         private int health;
         private int stunFrames;
+        private const int DIRECTIONCHANGEFRAME = 10;
+        private const int WIDTHANDHEIGHT = 16;
         private const int MAXHEALTH = 1;
         private const int PIXELSCALER = 4;
         private static int slowFrameCount = 30;
@@ -62,8 +62,6 @@ namespace Sprint0
         {
             xLoc = x;
             yLoc = y;
-            width = 16;
-            height = 16;
             color = c;
             mov = Movement.Slow;
             movementIndex = -1;
@@ -73,7 +71,7 @@ namespace Sprint0
 
         public Rectangle GetDestination()
         {
-            return new Rectangle((int) xLoc, (int) yLoc, width * PIXELSCALER, height * PIXELSCALER);
+            return new Rectangle((int) xLoc, (int) yLoc, WIDTHANDHEIGHT * PIXELSCALER, WIDTHANDHEIGHT * PIXELSCALER);
         }
 
         public void SetDestination(int x, int y)
@@ -86,11 +84,11 @@ namespace Sprint0
         {
             if(currFrame % 2 == 0 || mov == Movement.Wait)
             {
-                return new Rectangle(183, 11 + 17 * (int)color, width, height);
+                return new Rectangle(183, 11 + 17 * (int)color, WIDTHANDHEIGHT, WIDTHANDHEIGHT);
             }
             else
             {
-                return new Rectangle(200, 11 + 17 * (int)color, width, height);
+                return new Rectangle(200, 11 + 17 * (int)color, WIDTHANDHEIGHT, WIDTHANDHEIGHT);
             }
         }
 
@@ -120,7 +118,7 @@ namespace Sprint0
         {
             if(state == State.Normal)
             {
-                if (currFrame % 10 == 0)
+                if (currFrame % DIRECTIONCHANGEFRAME == 0)
                 {
                     direction = ChangeDirection();
                 }
@@ -171,7 +169,6 @@ namespace Sprint0
 
         private static Direction ChangeDirection()
         {
-            Random rnd = new Random();
             int num;
          
             num = RandomNumberGenerator.GetInt32(8);

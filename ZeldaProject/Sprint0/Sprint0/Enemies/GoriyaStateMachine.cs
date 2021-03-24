@@ -35,13 +35,12 @@ namespace Sprint0
         private Vector2 damageDirection;
         private int xLoc;
         private int yLoc;
-        private int width;
-        private int height;
         private int frame;
         private bool throwing;
         private int health;
         private int damageFrames;
         private int stunFrames;
+        private const int WIDTHANDHEIGHT = 16;
         private const int MAXHEALTH = 3;
         private const int PIXELSCALER = 4;
         private const int moveDist = 2;
@@ -50,8 +49,6 @@ namespace Sprint0
         {
             xLoc = x;
             yLoc = y;
-            width = 16;
-            height = 16;
             frame = -1;
             color = c;
             throwing = false;
@@ -61,7 +58,7 @@ namespace Sprint0
 
         public Rectangle GetDestination()
         {
-            return new Rectangle(xLoc, yLoc, width * PIXELSCALER, height * PIXELSCALER);
+            return new Rectangle(xLoc, yLoc, WIDTHANDHEIGHT * PIXELSCALER, WIDTHANDHEIGHT * PIXELSCALER);
         }
 
         public void SetDestination(int x, int y)
@@ -74,17 +71,17 @@ namespace Sprint0
         {
             if(direction == Direction.Down || direction == Direction.Up)
             {
-                return new Rectangle(222 + 17 * (int)direction, 11 + 17 * (int)color, width, height);
+                return new Rectangle(222 + 17 * (int)direction, 11 + 17 * (int)color, WIDTHANDHEIGHT, WIDTHANDHEIGHT);
             }
             else
             {
                 if(frame % 2 == 0)
                 {
-                    return new Rectangle(256, 11 + 17 * (int)color, width, height);
+                    return new Rectangle(256, 11 + 17 * (int)color, WIDTHANDHEIGHT, WIDTHANDHEIGHT);
                 }
                 else
                 {
-                    return new Rectangle(273, 11 + 17 * (int)color, width, height);
+                    return new Rectangle(273, 11 + 17 * (int)color, WIDTHANDHEIGHT, WIDTHANDHEIGHT);
                 }
             }
         }
@@ -174,16 +171,6 @@ namespace Sprint0
         public bool Throwing()
         {
             return throwing;
-        }
-
-        public int GetWidth()
-        {
-            return width * PIXELSCALER;
-        }
-
-        public int GetHeight()
-        {
-            return height * PIXELSCALER;
         }
 
         public bool HasHealth()

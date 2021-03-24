@@ -39,14 +39,14 @@ namespace Sprint0
         private State state;
         private int xLoc;
         private int yLoc;
-        private int width;
-        private int height;
         private int frame;
         private const int moveDist = 2;
         private bool wait;
         private int waitFrames;
         public int stunFrames;
         private int health;
+        private const int WIDTH = 8;
+        private const int HEIGHT = 16;
         private const int MAXHEALTH = 1;
         private const int PIXELSCALER = 4;
         private const int moveFrames = 10;
@@ -56,8 +56,6 @@ namespace Sprint0
         {
             xLoc = x;
             yLoc = y;
-            width = 8;
-            height = 16;
             frame = -1;
             color = c;
             wait = false;
@@ -68,7 +66,7 @@ namespace Sprint0
 
         public Rectangle GetDestination()
         {
-            return new Rectangle(xLoc, yLoc, width * PIXELSCALER, height * PIXELSCALER);
+            return new Rectangle(xLoc, yLoc, WIDTH * PIXELSCALER, HEIGHT * PIXELSCALER);
         }
 
         public void SetDestination(int x, int y)
@@ -81,11 +79,11 @@ namespace Sprint0
         {
             if (frame % 2 == 0)
             {
-                return new Rectangle(1 + 18 * ((int)color % 4), 11 + 17 * ((int)color % 2), width, height);
+                return new Rectangle(1 + 18 * ((int)color % 4), 11 + 17 * ((int)color % 2), WIDTH, HEIGHT);
             }
             else
             {
-                return new Rectangle(10 + 18 * ((int)color % 4), 11 + 17 * ((int)color % 2), width, height);
+                return new Rectangle(10 + 18 * ((int)color % 4), 11 + 17 * ((int)color % 2), WIDTH, HEIGHT);
             }
         }
 
