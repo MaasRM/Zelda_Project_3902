@@ -7,6 +7,8 @@ using System.Collections.Generic;
 using System.Text;
 using System.IO;
 using System.Xml;
+using Microsoft.Xna.Framework.Media;
+using Microsoft.Xna.Framework.Audio;
 
 namespace Sprint0
 {
@@ -27,6 +29,11 @@ namespace Sprint0
         private RoomManager roomManager;
         private AllCollisionHandler allCollisionHandler;
 
+        //Sound
+        public List<SoundEffect> soundEffects;
+        private Song Title_music;
+        private Song Dungeon_music;
+
         public Sprint3()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -42,6 +49,7 @@ namespace Sprint0
             items = new List<IItem>();
             npcs = new List<INPC>();
             projectiles = new List<IProjectile>();
+            soundEffects = new List<SoundEffect>();
         }
 
         protected override void Initialize()
@@ -96,6 +104,42 @@ namespace Sprint0
             }
 
             allCollisionHandler = new AllCollisionHandler(this.GraphicsDevice.Viewport.Bounds.X, this.GraphicsDevice.Viewport.Bounds.Width, this.GraphicsDevice.Viewport.Bounds.Y, this.GraphicsDevice.Viewport.Bounds.Height);
+
+
+            //Songs
+            Title_music = Content.Load<Song>("Intro");
+            Dungeon_music = Content.Load<Song>("Dungeon");
+
+            //(a lot of) Sounds
+            soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Arrow_Boomerang"));
+            soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Bomb_Blow"));
+            soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Bomb_Drop"));
+            soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Boss_Hit"));
+            soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Boss_Scream1"));
+            soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Candle"));
+            soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Door_Unlock"));
+            soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Enemy_Die"));
+            soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Enemy_Hit"));
+            soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Fanfare"));
+            soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Get_Heart"));
+            soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Get_Item"));
+            soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Get_Rupee"));
+            soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Key_Appear"));
+            soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Link_Die"));
+            soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Link_Hurt"));
+            soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_LowHealth"));
+            soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Recorder"));
+            soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Refill_Loop"));
+            soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Secret"));
+            soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Stairs"));
+            soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Sword_Shoot"));
+            soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Sword_Slash"));
+            soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Text"));
+            soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Text_Slow"));
+
+            //should probably be moved later
+            MediaPlayer.Play(Title_music);
+            MediaPlayer.IsRepeating = true;
         }
 
         protected override void Update(GameTime gameTime)
