@@ -19,6 +19,10 @@ namespace Sprint0
         private List<Texture2D> bossesSheets;
         private Texture2D npcSheet;
         private bool roomChange;
+        private Direction nextRoomDirection;
+        private Rectangle nextRoomLoc;
+        private Rectangle oldRoomRectangle;
+        private Rectangle oldRoomLoc;
         private const int scale = 4;
 
         public RoomManager(Sprint3 game)
@@ -26,6 +30,7 @@ namespace Sprint0
             this.game = game;
             roomList = new List<Room>();
             roomIndex = 0;
+            roomChange = false;
         }
 
         public void SetUpRooms(XmlDocument xmlDoc, Texture2D dungeon, List<Texture2D> enemies, Texture2D items, List<Texture2D> bosses, Texture2D npcs)
@@ -172,19 +177,58 @@ namespace Sprint0
 
         public void Update()
         {
-            game.SetBlocks(currentRoom.getBlocks());
-            game.SetItems(currentRoom.getItems());
-            game.SetNPCs(currentRoom.getNPCs());
+            if(roomChange)
+            {
+                switch (nextRoomDirection)
+                {
+                    case Direction.MoveUp:
+                        nextRoomLoc = new Rectangle(nextRoomLoc.X, nextRoomLoc.Y + (5 * scale), 192 * scale, 112 * scale);
+                        oldRoomLoc = new Rectangle(oldRoomLoc.X, oldRoomLoc.Y + (5 * scale), 192 * scale, 112 * scale);
+                        break;
+                    case Direction.MoveDown:
+                        nextRoomLoc = new Rectangle(nextRoomLoc.X, nextRoomLoc.Y - (5 * scale), 192 * scale, 112 * scale);
+                        oldRoomLoc = new Rectangle(oldRoomLoc.X, oldRoomLoc.Y - (5 * scale), 192 * scale, 112 * scale);
+                        break;
+                    case Direction.MoveLeft:
+                        nextRoomLoc = new Rectangle(nextRoomLoc.X + (5 * scale), nextRoomLoc.Y, 192 * scale, 112 * scale);
+                        oldRoomLoc = new Rectangle(oldRoomLoc.X + (5 * scale), oldRoomLoc.Y, 192 * scale, 112 * scale);
+                        break;
+                    case Direction.MoveRight:
+                        nextRoomLoc = new Rectangle(nextRoomLoc.X - (5 * scale), nextRoomLoc.Y, 192 * scale, 112 * scale);
+                        oldRoomLoc = new Rectangle(oldRoomLoc.X - (5 * scale), oldRoomLoc.Y, 192 * scale, 112 * scale);
+                        break;
+                    default:
+                        break;
+                }
+                if (nextRoomLoc.X == (32 * scale) && nextRoomLoc.Y == (32 * scale)) roomChange = false;
+            } else
+            {
+                game.SetBlocks(currentRoom.getBlocks());
+                game.SetItems(currentRoom.getItems());
+                game.SetNPCs(currentRoom.getNPCs());
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(dungeonSheet, new Rectangle(0 * scale, 0 * scale, 255 * scale, 175 * scale), currentRoom.getWall(), Color.White);
-            spriteBatch.Draw(dungeonSheet, new Rectangle(112 * scale, 0 * scale, 32 * scale, 32 * scale), currentRoom.getDoorSource(Direction.MoveUp), Color.White);
-            spriteBatch.Draw(dungeonSheet, new Rectangle(112 * scale, 144 * scale, 32 * scale, 32 * scale), currentRoom.getDoorSource(Direction.MoveDown), Color.White);
-            spriteBatch.Draw(dungeonSheet, new Rectangle(0 * scale, 72 * scale, 32 * scale, 32 * scale), currentRoom.getDoorSource(Direction.MoveLeft), Color.White);
-            spriteBatch.Draw(dungeonSheet, new Rectangle(224 * scale, 72 * scale, 32 * scale, 32 * scale), currentRoom.getDoorSource(Direction.MoveRight), Color.White);
-            spriteBatch.Draw(dungeonSheet, new Rectangle(32 * scale, 32 * scale, 192 * scale, 112 * scale), currentRoom.getFloor(), Color.White);
+            if(roomChange)
+            {
+                Rectangle newRoomWallLoc = new Rectangle(nextRoomLoc.X - (32 * scale), nextRoomLoc.Y - (32 * scale), 255 * scale, 175 * scale);
+                spriteBatch.Draw(dungeonSheet, newRoomWallLoc, currentRoom.getWall(), Color.White);
+                spriteBatch.Draw(dungeonSheet, nextRoomLoc, currentRoom.getFloor(), Color.White);
+                Rectangle oldRoomWallLoc = new Rectangle(oldRoomLoc.X - (32 * scale), oldRoomLoc.Y - (32 * scale), 255 * scale, 175 * scale);
+                spriteBatch.Draw(dungeonSheet, oldRoomWallLoc, currentRoom.getWall(), Color.White);
+                spriteBatch.Draw(dungeonSheet, oldRoomLoc, oldRoomRectangle, Color.White);
+            } else
+            {
+                spriteBatch.Draw(dungeonSheet, new Rectangle(0 * scale, 0 * scale, 255 * scale, 175 * scale), currentRoom.getWall(), Color.White);
+                spriteBatch.Draw(dungeonSheet, new Rectangle(112 * scale, 0 * scale, 32 * scale, 32 * scale), currentRoom.getDoorSource(Direction.MoveUp), Color.White);
+                spriteBatch.Draw(dungeonSheet, new Rectangle(112 * scale, 144 * scale, 32 * scale, 32 * scale), currentRoom.getDoorSource(Direction.MoveDown), Color.White);
+                spriteBatch.Draw(dungeonSheet, new Rectangle(0 * scale, 72 * scale, 32 * scale, 32 * scale), currentRoom.getDoorSource(Direction.MoveLeft), Color.White);
+                spriteBatch.Draw(dungeonSheet, new Rectangle(224 * scale, 72 * scale, 32 * scale, 32 * scale), currentRoom.getDoorSource(Direction.MoveRight), Color.White);
+                spriteBatch.Draw(dungeonSheet, new Rectangle(32 * scale, 32 * scale, 192 * scale, 112 * scale), currentRoom.getFloor(), Color.White);
+            }
+            
         }
 
         public void NextRoom()
@@ -211,13 +255,39 @@ namespace Sprint0
             if (index != -1 && (currentRoom.getDoorSource(dir).X == 815 + 33 || currentRoom.getDoorSource(dir).X == 815 + 132))
             {
                 roomIndex = index;
+                oldRoomRectangle = currentRoom.getFloor();
                 currentRoom = roomList[roomIndex];
-                game.ClearProjectiles();
                 roomChange = true;
-                return true;
-            } else
+                game.ClearProjectiles();
+                game.SetBlocks(new List<IBlock>());
+                game.SetItems(new List<IItem>());
+                game.SetNPCs(new List<INPC>());
+                SetNextRoomLoc(dir);
+            }
+            return roomChange;
+        }
+
+        private void SetNextRoomLoc(Direction dir)
+        {
+            nextRoomDirection = dir;
+            oldRoomLoc = new Rectangle(32 * scale, 32 * scale, 192 * scale, 112 * scale);
+            switch (dir)
             {
-                return false;
+                case Direction.MoveUp:
+                    nextRoomLoc = new Rectangle(32 * scale, (32 * scale) - (175 * scale), 192 * scale, 112 * scale);
+                    break;
+                case Direction.MoveDown:
+                    nextRoomLoc = new Rectangle(32 * scale, (32 * scale) + (175 * scale), 192 * scale, 112 * scale);
+                    break;
+                case Direction.MoveLeft:
+                    nextRoomLoc = new Rectangle((32 * scale) - (255 * scale), 32 * scale, 192 * scale, 112 * scale);
+                    break;
+                case Direction.MoveRight:
+                    nextRoomLoc = new Rectangle((32 * scale) + (255 * scale), 32 * scale, 192 * scale, 112 * scale);
+                    break;
+                default:
+                    nextRoomLoc = new Rectangle(0, 0, 0, 0);
+                    break;
             }
         }
 
