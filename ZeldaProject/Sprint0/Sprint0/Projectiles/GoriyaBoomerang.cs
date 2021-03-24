@@ -97,23 +97,23 @@ namespace Sprint0
 
             if (direction == GoriyaStateMachine.Direction.Down)
             {
-                x += goriyaState.GetWidth() / 2 - WIDTH * PIXELSCALER / 2;
-                y += goriyaState.GetHeight();
+                x += initial.Width / 2 - WIDTH * PIXELSCALER / 2;
+                y += initial.Height;
             }
             else if (direction == GoriyaStateMachine.Direction.Up)
             {
-                x += goriyaState.GetWidth() / 2 - WIDTH * PIXELSCALER / 2;
+                x += initial.Width / 2 - WIDTH * PIXELSCALER / 2;
                 y -= HEIGHT * PIXELSCALER;
             }
             else if (direction == GoriyaStateMachine.Direction.Left)
             {
                 x -= WIDTH * PIXELSCALER;
-                y += goriyaState.GetHeight() / 2 - HEIGHT * PIXELSCALER / 2;
+                y += initial.Height / 2 - HEIGHT * PIXELSCALER / 2;
             }
             else
             {
-                x += goriyaState.GetWidth();
-                y += goriyaState.GetHeight() / 2 - HEIGHT * PIXELSCALER / 2;
+                x += initial.Width;
+                y += initial.Height / 2 - HEIGHT * PIXELSCALER / 2;
             }
         }
 

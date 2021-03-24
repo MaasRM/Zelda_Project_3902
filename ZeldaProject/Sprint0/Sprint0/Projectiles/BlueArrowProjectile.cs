@@ -20,6 +20,8 @@ namespace Sprint0
         private int ArrowLength = 60;
         private int ArrowWidth = 30;
         private int frame;
+        private const int HITFRAME = 14;
+        private const int REMOVEFRAME = 17;
         private Direction projectileDirection;
         private SpriteEffects flip;
         public BlueArrowProjectile(Texture2D spritesheet, LinkStateMachine stateMachine)
@@ -71,7 +73,7 @@ namespace Sprint0
         }
         public void Update()
         {
-            if (frame < 15)
+            if (frame < HITFRAME + 1)
             {
                 if (projectileDirection == Direction.MoveUp)
                 {
@@ -96,7 +98,7 @@ namespace Sprint0
                 sourceRectangle = new Rectangle(53, 185, 8, 15);
                 if (projectileDirection == Direction.MoveLeft || projectileDirection == Direction.MoveRight)
                 {
-                    if (frame == 15)
+                    if (frame == HITFRAME + 1)
                     {
                         yLoc -= ySize / 2;
                         if (projectileDirection == Direction.MoveLeft) xLoc -= xSize/2;
@@ -123,7 +125,7 @@ namespace Sprint0
 
         public bool CheckForRemoval()
         {
-            return frame >= 17;
+            return frame >= REMOVEFRAME;
         }
 
         public int GetDamage()
@@ -133,9 +135,9 @@ namespace Sprint0
 
         public void Hit()
         {
-            if (frame < 14)
+            if (frame < HITFRAME)
             {
-                frame = 14;
+                frame = HITFRAME;
             }
         }
     }

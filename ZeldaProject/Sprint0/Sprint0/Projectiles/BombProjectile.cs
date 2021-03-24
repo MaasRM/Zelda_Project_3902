@@ -16,6 +16,8 @@ namespace Sprint0
         private const int bombSizeX = 30; //x4 specs
         private const int bombSizeY = 60;
         private const int DAMAGE = 4;
+        private const int EXPLODEFRAME = 20;
+        private const int REMOVEFRAME = 22;
         private int frame;
         private Direction projectileDirection;
         public BombProjectile(Texture2D spritesheet, LinkStateMachine stateMachine)
@@ -49,12 +51,12 @@ namespace Sprint0
 
         public void Update()
         {
-            if(frame == 20)
+            if(frame == EXPLODEFRAME)
             {
                 xLoc -= bombSizeX/2;
                 destinationRectangle = new Rectangle(xLoc, yLoc, bombSizeY, bombSizeY);
             }
-            if (frame > 20)
+            if (frame > EXPLODEFRAME)
             {
                 sourceRectangle = new Rectangle(138 + (frame - 20)*17, 185, 15, 15);
             }
@@ -73,12 +75,12 @@ namespace Sprint0
 
         public bool Exploding()
         {
-            return frame > 20;
+            return frame > EXPLODEFRAME;
         }
 
         public bool CheckForRemoval()
         {
-            return frame > 22;
+            return frame > REMOVEFRAME;
         }
 
         public int GetDamage()

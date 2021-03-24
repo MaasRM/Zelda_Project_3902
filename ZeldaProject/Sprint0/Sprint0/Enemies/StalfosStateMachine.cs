@@ -28,13 +28,12 @@ namespace Sprint0
         private Vector2 damageDirection;
         private int xLoc;
         private int yLoc;
-        private int width;
-        private int height;
         private int frame;
         private int stunFrames;
         private int damageFrames;
         private int health;
-        private int MAXHEALTH = 2;
+        private const int WIDTHANDHEIGHT = 16;
+        private const int MAXHEALTH = 2;
         private const int PIXELSCALER = 4;
         private const int moveDist = 2;
 
@@ -42,8 +41,6 @@ namespace Sprint0
         {
             xLoc = x;
             yLoc = y;
-            width = 16;
-            height = 16;
             frame = -1;
             stunFrames = 0;
             damageFrames = 0;
@@ -54,7 +51,7 @@ namespace Sprint0
 
         public Rectangle GetDestination()
         {
-            return new Rectangle(xLoc, yLoc, width * PIXELSCALER, height * PIXELSCALER);
+            return new Rectangle(xLoc, yLoc, WIDTHANDHEIGHT * PIXELSCALER, WIDTHANDHEIGHT * PIXELSCALER);
         }
 
         public void SetDestination(int x, int y)
@@ -65,7 +62,7 @@ namespace Sprint0
 
         public Rectangle GetSource()
         {
-            return new Rectangle(1, 59, width, height);
+            return new Rectangle(1, 59, WIDTHANDHEIGHT, WIDTHANDHEIGHT);
         }
 
         public void Move()

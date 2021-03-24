@@ -38,18 +38,17 @@ namespace Sprint0
         private Vector2 damageDirection;
         private int xLoc;
         private int yLoc;
-        private int width;
-        private int height;
         private int frame;
         private int stunFrames;
         private int damageFrames;
         private int health;
-        private int MAXHEALTH = 4;
-        private const int wallFrames = 10;
-        private const int moveFrames = 40;
+        private const int WIDTHANDHEIGHT = 16;
+        private const int MAXHEALTH = 4;
+        private const int WALLFRAMECOUNT = 10;
+        private const int MOVEFRAMECOUNT = 40;
         private const int PIXELSCALER = 4;
-        private const int wallMoveDist = 1;
-        private const int floorMoveDist = 3;
+        private const int WALLMOVEDIST = 1;
+        private const int FLOORMOVEDIST = 3;
         private Tuple<int, int> initial;
         private bool grab;
 
@@ -57,8 +56,6 @@ namespace Sprint0
         {
             xLoc = x;
             yLoc = y;
-            width = 16;
-            height = 16;
             frame = 0;
             health = 0;
             initial = new Tuple<int, int>(x, y);
@@ -74,7 +71,7 @@ namespace Sprint0
 
         public Rectangle GetDestination()
         {
-            return new Rectangle(xLoc, yLoc, width * PIXELSCALER, height * PIXELSCALER);
+            return new Rectangle(xLoc, yLoc, WIDTHANDHEIGHT * PIXELSCALER, WIDTHANDHEIGHT * PIXELSCALER);
         }
 
         public void SetDestination(int x, int y)
@@ -87,11 +84,11 @@ namespace Sprint0
         {
             if (grab || (activity == Activity.Moving && frame % 2 == 1))
             {
-                return new Rectangle(410, 11, width, height);
+                return new Rectangle(410, 11, WIDTHANDHEIGHT, WIDTHANDHEIGHT);
             }
             else
             {
-                return new Rectangle(392, 11, width, height);
+                return new Rectangle(392, 11, WIDTHANDHEIGHT, WIDTHANDHEIGHT);
             }
         }
 
@@ -106,19 +103,19 @@ namespace Sprint0
                 {
                     if (initialDirection == Direction.Down)
                     {
-                        yLoc += wallMoveDist * PIXELSCALER;
+                        yLoc += WALLMOVEDIST * PIXELSCALER;
                     }
                     else if (initialDirection == Direction.Up)
                     {
-                        yLoc -= wallMoveDist * PIXELSCALER;
+                        yLoc -= WALLMOVEDIST * PIXELSCALER;
                     }
                     else if (initialDirection == Direction.Left)
                     {
-                        xLoc -= wallMoveDist * PIXELSCALER;
+                        xLoc -= WALLMOVEDIST * PIXELSCALER;
                     }
                     else
                     {
-                        xLoc += wallMoveDist * PIXELSCALER;
+                        xLoc += WALLMOVEDIST * PIXELSCALER;
                     }
                     GetOutWall();
                 }
@@ -126,19 +123,19 @@ namespace Sprint0
                 {
                     if (secondDirection == Direction.Down)
                     {
-                        yLoc += floorMoveDist * PIXELSCALER;
+                        yLoc += FLOORMOVEDIST * PIXELSCALER;
                     }
                     else if (secondDirection == Direction.Up)
                     {
-                        yLoc -= floorMoveDist * PIXELSCALER;
+                        yLoc -= FLOORMOVEDIST * PIXELSCALER;
                     }
                     else if (secondDirection == Direction.Left)
                     {
-                        xLoc -= floorMoveDist * PIXELSCALER;
+                        xLoc -= FLOORMOVEDIST * PIXELSCALER;
                     }
                     else
                     {
-                        xLoc += floorMoveDist * PIXELSCALER;
+                        xLoc += FLOORMOVEDIST * PIXELSCALER;
                     }
                     BackInWall();
                 }
@@ -146,19 +143,19 @@ namespace Sprint0
                 {
                     if (initialDirection == Direction.Down)
                     {
-                        yLoc -= wallMoveDist * PIXELSCALER;
+                        yLoc -= WALLMOVEDIST * PIXELSCALER;
                     }
                     else if (initialDirection == Direction.Up)
                     {
-                        yLoc += wallMoveDist * PIXELSCALER;
+                        yLoc += WALLMOVEDIST * PIXELSCALER;
                     }
                     else if (initialDirection == Direction.Left)
                     {
-                        xLoc += wallMoveDist * PIXELSCALER;
+                        xLoc += WALLMOVEDIST * PIXELSCALER;
                     }
                     else
                     {
-                        xLoc -= wallMoveDist * PIXELSCALER;
+                        xLoc -= WALLMOVEDIST * PIXELSCALER;
                     }
 
                     ResetPosition();
@@ -188,7 +185,7 @@ namespace Sprint0
 
         private void GetOutWall()
         {
-            if(frame > wallFrames)
+            if(frame > WALLFRAMECOUNT)
             {
                 frame = -1;
                 activity = Activity.Moving;
@@ -197,7 +194,7 @@ namespace Sprint0
 
         private void BackInWall()
         {
-            if(frame > moveFrames)
+            if(frame > MOVEFRAMECOUNT)
             {
                 frame = -1;
                 activity = Activity.BackIn;
@@ -206,7 +203,7 @@ namespace Sprint0
 
         private void ResetPosition()
         {
-            if (frame > wallFrames)
+            if (frame > WALLFRAMECOUNT)
             {
                 grab = false;
                 frame = 0;

@@ -16,6 +16,8 @@ namespace Sprint0
         private const int candleSpeed = 12; //x4 specs
         private const int candleSize = 60;
         private const int DAMAGE = 1;
+        private const int LASTMOVINGFRAME = 10;
+        private const int REMOVEFRAME = 20;
         private int frame;
         private Boolean flip;
         private Direction projectileDirection;
@@ -51,7 +53,7 @@ namespace Sprint0
         }
         public void Update()
         {
-            if (frame < 10)
+            if (frame < LASTMOVINGFRAME)
             {
                 if (projectileDirection == Direction.MoveUp)
                 {
@@ -93,7 +95,7 @@ namespace Sprint0
 
         public bool CheckForRemoval()
         {
-            return frame >= 20;
+            return frame >= REMOVEFRAME;
         }
 
         public int GetDamage()
