@@ -237,7 +237,6 @@ namespace Sprint0
             if (roomIndex >= roomList.Count) roomIndex = 0;
             currentRoom = roomList[roomIndex];
             game.ClearProjectiles();
-            roomChange = true;
         }
 
         public void PreviousRoom()
@@ -246,7 +245,6 @@ namespace Sprint0
             if (roomIndex < 0) roomIndex = roomList.Count - 1;
             currentRoom = roomList[roomIndex];
             game.ClearProjectiles();
-            roomChange = true;
         }
 
         public Boolean SwapRoom(Direction dir)
@@ -320,11 +318,6 @@ namespace Sprint0
         public bool RoomChange()
         {
             return roomChange;
-        }
-
-        public void RoomFixed()
-        {
-            roomChange = false;
         }
     }
 }
