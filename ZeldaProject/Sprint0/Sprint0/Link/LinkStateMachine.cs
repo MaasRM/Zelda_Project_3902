@@ -40,13 +40,13 @@ namespace Sprint0
         private const int linkMoveSpeed = 16; //May need to change value
         private Boolean isBusy;
         private int frame;
+        private int swordProjFrame;
         private int sizeFactor;
         private HealthAndDamageHandler healthAndDamage;
         private Vector2 damageVector;
         private const int scale = 4;
         private const int STARTHEALTH = 18;
-        private List<IProjectile> linkProjectileList;
-        private List<IProjectile> linkProjectileToRemoveList;
+        private const int SWORDPROJECTILEBUFFER = 20;
 
         public LinkStateMachine()
         {
@@ -60,8 +60,7 @@ namespace Sprint0
             healthAndDamage = new HealthAndDamageHandler(STARTHEALTH, 1);
             sizeFactor = 4;
             frame = 0;
-            linkProjectileList = new List<IProjectile>();
-            linkProjectileToRemoveList = new List<IProjectile>();
+            swordProjFrame = 0;
             damageVector = new Vector2(0, 0);
         }
 
@@ -126,15 +125,7 @@ namespace Sprint0
                 yLoc += (int)damageVector.Y * scale;
             }
 
-            foreach (IProjectile projectile in linkProjectileList)
-            {
-                projectile.Update();
-            }
-            foreach (IProjectile projectile in linkProjectileToRemoveList)
-            {
-                linkProjectileList.Remove(projectile);
-            }
-            linkProjectileToRemoveList.Clear();
+            swordProjFrame++;
         }
 
         public void faceUp()
@@ -297,21 +288,6 @@ namespace Sprint0
             yLoc += change;
         }
 
-        public void addProjectile(IProjectile projectile)
-        {
-            linkProjectileList.Add(projectile);
-        }
-
-        public void RemoveProjectile(IProjectile projectile)
-        {
-            linkProjectileToRemoveList.Add(projectile);
-        }
-
-        public List<IProjectile> getProjectiles()
-        {
-            return linkProjectileList;
-        }
-
         public void MakeBusy()
         {
             isBusy = true;
@@ -348,9 +324,16 @@ namespace Sprint0
             return healthAndDamage.DealDamage();
         }
 
-        public bool AtMaxHealth()
+        public bool ReadyToFire()
         {
-            return healthAndDamage.AtMaxHealth();
+            bool returnValue = false;
+            if(healthAndDamage.AtMaxHealth() && animation == Animation.Attack && swordProjFrame >= SWORDPROJECTILEBUFFER)
+            {
+                returnValue = true;
+                swordProjFrame = 0;
+            }
+
+            return returnValue;
         }
     }
 }

@@ -12,6 +12,11 @@ namespace Sprint0
         public void Execute()
         {
             this.game.GetPlayer().getLinkStateMachine().setAttack();
+
+            if (game.GetPlayer().getLinkStateMachine().ReadyToFire())
+            {
+                game.AddProjectile(new SwordProjectile(game.GetPlayer().GetSpriteSheet(), game.GetPlayer().getLinkStateMachine()));
+            }
         }
     }
 }
