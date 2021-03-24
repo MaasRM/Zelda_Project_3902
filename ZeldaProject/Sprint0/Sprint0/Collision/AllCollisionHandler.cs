@@ -36,9 +36,9 @@ namespace Sprint0
         {
             bool grabbed = false;
 
-            foreach(INPC npc in npcs)
+            foreach (INPC npc in npcs)
             {
-                if(!(npc is Wallmaster))
+                if (!(npc is Wallmaster))
                 {
                     new EnemyWallHandler(npc, cameraWallMaxX, cameraWallMaxY);
 
@@ -46,7 +46,7 @@ namespace Sprint0
                     {
                         EnemyWallHandler.HandleLeftWall();
                     }
-                    if (npc.GetNPCLocation().Y < 117)
+                    if (npc.GetNPCLocation().Y < (117 + (64 * 4)))
                     {
                         EnemyWallHandler.HandleTopWall();
                     }
@@ -68,13 +68,13 @@ namespace Sprint0
 
             new LinkWallHandler(player, roomManager, cameraWallMaxX, cameraWallMaxY);
 
-            if(!grabbed)
-            {                
+            if (!grabbed)
+            {
                 if (player.getLinkStateMachine().getXLoc() < 120)
                 {
                     LinkWallHandler.HandleLeftWall();
                 }
-                if (player.getLinkStateMachine().getYLoc() < 117)
+                if (player.getLinkStateMachine().getYLoc() < (117 + (64 * 4)))
                 {
                     LinkWallHandler.HandleTopWall();
                 }

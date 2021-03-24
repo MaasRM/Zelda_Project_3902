@@ -59,7 +59,7 @@ namespace Sprint0
             controllerList.Add(keyControls);
             controllerList.Add(mouseControls);
             _graphics.PreferredBackBufferWidth = 255 * 4;
-            _graphics.PreferredBackBufferHeight = 175 * 4;
+            _graphics.PreferredBackBufferHeight = (175 + 64) * 4;
             _graphics.ApplyChanges();
             base.Initialize();
             roomManager.Update();
@@ -199,7 +199,7 @@ namespace Sprint0
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Black);
 
             this._spriteBatch.Begin();
 

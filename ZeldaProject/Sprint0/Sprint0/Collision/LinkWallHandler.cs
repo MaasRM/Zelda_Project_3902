@@ -21,14 +21,15 @@ namespace Sprint0
         public static void HandleLeftWall()
         {
             Boolean isSwapped;
-            if (player.getLinkStateMachine().getYLoc() > 288 && player.getLinkStateMachine().getYLoc() + player.LinkPosition().Height < 416)
+            if (player.getLinkStateMachine().getYLoc() > (288 + (64 * 4)) && player.getLinkStateMachine().getYLoc() + player.LinkPosition().Height < (416 + (64 * 4)))
             {
                 isSwapped = room.SwapRoom(Direction.MoveLeft);
                 if (isSwapped)
                 {
                     Rectangle newPosition = new Rectangle(maxX - 175, player.getLinkStateMachine().getYLoc(), player.LinkPosition().Width, player.LinkPosition().Height);
                     player.getLinkStateMachine().SetPositions(newPosition);
-                } else
+                }
+                else
                 {
                     Rectangle newPosition = new Rectangle(120, player.getLinkStateMachine().getYLoc(), player.LinkPosition().Width, player.LinkPosition().Height);
                     player.getLinkStateMachine().SetPositions(newPosition);
@@ -54,13 +55,13 @@ namespace Sprint0
                 }
                 else
                 {
-                    Rectangle newPosition = new Rectangle(player.getLinkStateMachine().getXLoc(), 117, player.LinkPosition().Width, player.LinkPosition().Height);
+                    Rectangle newPosition = new Rectangle(player.getLinkStateMachine().getXLoc(), 117 + (64 * 4), player.LinkPosition().Width, player.LinkPosition().Height);
                     player.getLinkStateMachine().SetPositions(newPosition);
                 }
             }
             else
             {
-                Rectangle newPosition = new Rectangle(player.getLinkStateMachine().getXLoc(), 117, player.LinkPosition().Width, player.LinkPosition().Height);
+                Rectangle newPosition = new Rectangle(player.getLinkStateMachine().getXLoc(), 117 + (64 * 4), player.LinkPosition().Width, player.LinkPosition().Height);
                 player.getLinkStateMachine().SetPositions(newPosition);
             }
         }
@@ -68,7 +69,7 @@ namespace Sprint0
         public static void HandleRightWall()
         {
             Boolean isSwapped;
-            if (player.getLinkStateMachine().getYLoc() > 288 && player.getLinkStateMachine().getYLoc() + player.LinkPosition().Height < 416)
+            if (player.getLinkStateMachine().getYLoc() > (288 + (64 * 4)) && player.getLinkStateMachine().getYLoc() + player.LinkPosition().Height < (416 + (64 * 4)))
             {
                 isSwapped = room.SwapRoom(Direction.MoveRight);
                 if (isSwapped)

@@ -34,7 +34,7 @@ namespace Sprint0
                 ((Trap)npc).Return();
             }
 
-            Rectangle newPosition = new Rectangle(npc.GetNPCLocation().X, 117, npc.GetNPCLocation().Width, npc.GetNPCLocation().Height);
+            Rectangle newPosition = new Rectangle(npc.GetNPCLocation().X, 117 + (64 * 4), npc.GetNPCLocation().Width, npc.GetNPCLocation().Height);
             npc.SetPosition(newPosition);
         }
 
