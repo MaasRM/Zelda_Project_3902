@@ -15,15 +15,17 @@ namespace Sprint0
         private Rectangle source;
         private Rectangle destination;
         private LinkColor currentColor;
+        private Sprint3 game;
         private int damageFrameCount;
 
-        public Link(Texture2D spriteSheet, List<Texture2D> linkSheetList)
+        public Link(Texture2D spriteSheet, List<Texture2D> linkSheetList, Sprint3 game)
         {
             stateMachine = new LinkStateMachine();
             this.linkSheetList = linkSheetList;
             linkSpriteSheet = spriteSheet;
             currentColor = LinkColor.Green;
             damageFrameCount = 0;
+            this.game = game;
         }
 
         public void Update()
@@ -68,6 +70,11 @@ namespace Sprint0
             }
             currentColor = stateMachine.getColor();
             stateMachine.Update();
+
+            if(stateMachine.AtMaxHealth())
+            {
+                game.AddProjectile(new SwordProjectile(linkSpriteSheet, stateMachine));
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch)

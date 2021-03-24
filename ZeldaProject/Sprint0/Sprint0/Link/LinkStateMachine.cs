@@ -44,6 +44,7 @@ namespace Sprint0
         private HealthAndDamageHandler healthAndDamage;
         private Vector2 damageVector;
         private const int scale = 4;
+        private const int STARTHEALTH = 18;
         private List<IProjectile> linkProjectileList;
         private List<IProjectile> linkProjectileToRemoveList;
 
@@ -56,7 +57,7 @@ namespace Sprint0
             xLoc = 120 * scale; //Original Position, probably needs to change
             yLoc = 128 * scale;
             isBusy = false;
-            healthAndDamage = new HealthAndDamageHandler(18, 1);
+            healthAndDamage = new HealthAndDamageHandler(STARTHEALTH, 1);
             sizeFactor = 4;
             frame = 0;
             linkProjectileList = new List<IProjectile>();
@@ -345,6 +346,11 @@ namespace Sprint0
         public int GetDamage()
         {
             return healthAndDamage.DealDamage();
+        }
+
+        public bool AtMaxHealth()
+        {
+            return healthAndDamage.AtMaxHealth();
         }
     }
 }
