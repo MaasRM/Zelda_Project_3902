@@ -138,7 +138,8 @@ namespace Sprint0
             soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Text_Slow"));
 
             //should probably be moved later
-            MediaPlayer.Play(Title_music);
+            MediaPlayer.Play(Dungeon_music);
+            MediaPlayer.Volume = 0.25f;
             MediaPlayer.IsRepeating = true;
         }
 
