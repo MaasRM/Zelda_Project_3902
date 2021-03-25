@@ -98,7 +98,7 @@ namespace Sprint0
                 isSwapped = room.SwapRoom(Direction.MoveDown);
                 if (isSwapped)
                 {
-                    Rectangle newPosition = new Rectangle(player.getLinkStateMachine().getXLoc(), 117, player.LinkPosition().Width, player.LinkPosition().Height);
+                    Rectangle newPosition = new Rectangle(player.getLinkStateMachine().getXLoc(), 117 + (64 * 4), player.LinkPosition().Width, player.LinkPosition().Height);
                     player.getLinkStateMachine().SetPositions(newPosition);
                 }
                 else

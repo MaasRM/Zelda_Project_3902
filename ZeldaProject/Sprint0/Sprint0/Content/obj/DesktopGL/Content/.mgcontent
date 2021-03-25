@@ -4,19 +4,83 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/jrkso/Source/Repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/characters.png</File>
-    <File>C:/Users/jrkso/Source/Repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/credits.spritefont</File>
-    <File>C:/Users/jrkso/Source/Repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/Dungeon_Bosses.png</File>
-    <File>C:/Users/jrkso/Source/Repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/Dungeon_Enemies.png</File>
-    <File>C:/Users/jrkso/Source/Repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/Dungeon_Items.png</File>
-    <File>C:/Users/jrkso/Source/Repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/Dungeon_Tileset.png</File>
-    <File>C:/Users/jrkso/Source/Repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/LinkSpriteSheet.png</File>
-    <File>C:/Users/jrkso/Source/Repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/LinkSpriteSheetBlack.png</File>
-    <File>C:/Users/jrkso/Source/Repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/LinkSpriteSheetBlue.png</File>
-    <File>C:/Users/jrkso/Source/Repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/LinkSpriteSheetRed.png</File>
-    <File>C:/Users/jrkso/Source/Repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/Zelda_NPCs.png</File>
+    <File>C:/Users/Riley/Source/Repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/credits.spritefont</File>
+    <File>C:/Users/Riley/Source/Repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/Dungeon_Bosses.png</File>
+    <File>C:/Users/Riley/Source/Repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/Dungeon_Enemies.png</File>
+    <File>C:/Users/Riley/Source/Repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/Dungeon_Items.png</File>
+    <File>C:/Users/Riley/Source/Repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/Dungeon_Tileset.png</File>
+    <File>C:/Users/Riley/Source/Repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/LinkSpriteSheet.png</File>
+    <File>C:/Users/Riley/Source/Repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/LinkSpriteSheetBlack.png</File>
+    <File>C:/Users/Riley/Source/Repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/LinkSpriteSheetBlue.png</File>
+    <File>C:/Users/Riley/Source/Repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/LinkSpriteSheetRed.png</File>
+    <File>C:/Users/Riley/Source/Repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/Zelda_NPCs.png</File>
+    <File>C:/Users/Riley/Source/Repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/SoundEffects/LOZ_Arrow_Boomerang.wav</File>
+    <File>C:/Users/Riley/Source/Repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/SoundEffects/LOZ_Bomb_Blow.wav</File>
+    <File>C:/Users/Riley/Source/Repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/SoundEffects/LOZ_Bomb_Drop.wav</File>
+    <File>C:/Users/Riley/Source/Repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/SoundEffects/LOZ_Boss_Hit.wav</File>
+    <File>C:/Users/Riley/Source/Repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/SoundEffects/LOZ_Boss_Scream1.wav</File>
+    <File>C:/Users/Riley/Source/Repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/SoundEffects/LOZ_Candle.wav</File>
+    <File>C:/Users/Riley/Source/Repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/SoundEffects/LOZ_Door_Unlock.wav</File>
+    <File>C:/Users/Riley/Source/Repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/SoundEffects/LOZ_Enemy_Die.wav</File>
+    <File>C:/Users/Riley/Source/Repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/SoundEffects/LOZ_Enemy_Hit.wav</File>
+    <File>C:/Users/Riley/Source/Repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/SoundEffects/LOZ_Fanfare.wav</File>
+    <File>C:/Users/Riley/Source/Repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/SoundEffects/LOZ_Get_Heart.wav</File>
+    <File>C:/Users/Riley/Source/Repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/SoundEffects/LOZ_Get_Item.wav</File>
+    <File>C:/Users/Riley/Source/Repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/SoundEffects/LOZ_Get_Rupee.wav</File>
+    <File>C:/Users/Riley/Source/Repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/SoundEffects/LOZ_Key_Appear.wav</File>
+    <File>C:/Users/Riley/Source/Repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/SoundEffects/LOZ_Link_Die.wav</File>
+    <File>C:/Users/Riley/Source/Repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/SoundEffects/LOZ_Link_Hurt.wav</File>
+    <File>C:/Users/Riley/Source/Repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/SoundEffects/LOZ_LowHealth.wav</File>
+    <File>C:/Users/Riley/Source/Repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/SoundEffects/LOZ_Recorder.wav</File>
+    <File>C:/Users/Riley/Source/Repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/SoundEffects/LOZ_Refill_Loop.wav</File>
+    <File>C:/Users/Riley/Source/Repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/SoundEffects/LOZ_Secret.wav</File>
+    <File>C:/Users/Riley/Source/Repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/SoundEffects/LOZ_Stairs.wav</File>
+    <File>C:/Users/Riley/Source/Repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/SoundEffects/LOZ_Sword_Shoot.wav</File>
+    <File>C:/Users/Riley/Source/Repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/SoundEffects/LOZ_Sword_Slash.wav</File>
+    <File>C:/Users/Riley/Source/Repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/SoundEffects/LOZ_Text.wav</File>
+    <File>C:/Users/Riley/Source/Repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/SoundEffects/LOZ_Text_Slow.wav</File>
+    <File>C:/Users/Riley/Source/Repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/Dungeon.mp3</File>
+    <File>C:/Users/Riley/Source/Repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/Dungeon_Bosses_DamageOne.png</File>
+    <File>C:/Users/Riley/Source/Repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/Dungeon_Bosses_DamageThree.png</File>
+    <File>C:/Users/Riley/Source/Repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/Dungeon_Bosses_DamageTwo.png</File>
+    <File>C:/Users/Riley/Source/Repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/Dungeon_Enemies_DamageOne.png</File>
+    <File>C:/Users/Riley/Source/Repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/Dungeon_Enemies_DamageThree.png</File>
+    <File>C:/Users/Riley/Source/Repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/Dungeon_Enemies_DamageTwo.png</File>
+    <File>C:/Users/Riley/Source/Repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/Intro.mp3</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

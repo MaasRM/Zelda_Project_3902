@@ -4,7 +4,11 @@
     "\\ZeldaProject",
     "\\ZeldaProject\\Sprint0",
     "\\ZeldaProject\\Sprint0\\Sprint0",
-    "\\ZeldaProject\\Sprint0\\Sprint0\\Content"
+    "\\ZeldaProject\\Sprint0\\Sprint0\\bin",
+    "\\ZeldaProject\\Sprint0\\Sprint0\\Content",
+    "\\ZeldaProject\\Sprint0\\Sprint0\\Items",
+    "\\ZeldaProject\\Sprint0\\Sprint0\\Link",
+    "\\ZeldaProject\\Sprint0\\Sprint0\\Projectiles"
   ],
   "SelectedNode": "\\ZeldaProject\\Sprint0\\Sprint0.sln",
   "PreviewInSolutionExplorer": false

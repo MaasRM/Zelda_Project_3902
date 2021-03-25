@@ -73,7 +73,7 @@ namespace Sprint0
         {
             XmlNode parent = blockInfo.ParentNode;
             //Edited
-            return new Block(int.Parse(blockInfo["BlockType"].InnerText), dungeonSheet, int.Parse(blockInfo["XLoc"].InnerText) * scale, (int.Parse(blockInfo["YLoc"].InnerText) + 64) * scale);
+            return new Block(int.Parse(blockInfo["BlockType"].InnerText), dungeonSheet, (int.Parse(blockInfo["XLoc"].InnerText)) * scale, (int.Parse(blockInfo["YLoc"].InnerText) + 64) * scale);
         }
 
         private IItem CreateItem(XmlNode itemInfo)
