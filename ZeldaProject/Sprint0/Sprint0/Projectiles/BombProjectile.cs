@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Audio;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -20,7 +21,8 @@ namespace Sprint0
         private const int REMOVEFRAME = 22;
         private int frame;
         private Direction projectileDirection;
-        public BombProjectile(Texture2D spritesheet, LinkStateMachine stateMachine)
+        private List<SoundEffect> soundEffects;
+        public BombProjectile(Texture2D spritesheet, LinkStateMachine stateMachine, List<SoundEffect> Link_soundEffects)
         {
             projectileDirection = stateMachine.getDirection();
             if (projectileDirection == Direction.MoveUp)
@@ -47,6 +49,7 @@ namespace Sprint0
             destinationRectangle = new Rectangle(xLoc, yLoc, bombSizeX, bombSizeY);
             frame = 0;
             this.spritesheet = spritesheet;
+            soundEffects = Link_soundEffects;
         }
 
         public void Update()
