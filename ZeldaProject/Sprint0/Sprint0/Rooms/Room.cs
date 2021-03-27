@@ -61,6 +61,11 @@ namespace Sprint0
             return wallSource;
         }
 
+        public int RoomNum()
+        {
+            return roomNum;
+        }
+
         public Rectangle getDoorSource(Direction dir)
         {
             Rectangle door;

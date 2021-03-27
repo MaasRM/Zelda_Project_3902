@@ -16,7 +16,7 @@ namespace Sprint0
         {
             if (!game.GetPlayer().getLinkStateMachine().getIsBusy())
             {
-                game.AddProjectile(new BombProjectile(game.GetPlayer().GetSpriteSheet(), game.GetPlayer().getLinkStateMachine()));
+                game.AddProjectile(new BombProjectile(game.GetPlayer().GetSpriteSheet(), game.GetPlayer().getLinkStateMachine(), game.Link_soundEffects));
             }
             game.GetPlayer().getLinkStateMachine().setUseItem();
         }

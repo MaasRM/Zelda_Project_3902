@@ -30,7 +30,10 @@ namespace Sprint0
         private AllCollisionHandler allCollisionHandler;
 
         //Sound
-        public List<SoundEffect> soundEffects;
+        public List<SoundEffect> Collision_soundEffects;
+        public List<SoundEffect> Link_soundEffects;
+        public List<SoundEffect> Enemy_soundEffects;
+        public List<SoundEffect> Text_soundEffects;
         private Song Title_music;
         private Song Dungeon_music;
 
@@ -49,7 +52,10 @@ namespace Sprint0
             items = new List<IItem>();
             npcs = new List<INPC>();
             projectiles = new List<IProjectile>();
-            soundEffects = new List<SoundEffect>();
+            Collision_soundEffects = new List<SoundEffect>();
+            Enemy_soundEffects = new List<SoundEffect>();
+            Link_soundEffects = new List<SoundEffect>();
+            Text_soundEffects = new List<SoundEffect>();
         }
 
         protected override void Initialize()
@@ -76,7 +82,6 @@ namespace Sprint0
             linkSheetList.Add(contentManager.Load<Texture2D>("LinkSpriteSheetBlack")); // 1 is black
             linkSheetList.Add(contentManager.Load<Texture2D>("LinkSpriteSheetRed")); // 2 is red
             linkSheetList.Add(contentManager.Load<Texture2D>("LinkSpriteSheetBlue")); // 3 is blue
-            link = new Link(contentManager.Load<Texture2D>("LinkSpriteSheet"), linkSheetList);
 
             Texture2D dungeonSheet = contentManager.Load<Texture2D>("Dungeon_Tileset");
 
@@ -110,37 +115,48 @@ namespace Sprint0
             Title_music = Content.Load<Song>("Intro");
             Dungeon_music = Content.Load<Song>("Dungeon");
 
-            //(a lot of) Sounds
-            soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Arrow_Boomerang"));
-            soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Bomb_Blow"));
-            soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Bomb_Drop"));
-            soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Boss_Hit"));
-            soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Boss_Scream1"));
-            soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Candle"));
-            soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Door_Unlock"));
-            soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Enemy_Die"));
-            soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Enemy_Hit"));
-            soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Fanfare"));
-            soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Get_Heart"));
-            soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Get_Item"));
-            soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Get_Rupee"));
-            soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Key_Appear"));
-            soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Link_Die"));
-            soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Link_Hurt"));
-            soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_LowHealth"));
-            soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Recorder"));
-            soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Refill_Loop"));
-            soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Secret"));
-            soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Stairs"));
-            soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Sword_Shoot"));
-            soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Sword_Slash"));
-            soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Text"));
-            soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Text_Slow"));
+            //Collision sound effects
+            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Boss_Scream1")); //done
+            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Boss_Hit")); //done
+            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Door_Unlock"));
+            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Enemy_Die")); //done
+            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Enemy_Hit")); //done
+            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Fanfare"));
+            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Get_Heart")); //isn't activating on the keys?
+            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Get_Item")); //done
+            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Get_Rupee")); //add in rupees to test on otherwise done
+            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Secret")); //done
+            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Stairs"));
+
+            //Link sound effects
+            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Arrow_Boomerang"));
+            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Bomb_Blow"));
+            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Bomb_Drop"));
+            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Candle"));
+            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_LowHealth")); 
+            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Recorder"));
+            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Refill_Loop"));
+            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Sword_Shoot"));
+            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Sword_Slash"));
+            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Link_Die")); //done
+            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Link_Hurt")); //done
+
+            //Enemy sound effects
+            Enemy_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Arrow_Boomerang"));
+            Enemy_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Key_Appear"));
+
+
+            //Text sound effects
+            Text_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Text"));
+            Text_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Text_Slow"));
+
 
             //should probably be moved later
             MediaPlayer.Play(Dungeon_music);
             MediaPlayer.Volume = 0.25f;
             MediaPlayer.IsRepeating = true;
+
+            link = new Link(contentManager.Load<Texture2D>("LinkSpriteSheet"), linkSheetList, Link_soundEffects);
         }
 
         protected override void Update(GameTime gameTime)
@@ -180,7 +196,7 @@ namespace Sprint0
                     }
                 }
 
-                allCollisionHandler.HandleCollisions(link, npcs, items, blocks, projectiles, roomManager);
+                allCollisionHandler.HandleCollisions(link, npcs, items, blocks, projectiles, roomManager, Collision_soundEffects);
 
                 roomManager.Update();
                 if (!roomManager.RoomChange())

@@ -198,5 +198,10 @@ namespace Sprint0
         {
             return roomChange;
         }
+
+        public Room Room()
+        {
+            return currentRoom;
+        }
     }
 }

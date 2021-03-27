@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Microsoft.Xna.Framework.Audio;
 
 namespace Sprint0
 {
@@ -12,18 +13,20 @@ namespace Sprint0
         private LinkStateMachine stateMachine;
         private Texture2D linkSpriteSheet;
         private List<Texture2D> linkSheetList;
+        private List<SoundEffect> soundEffects;
         private Rectangle source;
         private Rectangle destination;
         private LinkColor currentColor;
         private int damageFrameCount;
 
-        public Link(Texture2D spriteSheet, List<Texture2D> linkSheetList)
+        public Link(Texture2D spriteSheet, List<Texture2D> linkSheetList, List<SoundEffect> Link_soundEffects)
         {
             stateMachine = new LinkStateMachine();
             this.linkSheetList = linkSheetList;
             linkSpriteSheet = spriteSheet;
             currentColor = LinkColor.Green;
             damageFrameCount = 0;
+            soundEffects = Link_soundEffects;
         }
 
         public void Update()
@@ -171,12 +174,17 @@ namespace Sprint0
             if(stateMachine.getColor() != LinkColor.Damaged)
             {
                 damageFrameCount = 0;
+                soundEffects[10].Play();
                 stateMachine.TakeDamage(damage, direction);
             }
         }
 
         public bool IsAlive()
         {
+            if (!stateMachine.HasHealth())
+            {
+                soundEffects[9].Play();
+            }
             return stateMachine.HasHealth();
         }
 

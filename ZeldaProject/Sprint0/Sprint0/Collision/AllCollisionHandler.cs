@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Audio;
+
 namespace Sprint0
 {
     public class AllCollisionHandler
@@ -11,6 +13,8 @@ namespace Sprint0
         private int cameraWallMinY;
         private int cameraWallMaxX;
         private int cameraWallMaxY;
+        private bool playedSecret1;
+        private bool playedSecret2;
 
         public AllCollisionHandler(int x1, int x2, int y1, int y2)
         {
@@ -19,13 +23,15 @@ namespace Sprint0
             cameraWallMinY = y1;
             cameraWallMaxX = x2;
             cameraWallMaxY = y2;
+            playedSecret1 = false;
+            playedSecret2 = false;
         }
 
-        public void HandleCollisions(IPlayer player, List<INPC> npcs, List<IItem> items, List<IBlock> blocks, List<IProjectile> projectiles, RoomManager roomManager)
+        public void HandleCollisions(IPlayer player, List<INPC> npcs, List<IItem> items, List<IBlock> blocks, List<IProjectile> projectiles, RoomManager roomManager, List<SoundEffect> Collision_soundEffects)
         {
-            PlayerItemCollisions(player, items, npcs);
-            BlockCollisions(player, npcs, blocks, roomManager);
-            ProjectileCollisions(player, npcs, projectiles);
+            PlayerItemCollisions(player, items, npcs, Collision_soundEffects);
+            BlockCollisions(player, npcs, blocks, roomManager, Collision_soundEffects);
+            ProjectileCollisions(player, npcs, projectiles, Collision_soundEffects);
             CheckTraps(npcs);
             PlayerEnemyCollisions(player, npcs);
             CheckWalls(player, npcs, blocks, roomManager);
@@ -129,7 +135,7 @@ namespace Sprint0
             }
         }
 
-        private void PlayerItemCollisions(IPlayer player, List<IItem> items, List<INPC> npcs)
+        private void PlayerItemCollisions(IPlayer player, List<IItem> items, List<INPC> npcs, List<SoundEffect> Collision_soundEffects)
         {
             List<IItem> collidedItems;
             collidedItems = new List<IItem>();
@@ -139,7 +145,21 @@ namespace Sprint0
                 {
                     if(!(item is Fire))
                     {
-                        collidedItems.Add(item);
+                        if(item is KeyItem || item is HeartItem)
+                        {
+                            Collision_soundEffects[6].Play();
+                            collidedItems.Add(item);
+                        }
+                        else if(item is BlueRupeeItem || item is YellowRupeeItem)
+                        {
+                            Collision_soundEffects[8].Play();
+                            collidedItems.Add(item);
+                        }
+                        else
+                        {
+                            Collision_soundEffects[7].Play();
+                            collidedItems.Add(item);
+                        }
                     }
 
                     if(item is ClockItem)
@@ -161,8 +181,9 @@ namespace Sprint0
             }
         }
 
-        private void BlockCollisions(IPlayer player, List<INPC> npcs, List<IBlock> blocks, RoomManager roomManager)
+        private void BlockCollisions(IPlayer player, List<INPC> npcs, List<IBlock> blocks, RoomManager roomManager, List<SoundEffect> Collision_soundEffects)
         {
+
             foreach (IBlock block1 in blocks)
             {
                 if (player.LinkPosition().Intersects(block1.GetBlockLocation()) && (block1.getIndex() != 10) && (block1.getIndex() != 5) && (block1.getIndex() != 0))
@@ -179,7 +200,17 @@ namespace Sprint0
                 } 
                 else if (player.LinkPosition().Intersects(block1.GetBlockLocation()) && block1.getIndex() == 0)
                 {
-                    roomManager.UnlockDoor(Direction.MoveLeft);
+                    if(!playedSecret1 && roomManager.Room().RoomNum() == 0)
+                    {
+                        Collision_soundEffects[9].Play();
+                        playedSecret1 = true;
+                    }
+                    else if(!playedSecret2 && roomManager.Room().RoomNum() == 6)
+                    {
+                        Collision_soundEffects[9].Play();
+                        playedSecret2 = true;
+                        roomManager.UnlockDoor(Direction.MoveLeft);
+                    }
                 }
 
                 foreach (INPC nPC in npcs)
@@ -194,7 +225,7 @@ namespace Sprint0
             }
         }
 
-        private void ProjectileCollisions(IPlayer player, List<INPC> npcs, List<IProjectile> projectiles)
+        private void ProjectileCollisions(IPlayer player, List<INPC> npcs, List<IProjectile> projectiles, List<SoundEffect> Collision_soundEffects)
         {
             List<INPC> DeadEnemies = new List<INPC>();
             foreach (IProjectile projectile in projectiles)
@@ -207,10 +238,28 @@ namespace Sprint0
                         {
                             if (projectile.GetProjectileLocation().Intersects(nPC.GetNPCLocation()))
                             {
+                                if(nPC is Aquamentus)
+                                {
+                                    Collision_soundEffects[1].Play();
+                                }
+                                else
+                                {
+                                    Collision_soundEffects[4].Play();
+                                }
+
                                 EnemyProjectileHandler.HandleCollision(nPC, projectile);
 
                                 if (!((IEnemy)nPC).StillAlive())
                                 {
+                                    if (nPC is Aquamentus)
+                                    {
+                                        Collision_soundEffects[0].Play();
+                                    }
+                                    else
+                                    {
+                                        Collision_soundEffects[3].Play();
+                                    }
+
                                     DeadEnemies.Add(nPC);
                                 }
                             }
