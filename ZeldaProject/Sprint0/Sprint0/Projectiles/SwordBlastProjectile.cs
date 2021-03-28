@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using System.Text;
 
 namespace Sprint0
@@ -22,7 +23,8 @@ namespace Sprint0
         private Direction projectileVerticleDirection;
         private Direction projectileHorizontalDirection;
         private SpriteEffects flip;
-        public SwordBlastProjectile(Texture2D spritesheet, int x, int y, Direction verticleDirection, Direction horizontalDirection, SpriteEffects flip)
+        private SoundEffectInstance explosion;
+        public SwordBlastProjectile(Texture2D spritesheet, int x, int y, Direction verticleDirection, Direction horizontalDirection, SpriteEffects flip, SoundEffectInstance boom)
         {
             this.spritesheet = spritesheet;
             xLoc = x;
@@ -33,6 +35,7 @@ namespace Sprint0
             destinationRectangle = new Rectangle(xLoc, yLoc, 30, 60);
             sourceRectangle = new Rectangle(27, 155, 8, 15);
             frame = 0;
+            explosion = boom;
         }
 
         public void Update()
@@ -55,6 +58,8 @@ namespace Sprint0
                 xLoc += blastSpeed;
             }
             destinationRectangle = new Rectangle(xLoc, yLoc, 30, 60);
+
+            if (frame == HITFRAME) explosion.Play();
         }
 
         public void Draw(SpriteBatch spriteBatch)
