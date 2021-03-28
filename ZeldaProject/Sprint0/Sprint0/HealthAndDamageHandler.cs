@@ -19,6 +19,11 @@ namespace Sprint0
             return currentHealth > 0;
         }
 
+        public int Health()
+        {
+            return currentHealth;
+        }
+
         public void GetDamaged(int damageAmount)
         {
             currentHealth -= damageAmount;

@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Audio;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -22,7 +23,7 @@ namespace Sprint0
         private Boolean flip;
         private Direction projectileDirection;
 
-        public CandleFireProjectile(Texture2D spritesheet, LinkStateMachine stateMachine)
+        public CandleFireProjectile(Texture2D spritesheet, LinkStateMachine stateMachine, List<SoundEffect> Link_soundEffects)
         {
             projectileDirection = stateMachine.getDirection();
             if(projectileDirection == Direction.MoveUp)
@@ -50,6 +51,7 @@ namespace Sprint0
             destinationRectangle = new Rectangle(xLoc, yLoc, candleSize, candleSize);
             frame = 0;
             this.spritesheet = spritesheet;
+            Link_soundEffects[3].Play();
         }
         public void Update()
         {

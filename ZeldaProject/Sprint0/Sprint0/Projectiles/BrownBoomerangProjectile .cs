@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Audio;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -23,7 +24,8 @@ namespace Sprint0
         private bool remove;
         private Direction projectileDirection;
         private SpriteEffects flip;
-        public BrownBoomerangProjectile(Texture2D spritesheet, LinkStateMachine stateMachine)
+        private SoundEffectInstance flyingBoomerang;
+        public BrownBoomerangProjectile(Texture2D spritesheet, LinkStateMachine stateMachine, List<SoundEffect> Link_soundEffects)
         {
             this.spritesheet = spritesheet;
             this.stateMachine = stateMachine;
@@ -54,6 +56,9 @@ namespace Sprint0
             sourceRectangle = new Rectangle(64, 185, 8, 15);
             destinationRectangle = new Rectangle(xLoc, yLoc, xSize, ySize);
             frame = 0;
+            flyingBoomerang = Link_soundEffects[0].CreateInstance();
+            flyingBoomerang.IsLooped = true;
+            flyingBoomerang.Play();
         }
 
         public void Update()
@@ -125,6 +130,7 @@ namespace Sprint0
             {
                 flip = SpriteEffects.FlipVertically;
             }
+            if (remove) flyingBoomerang.Stop();
             frame++;
         }
 

@@ -33,7 +33,7 @@ namespace Sprint0
             BlockCollisions(player, npcs, blocks, roomManager, Collision_soundEffects);
             ProjectileCollisions(player, npcs, projectiles, Collision_soundEffects);
             CheckTraps(npcs);
-            PlayerEnemyCollisions(player, npcs);
+            PlayerEnemyCollisions(player, npcs, Collision_soundEffects);
             CheckWalls(player, npcs, blocks, roomManager);
             CheckLink(player, roomManager);
         }
@@ -99,7 +99,7 @@ namespace Sprint0
             }
         }
 
-        private void PlayerEnemyCollisions(IPlayer player, List<INPC> npcs)
+        private void PlayerEnemyCollisions(IPlayer player, List<INPC> npcs, List<SoundEffect> Collision_soundEffects)
         {
             List<INPC> DeadEnemies = new List<INPC>();
 
@@ -119,10 +119,28 @@ namespace Sprint0
 
                     if (nPC.GetNPCLocation().Intersects(player.LinkPosition()))
                     {
+                        if (nPC is Aquamentus)
+                        {
+                            Collision_soundEffects[1].Play();
+                        }
+                        else
+                        {
+                            Collision_soundEffects[4].Play();
+                        }
+
                         LinkEnemyHandler.HandleCollision(player, nPC);
 
                         if(!((IEnemy)nPC).StillAlive())
                         {
+                            if (nPC is Aquamentus)
+                            {
+                                Collision_soundEffects[0].Play();
+                            }
+                            else
+                            {
+                                Collision_soundEffects[3].Play();
+                            }
+
                             DeadEnemies.Add(nPC);
                         }
                     }

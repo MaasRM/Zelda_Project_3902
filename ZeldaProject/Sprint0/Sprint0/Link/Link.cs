@@ -21,7 +21,7 @@ namespace Sprint0
 
         public Link(Texture2D spriteSheet, List<Texture2D> linkSheetList, List<SoundEffect> Link_soundEffects)
         {
-            stateMachine = new LinkStateMachine();
+            stateMachine = new LinkStateMachine(Link_soundEffects);
             this.linkSheetList = linkSheetList;
             linkSpriteSheet = spriteSheet;
             currentColor = LinkColor.Green;
@@ -190,7 +190,7 @@ namespace Sprint0
 
         public void Reset()
         {
-            stateMachine = new LinkStateMachine();
+            stateMachine = new LinkStateMachine(soundEffects);
         }
     }
 }

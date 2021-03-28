@@ -18,7 +18,6 @@ namespace Sprint0
             frameIndex = 0;
             sheet = spriteSheet;
             flip = SpriteEffects.FlipHorizontally;
-
         }
 
         public void Update()
@@ -33,7 +32,6 @@ namespace Sprint0
 
         public void Draw(SpriteBatch spriteBatch)
         {
-
             if(frameIndex % 2  == 0)
             {
                 spriteBatch.Draw(sheet, destination, spriteSource, Color.White);
@@ -42,8 +40,6 @@ namespace Sprint0
             {
                 spriteBatch.Draw(sheet, destination, spriteSource, Color.White, 0, new Vector2(0, 0), flip, 0f);
             }
-            
-
         }
 
         public Rectangle GetLocationRectangle()

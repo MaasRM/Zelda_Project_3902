@@ -16,7 +16,7 @@ namespace Sprint0.Commands
         {
             if (!game.GetPlayer().getLinkStateMachine().getIsBusy())
             {
-                game.AddProjectile(new CandleFireProjectile(game.GetPlayer().GetSpriteSheet(), game.GetPlayer().getLinkStateMachine()));
+                game.AddProjectile(new CandleFireProjectile(game.GetPlayer().GetSpriteSheet(), game.GetPlayer().getLinkStateMachine(), game.Link_soundEffects));
             }
             game.GetPlayer().getLinkStateMachine().setUseItem();
         }
