@@ -73,6 +73,7 @@ namespace Sprint0
             }
             destinationRectangle = new Rectangle(xLoc, yLoc, xSize, ySize);
             frame = 0;
+            game.Link_soundEffects[7].Play();
         }
 
         public void Update()
@@ -101,7 +102,7 @@ namespace Sprint0
             } 
             else
             {
-                game.Link_soundEffects[7].Play();
+                game.Link_soundEffects[1a].Play();
                 game.AddProjectile(new SwordBlastProjectile(spritesheet, xLoc - 30, yLoc - 10, Direction.MoveUp, Direction.MoveLeft, SpriteEffects.None));
                 game.AddProjectile(new SwordBlastProjectile(spritesheet, xLoc, yLoc - 10, Direction.MoveUp, Direction.MoveRight, SpriteEffects.FlipHorizontally));
                 game.AddProjectile(new SwordBlastProjectile(spritesheet, xLoc - 30, yLoc + 10, Direction.MoveDown, Direction.MoveLeft, SpriteEffects.FlipVertically));
