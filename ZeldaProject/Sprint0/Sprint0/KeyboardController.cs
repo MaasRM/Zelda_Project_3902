@@ -31,6 +31,7 @@ namespace Sprint0
 			linkActions.Add(Keys.Down, new LinkFaceDownCommand(game));
 			linkActions.Add(Keys.N, new LinkAttackCommand(game));
 			linkActions.Add(Keys.Z, new LinkAttackCommand(game));
+			linkActions.Add(Keys.Space, new LinkAttackCommand(game));
 			linkActions.Add(Keys.E, new DamageLinkCommand(game));
 			linkActions.Add(Keys.D1, new LinkUseBrownArrowCommand(game));
 			linkActions.Add(Keys.NumPad1, new LinkUseBrownArrowCommand(game));

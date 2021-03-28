@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -47,8 +48,10 @@ namespace Sprint0
         private const int scale = 4;
         private const int STARTHEALTH = 18;
         private const int SWORDPROJECTILEBUFFER = 20;
+        private List<SoundEffect> soundEffects;
+        private SoundEffectInstance lowHealth;
 
-        public LinkStateMachine()
+        public LinkStateMachine(List<SoundEffect> Link_soundEffects)
         {
             spriteFactory = new LinkSpriteFactory();
             direction = Direction.MoveUp;
@@ -62,6 +65,9 @@ namespace Sprint0
             frame = 0;
             swordProjFrame = 0;
             damageVector = new Vector2(0, 0);
+            soundEffects = Link_soundEffects;
+            lowHealth = soundEffects[4].CreateInstance();
+            lowHealth.IsLooped = true;
         }
 
         public Rectangle getDestination()
@@ -225,6 +231,7 @@ namespace Sprint0
                 this.animation = Animation.Attack;
                 isBusy = true;
                 frame = 0;
+                soundEffects[8].Play();
             }
         }
 
@@ -316,6 +323,15 @@ namespace Sprint0
 
         public bool HasHealth()
         {
+            if(healthAndDamage.Health() < 2 && healthAndDamage.IsAlive())
+            {
+                lowHealth.Play();
+            }
+            else
+            {
+                lowHealth.Stop();
+            }
+
             return healthAndDamage.IsAlive();
         }
 

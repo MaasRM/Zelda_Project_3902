@@ -129,15 +129,15 @@ namespace Sprint0
             Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Stairs"));
 
             //Link sound effects
-            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Arrow_Boomerang"));
-            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Bomb_Blow"));
-            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Bomb_Drop"));
-            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Candle"));
-            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_LowHealth")); 
+            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Arrow_Boomerang")); //done
+            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Bomb_Blow")); //done
+            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Bomb_Drop")); //done
+            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Candle")); //done
+            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_LowHealth")); //done
             Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Recorder"));
             Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Refill_Loop"));
             Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Sword_Shoot"));
-            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Sword_Slash"));
+            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Sword_Slash")); //done
             Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Link_Die")); //done
             Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Link_Hurt")); //done
 
@@ -145,11 +145,9 @@ namespace Sprint0
             Enemy_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Arrow_Boomerang"));
             Enemy_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Key_Appear"));
 
-
             //Text sound effects
             Text_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Text"));
             Text_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Text_Slow"));
-
 
             //should probably be moved later
             MediaPlayer.Play(Dungeon_music);

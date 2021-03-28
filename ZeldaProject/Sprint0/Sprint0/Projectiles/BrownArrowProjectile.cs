@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Audio;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -24,7 +25,7 @@ namespace Sprint0
         private const int REMOVEFRAME = 13;
         private Direction projectileDirection;
         private SpriteEffects flip;
-        public BrownArrowProjectile(Texture2D spritesheet, LinkStateMachine stateMachine)
+        public BrownArrowProjectile(Texture2D spritesheet, LinkStateMachine stateMachine, List<SoundEffect> Link_soundEffects)
         {
             this.spritesheet = spritesheet;
             projectileDirection = stateMachine.getDirection();
@@ -69,6 +70,7 @@ namespace Sprint0
             }
             destinationRectangle = new Rectangle(xLoc, yLoc, xSize, ySize);
             frame = 0;
+            Link_soundEffects[0].Play();
         }
 
         public void Update()

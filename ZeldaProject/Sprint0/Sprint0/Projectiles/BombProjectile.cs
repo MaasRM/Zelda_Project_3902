@@ -22,6 +22,7 @@ namespace Sprint0
         private int frame;
         private Direction projectileDirection;
         private List<SoundEffect> soundEffects;
+        private bool placedDown;
         public BombProjectile(Texture2D spritesheet, LinkStateMachine stateMachine, List<SoundEffect> Link_soundEffects)
         {
             projectileDirection = stateMachine.getDirection();
@@ -50,12 +51,16 @@ namespace Sprint0
             frame = 0;
             this.spritesheet = spritesheet;
             soundEffects = Link_soundEffects;
+            placedDown = false;
         }
 
         public void Update()
         {
             if(frame == EXPLODEFRAME)
             {
+                soundEffects[1].Play();
+                placedDown = false;
+
                 xLoc -= bombSizeX/2;
                 destinationRectangle = new Rectangle(xLoc, yLoc, bombSizeY, bombSizeY);
             }
@@ -68,6 +73,11 @@ namespace Sprint0
 
         public void Draw(SpriteBatch spriteBatch)
         {
+            if (!placedDown)
+            {
+                soundEffects[2].Play();
+                placedDown = true;
+            }
             spriteBatch.Draw(spritesheet, destinationRectangle, sourceRectangle, Color.White);
         }
 
