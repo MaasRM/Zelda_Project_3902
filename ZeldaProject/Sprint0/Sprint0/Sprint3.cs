@@ -99,18 +99,6 @@ namespace Sprint0
 
             Texture2D npcSheet = contentManager.Load<Texture2D>("Zelda_NPCs");
 
-            XmlDocument doc = new XmlDocument();
-            doc.Load(new FileStream("..\\..\\..\\Content\\ZeldaRoomLayout.xml", FileMode.Open));
-            roomManager.SetUpRooms(doc, dungeonSheet , enemySheets, itemsSheet, bossSheets, npcSheet);
-
-            foreach(IController controller in controllerList)
-            {
-                controller.SetCommands(this);
-            }
-
-            allCollisionHandler = new AllCollisionHandler(this.GraphicsDevice.Viewport.Bounds.X, this.GraphicsDevice.Viewport.Bounds.Width, this.GraphicsDevice.Viewport.Bounds.Y, this.GraphicsDevice.Viewport.Bounds.Height);
-
-
             //Songs
             Title_music = Content.Load<Song>("Intro");
             Dungeon_music = Content.Load<Song>("Dungeon");
@@ -142,17 +130,28 @@ namespace Sprint0
             Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Link_Hurt")); //done
 
             //Enemy sound effects
-            Enemy_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Arrow_Boomerang"));
-            Enemy_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Key_Appear"));
+            Enemy_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Arrow_Boomerang")); //done
+            Enemy_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Key_Appear")); 
 
             //Text sound effects
-            Text_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Text"));
-            Text_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Text_Slow"));
+            Text_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Text")); //to be implemented
+            Text_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Text_Slow")); //to be implemented
 
             //should probably be moved later
             MediaPlayer.Play(Dungeon_music);
             MediaPlayer.Volume = 0.25f;
             MediaPlayer.IsRepeating = true;
+
+            XmlDocument doc = new XmlDocument();
+            doc.Load(new FileStream("..\\..\\..\\Content\\ZeldaRoomLayout.xml", FileMode.Open));
+            roomManager.SetUpRooms(doc, dungeonSheet, enemySheets, itemsSheet, bossSheets, npcSheet);
+
+            foreach (IController controller in controllerList)
+            {
+                controller.SetCommands(this);
+            }
+
+            allCollisionHandler = new AllCollisionHandler(this.GraphicsDevice.Viewport.Bounds.X, this.GraphicsDevice.Viewport.Bounds.Width, this.GraphicsDevice.Viewport.Bounds.Y, this.GraphicsDevice.Viewport.Bounds.Height);
 
             link = new Link(contentManager.Load<Texture2D>("LinkSpriteSheet"), linkSheetList, Link_soundEffects);
         }

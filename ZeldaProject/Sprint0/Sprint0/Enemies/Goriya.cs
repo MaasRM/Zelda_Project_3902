@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,7 @@ namespace Sprint0
         private Rectangle destination;
         private Sprint3 game;
         private Tuple<int, int, GoriyaStateMachine.GoriyaColor> init;
+        private SoundEffectInstance flyingBoomerang;
 
         public Goriya(int x, int y, GoriyaStateMachine.GoriyaColor c, List<Texture2D> spriteSheet, Sprint3 game)
         {
@@ -24,13 +26,14 @@ namespace Sprint0
             currentSheet = spriteSheet[0];
             init = new Tuple<int, int, GoriyaStateMachine.GoriyaColor>(x, y, c);
             this.game = game;
+            flyingBoomerang = game.Enemy_soundEffects[0].CreateInstance();
         }
 
         public void Update()
         {
             if(!stateMachine.Throwing() && stateMachine.TryToThrow())
             {
-                boomerang = new GoriyaBoomerang(goriyaSpriteSheet[0], stateMachine);
+                boomerang = new GoriyaBoomerang(goriyaSpriteSheet[0], stateMachine, flyingBoomerang);
                 game.AddProjectile(boomerang);
             }
 
