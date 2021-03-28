@@ -101,10 +101,11 @@ namespace Sprint0
             } 
             else
             {
-                game.AddProjectile(new SwordBlastProjectile(spritesheet, xLoc - 30, yLoc - 10, Direction.MoveUp, Direction.MoveLeft, SpriteEffects.None, game.Link_soundEffects[7].CreateInstance()));
-                game.AddProjectile(new SwordBlastProjectile(spritesheet, xLoc, yLoc - 10, Direction.MoveUp, Direction.MoveRight, SpriteEffects.FlipHorizontally, game.Link_soundEffects[7].CreateInstance()));
-                game.AddProjectile(new SwordBlastProjectile(spritesheet, xLoc - 30, yLoc + 10, Direction.MoveDown, Direction.MoveLeft, SpriteEffects.FlipVertically, game.Link_soundEffects[7].CreateInstance()));
-                game.AddProjectile(new SwordBlastProjectile(spritesheet, xLoc, yLoc + 10, Direction.MoveDown, Direction.MoveRight, SpriteEffects.FlipVertically | SpriteEffects.FlipHorizontally, game.Link_soundEffects[7].CreateInstance()));
+                game.Link_soundEffects[7].Play();
+                game.AddProjectile(new SwordBlastProjectile(spritesheet, xLoc - 30, yLoc - 10, Direction.MoveUp, Direction.MoveLeft, SpriteEffects.None));
+                game.AddProjectile(new SwordBlastProjectile(spritesheet, xLoc, yLoc - 10, Direction.MoveUp, Direction.MoveRight, SpriteEffects.FlipHorizontally));
+                game.AddProjectile(new SwordBlastProjectile(spritesheet, xLoc - 30, yLoc + 10, Direction.MoveDown, Direction.MoveLeft, SpriteEffects.FlipVertically));
+                game.AddProjectile(new SwordBlastProjectile(spritesheet, xLoc, yLoc + 10, Direction.MoveDown, Direction.MoveRight, SpriteEffects.FlipVertically | SpriteEffects.FlipHorizontally));
             }
         }
 
