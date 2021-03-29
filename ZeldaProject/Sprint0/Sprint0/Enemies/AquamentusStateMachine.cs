@@ -27,7 +27,7 @@ namespace Sprint0
         private int lastFire;
         private int health;
         private int damageFrames;
-        private const int WIDTH = 16;
+        private const int WIDTH = 24;
         private const int HEIGHT = 32;
         private const int MAXHEALTH = 16;
         private const int FIRECOOLDOWN = 40;
