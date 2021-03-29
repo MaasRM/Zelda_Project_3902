@@ -4,7 +4,8 @@ namespace Sprint0
 {
     public class EnemyProximityTrigger
     {
-        public const int PIXELSCALER = 4;
+        private const int PIXELSCALER = 4;
+        private const int WALLMASTERYTRIGGERRADIUS = 20;
 
         public EnemyProximityTrigger()
         {
@@ -20,7 +21,7 @@ namespace Sprint0
             int xLoc = wallPos.X + wallPos.Width / 2;
             int yLoc = wallPos.Y + wallPos.Height / 2;
 
-            if (Math.Abs(linkX - xLoc) < 20 * PIXELSCALER && Math.Abs(linkY - yLoc) < 20 * PIXELSCALER)
+            if (Math.Abs(linkX - xLoc) < WALLMASTERYTRIGGERRADIUS * PIXELSCALER && Math.Abs(linkY - yLoc) < WALLMASTERYTRIGGERRADIUS * PIXELSCALER)
             {
                 wallmaster.TriggerWallmaster();
             }

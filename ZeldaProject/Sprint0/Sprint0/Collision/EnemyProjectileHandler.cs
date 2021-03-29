@@ -13,6 +13,8 @@ namespace Sprint0
             Left
         };
 
+        private const int DAMAGEVECTORSIZE = 3;
+
         public EnemyProjectileHandler()
         {
         }
@@ -91,10 +93,10 @@ namespace Sprint0
 
         private static Vector2 EnemyDamageVector(OverlapInRelationToEnemy overlap)
         {
-            Vector2 up = new Vector2(0, -3);
-            Vector2 right = new Vector2(3, 0);
-            Vector2 down = new Vector2(0, 3);
-            Vector2 left = new Vector2(-3, 0);
+            Vector2 up = new Vector2(0, -DAMAGEVECTORSIZE);
+            Vector2 right = new Vector2(DAMAGEVECTORSIZE, 0);
+            Vector2 down = new Vector2(0, DAMAGEVECTORSIZE);
+            Vector2 left = new Vector2(-DAMAGEVECTORSIZE, 0);
 
             if (overlap == OverlapInRelationToEnemy.Down)
             {
