@@ -3,16 +3,13 @@
   <MonoDevelop.Ide.Workbench>
     <Files>
       <File FileName="Sprint0/Link/LinkStateMachine.cs" Line="1" Column="1" />
-      <File FileName="Sprint0/Rooms/RoomManager.cs" Line="183" Column="20" />
+      <File FileName="Sprint0/Rooms/RoomManager.cs" Line="32" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Sprint0" expanded="True">
             <Node name="Sprint0" expanded="True">
-              <Node name="Collision" expanded="True" />
-              <Node name="Content" expanded="True" />
-              <Node name="Enemies" expanded="True" />
               <Node name="Link" expanded="True" />
               <Node name="Rooms" expanded="True">
                 <Node name="RoomManager.cs" selected="True" />

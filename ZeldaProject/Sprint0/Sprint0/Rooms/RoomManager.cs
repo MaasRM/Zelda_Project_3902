@@ -20,6 +20,7 @@ namespace Sprint0
         private Room oldRoom;
         private Rectangle oldRoomLoc;
         private const int scale = 4;
+        private const int FIRSTROOM = 15;
 
         public RoomManager(Sprint3 game)
         {
@@ -34,7 +35,7 @@ namespace Sprint0
             dungeonSheet = dungeon;
             RoomBuilder builder = new RoomBuilder(game, xmlDoc, dungeon, enemies, items, bosses, npcs);
             roomList = builder.buildRoomList();
-            currentRoom = roomList[15];
+            currentRoom = roomList[FIRSTROOM];
         }
 
         public void Update()
@@ -189,7 +190,7 @@ namespace Sprint0
 
         public void FirstRoom()
         {
-            roomIndex = 15;
+            roomIndex = FIRSTROOM;
             currentRoom = roomList[roomIndex];
             game.ClearProjectiles();
         }
