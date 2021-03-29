@@ -189,7 +189,7 @@ namespace Sprint0
 
         public void FirstRoom()
         {
-            roomIndex = 0;
+            roomIndex = 15;
             currentRoom = roomList[roomIndex];
             game.ClearProjectiles();
         }
