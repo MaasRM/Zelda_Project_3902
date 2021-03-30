@@ -131,6 +131,11 @@ namespace Sprint0
             linkSpriteSheet.SetData(data);
         }
 
+        public LinkInventory GetLinkInventory()
+        {
+            return inventory;
+        }
+
         public LinkStateMachine getLinkStateMachine()
         {
             return stateMachine;
