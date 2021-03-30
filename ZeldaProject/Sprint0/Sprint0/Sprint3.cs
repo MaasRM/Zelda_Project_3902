@@ -99,6 +99,8 @@ namespace Sprint0
 
             Texture2D npcSheet = contentManager.Load<Texture2D>("Zelda_NPCs");
 
+            Texture2D inventory = new Texture2D(GraphicsDevice, 1, 1);
+
             //Songs
             Title_music = Content.Load<Song>("Intro");
             Dungeon_music = Content.Load<Song>("Dungeon");
@@ -153,7 +155,7 @@ namespace Sprint0
 
             allCollisionHandler = new AllCollisionHandler(this.GraphicsDevice.Viewport.Bounds.X, this.GraphicsDevice.Viewport.Bounds.Width, this.GraphicsDevice.Viewport.Bounds.Y, this.GraphicsDevice.Viewport.Bounds.Height);
 
-            link = new Link(contentManager.Load<Texture2D>("LinkSpriteSheet"), linkSheetList, Link_soundEffects);
+            link = new Link(contentManager.Load<Texture2D>("LinkSpriteSheet"), linkSheetList, Link_soundEffects, inventory);
         }
 
         protected override void Update(GameTime gameTime)

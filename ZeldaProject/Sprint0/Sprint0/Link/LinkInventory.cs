@@ -14,16 +14,23 @@ namespace Sprint0
         private int rupeeCount;
         private List<IItem> linkItems;
         private IItem currentItem;
+        private Texture2D inventoryBackground;
 
-        public LinkInventory()
+        public LinkInventory(Texture2D background)
         {
             keyCount = 0;
             bombCount = 0;
             rupeeCount = 0;
             linkItems = new List<IItem>();
             currentItem = null;
+            inventoryBackground = background;
         }
-        
+
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            
+        }
+
         public void addItem(IItem item)
         {
             if(linkItems.Count == 0)

@@ -20,7 +20,7 @@ namespace Sprint0
         private int damageFrameCount;
         private LinkInventory inventory;
 
-        public Link(Texture2D spriteSheet, List<Texture2D> linkSheetList, List<SoundEffect> Link_soundEffects)
+        public Link(Texture2D spriteSheet, List<Texture2D> linkSheetList, List<SoundEffect> Link_soundEffects,  Texture2D inventory)
         {
             stateMachine = new LinkStateMachine(Link_soundEffects);
             this.linkSheetList = linkSheetList;
@@ -28,7 +28,7 @@ namespace Sprint0
             currentColor = LinkColor.Green;
             damageFrameCount = 0;
             soundEffects = Link_soundEffects;
-            inventory = new LinkInventory();
+            this.inventory = new LinkInventory(inventory);
         }
 
         public void Update()
