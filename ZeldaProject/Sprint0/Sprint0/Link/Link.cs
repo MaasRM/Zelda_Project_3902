@@ -11,6 +11,7 @@ namespace Sprint0
     public class Link : IPlayer
     {
         private LinkStateMachine stateMachine;
+        private LinkInventory linkInventory;
         private Texture2D linkSpriteSheet;
         private List<Texture2D> linkSheetList;
         private List<SoundEffect> soundEffects;
@@ -18,7 +19,6 @@ namespace Sprint0
         private Rectangle destination;
         private LinkColor currentColor;
         private int damageFrameCount;
-        private LinkInventory inventory;
 
         public Link(Texture2D spriteSheet, List<Texture2D> linkSheetList, List<SoundEffect> Link_soundEffects,  Texture2D inventory)
         {
@@ -28,7 +28,7 @@ namespace Sprint0
             currentColor = LinkColor.Green;
             damageFrameCount = 0;
             soundEffects = Link_soundEffects;
-            this.inventory = new LinkInventory(inventory);
+            linkInventory = new LinkInventory(inventory);
         }
 
         public void Update()
@@ -85,7 +85,6 @@ namespace Sprint0
             {
                 spriteBatch.Draw(linkSpriteSheet, destination, source, Color.White);
             }
-            inventory.Draw(spriteBatch);
         }
 
         public void changeColor(LinkColor currentColor, LinkColor newColor)
@@ -134,7 +133,7 @@ namespace Sprint0
 
         public LinkInventory GetLinkInventory()
         {
-            return inventory;
+            return linkInventory;
         }
 
         public LinkStateMachine getLinkStateMachine()

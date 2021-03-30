@@ -29,7 +29,7 @@ namespace Sprint0
         public void Draw(SpriteBatch spriteBatch)
         {
             Rectangle inventorySource = new Rectangle(258,12, 254, 54);
-            Rectangle inventoryDestination = new Rectangle(0, 0, 256 * 4, 56 * 4);
+            Rectangle inventoryDestination = new Rectangle(0, 0, 256 * 4, 64 * 4);
             spriteBatch.Draw(inventoryBackground, inventoryDestination, inventorySource, Color.White);
         }
 

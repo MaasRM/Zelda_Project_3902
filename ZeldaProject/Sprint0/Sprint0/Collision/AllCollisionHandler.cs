@@ -167,7 +167,7 @@ namespace Sprint0
                         {
                             Collision_soundEffects[6].Play();
                             collidedItems.Add(item);
-                            ((Link)player).GetLinkInventory().addKey();
+                            player.GetLinkInventory().addKey();
                         }
                         else if(item is HeartItem)
                         {
@@ -178,19 +178,19 @@ namespace Sprint0
                         {
                             Collision_soundEffects[8].Play();
                             collidedItems.Add(item);
-                            ((Link)player).GetLinkInventory().addRupee(5);
+                            player.GetLinkInventory().addRupee(5);
                         }
                         else if (item is YellowRupeeItem)
                         {
                             Collision_soundEffects[8].Play();
                             collidedItems.Add(item);
-                            ((Link)player).GetLinkInventory().addRupee(1);
+                            player.GetLinkInventory().addRupee(1);
                         }
                         else
                         {
                             Collision_soundEffects[7].Play();
                             collidedItems.Add(item);
-                            ((Link)player).GetLinkInventory().addItem(item);
+                            player.GetLinkInventory().addItem(item);
                         }
                     }
 
