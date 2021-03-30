@@ -85,6 +85,7 @@ namespace Sprint0
             {
                 spriteBatch.Draw(linkSpriteSheet, destination, source, Color.White);
             }
+            inventory.Draw(spriteBatch);
         }
 
         public void changeColor(LinkColor currentColor, LinkColor newColor)
