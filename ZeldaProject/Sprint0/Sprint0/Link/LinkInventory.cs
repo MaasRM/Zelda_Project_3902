@@ -63,14 +63,14 @@ namespace Sprint0
             return bombCount;
         }
 
-        public void addRupee()
+        public void addRupee(int num)
         {
-            rupeeCount++;
+            rupeeCount += num;
         }
 
-        public void removeRupee()
+        public void removeRupee(int num)
         {
-            rupeeCount--;
+            rupeeCount -= num;
         }
 
         public int getRupeeCount()

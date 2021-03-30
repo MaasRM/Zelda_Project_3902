@@ -163,20 +163,34 @@ namespace Sprint0
                 {
                     if(!(item is Fire))
                     {
-                        if(item is KeyItem || item is HeartItem)
+                        if(item is KeyItem)
+                        {
+                            Collision_soundEffects[6].Play();
+                            collidedItems.Add(item);
+                            ((Link)player).GetLinkInventory().addKey();
+                        }
+                        else if(item is HeartItem)
                         {
                             Collision_soundEffects[6].Play();
                             collidedItems.Add(item);
                         }
-                        else if(item is BlueRupeeItem || item is YellowRupeeItem)
+                        else if(item is BlueRupeeItem)
                         {
                             Collision_soundEffects[8].Play();
                             collidedItems.Add(item);
+                            ((Link)player).GetLinkInventory().addRupee(5);
+                        }
+                        else if (item is YellowRupeeItem)
+                        {
+                            Collision_soundEffects[8].Play();
+                            collidedItems.Add(item);
+                            ((Link)player).GetLinkInventory().addRupee(1);
                         }
                         else
                         {
                             Collision_soundEffects[7].Play();
                             collidedItems.Add(item);
+                            ((Link)player).GetLinkInventory().addItem(item);
                         }
                     }
 
