@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/Riley/Source/Repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/Dungeon.mp3</SourceFile>
+  <SourceFile>C:/Users/Riley/source/repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/Dungeon.mp3</SourceFile>
   <SourceTime>2021-03-24T18:27:19.5031656-04:00</SourceTime>
-  <DestFile>C:/Users/Riley/Source/Repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/bin/DesktopGL/Content/Dungeon.xnb</DestFile>
-  <DestTime>2021-03-24T18:30:18.7174949-04:00</DestTime>
+  <DestFile>C:/Users/Riley/source/repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/bin/DesktopGL/Content/Dungeon.xnb</DestFile>
+  <DestTime>2021-03-30T11:17:06.8607084-04:00</DestTime>
   <Importer>Mp3Importer</Importer>
   <ImporterTime>2020-08-10T16:17:54-04:00</ImporterTime>
   <Processor>SongProcessor</Processor>
@@ -15,6 +15,6 @@
   <Dependencies />
   <BuildAsset />
   <BuildOutput>
-    <string>C:/Users/Riley/Source/Repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/bin/DesktopGL/Content/Dungeon.ogg</string>
+    <string>C:/Users/Riley/source/repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/bin/DesktopGL/Content/Dungeon.ogg</string>
   </BuildOutput>
 </PipelineBuildEvent>
