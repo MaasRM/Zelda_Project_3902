@@ -157,3 +157,4 @@ C:\Users\Riley\Source\Repos\MaasRM\Zelda_Project_3902\ZeldaProject\Sprint0\Sprin
 C:\Users\Riley\Source\Repos\MaasRM\Zelda_Project_3902\ZeldaProject\Sprint0\Sprint0\obj\Debug\netcoreapp3.1\Sprint0.csproj.CoreCompileInputs.cache
 C:\Users\Riley\Source\Repos\MaasRM\Zelda_Project_3902\ZeldaProject\Sprint0\Sprint0\obj\Debug\netcoreapp3.1\Sprint0.csproj.CopyComplete
 C:\Users\Riley\Source\Repos\MaasRM\Zelda_Project_3902\ZeldaProject\Sprint0\Sprint0\obj\Debug\netcoreapp3.1\Sprint0.genruntimeconfig.cache
+C:\Users\Riley\source\repos\MaasRM\Zelda_Project_3902\ZeldaProject\Sprint0\Sprint0\bin\Debug\netcoreapp3.1\Content\HUD_Pause_Screen.xnb

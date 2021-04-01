@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/Riley/source/repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/SoundEffects/LOZ_Bomb_Blow.wav</SourceFile>
+  <SourceFile>C:/Users/Riley/Source/Repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/SoundEffects/LOZ_Bomb_Blow.wav</SourceFile>
   <SourceTime>2021-03-24T18:31:49.1333875-04:00</SourceTime>
-  <DestFile>C:/Users/Riley/source/repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/bin/DesktopGL/Content/SoundEffects/LOZ_Bomb_Blow.xnb</DestFile>
-  <DestTime>2021-03-30T11:17:01.6705324-04:00</DestTime>
+  <DestFile>C:/Users/Riley/Source/Repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/bin/DesktopGL/Content/SoundEffects/LOZ_Bomb_Blow.xnb</DestFile>
+  <DestTime>2021-03-30T16:40:03.3598271-04:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54-04:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>

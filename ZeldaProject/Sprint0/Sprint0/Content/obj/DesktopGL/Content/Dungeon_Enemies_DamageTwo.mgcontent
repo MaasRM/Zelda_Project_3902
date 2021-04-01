@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/Riley/source/repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/Dungeon_Enemies_DamageTwo.png</SourceFile>
+  <SourceFile>C:/Users/Riley/Source/Repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/Dungeon_Enemies_DamageTwo.png</SourceFile>
   <SourceTime>2021-03-14T14:15:25.2314691-04:00</SourceTime>
-  <DestFile>C:/Users/Riley/source/repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/bin/DesktopGL/Content/Dungeon_Enemies_DamageTwo.xnb</DestFile>
-  <DestTime>2021-03-30T11:17:06.9567322-04:00</DestTime>
+  <DestFile>C:/Users/Riley/Source/Repos/MaasRM/Zelda_Project_3902/ZeldaProject/Sprint0/Sprint0/Content/bin/DesktopGL/Content/Dungeon_Enemies_DamageTwo.xnb</DestFile>
+  <DestTime>2021-03-30T16:40:12.6416155-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

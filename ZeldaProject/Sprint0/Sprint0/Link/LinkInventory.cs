@@ -49,6 +49,54 @@ namespace Sprint0
             spriteBatch.Draw(inventoryBackground, levelDestination, levelSource, Color.White);
             Rectangle levelNumberDestination = new Rectangle(256, 34, 8 * 4, 9 * 4);
             spriteBatch.Draw(inventoryBackground, levelNumberDestination, getNumberSourceRectangle(1), Color.White);
+            DrawItemCounts(spriteBatch);
+        }
+
+        public void DrawItemCounts(SpriteBatch spriteBatch)
+        {
+            Rectangle rupeeCountDestination = new Rectangle(452, 72, 8 * 4, 9 * 4);
+            Rectangle keyCountDestination = new Rectangle(452, 148, 8 * 4, 9 * 4);
+            Rectangle bombCountDestination = new Rectangle(452, 185, 8 * 4, 9 * 4);
+
+            if (rupeeCount >= 10)
+            {
+                spriteBatch.Draw(inventoryBackground, rupeeCountDestination, getNumberSourceRectangle(rupeeCount % 10), Color.White);
+                rupeeCountDestination = new Rectangle(420, 72, 8 * 4, 9 * 4);
+                spriteBatch.Draw(inventoryBackground, rupeeCountDestination, getNumberSourceRectangle(rupeeCount / 10), Color.White);
+            }
+            else
+            {
+                spriteBatch.Draw(inventoryBackground, rupeeCountDestination, getNumberSourceRectangle(rupeeCount), Color.White);
+                rupeeCountDestination = new Rectangle(420, 72, 8 * 4, 9 * 4);
+                spriteBatch.Draw(inventoryBackground, rupeeCountDestination, getNumberSourceRectangle(0), Color.White);
+            }
+
+            if (keyCount >= 10)
+            {
+                spriteBatch.Draw(inventoryBackground, keyCountDestination, getNumberSourceRectangle(keyCount % 10), Color.White);
+                keyCountDestination = new Rectangle(420, 148, 8 * 4, 9 * 4);
+                spriteBatch.Draw(inventoryBackground, keyCountDestination, getNumberSourceRectangle(keyCount / 10), Color.White);
+            }
+            else
+            {
+                spriteBatch.Draw(inventoryBackground, keyCountDestination, getNumberSourceRectangle(keyCount), Color.White);
+                keyCountDestination = new Rectangle(420, 148, 8 * 4, 9 * 4);
+                spriteBatch.Draw(inventoryBackground, keyCountDestination, getNumberSourceRectangle(0), Color.White);
+            }
+
+            if (bombCount >= 10)
+            {
+                spriteBatch.Draw(inventoryBackground, bombCountDestination, getNumberSourceRectangle(bombCount % 10), Color.White);
+                bombCountDestination = new Rectangle(420, 185, 8 * 4, 9 * 4);
+                spriteBatch.Draw(inventoryBackground, bombCountDestination, getNumberSourceRectangle(bombCount / 10), Color.White);
+            }
+            else
+            {
+                spriteBatch.Draw(inventoryBackground, bombCountDestination, getNumberSourceRectangle(bombCount), Color.White);
+                bombCountDestination = new Rectangle(420, 185, 8 * 4, 9 * 4);
+                spriteBatch.Draw(inventoryBackground, bombCountDestination, getNumberSourceRectangle(0), Color.White);
+            }
+
         }
 
         public Rectangle getNumberSourceRectangle(int n)
