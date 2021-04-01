@@ -304,7 +304,7 @@ namespace Sprint0
                     }
 
                     if (projectile.GetProjectileLocation().X < 120 || projectile.GetProjectileLocation().Y < 117 + (64 * 4) 
-                        || projectile.GetProjectileLocation().X > cameraWallMaxX - 175 || projectile.GetProjectileLocation().Y > cameraWallMaxY - 175)
+                        || projectile.GetProjectileLocation().X + projectile.GetProjectileLocation().Width > cameraWallMaxX - 130 || projectile.GetProjectileLocation().Y > cameraWallMaxY - 170)
                     {
                         if (projectile is IBoomerang)
                         {
