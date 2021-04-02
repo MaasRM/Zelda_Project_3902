@@ -21,9 +21,8 @@ namespace Sprint0
         private const int maxframeCount = 21;
         private const int moveDist = 8;
         private const int PIXELSCALER = 4;
-        private SoundEffectInstance flyingBoomerang;
 
-        public GoriyaBoomerang(Texture2D spritesheet, GoriyaStateMachine state, SoundEffectInstance whooshing)
+        public GoriyaBoomerang(Texture2D spritesheet, GoriyaStateMachine state)
         {
             goriyaState = state;
             direction = goriyaState.GetDirection();
@@ -31,10 +30,6 @@ namespace Sprint0
             frame = 0;
             goBack = false;
             this.spritesheet = spritesheet;
-            flyingBoomerang = whooshing;
-            flyingBoomerang.IsLooped = true;
-            flyingBoomerang.Volume = 0.3f;
-            flyingBoomerang.Play();
         }
 
         public void Update()
@@ -187,7 +182,6 @@ namespace Sprint0
 
             if(result)
             {
-                flyingBoomerang.Stop();
                 goriyaState.BoomerangReturned();
             }
 
