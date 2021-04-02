@@ -18,6 +18,7 @@ namespace Sprint0
         private Sprint3 game;
         private Tuple<int, int, GoriyaStateMachine.GoriyaColor> init;
         private SoundEffectInstance flyingBoomerang;
+        private RoomManager roomAccess;
 
         public Goriya(int x, int y, GoriyaStateMachine.GoriyaColor c, List<Texture2D> spriteSheet, Sprint3 game)
         {
@@ -27,14 +28,26 @@ namespace Sprint0
             init = new Tuple<int, int, GoriyaStateMachine.GoriyaColor>(x, y, c);
             this.game = game;
             flyingBoomerang = game.Enemy_soundEffects[0].CreateInstance();
+            roomAccess = game.GetRoomManager();
+            
         }
 
         public void Update()
         {
             if(!stateMachine.Throwing() && stateMachine.TryToThrow())
             {
-                boomerang = new GoriyaBoomerang(goriyaSpriteSheet[0], stateMachine, flyingBoomerang);
+                boomerang = new GoriyaBoomerang(goriyaSpriteSheet[0], stateMachine);
+                flyingBoomerang.IsLooped = true;
+                flyingBoomerang.Volume = 0.2f;
+                flyingBoomerang.Play();
                 game.AddProjectile(boomerang);
+            }
+
+            if (!stateMachine.Throwing() || roomAccess.getRoomIndex() == 1 || roomAccess.getRoomIndex() == 8)
+            {
+                flyingBoomerang.Stop();
+                stateMachine.BoomerangReturned();
+                game.RemoveProjectile(boomerang);
             }
 
             stateMachine.Move();
