@@ -142,6 +142,7 @@ namespace Sprint0
                 game.SetBlocks(new List<IBlock>());
                 game.SetItems(new List<IItem>());
                 game.SetNPCs(new List<INPC>());
+                ResetRoomObjects();
                 SetNextRoomLoc(dir);
             }
             return roomChange;
@@ -209,6 +210,19 @@ namespace Sprint0
         public int getRoomIndex()
         {
             return roomIndex;
+        }
+
+        private void ResetRoomObjects()
+        {
+            foreach(IBlock block in currentRoom.getBlocks())
+            {
+                block.ResetBlock();
+            }
+
+            foreach (INPC npc in currentRoom.getNPCs())
+            {
+                npc.Reset();
+            }
         }
     }
 }
