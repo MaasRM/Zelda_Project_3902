@@ -56,6 +56,7 @@ namespace Sprint0
             DrawItemCounts(spriteBatch);
             DrawSecondaryWeapon(spriteBatch);
             minimap.Draw(spriteBatch);
+            healthBar.Draw(spriteBatch);
         }
 
         public void DrawItemCounts(SpriteBatch spriteBatch)
