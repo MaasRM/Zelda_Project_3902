@@ -35,48 +35,23 @@ namespace Sprint0
         public void Update()
         {
             frame++;
-            if (frame > maxframeCount / 2)
-            {
+            if (frame > maxframeCount / 2) {
                 GoBack();
             }
 
             if (!goBack)
             {
-                if (direction == GoriyaStateMachine.Direction.Down)
-                {
-                    y += moveDist * PIXELSCALER;
-                }
-                else if (direction == GoriyaStateMachine.Direction.Up)
-                {
-                    y -= moveDist * PIXELSCALER;
-                }
-                else if (direction == GoriyaStateMachine.Direction.Left)
-                {
-                    x -= moveDist * PIXELSCALER;
-                }
-                else
-                {
-                    x += moveDist * PIXELSCALER;
-                }
+                if (direction == GoriyaStateMachine.Direction.Down) y += moveDist * PIXELSCALER;
+                else if (direction == GoriyaStateMachine.Direction.Up) y -= moveDist * PIXELSCALER;
+                else if (direction == GoriyaStateMachine.Direction.Left) x -= moveDist * PIXELSCALER;
+                else x += moveDist * PIXELSCALER;
             }
             else if (goBack)
             {
-                if (direction == GoriyaStateMachine.Direction.Down)
-                {
-                    y -= moveDist * PIXELSCALER;
-                }
-                else if (direction == GoriyaStateMachine.Direction.Up)
-                {
-                    y += moveDist * PIXELSCALER;
-                }
-                else if (direction == GoriyaStateMachine.Direction.Left)
-                {
-                    x += moveDist * PIXELSCALER;
-                }
-                else
-                {
-                    x -= moveDist * PIXELSCALER;
-                }
+                if (direction == GoriyaStateMachine.Direction.Down) y -= moveDist * PIXELSCALER;
+                else if (direction == GoriyaStateMachine.Direction.Up) y += moveDist * PIXELSCALER;
+                else if (direction == GoriyaStateMachine.Direction.Left) x += moveDist * PIXELSCALER;
+                else x -= moveDist * PIXELSCALER;
             }
         }
 
@@ -141,7 +116,6 @@ namespace Sprint0
             {
                 flip = SpriteEffects.FlipVertically;
             }
-
             if (frame % 4 == 0)
             {
                 return new Rectangle(290, 11, 8, 15);
