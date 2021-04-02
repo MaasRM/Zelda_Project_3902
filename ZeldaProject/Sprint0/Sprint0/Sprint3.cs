@@ -197,7 +197,8 @@ namespace Sprint0
                 allCollisionHandler.CheckTraps(npcs);
                 allCollisionHandler.PlayerEnemyCollisions(link, npcs, Collision_soundEffects);
                 allCollisionHandler.CheckWalls(link, npcs, roomManager);
-                allCollisionHandler.CheckLink(link, roomManager);
+
+                CheckPlayer();
 
                 roomManager.Update();
                 if (!roomManager.RoomChange()) {
@@ -291,6 +292,15 @@ namespace Sprint0
         public void ClearProjectiles()
         {
             projectiles.Clear();
+        }
+
+        public void CheckPlayer()
+        {
+            if (!link.IsAlive())
+            {
+                roomManager.FirstRoom();
+                link.Reset();
+            }
         }
     }
 }

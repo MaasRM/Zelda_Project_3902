@@ -221,14 +221,6 @@ namespace Sprint0
             }
         }
 
-        public void CheckLink(IPlayer player, RoomManager roomManager)
-        {
-            if(!player.IsAlive()) {
-                roomManager.FirstRoom();
-                player.Reset();
-            }
-        }
-
         private void EnemyHitAndDeathSounds(INPC nPC, List<INPC> DeadEnemies, List<SoundEffect> Collision_soundEffects)
         {
             if(((IEnemy)nPC).StillAlive()) {
