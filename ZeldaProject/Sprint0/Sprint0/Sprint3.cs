@@ -162,35 +162,31 @@ namespace Sprint0
         {
             int i;
             frame++;
+            if (frame % 4 == 0) {
 
-            if (frame % 4 == 0)
-            {
-                //Call updates for Link, Enemies, Blocks, etc.
-
-                foreach (IBlock block in blocks)
-                {
+                foreach (IBlock block in blocks) {
                     block.Update();
                 }
-                foreach (IItem item in items)
-                {
+                foreach (IItem item in items) {
                     item.Update();
                 }
-                for(i = npcs.Count-1; i >= 0; i--)
-                {
+                for(i = npcs.Count-1; i >= 0; i--) {
+                    if (npcs[i] is Trap) {
+                        EnemyProximityTrigger.CheckToTriggerTrap(link, (Trap)npcs[i]);
+                    }
+                    if (npcs[i] is Wallmaster) {
+                        EnemyProximityTrigger.CheckToTriggerWallmaster(link, (Wallmaster)npcs[i]);
+                    }
                     npcs[i].Update();
-                    if(npcs[i] is IEnemy)
-                    {
-                        if(!((IEnemy)npcs[i]).StillAlive())
-                        {
+                    if(npcs[i] is IEnemy) {
+                        if(!((IEnemy)npcs[i]).StillAlive()) {
                             npcs.RemoveAt(i);
                         }
                     }
                 }
-                for(i = projectiles.Count-1; i >= 0; i--)
-                {
+                for(i = projectiles.Count-1; i >= 0; i--) {
                     projectiles[i].Update();
-                    if(projectiles[i].CheckForRemoval())
-                    {
+                    if(projectiles[i].CheckForRemoval()) {
                         projectiles.RemoveAt(i);
                     }
                 }
@@ -204,18 +200,13 @@ namespace Sprint0
                 allCollisionHandler.CheckLink(link, roomManager);
 
                 roomManager.Update();
-                if (!roomManager.RoomChange())
-                {
+                if (!roomManager.RoomChange()) {
                     link.Update();
-                    foreach (IController controller in controllerList)
-                    {
+                    foreach (IController controller in controllerList) {
                         controller.Update();
                     }
                 }
             }
-
-            
-
             base.Update(gameTime);
         }
 

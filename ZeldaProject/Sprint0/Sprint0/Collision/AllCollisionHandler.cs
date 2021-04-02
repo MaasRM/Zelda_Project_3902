@@ -95,13 +95,6 @@ namespace Sprint0
             foreach (INPC nPC in npcs) {
                 if(nPC is IEnemy) {
 
-                    if(nPC is Trap) {
-                        EnemyProximityTrigger.CheckToTriggerTrap(player, (Trap) nPC);
-                    }
-                    if (nPC is Wallmaster) {
-                        EnemyProximityTrigger.CheckToTriggerWallmaster(player, (Wallmaster) nPC);
-                    }
-
                     if (nPC.GetNPCLocation().Intersects(player.LinkPosition())) {
                         
                         LinkEnemyHandler.HandleCollision(player, nPC);
