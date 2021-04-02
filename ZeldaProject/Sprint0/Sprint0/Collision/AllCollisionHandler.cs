@@ -34,11 +34,11 @@ namespace Sprint0
             ProjectileCollisions(player, npcs, projectiles, Collision_soundEffects);
             CheckTraps(npcs);
             PlayerEnemyCollisions(player, npcs, Collision_soundEffects);
-            CheckWalls(player, npcs, blocks, roomManager);
+            CheckWalls(player, npcs, roomManager);
             CheckLink(player, roomManager);
         }
 
-        private void CheckWalls(IPlayer player, List<INPC> npcs, List<IBlock> blocks, RoomManager roomManager)
+        private void CheckWalls(IPlayer player, List<INPC> npcs, RoomManager roomManager)
         {
             bool grabbed = false;
 
@@ -103,52 +103,26 @@ namespace Sprint0
         {
             List<INPC> DeadEnemies = new List<INPC>();
 
-            foreach (INPC nPC in npcs)
-            {
-                if(nPC is IEnemy)
-                {
-                    if(nPC is Trap)
-                    {
+            foreach (INPC nPC in npcs) {
+                if(nPC is IEnemy) {
+
+                    if(nPC is Trap) {
                         EnemyProximityTrigger.CheckToTriggerTrap(player, (Trap) nPC);
                     }
-
-                    if (nPC is Wallmaster)
-                    {
+                    if (nPC is Wallmaster) {
                         EnemyProximityTrigger.CheckToTriggerWallmaster(player, (Wallmaster) nPC);
                     }
 
-                    if (nPC.GetNPCLocation().Intersects(player.LinkPosition()))
-                    {
-                        if (nPC is Aquamentus)
-                        {
-                            Collision_soundEffects[1].Play();
-                        }
-                        else
-                        {
-                            Collision_soundEffects[4].Play();
-                        }
-
+                    if (nPC.GetNPCLocation().Intersects(player.LinkPosition())) {
+                        
                         LinkEnemyHandler.HandleCollision(player, nPC);
 
-                        if(!((IEnemy)nPC).StillAlive())
-                        {
-                            if (nPC is Aquamentus)
-                            {
-                                Collision_soundEffects[0].Play();
-                            }
-                            else
-                            {
-                                Collision_soundEffects[3].Play();
-                            }
-
-                            DeadEnemies.Add(nPC);
-                        }
+                        EnemyHitAndDeathSounds(nPC, DeadEnemies, Collision_soundEffects);
                     }
                 }
             }
 
-            foreach(INPC nPC in DeadEnemies)
-            {
+            foreach(INPC nPC in DeadEnemies) {
                 npcs.Remove(nPC);
             }
         }
@@ -161,49 +135,7 @@ namespace Sprint0
             {
                 if (item.GetLocationRectangle().Intersects(player.LinkPosition()))
                 {
-                    if(!(item is Fire))
-                    {
-                        if(item is KeyItem)
-                        {
-                            Collision_soundEffects[6].Play();
-                            collidedItems.Add(item);
-                            player.GetLinkInventory().addKey();
-                        }
-                        else if(item is HeartItem)
-                        {
-                            Collision_soundEffects[6].Play();
-                            collidedItems.Add(item);
-                        }
-                        else if(item is BlueRupeeItem)
-                        {
-                            Collision_soundEffects[8].Play();
-                            collidedItems.Add(item);
-                            player.GetLinkInventory().addRupee(5);
-                        }
-                        else if (item is YellowRupeeItem)
-                        {
-                            Collision_soundEffects[8].Play();
-                            collidedItems.Add(item);
-                            player.GetLinkInventory().addRupee(1);
-                        }
-                        else
-                        {
-                            Collision_soundEffects[7].Play();
-                            collidedItems.Add(item);
-                            player.GetLinkInventory().addItem(item);
-                        }
-                    }
-
-                    if(item is ClockItem)
-                    {
-                        foreach (INPC nPC in npcs)
-                        {
-                            if(nPC is IEnemy)
-                            {
-                                ((IEnemy)nPC).Stun();
-                            }
-                        }
-                    }
+                    LinkItemHandler.HandleCollision(item, player, npcs, Collision_soundEffects, collidedItems);
                 }
             }
 
@@ -260,66 +192,43 @@ namespace Sprint0
         private void ProjectileCollisions(IPlayer player, List<INPC> npcs, List<IProjectile> projectiles, List<SoundEffect> Collision_soundEffects)
         {
             List<INPC> DeadEnemies = new List<INPC>();
-            foreach (IProjectile projectile in projectiles)
-            {
-                if(projectile is IPlayerProjectile)
-                {
-                    foreach(INPC nPC in npcs)
-                    {
-                        if(nPC is IEnemy)
-                        {
-                            if (projectile.GetProjectileLocation().Intersects(nPC.GetNPCLocation()))
-                            {
-                                if(nPC is Aquamentus)
-                                {
-                                    Collision_soundEffects[1].Play();
-                                }
-                                else
-                                {
-                                    Collision_soundEffects[4].Play();
-                                }
+            foreach (IProjectile projectile in projectiles) {
 
-                                EnemyProjectileHandler.HandleCollision(nPC, projectile);
-
-                                if (!((IEnemy)nPC).StillAlive())
-                                {
-                                    if (nPC is Aquamentus)
-                                    {
-                                        Collision_soundEffects[0].Play();
-                                    }
-                                    else
-                                    {
-                                        Collision_soundEffects[3].Play();
-                                    }
-
-                                    DeadEnemies.Add(nPC);
-                                }
-                            }
-                        }
-                    }
-
-                    foreach(INPC nPC in DeadEnemies)
-                    {
-                        npcs.Remove(nPC);
-                    }
-
-                    if (projectile.GetProjectileLocation().X < 120 || projectile.GetProjectileLocation().Y < 117 + (64 * 4) 
-                        || projectile.GetProjectileLocation().X + projectile.GetProjectileLocation().Width > cameraWallMaxX - 130 || projectile.GetProjectileLocation().Y > cameraWallMaxY - 170)
-                    {
-                        if (projectile is IBoomerang)
-                        {
-                            ((IBoomerang)projectile).GoBack();
-                        } else
-                        {
-                            projectile.Hit();
-                        }
-                    }                    
+                if (projectile is IPlayerProjectile) {
+                    EnemyProjectileCollision(projectile, npcs, DeadEnemies, Collision_soundEffects);
                 }
-                else
-                {
-                    if(projectile.GetProjectileLocation().Intersects(player.LinkPosition()))
-                    {
+                else {
+                    if (projectile.GetProjectileLocation().Intersects(player.LinkPosition())) {
                         LinkProjectileHandler.HandleCollision(player, projectile);
+                    }
+                }
+
+                if (projectile.GetProjectileLocation().X < 120 || projectile.GetProjectileLocation().Y < 117 + (64 * 4)
+                        || projectile.GetProjectileLocation().X + projectile.GetProjectileLocation().Width > cameraWallMaxX - 130 || projectile.GetProjectileLocation().Y > cameraWallMaxY - 170) {
+
+                    if (projectile is IBoomerang) {
+                        ((IBoomerang)projectile).GoBack();
+                    }
+                    else {
+                        projectile.Hit();
+                    }
+                }
+
+                foreach (INPC nPC in DeadEnemies) {
+                    npcs.Remove(nPC);
+                }
+            }
+        }
+
+        private void EnemyProjectileCollision(IProjectile projectile, List<INPC> npcs, List<INPC> DeadEnemies, List<SoundEffect> Collision_soundEffects)
+        {
+            foreach (INPC nPC in npcs) {
+                if (nPC is IEnemy) {
+                    if (projectile.GetProjectileLocation().Intersects(nPC.GetNPCLocation())) {
+
+                        EnemyProjectileHandler.HandleCollision(nPC, projectile);
+
+                        EnemyHitAndDeathSounds(nPC, DeadEnemies, Collision_soundEffects);
                     }
                 }
             }
@@ -327,12 +236,9 @@ namespace Sprint0
 
         private void CheckTraps(List<INPC> npcs)
         {
-            for (int i = 0; i < npcs.Count; i++)
-            {
-                for (int j = i + 1; j < npcs.Count; j++)
-                {
-                    if(npcs[i] is Trap && npcs[j] is Trap && npcs[i].GetNPCLocation().Intersects(npcs[j].GetNPCLocation()))
-                    {
+            for (int i = 0; i < npcs.Count; i++) {
+                for (int j = i + 1; j < npcs.Count; j++) {
+                    if(npcs[i] is Trap && npcs[j] is Trap && npcs[i].GetNPCLocation().Intersects(npcs[j].GetNPCLocation())) {
                         TrapCollisionHandler.HandleCollision((Trap)npcs[i], (Trap)npcs[j]);
                     }
                 }
@@ -341,10 +247,31 @@ namespace Sprint0
 
         private void CheckLink(IPlayer player, RoomManager roomManager)
         {
-            if(!player.IsAlive())
-            {
+            if(!player.IsAlive()) {
                 roomManager.FirstRoom();
                 player.Reset();
+            }
+        }
+
+        private void EnemyHitAndDeathSounds(INPC nPC, List<INPC> DeadEnemies, List<SoundEffect> Collision_soundEffects)
+        {
+            if(((IEnemy)nPC).StillAlive()) {
+                if (nPC is Aquamentus) {
+                    Collision_soundEffects[1].Play();
+                }
+                else {
+                    Collision_soundEffects[4].Play();
+                }
+            }
+            else {
+                if (nPC is Aquamentus) {
+                    Collision_soundEffects[0].Play();
+                }
+                else {
+                    Collision_soundEffects[3].Play();
+                }
+
+                DeadEnemies.Add(nPC);
             }
         }
     }
