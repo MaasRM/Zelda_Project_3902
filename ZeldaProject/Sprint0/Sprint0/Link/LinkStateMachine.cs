@@ -335,6 +335,11 @@ namespace Sprint0
             return healthAndDamage.IsAlive();
         }
 
+        public int GetCurrentHealth()
+        {
+            return healthAndDamage.Health();
+        }
+
         public int GetDamage()
         {
             return healthAndDamage.DealDamage();

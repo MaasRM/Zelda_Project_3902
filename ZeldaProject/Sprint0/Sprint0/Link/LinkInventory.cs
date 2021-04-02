@@ -12,6 +12,7 @@ namespace Sprint0
         private int keyCount;
         private int bombCount;
         private int rupeeCount;
+        private LinkHealthBar healthBar;
         private LinkMinimap minimap;
         private List<IItem> linkItems;
         private IItem currentItem;
@@ -26,6 +27,7 @@ namespace Sprint0
             currentItem = null;
             inventoryBackground = background;
             minimap = new LinkMinimap(inventoryBackground);
+            healthBar = new LinkHealthBar(inventoryBackground);
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -176,6 +178,11 @@ namespace Sprint0
                 }
                 linkItems.Add(item);
             }
+        }
+
+        public LinkHealthBar GetLinkHealthBar()
+        {
+            return healthBar;
         }
 
         public LinkMinimap GetLinkMinimap()

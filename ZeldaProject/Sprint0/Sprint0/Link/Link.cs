@@ -41,6 +41,9 @@ namespace Sprint0
                 changeColor(currentColor, stateMachine.getColor());
             }
             */
+
+            linkInventory.GetLinkHealthBar().setCurrentHealth(stateMachine.GetCurrentHealth());
+
             if (stateMachine.getColor() == LinkColor.Damaged && damageFrameCount <= 8)
             {
                 if (damageFrameCount % 4 == 0)
