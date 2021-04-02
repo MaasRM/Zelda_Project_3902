@@ -26,7 +26,7 @@ namespace Sprint0
         {
             this.game = game;
             roomList = new List<Room>();
-            roomIndex = 0;
+            roomIndex = 15;
             roomChange = false;
         }
 
@@ -66,6 +66,7 @@ namespace Sprint0
                 if (nextRoomLoc.X == 0 && nextRoomLoc.Y == 0) roomChange = false;
             } else
             {
+                game.GetPlayer().GetLinkInventory().GetLinkMinimap().setLinkMinimapDestinationSprite(roomIndex);
                 game.SetBlocks(currentRoom.getBlocks());
                 game.SetItems(currentRoom.getItems());
                 game.SetNPCs(currentRoom.getNPCs());
@@ -203,6 +204,11 @@ namespace Sprint0
         public Room Room()
         {
             return currentRoom;
+        }
+
+        public int getRoomIndex()
+        {
+            return roomIndex;
         }
     }
 }

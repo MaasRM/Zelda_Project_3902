@@ -12,6 +12,7 @@ namespace Sprint0
         private int keyCount;
         private int bombCount;
         private int rupeeCount;
+        private LinkMinimap minimap;
         private List<IItem> linkItems;
         private IItem currentItem;
         private Texture2D inventoryBackground;
@@ -24,6 +25,7 @@ namespace Sprint0
             linkItems = new List<IItem>();
             currentItem = null;
             inventoryBackground = background;
+            minimap = new LinkMinimap(inventoryBackground);
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -51,6 +53,7 @@ namespace Sprint0
             spriteBatch.Draw(inventoryBackground, levelNumberDestination, getNumberSourceRectangle(1), Color.White);
             DrawItemCounts(spriteBatch);
             DrawSecondaryWeapon(spriteBatch);
+            minimap.Draw(spriteBatch);
         }
 
         public void DrawItemCounts(SpriteBatch spriteBatch)
@@ -173,6 +176,11 @@ namespace Sprint0
                 }
                 linkItems.Add(item);
             }
+        }
+
+        public LinkMinimap GetLinkMinimap()
+        {
+            return minimap;
         }
 
         public void addKey()
