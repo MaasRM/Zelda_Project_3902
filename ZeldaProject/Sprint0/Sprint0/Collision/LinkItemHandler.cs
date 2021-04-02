@@ -30,6 +30,10 @@ namespace Sprint0
                 else if (item is ClockItem) {
                     HandleClock(npcs);
                 }
+                else if (item is MapItem)
+                {
+                    player.GetLinkInventory().GetLinkMinimap().setMinimap(true);
+                }
                 else {
                     HandleOtherItems(item, player, Collision_soundEffects, collidedItems);
                 }

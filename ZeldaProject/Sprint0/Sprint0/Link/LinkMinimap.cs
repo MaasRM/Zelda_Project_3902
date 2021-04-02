@@ -11,17 +11,30 @@ namespace Sprint0
     {
         private Rectangle linkMinimapSource;
         private Rectangle linkMinimapDestination;
+        private Rectangle roomMinimapSource;
         private Texture2D minimapTexture;
+        private Boolean hasMap;
+        private List<int> visitedRooms;
 
         public LinkMinimap(Texture2D inventory)
         {
             minimapTexture = inventory;
-            linkMinimapSource = new Rectangle(519, 126, 4, 4);
+            visitedRooms = new List<int>();
+            visitedRooms.Add(15);
+            hasMap = false;
+            linkMinimapSource = new Rectangle(519, 126, 2, 2);
             linkMinimapDestination = new Rectangle(162, 175, 4 * 4, 4 * 4);
+            roomMinimapSource = new Rectangle(663, 109, 6, 2);
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
+            if (hasMap == true)
+            {
+                foreach(int room in visitedRooms){
+                    spriteBatch.Draw(minimapTexture, getMinimapRoomDestinationSprite(room), roomMinimapSource, Color.White);
+                }
+            }
             spriteBatch.Draw(minimapTexture, linkMinimapDestination, linkMinimapSource, Color.White);
         }
 
@@ -30,8 +43,18 @@ namespace Sprint0
             return linkMinimapSource;
         }
 
+        public void setMinimap(Boolean val)
+        {
+            hasMap = val;
+        }
+
         public void setLinkMinimapDestinationSprite(int roomNumber)
         {
+            if (!visitedRooms.Contains(roomNumber))
+            {
+                visitedRooms.Add(roomNumber);
+            }
+
             if (roomNumber == 0)
             {
                 linkMinimapDestination = new Rectangle(129, 80, 4 * 4, 4 * 4);
@@ -100,6 +123,82 @@ namespace Sprint0
             {
                 linkMinimapDestination = new Rectangle(194, 197, 4 * 4, 4 * 4);
             }
+        }
+
+        public Rectangle getMinimapRoomDestinationSprite(int roomNumber)
+        {
+            Rectangle roomMinimapDestination;
+            
+            if (roomNumber == 0)
+            {
+                roomMinimapDestination = new Rectangle(121, 80, 8 * 4, 4 * 4);
+            }
+            else if (roomNumber == 1)
+            {
+                roomMinimapDestination = new Rectangle(154, 80, 8 * 4, 4 * 4);
+            }
+            else if (roomNumber == 2)
+            {
+                roomMinimapDestination = new Rectangle(156, 103, 8 * 4, 4 * 4);
+            }
+            else if (roomNumber == 3)
+            {
+                roomMinimapDestination = new Rectangle(218, 103, 8 * 4, 4 * 4);
+            }
+            else if (roomNumber == 4)
+            {
+                roomMinimapDestination = new Rectangle(251, 103, 8 * 4, 4 * 4);
+            }
+            else if (roomNumber == 5)
+            {
+                roomMinimapDestination = new Rectangle(88, 126, 8 * 4, 4 * 4);
+            }
+            else if (roomNumber == 6)
+            {
+                roomMinimapDestination = new Rectangle(121, 126, 8 * 4, 4 * 4);
+            }
+            else if (roomNumber == 7)
+            {
+                roomMinimapDestination = new Rectangle(154, 126, 8 * 4, 4 * 4);
+            }
+            else if (roomNumber == 8)
+            {
+                roomMinimapDestination = new Rectangle(186, 126, 8 * 4, 4 * 4);
+            }
+            else if (roomNumber == 9)
+            {
+                roomMinimapDestination = new Rectangle(218, 126, 8 * 4, 4 * 4);
+            }
+            else if (roomNumber == 10)
+            {
+                roomMinimapDestination = new Rectangle(121, 150, 8 * 4, 4 * 4);
+            }
+            else if (roomNumber == 11)
+            {
+                roomMinimapDestination = new Rectangle(154, 150, 8 * 4, 4 * 4);
+            }
+            else if (roomNumber == 12)
+            {
+                roomMinimapDestination = new Rectangle(186, 150, 8 * 4, 4 * 4);
+            }
+            else if (roomNumber == 13)
+            {
+                roomMinimapDestination = new Rectangle(154, 174, 8 * 4, 4 * 4);
+            }
+            else if (roomNumber == 14)
+            {
+                roomMinimapDestination = new Rectangle(121, 197, 8 * 4, 4 * 4);
+            }
+            else if (roomNumber == 15)
+            {
+                roomMinimapDestination = new Rectangle(154, 197, 8 * 4, 4 * 4);
+            }
+            else
+            {
+                roomMinimapDestination = new Rectangle(186, 197, 8 * 4, 4 * 4);
+            }
+
+            return roomMinimapDestination;
         }
     }
 }
