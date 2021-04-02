@@ -159,7 +159,7 @@ namespace Sprint0
 
         public void addItem(IItem item)
         {
-            if (item is BoomerangItem || item is BowItem || item is BombItem)
+            if (item is BoomerangItem || item is BowItem || item is BombItem || item is Fire)
             {
                 if (linkItems.Count == 0)
                 {
@@ -200,7 +200,7 @@ namespace Sprint0
             rupeeCount += num;
         }
 
-        punlic void removeRupee(int num)
+        public void removeRupee(int num)
         {
             rupeeCount -= num;
         }
