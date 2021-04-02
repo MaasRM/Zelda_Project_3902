@@ -24,13 +24,12 @@ namespace Sprint0
 
         public void Draw(SpriteBatch spriteBatch)
         {
+            int currentInRow = 0;
+            int currentY = 148;
+            int currentX = 710;
             if (currentHealth % 2 == 0)
             {
                 int numberOfHearts = currentHealth / 2;
-                int currentInRow = 0;
-                int currentY = 148;
-                int currentX = 710;
-
                 for(int n = 0; n <= numberOfHearts; n ++)
                 {
                     spriteBatch.Draw(healthTexture, new Rectangle(currentX, currentY, 8 * 4, 8 * 4), fullHeartSource, Color.White);
@@ -47,10 +46,6 @@ namespace Sprint0
             else
             {
                 int numberOfHearts = (currentHealth-1) / 2;
-                int currentInRow = 0;
-                int currentY = 148;
-                int currentX = 710;
-
                 for (int n = 0; n <= numberOfHearts; n++)
                 {
                     spriteBatch.Draw(healthTexture, new Rectangle(currentX, currentY, 8 * 4, 8 * 4), fullHeartSource, Color.White);
