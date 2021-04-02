@@ -16,5 +16,6 @@ namespace Sprint0
         public Rectangle startPos();
         public bool notMovedX();
         public bool notMovedY();
+        public void ResetBlock();
     }
 }

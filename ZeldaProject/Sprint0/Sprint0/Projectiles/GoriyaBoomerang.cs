@@ -21,9 +21,8 @@ namespace Sprint0
         private const int maxframeCount = 21;
         private const int moveDist = 8;
         private const int PIXELSCALER = 4;
-        private SoundEffectInstance flyingBoomerang;
 
-        public GoriyaBoomerang(Texture2D spritesheet, GoriyaStateMachine state, SoundEffectInstance whooshing)
+        public GoriyaBoomerang(Texture2D spritesheet, GoriyaStateMachine state)
         {
             goriyaState = state;
             direction = goriyaState.GetDirection();
@@ -31,57 +30,28 @@ namespace Sprint0
             frame = 0;
             goBack = false;
             this.spritesheet = spritesheet;
-            flyingBoomerang = whooshing;
-            flyingBoomerang.IsLooped = true;
-            flyingBoomerang.Volume = 0.3f;
-            flyingBoomerang.Play();
         }
 
         public void Update()
         {
             frame++;
-            if (frame > maxframeCount / 2)
-            {
+            if (frame > maxframeCount / 2) {
                 GoBack();
             }
 
             if (!goBack)
             {
-                if (direction == GoriyaStateMachine.Direction.Down)
-                {
-                    y += moveDist * PIXELSCALER;
-                }
-                else if (direction == GoriyaStateMachine.Direction.Up)
-                {
-                    y -= moveDist * PIXELSCALER;
-                }
-                else if (direction == GoriyaStateMachine.Direction.Left)
-                {
-                    x -= moveDist * PIXELSCALER;
-                }
-                else
-                {
-                    x += moveDist * PIXELSCALER;
-                }
+                if (direction == GoriyaStateMachine.Direction.Down) y += moveDist * PIXELSCALER;
+                else if (direction == GoriyaStateMachine.Direction.Up) y -= moveDist * PIXELSCALER;
+                else if (direction == GoriyaStateMachine.Direction.Left) x -= moveDist * PIXELSCALER;
+                else x += moveDist * PIXELSCALER;
             }
             else if (goBack)
             {
-                if (direction == GoriyaStateMachine.Direction.Down)
-                {
-                    y -= moveDist * PIXELSCALER;
-                }
-                else if (direction == GoriyaStateMachine.Direction.Up)
-                {
-                    y += moveDist * PIXELSCALER;
-                }
-                else if (direction == GoriyaStateMachine.Direction.Left)
-                {
-                    x += moveDist * PIXELSCALER;
-                }
-                else
-                {
-                    x -= moveDist * PIXELSCALER;
-                }
+                if (direction == GoriyaStateMachine.Direction.Down) y -= moveDist * PIXELSCALER;
+                else if (direction == GoriyaStateMachine.Direction.Up) y += moveDist * PIXELSCALER;
+                else if (direction == GoriyaStateMachine.Direction.Left) x += moveDist * PIXELSCALER;
+                else x -= moveDist * PIXELSCALER;
             }
         }
 
@@ -146,7 +116,6 @@ namespace Sprint0
             {
                 flip = SpriteEffects.FlipVertically;
             }
-
             if (frame % 4 == 0)
             {
                 return new Rectangle(290, 11, 8, 15);
@@ -187,7 +156,6 @@ namespace Sprint0
 
             if(result)
             {
-                flyingBoomerang.Stop();
                 goriyaState.BoomerangReturned();
             }
 

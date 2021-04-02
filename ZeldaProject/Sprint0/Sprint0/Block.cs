@@ -111,5 +111,10 @@ namespace Sprint0
         {
             return startingPosition.Y == blockDestination.Y;
         }
+
+        public void ResetBlock()
+        {
+            blockDestination = startingPosition;
+        }
     }
 }

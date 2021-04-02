@@ -37,22 +37,10 @@ namespace Sprint0
                 {
                     new EnemyWallHandler(npc, cameraWallMaxX, cameraWallMaxY);
 
-                    if (npc.GetNPCLocation().X < 120)
-                    {
-                        EnemyWallHandler.HandleLeftWall();
-                    }
-                    if (npc.GetNPCLocation().Y < (117 + (64 * 4)))
-                    {
-                        EnemyWallHandler.HandleTopWall();
-                    }
-                    if (npc.GetNPCLocation().X > cameraWallMaxX - 175)
-                    {
-                        EnemyWallHandler.HandleRightWall();
-                    }
-                    if (npc.GetNPCLocation().Y > cameraWallMaxY - 175)
-                    {
-                        EnemyWallHandler.HandleBottomWall();
-                    }
+                    if (npc.GetNPCLocation().X < 120) EnemyWallHandler.HandleLeftWall();
+                    if (npc.GetNPCLocation().Y < (117 + (64 * 4))) EnemyWallHandler.HandleTopWall();
+                    if (npc.GetNPCLocation().X > cameraWallMaxX - 175) EnemyWallHandler.HandleRightWall();
+                    if (npc.GetNPCLocation().Y > cameraWallMaxY - 175) EnemyWallHandler.HandleBottomWall();
                 }
                 else
                 {
@@ -65,22 +53,10 @@ namespace Sprint0
 
             if (!grabbed)
             {
-                if (player.getLinkStateMachine().getXLoc() < 120)
-                {
-                    LinkWallHandler.HandleLeftWall();
-                }
-                if (player.getLinkStateMachine().getYLoc() < (117 + (64 * 4)))
-                {
-                    LinkWallHandler.HandleTopWall();
-                }
-                if (player.getLinkStateMachine().getXLoc() > cameraWallMaxX - 175)
-                {
-                    LinkWallHandler.HandleRightWall();
-                }
-                if (player.getLinkStateMachine().getYLoc() > cameraWallMaxY - 185)
-                {
-                    LinkWallHandler.HandleBottomWall();
-                }
+                if (player.getLinkStateMachine().getXLoc() < 120) LinkWallHandler.HandleLeftWall();
+                if (player.getLinkStateMachine().getYLoc() < (117 + (64 * 4))) LinkWallHandler.HandleTopWall();
+                if (player.getLinkStateMachine().getXLoc() > cameraWallMaxX - 175) LinkWallHandler.HandleRightWall();
+                if (player.getLinkStateMachine().getYLoc() > cameraWallMaxY - 185) LinkWallHandler.HandleBottomWall();
             }
             else
             {
@@ -130,36 +106,27 @@ namespace Sprint0
 
         public void BlockCollisions(IPlayer player, List<INPC> npcs, List<IBlock> blocks, RoomManager roomManager, List<SoundEffect> Collision_soundEffects)
         {
-
-            foreach (IBlock block1 in blocks)
-            {
-                if (player.LinkPosition().Intersects(block1.GetBlockLocation()) && (block1.getIndex() != 5) && (block1.getIndex() != 0))
-                {
+            foreach (IBlock block1 in blocks) {
+                if (player.LinkPosition().Intersects(block1.GetBlockLocation()) && (block1.getIndex() != 5) && (block1.getIndex() != 0)) {
                     Rectangle overlap = Rectangle.Intersect(block1.GetBlockLocation(), player.LinkPosition());
 
                     LinkBlockHandler.HandleCollision(player, block1, overlap);
                 }
-                else if (player.LinkPosition().Intersects(block1.GetBlockLocation()) && block1.getIndex() == 0)
-                {
-                    if(!playedSecret1 && roomManager.Room().RoomNum() == 0)
-                    {
+                else if (player.LinkPosition().Intersects(block1.GetBlockLocation()) && block1.getIndex() == 0) {
+                    if(!playedSecret1 && roomManager.Room().RoomNum() == 0) {
                         Collision_soundEffects[9].Play();
                         playedSecret1 = true;
                     }
-                    else if(!playedSecret2 && roomManager.Room().RoomNum() == 6)
-                    {
+                    else if(!playedSecret2 && roomManager.Room().RoomNum() == 6) {
                         Collision_soundEffects[9].Play();
                         playedSecret2 = true;
                         roomManager.UnlockDoor(Direction.MoveLeft);
                     }
                 }
 
-                foreach (INPC nPC in npcs)
-                {
-                    if (block1.GetBlockLocation().Intersects(nPC.GetNPCLocation()))
-                    {
+                foreach (INPC nPC in npcs) {
+                    if (block1.GetBlockLocation().Intersects(nPC.GetNPCLocation())) {
                         Rectangle overlap = Rectangle.Intersect(block1.GetBlockLocation(), nPC.GetNPCLocation());
-
                         BlockNPCHandler.HandleCollision(nPC, block1, overlap);
                     }
                 }
@@ -170,7 +137,6 @@ namespace Sprint0
         {
             List<INPC> DeadEnemies = new List<INPC>();
             foreach (IProjectile projectile in projectiles) {
-
                 if (projectile is IPlayerProjectile) {
                     EnemyProjectileCollision(projectile, npcs, DeadEnemies, Collision_soundEffects);
                 }
@@ -179,7 +145,6 @@ namespace Sprint0
                         LinkProjectileHandler.HandleCollision(player, projectile);
                     }
                 }
-
                 if (projectile.GetProjectileLocation().X < 120 || projectile.GetProjectileLocation().Y < 117 + (64 * 4)
                         || projectile.GetProjectileLocation().X + projectile.GetProjectileLocation().Width > cameraWallMaxX - 130 || projectile.GetProjectileLocation().Y > cameraWallMaxY - 170) {
 
@@ -190,7 +155,6 @@ namespace Sprint0
                         projectile.Hit();
                     }
                 }
-
                 foreach (INPC nPC in DeadEnemies) {
                     npcs.Remove(nPC);
                 }
