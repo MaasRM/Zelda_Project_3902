@@ -92,6 +92,8 @@ namespace Sprint0
                     return new MapItem(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText) * scale, (int.Parse(itemInfo["YLoc"].InnerText) + 64) * scale, 7 * scale, 15 * scale), new Rectangle(88, 0, 7, 15), itemsSheet);
                 case "CompassItem":
                     return new CompassItem(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText) * scale, (int.Parse(itemInfo["YLoc"].InnerText) + 64) * scale, 15 * scale, 15 * scale), new Rectangle(256, 0, 15, 15), itemsSheet);
+                case "BowItem":
+                    return new BowItem(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText) * scale, (int.Parse(itemInfo["YLoc"].InnerText) + 64) * scale, 7 * scale, 15 * scale), new Rectangle(144, 0, 7, 15), itemsSheet);
                 default:
                     return new KeyItem(new Rectangle(0, 0, 7, 15), new Rectangle(240, 0, 7, 15), itemsSheet);
             }
