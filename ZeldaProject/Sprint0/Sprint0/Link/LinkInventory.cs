@@ -61,10 +61,15 @@ namespace Sprint0
 
         public void DrawItemCounts(SpriteBatch spriteBatch)
         {
-            Rectangle rupeeCountDestination = new Rectangle(452, 72, 8 * 4, 9 * 4);
-            Rectangle keyCountDestination = new Rectangle(452, 148, 8 * 4, 9 * 4);
-            Rectangle bombCountDestination = new Rectangle(452, 185, 8 * 4, 9 * 4);
+            DrawRupeeCounts(spriteBatch);
+            DrawKeyCounts(spriteBatch);
+            DrawBombCounts(spriteBatch);
+        }
 
+        public void DrawRupeeCounts(SpriteBatch spriteBatch)
+        {
+            Rectangle rupeeCountDestination = new Rectangle(452, 72, 8 * 4, 9 * 4);
+            
             if (rupeeCount >= 10)
             {
                 spriteBatch.Draw(inventoryBackground, rupeeCountDestination, getNumberSourceRectangle(rupeeCount % 10), Color.White);
@@ -77,6 +82,11 @@ namespace Sprint0
                 rupeeCountDestination = new Rectangle(420, 72, 8 * 4, 9 * 4);
                 spriteBatch.Draw(inventoryBackground, rupeeCountDestination, getNumberSourceRectangle(0), Color.White);
             }
+        }
+
+        public void DrawKeyCounts(SpriteBatch spriteBatch)
+        {
+            Rectangle keyCountDestination = new Rectangle(452, 148, 8 * 4, 9 * 4);
 
             if (keyCount >= 10)
             {
@@ -90,6 +100,11 @@ namespace Sprint0
                 keyCountDestination = new Rectangle(420, 148, 8 * 4, 9 * 4);
                 spriteBatch.Draw(inventoryBackground, keyCountDestination, getNumberSourceRectangle(0), Color.White);
             }
+        }
+
+        public void DrawBombCounts(SpriteBatch spriteBatch)
+        {
+            Rectangle bombCountDestination = new Rectangle(452, 185, 8 * 4, 9 * 4);
 
             if (bombCount >= 10)
             {
@@ -130,48 +145,21 @@ namespace Sprint0
         public Rectangle getNumberSourceRectangle(int n)
         {
             Rectangle source;
-            if(n == 0)
-            {
-                source = new Rectangle(528, 117, 7, 8);
-            }
-            else if(n == 1)
-            {
-                source = new Rectangle(537, 117, 7, 8);
-            }
-            else if(n == 2)
-            {
-                source = new Rectangle(546, 117, 7, 8);
-            }
-            else if(n == 3)
-            {
-                source = new Rectangle(555, 117, 7, 8);
-            }
-            else if(n == 4)
-            {
-                source = new Rectangle(564, 117, 7, 8);
-            }
-            else if(n == 5)
-            {
-                source = new Rectangle(573, 117, 7, 8);
-            }
-            else if(n == 6)
-            {
-                source = new Rectangle(582, 117, 7, 8);
-            }
-            else if(n == 8)
-            {
-                source = new Rectangle(600, 117, 7, 8);
-            }
-            else
-            {
-                source = new Rectangle(609, 117, 7, 8);
-            }
+            if(n == 0) { source = new Rectangle(528, 117, 7, 8); }
+            else if(n == 1) { source = new Rectangle(537, 117, 7, 8); }
+            else if(n == 2) { source = new Rectangle(546, 117, 7, 8); }
+            else if(n == 3) { source = new Rectangle(555, 117, 7, 8); }
+            else if(n == 4) { source = new Rectangle(564, 117, 7, 8); }
+            else if(n == 5) { source = new Rectangle(573, 117, 7, 8); }
+            else if(n == 6) { source = new Rectangle(582, 117, 7, 8); }
+            else if(n == 8) { source = new Rectangle(600, 117, 7, 8); }
+            else { source = new Rectangle(609, 117, 7, 8); }
             return source;
         }
 
         public void addItem(IItem item)
         {
-            if (item is BoomerangItem || item is BowItem || item is BombItem)
+            if (item is BoomerangItem || item is BowItem || item is BombItem || item is Fire)
             {
                 if (linkItems.Count == 0)
                 {
@@ -206,20 +194,6 @@ namespace Sprint0
             return keyCount;
         }
 
-        public void addBomb()
-        {
-            bombCount++;
-        }
-
-        public void removeBomb()
-        {
-            bombCount--;
-        }
-
-        public int getBombCount()
-        {
-            return bombCount;
-        }
 
         public void addRupee(int num)
         {
@@ -229,11 +203,6 @@ namespace Sprint0
         public void removeRupee(int num)
         {
             rupeeCount -= num;
-        }
-
-        public int getRupeeCount()
-        {
-            return rupeeCount;
         }
     }
 }
