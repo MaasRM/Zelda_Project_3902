@@ -39,7 +39,7 @@ namespace Sprint0
         private int xLoc;
         private int yLoc;
         private const int linkMoveSpeed = 16; //May need to change value
-        private Boolean isBusy;
+        private bool isBusy;
         private int frame;
         private int swordProjFrame;
         private int sizeFactor;
