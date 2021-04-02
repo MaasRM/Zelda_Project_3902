@@ -11,52 +11,52 @@
 		<Blocks>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>129</XLoc>
+				<XLoc>128</XLoc>
 				<YLoc>48</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>113</XLoc>
+				<XLoc>112</XLoc>
 				<YLoc>64</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>145</XLoc>
+				<XLoc>144</XLoc>
 				<YLoc>64</YLoc>
 			</Block>
 			<Block>
 				<BlockType>0</BlockType>
-				<XLoc>97</XLoc>
+				<XLoc>96</XLoc>
 				<YLoc>80</YLoc>
 			</Block>
 			<Block>
 				<BlockType>10</BlockType>
-				<XLoc>97</XLoc>
+				<XLoc>96</XLoc>
 				<YLoc>80</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>113</XLoc>
+				<XLoc>112</XLoc>
 				<YLoc>96</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>129</XLoc>
+				<XLoc>128</XLoc>
 				<YLoc>112</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>145</XLoc>
+				<XLoc>144</XLoc>
 				<YLoc>96</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>161</XLoc>
+				<XLoc>160</XLoc>
 				<YLoc>80</YLoc>
 			</Block>
 			<Block>
 				<BlockType>7</BlockType>
-				<XLoc>129</XLoc>
+				<XLoc>128</XLoc>
 				<YLoc>80</YLoc>
 			</Block>
 		</Blocks>
@@ -65,22 +65,22 @@
 		<Enemies>
 			<Enemy>
 				<EnemyType>Trap</EnemyType>
-				<XLoc>33</XLoc>
+				<XLoc>32</XLoc>
 				<YLoc>32</YLoc>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Trap</EnemyType>
-				<XLoc>209</XLoc>
+				<XLoc>208</XLoc>
 				<YLoc>32</YLoc>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Trap</EnemyType>
-				<XLoc>33</XLoc>
+				<XLoc>32</XLoc>
 				<YLoc>128</YLoc>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Trap</EnemyType>
-				<XLoc>209</XLoc>
+				<XLoc>208</XLoc>
 				<YLoc>128</YLoc>
 			</Enemy>
 		</Enemies>
@@ -114,134 +114,134 @@
 		<Blocks>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>81</XLoc>
+				<XLoc>80</XLoc>
 				<YLoc>48</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>65</XLoc>
+				<XLoc>64</XLoc>
 				<YLoc>48</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>49</XLoc>
+				<XLoc>48</XLoc>
 				<YLoc>48</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>49</XLoc>
+				<XLoc>48</XLoc>
 				<YLoc>64</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>49</XLoc>
+				<XLoc>48</XLoc>
 				<YLoc>80</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>49</XLoc>
+				<XLoc>48</XLoc>
 				<YLoc>96</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>49</XLoc>
+				<XLoc>48</XLoc>
 				<YLoc>112</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>65</XLoc>
+				<XLoc>64</XLoc>
 				<YLoc>112</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>81</XLoc>
+				<XLoc>80</XLoc>
 				<YLoc>112</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>81</XLoc>
+				<XLoc>80</XLoc>
 				<YLoc>80</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>97</XLoc>
+				<XLoc>96</XLoc>
 				<YLoc>80</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>113</XLoc>
+				<XLoc>112</XLoc>
 				<YLoc>80</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>129</XLoc>
+				<XLoc>128</XLoc>
 				<YLoc>80</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>145</XLoc>
+				<XLoc>144</XLoc>
 				<YLoc>80</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>161</XLoc>
+				<XLoc>160</XLoc>
 				<YLoc>80</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>161</XLoc>
+				<XLoc>160</XLoc>
 				<YLoc>48</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>177</XLoc>
+				<XLoc>176</XLoc>
 				<YLoc>48</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>193</XLoc>
+				<XLoc>192</XLoc>
 				<YLoc>48</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>193</XLoc>
+				<XLoc>192</XLoc>
 				<YLoc>64</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>193</XLoc>
+				<XLoc>192</XLoc>
 				<YLoc>80</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>193</XLoc>
+				<XLoc>192</XLoc>
 				<YLoc>96</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>193</XLoc>
+				<XLoc>192</XLoc>
 				<YLoc>112</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>177</XLoc>
+				<XLoc>176</XLoc>
 				<YLoc>112</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>177</XLoc>
+				<XLoc>176</XLoc>
 				<YLoc>112</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>161</XLoc>
+				<XLoc>160</XLoc>
 				<YLoc>112</YLoc>
 			</Block>
 		</Blocks>
 		<Items>
 			<Item>
 				<ItemType>KeyItem</ItemType>
-				<XLoc>129</XLoc>
+				<XLoc>128</XLoc>
 				<YLoc>48</YLoc>
 			</Item>
 		</Items>
@@ -292,232 +292,232 @@
 		<Blocks>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>33</XLoc>
+				<XLoc>32</XLoc>
 				<YLoc>32</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>49</XLoc>
+				<XLoc>48</XLoc>
 				<YLoc>32</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>65</XLoc>
+				<XLoc>64</XLoc>
 				<YLoc>32</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>81</XLoc>
+				<XLoc>80</XLoc>
 				<YLoc>32</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>97</XLoc>
+				<XLoc>96</XLoc>
 				<YLoc>32</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>33</XLoc>
+				<XLoc>32</XLoc>
 				<YLoc>48</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>33</XLoc>
+				<XLoc>32</XLoc>
 				<YLoc>64</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>97</XLoc>
+				<XLoc>96</XLoc>
 				<YLoc>48</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>97</XLoc>
+				<XLoc>96</XLoc>
 				<YLoc>64</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>97</XLoc>
+				<XLoc>96</XLoc>
 				<YLoc>80</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>97</XLoc>
+				<XLoc>96</XLoc>
 				<YLoc>96</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>113</XLoc>
+				<XLoc>112</XLoc>
 				<YLoc>96</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>33</XLoc>
+				<XLoc>32</XLoc>
 				<YLoc>128</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>33</XLoc>
+				<XLoc>32</XLoc>
 				<YLoc>112</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>33</XLoc>
+				<XLoc>32</XLoc>
 				<YLoc>96</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>49</XLoc>
+				<XLoc>48</XLoc>
 				<YLoc>128</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>65</XLoc>
+				<XLoc>64</XLoc>
 				<YLoc>128</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>65</XLoc>
+				<XLoc>64</XLoc>
 				<YLoc>112</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>65</XLoc>
+				<XLoc>64</XLoc>
 				<YLoc>96</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>65</XLoc>
+				<XLoc>64</XLoc>
 				<YLoc>80</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>65</XLoc>
+				<XLoc>64</XLoc>
 				<YLoc>64</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>81</XLoc>
+				<XLoc>80</XLoc>
 				<YLoc>128</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>97</XLoc>
+				<XLoc>96</XLoc>
 				<YLoc>128</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>209</XLoc>
+				<XLoc>208</XLoc>
 				<YLoc>32</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>193</XLoc>
+				<XLoc>192</XLoc>
 				<YLoc>32</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>177</XLoc>
+				<XLoc>176</XLoc>
 				<YLoc>32</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>161</XLoc>
+				<XLoc>160</XLoc>
 				<YLoc>32</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>145</XLoc>
+				<XLoc>144</XLoc>
 				<YLoc>32</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>177</XLoc>
+				<XLoc>176</XLoc>
 				<YLoc>48</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>177</XLoc>
+				<XLoc>176</XLoc>
 				<YLoc>64</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>177</XLoc>
+				<XLoc>176</XLoc>
 				<YLoc>80</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>177</XLoc>
+				<XLoc>176</XLoc>
 				<YLoc>96</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>209</XLoc>
+				<XLoc>208</XLoc>
 				<YLoc>48</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>209</XLoc>
+				<XLoc>208</XLoc>
 				<YLoc>64</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>209</XLoc>
+				<XLoc>208</XLoc>
 				<YLoc>96</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>209</XLoc>
+				<XLoc>208</XLoc>
 				<YLoc>112</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>209</XLoc>
+				<XLoc>208</XLoc>
 				<YLoc>128</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>193</XLoc>
+				<XLoc>192</XLoc>
 				<YLoc>128</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>177</XLoc>
+				<XLoc>176</XLoc>
 				<YLoc>128</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>161</XLoc>
+				<XLoc>160</XLoc>
 				<YLoc>128</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>145</XLoc>
+				<XLoc>144</XLoc>
 				<YLoc>128</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>145</XLoc>
+				<XLoc>144</XLoc>
 				<YLoc>112</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>145</XLoc>
+				<XLoc>144</XLoc>
 				<YLoc>96</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>145</XLoc>
+				<XLoc>144</XLoc>
 				<YLoc>80</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>145</XLoc>
+				<XLoc>144</XLoc>
 				<YLoc>64</YLoc>
 			</Block>
 			<Block>
 				<BlockType>6</BlockType>
-				<XLoc>129</XLoc>
+				<XLoc>128</XLoc>
 				<YLoc>64</YLoc>
 			</Block>
 		</Blocks>
@@ -526,17 +526,17 @@
 		<Enemies>
 			<Enemy>
 				<EnemyType>Stalfos</EnemyType>
-				<XLoc>193</XLoc>
+				<XLoc>192</XLoc>
 				<YLoc>52</YLoc>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Stalfos</EnemyType>
-				<XLoc>55</XLoc>
+				<XLoc>54</XLoc>
 				<YLoc>48</YLoc>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Stalfos</EnemyType>
-				<XLoc>81</XLoc>
+				<XLoc>80</XLoc>
 				<YLoc>90</YLoc>
 			</Enemy>
 		</Enemies>
@@ -570,116 +570,116 @@
 		<Blocks>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>145</XLoc>
+				<XLoc>144</XLoc>
 				<YLoc>32</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>161</XLoc>
+				<XLoc>160</XLoc>
 				<YLoc>32</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>177</XLoc>
+				<XLoc>176</XLoc>
 				<YLoc>32</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>193</XLoc>
+				<XLoc>192</XLoc>
 				<YLoc>32</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>209</XLoc>
+				<XLoc>208</XLoc>
 				<YLoc>32</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>209</XLoc>
+				<XLoc>208</XLoc>
 				<YLoc>48</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>193</XLoc>
+				<XLoc>192</XLoc>
 				<YLoc>48</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>177</XLoc>
+				<XLoc>176</XLoc>
 				<YLoc>48</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>193</XLoc>
+				<XLoc>192</XLoc>
 				<YLoc>64</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>209</XLoc>
+				<XLoc>208</XLoc>
 				<YLoc>64</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>193</XLoc>
+				<XLoc>192</XLoc>
 				<YLoc>96</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>209</XLoc>
+				<XLoc>208</XLoc>
 				<YLoc>96</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>209</XLoc>
+				<XLoc>208</XLoc>
 				<YLoc>112</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>193</XLoc>
+				<XLoc>192</XLoc>
 				<YLoc>112</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>177</XLoc>
+				<XLoc>176</XLoc>
 				<YLoc>112</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>209</XLoc>
+				<XLoc>208</XLoc>
 				<YLoc>128</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>193</XLoc>
+				<XLoc>192</XLoc>
 				<YLoc>128</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>177</XLoc>
+				<XLoc>176</XLoc>
 				<YLoc>128</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>161</XLoc>
+				<XLoc>160</XLoc>
 				<YLoc>128</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>145</XLoc>
+				<XLoc>144</XLoc>
 				<YLoc>128</YLoc>
 			</Block>
 		</Blocks>
 		<Items>
 			<Item>
 				<ItemType>HeartContainerItem</ItemType>
-				<XLoc>193</XLoc>
+				<XLoc>192</XLoc>
 				<YLoc>80</YLoc>
 			</Item>
 		</Items>
 		<Enemies>
 			<Enemy>
 				<EnemyType>Aquamentus</EnemyType>
-				<XLoc>133</XLoc>
+				<XLoc>132</XLoc>
 				<YLoc>64</YLoc>
 			</Enemy>
 		</Enemies>
@@ -713,149 +713,149 @@
 		<Blocks>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>49</XLoc>
+				<XLoc>48</XLoc>
 				<YLoc>48</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>65</XLoc>
+				<XLoc>64</XLoc>
 				<YLoc>48</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>81</XLoc>
+				<XLoc>80</XLoc>
 				<YLoc>48</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>97</XLoc>
+				<XLoc>96</XLoc>
 				<YLoc>48</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>113</XLoc>
+				<XLoc>112</XLoc>
 				<YLoc>48</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>129</XLoc>
+				<XLoc>128</XLoc>
 				<YLoc>48</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>145</XLoc>
+				<XLoc>144</XLoc>
 				<YLoc>48</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>161</XLoc>
+				<XLoc>160</XLoc>
 				<YLoc>48</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>177</XLoc>
+				<XLoc>176</XLoc>
 				<YLoc>48</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>193</XLoc>
+				<XLoc>192</XLoc>
 				<YLoc>48</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>49</XLoc>
+				<XLoc>48</XLoc>
 				<YLoc>64</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>49</XLoc>
+				<XLoc>48</XLoc>
 				<YLoc>80</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>49</XLoc>
+				<XLoc>48</XLoc>
 				<YLoc>96</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>49</XLoc>
+				<XLoc>48</XLoc>
 				<YLoc>112</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>65</XLoc>
+				<XLoc>64</XLoc>
 				<YLoc>112</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>81</XLoc>
+				<XLoc>80</XLoc>
 				<YLoc>112</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>97</XLoc>
+				<XLoc>96</XLoc>
 				<YLoc>112</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>145</XLoc>
+				<XLoc>144</XLoc>
 				<YLoc>112</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>161</XLoc>
+				<XLoc>160</XLoc>
 				<YLoc>112</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>177</XLoc>
+				<XLoc>176</XLoc>
 				<YLoc>112</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>193</XLoc>
+				<XLoc>192</XLoc>
 				<YLoc>112</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>193</XLoc>
+				<XLoc>192</XLoc>
 				<YLoc>96</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>193</XLoc>
+				<XLoc>192</XLoc>
 				<YLoc>80</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>193</XLoc>
+				<XLoc>192</XLoc>
 				<YLoc>64</YLoc>
 			</Block>
 			<Block>
 				<BlockType>2</BlockType>
-				<XLoc>97</XLoc>
+				<XLoc>96</XLoc>
 				<YLoc>64</YLoc>
 			</Block>
 			<Block>
 				<BlockType>2</BlockType>
-				<XLoc>81</XLoc>
+				<XLoc>80</XLoc>
 				<YLoc>80</YLoc>
 			</Block>
 			<Block>
 				<BlockType>3</BlockType>
-				<XLoc>145</XLoc>
+				<XLoc>144</XLoc>
 				<YLoc>64</YLoc>
 			</Block>
 			<Block>
 				<BlockType>2</BlockType>
-				<XLoc>161</XLoc>
+				<XLoc>160</XLoc>
 				<YLoc>80</YLoc>
 			</Block>
 		</Blocks>
 		<Items>
 			<Item>
 				<ItemType>TriforceShardItem</ItemType>
-				<XLoc>121</XLoc>
+				<XLoc>120</XLoc>
 				<YLoc>90</YLoc>
 			</Item>
 		</Items>
@@ -893,12 +893,12 @@
 		<Items>
 			<Item>
 				<ItemType>Fire</ItemType>
-				<XLoc>81</XLoc>
+				<XLoc>80</XLoc>
 				<YLoc>64</YLoc>
 			</Item>
 			<Item>
 				<ItemType>Fire</ItemType>
-				<XLoc>161</XLoc>
+				<XLoc>160</XLoc>
 				<YLoc>64</YLoc>
 			</Item>
 		</Items>
@@ -939,12 +939,12 @@
 		<Blocks>
 			<Block>
 				<BlockType>0</BlockType>
-				<XLoc>113</XLoc>
+				<XLoc>112</XLoc>
 				<YLoc>80</YLoc>
 			</Block>
 			<Block>
 				<BlockType>10</BlockType>
-				<XLoc>113</XLoc>
+				<XLoc>112</XLoc>
 				<YLoc>80</YLoc>
 			</Block>
 		</Blocks>
@@ -953,17 +953,17 @@
 		<Enemies>
 			<Enemy>
 				<EnemyType>Gel</EnemyType>
-				<XLoc>81</XLoc>
+				<XLoc>80</XLoc>
 				<YLoc>80</YLoc>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Gel</EnemyType>
-				<XLoc>113</XLoc>
+				<XLoc>112</XLoc>
 				<YLoc>48</YLoc>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Gel</EnemyType>
-				<XLoc>113</XLoc>
+				<XLoc>112</XLoc>
 				<YLoc>112</YLoc>
 			</Enemy>
 		</Enemies>
@@ -997,71 +997,71 @@
 		<Blocks>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>49</XLoc>
+				<XLoc>48</XLoc>
 				<YLoc>48</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>65</XLoc>
+				<XLoc>64</XLoc>
 				<YLoc>48</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>49</XLoc>
+				<XLoc>48</XLoc>
 				<YLoc>112</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>65</XLoc>
+				<XLoc>64</XLoc>
 				<YLoc>112</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>177</XLoc>
+				<XLoc>176</XLoc>
 				<YLoc>48</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>193</XLoc>
+				<XLoc>192</XLoc>
 				<YLoc>48</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>177</XLoc>
+				<XLoc>176</XLoc>
 				<YLoc>112</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>193</XLoc>
+				<XLoc>192</XLoc>
 				<YLoc>112</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>113</XLoc>
+				<XLoc>112</XLoc>
 				<YLoc>80</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>129</XLoc>
+				<XLoc>128</XLoc>
 				<YLoc>80</YLoc>
 			</Block>
 		</Blocks>
 		<Items>
 			<Item>
 				<ItemType>MapItem</ItemType>
-				<XLoc>193</XLoc>
+				<XLoc>192</XLoc>
 				<YLoc>80</YLoc>
 			</Item>
 		</Items>
 		<Enemies>
 			<Enemy>
 				<EnemyType>Gel</EnemyType>
-				<XLoc>65</XLoc>
+				<XLoc>64</XLoc>
 				<YLoc>32</YLoc>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Gel</EnemyType>
-				<XLoc>145</XLoc>
+				<XLoc>144</XLoc>
 				<YLoc>32</YLoc>
 			</Enemy>
 			<Enemy>
@@ -1071,7 +1071,7 @@
 			</Enemy>
 			<Enemy>
 				<EnemyType>Gel</EnemyType>
-				<XLoc>85</XLoc>
+				<XLoc>84</XLoc>
 				<YLoc>64</YLoc>
 			</Enemy>
 			<Enemy>
@@ -1110,22 +1110,22 @@
 		<Blocks>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>65</XLoc>
+				<XLoc>64</XLoc>
 				<YLoc>64</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>65</XLoc>
+				<XLoc>64</XLoc>
 				<YLoc>96</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>177</XLoc>
+				<XLoc>176</XLoc>
 				<YLoc>64</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>177</XLoc>
+				<XLoc>176</XLoc>
 				<YLoc>96</YLoc>
 			</Block>
 		</Blocks>
@@ -1134,7 +1134,7 @@
 		<Enemies>
 			<Enemy>
 				<EnemyType>Goriya</EnemyType>
-				<XLoc>145</XLoc>
+				<XLoc>144</XLoc>
 				<YLoc>32</YLoc>
 			</Enemy>
 			<Enemy>
@@ -1144,7 +1144,7 @@
 			</Enemy>
 			<Enemy>
 				<EnemyType>Goriya</EnemyType>
-				<XLoc>145</XLoc>
+				<XLoc>144</XLoc>
 				<YLoc>96</YLoc>
 			</Enemy>
 		</Enemies>
@@ -1178,126 +1178,126 @@
 		<Blocks>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>49</XLoc>
+				<XLoc>48</XLoc>
 				<YLoc>48</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>81</XLoc>
+				<XLoc>80</XLoc>
 				<YLoc>48</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>113</XLoc>
+				<XLoc>112</XLoc>
 				<YLoc>48</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>129</XLoc>
+				<XLoc>128</XLoc>
 				<YLoc>48</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>161</XLoc>
+				<XLoc>160</XLoc>
 				<YLoc>48</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>193</XLoc>
+				<XLoc>192</XLoc>
 				<YLoc>48</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>49</XLoc>
+				<XLoc>48</XLoc>
 				<YLoc>80</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>81</XLoc>
+				<XLoc>80</XLoc>
 				<YLoc>80</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>113</XLoc>
+				<XLoc>112</XLoc>
 				<YLoc>80</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>129</XLoc>
+				<XLoc>128</XLoc>
 				<YLoc>80</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>161</XLoc>
+				<XLoc>160</XLoc>
 				<YLoc>80</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>193</XLoc>
+				<XLoc>192</XLoc>
 				<YLoc>80</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>49</XLoc>
+				<XLoc>48</XLoc>
 				<YLoc>112</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>81</XLoc>
+				<XLoc>80</XLoc>
 				<YLoc>112</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>113</XLoc>
+				<XLoc>112</XLoc>
 				<YLoc>112</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>129</XLoc>
+				<XLoc>128</XLoc>
 				<YLoc>112</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>161</XLoc>
+				<XLoc>160</XLoc>
 				<YLoc>112</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>193</XLoc>
+				<XLoc>192</XLoc>
 				<YLoc>112</YLoc>
 			</Block>
 		</Blocks>
 		<Items>
 			<Item>
 				<ItemType>KeyItem</ItemType>
-				<XLoc>161</XLoc>
+				<XLoc>160</XLoc>
 				<YLoc>128</YLoc>
 			</Item>
 		</Items>
 		<Enemies>
 			<Enemy>
 				<EnemyType>Wallmaster</EnemyType>
-				<XLoc>65</XLoc>
+				<XLoc>64</XLoc>
 				<YLoc>32</YLoc>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Wallmaster</EnemyType>
-				<XLoc>81</XLoc>
+				<XLoc>80</XLoc>
 				<YLoc>35</YLoc>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Wallmaster</EnemyType>
-				<XLoc>179</XLoc>
+				<XLoc>178</XLoc>
 				<YLoc>35</YLoc>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Wallmaster</EnemyType>
-				<XLoc>197</XLoc>
+				<XLoc>196</XLoc>
 				<YLoc>33</YLoc>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Wallmaster</EnemyType>
-				<XLoc>33</XLoc>
+				<XLoc>32</XLoc>
 				<YLoc>82</YLoc>
 			</Enemy>
 			<Enemy>
@@ -1307,7 +1307,7 @@
 			</Enemy>
 			<Enemy>
 				<EnemyType>Wallmaster</EnemyType>
-				<XLoc>209</XLoc>
+				<XLoc>208</XLoc>
 				<YLoc>105</YLoc>
 			</Enemy>
 			<Enemy>
@@ -1346,32 +1346,32 @@
 		<Blocks>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>113</XLoc>
+				<XLoc>112</XLoc>
 				<YLoc>64</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>129</XLoc>
+				<XLoc>128</XLoc>
 				<YLoc>64</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>113</XLoc>
+				<XLoc>112</XLoc>
 				<YLoc>80</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>129</XLoc>
+				<XLoc>128</XLoc>
 				<YLoc>80</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>113</XLoc>
+				<XLoc>112</XLoc>
 				<YLoc>96</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>129</XLoc>
+				<XLoc>128</XLoc>
 				<YLoc>96</YLoc>
 			</Block>
 		</Blocks>
@@ -1380,17 +1380,17 @@
 		<Enemies>
 			<Enemy>
 				<EnemyType>Keese</EnemyType>
-				<XLoc>161</XLoc>
+				<XLoc>160</XLoc>
 				<YLoc>33</YLoc>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Keese</EnemyType>
-				<XLoc>161</XLoc>
+				<XLoc>160</XLoc>
 				<YLoc>127</YLoc>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Keese</EnemyType>
-				<XLoc>85</XLoc>
+				<XLoc>84</XLoc>
 				<YLoc>64</YLoc>
 			</Enemy>
 			<Enemy>
@@ -1400,7 +1400,7 @@
 			</Enemy>
 			<Enemy>
 				<EnemyType>Keese</EnemyType>
-				<XLoc>35</XLoc>
+				<XLoc>34</XLoc>
 				<YLoc>82</YLoc>
 			</Enemy>
 			<Enemy>
@@ -1439,41 +1439,41 @@
 		<Blocks>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>65</XLoc>
+				<XLoc>64</XLoc>
 				<YLoc>64</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>65</XLoc>
+				<XLoc>64</XLoc>
 				<YLoc>96</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>177</XLoc>
+				<XLoc>176</XLoc>
 				<YLoc>64</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>177</XLoc>
+				<XLoc>176</XLoc>
 				<YLoc>96</YLoc>
 			</Block>
 		</Blocks>
 		<Items>
 			<Item>
 				<ItemType>KeyItem</ItemType>
-				<XLoc>129</XLoc>
+				<XLoc>128</XLoc>
 				<YLoc>48</YLoc>
 			</Item>
 		</Items>
 		<Enemies>
 			<Enemy>
 				<EnemyType>Stalfos</EnemyType>
-				<XLoc>155</XLoc>
+				<XLoc>154</XLoc>
 				<YLoc>32</YLoc>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Stalfos</EnemyType>
-				<XLoc>135</XLoc>
+				<XLoc>134</XLoc>
 				<YLoc>70</YLoc>
 			</Enemy>
 			<Enemy>
@@ -1483,12 +1483,12 @@
 			</Enemy>
 			<Enemy>
 				<EnemyType>Stalfos</EnemyType>
-				<XLoc>129</XLoc>
+				<XLoc>128</XLoc>
 				<YLoc>98</YLoc>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Stalfos</EnemyType>
-				<XLoc>81</XLoc>
+				<XLoc>80</XLoc>
 				<YLoc>100</YLoc>
 			</Enemy>
 		</Enemies>
@@ -1522,71 +1522,71 @@
 		<Blocks>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>65</XLoc>
+				<XLoc>64</XLoc>
 				<YLoc>48</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>177</XLoc>
+				<XLoc>176</XLoc>
 				<YLoc>48</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>65</XLoc>
+				<XLoc>64</XLoc>
 				<YLoc>112</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>177</XLoc>
+				<XLoc>176</XLoc>
 				<YLoc>112</YLoc>
 			</Block>
 		</Blocks>
 		<Items>
 			<Item>
 				<ItemType>CompassItem</ItemType>
-				<XLoc>193</XLoc>
+				<XLoc>192</XLoc>
 				<YLoc>80</YLoc>
 			</Item>
 		</Items>
 		<Enemies>
 			<Enemy>
 				<EnemyType>Keese</EnemyType>
-				<XLoc>81</XLoc>
+				<XLoc>80</XLoc>
 				<YLoc>32</YLoc>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Keese</EnemyType>
-				<XLoc>129</XLoc>
+				<XLoc>128</XLoc>
 				<YLoc>64</YLoc>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Keese</EnemyType>
-				<XLoc>129</XLoc>
+				<XLoc>128</XLoc>
 				<YLoc>96</YLoc>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Keese</EnemyType>
-				<XLoc>161</XLoc>
+				<XLoc>160</XLoc>
 				<YLoc>64</YLoc>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Keese</EnemyType>
-				<XLoc>161</XLoc>
+				<XLoc>160</XLoc>
 				<YLoc>96</YLoc>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Keese</EnemyType>
-				<XLoc>209</XLoc>
+				<XLoc>208</XLoc>
 				<YLoc>80</YLoc>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Keese</EnemyType>
-				<XLoc>193</XLoc>
+				<XLoc>192</XLoc>
 				<YLoc>48</YLoc>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Keese</EnemyType>
-				<XLoc>193</XLoc>
+				<XLoc>192</XLoc>
 				<YLoc>112</YLoc>
 			</Enemy>
 		</Enemies>
@@ -1620,32 +1620,32 @@
 		<Blocks>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>113</XLoc>
+				<XLoc>112</XLoc>
 				<YLoc>64</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>129</XLoc>
+				<XLoc>128</XLoc>
 				<YLoc>64</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>113</XLoc>
+				<XLoc>112</XLoc>
 				<YLoc>80</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>129</XLoc>
+				<XLoc>128</XLoc>
 				<YLoc>80</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>113</XLoc>
+				<XLoc>112</XLoc>
 				<YLoc>96</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>129</XLoc>
+				<XLoc>128</XLoc>
 				<YLoc>96</YLoc>
 			</Block>
 		</Blocks>
@@ -1654,17 +1654,17 @@
 		<Enemies>
 			<Enemy>
 				<EnemyType>Stalfos</EnemyType>
-				<XLoc>85</XLoc>
+				<XLoc>84</XLoc>
 				<YLoc>32</YLoc>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Stalfos</EnemyType>
-				<XLoc>97</XLoc>
+				<XLoc>96</XLoc>
 				<YLoc>64</YLoc>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Stalfos</EnemyType>
-				<XLoc>85</XLoc>
+				<XLoc>84</XLoc>
 				<YLoc>96</YLoc>
 			</Enemy>
 		</Enemies>
@@ -1700,24 +1700,24 @@
 		<Items>
 			<Item>
 				<ItemType>KeyItem</ItemType>
-				<XLoc>161</XLoc>
+				<XLoc>160</XLoc>
 				<YLoc>128</YLoc>
 			</Item>
 		</Items>
 		<Enemies>
 			<Enemy>
 				<EnemyType>Keese</EnemyType>
-				<XLoc>49</XLoc>
+				<XLoc>48</XLoc>
 				<YLoc>48</YLoc>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Keese</EnemyType>
-				<XLoc>81</XLoc>
+				<XLoc>80</XLoc>
 				<YLoc>64</YLoc>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Keese</EnemyType>
-				<XLoc>49</XLoc>
+				<XLoc>48</XLoc>
 				<YLoc>112</YLoc>
 			</Enemy>
 		</Enemies>
@@ -1751,122 +1751,122 @@
 		<Blocks>
 			<Block>
 				<BlockType>2</BlockType>
-				<XLoc>49</XLoc>
+				<XLoc>48</XLoc>
 				<YLoc>48</YLoc>
 			</Block>
 			<Block>
 				<BlockType>2</BlockType>
-				<XLoc>49</XLoc>
+				<XLoc>48</XLoc>
 				<YLoc>80</YLoc>
 			</Block>
 			<Block>
 				<BlockType>2</BlockType>
-				<XLoc>49</XLoc>
+				<XLoc>48</XLoc>
 				<YLoc>112</YLoc>
 			</Block>
 			<Block>
 				<BlockType>2</BlockType>
-				<XLoc>97</XLoc>
+				<XLoc>96</XLoc>
 				<YLoc>48</YLoc>
 			</Block>
 			<Block>
 				<BlockType>2</BlockType>
-				<XLoc>97</XLoc>
+				<XLoc>96</XLoc>
 				<YLoc>80</YLoc>
 			</Block>
 			<Block>
 				<BlockType>2</BlockType>
-				<XLoc>97</XLoc>
+				<XLoc>96</XLoc>
 				<YLoc>112</YLoc>
 			</Block>
 			<Block>
 				<BlockType>3</BlockType>
-				<XLoc>145</XLoc>
+				<XLoc>144</XLoc>
 				<YLoc>48</YLoc>
 			</Block>
 			<Block>
 				<BlockType>3</BlockType>
-				<XLoc>145</XLoc>
+				<XLoc>144</XLoc>
 				<YLoc>80</YLoc>
 			</Block>
 			<Block>
 				<BlockType>3</BlockType>
-				<XLoc>145</XLoc>
+				<XLoc>144</XLoc>
 				<YLoc>112</YLoc>
 			</Block>
 			<Block>
 				<BlockType>3</BlockType>
-				<XLoc>193</XLoc>
+				<XLoc>192</XLoc>
 				<YLoc>48</YLoc>
 			</Block>
 			<Block>
 				<BlockType>3</BlockType>
-				<XLoc>193</XLoc>
+				<XLoc>192</XLoc>
 				<YLoc>80</YLoc>
 			</Block>
 			<Block>
 				<BlockType>3</BlockType>
-				<XLoc>193</XLoc>
+				<XLoc>192</XLoc>
 				<YLoc>112</YLoc>
 			</Block>
 			<Block>
 				<BlockType>5</BlockType>
-				<XLoc>81</XLoc>
+				<XLoc>80</XLoc>
 				<YLoc>128</YLoc>
 			</Block>
 			<Block>
 				<BlockType>5</BlockType>
-				<XLoc>97</XLoc>
+				<XLoc>96</XLoc>
 				<YLoc>128</YLoc>
 			</Block>
 			<Block>
 				<BlockType>5</BlockType>
-				<XLoc>113</XLoc>
+				<XLoc>112</XLoc>
 				<YLoc>128</YLoc>
 			</Block>
 			<Block>
 				<BlockType>5</BlockType>
-				<XLoc>129</XLoc>
+				<XLoc>128</XLoc>
 				<YLoc>128</YLoc>
 			</Block>
 			<Block>
 				<BlockType>5</BlockType>
-				<XLoc>145</XLoc>
+				<XLoc>144</XLoc>
 				<YLoc>128</YLoc>
 			</Block>
 			<Block>
 				<BlockType>5</BlockType>
-				<XLoc>161</XLoc>
+				<XLoc>160</XLoc>
 				<YLoc>128</YLoc>
 			</Block>
 			<Block>
 				<BlockType>5</BlockType>
-				<XLoc>81</XLoc>
+				<XLoc>80</XLoc>
 				<YLoc>112</YLoc>
 			</Block>
 			<Block>
 				<BlockType>5</BlockType>
-				<XLoc>113</XLoc>
+				<XLoc>112</XLoc>
 				<YLoc>112</YLoc>
 			</Block>
 			<Block>
 				<BlockType>5</BlockType>
-				<XLoc>129</XLoc>
+				<XLoc>128</XLoc>
 				<YLoc>112</YLoc>
 			</Block>
 			<Block>
 				<BlockType>5</BlockType>
-				<XLoc>161</XLoc>
+				<XLoc>160</XLoc>
 				<YLoc>112</YLoc>
 			</Block>
 			<Block>
 				<BlockType>5</BlockType>
-				<XLoc>113</XLoc>
+				<XLoc>112</XLoc>
 				<YLoc>96</YLoc>
 			</Block>
 			<Block>
 				<BlockType>5</BlockType>
-				<XLoc>129</XLoc>
+				<XLoc>128</XLoc>
 				<YLoc>96</YLoc>
 			</Block>
 		</Blocks>
@@ -1904,62 +1904,62 @@
 		<Blocks>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>65</XLoc>
+				<XLoc>64</XLoc>
 				<YLoc>64</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>81</XLoc>
+				<XLoc>80</XLoc>
 				<YLoc>64</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>65</XLoc>
+				<XLoc>64</XLoc>
 				<YLoc>80</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>81</XLoc>
+				<XLoc>80</XLoc>
 				<YLoc>80</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>65</XLoc>
+				<XLoc>64</XLoc>
 				<YLoc>96</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>81</XLoc>
+				<XLoc>80</XLoc>
 				<YLoc>96</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>161</XLoc>
+				<XLoc>160</XLoc>
 				<YLoc>64</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>177</XLoc>
+				<XLoc>176</XLoc>
 				<YLoc>64</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>161</XLoc>
+				<XLoc>160</XLoc>
 				<YLoc>80</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>177</XLoc>
+				<XLoc>176</XLoc>
 				<YLoc>80</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>161</XLoc>
+				<XLoc>160</XLoc>
 				<YLoc>96</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
-				<XLoc>177</XLoc>
+				<XLoc>176</XLoc>
 				<YLoc>96</YLoc>
 			</Block>
 		</Blocks>
@@ -1968,7 +1968,7 @@
 		<Enemies>
 			<Enemy>
 				<EnemyType>Stalfos</EnemyType>
-				<XLoc>129</XLoc>
+				<XLoc>128</XLoc>
 				<YLoc>48</YLoc>
 			</Enemy>
 			<Enemy>
@@ -1978,17 +1978,17 @@
 			</Enemy>
 			<Enemy>
 				<EnemyType>Stalfos</EnemyType>
-				<XLoc>135</XLoc>
+				<XLoc>134</XLoc>
 				<YLoc>97</YLoc>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Stalfos</EnemyType>
-				<XLoc>81</XLoc>
+				<XLoc>80</XLoc>
 				<YLoc>112</YLoc>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Stalfos</EnemyType>
-				<XLoc>195</XLoc>
+				<XLoc>194</XLoc>
 				<YLoc>108</YLoc>
 			</Enemy>
 		</Enemies>
@@ -2737,8 +2737,33 @@
 			</Block>
 		</Blocks>
 		<Items>
+			<Item>
+				<ItemType>BowItem</ItemType>
+				<XLoc>128</XLoc>
+				<YLoc>64</YLoc>
+			</Item>
 		</Items>
 		<Enemies>
+			<Enemy>
+				<EnemyType>Keese</EnemyType>
+				<XLoc>32</XLoc>
+				<YLoc>80</YLoc>
+			</Enemy>
+			<Enemy>
+				<EnemyType>Keese</EnemyType>
+				<XLoc>96</XLoc>
+				<YLoc>80</YLoc>
+			</Enemy>
+			<Enemy>
+				<EnemyType>Keese</EnemyType>
+				<XLoc>160</XLoc>
+				<YLoc>80</YLoc>
+			</Enemy>
+			<Enemy>
+				<EnemyType>Keese</EnemyType>
+				<XLoc>224</XLoc>
+				<YLoc>80</YLoc>
+			</Enemy>
 		</Enemies>
 		<Background>
 			<XLoc>976</XLoc>

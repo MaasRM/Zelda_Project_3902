@@ -51,7 +51,7 @@ namespace Sprint0
                 {
                     npcList.Add(CreateNPC(currentRoom["Enemies"].ChildNodes[n]));
                 }
-                Rectangle floor = new Rectangle(int.Parse(currentRoom["Background"]["XLoc"].InnerText), int.Parse(currentRoom["Background"]["YLoc"].InnerText), 191, 111);
+                Rectangle floor = new Rectangle(int.Parse(currentRoom["Background"]["XLoc"].InnerText), int.Parse(currentRoom["Background"]["YLoc"].InnerText), 192, 112);
                 Rectangle walls = new Rectangle(521, 11, 255, 175);
                 Rectangle topDoor = GetDoorSource("top", currentRoom["Doors"]["UpDoor"]["DoorType"].InnerText);
                 Rectangle bottomDoor = GetDoorSource("bottom", currentRoom["Doors"]["DownDoor"]["DoorType"].InnerText);
