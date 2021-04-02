@@ -101,5 +101,15 @@ namespace Sprint0
         {
             blockIndex = num;
         }
+
+        public bool notMovedX()
+        {
+            return startingPosition.X == blockDestination.X;
+        }
+
+        public bool notMovedY()
+        {
+            return startingPosition.Y == blockDestination.Y;
+        }
     }
 }

@@ -14,5 +14,7 @@ namespace Sprint0
         public void setPosition(Rectangle newRect);
         public void setBlockIndex(int num);
         public Rectangle startPos();
+        public bool notMovedX();
+        public bool notMovedY();
     }
 }
