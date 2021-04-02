@@ -50,6 +50,7 @@ namespace Sprint0
             Rectangle levelNumberDestination = new Rectangle(256, 34, 8 * 4, 9 * 4);
             spriteBatch.Draw(inventoryBackground, levelNumberDestination, getNumberSourceRectangle(1), Color.White);
             DrawItemCounts(spriteBatch);
+            DrawSecondaryWeapon(spriteBatch);
         }
 
         public void DrawItemCounts(SpriteBatch spriteBatch)
@@ -99,6 +100,27 @@ namespace Sprint0
 
         }
 
+        public void DrawSecondaryWeapon(SpriteBatch spriteBatch)
+        {
+            Rectangle secondaryWeaponDestination = new Rectangle(514, 106, 9 * 4, 20 * 4);
+            Rectangle itemSource = new Rectangle(545, 145, 1, 1);
+
+            if (currentItem is BoomerangItem)
+            {
+                itemSource = new Rectangle(584, 137, 7, 15);
+            }
+            else if (currentItem is BowItem)
+            {
+                itemSource = new Rectangle(633, 137, 7, 15);
+            }
+            else if (currentItem is BombItem)
+            {
+                itemSource = new Rectangle(604, 137, 7, 15);
+            }
+
+            spriteBatch.Draw(inventoryBackground, secondaryWeaponDestination, itemSource, Color.White);
+        }
+
         public Rectangle getNumberSourceRectangle(int n)
         {
             Rectangle source;
@@ -143,11 +165,14 @@ namespace Sprint0
 
         public void addItem(IItem item)
         {
-            if(linkItems.Count == 0)
+            if (item is BoomerangItem || item is BowItem || item is BombItem)
             {
-                currentItem = item;
+                if (linkItems.Count == 0)
+                {
+                    currentItem = item;
+                }
+                linkItems.Add(item);
             }
-            linkItems.Add(item);
         }
 
         public void addKey()

@@ -118,6 +118,7 @@ namespace Sprint0
                 if (item.GetLocationRectangle().Intersects(player.LinkPosition()))
                 {
                     LinkItemHandler.HandleCollision(item, player, npcs, Collision_soundEffects, collidedItems);
+                    player.GetLinkInventory().addItem(item);
                 }
             }
 
