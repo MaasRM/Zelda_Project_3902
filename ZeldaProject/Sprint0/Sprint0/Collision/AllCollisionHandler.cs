@@ -27,18 +27,7 @@ namespace Sprint0
             playedSecret2 = false;
         }
 
-        public void HandleCollisions(IPlayer player, List<INPC> npcs, List<IItem> items, List<IBlock> blocks, List<IProjectile> projectiles, RoomManager roomManager, List<SoundEffect> Collision_soundEffects)
-        {
-            PlayerItemCollisions(player, items, npcs, Collision_soundEffects);
-            BlockCollisions(player, npcs, blocks, roomManager, Collision_soundEffects);
-            ProjectileCollisions(player, npcs, projectiles, Collision_soundEffects);
-            CheckTraps(npcs);
-            PlayerEnemyCollisions(player, npcs, Collision_soundEffects);
-            CheckWalls(player, npcs, roomManager);
-            CheckLink(player, roomManager);
-        }
-
-        private void CheckWalls(IPlayer player, List<INPC> npcs, RoomManager roomManager)
+        public void CheckWalls(IPlayer player, List<INPC> npcs, RoomManager roomManager)
         {
             bool grabbed = false;
 
@@ -99,7 +88,7 @@ namespace Sprint0
             }
         }
 
-        private void PlayerEnemyCollisions(IPlayer player, List<INPC> npcs, List<SoundEffect> Collision_soundEffects)
+        public void PlayerEnemyCollisions(IPlayer player, List<INPC> npcs, List<SoundEffect> Collision_soundEffects)
         {
             List<INPC> DeadEnemies = new List<INPC>();
 
@@ -127,7 +116,7 @@ namespace Sprint0
             }
         }
 
-        private void PlayerItemCollisions(IPlayer player, List<IItem> items, List<INPC> npcs, List<SoundEffect> Collision_soundEffects)
+        public void PlayerItemCollisions(IPlayer player, List<IItem> items, List<INPC> npcs, List<SoundEffect> Collision_soundEffects)
         {
             List<IItem> collidedItems;
             collidedItems = new List<IItem>();
@@ -145,7 +134,7 @@ namespace Sprint0
             }
         }
 
-        private void BlockCollisions(IPlayer player, List<INPC> npcs, List<IBlock> blocks, RoomManager roomManager, List<SoundEffect> Collision_soundEffects)
+        public void BlockCollisions(IPlayer player, List<INPC> npcs, List<IBlock> blocks, RoomManager roomManager, List<SoundEffect> Collision_soundEffects)
         {
 
             foreach (IBlock block1 in blocks)
@@ -189,7 +178,7 @@ namespace Sprint0
             }
         }
 
-        private void ProjectileCollisions(IPlayer player, List<INPC> npcs, List<IProjectile> projectiles, List<SoundEffect> Collision_soundEffects)
+        public void ProjectileCollisions(IPlayer player, List<INPC> npcs, List<IProjectile> projectiles, List<SoundEffect> Collision_soundEffects)
         {
             List<INPC> DeadEnemies = new List<INPC>();
             foreach (IProjectile projectile in projectiles) {
@@ -234,7 +223,7 @@ namespace Sprint0
             }
         }
 
-        private void CheckTraps(List<INPC> npcs)
+        public void CheckTraps(List<INPC> npcs)
         {
             for (int i = 0; i < npcs.Count; i++) {
                 for (int j = i + 1; j < npcs.Count; j++) {
@@ -245,7 +234,7 @@ namespace Sprint0
             }
         }
 
-        private void CheckLink(IPlayer player, RoomManager roomManager)
+        public void CheckLink(IPlayer player, RoomManager roomManager)
         {
             if(!player.IsAlive()) {
                 roomManager.FirstRoom();

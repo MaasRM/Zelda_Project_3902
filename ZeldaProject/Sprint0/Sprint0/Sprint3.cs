@@ -195,7 +195,13 @@ namespace Sprint0
                     }
                 }
 
-                allCollisionHandler.HandleCollisions(link, npcs, items, blocks, projectiles, roomManager, Collision_soundEffects);
+                allCollisionHandler.PlayerItemCollisions(link, items, npcs, Collision_soundEffects);
+                allCollisionHandler.BlockCollisions(link, npcs, blocks, roomManager, Collision_soundEffects);
+                allCollisionHandler.ProjectileCollisions(link, npcs, projectiles, Collision_soundEffects);
+                allCollisionHandler.CheckTraps(npcs);
+                allCollisionHandler.PlayerEnemyCollisions(link, npcs, Collision_soundEffects);
+                allCollisionHandler.CheckWalls(link, npcs, roomManager);
+                allCollisionHandler.CheckLink(link, roomManager);
 
                 roomManager.Update();
                 if (!roomManager.RoomChange())
