@@ -29,6 +29,7 @@ namespace Sprint0
                     room.UnlockDoor(Direction.MoveLeft);
                     isSwapped = room.SwapRoom(Direction.MoveLeft);
                     room.UnlockDoor(Direction.MoveRight);
+                    player.GetLinkInventory().removeKey();
                 }
                 if (isSwapped)
                 {
@@ -59,6 +60,7 @@ namespace Sprint0
                     room.UnlockDoor(Direction.MoveUp);
                     isSwapped = room.SwapRoom(Direction.MoveUp);
                     room.UnlockDoor(Direction.MoveDown);
+                    player.GetLinkInventory().removeKey();
                 }
                 if (isSwapped)
                 {
@@ -89,6 +91,7 @@ namespace Sprint0
                     room.UnlockDoor(Direction.MoveRight);
                     isSwapped = room.SwapRoom(Direction.MoveRight);
                     room.UnlockDoor(Direction.MoveLeft);
+                    player.GetLinkInventory().removeKey();
                 }
                 if (isSwapped)
                 {
@@ -119,6 +122,7 @@ namespace Sprint0
                     room.UnlockDoor(Direction.MoveDown);
                     isSwapped = room.SwapRoom(Direction.MoveDown);
                     room.UnlockDoor(Direction.MoveUp);
+                    player.GetLinkInventory().removeKey();
                 }
                 if (isSwapped)
                 {
