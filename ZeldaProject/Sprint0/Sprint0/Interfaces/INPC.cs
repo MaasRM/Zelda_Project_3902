@@ -12,5 +12,6 @@ namespace Sprint0
         public void Reset();
         public Rectangle GetNPCLocation();
         public void SetPosition(Rectangle newPos);
+        public bool DropsItem();
     }
 }

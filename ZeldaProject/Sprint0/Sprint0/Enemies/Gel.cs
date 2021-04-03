@@ -74,5 +74,10 @@ namespace Sprint0
         {
             return false;
         }
+
+        public bool DropsItem()
+        {
+            return false;
+        }
     }
 }

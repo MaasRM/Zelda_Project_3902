@@ -15,8 +15,9 @@ namespace Sprint0
         private int cameraWallMaxY;
         private bool playedSecret1;
         private bool playedSecret2;
+        private Texture2D itemsSheet;
 
-        public AllCollisionHandler(int x1, int x2, int y1, int y2)
+        public AllCollisionHandler(int x1, int x2, int y1, int y2, Texture2D items)
         {
             
             cameraWallMinX = x1;
@@ -25,6 +26,7 @@ namespace Sprint0
             cameraWallMaxY = y2;
             playedSecret1 = false;
             playedSecret2 = false;
+            itemsSheet = items;
         }
 
         public void CheckWalls(IPlayer player, List<INPC> npcs, RoomManager roomManager)
@@ -64,7 +66,7 @@ namespace Sprint0
             }
         }
 
-        public void PlayerEnemyCollisions(IPlayer player, List<INPC> npcs, List<SoundEffect> Collision_soundEffects)
+        public void PlayerEnemyCollisions(IPlayer player, List<INPC> npcs, List<SoundEffect> Collision_soundEffects, List<IItem> items)
         {
             List<INPC> DeadEnemies = new List<INPC>();
 
@@ -81,6 +83,7 @@ namespace Sprint0
             }
 
             foreach(INPC nPC in DeadEnemies) {
+                EnemyDrops.DropItem(nPC, items, itemsSheet);
                 npcs.Remove(nPC);
             }
         }
@@ -137,7 +140,7 @@ namespace Sprint0
             }
         }
 
-        public void ProjectileCollisions(IPlayer player, List<INPC> npcs, List<IProjectile> projectiles, List<SoundEffect> Collision_soundEffects)
+        public void ProjectileCollisions(IPlayer player, List<INPC> npcs, List<IProjectile> projectiles, List<SoundEffect> Collision_soundEffects, List<IItem> items)
         {
             List<INPC> DeadEnemies = new List<INPC>();
             foreach (IProjectile projectile in projectiles) {
@@ -160,6 +163,7 @@ namespace Sprint0
                     }
                 }
                 foreach (INPC nPC in DeadEnemies) {
+                    EnemyDrops.DropItem(nPC, items, itemsSheet);
                     npcs.Remove(nPC);
                 }
             }
