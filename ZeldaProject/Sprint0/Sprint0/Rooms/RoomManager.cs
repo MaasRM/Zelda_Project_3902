@@ -172,23 +172,29 @@ namespace Sprint0
             }
         }
 
-        public void BlowDoor(Direction dir)
+        public Boolean BlowDoor(Direction dir)
         {
             int index = currentRoom.getAdjacentRoomIndex(dir);
+            Boolean blow = false;
             if (index != -1 && currentRoom.getDoorSource(dir).X == 815)
             {
                 currentRoom.setDoorSource(dir, new Rectangle(815 + 132, currentRoom.getDoorSource(dir).Y, 32, 32));
+                blow = true;
             }
+            return blow;
         }
 
-        public void UnlockDoor(Direction dir)
+        public Boolean UnlockDoor(Direction dir)
         {
             int index = currentRoom.getAdjacentRoomIndex(dir);
+            Boolean unlock = false;
             if (index != -1 && (currentRoom.getDoorSource(dir).X == 815 + 66 || currentRoom.getDoorSource(dir).X == 815 + 99))
             {
                 currentRoom.setDoorSource(dir, new Rectangle(815 + 33, currentRoom.getDoorSource(dir).Y, 32, 32));
                 game.Collision_soundEffects[2].Play();
+                unlock = true;
             }
+            return unlock;
         }
 
         public void ChangeRoom(int newRoom)
