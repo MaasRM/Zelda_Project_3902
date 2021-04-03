@@ -289,7 +289,7 @@ namespace Sprint0
         {
             if (!link.IsAlive())
             {
-                roomManager.FirstRoom();
+                roomManager.ChangeRoom(15);
                 link.Reset();
             }
         }

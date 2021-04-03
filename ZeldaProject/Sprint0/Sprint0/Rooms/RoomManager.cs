@@ -187,14 +187,25 @@ namespace Sprint0
             if (index != -1 && (currentRoom.getDoorSource(dir).X == 815 + 66 || currentRoom.getDoorSource(dir).X == 815 + 99))
             {
                 currentRoom.setDoorSource(dir, new Rectangle(815 + 33, currentRoom.getDoorSource(dir).Y, 32, 32));
+                game.Collision_soundEffects[2].Play();
             }
         }
 
-        public void FirstRoom()
+        public void ChangeRoom(int newRoom)
         {
-            roomIndex = FIRSTROOM;
+            roomIndex = newRoom;
             currentRoom = roomList[roomIndex];
             game.ClearProjectiles();
+            /* Have link spawn in the bottom middle of the starting room or the top left of the black and white room
+            if (roomIndex == 15)
+            {
+                game.GetPlayer().SetPosition();
+            }
+            else if (roomIndex == 17)
+            {
+                game.GetPlayer().SetPosition();
+            }
+            */
         }
 
         public bool RoomChange()

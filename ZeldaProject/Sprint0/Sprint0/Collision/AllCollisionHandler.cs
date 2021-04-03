@@ -60,7 +60,7 @@ namespace Sprint0
             }
             else
             {
-                roomManager.FirstRoom();
+                roomManager.ChangeRoom(15);
             }
         }
 
@@ -107,7 +107,7 @@ namespace Sprint0
         public void BlockCollisions(IPlayer player, List<INPC> npcs, List<IBlock> blocks, RoomManager roomManager, List<SoundEffect> Collision_soundEffects)
         {
             foreach (IBlock block1 in blocks) {
-                if (player.LinkPosition().Intersects(block1.GetBlockLocation()) && (block1.getIndex() != 5) && (block1.getIndex() != 0)) {
+                if (player.LinkPosition().Intersects(block1.GetBlockLocation()) && (block1.getIndex() != 5) && (block1.getIndex() != 0) && (block1.getIndex() != 7)) {
                     Rectangle overlap = Rectangle.Intersect(block1.GetBlockLocation(), player.LinkPosition());
 
                     LinkBlockHandler.HandleCollision(player, block1, overlap);
@@ -122,6 +122,10 @@ namespace Sprint0
                         playedSecret2 = true;
                         roomManager.UnlockDoor(Direction.MoveLeft);
                     }
+                }
+                else if (player.LinkPosition().Intersects(block1.GetBlockLocation()) && block1.getIndex() == 7)
+                {
+                    roomManager.ChangeRoom(17);
                 }
 
                 foreach (INPC nPC in npcs) {

@@ -43,7 +43,7 @@ namespace Sprint0
                 game.AddProjectile(boomerang);
             }
 
-            if (!stateMachine.Throwing() || roomAccess.getRoomIndex() == 1 || roomAccess.getRoomIndex() == 8)
+            if (!stateMachine.Throwing() || (roomAccess.getRoomIndex() != 1 && roomAccess.getRoomIndex() != 8))
             {
                 flyingBoomerang.Stop();
                 stateMachine.BoomerangReturned();
