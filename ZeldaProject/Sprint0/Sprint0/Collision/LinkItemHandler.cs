@@ -30,6 +30,10 @@ namespace Sprint0
                 else if (item is ClockItem) {
                     HandleClock(npcs);
                 }
+                else if (item is BombItem)
+                {
+                    HandleBomb(item, player, Collision_soundEffects, collidedItems);
+                }
                 else if (item is MapItem)
                 {
                     player.GetLinkInventory().GetLinkMinimap().setMinimap(true);
@@ -53,6 +57,12 @@ namespace Sprint0
             collidedItems.Add(item);
             player.GetLinkInventory().addItem(item);
             player.getLinkStateMachine().Heal(2);
+        }
+
+        private static void HandleBomb(IItem item, IPlayer player, List<SoundEffect> Collision_soundEffects, List<IItem> collidedItems)
+        {
+            collidedItems.Add(item);
+            player.GetLinkInventory().addBomb();
         }
 
         private static void HandleBlueRupee(IItem item, IPlayer player, List<SoundEffect> Collision_soundEffects, List<IItem> collidedItems)

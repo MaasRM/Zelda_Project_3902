@@ -161,20 +161,11 @@ namespace Sprint0
         {
             if (item is BoomerangItem || item is BowItem || item is BombItem || item is Fire)
             {
-                if(item is BombItem) { addBomb(); }
                 if (linkItems.Count == 0)
                 {
                     currentItem = item;
                 }
                 linkItems.Add(item);
-            }
-            else if (item is HeartItem)
-            {
-                healthBar.addCurrentHealth(2);
-            }
-            else if (item is HeartContainerItem)
-            {
-                healthBar.addMaxHealth(2);
             }
         }
 
