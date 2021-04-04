@@ -150,10 +150,5 @@ namespace Sprint0
         {
             return stateMachine.IsDamaged();
         }
-
-        public bool DropsItem()
-        {
-            return true;
-        }
     }
 }

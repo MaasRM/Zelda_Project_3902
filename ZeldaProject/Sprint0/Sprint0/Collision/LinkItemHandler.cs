@@ -28,7 +28,7 @@ namespace Sprint0
                     HandleYellowRupee(item, player, Collision_soundEffects, collidedItems);
                 }
                 else if (item is ClockItem) {
-                    HandleClock(npcs);
+                    HandleClock(item, npcs, collidedItems);
                 }
                 else if (item is BombItem)
                 {
@@ -36,6 +36,7 @@ namespace Sprint0
                 }
                 else if (item is MapItem)
                 {
+                    collidedItems.Add(item);
                     player.GetLinkInventory().GetLinkMinimap().setMinimap(true);
                 }
                 else {
@@ -79,8 +80,9 @@ namespace Sprint0
             player.GetLinkInventory().addRupee(YELLOWRUPEEVLAUE);
         }
 
-        private static void HandleClock(List<INPC> npcs)
+        private static void HandleClock(IItem item, List<INPC> npcs, List<IItem> collidedItems)
         {
+            collidedItems.Add(item);
             foreach (INPC nPC in npcs)
             {
                 if (nPC is IEnemy)

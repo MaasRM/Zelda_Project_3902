@@ -47,10 +47,5 @@ namespace Sprint0
         {
             destination = newPos;
         }
-
-        public bool DropsItem()
-        {
-            return false;
-        }
     }
 }
