@@ -172,6 +172,10 @@ namespace Sprint0
             {
                 healthBar.addCurrentHealth(2);
             }
+            else if (item is HeartContainerItem)
+            {
+                healthBar.addMaxHealth(2);
+            }
         }
 
         public LinkHealthBar GetLinkHealthBar()

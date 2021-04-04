@@ -51,6 +51,8 @@ namespace Sprint0
         {
             Collision_soundEffects[6].Play();
             collidedItems.Add(item);
+            player.GetLinkInventory().addItem(item);
+            player.getLinkStateMachine().Heal(2);
         }
 
         private static void HandleBlueRupee(IItem item, IPlayer player, List<SoundEffect> Collision_soundEffects, List<IItem> collidedItems)
