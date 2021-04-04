@@ -95,6 +95,22 @@ namespace Sprint0
             currentHealth = health;
         }
 
+        public void addCurrentHealth(int health)
+        {
+            if ((currentHealth += health) <= maxHealth)
+            {
+                currentHealth += health;
+            } else
+            {
+                currentHealth = maxHealth;
+            }
+        }
+
+        public void addMaxHealth(int health)
+        {
+            maxHealth += health;
+        }
+
         public void setMaxHealth(int health)
         {
             maxHealth = health;
