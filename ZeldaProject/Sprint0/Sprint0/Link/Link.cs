@@ -43,6 +43,7 @@ namespace Sprint0
             */
 
             linkInventory.GetLinkHealthBar().setCurrentHealth(stateMachine.GetCurrentHealth());
+            linkInventory.GetLinkHealthBar().setMaxHealth(stateMachine.GetMaxHealth());
 
             if (stateMachine.getColor() == LinkColor.Damaged && damageFrameCount <= 8)
             {

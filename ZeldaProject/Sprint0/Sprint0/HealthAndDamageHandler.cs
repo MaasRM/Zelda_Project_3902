@@ -50,6 +50,11 @@ namespace Sprint0
             maxHealth = newHealth;
         }
 
+        public int GetMaxHealth()
+        {
+            return maxHealth;
+        }
+
         public bool AtMaxHealth()
         {
             return maxHealth == currentHealth;

@@ -340,6 +340,11 @@ namespace Sprint0
             return healthAndDamage.Health();
         }
 
+        public int GetMaxHealth()
+        {
+            return healthAndDamage.GetMaxHealth();
+        }
+
         public int GetDamage()
         {
             return healthAndDamage.DealDamage();
