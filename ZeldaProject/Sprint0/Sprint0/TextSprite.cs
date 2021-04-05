@@ -61,16 +61,9 @@ namespace Sprint0
                 if (counter < letterCount)
                 {
                     Rectangle destination = new Rectangle((letterDest[counter * 2] + 15) * GameConstants.SCALE, (GameConstants.HUDSIZE * GameConstants.SCALE) + (letterDest[(counter * 2) + 1] + 40) * GameConstants.SCALE, 7 * GameConstants.SCALE, 7 * GameConstants.SCALE);
-                    Rectangle source = new Rectangle(10, 56, 7, 7);
+                    Rectangle source = new Rectangle(9, 56, 7, 7);
                     spriteBatch.Draw(letterSheet, destination, source, Color.White);
-                }
-                else if (counter >= letterCount)
-                {
-                    Rectangle destination = new Rectangle((letterDest[counter * 2] + 15) * GameConstants.SCALE, (GameConstants.HUDSIZE * GameConstants.SCALE) + (letterDest[(counter * 2) + 1] + 40) * GameConstants.SCALE, 7 * GameConstants.SCALE, 7 * GameConstants.SCALE);
-                    Rectangle source = new Rectangle(10, 56, 7, 7);
-                    spriteBatch.Draw(letterSheet, destination, source, Color.White);
-                    textSound.Stop();
-                }
+                } else textSound.Stop();
             } else
             {
                 textSound.Stop();
