@@ -19,15 +19,15 @@ Link Items: 1(Green Arrow), 2(Blue Arrow), 3(Normal Boomerang), 4(Blue Boomerang
 Attack: Z, N, Spacebar
 Quit: Q, Escape
 Restart: R
+Inventory/Pause: I
 Changing Room: Left and right mouse buttons
-
 
 ************************************************************************************************************
 											Known Bugs
 ************************************************************************************************************
-- Movable block will overlap with the blocks around it if it is pushed up or down before being pushing right
-- Enemies can push link through blocks when he is in his damage state
-- Wallmaster behavoir needs to be tweeked
+- When Link walks into a block he will walk into it while still not walking through it. He will bounce back
+out to where he should be when releasing a movement key
+- Wallmasters will constantly play sound when grabbing Link
 
 ************************************************************************************************************
 											Other Tools

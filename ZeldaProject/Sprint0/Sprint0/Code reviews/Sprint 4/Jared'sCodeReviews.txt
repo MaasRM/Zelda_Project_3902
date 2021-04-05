@@ -1,0 +1,47 @@
+﻿************************************************************************************************************
+								 Team 3, Jared Zins Code Reviews
+************************************************************************************************************
+
+Jared Zins: Review  LinkHealthBar.cs(Riley) for readability, Review HealthAndDamageHandler.cs(Nathan) for maintainability
+
+************************************************************************************************************
+											Readability
+************************************************************************************************************
+
+Jared Zins
+4/5/2021
+Sprint 3
+Review of LinkHealthBar.cs
+Written by Riley Maas
+Number of minutes taken to complete review: 7 minutes
+
+Comments on Readability:
+	- This class has a low number of methods which makes readability easier
+	- The main draw class has one if statement that is basically there to discern whether or not
+	a whole heart has to be drawn or half a heart should be drawn.
+	- The other main method is to draw the missing hearts because link was damaged
+	-Other methods are for other classes to get information or to change health values
+
+	Overall the code is very readable. The lines that are there are straight-forward and have variables with names
+	that help with context of what is happening. This makes it easier to understand what is going on in the class. 
+
+************************************************************************************************************
+											Maintainability
+************************************************************************************************************
+
+Jared Zins
+4/5/2021
+Sprint 3
+Review of HealthAndDamageHandler.cs
+Written by Nathan Schultz
+
+Comments on Maintainability:
+	- There are not as many magic numbers at all.
+	- All of variables come from the variables that were passed in.
+	- It seems that there is not much that needs to be done. It is all fairly contained.
+
+Hypothetical changes:
+	- possibly changing void functions such that they return some kind of value that could be useful where the 
+	function is being called. This could also reduce how many methods are needed.
+
+
