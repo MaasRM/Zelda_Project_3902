@@ -140,7 +140,7 @@ namespace Sprint0
             }
         }
 
-        public void ProjectileCollisions(IPlayer player, List<INPC> npcs, List<IProjectile> projectiles, List<SoundEffect> Collision_soundEffects, List<IItem> items)
+        public void ProjectileCollisions(IPlayer player, List<INPC> npcs, List<IProjectile> projectiles, List<SoundEffect> Collision_soundEffects, List<IItem> items, RoomManager roomManager)
         {
             List<INPC> DeadEnemies = new List<INPC>();
             foreach (IProjectile projectile in projectiles) {
@@ -158,7 +158,12 @@ namespace Sprint0
                     if (projectile is IBoomerang) {
                         ((IBoomerang)projectile).GoBack();
                     }
-                    else {
+                    else if(projectile is BombProjectile)
+                    {
+                        BombDoor.DetermineDoor(projectile, roomManager);
+                    }
+                    else
+                    {
                         projectile.Hit();
                     }
                 }
