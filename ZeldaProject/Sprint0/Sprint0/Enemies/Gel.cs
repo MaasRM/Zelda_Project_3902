@@ -20,7 +20,6 @@ namespace Sprint0
             stateMachine = new GelStateMachine(x, y, c);
             gelSpriteSheet = spriteSheet;
             init = new Tuple<int, int, GelStateMachine.GelColor>(x, y, c);
-
         }
 
         public void Update()

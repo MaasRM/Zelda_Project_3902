@@ -21,44 +21,28 @@ namespace Sprint0
             OverlapInRelationToBlock overlapBlock = GetOverlapDirectionBlock(player, block, overlap);
             Rectangle blockRect = block.GetBlockLocation();
 
-            if (blockRect.Y <= block.startPos().Y + blockRect.Height - 3 && blockRect.Y >= block.startPos().Y - blockRect.Height + 5)
-            {
-                if (overlapBlock == OverlapInRelationToBlock.Up && notMoved(block.startPos().X, blockRect.X))
-                {
-                    //move down;
+            if (blockRect.Y <= block.startPos().Y + blockRect.Height - 3 && blockRect.Y >= block.startPos().Y - blockRect.Height + 5) {
+                if (overlapBlock == OverlapInRelationToBlock.Up && notMoved(block.startPos().X, blockRect.X)) {
                     blockRect.Y = blockRect.Y + overlap.Height;
                     block.setPosition(blockRect);
                 }
-                else if (overlapBlock == OverlapInRelationToBlock.Down && notMoved(block.startPos().X, blockRect.X))
-                {
-                    //move up;  
+                else if (overlapBlock == OverlapInRelationToBlock.Down && notMoved(block.startPos().X, blockRect.X)){ 
                     blockRect.Y = blockRect.Y - overlap.Height;
                     block.setPosition(blockRect);
                 }
-                else
-                {
-                    LinkBlockHandler.HandleCollision(player, block, overlap);
-                } 
+                else LinkBlockHandler.HandleCollision(player, block, overlap);
             }
             
-            if (blockRect.X >= block.startPos().X - blockRect.Width && blockRect.X <= block.startPos().X + blockRect.Width - 9)
-            {
-                if (overlapBlock == OverlapInRelationToBlock.Left && notMoved(block.startPos().Y, blockRect.Y))
-                {
-                    //move right;
+            if (blockRect.X >= block.startPos().X - blockRect.Width && blockRect.X <= block.startPos().X + blockRect.Width - 9) {
+                if (overlapBlock == OverlapInRelationToBlock.Left && notMoved(block.startPos().Y, blockRect.Y)) {
                     blockRect.X = blockRect.X + overlap.Width;
                     block.setPosition(blockRect);
                 }
-                else if (overlapBlock == OverlapInRelationToBlock.Right && notMoved(block.startPos().Y, blockRect.Y))
-                {
-                    //move left;
+                else if (overlapBlock == OverlapInRelationToBlock.Right && notMoved(block.startPos().Y, blockRect.Y)) {
                     blockRect.X = blockRect.X - overlap.Width;
                     block.setPosition(blockRect);
                 }
-                else
-                {
-                    LinkBlockHandler.HandleCollision(player, block, overlap);
-                }
+                else LinkBlockHandler.HandleCollision(player, block, overlap);
             }
         }
 
@@ -69,32 +53,14 @@ namespace Sprint0
             OverlapInRelationToBlock overlapX = OverlapInRelationToBlock.Right;
             OverlapInRelationToBlock overlapY = OverlapInRelationToBlock.Up;
 
-            if (overlap.Y == blockPos.Y)
-            {
-                overlapY = OverlapInRelationToBlock.Up;
-            }
-            else if (overlap.Y == playerPos.Y)
-            {
-                overlapY = OverlapInRelationToBlock.Down;
-            }
+            if (overlap.Y == blockPos.Y) overlapY = OverlapInRelationToBlock.Up;
+            else if (overlap.Y == playerPos.Y) overlapY = OverlapInRelationToBlock.Down;
 
-            if (overlap.X == playerPos.X)
-            {
-                overlapX = OverlapInRelationToBlock.Right;
-            }
-            else if (overlap.X == blockPos.X)
-            {
-                overlapX = OverlapInRelationToBlock.Left;
-            }
+            if (overlap.X == playerPos.X) overlapX = OverlapInRelationToBlock.Right;
+            else if (overlap.X == blockPos.X) overlapX = OverlapInRelationToBlock.Left;
 
-            if (overlap.Height < overlap.Width)
-            {
-                return overlapY;
-            }
-            else
-            {
-                return overlapX;
-            }
+            if (overlap.Height < overlap.Width) return overlapY;
+            else return overlapX;
         }
 
         private static Boolean notMoved(int original, int newVal)

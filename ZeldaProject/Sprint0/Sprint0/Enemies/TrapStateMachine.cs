@@ -66,41 +66,17 @@ namespace Sprint0
 
             if(active == Activity.Charging)
             {
-                if(direction == Direction.Down)
-                {
-                    yLoc += chargeMoveDist * PIXELSCALER;
-                }
-                else if (direction == Direction.Up)
-                {
-                    yLoc -= chargeMoveDist * PIXELSCALER;
-                }
-                else if (direction == Direction.Left)
-                {
-                    xLoc -= chargeMoveDist * PIXELSCALER;
-                }
-                else
-                {
-                    xLoc += chargeMoveDist * PIXELSCALER;
-                }
+                if (direction == Direction.Down) yLoc += chargeMoveDist * PIXELSCALER;
+                else if (direction == Direction.Up) yLoc -= chargeMoveDist * PIXELSCALER;
+                else if (direction == Direction.Left) xLoc -= chargeMoveDist * PIXELSCALER;
+                else xLoc += chargeMoveDist * PIXELSCALER;
             }
             else if (active == Activity.Returning)
             {
-                if (direction == Direction.Down)
-                {
-                    yLoc -= returnMoveDist * PIXELSCALER;
-                }
-                else if (direction == Direction.Up)
-                {
-                    yLoc += returnMoveDist * PIXELSCALER;
-                }
-                else if (direction == Direction.Left)
-                {
-                    xLoc += returnMoveDist * PIXELSCALER;
-                }
-                else
-                {
-                    xLoc -= returnMoveDist * PIXELSCALER;
-                }
+                if (direction == Direction.Down) yLoc -= returnMoveDist * PIXELSCALER;
+                else if (direction == Direction.Up) yLoc += returnMoveDist * PIXELSCALER;
+                else if (direction == Direction.Left) xLoc += returnMoveDist * PIXELSCALER;
+                else xLoc -= returnMoveDist * PIXELSCALER;
 
                 Returned();
             }
@@ -122,53 +98,36 @@ namespace Sprint0
 
                 if (linkX >= xLoc && linkX < xLoc + WIDTHANDHEIGHT * PIXELSCALER)
                 {
-                    if (linkPos.Y < yLoc)
-                    {
-                        direction = Direction.Up;
-                    }
-                    else
-                    {
-                        direction = Direction.Down;
-                    }
+                    if (linkPos.Y < yLoc) direction = Direction.Up;
+                    else direction = Direction.Down;
                 }
                 else if (linkY >= yLoc && linkY < yLoc + WIDTHANDHEIGHT * PIXELSCALER)
                 {
-                    if (linkPos.X < xLoc)
-                    {
-                        direction = Direction.Left;
-                    }
-                    else
-                    {
-                        direction = Direction.Right;
-                    }
+                    if (linkPos.X < xLoc) direction = Direction.Left;
+                    else direction = Direction.Right;
                 }
             }
         }
 
         private void Returned()
         {
-            if(active == Activity.Returning)
-            {
-                if (direction == Direction.Down && yLoc <= initial.Item2)
-                {
+            if(active == Activity.Returning) {
+                if (direction == Direction.Down && yLoc <= initial.Item2) {
                     active = Activity.Still;
                     xLoc = initial.Item1;
                     yLoc = initial.Item2;
                 }
-                else if (direction == Direction.Up && yLoc >= initial.Item2)
-                {
+                else if (direction == Direction.Up && yLoc >= initial.Item2) {
                     active = Activity.Still;
                     xLoc = initial.Item1;
                     yLoc = initial.Item2;
                 }
-                else if (direction == Direction.Left && xLoc >= initial.Item1)
-                {
+                else if (direction == Direction.Left && xLoc >= initial.Item1) {
                     active = Activity.Still;
                     xLoc = initial.Item1;
                     yLoc = initial.Item2;
                 }
-                else if (direction == Direction.Right && xLoc <= initial.Item1)
-                {
+                else if (direction == Direction.Right && xLoc <= initial.Item1) {
                     active = Activity.Still;
                     xLoc = initial.Item1;
                     yLoc = initial.Item2;

@@ -6,9 +6,8 @@
         <State name="__root__">
           <Node name="Sprint0" expanded="True">
             <Node name="Sprint0" expanded="True">
-              <Node name="Link" expanded="True" />
-              <Node name="Projectiles" expanded="True" />
-              <Node name="Sprint3.cs" selected="True" />
+              <Node name="Enemies" expanded="True" />
+              <Node name="Interfaces" expanded="True" selected="True" />
             </Node>
           </Node>
         </State>

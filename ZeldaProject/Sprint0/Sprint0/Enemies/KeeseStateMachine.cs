@@ -116,55 +116,33 @@ namespace Sprint0
 
         private void ChangePosition()
         {
-            if(state == State.Normal)
-            {
-                if (currFrame % DIRECTIONCHANGEFRAME == 0)
-                {
-                    direction = ChangeDirection();
-                }
+            if(state == State.Normal) {
+                if (currFrame % DIRECTIONCHANGEFRAME == 0) direction = ChangeDirection();
 
-                if (direction == Direction.North)
-                {
-                    yLoc -= axialMoveDist * PIXELSCALER;
-                }
-                else if (direction == Direction.NorthEast)
-                {
+                if (direction == Direction.North) yLoc -= axialMoveDist * PIXELSCALER;
+                else if (direction == Direction.NorthEast) {
                     xLoc += diagonalMoveDist * PIXELSCALER;
                     yLoc -= diagonalMoveDist * PIXELSCALER;
                 }
-                else if (direction == Direction.East)
-                {
-                    xLoc += axialMoveDist * PIXELSCALER;
-                }
-                else if (direction == Direction.SouthEast)
-                {
+                else if (direction == Direction.East) xLoc += axialMoveDist * PIXELSCALER;
+                else if (direction == Direction.SouthEast) {
                     xLoc += diagonalMoveDist * PIXELSCALER;
                     yLoc += diagonalMoveDist * PIXELSCALER;
                 }
-                else if (direction == Direction.South)
-                {
-                    yLoc += axialMoveDist * PIXELSCALER;
-                }
-                else if (direction == Direction.SouthWest)
-                {
+                else if (direction == Direction.South) yLoc += axialMoveDist * PIXELSCALER;
+                else if (direction == Direction.SouthWest) {
                     xLoc -= diagonalMoveDist * PIXELSCALER;
                     yLoc += diagonalMoveDist * PIXELSCALER;
                 }
-                else if (direction == Direction.West)
-                {
-                    xLoc -= axialMoveDist * PIXELSCALER;
-                }
-                else
-                {
+                else if (direction == Direction.West) xLoc -= axialMoveDist * PIXELSCALER;
+                else {
                     xLoc -= diagonalMoveDist * PIXELSCALER;
                     yLoc -= diagonalMoveDist * PIXELSCALER;
                 }
             }
-            else if(state == State.Stun)
-            {
+            else if(state == State.Stun) {
                 stunFrames++;
             }
-
         }
 
         private static Direction ChangeDirection()

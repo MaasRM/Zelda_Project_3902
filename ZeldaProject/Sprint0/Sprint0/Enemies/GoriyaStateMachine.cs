@@ -91,29 +91,12 @@ namespace Sprint0
             frame++;
             if (!throwing && state == State.Normal)
             {
-                if (frame % 10 == 0)
-                {
-                    direction = ChangeDirection();
-                }
+                if (frame % 10 == 0) direction = ChangeDirection();
 
-                if (direction == Direction.Up)
-                {
-                    yLoc -= moveDist * PIXELSCALER;
-                }
-
-                else if (direction == Direction.Down)
-                {
-                    yLoc += moveDist * PIXELSCALER;
-                }
-
-                else if (direction == Direction.Left)
-                {
-                    xLoc -= moveDist * PIXELSCALER;
-                }
-                else
-                {
-                    xLoc += moveDist * PIXELSCALER;
-                }
+                if (direction == Direction.Up) yLoc -= moveDist * PIXELSCALER;
+                else if (direction == Direction.Down) yLoc += moveDist * PIXELSCALER;
+                else if (direction == Direction.Left) xLoc -= moveDist * PIXELSCALER;
+                else xLoc += moveDist * PIXELSCALER;
             }
             else if(state == State.Damaged)
             {

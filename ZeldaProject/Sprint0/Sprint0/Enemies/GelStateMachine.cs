@@ -89,42 +89,23 @@ namespace Sprint0
 
         public void Move()
         {
-            if(state == State.Normal)
-            {
+            if(state == State.Normal) {
                 frame++;
 
-                if (frame > waitFrames || frame > moveFrames)
-                {
+                if (frame > waitFrames || frame > moveFrames) {
                     wait = !wait;
                     frame = 0;
                     waitFrames = (RandomNumberGenerator.GetInt32(6) + 2) * 5;
                 }
 
-                if (frame == 0)
-                {
-                    direction = ChangeDirection();
-                }
+                if (frame == 0) direction = ChangeDirection();
 
                 if (!wait)
                 {
-                    if (direction == Direction.Up)
-                    {
-                        yLoc -= moveDist * PIXELSCALER;
-                    }
-
-                    else if (direction == Direction.Down)
-                    {
-                        yLoc += moveDist * PIXELSCALER;
-                    }
-
-                    else if (direction == Direction.Left)
-                    {
-                        xLoc -= moveDist * PIXELSCALER;
-                    }
-                    else
-                    {
-                        xLoc += moveDist * PIXELSCALER;
-                    }
+                    if (direction == Direction.Up) yLoc -= moveDist * PIXELSCALER;
+                    else if (direction == Direction.Down) yLoc += moveDist * PIXELSCALER;
+                    else if (direction == Direction.Left) xLoc -= moveDist * PIXELSCALER;
+                    else xLoc += moveDist * PIXELSCALER;
                 }
             }
             else if(state == State.Stun)

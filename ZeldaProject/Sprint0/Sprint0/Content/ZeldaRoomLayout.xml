@@ -240,7 +240,7 @@
 		</Blocks>
 		<Items>
 			<Item>
-				<ItemType>KeyItem</ItemType>
+				<ItemType>SecretKeyItem</ItemType>
 				<XLoc>128</XLoc>
 				<YLoc>48</YLoc>
 			</Item>
@@ -522,6 +522,9 @@
 			</Block>
 		</Blocks>
 		<Items>
+			<Item>
+				<ItemType>EnemyKey</ItemType>
+			</Item>
 		</Items>
 		<Enemies>
 			<Enemy>
@@ -1460,7 +1463,7 @@
 		</Blocks>
 		<Items>
 			<Item>
-				<ItemType>KeyItem</ItemType>
+				<ItemType>SecretKeyItem</ItemType>
 				<XLoc>128</XLoc>
 				<YLoc>48</YLoc>
 			</Item>
@@ -1699,7 +1702,7 @@
 		</Blocks>
 		<Items>
 			<Item>
-				<ItemType>KeyItem</ItemType>
+				<ItemType>SecretKeyItem</ItemType>
 				<XLoc>160</XLoc>
 				<YLoc>128</YLoc>
 			</Item>
@@ -1964,6 +1967,9 @@
 			</Block>
 		</Blocks>
 		<Items>
+			<Item>
+				<ItemType>EnemyKey</ItemType>
+			</Item>
 		</Items>
 		<Enemies>
 			<Enemy>

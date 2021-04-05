@@ -41,15 +41,15 @@ namespace Sprint0
                 {
                     blockList.Add(CreateBlock(currentRoom["Blocks"].ChildNodes[b]));
                 }
-                List<IItem> itemList = new List<IItem>();
-                for (int it = 0; it < currentRoom["Items"].ChildNodes.Count; it++)
-                {
-                    itemList.Add(CreateItem(currentRoom["Items"].ChildNodes[it]));
-                }
                 List<INPC> npcList = new List<INPC>();
                 for (int n = 0; n < currentRoom["Enemies"].ChildNodes.Count; n++)
                 {
                     npcList.Add(CreateNPC(currentRoom["Enemies"].ChildNodes[n]));
+                }
+                List<IItem> itemList = new List<IItem>();
+                for (int it = 0; it < currentRoom["Items"].ChildNodes.Count; it++)
+                {
+                    itemList.Add(CreateItem(currentRoom["Items"].ChildNodes[it], npcList));
                 }
                 Rectangle floor = new Rectangle(int.Parse(currentRoom["Background"]["XLoc"].InnerText), int.Parse(currentRoom["Background"]["YLoc"].InnerText), 192, 112);
                 Rectangle walls = new Rectangle(521, 11, 255, 175);
@@ -76,7 +76,7 @@ namespace Sprint0
             return new Block(int.Parse(blockInfo["BlockType"].InnerText), dungeonSheet, (int.Parse(blockInfo["XLoc"].InnerText)) * scale, (int.Parse(blockInfo["YLoc"].InnerText) + 64) * scale);
         }
 
-        private IItem CreateItem(XmlNode itemInfo)
+        private IItem CreateItem(XmlNode itemInfo, List<INPC> npcList)
         {
             switch (itemInfo["ItemType"].InnerText)
             {
@@ -94,6 +94,10 @@ namespace Sprint0
                     return new CompassItem(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText) * scale, (int.Parse(itemInfo["YLoc"].InnerText) + 64) * scale, 15 * scale, 15 * scale), new Rectangle(256, 0, 15, 15), itemsSheet);
                 case "BowItem":
                     return new BowItem(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText) * scale, (int.Parse(itemInfo["YLoc"].InnerText) + 64) * scale, 7 * scale, 15 * scale), new Rectangle(144, 0, 7, 15), itemsSheet);
+                case "SecretKeyItem":
+                    return new SecretKey(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText) * scale, (int.Parse(itemInfo["YLoc"].InnerText) + 64) * scale, 7 * scale, 15 * scale), new Rectangle(240, 0, 7, 15), itemsSheet, npcList);
+                case "EnemyKeyItem":
+                    return new EnemyKey(new Rectangle(240, 0, 7, 15), itemsSheet, npcList[0]);
                 default:
                     return new KeyItem(new Rectangle(0, 0, 7, 15), new Rectangle(240, 0, 7, 15), itemsSheet);
             }
