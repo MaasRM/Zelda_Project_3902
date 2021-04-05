@@ -28,6 +28,7 @@ namespace Sprint0
         private List<IProjectile> projectiles;
         private RoomManager roomManager;
         private AllCollisionHandler allCollisionHandler;
+        private PauseController pauseControls;
 
         //Sound
         public List<SoundEffect> Collision_soundEffects;
@@ -65,6 +66,7 @@ namespace Sprint0
         {
             KeyboardController keyControls = new KeyboardController();
             MouseController mouseControls = new MouseController(this);
+            pauseControls = new PauseController();
             controllerList.Add(keyControls);
             controllerList.Add(mouseControls);
             _graphics.PreferredBackBufferWidth = 255 * 4;
@@ -160,6 +162,7 @@ namespace Sprint0
                 controller.SetCommands(this);
             }
 
+            pauseControls.SetCommands(this);
             allCollisionHandler = new AllCollisionHandler(this.GraphicsDevice.Viewport.Bounds.X, this.GraphicsDevice.Viewport.Bounds.Width, this.GraphicsDevice.Viewport.Bounds.Y, this.GraphicsDevice.Viewport.Bounds.Height, itemsSheet);
 
             link = new Link(contentManager.Load<Texture2D>("LinkSpriteSheet"), linkSheetList, Link_soundEffects, inventory);
@@ -168,45 +171,68 @@ namespace Sprint0
         protected override void Update(GameTime gameTime)
         {
             int i;
-            //if (GetPlayer().GetLinkInventory().GetLinkPauseScreen().isGamePaused() == true) { }
             frame++;
-            if (frame % 4 == 0) {
-                foreach (IBlock block in blocks) {
-                    block.Update();
-                }
-                foreach (IItem item in items) {
-                    item.Update();
-                }
-                for (i = npcs.Count - 1; i >= 0; i--) {
-                    if (npcs[i] is Trap) EnemyProximityTrigger.CheckToTriggerTrap(link, (Trap)npcs[i]);
-                    if (npcs[i] is Wallmaster) EnemyProximityTrigger.CheckToTriggerWallmaster(link, (Wallmaster)npcs[i]);
-                    npcs[i].Update();
-                    if (npcs[i] is IEnemy) {
-                        if (!((IEnemy)npcs[i]).StillAlive()) npcs.RemoveAt(i);
+            if (GetPlayer().GetLinkInventory().GetLinkPauseScreen().isGamePaused() == false)
+            {
+                if (frame % 4 == 0)
+                {
+                    foreach (IBlock block in blocks)
+                    {
+                        block.Update();
+                    }
+                    foreach (IItem item in items)
+                    {
+                        item.Update();
+                    }
+                    for (i = npcs.Count - 1; i >= 0; i--)
+                    {
+                        if (npcs[i] is Trap) EnemyProximityTrigger.CheckToTriggerTrap(link, (Trap)npcs[i]);
+                        if (npcs[i] is Wallmaster) EnemyProximityTrigger.CheckToTriggerWallmaster(link, (Wallmaster)npcs[i]);
+                        npcs[i].Update();
+                        if (npcs[i] is IEnemy)
+                        {
+                            if (!((IEnemy)npcs[i]).StillAlive()) npcs.RemoveAt(i);
+                        }
+                    }
+                    for (i = projectiles.Count - 1; i >= 0; i--)
+                    {
+                        projectiles[i].Update();
+                        if (projectiles[i].CheckForRemoval()) projectiles.RemoveAt(i);
+                    }
+
+                    allCollisionHandler.PlayerItemCollisions(link, items, npcs, Collision_soundEffects);
+                    allCollisionHandler.BlockCollisions(link, npcs, blocks, roomManager, Collision_soundEffects);
+                    allCollisionHandler.ProjectileCollisions(link, npcs, projectiles, Collision_soundEffects, items, roomManager);
+                    allCollisionHandler.CheckTraps(npcs);
+                    allCollisionHandler.PlayerEnemyCollisions(link, npcs, Collision_soundEffects, items);
+                    allCollisionHandler.CheckWalls(link, npcs, roomManager);
+
+                    CheckPlayer();
+
+                    roomManager.Update();
+                    if (!roomManager.RoomChange())
+                    {
+                        link.Update();
+                        foreach (IController controller in controllerList)
+                        {
+                            controller.Update();
+                        }
+                    }
+                    if(roomManager.getRoomIndex() == 5)
+                    {
+                        textSprite.Update();
+                    } else
+                    {
+                        textSprite.Reset();
                     }
                 }
-                for (i = projectiles.Count - 1; i >= 0; i--) {
-                    projectiles[i].Update();
-                    if (projectiles[i].CheckForRemoval()) projectiles.RemoveAt(i);
+            } else
+            {
+                if (frame % 2 == 0)
+                {
+                    pauseControls.Update();
                 }
-
-                allCollisionHandler.PlayerItemCollisions(link, items, npcs, Collision_soundEffects);
-                allCollisionHandler.BlockCollisions(link, npcs, blocks, roomManager, Collision_soundEffects);
-                allCollisionHandler.ProjectileCollisions(link, npcs, projectiles, Collision_soundEffects, items, roomManager);
-                allCollisionHandler.CheckTraps(npcs);
-                allCollisionHandler.PlayerEnemyCollisions(link, npcs, Collision_soundEffects, items);
-                allCollisionHandler.CheckWalls(link, npcs, roomManager);
-
-                CheckPlayer();
-
-                roomManager.Update();
-                if (!roomManager.RoomChange()) {
-                    link.Update();
-                    foreach (IController controller in controllerList) {
-                        controller.Update();
-                    }
-                }
-            }  
+            }
 
             base.Update(gameTime);
         }

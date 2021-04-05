@@ -13,6 +13,7 @@ namespace Sprint0
         private List<SoundEffect> textSounds;
         private Sprint3 game;
         private int scale = 4;
+        private int counter;
 
         //x then y so grouped in twos
         //size is always 7x7
@@ -33,23 +34,28 @@ namespace Sprint0
             this.game = game;
             letterSheet = dungeonSheet;
             textSounds = game.Text_soundEffects;
+            counter = 0;
         }
 
         public void Update()
         {
+            if (counter < 33) counter++;
+        }
 
+        public void Reset()
+        {
+            counter = 0;
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            //for (int i = 0; i < letterSource.Length; i += 2)
-            //{
-                Rectangle destination = new Rectangle(letterDest[0], letterDest[0 + 1], 7 * scale, 7 * scale);
-                Rectangle source = new Rectangle(letterSource[0], letterSource[0 + 1], 7 * scale, 7 * scale);
+            for (int i = 0; i <= counter * 2; i += 2)
+            {
+                Rectangle destination = new Rectangle((letterDest[i] + 37) * scale, (64 * scale) + (letterDest[i + 1] + 37) * scale, 7 * scale, 7 * scale);
+                Rectangle source = new Rectangle(letterSource[i], letterSource[i + 1], 7, 7);
                 spriteBatch.Draw(letterSheet, destination, source, Color.White);
-                //textSounds[0].Play();
-                //wait here for like half a second
-            //}
+            }
+            if(counter != 33) textSounds[0].Play();
         }
     }
 }
