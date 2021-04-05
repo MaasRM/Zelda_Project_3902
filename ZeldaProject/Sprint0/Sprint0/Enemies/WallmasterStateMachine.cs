@@ -24,32 +24,33 @@ namespace Sprint0
             BackIn
         }
 
-        private enum State
+        public enum State
         {
             Normal,
             Damaged,
             Stun
         }
 
-        private Direction initialDirection;
-        private Direction secondDirection;
-        private Activity activity;
-        private State state;
+        public Direction initialDirection { get; set; }
+        public Direction secondDirection { get; set; }
+        public Activity activity { get; set; }
+        public State state { get; set; }
+
         private Vector2 damageDirection;
         private int xLoc;
         private int yLoc;
         private int frame;
         private int stunFrames;
         private int damageFrames;
+        private Tuple<int, int> initial;
+        private bool grab;
+
         private const int WIDTHANDHEIGHT = 16;
-        
         private const int WALLFRAMECOUNT = 30;
         private const int MOVEFRAMECOUNT = 40;
         private const int PIXELSCALER = 4;
         private const int WALLMOVEDIST = 1;
         private const int FLOORMOVEDIST = 3;
-        private Tuple<int, int> initial;
-        private bool grab;
 
         public WallmasterStateMachine(int x, int y)
         {
@@ -187,10 +188,7 @@ namespace Sprint0
             grab = true;
         }
 
-        public Direction GetInitialDirection()
-        {
-            return initialDirection;
-        }
+        
 
         public Direction GetSecondDirection()
         {

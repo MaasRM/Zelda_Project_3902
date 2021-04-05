@@ -40,7 +40,7 @@ namespace Sprint0
         {
             if(!stateMachine.IsWaiting())
             {
-                WallmasterStateMachine.Direction initial = stateMachine.GetInitialDirection();
+                WallmasterStateMachine.Direction initial = stateMachine.initialDirection;
                 WallmasterStateMachine.Direction second = stateMachine.GetSecondDirection();
 
                 bool directionLeft = initial == WallmasterStateMachine.Direction.Left || second == WallmasterStateMachine.Direction.Left;
@@ -130,12 +130,12 @@ namespace Sprint0
 
         public void Stun()
         {
-            stateMachine.SetStun();
+            stateMachine.state = WallmasterStateMachine.State.Stun;
         }
 
         public bool IsDamaged()
         {
-            return stateMachine.IsDamaged();
+            return stateMachine.state == WallmasterStateMachine.State.Damaged;
         }
     }
 }
