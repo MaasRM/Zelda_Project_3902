@@ -29,13 +29,13 @@ namespace Sprint0
             this.spritesheet = spritesheet;
             this.stateMachine = stateMachine;
             projectileDirection = stateMachine.getDirection();
-            if (projectileDirection == Direction.MoveUp) {
+            if (projectileDirection == Direction.Up) {
                 xLoc = stateMachine.getXLoc() + LinkBoomerangConstants.xSize / 2;
                 yLoc = stateMachine.getYLoc() - LinkBoomerangConstants.ySize;
-            } else if (projectileDirection == Direction.MoveDown) {
+            } else if (projectileDirection == Direction.Down) {
                 xLoc = stateMachine.getXLoc() + LinkBoomerangConstants.xSize / 2;
                 yLoc = stateMachine.getYLoc() + LinkBoomerangConstants.ySize;
-            } else if (projectileDirection == Direction.MoveLeft) {
+            } else if (projectileDirection == Direction.Left) {
                 xLoc = stateMachine.getXLoc() - LinkBoomerangConstants.xSize;
                 yLoc = stateMachine.getYLoc();
             } else {
@@ -55,9 +55,9 @@ namespace Sprint0
         public void Update()
         {
             if (boomerangSpeed > 0 && !goBack) {
-                if (projectileDirection == Direction.MoveUp) yLoc -= boomerangSpeed;
-                else if (projectileDirection == Direction.MoveDown) yLoc += boomerangSpeed;
-                else if (projectileDirection == Direction.MoveLeft) xLoc -= boomerangSpeed;
+                if (projectileDirection == Direction.Up) yLoc -= boomerangSpeed;
+                else if (projectileDirection == Direction.Down) yLoc += boomerangSpeed;
+                else if (projectileDirection == Direction.Left) xLoc -= boomerangSpeed;
                 else xLoc += boomerangSpeed;
                 boomerangSpeed -= 1;
             }

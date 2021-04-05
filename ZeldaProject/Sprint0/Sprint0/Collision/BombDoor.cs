@@ -20,11 +20,11 @@ namespace Sprint0
             {
                 if(projectile.GetProjectileLocation().Y < 117 + (64 * 4) && ((BombProjectile)projectile).Exploding())
                 {
-                    roomManager.BlowDoor(Direction.MoveUp);
+                    roomManager.BlowDoor(Direction.Up);
                 } 
                 else if(((BombProjectile)projectile).Exploding())
                 {
-                    roomManager.BlowDoor(Direction.MoveDown);
+                    roomManager.BlowDoor(Direction.Down);
                 }
             }
         }

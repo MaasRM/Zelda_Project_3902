@@ -22,7 +22,7 @@ namespace Sprint0
             //Use params to get proper rectangle from sprite sheet and update height and width
             ILinkRectangle linkRectangle;
             Rectangle retRectangle;
-            if (direction == Direction.MoveUp)
+            if (direction == Direction.Up)
             {
                 if (animation == Animation.Idle)
                 {
@@ -53,7 +53,7 @@ namespace Sprint0
                     linkWidth = 16;
                 }
             } 
-            else if (direction == Direction.MoveDown)
+            else if (direction == Direction.Down)
             {
                 if (animation == Animation.Idle)
                 {
@@ -84,7 +84,7 @@ namespace Sprint0
                     linkWidth = 16;
                 }
             } 
-            else if (direction == Direction.MoveLeft)
+            else if (direction == Direction.Left)
             {
                 if (animation == Animation.Idle)
                 {

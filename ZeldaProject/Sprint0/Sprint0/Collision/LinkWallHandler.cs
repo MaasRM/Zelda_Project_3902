@@ -22,11 +22,11 @@ namespace Sprint0
         {
             bool isSwapped;
             if (player.getLinkStateMachine().getYLoc() > (288 + (64 * 4)) && player.getLinkStateMachine().getYLoc() + player.LinkPosition().Height < (416 + (64 * 4))) {
-                isSwapped = room.SwapRoom(Direction.MoveLeft);
+                isSwapped = room.SwapRoom(Direction.Left);
                 if (!isSwapped && player.GetLinkInventory().getKeyCount() > 0) {
-                    if (room.UnlockDoor(Direction.MoveLeft)) {
-                        isSwapped = room.SwapRoom(Direction.MoveLeft);
-                        room.UnlockDoor(Direction.MoveRight);
+                    if (room.UnlockDoor(Direction.Left)) {
+                        isSwapped = room.SwapRoom(Direction.Left);
+                        room.UnlockDoor(Direction.Right);
                         player.GetLinkInventory().removeKey();
                     }
                 }
@@ -49,11 +49,11 @@ namespace Sprint0
         {
             bool isSwapped;
             if (player.getLinkStateMachine().getXLoc() > 448 && player.getLinkStateMachine().getXLoc() + player.LinkPosition().Width < 576) {
-                isSwapped = room.SwapRoom(Direction.MoveUp);
+                isSwapped = room.SwapRoom(Direction.Up);
                 if (!isSwapped && player.GetLinkInventory().getKeyCount() > 0) {
-                    if (room.UnlockDoor(Direction.MoveUp)) {
-                        isSwapped = room.SwapRoom(Direction.MoveUp);
-                        room.UnlockDoor(Direction.MoveDown);
+                    if (room.UnlockDoor(Direction.Up)) {
+                        isSwapped = room.SwapRoom(Direction.Up);
+                        room.UnlockDoor(Direction.Down);
                         player.GetLinkInventory().removeKey();
                     }
                 }
@@ -76,11 +76,11 @@ namespace Sprint0
         {
             bool isSwapped;
             if (player.getLinkStateMachine().getYLoc() > (288 + (64 * 4)) && player.getLinkStateMachine().getYLoc() + player.LinkPosition().Height < (416 + (64 * 4))) {
-                isSwapped = room.SwapRoom(Direction.MoveRight);
+                isSwapped = room.SwapRoom(Direction.Right);
                 if (!isSwapped && player.GetLinkInventory().getKeyCount() > 0) {
-                    if (room.UnlockDoor(Direction.MoveRight)) {
-                        isSwapped = room.SwapRoom(Direction.MoveRight);
-                        room.UnlockDoor(Direction.MoveLeft);
+                    if (room.UnlockDoor(Direction.Right)) {
+                        isSwapped = room.SwapRoom(Direction.Right);
+                        room.UnlockDoor(Direction.Left);
                         player.GetLinkInventory().removeKey();
                     }
                 }
@@ -103,11 +103,11 @@ namespace Sprint0
         {
             bool isSwapped;
             if (player.getLinkStateMachine().getXLoc() > 448 && player.getLinkStateMachine().getXLoc() + player.LinkPosition().Width < 576) {
-                isSwapped = room.SwapRoom(Direction.MoveDown);
+                isSwapped = room.SwapRoom(Direction.Down);
                 if (!isSwapped && player.GetLinkInventory().getKeyCount() > 0) {
-                    if (room.UnlockDoor(Direction.MoveDown)) {
-                        isSwapped = room.SwapRoom(Direction.MoveDown);
-                        room.UnlockDoor(Direction.MoveUp);
+                    if (room.UnlockDoor(Direction.Down)) {
+                        isSwapped = room.SwapRoom(Direction.Down);
+                        room.UnlockDoor(Direction.Up);
                         player.GetLinkInventory().removeKey();
                     }
                 }

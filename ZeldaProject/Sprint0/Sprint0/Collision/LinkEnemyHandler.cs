@@ -152,10 +152,10 @@ namespace Sprint0
         {
             Direction dir = player.getLinkStateMachine().getDirection();
 
-            return ((dir == Direction.MoveLeft && overlap == OverlapInRelationToPlayer.Left)
-                || (dir == Direction.MoveRight && overlap == OverlapInRelationToPlayer.Right)
-                || (dir == Direction.MoveUp && overlap == OverlapInRelationToPlayer.Up)
-                || (dir == Direction.MoveDown && overlap == OverlapInRelationToPlayer.Down));
+            return ((dir == Direction.Left && overlap == OverlapInRelationToPlayer.Left)
+                || (dir == Direction.Right && overlap == OverlapInRelationToPlayer.Right)
+                || (dir == Direction.Up && overlap == OverlapInRelationToPlayer.Up)
+                || (dir == Direction.Down && overlap == OverlapInRelationToPlayer.Down));
         }
     }
 }

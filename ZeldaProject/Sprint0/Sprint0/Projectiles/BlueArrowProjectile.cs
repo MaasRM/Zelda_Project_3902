@@ -22,15 +22,15 @@ namespace Sprint0
         {
             this.spritesheet = spritesheet;
             projectileDirection = stateMachine.getDirection();
-            if (projectileDirection == Direction.MoveUp) {
+            if (projectileDirection == Direction.Up) {
                 xLoc = stateMachine.getXLoc() + ArrowConstants.ArrowWidth / 2;
                 yLoc = stateMachine.getYLoc() - ArrowConstants.ArrowLength;
                 flip = SpriteEffects.None;
-            } else if (projectileDirection == Direction.MoveDown) {
+            } else if (projectileDirection == Direction.Down) {
                 xLoc = stateMachine.getXLoc() + ArrowConstants.ArrowWidth / 2;
                 yLoc = stateMachine.getYLoc() + ArrowConstants.ArrowLength;
                 flip = SpriteEffects.FlipVertically;
-            } else if (projectileDirection == Direction.MoveLeft) {
+            } else if (projectileDirection == Direction.Left) {
                 xLoc = stateMachine.getXLoc() - ArrowConstants.ArrowWidth;
                 yLoc = stateMachine.getYLoc() + ArrowConstants.ArrowLength / 2;
                 flip = SpriteEffects.FlipHorizontally;
@@ -39,7 +39,7 @@ namespace Sprint0
                 yLoc = stateMachine.getYLoc() + ArrowConstants.ArrowLength / 2;
                 flip = SpriteEffects.None;
             }
-            if (projectileDirection == Direction.MoveUp || projectileDirection == Direction.MoveDown) {
+            if (projectileDirection == Direction.Up || projectileDirection == Direction.Down) {
                 sourceRectangle = new Rectangle(27, 185, 8, 15);
                 destinationRectangle = new Rectangle(xLoc, yLoc, ArrowConstants.ArrowWidth, ArrowConstants.ArrowLength);
             } else {
@@ -54,23 +54,23 @@ namespace Sprint0
         {
             if (frame < ArrowConstants.BLUEHITFRAME + 1)
             {
-                if (projectileDirection == Direction.MoveUp) yLoc -= ArrowConstants.BlueArrowSpeed;
-                else if (projectileDirection == Direction.MoveDown) yLoc += ArrowConstants.BlueArrowSpeed;
-                else if (projectileDirection == Direction.MoveLeft)xLoc -= ArrowConstants.BlueArrowSpeed;
+                if (projectileDirection == Direction.Up) yLoc -= ArrowConstants.BlueArrowSpeed;
+                else if (projectileDirection == Direction.Down) yLoc += ArrowConstants.BlueArrowSpeed;
+                else if (projectileDirection == Direction.Left)xLoc -= ArrowConstants.BlueArrowSpeed;
                 else xLoc += ArrowConstants.BlueArrowSpeed;
 
-                if (projectileDirection == Direction.MoveUp || projectileDirection == Direction.MoveDown)
+                if (projectileDirection == Direction.Up || projectileDirection == Direction.Down)
                     destinationRectangle = new Rectangle(xLoc, yLoc, ArrowConstants.ArrowWidth, ArrowConstants.ArrowLength);
                 else destinationRectangle = new Rectangle(xLoc, yLoc, ArrowConstants.ArrowLength, ArrowConstants.ArrowWidth);
             }
             else
             {
                 sourceRectangle = new Rectangle(53, 185, 8, 15);
-                if (projectileDirection == Direction.MoveLeft || projectileDirection == Direction.MoveRight)
+                if (projectileDirection == Direction.Left || projectileDirection == Direction.Right)
                 {
                     if (frame == ArrowConstants.BLUEHITFRAME + 1)
                     {
-                        if (projectileDirection == Direction.MoveLeft) xLoc -= ArrowConstants.ArrowWidth / 2;
+                        if (projectileDirection == Direction.Left) xLoc -= ArrowConstants.ArrowWidth / 2;
                         else xLoc += ArrowConstants.ArrowWidth / 2;
                     }
                     destinationRectangle = new Rectangle(xLoc, yLoc, ArrowConstants.ArrowLength, ArrowConstants.ArrowWidth);

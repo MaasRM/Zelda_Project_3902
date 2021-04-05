@@ -21,17 +21,17 @@ namespace Sprint0
         public CandleFireProjectile(Texture2D spritesheet, LinkStateMachine stateMachine, List<SoundEffect> Link_soundEffects)
         {
             projectileDirection = stateMachine.getDirection();
-            if(projectileDirection == Direction.MoveUp)
+            if(projectileDirection == Direction.Up)
             {
                 xLoc = stateMachine.getXLoc();
                 yLoc = stateMachine.getYLoc() - CandleFireConstants.candleSize;
             } 
-            else if(projectileDirection == Direction.MoveDown)
+            else if(projectileDirection == Direction.Down)
             {
                 xLoc = stateMachine.getXLoc();
                 yLoc = stateMachine.getYLoc() + CandleFireConstants.candleSize;
             }
-            else if (projectileDirection == Direction.MoveLeft)
+            else if (projectileDirection == Direction.Left)
             {
                 xLoc = stateMachine.getXLoc() - CandleFireConstants.candleSize;
                 yLoc = stateMachine.getYLoc();
@@ -52,15 +52,15 @@ namespace Sprint0
         {
             if (frame < CandleFireConstants.LASTMOVINGFRAME)
             {
-                if (projectileDirection == Direction.MoveUp)
+                if (projectileDirection == Direction.Up)
                 {
                     yLoc -= CandleFireConstants.candleSpeed;
                 }
-                else if (projectileDirection == Direction.MoveDown)
+                else if (projectileDirection == Direction.Down)
                 {
                     yLoc += CandleFireConstants.candleSpeed;
                 }
-                else if (projectileDirection == Direction.MoveLeft)
+                else if (projectileDirection == Direction.Left)
                 {
                     xLoc -= CandleFireConstants.candleSpeed;
                 }

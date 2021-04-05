@@ -21,15 +21,15 @@ namespace Sprint0
         public BombProjectile(Texture2D spritesheet, LinkStateMachine stateMachine, List<SoundEffect> Link_soundEffects)
         {
             projectileDirection = stateMachine.getDirection();
-            if (projectileDirection == Direction.MoveUp)
+            if (projectileDirection == Direction.Up)
             {
                 loc = new Vector2(stateMachine.getXLoc() + BombConstants.bombSizeX/2, stateMachine.getYLoc() - BombConstants.bombSizeY);
             }
-            else if (projectileDirection == Direction.MoveDown)
+            else if (projectileDirection == Direction.Down)
             {
                 loc = new Vector2(stateMachine.getXLoc() + BombConstants.bombSizeX / 2, stateMachine.getYLoc() + BombConstants.bombSizeY);
             }
-            else if (projectileDirection == Direction.MoveLeft)
+            else if (projectileDirection == Direction.Left)
             {
                 loc = new Vector2(stateMachine.getXLoc() - BombConstants.bombSizeX, stateMachine.getYLoc());
             }

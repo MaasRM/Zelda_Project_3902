@@ -71,16 +71,16 @@ namespace Sprint0
             Rectangle door;
             switch (dir)
             {
-                case Direction.MoveUp:
+                case Direction.Up:
                     door = topDoorSource;
                     break;
-                case Direction.MoveDown:
+                case Direction.Down:
                     door = bottomDoorSource;
                     break;
-                case Direction.MoveLeft:
+                case Direction.Left:
                     door = leftDoorSource;
                     break;
-                case Direction.MoveRight:
+                case Direction.Right:
                     door = rightDoorSource;
                     break;
                 default:
@@ -94,16 +94,16 @@ namespace Sprint0
         {
             switch (dir)
             {
-                case Direction.MoveUp:
+                case Direction.Up:
                     topDoorSource = newSource;
                     break;
-                case Direction.MoveDown:
+                case Direction.Down:
                     bottomDoorSource = newSource;
                     break;
-                case Direction.MoveLeft:
+                case Direction.Left:
                     leftDoorSource = newSource;
                     break;
-                case Direction.MoveRight:
+                case Direction.Right:
                     rightDoorSource = newSource;
                     break;
                 default:
@@ -116,16 +116,16 @@ namespace Sprint0
             int room;
             switch (dir)
             {
-                case Direction.MoveUp:
+                case Direction.Up:
                     room = nextRoomNums[0];
                     break;
-                case Direction.MoveDown:
+                case Direction.Down:
                     room = nextRoomNums[1];
                     break;
-                case Direction.MoveLeft:
+                case Direction.Left:
                     room = nextRoomNums[2];
                     break;
-                case Direction.MoveRight:
+                case Direction.Right:
                     room = nextRoomNums[3];
                     break;
                 default:

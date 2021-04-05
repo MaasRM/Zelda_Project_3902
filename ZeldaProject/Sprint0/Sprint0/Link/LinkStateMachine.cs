@@ -8,10 +8,10 @@ namespace Sprint0
 {
     public enum Direction
     {
-        MoveUp,
-        MoveDown,
-        MoveLeft,
-        MoveRight
+        Up,
+        Down,
+        Left,
+        Right
     }
 
     public enum LinkColor
@@ -55,7 +55,7 @@ namespace Sprint0
         public LinkStateMachine(List<SoundEffect> Link_soundEffects)
         {
             spriteFactory = new LinkSpriteFactory();
-            direction = Direction.MoveUp;
+            direction = Direction.Up;
             color = LinkColor.Green;
             animation = Animation.Idle;
             xLoc = xInit * GameConstants.SCALE; //Original Position, probably needs to change
@@ -74,19 +74,19 @@ namespace Sprint0
         public Rectangle getDestination()
         {
             Rectangle ret;
-            if (direction == Direction.MoveUp && animation == Animation.Attack)
+            if (direction == Direction.Up && animation == Animation.Attack)
             {
                 ret = new Rectangle(this.xLoc, this.yLoc - (sizeFactor * 15), this.spriteFactory.getWidth() * sizeFactor, this.spriteFactory.getHeight() * sizeFactor);
             }
-            else if (direction == Direction.MoveLeft && animation == Animation.Attack && frame == 1)
+            else if (direction == Direction.Left && animation == Animation.Attack && frame == 1)
             {
                 ret = new Rectangle(this.xLoc - (sizeFactor * 11), this.yLoc, this.spriteFactory.getWidth() * sizeFactor, this.spriteFactory.getHeight() * sizeFactor);
             }
-            else if (direction == Direction.MoveLeft && animation == Animation.Attack && frame == 2)
+            else if (direction == Direction.Left && animation == Animation.Attack && frame == 2)
             {
                 ret = new Rectangle(this.xLoc - (sizeFactor * 7), this.yLoc, this.spriteFactory.getWidth() * sizeFactor, this.spriteFactory.getHeight() * sizeFactor);
             }
-            else if (direction == Direction.MoveLeft && animation == Animation.Attack && frame == 3)
+            else if (direction == Direction.Left && animation == Animation.Attack && frame == 3)
             {
                 ret = new Rectangle(this.xLoc - (sizeFactor * 3), this.yLoc, this.spriteFactory.getWidth() * sizeFactor, this.spriteFactory.getHeight() * sizeFactor);
             }
@@ -139,7 +139,7 @@ namespace Sprint0
         {
             if (!isBusy && (color != LinkColor.Damaged || (damageVector.X == 0 && damageVector.Y == 0)))
             {
-                if (this.direction == Direction.MoveUp)
+                if (this.direction == Direction.Up)
                 {
                     this.animation = Animation.Walk;
                     yLoc -= linkMoveSpeed;
@@ -148,7 +148,7 @@ namespace Sprint0
                 }
                 else
                 {
-                    this.direction = Direction.MoveUp;
+                    this.direction = Direction.Up;
                     this.animation = Animation.Idle;
                     frame = 0;
                 }
@@ -159,7 +159,7 @@ namespace Sprint0
         {
             if (!isBusy && (color != LinkColor.Damaged || (damageVector.X == 0 && damageVector.Y == 0)))
             {
-                if (this.direction == Direction.MoveDown)
+                if (this.direction == Direction.Down)
                 {
                     this.animation = Animation.Walk;
                     yLoc += linkMoveSpeed;
@@ -168,7 +168,7 @@ namespace Sprint0
                 }
                 else
                 {
-                    this.direction = Direction.MoveDown;
+                    this.direction = Direction.Down;
                     this.animation = Animation.Idle;
                     frame = 0;
                 }
@@ -179,7 +179,7 @@ namespace Sprint0
         {
             if (!isBusy && (color != LinkColor.Damaged || (damageVector.X == 0 && damageVector.Y == 0)))
             {
-                if (this.direction == Direction.MoveLeft)
+                if (this.direction == Direction.Left)
                 {
                     this.animation = Animation.Walk;
                     xLoc -= linkMoveSpeed;
@@ -188,7 +188,7 @@ namespace Sprint0
                 }
                 else
                 {
-                    this.direction = Direction.MoveLeft;
+                    this.direction = Direction.Left;
                     this.animation = Animation.Idle;
                     frame = 0;
                 }
@@ -199,7 +199,7 @@ namespace Sprint0
         {
             if (!isBusy && (color != LinkColor.Damaged || (damageVector.X == 0 && damageVector.Y == 0)))
             {
-                if (this.direction == Direction.MoveRight)
+                if (this.direction == Direction.Right)
                 {
                     this.animation = Animation.Walk;
                     xLoc += linkMoveSpeed;
@@ -208,7 +208,7 @@ namespace Sprint0
                 }
                 else
                 {
-                    this.direction = Direction.MoveRight;
+                    this.direction = Direction.Right;
                     this.animation = Animation.Idle;
                     frame = 0;
                 }

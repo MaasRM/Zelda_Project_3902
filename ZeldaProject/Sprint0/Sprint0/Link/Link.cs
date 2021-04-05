@@ -64,7 +64,7 @@ namespace Sprint0
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (stateMachine.getDirection() == Direction.MoveLeft)
+            if (stateMachine.getDirection() == Direction.Left)
             {
                 spriteBatch.Draw(linkSpriteSheet, destination, source, Color.White, 0, new Vector2(0, 0), SpriteEffects.FlipHorizontally, 0f);
             }

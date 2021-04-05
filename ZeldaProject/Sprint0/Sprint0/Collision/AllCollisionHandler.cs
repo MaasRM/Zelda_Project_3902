@@ -106,7 +106,7 @@ namespace Sprint0
                     } else if (!playedSecret2 && roomManager.Room().RoomNum() == 6) {
                         Collision_soundEffects[9].Play();
                         playedSecret2 = true;
-                        roomManager.UnlockDoor(Direction.MoveLeft);
+                        roomManager.UnlockDoor(Direction.Left);
                     }
                 } else if (player.LinkPosition().Intersects(block1.GetBlockLocation()) && block1.getIndex() == 7) {
                     Collision_soundEffects[10].Play();

@@ -36,14 +36,14 @@ namespace Sprint0
         {
             frame++;
             sourceRectangle.Offset(35 * (int)Math.Pow(-1, (frame % 2) + 1), 0);
-            if(projectileVerticleDirection == Direction.MoveUp)
+            if(projectileVerticleDirection == Direction.Up)
             {
                 yLoc -= SwordBlastConstants.blastSpeed;
             } else
             {
                 yLoc += SwordBlastConstants.blastSpeed;
             }
-            if (projectileHorizontalDirection == Direction.MoveLeft)
+            if (projectileHorizontalDirection == Direction.Left)
             {
                 xLoc -= SwordBlastConstants.blastSpeed;
             }

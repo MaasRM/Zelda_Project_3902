@@ -28,7 +28,7 @@ namespace Sprint0
 
             InitializePos(stateMachine);
 
-            if (projectileDirection == Direction.MoveUp || projectileDirection == Direction.MoveDown) sourceRectangle = new Rectangle(1, 154, 8, 15);
+            if (projectileDirection == Direction.Up || projectileDirection == Direction.Down) sourceRectangle = new Rectangle(1, 154, 8, 15);
             else sourceRectangle = new Rectangle(10, 154, 15, 15);
 
             destinationRectangle = new Rectangle(xLoc, yLoc, xSize, ySize);
@@ -38,19 +38,19 @@ namespace Sprint0
 
         private void InitializePos(LinkStateMachine stateMachine)
         {
-            if (projectileDirection == Direction.MoveUp) {
+            if (projectileDirection == Direction.Up) {
                 xSize = SwordProjectileConstants.SwordWidth;
                 ySize = SwordProjectileConstants.SwordLength;
                 xLoc = stateMachine.getXLoc() + xSize / 2;
                 yLoc = stateMachine.getYLoc() - ySize;
                 flip = SpriteEffects.None;
-            } else if (projectileDirection == Direction.MoveDown) {
+            } else if (projectileDirection == Direction.Down) {
                 xSize = SwordProjectileConstants.SwordWidth;
                 ySize = SwordProjectileConstants.SwordLength;
                 xLoc = stateMachine.getXLoc() + xSize / 2;
                 yLoc = stateMachine.getYLoc() + ySize;
                 flip = SpriteEffects.FlipVertically;
-            } else if (projectileDirection == Direction.MoveLeft) {
+            } else if (projectileDirection == Direction.Left) {
                 xSize = SwordProjectileConstants.SwordLength;
                 ySize = SwordProjectileConstants.SwordLength;
                 xLoc = stateMachine.getXLoc() - xSize;
@@ -71,15 +71,15 @@ namespace Sprint0
             sourceRectangle.Offset(35 * (int)Math.Pow(-1, (frame % 2) + 1), 0);
             if (frame < SwordProjectileConstants.HITFRAME)
             {
-                if (projectileDirection == Direction.MoveUp)
+                if (projectileDirection == Direction.Up)
                 {
                     yLoc -= SwordProjectileConstants.SwordSpeed;
                 }
-                else if (projectileDirection == Direction.MoveDown)
+                else if (projectileDirection == Direction.Down)
                 {
                     yLoc += SwordProjectileConstants.SwordSpeed;
                 }
-                else if (projectileDirection == Direction.MoveLeft)
+                else if (projectileDirection == Direction.Left)
                 {
                     xLoc -= SwordProjectileConstants.SwordSpeed;
                 }
@@ -92,10 +92,10 @@ namespace Sprint0
             else
             {
                 game.Link_soundEffects[1].Play();
-                game.AddProjectile(new SwordBlastProjectile(spritesheet, xLoc - SwordProjectileConstants.XBLASTOFFSET, yLoc - SwordProjectileConstants.YBLASTOFFSET, Direction.MoveUp, Direction.MoveLeft, SpriteEffects.None));
-                game.AddProjectile(new SwordBlastProjectile(spritesheet, xLoc, yLoc - SwordProjectileConstants.YBLASTOFFSET, Direction.MoveUp, Direction.MoveRight, SpriteEffects.FlipHorizontally));
-                game.AddProjectile(new SwordBlastProjectile(spritesheet, xLoc - SwordProjectileConstants.XBLASTOFFSET, yLoc + SwordProjectileConstants.YBLASTOFFSET, Direction.MoveDown, Direction.MoveLeft, SpriteEffects.FlipVertically));
-                game.AddProjectile(new SwordBlastProjectile(spritesheet, xLoc, yLoc + SwordProjectileConstants.YBLASTOFFSET, Direction.MoveDown, Direction.MoveRight, SpriteEffects.FlipVertically | SpriteEffects.FlipHorizontally));
+                game.AddProjectile(new SwordBlastProjectile(spritesheet, xLoc - SwordProjectileConstants.XBLASTOFFSET, yLoc - SwordProjectileConstants.YBLASTOFFSET, Direction.Up, Direction.Left, SpriteEffects.None));
+                game.AddProjectile(new SwordBlastProjectile(spritesheet, xLoc, yLoc - SwordProjectileConstants.YBLASTOFFSET, Direction.Up, Direction.Right, SpriteEffects.FlipHorizontally));
+                game.AddProjectile(new SwordBlastProjectile(spritesheet, xLoc - SwordProjectileConstants.XBLASTOFFSET, yLoc + SwordProjectileConstants.YBLASTOFFSET, Direction.Down, Direction.Left, SpriteEffects.FlipVertically));
+                game.AddProjectile(new SwordBlastProjectile(spritesheet, xLoc, yLoc + SwordProjectileConstants.YBLASTOFFSET, Direction.Down, Direction.Right, SpriteEffects.FlipVertically | SpriteEffects.FlipHorizontally));
             }
         }
 
