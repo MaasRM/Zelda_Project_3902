@@ -10,6 +10,5 @@ namespace Sprint0
         public static int xInit = 120;
         public static int yInit = 128;
         public static int STARTHEALTH = 18;
-        public static int SWORDPROJECTILEBUFFER = 20;
     }
 }

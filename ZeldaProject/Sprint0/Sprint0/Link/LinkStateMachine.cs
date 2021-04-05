@@ -40,7 +40,6 @@ namespace Sprint0
         private int yLoc;
         private bool isBusy;
         private int frame;
-        private int swordProjFrame;
         private HealthAndDamageHandler healthAndDamage;
         private List<SoundEffect> soundEffects;
         private SoundEffectInstance lowHealth;
@@ -57,7 +56,6 @@ namespace Sprint0
             isBusy = false;
             healthAndDamage = new HealthAndDamageHandler(LinkConstants.STARTHEALTH, 1);
             frame = 0;
-            swordProjFrame = 0;
             damageVector = new Vector2(0, 0);
             soundEffects = Link_soundEffects;
             lowHealth = soundEffects[4].CreateInstance();
@@ -124,8 +122,6 @@ namespace Sprint0
                 xLoc += (int)damageVector.X * Sprint0.GameConstants.SCALE;
                 yLoc += (int)damageVector.Y * Sprint0.GameConstants.SCALE;
             }
-
-            swordProjFrame++;
         }
 
         public void Move(Direction dir)
@@ -259,18 +255,6 @@ namespace Sprint0
         public int GetDamage()
         {
             return healthAndDamage.DealDamage();
-        }
-
-        public bool ReadyToFire()
-        {
-            bool returnValue = false;
-            if(((healthAndDamage.AtMaxHealth() && animation == Animation.Attack) || animation == Animation.UsingItem) && swordProjFrame >= LinkConstants.SWORDPROJECTILEBUFFER)
-            {
-                returnValue = true;
-                swordProjFrame = 0;
-            }
-
-            return returnValue;
         }
     }
 }

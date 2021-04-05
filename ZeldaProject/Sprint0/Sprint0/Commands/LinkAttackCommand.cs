@@ -14,7 +14,12 @@ namespace Sprint0
             game.Link_soundEffects[8].Play();
             this.game.GetPlayer().getLinkStateMachine().setAnimation(Animation.Attack);
 
-            if (game.GetPlayer().getLinkStateMachine().ReadyToFire())
+            Boolean alreadyExists = false;
+            foreach (IProjectile proj in game.GetProjectiles())
+            {
+                if (proj is SwordProjectile || proj is SwordBlastProjectile) alreadyExists = true;
+            }
+            if (!alreadyExists && game.GetPlayer().getLinkStateMachine().GetCurrentHealth() == LinkConstants.STARTHEALTH)
             {
                 game.AddProjectile(new SwordProjectile(game.GetPlayer().GetSpriteSheet(), game.GetPlayer().getLinkStateMachine(), game));
             }
