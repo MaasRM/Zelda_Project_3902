@@ -9,8 +9,6 @@ namespace Sprint0
 {
     class SwordBlastProjectile : IProjectile, IPlayerProjectile
     {
-        //This class is for the sword beam mechanic when link is at full health. Not used in sprint 2
-
         private Rectangle sourceRectangle;
         private Rectangle destinationRectangle;
         private Texture2D spritesheet;
@@ -20,10 +18,6 @@ namespace Sprint0
         private Direction projectileVerticleDirection;
         private Direction projectileHorizontalDirection;
         private SpriteEffects flip;
-
-        private const int blastSpeed = 10; //x4 specs
-        private const int DAMAGE = 0;
-        private const int HITFRAME = 5;
 
         public SwordBlastProjectile(Texture2D spritesheet, int x, int y, Direction verticleDirection, Direction horizontalDirection, SpriteEffects flip)
         {
@@ -44,18 +38,18 @@ namespace Sprint0
             sourceRectangle.Offset(35 * (int)Math.Pow(-1, (frame % 2) + 1), 0);
             if(projectileVerticleDirection == Direction.MoveUp)
             {
-                yLoc -= blastSpeed;
+                yLoc -= SwordBlastConstants.blastSpeed;
             } else
             {
-                yLoc += blastSpeed;
+                yLoc += SwordBlastConstants.blastSpeed;
             }
             if (projectileHorizontalDirection == Direction.MoveLeft)
             {
-                xLoc -= blastSpeed;
+                xLoc -= SwordBlastConstants.blastSpeed;
             }
             else
             {
-                xLoc += blastSpeed;
+                xLoc += SwordBlastConstants.blastSpeed;
             }
             destinationRectangle = new Rectangle(xLoc, yLoc, 30, 60);
         }
@@ -72,12 +66,12 @@ namespace Sprint0
 
         public bool CheckForRemoval()
         {
-            return frame >= HITFRAME;
+            return frame >= SwordBlastConstants.HITFRAME;
         }
 
         public int GetDamage()
         {
-            return DAMAGE;
+            return SwordBlastConstants.DAMAGE;
         }
 
         public void Hit()

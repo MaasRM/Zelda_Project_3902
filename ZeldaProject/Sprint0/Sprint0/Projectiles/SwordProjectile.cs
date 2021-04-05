@@ -22,12 +22,6 @@ namespace Sprint0
         private Direction projectileDirection;
         private SpriteEffects flip;
 
-        private const int SwordSpeed = 30; //x4 specs
-        private const int DAMAGE = 2;
-        private const int SwordLength = 60;
-        private const int SwordWidth = 30;
-        private const int HITFRAME = 20;
-
         public SwordProjectile(Texture2D spritesheet, LinkStateMachine stateMachine, Sprint3 game)
         {
             this.spritesheet = spritesheet;
@@ -35,32 +29,32 @@ namespace Sprint0
             projectileDirection = stateMachine.getDirection();
             if (projectileDirection == Direction.MoveUp)
             {
-                xSize = SwordWidth;
-                ySize = SwordLength;
+                xSize = SwordProjectileConstants.SwordWidth;
+                ySize = SwordProjectileConstants.SwordLength;
                 xLoc = stateMachine.getXLoc() + xSize / 2;
                 yLoc = stateMachine.getYLoc() - ySize;
                 flip = SpriteEffects.None;
             }
             else if (projectileDirection == Direction.MoveDown)
             {
-                xSize = SwordWidth;
-                ySize = SwordLength;
+                xSize = SwordProjectileConstants.SwordWidth;
+                ySize = SwordProjectileConstants.SwordLength;
                 xLoc = stateMachine.getXLoc() + xSize / 2;
                 yLoc = stateMachine.getYLoc() + ySize;
                 flip = SpriteEffects.FlipVertically;
             }
             else if (projectileDirection == Direction.MoveLeft)
             {
-                xSize = SwordLength;
-                ySize = SwordLength;
+                xSize = SwordProjectileConstants.SwordLength;
+                ySize = SwordProjectileConstants.SwordLength;
                 xLoc = stateMachine.getXLoc() - xSize;
                 yLoc = stateMachine.getYLoc() + ySize / 8;
                 flip = SpriteEffects.FlipHorizontally;
             }
             else //MoveRight
             {
-                xSize = SwordLength;
-                ySize = SwordLength;
+                xSize = SwordProjectileConstants.SwordLength;
+                ySize = SwordProjectileConstants.SwordLength;
                 xLoc = stateMachine.getXLoc() + xSize;
                 yLoc = stateMachine.getYLoc() + ySize / 4;
                 flip = SpriteEffects.None;
@@ -82,33 +76,33 @@ namespace Sprint0
         {
             frame++;
             sourceRectangle.Offset(35 * (int)Math.Pow(-1, (frame % 2) + 1), 0);
-            if (frame < HITFRAME)
+            if (frame < SwordProjectileConstants.HITFRAME)
             {
                 if (projectileDirection == Direction.MoveUp)
                 {
-                    yLoc -= SwordSpeed;
+                    yLoc -= SwordProjectileConstants.SwordSpeed;
                 }
                 else if (projectileDirection == Direction.MoveDown)
                 {
-                    yLoc += SwordSpeed;
+                    yLoc += SwordProjectileConstants.SwordSpeed;
                 }
                 else if (projectileDirection == Direction.MoveLeft)
                 {
-                    xLoc -= SwordSpeed;
+                    xLoc -= SwordProjectileConstants.SwordSpeed;
                 }
                 else //MoveRight
                 {
-                    xLoc += SwordSpeed;
+                    xLoc += SwordProjectileConstants.SwordSpeed;
                 }
                 destinationRectangle = new Rectangle(xLoc, yLoc, xSize, ySize);
             } 
             else
             {
                 game.Link_soundEffects[1].Play();
-                game.AddProjectile(new SwordBlastProjectile(spritesheet, xLoc - 30, yLoc - 10, Direction.MoveUp, Direction.MoveLeft, SpriteEffects.None));
-                game.AddProjectile(new SwordBlastProjectile(spritesheet, xLoc, yLoc - 10, Direction.MoveUp, Direction.MoveRight, SpriteEffects.FlipHorizontally));
-                game.AddProjectile(new SwordBlastProjectile(spritesheet, xLoc - 30, yLoc + 10, Direction.MoveDown, Direction.MoveLeft, SpriteEffects.FlipVertically));
-                game.AddProjectile(new SwordBlastProjectile(spritesheet, xLoc, yLoc + 10, Direction.MoveDown, Direction.MoveRight, SpriteEffects.FlipVertically | SpriteEffects.FlipHorizontally));
+                game.AddProjectile(new SwordBlastProjectile(spritesheet, xLoc - SwordProjectileConstants.XBLASTOFFSET, yLoc - SwordProjectileConstants.YBLASTOFFSET, Direction.MoveUp, Direction.MoveLeft, SpriteEffects.None));
+                game.AddProjectile(new SwordBlastProjectile(spritesheet, xLoc, yLoc - SwordProjectileConstants.YBLASTOFFSET, Direction.MoveUp, Direction.MoveRight, SpriteEffects.FlipHorizontally));
+                game.AddProjectile(new SwordBlastProjectile(spritesheet, xLoc - SwordProjectileConstants.XBLASTOFFSET, yLoc + SwordProjectileConstants.YBLASTOFFSET, Direction.MoveDown, Direction.MoveLeft, SpriteEffects.FlipVertically));
+                game.AddProjectile(new SwordBlastProjectile(spritesheet, xLoc, yLoc + SwordProjectileConstants.YBLASTOFFSET, Direction.MoveDown, Direction.MoveRight, SpriteEffects.FlipVertically | SpriteEffects.FlipHorizontally));
             }
         }
 
@@ -124,19 +118,19 @@ namespace Sprint0
 
         public bool CheckForRemoval()
         {
-            return frame >= HITFRAME;
+            return frame >= SwordProjectileConstants.HITFRAME;
         }
 
         public int GetDamage()
         {
-            return DAMAGE;
+            return SwordProjectileConstants.DAMAGE;
         }
 
         public void Hit()
         {
-            if (frame < HITFRAME)
+            if (frame < SwordProjectileConstants.HITFRAME)
             {
-                frame = HITFRAME;
+                frame = SwordProjectileConstants.HITFRAME;
             }
         }
     }
