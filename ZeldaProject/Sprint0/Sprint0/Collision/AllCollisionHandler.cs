@@ -204,6 +204,11 @@ namespace Sprint0
                     Collision_soundEffects[3].Play();
                 }
 
+                if (nPC is Goriya)
+                {
+                    (Goriya) nPC.stopSound();
+                }
+
                 DeadEnemies.Add(nPC);
             }
         }
