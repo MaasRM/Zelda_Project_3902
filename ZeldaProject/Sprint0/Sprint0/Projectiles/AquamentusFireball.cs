@@ -28,17 +28,6 @@ namespace Sprint0
         private Angle angle;
         private Position pos;
 
-        private const int WIDTH = 8;
-        private const int HEIGHT = 16;
-        private const int xMoveDist = 5;
-        private const int DAMAGE = 1;
-        private const double RADTODEGREE = 180 / Math.PI;
-        private const double DEGREE36 = 36;
-        private const double DEGREE30 = 30;
-        private const double DEGREE22 = 22;
-        private const double DEGREE20 = 20;
-        private const double DEGREE5 = 5;
-
         public AquamentusFireball(int x, int y, Position pos, Texture2D spritesheet, Sprint3 game)
         {
             this.x = x;
@@ -54,24 +43,24 @@ namespace Sprint0
         public void Update()
         {
             frame++;
-            x -= xMoveDist * GameConstants.SCALE;
+            x -= FireballConstants.xMoveDist * GameConstants.SCALE;
 
             if (angle == Angle.Above)
             {
-                if (pos == Position.Top) y -= xMoveDist * Math.Tan(DEGREE36 / RADTODEGREE) * GameConstants.SCALE;
-                else if(pos == Position.Center) y -= xMoveDist * Math.Tan(DEGREE22 / RADTODEGREE) * GameConstants.SCALE;
-                else y -= xMoveDist * Math.Tan(DEGREE5 / RADTODEGREE) * GameConstants.SCALE;
+                if (pos == Position.Top) y -= FireballConstants.xMoveDist * Math.Tan(FireballConstants.DEGREE36 / FireballConstants.RADTODEGREE) * GameConstants.SCALE;
+                else if(pos == Position.Center) y -= FireballConstants.xMoveDist * Math.Tan(FireballConstants.DEGREE22 / FireballConstants.RADTODEGREE) * GameConstants.SCALE;
+                else y -= FireballConstants.xMoveDist * Math.Tan(FireballConstants.DEGREE5 / FireballConstants.RADTODEGREE) * GameConstants.SCALE;
             }
             else if (angle == Angle.Middle)
             {
-                if (pos == Position.Top) y -= xMoveDist * Math.Tan(DEGREE20 / RADTODEGREE) * GameConstants.SCALE;
-                else if (pos == Position.Bottom) y += xMoveDist * Math.Tan(DEGREE20 / RADTODEGREE) * GameConstants.SCALE;
+                if (pos == Position.Top) y -= FireballConstants.xMoveDist * Math.Tan(FireballConstants.DEGREE20 / FireballConstants.RADTODEGREE) * GameConstants.SCALE;
+                else if (pos == Position.Bottom) y += FireballConstants.xMoveDist * Math.Tan(FireballConstants.DEGREE20 / FireballConstants.RADTODEGREE) * GameConstants.SCALE;
             }
             else
             {
-                if (pos == Position.Top) y += xMoveDist * Math.Tan(DEGREE5 / RADTODEGREE) * GameConstants.SCALE;
-                else if (pos == Position.Center) y += xMoveDist * Math.Tan(DEGREE22 / RADTODEGREE) * GameConstants.SCALE;
-                else y += xMoveDist * Math.Tan(DEGREE36 / RADTODEGREE) * GameConstants.SCALE;
+                if (pos == Position.Top) y += FireballConstants.xMoveDist * Math.Tan(FireballConstants.DEGREE5 / FireballConstants.RADTODEGREE) * GameConstants.SCALE;
+                else if (pos == Position.Center) y += FireballConstants.xMoveDist * Math.Tan(FireballConstants.DEGREE22 / FireballConstants.RADTODEGREE) * GameConstants.SCALE;
+                else y += FireballConstants.xMoveDist * Math.Tan(FireballConstants.DEGREE36 / FireballConstants.RADTODEGREE) * GameConstants.SCALE;
             }
         }
 
@@ -82,26 +71,26 @@ namespace Sprint0
 
         public Rectangle GetProjectileLocation()
         {
-            return new Rectangle((int)x, (int)y, WIDTH * GameConstants.SCALE, HEIGHT * GameConstants.SCALE);
+            return new Rectangle((int)x, (int)y, FireballConstants.WIDTH * GameConstants.SCALE, FireballConstants.HEIGHT * GameConstants.SCALE);
         }
 
         private Rectangle GetSource()
         {
             if (frame % 4 == 0)
             {
-                return new Rectangle(101, 11, WIDTH, HEIGHT);
+                return new Rectangle(101, 11, FireballConstants.WIDTH, FireballConstants.HEIGHT);
             }
             else if (frame % 4 == 1)
             {
-                return new Rectangle(110, 11, WIDTH, HEIGHT);
+                return new Rectangle(110, 11, FireballConstants.WIDTH, FireballConstants.HEIGHT);
             }
             else if (frame % 4 == 2)
             {
-                return new Rectangle(119, 11, WIDTH, HEIGHT);
+                return new Rectangle(119, 11, FireballConstants.WIDTH, FireballConstants.HEIGHT);
             }
             else
             {
-                return new Rectangle(128, 11, WIDTH, HEIGHT);
+                return new Rectangle(128, 11, FireballConstants.WIDTH, FireballConstants.HEIGHT);
             }
         }
 
@@ -115,10 +104,10 @@ namespace Sprint0
             double linkAngle;
 
             if(xDiff != 0) {
-                linkAngle = Math.Atan(yDiff / xDiff) * RADTODEGREE;
+                linkAngle = Math.Atan(yDiff / xDiff) * FireballConstants.RADTODEGREE;
 
-                if (linkAngle > DEGREE30) angle = Angle.Above;
-                else if (linkAngle < -1 * DEGREE30) angle = Angle.Below;
+                if (linkAngle > FireballConstants.DEGREE30) angle = Angle.Above;
+                else if (linkAngle < -1 * FireballConstants.DEGREE30) angle = Angle.Below;
                 else angle = Angle.Middle;
             }
             else angle = Angle.Middle;
@@ -126,14 +115,14 @@ namespace Sprint0
 
         public bool CheckForRemoval()
         {
-            double xCenter = x + WIDTH * GameConstants.SCALE / 2;
-            double yCenter = y + HEIGHT * GameConstants.SCALE / 2;
+            double xCenter = x + FireballConstants.WIDTH * GameConstants.SCALE / 2;
+            double yCenter = y + FireballConstants.HEIGHT * GameConstants.SCALE / 2;
             return (xCenter < 0 || xCenter >= gameMaxX) && (yCenter < 0 || yCenter >= gameMaxY);
         }
 
         public int GetDamage()
         {
-            return DAMAGE;
+            return FireballConstants.DAMAGE;
         }
 
         public void Deflect(Vector2 deflectVector)

@@ -17,41 +17,34 @@ namespace Sprint0
         private int frame;
         private Direction projectileDirection;
         private SpriteEffects flip;
-
-        private const int ArrowSpeed = 20; //x4 specs
-        private const int DAMAGE = 1;
-        private const int ArrowLength = 60;
-        private const int ArrowWidth = 30;
-        private const int HITFRAME = 10;
-        private const int REMOVEFRAME = 13;
         
         public BrownArrowProjectile(Texture2D spritesheet, LinkStateMachine stateMachine, List<SoundEffect> Link_soundEffects)
         {
             this.spritesheet = spritesheet;
             projectileDirection = stateMachine.getDirection();
             if (projectileDirection == Direction.MoveUp) {
-                xLoc = stateMachine.getXLoc() + ArrowWidth / 2;
-                yLoc = stateMachine.getYLoc() - ArrowLength;
+                xLoc = stateMachine.getXLoc() + ArrowConstants.ArrowWidth / 2;
+                yLoc = stateMachine.getYLoc() - ArrowConstants.ArrowLength;
                 flip = SpriteEffects.None;
             } else if (projectileDirection == Direction.MoveDown) {
-                xLoc = stateMachine.getXLoc() + ArrowWidth / 2;
-                yLoc = stateMachine.getYLoc() + ArrowLength;
+                xLoc = stateMachine.getXLoc() + ArrowConstants.ArrowWidth / 2;
+                yLoc = stateMachine.getYLoc() + ArrowConstants.ArrowLength;
                 flip = SpriteEffects.FlipVertically;
             } else if (projectileDirection == Direction.MoveLeft) {
-                xLoc = stateMachine.getXLoc() - ArrowWidth;
-                yLoc = stateMachine.getYLoc() + ArrowLength / 2;
+                xLoc = stateMachine.getXLoc() - ArrowConstants.ArrowWidth;
+                yLoc = stateMachine.getYLoc() + ArrowConstants.ArrowLength / 2;
                 flip = SpriteEffects.FlipHorizontally;
             } else {
-                xLoc = stateMachine.getXLoc() + ArrowWidth;
-                yLoc = stateMachine.getYLoc() + ArrowLength / 2;
+                xLoc = stateMachine.getXLoc() + ArrowConstants.ArrowWidth;
+                yLoc = stateMachine.getYLoc() + ArrowConstants.ArrowLength / 2;
                 flip = SpriteEffects.None;
             }
             if(projectileDirection == Direction.MoveUp || projectileDirection == Direction.MoveDown) {
                 sourceRectangle = new Rectangle(1, 185, 8, 15);
-                destinationRectangle = new Rectangle(xLoc, yLoc, ArrowWidth, ArrowLength);
+                destinationRectangle = new Rectangle(xLoc, yLoc, ArrowConstants.ArrowWidth, ArrowConstants.ArrowLength);
             } else {
                 sourceRectangle = new Rectangle(10, 188, 15, 8);
-                destinationRectangle = new Rectangle(xLoc, yLoc, ArrowLength, ArrowWidth);
+                destinationRectangle = new Rectangle(xLoc, yLoc, ArrowConstants.ArrowLength, ArrowConstants.ArrowWidth);
             }
             frame = 0;
             Link_soundEffects[0].Play();
@@ -59,30 +52,30 @@ namespace Sprint0
 
         public void Update()
         {
-            if (frame < HITFRAME)
+            if (frame < ArrowConstants.BROWNHITFRAME)
             {
-                if (projectileDirection == Direction.MoveUp) yLoc -= ArrowSpeed;
-                else if (projectileDirection == Direction.MoveDown) yLoc += ArrowSpeed;
-                else if (projectileDirection == Direction.MoveLeft) xLoc -= ArrowSpeed;
-                else xLoc += ArrowSpeed;
+                if (projectileDirection == Direction.MoveUp) yLoc -= ArrowConstants.BrownArrowSpeed;
+                else if (projectileDirection == Direction.MoveDown) yLoc += ArrowConstants.BrownArrowSpeed;
+                else if (projectileDirection == Direction.MoveLeft) xLoc -= ArrowConstants.BrownArrowSpeed;
+                else xLoc += ArrowConstants.BrownArrowSpeed;
 
                 if(projectileDirection == Direction.MoveUp || projectileDirection == Direction.MoveDown)
-                    destinationRectangle = new Rectangle(xLoc, yLoc, ArrowWidth, ArrowLength);
-                else destinationRectangle = new Rectangle(xLoc, yLoc, ArrowLength, ArrowWidth);
+                    destinationRectangle = new Rectangle(xLoc, yLoc, ArrowConstants.ArrowWidth, ArrowConstants.ArrowLength);
+                else destinationRectangle = new Rectangle(xLoc, yLoc, ArrowConstants.ArrowLength, ArrowConstants.ArrowWidth);
             }
             else
             {
                 sourceRectangle = new Rectangle(53, 185, 8, 15);
                 if (projectileDirection == Direction.MoveLeft || projectileDirection == Direction.MoveRight)
                 {
-                    if (frame == HITFRAME)
+                    if (frame == ArrowConstants.BROWNHITFRAME)
                     {
-                        if (projectileDirection == Direction.MoveLeft) xLoc -= ArrowWidth / 2;
-                        else xLoc += ArrowWidth / 2;
+                        if (projectileDirection == Direction.MoveLeft) xLoc -= ArrowConstants.ArrowWidth / 2;
+                        else xLoc += ArrowConstants.ArrowWidth / 2;
                     }
-                    destinationRectangle = new Rectangle(xLoc, yLoc, ArrowLength, ArrowWidth);
+                    destinationRectangle = new Rectangle(xLoc, yLoc, ArrowConstants.ArrowLength, ArrowConstants.ArrowWidth);
                 }
-                else destinationRectangle = new Rectangle(xLoc, yLoc, ArrowWidth, ArrowLength);
+                else destinationRectangle = new Rectangle(xLoc, yLoc, ArrowConstants.ArrowWidth, ArrowConstants.ArrowLength);
             }
             frame++;
         }
@@ -99,19 +92,19 @@ namespace Sprint0
 
         public bool CheckForRemoval()
         {
-            return frame >= REMOVEFRAME;
+            return frame >= ArrowConstants.BROWNREMOVEFRAME;
         }
 
         public int GetDamage()
         {
-            return DAMAGE;
+            return ArrowConstants.BROWNDAMAGE;
         }
 
         public void Hit()
         {
-            if (frame < HITFRAME)
+            if (frame < ArrowConstants.BROWNHITFRAME)
             {
-                frame = HITFRAME;
+                frame = ArrowConstants.BROWNHITFRAME;
             }
         }
     }

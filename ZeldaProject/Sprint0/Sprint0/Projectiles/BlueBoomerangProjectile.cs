@@ -17,14 +17,10 @@ namespace Sprint0
         private int yLoc;
         private int frame;
         private bool goBack;
-        private int boomerangSpeed = 30; //x4 specs
+        private int boomerangSpeed = LinkBoomerangConstants.BlueStart; //x4 specs
         private Direction projectileDirection;
         private SpriteEffects flip;
         private SoundEffectInstance flyingBoomerang;
-
-        private const int xSize = 30;
-        private const int ySize = 60;
-        private const int DAMAGE = 1;
 
         public BlueBoomerangProjectile(Texture2D spritesheet, LinkStateMachine stateMachine, List<SoundEffect> Link_soundEffects)
         {
@@ -32,25 +28,25 @@ namespace Sprint0
             this.stateMachine = stateMachine;
             projectileDirection = stateMachine.getDirection();
             if (projectileDirection == Direction.MoveUp) {
-                xLoc = stateMachine.getXLoc() + xSize / 2;
-                yLoc = stateMachine.getYLoc() - ySize;
+                xLoc = stateMachine.getXLoc() + LinkBoomerangConstants.xSize / 2;
+                yLoc = stateMachine.getYLoc() - LinkBoomerangConstants.ySize;
             }
             else if (projectileDirection == Direction.MoveDown) {
-                xLoc = stateMachine.getXLoc() + xSize / 2;
-                yLoc = stateMachine.getYLoc() + ySize;
+                xLoc = stateMachine.getXLoc() + LinkBoomerangConstants.xSize / 2;
+                yLoc = stateMachine.getYLoc() + LinkBoomerangConstants.ySize;
             }
             else if (projectileDirection == Direction.MoveLeft){
-                xLoc = stateMachine.getXLoc() - xSize;
+                xLoc = stateMachine.getXLoc() - LinkBoomerangConstants.xSize;
                 yLoc = stateMachine.getYLoc();
             }
             else {
-                xLoc = stateMachine.getXLoc() + xSize * 2;
+                xLoc = stateMachine.getXLoc() + LinkBoomerangConstants.xSize * 2;
                 yLoc = stateMachine.getYLoc();
             }
             goBack = false;
             flip = SpriteEffects.None;
             sourceRectangle = new Rectangle(91, 185, 8, 15);
-            destinationRectangle = new Rectangle(xLoc, yLoc, xSize, ySize);
+            destinationRectangle = new Rectangle(xLoc, yLoc, LinkBoomerangConstants.xSize, LinkBoomerangConstants.ySize);
             frame = 0;
             flyingBoomerang = Link_soundEffects[0].CreateInstance();
             flyingBoomerang.IsLooped = true;
@@ -76,7 +72,7 @@ namespace Sprint0
                 if (yLoc - stateMachine.getYLoc() >= boomerangSpeed)  yLoc -= boomerangSpeed;
                 else if (yLoc - stateMachine.getYLoc() <= boomerangSpeed * -1) yLoc += boomerangSpeed;
             }
-            destinationRectangle = new Rectangle(xLoc, yLoc, xSize, ySize);
+            destinationRectangle = new Rectangle(xLoc, yLoc, LinkBoomerangConstants.xSize, LinkBoomerangConstants.ySize);
 
             SetSourceAndEffects();
 
@@ -139,7 +135,7 @@ namespace Sprint0
 
         public int GetDamage()
         {
-            return DAMAGE;
+            return LinkBoomerangConstants.DAMAGE;
         }
 
         public void Hit()
