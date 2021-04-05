@@ -31,7 +31,6 @@ namespace Sprint0
         private const int WIDTH = 8;
         private const int HEIGHT = 16;
         private const int xMoveDist = 5;
-        private const int PIXELSCALER = 4;
         private const int DAMAGE = 1;
         private const double RADTODEGREE = 180 / Math.PI;
         private const double DEGREE36 = 36;
@@ -55,24 +54,24 @@ namespace Sprint0
         public void Update()
         {
             frame++;
-            x -= xMoveDist * PIXELSCALER;
+            x -= xMoveDist * GameConstants.SCALE;
 
             if (angle == Angle.Above)
             {
-                if (pos == Position.Top) y -= xMoveDist * Math.Tan(DEGREE36 / RADTODEGREE) * PIXELSCALER;
-                else if(pos == Position.Center) y -= xMoveDist * Math.Tan(DEGREE22 / RADTODEGREE) * PIXELSCALER;
-                else y -= xMoveDist * Math.Tan(DEGREE5 / RADTODEGREE) * PIXELSCALER;
+                if (pos == Position.Top) y -= xMoveDist * Math.Tan(DEGREE36 / RADTODEGREE) * GameConstants.SCALE;
+                else if(pos == Position.Center) y -= xMoveDist * Math.Tan(DEGREE22 / RADTODEGREE) * GameConstants.SCALE;
+                else y -= xMoveDist * Math.Tan(DEGREE5 / RADTODEGREE) * GameConstants.SCALE;
             }
             else if (angle == Angle.Middle)
             {
-                if (pos == Position.Top) y -= xMoveDist * Math.Tan(DEGREE20 / RADTODEGREE) * PIXELSCALER;
-                else if (pos == Position.Bottom) y += xMoveDist * Math.Tan(DEGREE20 / RADTODEGREE) * PIXELSCALER;
+                if (pos == Position.Top) y -= xMoveDist * Math.Tan(DEGREE20 / RADTODEGREE) * GameConstants.SCALE;
+                else if (pos == Position.Bottom) y += xMoveDist * Math.Tan(DEGREE20 / RADTODEGREE) * GameConstants.SCALE;
             }
             else
             {
-                if (pos == Position.Top) y += xMoveDist * Math.Tan(DEGREE5 / RADTODEGREE) * PIXELSCALER;
-                else if (pos == Position.Center) y += xMoveDist * Math.Tan(DEGREE22 / RADTODEGREE) * PIXELSCALER;
-                else y += xMoveDist * Math.Tan(DEGREE36 / RADTODEGREE) * PIXELSCALER;
+                if (pos == Position.Top) y += xMoveDist * Math.Tan(DEGREE5 / RADTODEGREE) * GameConstants.SCALE;
+                else if (pos == Position.Center) y += xMoveDist * Math.Tan(DEGREE22 / RADTODEGREE) * GameConstants.SCALE;
+                else y += xMoveDist * Math.Tan(DEGREE36 / RADTODEGREE) * GameConstants.SCALE;
             }
         }
 
@@ -83,7 +82,7 @@ namespace Sprint0
 
         public Rectangle GetProjectileLocation()
         {
-            return new Rectangle((int)x, (int)y, WIDTH * PIXELSCALER, HEIGHT * PIXELSCALER);
+            return new Rectangle((int)x, (int)y, WIDTH * GameConstants.SCALE, HEIGHT * GameConstants.SCALE);
         }
 
         private Rectangle GetSource()
@@ -127,8 +126,8 @@ namespace Sprint0
 
         public bool CheckForRemoval()
         {
-            double xCenter = x + WIDTH * PIXELSCALER / 2;
-            double yCenter = y + HEIGHT * PIXELSCALER / 2;
+            double xCenter = x + WIDTH * GameConstants.SCALE / 2;
+            double yCenter = y + HEIGHT * GameConstants.SCALE / 2;
             return (xCenter < 0 || xCenter >= gameMaxX) && (yCenter < 0 || yCenter >= gameMaxY);
         }
 

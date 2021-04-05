@@ -13,15 +13,16 @@ namespace Sprint0
         private Rectangle destinationRectangle;
         private Texture2D spritesheet;
         private Vector2 loc;
+        private int frame;
+        private Direction projectileDirection;
+        private List<SoundEffect> soundEffects;
+        private bool placedDown;
+
         private const int bombSizeX = 30; //x4 specs
         private const int bombSizeY = 60;
         private const int DAMAGE = 4;
         private const int EXPLODEFRAME = 20;
         private const int REMOVEFRAME = 22;
-        private int frame;
-        private Direction projectileDirection;
-        private List<SoundEffect> soundEffects;
-        private bool placedDown;
 
         public BombProjectile(Texture2D spritesheet, LinkStateMachine stateMachine, List<SoundEffect> Link_soundEffects)
         {

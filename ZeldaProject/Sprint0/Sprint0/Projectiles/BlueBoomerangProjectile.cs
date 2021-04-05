@@ -15,23 +15,22 @@ namespace Sprint0
         private Texture2D spritesheet;
         private int xLoc;
         private int yLoc;
-        private int boomerangSpeed = 30; //x4 specs
-        private int xSize = 30;
-        private int ySize = 60;
         private int frame;
-        private bool remove;
-        private const int DAMAGE = 1;
-        private Boolean goBack;
+        private bool goBack;
+        private int boomerangSpeed = 30; //x4 specs
         private Direction projectileDirection;
         private SpriteEffects flip;
         private SoundEffectInstance flyingBoomerang;
+
+        private const int xSize = 30;
+        private const int ySize = 60;
+        private const int DAMAGE = 1;
 
         public BlueBoomerangProjectile(Texture2D spritesheet, LinkStateMachine stateMachine, List<SoundEffect> Link_soundEffects)
         {
             this.spritesheet = spritesheet;
             this.stateMachine = stateMachine;
             projectileDirection = stateMachine.getDirection();
-            remove = false;
             if (projectileDirection == Direction.MoveUp) {
                 xLoc = stateMachine.getXLoc() + xSize / 2;
                 yLoc = stateMachine.getYLoc() - ySize;
@@ -76,13 +75,12 @@ namespace Sprint0
                 else if (xLoc - stateMachine.getXLoc() <= boomerangSpeed * -1) xLoc += boomerangSpeed;
                 if (yLoc - stateMachine.getYLoc() >= boomerangSpeed)  yLoc -= boomerangSpeed;
                 else if (yLoc - stateMachine.getYLoc() <= boomerangSpeed * -1) yLoc += boomerangSpeed;
-                if (Math.Abs(xLoc - stateMachine.getXLoc()) <= boomerangSpeed && Math.Abs(yLoc - stateMachine.getYLoc()) <= boomerangSpeed) remove = true;
             }
             destinationRectangle = new Rectangle(xLoc, yLoc, xSize, ySize);
 
             SetSourceAndEffects();
 
-            if (remove) flyingBoomerang.Stop();
+            
             frame++;
         }
 
@@ -135,7 +133,8 @@ namespace Sprint0
 
         public bool CheckForRemoval()
         {
-            return remove;
+            if (Math.Abs(xLoc - stateMachine.getXLoc()) <= boomerangSpeed && Math.Abs(yLoc - stateMachine.getYLoc()) <= boomerangSpeed) flyingBoomerang.Stop();
+            return Math.Abs(xLoc - stateMachine.getXLoc()) <= boomerangSpeed && Math.Abs(yLoc - stateMachine.getYLoc()) <= boomerangSpeed;
         }
 
         public int GetDamage()

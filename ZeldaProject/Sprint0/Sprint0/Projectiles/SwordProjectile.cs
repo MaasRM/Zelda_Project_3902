@@ -18,14 +18,16 @@ namespace Sprint0
         private int yLoc;
         private int xSize;
         private int ySize;
-        private const int SwordSpeed = 30; //x4 specs
-        private const int DAMAGE = 2;
-        private int SwordLength = 60;
-        private int SwordWidth = 30;
         private int frame;
-        private const int HITFRAME = 20;
         private Direction projectileDirection;
         private SpriteEffects flip;
+
+        private const int SwordSpeed = 30; //x4 specs
+        private const int DAMAGE = 2;
+        private const int SwordLength = 60;
+        private const int SwordWidth = 30;
+        private const int HITFRAME = 20;
+
         public SwordProjectile(Texture2D spritesheet, LinkStateMachine stateMachine, Sprint3 game)
         {
             this.spritesheet = spritesheet;

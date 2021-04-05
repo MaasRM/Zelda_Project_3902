@@ -16,13 +16,14 @@ namespace Sprint0
         private Texture2D spritesheet;
         private int xLoc;
         private int yLoc;
-        private const int blastSpeed = 10; //x4 specs
-        private const int DAMAGE = 0;
         private int frame;
-        private const int HITFRAME = 5;
         private Direction projectileVerticleDirection;
         private Direction projectileHorizontalDirection;
         private SpriteEffects flip;
+
+        private const int blastSpeed = 10; //x4 specs
+        private const int DAMAGE = 0;
+        private const int HITFRAME = 5;
 
         public SwordBlastProjectile(Texture2D spritesheet, int x, int y, Direction verticleDirection, Direction horizontalDirection, SpriteEffects flip)
         {

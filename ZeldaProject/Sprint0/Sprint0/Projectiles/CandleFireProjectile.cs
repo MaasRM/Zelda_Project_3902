@@ -14,14 +14,15 @@ namespace Sprint0
         private Texture2D spritesheet;
         private int xLoc;
         private int yLoc;
+        private int frame;
+        private bool flip;
+        private Direction projectileDirection;
+
         private const int candleSpeed = 12; //x4 specs
         private const int candleSize = 60;
         private const int DAMAGE = 1;
         private const int LASTMOVINGFRAME = 10;
         private const int REMOVEFRAME = 20;
-        private int frame;
-        private Boolean flip;
-        private Direction projectileDirection;
 
         public CandleFireProjectile(Texture2D spritesheet, LinkStateMachine stateMachine, List<SoundEffect> Link_soundEffects)
         {

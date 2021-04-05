@@ -2,15 +2,24 @@
   <MonoDevelop.Ide.ItemProperties.Sprint0 PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="Sprint0/Items/Fire.cs" Line="30" Column="32" />
+      <File FileName="Sprint0/Projectiles/AquamentusFireball.cs" Line="134" Column="31" />
+      <File FileName="Sprint0/Projectiles/BlueArrowProjectile.cs" Line="1" Column="1" />
+      <File FileName="Sprint0/Projectiles/BlueBoomerangProjectile.cs" Line="33" Column="63" />
+      <File FileName="Sprint0/Projectiles/BombProjectile.cs" Line="25" Column="44" />
+      <File FileName="Sprint0/Projectiles/BrownArrowProjectile.cs" Line="1" Column="1" />
+      <File FileName="Sprint0/Projectiles/BrownBoomerangProjectile .cs" Line="78" Column="1" />
+      <File FileName="Sprint0/Projectiles/CandleFireProjectile.cs" Line="17" Column="27" />
+      <File FileName="Sprint0/Projectiles/GoriyaBoomerang.cs" Line="25" Column="10" />
+      <File FileName="Sprint0/Projectiles/SwordBlastProjectile.cs" Line="26" Column="40" />
+      <File FileName="Sprint0/Projectiles/SwordProjectile.cs" Line="21" Column="27" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Sprint0" expanded="True">
             <Node name="Sprint0" expanded="True">
-              <Node name="Items" expanded="True">
-                <Node name="Fire.cs" selected="True" />
+              <Node name="Projectiles" expanded="True">
+                <Node name="GoriyaBoomerang.cs" selected="True" />
               </Node>
             </Node>
           </Node>

@@ -16,15 +16,15 @@ namespace Sprint0
         private int xLoc;
         private int yLoc;
         private int boomerangSpeed = 20; //x4 specs
-        private const int DAMAGE = 1;
-        private int xSize = 30;
-        private int ySize = 60;
         private int frame;
         private bool goBack;
-        private bool remove;
         private Direction projectileDirection;
         private SpriteEffects flip;
         private SoundEffectInstance flyingBoomerang;
+
+        private const int DAMAGE = 1;
+        private const int xSize = 30;
+        private const int ySize = 60;
 
         public BrownBoomerangProjectile(Texture2D spritesheet, LinkStateMachine stateMachine, List<SoundEffect> Link_soundEffects)
         {
@@ -71,12 +71,11 @@ namespace Sprint0
                 else if(xLoc - stateMachine.getXLoc() <= boomerangSpeed * -1) xLoc += boomerangSpeed;
                 if (yLoc - stateMachine.getYLoc() >= boomerangSpeed) yLoc -= boomerangSpeed;
                 else if (yLoc - stateMachine.getYLoc() <= boomerangSpeed * -1) yLoc += boomerangSpeed;
-                if (Math.Abs(xLoc - stateMachine.getXLoc()) <= boomerangSpeed && Math.Abs(yLoc - stateMachine.getYLoc()) <= boomerangSpeed) remove = true;
+                if () remove = true;
             }
             destinationRectangle = new Rectangle(xLoc, yLoc, xSize, ySize);
             SetSourceAndEffects();
 
-            if (remove) flyingBoomerang.Stop();
             frame++;
         }
 
@@ -129,7 +128,8 @@ namespace Sprint0
 
         public bool CheckForRemoval()
         {
-            return remove;
+            if(Math.Abs(xLoc - stateMachine.getXLoc()) <= boomerangSpeed && Math.Abs(yLoc - stateMachine.getYLoc()) <= boomerangSpeed) flyingBoomerang.Stop();
+            return Math.Abs(xLoc - stateMachine.getXLoc()) <= boomerangSpeed && Math.Abs(yLoc - stateMachine.getYLoc()) <= boomerangSpeed;
         }
 
         public int GetDamage()
