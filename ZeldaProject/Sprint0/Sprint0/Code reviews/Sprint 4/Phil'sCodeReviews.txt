@@ -27,7 +27,7 @@ numbers.
 											Maintainability
 ************************************************************************************************************  
 
-Phil Brocker 3/15/2021 Sprint3
+Phil Brocker 4/5/2021 Sprint4
 RoomManager.cs - Jake Kline
 Comments on maintainability:
 	- There are some magic numbers in a couple of the methods
