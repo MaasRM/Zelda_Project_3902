@@ -25,29 +25,26 @@ namespace Sprint0
         private Direction projectileDirection;
         private SpriteEffects flip;
         private SoundEffectInstance flyingBoomerang;
+
         public BlueBoomerangProjectile(Texture2D spritesheet, LinkStateMachine stateMachine, List<SoundEffect> Link_soundEffects)
         {
             this.spritesheet = spritesheet;
             this.stateMachine = stateMachine;
             projectileDirection = stateMachine.getDirection();
             remove = false;
-            if (projectileDirection == Direction.MoveUp)
-            {
+            if (projectileDirection == Direction.MoveUp) {
                 xLoc = stateMachine.getXLoc() + xSize / 2;
                 yLoc = stateMachine.getYLoc() - ySize;
             }
-            else if (projectileDirection == Direction.MoveDown)
-            {
+            else if (projectileDirection == Direction.MoveDown) {
                 xLoc = stateMachine.getXLoc() + xSize / 2;
                 yLoc = stateMachine.getYLoc() + ySize;
             }
-            else if (projectileDirection == Direction.MoveLeft)
-            {
+            else if (projectileDirection == Direction.MoveLeft){
                 xLoc = stateMachine.getXLoc() - xSize;
                 yLoc = stateMachine.getYLoc();
             }
-            else //MoveRight
-            {
+            else {
                 xLoc = stateMachine.getXLoc() + xSize * 2;
                 yLoc = stateMachine.getYLoc();
             }
@@ -65,47 +62,32 @@ namespace Sprint0
         {
             if (boomerangSpeed > 0 && !goBack)
             {
-                if (projectileDirection == Direction.MoveUp)
-                {
-                    yLoc -= boomerangSpeed;
-                }
-                else if (projectileDirection == Direction.MoveDown)
-                {
-                    yLoc += boomerangSpeed;
-                }
-                else if (projectileDirection == Direction.MoveLeft)
-                {
-                    xLoc -= boomerangSpeed;
-                }
-                else //MoveRight
-                {
-                    xLoc += boomerangSpeed;
-                }
+                if (projectileDirection == Direction.MoveUp) yLoc -= boomerangSpeed;
+                else if (projectileDirection == Direction.MoveDown) yLoc += boomerangSpeed;
+                else if (projectileDirection == Direction.MoveLeft) xLoc -= boomerangSpeed;
+                else xLoc += boomerangSpeed;
                 boomerangSpeed -= 1;
             }
             else
             {
                 goBack = true;
                 boomerangSpeed += 1;
-                if (xLoc - stateMachine.getXLoc() >= boomerangSpeed)
-                {
-                    xLoc -= boomerangSpeed;
-                }
-                else if (xLoc - stateMachine.getXLoc() <= boomerangSpeed * -1)
-                {
-                    xLoc += boomerangSpeed;
-                }
-                if (yLoc - stateMachine.getYLoc() >= boomerangSpeed)
-                {
-                    yLoc -= boomerangSpeed;
-                }
-                else if (yLoc - stateMachine.getYLoc() <= boomerangSpeed * -1)
-                {
-                    yLoc += boomerangSpeed;
-                }
+                if (xLoc - stateMachine.getXLoc() >= boomerangSpeed) xLoc -= boomerangSpeed;
+                else if (xLoc - stateMachine.getXLoc() <= boomerangSpeed * -1) xLoc += boomerangSpeed;
+                if (yLoc - stateMachine.getYLoc() >= boomerangSpeed)  yLoc -= boomerangSpeed;
+                else if (yLoc - stateMachine.getYLoc() <= boomerangSpeed * -1) yLoc += boomerangSpeed;
                 if (Math.Abs(xLoc - stateMachine.getXLoc()) <= boomerangSpeed && Math.Abs(yLoc - stateMachine.getYLoc()) <= boomerangSpeed) remove = true;
             }
             destinationRectangle = new Rectangle(xLoc, yLoc, xSize, ySize);
+
+            SetSourceAndEffects();
+
+            if (remove) flyingBoomerang.Stop();
+            frame++;
+        }
+
+        private void SetSourceAndEffects()
+        {
             if (frame % 4 == 0)
             {
                 sourceRectangle = new Rectangle(91, 185, 8, 15);
@@ -134,9 +116,8 @@ namespace Sprint0
             {
                 flip = SpriteEffects.FlipVertically;
             }
-            if (remove) flyingBoomerang.Stop();
-            frame++;
         }
+
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(spritesheet, destinationRectangle, sourceRectangle, Color.White, 0, new Vector2(0, 0), flip, 0f);

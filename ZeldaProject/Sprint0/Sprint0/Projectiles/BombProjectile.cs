@@ -12,8 +12,7 @@ namespace Sprint0
         private Rectangle sourceRectangle;
         private Rectangle destinationRectangle;
         private Texture2D spritesheet;
-        private int xLoc;
-        private int yLoc;
+        private Vector2 loc;
         private const int bombSizeX = 30; //x4 specs
         private const int bombSizeY = 60;
         private const int DAMAGE = 4;
@@ -23,31 +22,28 @@ namespace Sprint0
         private Direction projectileDirection;
         private List<SoundEffect> soundEffects;
         private bool placedDown;
+
         public BombProjectile(Texture2D spritesheet, LinkStateMachine stateMachine, List<SoundEffect> Link_soundEffects)
         {
             projectileDirection = stateMachine.getDirection();
             if (projectileDirection == Direction.MoveUp)
             {
-                xLoc = stateMachine.getXLoc() + bombSizeX/2;
-                yLoc = stateMachine.getYLoc() - bombSizeY;
+                loc = new Vector2(stateMachine.getXLoc() + bombSizeX/2, stateMachine.getYLoc() - bombSizeY);
             }
             else if (projectileDirection == Direction.MoveDown)
             {
-                xLoc = stateMachine.getXLoc() + bombSizeX / 2;
-                yLoc = stateMachine.getYLoc() + bombSizeY;
+                loc = new Vector2(stateMachine.getXLoc() + bombSizeX / 2, stateMachine.getYLoc() + bombSizeY);
             }
             else if (projectileDirection == Direction.MoveLeft)
             {
-                xLoc = stateMachine.getXLoc() - bombSizeX;
-                yLoc = stateMachine.getYLoc();
+                loc = new Vector2(stateMachine.getXLoc() - bombSizeX, stateMachine.getYLoc());
             }
-            else //MoveRight
+            else 
             {
-                xLoc = stateMachine.getXLoc() + bombSizeX * 2;
-                yLoc = stateMachine.getYLoc();
+                loc = new Vector2(stateMachine.getXLoc() + bombSizeX * 2, stateMachine.getYLoc());
             }
             sourceRectangle = new Rectangle(129, 185, 8, 15);
-            destinationRectangle = new Rectangle(xLoc, yLoc, bombSizeX, bombSizeY);
+            destinationRectangle = new Rectangle((int)loc.X, (int)loc.Y, bombSizeX, bombSizeY);
             frame = 0;
             this.spritesheet = spritesheet;
             soundEffects = Link_soundEffects;
@@ -61,8 +57,8 @@ namespace Sprint0
                 soundEffects[1].Play();
                 placedDown = false;
 
-                xLoc -= bombSizeX/2;
-                destinationRectangle = new Rectangle(xLoc, yLoc, bombSizeY, bombSizeY);
+                loc.X -= bombSizeX/2;
+                destinationRectangle = new Rectangle((int)loc.X, (int)loc.Y, bombSizeY, bombSizeY);
             }
             if (frame > EXPLODEFRAME)
             {
