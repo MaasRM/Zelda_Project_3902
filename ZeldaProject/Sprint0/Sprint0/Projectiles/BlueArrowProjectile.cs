@@ -56,12 +56,13 @@ namespace Sprint0
             if (projectileDirection == Direction.MoveUp || projectileDirection == Direction.MoveDown)
             {
                 sourceRectangle = new Rectangle(27, 185, 8, 15);
+                destinationRectangle = new Rectangle(xLoc, yLoc, ArrowWidth, ArrowLength);
             }
             else
             {
                 sourceRectangle = new Rectangle(36, 188, 15, 8);
+                destinationRectangle = new Rectangle(xLoc, yLoc, ArrowLength, ArrowWidth);
             }
-            destinationRectangle = new Rectangle(xLoc, yLoc, ArrowWidth, ArrowLength);
             frame = 0;
             Link_soundEffects[0].Play();
         }
