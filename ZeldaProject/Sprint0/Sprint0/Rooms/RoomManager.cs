@@ -179,6 +179,26 @@ namespace Sprint0
             if (index != -1 && currentRoom.getDoorSource(dir).X == 815)
             {
                 currentRoom.setDoorSource(dir, new Rectangle(815 + 132, currentRoom.getDoorSource(dir).Y, 32, 32));
+                Direction oppDir;
+                switch (dir)
+                {
+                    case Direction.MoveUp:
+                        oppDir = Direction.MoveDown;
+                        break;
+                    case Direction.MoveDown:
+                        oppDir = Direction.MoveUp;
+                        break;
+                    case Direction.MoveLeft:
+                        oppDir = Direction.MoveRight;
+                        break;
+                    case Direction.MoveRight:
+                        oppDir = Direction.MoveLeft;
+                        break;
+                    default:
+                        oppDir = Direction.MoveDown;
+                        break;
+                }
+                roomList[currentRoom.getAdjacentRoomIndex(dir)].setDoorSource(oppDir, new Rectangle(815 + 132, currentRoom.getDoorSource(oppDir).Y, 32, 32));
                 blow = true;
             }
             return blow;
