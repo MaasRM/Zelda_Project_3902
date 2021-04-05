@@ -14,17 +14,16 @@ namespace Sprint0
         private Texture2D spritesheet;
         private int xLoc;
         private int yLoc;
-        private int xSize;
-        private int ySize;
-        private const int ArrowSpeed = 30; //x4 specs
-        private const int DAMAGE = 2;
-        private int ArrowLength = 60;
-        private int ArrowWidth = 30;
         private int frame;
-        private const int HITFRAME = 14;
-        private const int REMOVEFRAME = 17;
         private Direction projectileDirection;
         private SpriteEffects flip;
+
+        private const int ArrowSpeed = 30; //x4 specs
+        private const int DAMAGE = 2;
+        private const int ArrowLength = 60;
+        private const int ArrowWidth = 30;
+        private const int HITFRAME = 14;
+        private const int REMOVEFRAME = 17;
 
         public BlueArrowProjectile(Texture2D spritesheet, LinkStateMachine stateMachine, List<SoundEffect> Link_soundEffects)
         {
@@ -32,34 +31,26 @@ namespace Sprint0
             projectileDirection = stateMachine.getDirection();
             if (projectileDirection == Direction.MoveUp)
             {
-                xSize = ArrowWidth;
-                ySize = ArrowLength;
-                xLoc = stateMachine.getXLoc() + xSize / 2;
-                yLoc = stateMachine.getYLoc() - ySize;
+                xLoc = stateMachine.getXLoc() + ArrowWidth / 2;
+                yLoc = stateMachine.getYLoc() - ArrowLength;
                 flip = SpriteEffects.None;
             }
             else if (projectileDirection == Direction.MoveDown)
             {
-                xSize = ArrowWidth;
-                ySize = ArrowLength;
-                xLoc = stateMachine.getXLoc() + xSize / 2;
-                yLoc = stateMachine.getYLoc() + ySize;
+                xLoc = stateMachine.getXLoc() + ArrowWidth / 2;
+                yLoc = stateMachine.getYLoc() + ArrowLength;
                 flip = SpriteEffects.FlipVertically;
             }
             else if (projectileDirection == Direction.MoveLeft)
             {
-                xSize = ArrowLength;
-                ySize = ArrowWidth;
-                xLoc = stateMachine.getXLoc() - xSize;
-                yLoc = stateMachine.getYLoc() + ySize / 2;
+                xLoc = stateMachine.getXLoc() - ArrowWidth;
+                yLoc = stateMachine.getYLoc() + ArrowLength / 2;
                 flip = SpriteEffects.FlipHorizontally;
             }
             else //MoveRight
             {
-                xSize = ArrowLength;
-                ySize = ArrowWidth;
-                xLoc = stateMachine.getXLoc() + xSize;
-                yLoc = stateMachine.getYLoc() + ySize / 2;
+                xLoc = stateMachine.getXLoc() + ArrowWidth;
+                yLoc = stateMachine.getYLoc() + ArrowLength / 2;
                 flip = SpriteEffects.None;
             }
             if (projectileDirection == Direction.MoveUp || projectileDirection == Direction.MoveDown)
@@ -70,7 +61,7 @@ namespace Sprint0
             {
                 sourceRectangle = new Rectangle(36, 188, 15, 8);
             }
-            destinationRectangle = new Rectangle(xLoc, yLoc, xSize, ySize);
+            destinationRectangle = new Rectangle(xLoc, yLoc, ArrowWidth, ArrowLength);
             frame = 0;
             Link_soundEffects[0].Play();
         }
@@ -78,23 +69,11 @@ namespace Sprint0
         {
             if (frame < HITFRAME + 1)
             {
-                if (projectileDirection == Direction.MoveUp)
-                {
-                    yLoc -= ArrowSpeed;
-                }
-                else if (projectileDirection == Direction.MoveDown)
-                {
-                    yLoc += ArrowSpeed;
-                }
-                else if (projectileDirection == Direction.MoveLeft)
-                {
-                    xLoc -= ArrowSpeed;
-                }
-                else //MoveRight
-                {
-                    xLoc += ArrowSpeed;
-                }
-                destinationRectangle = new Rectangle(xLoc, yLoc, xSize, ySize);
+                if (projectileDirection == Direction.MoveUp) yLoc -= ArrowSpeed;
+                else if (projectileDirection == Direction.MoveDown) yLoc += ArrowSpeed;
+                else if (projectileDirection == Direction.MoveLeft)xLoc -= ArrowSpeed;
+                else xLoc += ArrowSpeed;
+                destinationRectangle = new Rectangle(xLoc, yLoc, ArrowWidth, ArrowLength);
             }
             else
             {
@@ -103,19 +82,20 @@ namespace Sprint0
                 {
                     if (frame == HITFRAME + 1)
                     {
-                        yLoc -= ySize / 2;
-                        if (projectileDirection == Direction.MoveLeft) xLoc -= xSize/2;
-                        else xLoc += xSize/2;
+                        yLoc -= ArrowLength / 2;
+                        if (projectileDirection == Direction.MoveLeft) xLoc -= ArrowWidth / 2;
+                        else xLoc += ArrowWidth / 2;
                     }
-                    destinationRectangle = new Rectangle(xLoc, yLoc, ySize, xSize);
+                    destinationRectangle = new Rectangle(xLoc, yLoc, ArrowLength, ArrowWidth);
                 }
                 else
                 {
-                    destinationRectangle = new Rectangle(xLoc, yLoc, xSize, ySize);
+                    destinationRectangle = new Rectangle(xLoc, yLoc, ArrowWidth, ArrowLength);
                 }
             }
             frame++;
         }
+
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(spritesheet, destinationRectangle, sourceRectangle, Color.White, 0, new Vector2(0, 0), flip, 0f);
