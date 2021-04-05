@@ -42,10 +42,8 @@ namespace Sprint0
                 game.AddProjectile(boomerang);
             }
 
-            if (!stateMachine.Throwing() || (roomAccess.getRoomIndex() != 1 && roomAccess.getRoomIndex() != 8)) {
-                flyingBoomerang.Stop();
-                stateMachine.BoomerangReturned();
-                game.RemoveProjectile(boomerang);
+            if (!stateMachine.Throwing() || (roomAccess.getRoomIndex() != 1 && roomAccess.getRoomIndex() != 8) || !StillAlive()) {
+                stopSound();
             }
 
             stateMachine.Move();
@@ -137,6 +135,13 @@ namespace Sprint0
         public bool IsDamaged()
         {
             return stateMachine.IsDamaged();
+        }
+
+        public void stopSound()
+        {
+            flyingBoomerang.Stop();
+            stateMachine.BoomerangReturned();
+            game.RemoveProjectile(boomerang);
         }
     }
 }
