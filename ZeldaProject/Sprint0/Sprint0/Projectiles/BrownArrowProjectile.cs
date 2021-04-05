@@ -74,7 +74,10 @@ namespace Sprint0
                 else if (projectileDirection == Direction.MoveDown) yLoc += ArrowSpeed;
                 else if (projectileDirection == Direction.MoveLeft) xLoc -= ArrowSpeed;
                 else xLoc += ArrowSpeed;
-                destinationRectangle = new Rectangle(xLoc, yLoc, ArrowWidth, ArrowLength);
+                if (projectileDirection == Direction.MoveLeft || projectileDirection == Direction.MoveRight) 
+                    destinationRectangle = new Rectangle(xLoc, yLoc, ArrowLength, ArrowWidth);
+                else
+                    destinationRectangle = new Rectangle(xLoc, yLoc, ArrowWidth, ArrowLength);
             }
             else
             {
