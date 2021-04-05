@@ -53,16 +53,26 @@ namespace Sprint0
 
             new LinkWallHandler(player, roomManager, cameraWallMaxX, cameraWallMaxY);
 
-            if (!grabbed)
+            if (!grabbed && roomManager.getRoomIndex() != 17)
             {
                 if (player.getLinkStateMachine().getXLoc() < 120) LinkWallHandler.HandleLeftWall();
                 if (player.getLinkStateMachine().getYLoc() < (117 + (64 * 4))) LinkWallHandler.HandleTopWall();
                 if (player.getLinkStateMachine().getXLoc() > cameraWallMaxX - 175) LinkWallHandler.HandleRightWall();
                 if (player.getLinkStateMachine().getYLoc() > cameraWallMaxY - 185) LinkWallHandler.HandleBottomWall();
             }
-            else
+            else if(grabbed)
             {
                 roomManager.ChangeRoom(15);
+            } else //room 17
+            {
+                if (player.getLinkStateMachine().getYLoc() < 64 * 4)
+                {
+                    roomManager.ChangeRoom(0);
+                    player.SetPosition(new Rectangle((36 * 4) + 80 * 4, (64 * 4) + (36 * 4) + 48 * 4, 0, 0));
+                }
+                if (player.getLinkStateMachine().getXLoc() < 120) LinkWallHandler.HandleLeftWall();
+                if (player.getLinkStateMachine().getXLoc() > cameraWallMaxX - 175) LinkWallHandler.HandleRightWall();
+                if (player.getLinkStateMachine().getYLoc() > cameraWallMaxY - 185) LinkWallHandler.HandleBottomWall();
             }
         }
 
