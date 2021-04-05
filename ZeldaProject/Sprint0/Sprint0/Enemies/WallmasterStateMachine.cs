@@ -45,12 +45,7 @@ namespace Sprint0
         private Tuple<int, int> initial;
         private bool grab;
 
-        private const int WIDTHANDHEIGHT = 16;
-        private const int WALLFRAMECOUNT = 30;
-        private const int MOVEFRAMECOUNT = 40;
-        private const int PIXELSCALER = 4;
-        private const int WALLMOVEDIST = 1;
-        private const int FLOORMOVEDIST = 3;
+        
 
         public WallmasterStateMachine(int x, int y)
         {
@@ -69,7 +64,7 @@ namespace Sprint0
 
         public Rectangle GetDestination()
         {
-            return new Rectangle(xLoc, yLoc, WIDTHANDHEIGHT * PIXELSCALER, WIDTHANDHEIGHT * PIXELSCALER);
+            return new Rectangle(xLoc, yLoc, WallmasterConstants.WIDTHANDHEIGHT * GameConstants.SCALE, WallmasterConstants.WIDTHANDHEIGHT * GameConstants.SCALE);
         }
 
         public void SetDestination(int x, int y)
@@ -82,11 +77,11 @@ namespace Sprint0
         {
             if (grab || (activity == Activity.Moving && frame % 2 == 1))
             {
-                return new Rectangle(410, 11, WIDTHANDHEIGHT, WIDTHANDHEIGHT);
+                return new Rectangle(410, 11, WallmasterConstants.WIDTHANDHEIGHT, WallmasterConstants.WIDTHANDHEIGHT);
             }
             else
             {
-                return new Rectangle(392, 11, WIDTHANDHEIGHT, WIDTHANDHEIGHT);
+                return new Rectangle(392, 11, WallmasterConstants.WIDTHANDHEIGHT, WallmasterConstants.WIDTHANDHEIGHT);
             }
         }
 
@@ -96,8 +91,8 @@ namespace Sprint0
                 NormalMove();
             }
             else if(state == State.Damaged) {
-                xLoc += (int)damageDirection.X * PIXELSCALER;
-                yLoc += (int)damageDirection.Y * PIXELSCALER;
+                xLoc += (int)damageDirection.X * GameConstants.SCALE;
+                yLoc += (int)damageDirection.Y * GameConstants.SCALE;
                 damageFrames++;
             }
             else if(state == State.Stun) {
@@ -111,41 +106,41 @@ namespace Sprint0
         {
             frame++;
             if (activity == Activity.OutWall) {
-                if (initialDirection == Direction.Down) yLoc += WALLMOVEDIST * PIXELSCALER;
-                else if (initialDirection == Direction.Up) yLoc -= WALLMOVEDIST * PIXELSCALER;
-                else if (initialDirection == Direction.Left) xLoc -= WALLMOVEDIST * PIXELSCALER;
-                else xLoc += WALLMOVEDIST * PIXELSCALER;
+                if (initialDirection == Direction.Down) yLoc += WallmasterConstants.WALLMOVEDIST * GameConstants.SCALE;
+                else if (initialDirection == Direction.Up) yLoc -= WallmasterConstants.WALLMOVEDIST * GameConstants.SCALE;
+                else if (initialDirection == Direction.Left) xLoc -= WallmasterConstants.WALLMOVEDIST * GameConstants.SCALE;
+                else xLoc += WallmasterConstants.WALLMOVEDIST * GameConstants.SCALE;
                 ChangeActivity();
             }
             else if (activity == Activity.Moving) {
-                if (secondDirection == Direction.Down) yLoc += FLOORMOVEDIST * PIXELSCALER;
-                else if (secondDirection == Direction.Up) yLoc -= FLOORMOVEDIST * PIXELSCALER;
-                else if (secondDirection == Direction.Left) xLoc -= FLOORMOVEDIST * PIXELSCALER;
-                else xLoc += FLOORMOVEDIST * PIXELSCALER;
+                if (secondDirection == Direction.Down) yLoc += WallmasterConstants.FLOORMOVEDIST * GameConstants.SCALE;
+                else if (secondDirection == Direction.Up) yLoc -= WallmasterConstants.FLOORMOVEDIST * GameConstants.SCALE;
+                else if (secondDirection == Direction.Left) xLoc -= WallmasterConstants.FLOORMOVEDIST * GameConstants.SCALE;
+                else xLoc += WallmasterConstants.FLOORMOVEDIST * GameConstants.SCALE;
                 ChangeActivity();
             }
             else if (activity == Activity.BackIn) {
-                if (initialDirection == Direction.Down) yLoc -= WALLMOVEDIST * PIXELSCALER;
-                else if (initialDirection == Direction.Up) yLoc += WALLMOVEDIST * PIXELSCALER;
-                else if (initialDirection == Direction.Left) xLoc += WALLMOVEDIST * PIXELSCALER;
-                else xLoc -= WALLMOVEDIST * PIXELSCALER;
+                if (initialDirection == Direction.Down) yLoc -= WallmasterConstants.WALLMOVEDIST * GameConstants.SCALE;
+                else if (initialDirection == Direction.Up) yLoc += WallmasterConstants.WALLMOVEDIST * GameConstants.SCALE;
+                else if (initialDirection == Direction.Left) xLoc += WallmasterConstants.WALLMOVEDIST * GameConstants.SCALE;
+                else xLoc -= WallmasterConstants.WALLMOVEDIST * GameConstants.SCALE;
                 ChangeActivity();
             }
         }
 
         private void ChangeActivity()
         {
-            if (activity == Activity.OutWall && frame > WALLFRAMECOUNT)
+            if (activity == Activity.OutWall && frame > WallmasterConstants.WALLFRAMECOUNT)
             {
                 frame = -1;
                 activity = Activity.Moving;
             }
-            if (activity == Activity.Moving && frame > MOVEFRAMECOUNT)
+            if (activity == Activity.Moving && frame > WallmasterConstants.MOVEFRAMECOUNT)
             {
                 frame = -1;
                 activity = Activity.BackIn;
             }
-            if (activity == Activity.BackIn && frame > WALLFRAMECOUNT)
+            if (activity == Activity.BackIn && frame > WallmasterConstants.WALLFRAMECOUNT)
             {
                 grab = false;
                 frame = 0;
@@ -210,7 +205,7 @@ namespace Sprint0
 
         public void ReturnToNormal()
         {
-            if (damageFrames > 8 || stunFrames > 30)
+            if (damageFrames > WallmasterConstants.DAMAGEFRAMECOUNT || stunFrames > WallmasterConstants.STUNFRAMECOUNT)
             {
                 state = State.Normal;
                 stunFrames = 0;
@@ -231,19 +226,19 @@ namespace Sprint0
 
         private void SetDirection()
         {
-            if(yLoc <= 256)
+            if(yLoc <= WallmasterConstants.TOPWALL)
             {
                 initialDirection = Direction.Down;
             }
-            if(yLoc >= 896)
+            if(yLoc >= WallmasterConstants.BOTTOMWALL)
             {
                 initialDirection = Direction.Up;
             }
-            if(xLoc <= 0)
+            if(xLoc <= WallmasterConstants.LEFTWALL)
             {
                 initialDirection = Direction.Right;
             }
-            if(xLoc >= 960)
+            if(xLoc >= WallmasterConstants.RIGHTWALL)
             {
                 initialDirection = Direction.Left;
             }

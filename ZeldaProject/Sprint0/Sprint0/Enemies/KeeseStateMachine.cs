@@ -49,14 +49,7 @@ namespace Sprint0
         private int fastFrameCount;
         private int health;
         private int stunFrames;
-        private const int DIRECTIONCHANGEFRAME = 10;
-        private const int WIDTHANDHEIGHT = 16;
-        private const int MAXHEALTH = 1;
-        private const int PIXELSCALER = 4;
-        private static int slowFrameCount = 30;
-        private static double axialMoveDist = 3;
-        private static double diagonalMoveDist = axialMoveDist * Math.Sqrt(2.0);
-        private static Movement[] movements = new Movement[] {Movement.Slow, Movement.Fast, Movement.Slow, Movement.Wait };
+        
 
         public KeeseStateMachine(int x, int y, KeeseColor c)
         {
@@ -65,13 +58,13 @@ namespace Sprint0
             color = c;
             mov = Movement.Slow;
             movementIndex = -1;
-            health = MAXHEALTH;
+            health = KeeseConstants.MAXHEALTH;
             stunFrames = 0;
         }
 
         public Rectangle GetDestination()
         {
-            return new Rectangle((int) xLoc, (int) yLoc, WIDTHANDHEIGHT * PIXELSCALER, WIDTHANDHEIGHT * PIXELSCALER);
+            return new Rectangle((int) xLoc, (int) yLoc, KeeseConstants.WIDTHANDHEIGHT * GameConstants.SCALE, KeeseConstants.WIDTHANDHEIGHT * GameConstants.SCALE);
         }
 
         public void SetDestination(int x, int y)
@@ -84,11 +77,11 @@ namespace Sprint0
         {
             if(currFrame % 2 == 0 || mov == Movement.Wait)
             {
-                return new Rectangle(183, 11 + 17 * (int)color, WIDTHANDHEIGHT, WIDTHANDHEIGHT);
+                return new Rectangle(183, 11 + 17 * (int)color, KeeseConstants.WIDTHANDHEIGHT, KeeseConstants.WIDTHANDHEIGHT);
             }
             else
             {
-                return new Rectangle(200, 11 + 17 * (int)color, WIDTHANDHEIGHT, WIDTHANDHEIGHT);
+                return new Rectangle(200, 11 + 17 * (int)color, KeeseConstants.WIDTHANDHEIGHT, KeeseConstants.WIDTHANDHEIGHT);
             }
         }
 
@@ -117,27 +110,27 @@ namespace Sprint0
         private void ChangePosition()
         {
             if(state == State.Normal) {
-                if (currFrame % DIRECTIONCHANGEFRAME == 0) direction = ChangeDirection();
+                if (currFrame % KeeseConstants.DIRECTIONCHANGEFRAME == 0) direction = ChangeDirection();
 
-                if (direction == Direction.North) yLoc -= axialMoveDist * PIXELSCALER;
+                if (direction == Direction.North) yLoc -= KeeseConstants.axialMoveDist * GameConstants.SCALE;
                 else if (direction == Direction.NorthEast) {
-                    xLoc += diagonalMoveDist * PIXELSCALER;
-                    yLoc -= diagonalMoveDist * PIXELSCALER;
+                    xLoc += KeeseConstants.diagonalMoveDist * GameConstants.SCALE;
+                    yLoc -= KeeseConstants.diagonalMoveDist * GameConstants.SCALE;
                 }
-                else if (direction == Direction.East) xLoc += axialMoveDist * PIXELSCALER;
+                else if (direction == Direction.East) xLoc += KeeseConstants.axialMoveDist * GameConstants.SCALE;
                 else if (direction == Direction.SouthEast) {
-                    xLoc += diagonalMoveDist * PIXELSCALER;
-                    yLoc += diagonalMoveDist * PIXELSCALER;
+                    xLoc += KeeseConstants.diagonalMoveDist * GameConstants.SCALE;
+                    yLoc += KeeseConstants.diagonalMoveDist * GameConstants.SCALE;
                 }
-                else if (direction == Direction.South) yLoc += axialMoveDist * PIXELSCALER;
+                else if (direction == Direction.South) yLoc += KeeseConstants.axialMoveDist * GameConstants.SCALE;
                 else if (direction == Direction.SouthWest) {
-                    xLoc -= diagonalMoveDist * PIXELSCALER;
-                    yLoc += diagonalMoveDist * PIXELSCALER;
+                    xLoc -= KeeseConstants.diagonalMoveDist * GameConstants.SCALE;
+                    yLoc += KeeseConstants.diagonalMoveDist * GameConstants.SCALE;
                 }
-                else if (direction == Direction.West) xLoc -= axialMoveDist * PIXELSCALER;
+                else if (direction == Direction.West) xLoc -= KeeseConstants.axialMoveDist * GameConstants.SCALE;
                 else {
-                    xLoc -= diagonalMoveDist * PIXELSCALER;
-                    yLoc -= diagonalMoveDist * PIXELSCALER;
+                    xLoc -= KeeseConstants.diagonalMoveDist * GameConstants.SCALE;
+                    yLoc -= KeeseConstants.diagonalMoveDist * GameConstants.SCALE;
                 }
             }
             else if(state == State.Stun) {
@@ -157,20 +150,20 @@ namespace Sprint0
         private void ResetFrames()
         {
             currFrame = -1;
-            fastFrameCount = (RandomNumberGenerator.GetInt32(8) + 5) * 5;
-            waitFrameCount = (RandomNumberGenerator.GetInt32(3) + 3) * 5;
+            fastFrameCount = RandomNumberGenerator.GetInt32(KeeseConstants.MOVEFRAMEDIVISOR) * KeeseConstants.FRAMESCALE;
+            waitFrameCount = RandomNumberGenerator.GetInt32(KeeseConstants.WAITFRAMEDIVISOR) * KeeseConstants.FRAMESCALE;
         }
 
         private void ChangeMovement()
         {
             movementIndex++;
 
-            if(movementIndex >= movements.Length)
+            if(movementIndex >= KeeseConstants.movements.Length)
             {
                 movementIndex = 0;
             }
 
-            mov = movements[movementIndex];
+            mov = KeeseConstants.movements[movementIndex];
         }
 
         public bool HasHealth()

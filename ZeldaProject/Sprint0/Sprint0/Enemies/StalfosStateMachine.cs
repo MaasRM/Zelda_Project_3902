@@ -32,10 +32,6 @@ namespace Sprint0
         private int stunFrames;
         private int damageFrames;
         private int health;
-        private const int WIDTHANDHEIGHT = 16;
-        private const int MAXHEALTH = 2;
-        private const int PIXELSCALER = 4;
-        private const int moveDist = 2;
 
         public StalfosStateMachine(int x, int y)
         {
@@ -44,14 +40,14 @@ namespace Sprint0
             frame = -1;
             stunFrames = 0;
             damageFrames = 0;
-            health = MAXHEALTH;
+            health = StalfosConstants.MAXHEALTH;
             state = State.Normal;
             damageDirection = new Vector2(1, 1);
         }
 
         public Rectangle GetDestination()
         {
-            return new Rectangle(xLoc, yLoc, WIDTHANDHEIGHT * PIXELSCALER, WIDTHANDHEIGHT * PIXELSCALER);
+            return new Rectangle(xLoc, yLoc, StalfosConstants.WIDTHANDHEIGHT * GameConstants.SCALE, StalfosConstants.WIDTHANDHEIGHT * GameConstants.SCALE);
         }
 
         public void SetDestination(int x, int y)
@@ -62,7 +58,7 @@ namespace Sprint0
 
         public Rectangle GetSource()
         {
-            return new Rectangle(1, 59, WIDTHANDHEIGHT, WIDTHANDHEIGHT);
+            return new Rectangle(1, 59, StalfosConstants.WIDTHANDHEIGHT, StalfosConstants.WIDTHANDHEIGHT);
         }
 
         public void Move()
@@ -72,15 +68,15 @@ namespace Sprint0
 
                 if (frame % 8 == 0) direction = ChangeDirection();
 
-                if (direction == Direction.Up) yLoc -= moveDist * PIXELSCALER;
-                else if (direction == Direction.Down) yLoc += moveDist * PIXELSCALER;
-                else if (direction == Direction.Left) xLoc -= moveDist * PIXELSCALER;
-                else xLoc += moveDist * PIXELSCALER;
+                if (direction == Direction.Up) yLoc -= StalfosConstants.moveDist * GameConstants.SCALE;
+                else if (direction == Direction.Down) yLoc += StalfosConstants.moveDist * GameConstants.SCALE;
+                else if (direction == Direction.Left) xLoc -= StalfosConstants.moveDist * GameConstants.SCALE;
+                else xLoc += StalfosConstants.moveDist * GameConstants.SCALE;
                 damageFrames++;
             }
             else if(state == State.Damaged) {
-                xLoc += (int)damageDirection.X * PIXELSCALER;
-                yLoc += (int)damageDirection.Y * PIXELSCALER;
+                xLoc += (int)damageDirection.X * GameConstants.SCALE;
+                yLoc += (int)damageDirection.Y * GameConstants.SCALE;
                 damageFrames++;
             }
             else if(state == State.Stun) {
@@ -128,7 +124,7 @@ namespace Sprint0
 
         public void ReturnToNormal()
         {
-            if (damageFrames > 8 || stunFrames > 30)
+            if (damageFrames > StalfosConstants.DAMAGEFRAMECOUNT || stunFrames > StalfosConstants.STUNFRAMECOUNT)
             {
                 state = State.Normal;
                 stunFrames = 0;

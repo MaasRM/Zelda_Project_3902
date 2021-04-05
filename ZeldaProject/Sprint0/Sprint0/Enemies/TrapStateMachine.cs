@@ -29,7 +29,6 @@ namespace Sprint0
         private int yLoc;
         private int frame;
         private const int WIDTHANDHEIGHT = 16;
-        private const int PIXELSCALER = 4;
         private const int chargeMoveDist = 4;
         private const int returnMoveDist = 2;
         private const int DAMAGE = 4;
@@ -46,7 +45,7 @@ namespace Sprint0
 
         public Rectangle GetDestination()
         {
-            return new Rectangle(xLoc, yLoc, WIDTHANDHEIGHT * PIXELSCALER, WIDTHANDHEIGHT * PIXELSCALER);
+            return new Rectangle(xLoc, yLoc, WIDTHANDHEIGHT * GameConstants.SCALE, WIDTHANDHEIGHT * GameConstants.SCALE);
         }
 
         public void SetDestination(int x, int y)
@@ -66,17 +65,17 @@ namespace Sprint0
 
             if(active == Activity.Charging)
             {
-                if (direction == Direction.Down) yLoc += chargeMoveDist * PIXELSCALER;
-                else if (direction == Direction.Up) yLoc -= chargeMoveDist * PIXELSCALER;
-                else if (direction == Direction.Left) xLoc -= chargeMoveDist * PIXELSCALER;
-                else xLoc += chargeMoveDist * PIXELSCALER;
+                if (direction == Direction.Down) yLoc += chargeMoveDist * GameConstants.SCALE;
+                else if (direction == Direction.Up) yLoc -= chargeMoveDist * GameConstants.SCALE;
+                else if (direction == Direction.Left) xLoc -= chargeMoveDist * GameConstants.SCALE;
+                else xLoc += chargeMoveDist * GameConstants.SCALE;
             }
             else if (active == Activity.Returning)
             {
-                if (direction == Direction.Down) yLoc -= returnMoveDist * PIXELSCALER;
-                else if (direction == Direction.Up) yLoc += returnMoveDist * PIXELSCALER;
-                else if (direction == Direction.Left) xLoc += returnMoveDist * PIXELSCALER;
-                else xLoc -= returnMoveDist * PIXELSCALER;
+                if (direction == Direction.Down) yLoc -= returnMoveDist * GameConstants.SCALE;
+                else if (direction == Direction.Up) yLoc += returnMoveDist * GameConstants.SCALE;
+                else if (direction == Direction.Left) xLoc += returnMoveDist * GameConstants.SCALE;
+                else xLoc -= returnMoveDist * GameConstants.SCALE;
 
                 Returned();
             }
@@ -96,12 +95,12 @@ namespace Sprint0
 
                 active = Activity.Charging;
 
-                if (linkX >= xLoc && linkX < xLoc + WIDTHANDHEIGHT * PIXELSCALER)
+                if (linkX >= xLoc && linkX < xLoc + WIDTHANDHEIGHT * GameConstants.SCALE)
                 {
                     if (linkPos.Y < yLoc) direction = Direction.Up;
                     else direction = Direction.Down;
                 }
-                else if (linkY >= yLoc && linkY < yLoc + WIDTHANDHEIGHT * PIXELSCALER)
+                else if (linkY >= yLoc && linkY < yLoc + WIDTHANDHEIGHT * GameConstants.SCALE)
                 {
                     if (linkPos.X < xLoc) direction = Direction.Left;
                     else direction = Direction.Right;
