@@ -13,7 +13,7 @@ namespace Sprint0
             Left
         };
 
-        private const int DAMAGEVECTORSIZE = 3;
+        private const int DAMAGEVECTORSIZE = 6;
 
         public LinkEnemyHandler()
         {
@@ -67,20 +67,20 @@ namespace Sprint0
             int linkX = linkPos.X + linkPos.Width / 2;
             int linkY = linkPos.Y + linkPos.Height / 2;
 
-            if (!wallmaster.Grabbing() && linkX >= wallPos.X && linkX < wallPos.X + wallPos.Width && linkY > wallPos.Y && linkY < wallPos.Y + wallPos.Height)
+            if (wallmaster.CanGrab())
             {
                 wallmaster.GrabPlayer();
-                if(wallmaster.Grabbing())
-                {
-                    player.SetPosition(new Rectangle(wallPos.X, wallPos.Y, linkPos.Width, linkPos.Height));
-                    player.MakeImmobile();
-                }
+            }
+
+            if(!wallmaster.Grabbing())
+            {
+                DamageThePlayer(player, wallmaster.GetDamageValue(), overlap);
             }
             else
             {
-                DamageTheEnemy(wallmaster, player.GetMeleeDamage(), overlap);
+                player.SetPosition(new Rectangle(wallPos.X, wallPos.Y, linkPos.Width, linkPos.Height));
             }
-            
+
         }
 
         private static void DamageThePlayer(IPlayer player, int damage, OverlapInRelationToPlayer overlap)

@@ -41,10 +41,9 @@ namespace Sprint0
         private int frame;
         private int stunFrames;
         private int damageFrames;
-        private int health;
         private const int WIDTHANDHEIGHT = 16;
-        private const int MAXHEALTH = 4;
-        private const int WALLFRAMECOUNT = 10;
+        
+        private const int WALLFRAMECOUNT = 30;
         private const int MOVEFRAMECOUNT = 40;
         private const int PIXELSCALER = 4;
         private const int WALLMOVEDIST = 1;
@@ -52,21 +51,19 @@ namespace Sprint0
         private Tuple<int, int> initial;
         private bool grab;
 
-        public WallmasterStateMachine(int x, int y, Direction d)
+        public WallmasterStateMachine(int x, int y)
         {
             xLoc = x;
             yLoc = y;
             frame = 0;
-            health = 0;
             initial = new Tuple<int, int>(x, y);
             grab = false;
             activity = Activity.Waiting;
-            initialDirection = d;
             stunFrames = 0;
             damageFrames = 0;
-            health = MAXHEALTH;
             state = State.Normal;
             damageDirection = new Vector2(0, 0);
+            SetDirection();
         }
 
         public Rectangle GetDestination()
@@ -105,25 +102,13 @@ namespace Sprint0
             else if(state == State.Stun) {
                 stunFrames++;
             }
-        }
 
-        public int GetFrame()
-        {
-            return frame;
+            ReturnToNormal();
         }
 
         public bool IsWaiting()
         {
             return activity == Activity.Waiting;
-        }
-
-        private void GetOutWall()
-        {
-            if(frame > WALLFRAMECOUNT)
-            {
-                frame = -1;
-                activity = Activity.Moving;
-            }
         }
 
         private void NormalMove()
@@ -134,36 +119,37 @@ namespace Sprint0
                 else if (initialDirection == Direction.Up) yLoc -= WALLMOVEDIST * PIXELSCALER;
                 else if (initialDirection == Direction.Left) xLoc -= WALLMOVEDIST * PIXELSCALER;
                 else xLoc += WALLMOVEDIST * PIXELSCALER;
-                GetOutWall();
+                ChangeActivity();
             }
             else if (activity == Activity.Moving) {
                 if (secondDirection == Direction.Down) yLoc += FLOORMOVEDIST * PIXELSCALER;
                 else if (secondDirection == Direction.Up) yLoc -= FLOORMOVEDIST * PIXELSCALER;
                 else if (secondDirection == Direction.Left) xLoc -= FLOORMOVEDIST * PIXELSCALER;
                 else xLoc += FLOORMOVEDIST * PIXELSCALER;
-                BackInWall();
+                ChangeActivity();
             }
             else if (activity == Activity.BackIn) {
                 if (initialDirection == Direction.Down) yLoc -= WALLMOVEDIST * PIXELSCALER;
                 else if (initialDirection == Direction.Up) yLoc += WALLMOVEDIST * PIXELSCALER;
                 else if (initialDirection == Direction.Left) xLoc += WALLMOVEDIST * PIXELSCALER;
                 else xLoc -= WALLMOVEDIST * PIXELSCALER;
-                ResetPosition();
+                ChangeActivity();
             }
         }
 
-        private void BackInWall()
+        private void ChangeActivity()
         {
-            if(frame > MOVEFRAMECOUNT)
+            if (activity == Activity.OutWall && frame > WALLFRAMECOUNT)
+            {
+                frame = -1;
+                activity = Activity.Moving;
+            }
+            if (activity == Activity.Moving && frame > MOVEFRAMECOUNT)
             {
                 frame = -1;
                 activity = Activity.BackIn;
             }
-        }
-
-        private void ResetPosition()
-        {
-            if (frame > WALLFRAMECOUNT)
+            if (activity == Activity.BackIn && frame > WALLFRAMECOUNT)
             {
                 grab = false;
                 frame = 0;
@@ -173,31 +159,32 @@ namespace Sprint0
             }
         }
 
+
         public void SetWallmaster()
         {
-            activity = Activity.OutWall;
-            frame = 0;
-
-            int num = RandomNumberGenerator.GetInt32(2);
-
-            if (initialDirection == Direction.Down || initialDirection == Direction.Up)
+            if(activity == Activity.Waiting)
             {
-                if (num == 0) secondDirection = Direction.Left;
-                else secondDirection = Direction.Right;
-            }
-            else
-            {
-                if (num == 0) secondDirection = Direction.Up;
-                else secondDirection = Direction.Down;
+                activity = Activity.OutWall;
+                frame = 0;
+
+                int num = RandomNumberGenerator.GetInt32(2) % 2;
+
+                if (initialDirection == Direction.Down || initialDirection == Direction.Up)
+                {
+                    if (num == 0) secondDirection = Direction.Left;
+                    else secondDirection = Direction.Right;
+                }
+                else
+                {
+                    if (num == 0) secondDirection = Direction.Up;
+                    else secondDirection = Direction.Down;
+                }
             }
         }
 
         public void GrabLink()
         {
-            if(activity == Activity.OutWall)
-            {
-                grab = true;
-            }
+            grab = true;
         }
 
         public Direction GetInitialDirection()
@@ -210,27 +197,23 @@ namespace Sprint0
             return secondDirection;
         }
 
+        public Activity GetActivity()
+        {
+            return activity;
+        }
+
         public bool GetGrabStatus()
         {
             return grab;
         }
 
-        public bool HasHealth()
+        public void SetDamageVector(Vector2 direction)
         {
-            return health > 0;
-        }
+            state = State.Damaged;
+            stunFrames = 1;
+            damageFrames = 1;
 
-        public void TakeDamage(int damage, Vector2 direction)
-        {
-            if (state != State.Damaged)
-            {
-                health -= damage;
-                state = State.Damaged;
-                stunFrames = 1;
-                damageFrames = 1;
-
-                damageDirection = direction;
-            }
+            damageDirection = direction;
         }
 
         public void SetStun()
@@ -258,6 +241,26 @@ namespace Sprint0
         public int GetDamageFrame()
         {
             return damageFrames;
+        }
+
+        private void SetDirection()
+        {
+            if(yLoc <= 256)
+            {
+                initialDirection = Direction.Down;
+            }
+            if(yLoc >= 896)
+            {
+                initialDirection = Direction.Up;
+            }
+            if(xLoc <= 0)
+            {
+                initialDirection = Direction.Right;
+            }
+            if(xLoc >= 960)
+            {
+                initialDirection = Direction.Left;
+            }
         }
     }
 }

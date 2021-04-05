@@ -1281,42 +1281,32 @@
 			<Enemy>
 				<EnemyType>Wallmaster</EnemyType>
 				<XLoc>64</XLoc>
-				<YLoc>32</YLoc>
-			</Enemy>
-			<Enemy>
-				<EnemyType>Wallmaster</EnemyType>
-				<XLoc>80</XLoc>
-				<YLoc>35</YLoc>
-			</Enemy>
-			<Enemy>
-				<EnemyType>Wallmaster</EnemyType>
-				<XLoc>178</XLoc>
-				<YLoc>35</YLoc>
+				<YLoc>0</YLoc>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Wallmaster</EnemyType>
 				<XLoc>196</XLoc>
-				<YLoc>33</YLoc>
+				<YLoc>0</YLoc>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Wallmaster</EnemyType>
-				<XLoc>32</XLoc>
+				<XLoc>0</XLoc>
 				<YLoc>82</YLoc>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Wallmaster</EnemyType>
-				<XLoc>32</XLoc>
-				<YLoc>110</YLoc>
-			</Enemy>
-			<Enemy>
-				<EnemyType>Wallmaster</EnemyType>
-				<XLoc>208</XLoc>
-				<YLoc>105</YLoc>
-			</Enemy>
-			<Enemy>
-				<EnemyType>Wallmaster</EnemyType>
-				<XLoc>210</XLoc>
+				<XLoc>240</XLoc>
 				<YLoc>119</YLoc>
+			</Enemy>
+			<Enemy>
+				<EnemyType>Wallmaster</EnemyType>
+				<XLoc>201</XLoc>
+				<YLoc>160</YLoc>
+			</Enemy>
+			<Enemy>
+				<EnemyType>Wallmaster</EnemyType>
+				<XLoc>52</XLoc>
+				<YLoc>160</YLoc>
 			</Enemy>
 		</Enemies>
 		<Background>

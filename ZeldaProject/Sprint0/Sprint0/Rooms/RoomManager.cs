@@ -223,6 +223,7 @@ namespace Sprint0
 
         public void ChangeRoom(int newRoom)
         {
+            ResetRoomObjects();
             roomIndex = newRoom;
             currentRoom = roomList[roomIndex];
             game.ClearProjectiles();

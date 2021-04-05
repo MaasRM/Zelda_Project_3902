@@ -121,7 +121,7 @@ namespace Sprint0
                 case "Trap":
                     return new Trap(int.Parse(npcInfo["XLoc"].InnerText) * scale, (int.Parse(npcInfo["YLoc"].InnerText) + 64) * scale, enemiesSheets[0]);
                 case "Wallmaster":
-                    return new Wallmaster(int.Parse(npcInfo["XLoc"].InnerText) * scale, (int.Parse(npcInfo["YLoc"].InnerText) + 64) * scale, WallmasterStateMachine.Direction.Up, enemiesSheets); //Should this be up?
+                    return new Wallmaster(int.Parse(npcInfo["XLoc"].InnerText) * scale, (int.Parse(npcInfo["YLoc"].InnerText) + 64) * scale, enemiesSheets); //Should this be up?
                 default:
                     return new Aquamentus(0, 0, bossesSheets, game);
             }

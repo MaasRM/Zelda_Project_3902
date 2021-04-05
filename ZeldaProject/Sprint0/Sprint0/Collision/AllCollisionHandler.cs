@@ -45,27 +45,7 @@ namespace Sprint0
                 else grabbed = grabbed || ((Wallmaster)npc).Grabbing();
             }
 
-            new LinkWallHandler(player, roomManager, cameraWallMaxX, cameraWallMaxY);
-
-            if (!grabbed && roomManager.getRoomIndex() != 17)
-            {
-                if (player.getLinkStateMachine().getXLoc() < 120) LinkWallHandler.HandleLeftWall();
-                if (player.getLinkStateMachine().getYLoc() < (117 + (64 * 4))) LinkWallHandler.HandleTopWall();
-                if (player.getLinkStateMachine().getXLoc() > cameraWallMaxX - 175) LinkWallHandler.HandleRightWall();
-                if (player.getLinkStateMachine().getYLoc() > cameraWallMaxY - 185) LinkWallHandler.HandleBottomWall();
-            }
-            else if (grabbed) roomManager.ChangeRoom(15);
-            else
-            {
-                if (player.getLinkStateMachine().getYLoc() < 64 * 4)
-                {
-                    roomManager.ChangeRoom(0);
-                    player.SetPosition(new Rectangle((36 * 4) + 75 * 4, (64 * 4) + (36 * 4) + 44 * 4, 0, 0));
-                }
-                if (player.getLinkStateMachine().getXLoc() < 120) LinkWallHandler.HandleLeftWall();
-                if (player.getLinkStateMachine().getXLoc() > cameraWallMaxX - 175) LinkWallHandler.HandleRightWall();
-                if (player.getLinkStateMachine().getYLoc() > cameraWallMaxY - 185) LinkWallHandler.HandleBottomWall();
-            }
+            HandleLinkAndWalls(player, roomManager, grabbed);
         }
 
         public void PlayerEnemyCollisions(IPlayer player, List<INPC> npcs, List<SoundEffect> Collision_soundEffects, List<IItem> items)
@@ -79,7 +59,6 @@ namespace Sprint0
 
                     if (nPC.GetNPCLocation().Intersects(player.LinkPosition()))
                     {
-
                         LinkEnemyHandler.HandleCollision(player, nPC);
 
                         EnemyHitAndDeathSounds(nPC, DeadEnemies, Collision_soundEffects);
@@ -213,6 +192,32 @@ namespace Sprint0
                         ((Trap)npcs[j]).Return();
                     }
                 }
+            }
+        }
+
+        private void HandleLinkAndWalls(IPlayer player, RoomManager roomManager, bool grabbed)
+        {
+            new LinkWallHandler(player, roomManager, cameraWallMaxX, cameraWallMaxY);
+
+            if (roomManager.getRoomIndex() != 17 && !grabbed) {
+                if (player.getLinkStateMachine().getXLoc() < 120) LinkWallHandler.HandleLeftWall();
+                if (player.getLinkStateMachine().getYLoc() < (117 + (64 * 4))) LinkWallHandler.HandleTopWall();
+                if (player.getLinkStateMachine().getXLoc() > cameraWallMaxX - 175) LinkWallHandler.HandleRightWall();
+                if (player.getLinkStateMachine().getYLoc() > cameraWallMaxY - 185) LinkWallHandler.HandleBottomWall(); 
+            } else if(grabbed) {
+                if(player.getLinkStateMachine().getXLoc() < 120 || player.getLinkStateMachine().getYLoc() < (117 + (64 * 4)) ||
+                    player.getLinkStateMachine().getXLoc() > cameraWallMaxX - 175 || player.getLinkStateMachine().getYLoc() > cameraWallMaxY - 185)
+                {
+                    roomManager.ChangeRoom(15);
+                }
+            } else {
+                if (player.getLinkStateMachine().getYLoc() < 64 * 4) {
+                    roomManager.ChangeRoom(0);
+                    player.SetPosition(new Rectangle((36 * 4) + 75 * 4, (64 * 4) + (36 * 4) + 44 * 4, 0, 0));
+                }
+                if (player.getLinkStateMachine().getXLoc() < 120) LinkWallHandler.HandleLeftWall();
+                if (player.getLinkStateMachine().getXLoc() > cameraWallMaxX - 175) LinkWallHandler.HandleRightWall();
+                if (player.getLinkStateMachine().getYLoc() > cameraWallMaxY - 185) LinkWallHandler.HandleBottomWall();
             }
         }
 
