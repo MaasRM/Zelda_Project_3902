@@ -47,7 +47,7 @@ namespace Sprint0
             for (int i = 0; i <= counter * 2; i += 2)
             {
                 Rectangle destination = new Rectangle((letterDest[i] + 37) * scale, (64 * scale) + (letterDest[i + 1] + 37) * scale, 7 * scale, 7 * scale);
-                Rectangle source = new Rectangle(letterSource[i], letterSource[i + 1], 7 * scale, 7 * scale);
+                Rectangle source = new Rectangle(letterSource[i], letterSource[i + 1], 7, 7);
                 spriteBatch.Draw(letterSheet, destination, source, Color.White);
             }
             //textSounds[0].Play();
