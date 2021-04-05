@@ -227,13 +227,9 @@ namespace Sprint0
             currentRoom = roomList[roomIndex];
             game.ClearProjectiles();
 
-            if (roomIndex == 15)
+            if (roomIndex == 17)
             {
-                game.GetPlayer().getLinkStateMachine().SetPositions(new Rectangle(120, 128, game.GetPlayer().LinkPosition().Width, game.GetPlayer().LinkPosition().Height));
-            }
-            else if (roomIndex == 17)
-            {
-                game.GetPlayer().getLinkStateMachine().SetPositions(new Rectangle(48, 0, game.GetPlayer().LinkPosition().Width, game.GetPlayer().LinkPosition().Height));
+                game.GetPlayer().getLinkStateMachine().SetPositions(new Rectangle(48 * scale, 64 * scale, game.GetPlayer().LinkPosition().Width, game.GetPlayer().LinkPosition().Height));
             }
         }
 
