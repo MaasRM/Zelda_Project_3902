@@ -37,7 +37,7 @@ namespace Sprint0
                 int numberOfHearts = currentHealth / 2;
                 for(int n = 0; n <= numberOfHearts; n ++)
                 {
-                    spriteBatch.Draw(healthTexture, new Rectangle(currentX, currentY, 8 * 4, 8 * 4), fullHeartSource, Color.White);
+                    spriteBatch.Draw(healthTexture, new Rectangle(currentX, currentY, 8 * GameConstants.SCALE, 8 * GameConstants.SCALE), fullHeartSource, Color.White);
                     currentInRow++;
                     currentX += 32;
                     if(currentInRow % 8 == 0)
@@ -53,7 +53,7 @@ namespace Sprint0
                 int numberOfHearts = (currentHealth-1) / 2;
                 for (int n = 0; n <= numberOfHearts; n++)
                 {
-                    spriteBatch.Draw(healthTexture, new Rectangle(currentX, currentY, 8 * 4, 8 * 4), fullHeartSource, Color.White);
+                    spriteBatch.Draw(healthTexture, new Rectangle(currentX, currentY, 8 * GameConstants.SCALE, 8 * GameConstants.SCALE), fullHeartSource, Color.White);
                     currentInRow++;
                     currentX += 32;
                     if (currentInRow % 8 == 0)
@@ -63,7 +63,7 @@ namespace Sprint0
                         currentInRow = 0;
                     }
                 }
-                spriteBatch.Draw(healthTexture, new Rectangle(currentX, currentY, 8 * 4, 8 * 4), halfHeartSource, Color.White);
+                spriteBatch.Draw(healthTexture, new Rectangle(currentX, currentY, 8 * GameConstants.SCALE, 8 * GameConstants.SCALE), halfHeartSource, Color.White);
             }
         }
 
@@ -77,7 +77,7 @@ namespace Sprint0
                 int numberOfHearts = maxHealth / 2;
                 for (int n = 0; n <= numberOfHearts; n++)
                 {
-                    spriteBatch.Draw(healthTexture, new Rectangle(currentX, currentY, 8 * 4, 8 * 4), emptyHeartSource, Color.White);
+                    spriteBatch.Draw(healthTexture, new Rectangle(currentX, currentY, 8 * GameConstants.SCALE, 8 * GameConstants.SCALE), emptyHeartSource, Color.White);
                     currentInRow++;
                     currentX += 32;
                     if (currentInRow % 8 == 0)

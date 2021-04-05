@@ -47,7 +47,6 @@ namespace Sprint0
         public Vector2 damageVector { get; set; }
         private const int xInit = 120;
         private const int yInit = 128;
-        private const int scale = 4;
         private const int STARTHEALTH = 18;
         private const int SWORDPROJECTILEBUFFER = 20;
         private List<SoundEffect> soundEffects;
@@ -59,8 +58,8 @@ namespace Sprint0
             direction = Direction.MoveUp;
             color = LinkColor.Green;
             animation = Animation.Idle;
-            xLoc = xInit * scale; //Original Position, probably needs to change
-            yLoc = yInit * scale;
+            xLoc = xInit * GameConstants.SCALE; //Original Position, probably needs to change
+            yLoc = yInit * GameConstants.SCALE;
             isBusy = false;
             healthAndDamage = new HealthAndDamageHandler(STARTHEALTH, 1);
             sizeFactor = 4;
@@ -129,8 +128,8 @@ namespace Sprint0
 
             if(color == LinkColor.Damaged)
             {
-                xLoc += (int)damageVector.X * scale;
-                yLoc += (int)damageVector.Y * scale;
+                xLoc += (int)damageVector.X * GameConstants.SCALE;
+                yLoc += (int)damageVector.Y * GameConstants.SCALE;
             }
 
             swordProjFrame++;
