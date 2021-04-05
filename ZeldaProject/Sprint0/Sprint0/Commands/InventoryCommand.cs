@@ -11,7 +11,8 @@ namespace Sprint0
 
         public void Execute()
         {
-            
+            Boolean currentState = game.GetPlayer().GetLinkInventory().GetLinkPauseScreen().isGamePaused();
+            game.GetPlayer().GetLinkInventory().GetLinkPauseScreen().setGamePaused(!currentState);
         }
     }
 }

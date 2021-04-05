@@ -168,6 +168,7 @@ namespace Sprint0
         protected override void Update(GameTime gameTime)
         {
             int i;
+            //if (GetPlayer().GetLinkInventory().GetLinkPauseScreen().isGamePaused() == true) { }
             frame++;
             if (frame % 4 == 0) {
                 foreach (IBlock block in blocks) {
@@ -176,17 +177,17 @@ namespace Sprint0
                 foreach (IItem item in items) {
                     item.Update();
                 }
-                for(i = npcs.Count-1; i >= 0; i--) {
+                for (i = npcs.Count - 1; i >= 0; i--) {
                     if (npcs[i] is Trap) EnemyProximityTrigger.CheckToTriggerTrap(link, (Trap)npcs[i]);
                     if (npcs[i] is Wallmaster) EnemyProximityTrigger.CheckToTriggerWallmaster(link, (Wallmaster)npcs[i]);
                     npcs[i].Update();
-                    if(npcs[i] is IEnemy) {
-                        if(!((IEnemy)npcs[i]).StillAlive()) npcs.RemoveAt(i);
+                    if (npcs[i] is IEnemy) {
+                        if (!((IEnemy)npcs[i]).StillAlive()) npcs.RemoveAt(i);
                     }
                 }
-                for(i = projectiles.Count-1; i >= 0; i--) {
+                for (i = projectiles.Count - 1; i >= 0; i--) {
                     projectiles[i].Update();
-                    if(projectiles[i].CheckForRemoval()) projectiles.RemoveAt(i);
+                    if (projectiles[i].CheckForRemoval()) projectiles.RemoveAt(i);
                 }
 
                 allCollisionHandler.PlayerItemCollisions(link, items, npcs, Collision_soundEffects);
@@ -206,6 +207,7 @@ namespace Sprint0
                     }
                 }
             }  
+
             base.Update(gameTime);
         }
 
