@@ -2,23 +2,16 @@
   <MonoDevelop.Ide.ItemProperties.Sprint0 PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="Sprint0/Enemies/KeeseStateMachine.cs" Line="156" Column="1" />
-      <File FileName="Sprint0/KeeseConstants.cs" Line="11" Column="46" />
-      <File FileName="Sprint0/Enemies/Stalfos.cs" Line="1" Column="1" />
-      <File FileName="Sprint0/Enemies/StalfosStateMachine.cs" Line="130" Column="32" />
-      <File FileName="Sprint0/StalfosConstants.cs" Line="9" Column="9" />
-      <File FileName="Sprint0/Enemies/Wallmaster.cs" Line="1" Column="1" />
-      <File FileName="Sprint0/Enemies/WallmasterStateMachine.cs" Line="214" Column="14" />
-      <File FileName="Sprint0/Enemies/TrapStateMachine.cs" Line="103" Column="94" />
-      <File FileName="Sprint0/WallmasterConstants.cs" Line="16" Column="46" />
+      <File FileName="Sprint0/Items/Fire.cs" Line="30" Column="32" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Sprint0" expanded="True">
             <Node name="Sprint0" expanded="True">
-              <Node name="Enemies" expanded="True" />
-              <Node name="Interfaces" expanded="True" />
+              <Node name="Items" expanded="True">
+                <Node name="Fire.cs" selected="True" />
+              </Node>
             </Node>
           </Node>
         </State>

@@ -10,6 +10,7 @@ namespace Sprint0
         private int frameIndex;
         private Texture2D sheet;
         private SpriteEffects flip;
+        private const int FIRELOOP = 40;
 
         public Fire(Rectangle startPos, Rectangle source, Texture2D spriteSheet)
         {
@@ -24,7 +25,7 @@ namespace Sprint0
         {
             frameIndex++;
 
-            if(frameIndex >= 40)
+            if(frameIndex >= FIRELOOP)
             {
                 frameIndex = 0;
             }
