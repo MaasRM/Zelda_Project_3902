@@ -29,12 +29,13 @@ namespace Sprint0
             this.game = game;
             flyingBoomerang = game.Enemy_soundEffects[0].CreateInstance();
             roomAccess = game.GetRoomManager();
-            
+
         }
 
         public void Update()
         {
-            if(!stateMachine.Throwing() && stateMachine.TryToThrow()) {
+            if (!stateMachine.Throwing() && stateMachine.TryToThrow())
+            {
                 boomerang = new GoriyaBoomerang(goriyaSpriteSheet[0], stateMachine);
                 flyingBoomerang.IsLooped = true;
                 flyingBoomerang.Volume = 0.2f;
@@ -42,9 +43,7 @@ namespace Sprint0
                 game.AddProjectile(boomerang);
             }
 
-            if (!stateMachine.Throwing() || (roomAccess.getRoomIndex() != 1 && roomAccess.getRoomIndex() != 8) || !StillAlive()) {
-                stopSound();
-            }
+            StopThrowSound();
 
             stateMachine.Move();
             destination = stateMachine.GetDestination();
@@ -56,7 +55,7 @@ namespace Sprint0
         {
             if (stateMachine.GetFrame() % 2 == 0)
             {
-                if(stateMachine.GetDirection() == GoriyaStateMachine.Direction.Left)
+                if (stateMachine.GetDirection() == GoriyaStateMachine.Direction.Left)
                 {
                     spriteBatch.Draw(currentSheet, destination, source, Color.White, 0, new Vector2(0, 0), SpriteEffects.FlipHorizontally, 0f);
                 }
@@ -67,7 +66,7 @@ namespace Sprint0
             }
             else
             {
-                if(stateMachine.GetDirection() == GoriyaStateMachine.Direction.Right)
+                if (stateMachine.GetDirection() == GoriyaStateMachine.Direction.Right)
                 {
                     spriteBatch.Draw(currentSheet, destination, source, Color.White);
                 }
@@ -137,11 +136,13 @@ namespace Sprint0
             return stateMachine.IsDamaged();
         }
 
-        public void stopSound()
+        public void StopThrowSound()
         {
-            flyingBoomerang.Stop();
-            stateMachine.BoomerangReturned();
-            game.RemoveProjectile(boomerang);
+            if (!stateMachine.Throwing() || (roomAccess.getRoomIndex() != 1 && roomAccess.getRoomIndex() != 8))
+            {
+                flyingBoomerang.Stop();
+                stateMachine.BoomerangReturned();
+            }
         }
     }
 }

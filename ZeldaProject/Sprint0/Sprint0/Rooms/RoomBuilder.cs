@@ -65,7 +65,6 @@ namespace Sprint0
                 nextRoomNums[3] = int.Parse(currentRoom["Info"]["RightRoomNumber"].InnerText);
                 roomList.Add(new Room(blockList, itemList, npcList, floor, walls, topDoor, bottomDoor, leftDoor, rightDoor, roomNum, nextRoomNums));
             }
-
             return roomList;
         }
 
