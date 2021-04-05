@@ -22,12 +22,18 @@ namespace Sprint0
 
         public void Update()
         {
-            destination = npc.GetNPCLocation();
+            if(((IEnemy)npc).StillAlive())
+            {
+                destination = npc.GetNPCLocation();
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(sheet, destination, spriteSource, Color.White);           
+            if (!((IEnemy)npc).StillAlive())
+            {
+                spriteBatch.Draw(sheet, destination, spriteSource, Color.White);
+            }
         }
 
         public Rectangle GetLocationRectangle()
