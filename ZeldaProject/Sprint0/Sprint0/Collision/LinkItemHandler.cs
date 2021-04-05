@@ -21,6 +21,9 @@ namespace Sprint0
                 else if (item is HeartItem) {
                     HandleHeart(item, player, Collision_soundEffects, collidedItems);
                 }
+                else if (item is HeartContainerItem) {
+                    HandleHeartContainer(item, player, Collision_soundEffects, collidedItems);
+                }
                 else if (item is BlueRupeeItem) {
                     HandleBlueRupee(item, player, Collision_soundEffects, collidedItems);
                 }
@@ -30,8 +33,7 @@ namespace Sprint0
                 else if (item is ClockItem) {
                     HandleClock(item, npcs, collidedItems);
                 }
-                else if (item is BombItem)
-                {
+                else if (item is BombItem) {
                     HandleBomb(item, player, Collision_soundEffects, collidedItems);
                 }
                 else if (item is MapItem)
@@ -58,6 +60,15 @@ namespace Sprint0
             collidedItems.Add(item);
             player.GetLinkInventory().addItem(item);
             player.getLinkStateMachine().Heal(2);
+        }
+
+        private static void HandleHeartContainer(IItem item, IPlayer player, List<SoundEffect> Collision_soundEffects, List<IItem> collidedItems)
+        {
+            Collision_soundEffects[6].Play();
+            collidedItems.Add(item);
+            player.GetLinkInventory().addItem(item);
+            player.getLinkStateMachine().SetMaxHealth(player.getLinkStateMachine().GetMaxHealth() + 2);
+            player.getLinkStateMachine().Heal(player.getLinkStateMachine().GetMaxHealth());
         }
 
         private static void HandleBomb(IItem item, IPlayer player, List<SoundEffect> Collision_soundEffects, List<IItem> collidedItems)
