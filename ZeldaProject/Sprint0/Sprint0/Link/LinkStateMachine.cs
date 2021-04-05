@@ -51,8 +51,8 @@ namespace Sprint0
             direction = Direction.Up;
             color = LinkColor.Green;
             animation = Animation.Idle;
-            xLoc = LinkConstants.xInit * Sprint0.GameConstants.SCALE; //Original Position
-            yLoc = LinkConstants.yInit * Sprint0.GameConstants.SCALE;
+            xLoc = LinkConstants.XINIT * Sprint0.GameConstants.SCALE; //Original Position
+            yLoc = LinkConstants.YINIT * Sprint0.GameConstants.SCALE;
             isBusy = false;
             healthAndDamage = new HealthAndDamageHandler(LinkConstants.STARTHEALTH, 1);
             frame = 0;
@@ -131,16 +131,16 @@ namespace Sprint0
                     this.animation = Animation.Walk;
                     switch (dir) {
                         case Direction.Up:
-                            yLoc -= LinkConstants.linkMoveSpeed;
+                            yLoc -= LinkConstants.LINKMOVESPEED;
                             break;
                         case Direction.Down:
-                            yLoc += LinkConstants.linkMoveSpeed;
+                            yLoc += LinkConstants.LINKMOVESPEED;
                             break;
                         case Direction.Left:
-                            xLoc -= LinkConstants.linkMoveSpeed;
+                            xLoc -= LinkConstants.LINKMOVESPEED;
                             break;
                         case Direction.Right:
-                            xLoc += LinkConstants.linkMoveSpeed;
+                            xLoc += LinkConstants.LINKMOVESPEED;
                             break;
                         default:
                             break;
