@@ -315,6 +315,14 @@ namespace Sprint0
 
         public void ClearProjectiles()
         {
+            foreach(IProjectile proj in projectiles)
+            {
+                if(proj is IBoomerang)
+                {
+                    ((IBoomerang)proj).StopSound();
+                }
+            }
+
             projectiles.Clear();
         }
 

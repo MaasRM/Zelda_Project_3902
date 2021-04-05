@@ -146,5 +146,10 @@ namespace Sprint0
         {
             GoBack();
         }
+
+        public void StopSound()
+        {
+            flyingBoomerang.Stop();
+        }
     }
 }

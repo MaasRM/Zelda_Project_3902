@@ -30,7 +30,6 @@ namespace Sprint0
         {
             this.spritesheet = spritesheet;
             this.stateMachine = stateMachine;
-            remove = false;
             projectileDirection = stateMachine.getDirection();
             if (projectileDirection == Direction.MoveUp) {
                 xLoc = stateMachine.getXLoc() + xSize / 2;
@@ -71,7 +70,6 @@ namespace Sprint0
                 else if(xLoc - stateMachine.getXLoc() <= boomerangSpeed * -1) xLoc += boomerangSpeed;
                 if (yLoc - stateMachine.getYLoc() >= boomerangSpeed) yLoc -= boomerangSpeed;
                 else if (yLoc - stateMachine.getYLoc() <= boomerangSpeed * -1) yLoc += boomerangSpeed;
-                if () remove = true;
             }
             destinationRectangle = new Rectangle(xLoc, yLoc, xSize, ySize);
             SetSourceAndEffects();
@@ -140,6 +138,11 @@ namespace Sprint0
         public void Hit()
         {
             GoBack();
+        }
+
+        public void StopSound()
+        {
+            flyingBoomerang.Stop();
         }
     }
 }

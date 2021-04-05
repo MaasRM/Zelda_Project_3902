@@ -140,11 +140,11 @@ namespace Sprint0
                 oldRoom = currentRoom;
                 currentRoom = roomList[roomIndex];
                 roomChange = true;
+                ResetRoomObjects();
                 game.ClearProjectiles();
                 game.SetBlocks(new List<IBlock>());
                 game.SetItems(new List<IItem>());
                 game.SetNPCs(new List<INPC>());
-                ResetRoomObjects();
                 SetNextRoomLoc(dir);
             }
             return roomChange;

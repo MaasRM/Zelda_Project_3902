@@ -143,5 +143,10 @@ namespace Sprint0
         {
             GoBack();
         }
+
+        public void StopSound()
+        {
+            //Sound for this boomerang is based on Goriya
+        }
     }
 }
