@@ -172,9 +172,9 @@ namespace Sprint0
         {
             int i;
             frame++;
-            if (link.GetLinkInventory().GetLinkPauseScreen().isGamePaused() == false)
+            if (frame % 4 == 0)
             {
-                if (frame % 4 == 0)
+                if (link.GetLinkInventory().GetLinkPauseScreen().isGamePaused() == false)
                 {
                     foreach (IBlock block in blocks)
                     {
@@ -220,14 +220,11 @@ namespace Sprint0
                     }
                     if(frame % 8 == 0) textSprite.Update();
                     
-                }
-                
-            } else
-            {
-                if (frame % 2 == 0)
+                } else
                 {
                     pauseControls.Update();
                 }
+                
             }
 
             base.Update(gameTime);
