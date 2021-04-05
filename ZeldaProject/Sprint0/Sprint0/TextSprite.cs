@@ -10,7 +10,7 @@ namespace Sprint0
     {
 
         private Texture2D letterSheet;
-        private List<SoundEffect> textSounds;
+        private SoundEffectInstance textSound;
         private Sprint3 game;
         private int scale = 4;
         private int counter;
@@ -33,7 +33,9 @@ namespace Sprint0
         {
             this.game = game;
             letterSheet = dungeonSheet;
-            textSounds = game.Text_soundEffects;
+            textSound = game.Text_soundEffects[1].CreateInstance();
+            textSound.Volume = 0.25f;
+            textSound.IsLooped = true;
             counter = 0;
         }
 
@@ -49,18 +51,25 @@ namespace Sprint0
 
         public void Draw(SpriteBatch spriteBatch)
         {
+            textSound.Play();
             for (int i = 0; i <= counter * 2; i += 2)
             {
                 Rectangle destination = new Rectangle((letterDest[i] + 8) * scale, (64 * scale) + (letterDest[i + 1] + 40) * scale, 7 * scale, 7 * scale);
                 Rectangle source = new Rectangle(letterSource[i], letterSource[i + 1], 7, 7);
                 spriteBatch.Draw(letterSheet, destination, source, Color.White);
             }
-            if (counter != 33)
+            if (counter < 33)
             {
                 Rectangle destination = new Rectangle((letterDest[counter * 2] + 15) * scale, (64 * scale) + (letterDest[(counter * 2) + 1] + 40) * scale, 7 * scale, 7 * scale);
                 Rectangle source = new Rectangle(10, 56, 7, 7);
                 spriteBatch.Draw(letterSheet, destination, source, Color.White);
-                textSounds[0].Play();
+            }
+            else if (counter >= 33)
+            {
+                Rectangle destination = new Rectangle((letterDest[counter * 2] + 15) * scale, (64 * scale) + (letterDest[(counter * 2) + 1] + 40) * scale, 7 * scale, 7 * scale);
+                Rectangle source = new Rectangle(10, 56, 7, 7);
+                spriteBatch.Draw(letterSheet, destination, source, Color.White);
+                textSound.Stop();
             }
         }
     }
