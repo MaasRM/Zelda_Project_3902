@@ -38,7 +38,7 @@ namespace Sprint0
                 {
                     new EnemyWallHandler(npc, cameraWallMaxX, cameraWallMaxY);
                     if (npc.GetNPCLocation().X < 120) EnemyWallHandler.HandleLeftWall();
-                    if (npc.GetNPCLocation().Y < (117 + (64 * 4))) EnemyWallHandler.HandleTopWall();
+                    if (npc.GetNPCLocation().Y < (117 + (64 * GameConstants.SCALE))) EnemyWallHandler.HandleTopWall();
                     if (npc.GetNPCLocation().X > cameraWallMaxX - 175) EnemyWallHandler.HandleRightWall();
                     if (npc.GetNPCLocation().Y > cameraWallMaxY - 175) EnemyWallHandler.HandleBottomWall();
                 }
@@ -94,38 +94,27 @@ namespace Sprint0
 
         public void BlockCollisions(IPlayer player, List<INPC> npcs, List<IBlock> blocks, RoomManager roomManager, List<SoundEffect> Collision_soundEffects)
         {
-            foreach (IBlock block1 in blocks)
-            {
-                if (player.LinkPosition().Intersects(block1.GetBlockLocation()) && (block1.getIndex() != 5) && (block1.getIndex() != 0) && (block1.getIndex() != 7))
-                {
+            foreach (IBlock block1 in blocks) {
+                if (player.LinkPosition().Intersects(block1.GetBlockLocation()) && (block1.getIndex() != 5) && (block1.getIndex() != 0) && (block1.getIndex() != 7)) {
                     Rectangle overlap = Rectangle.Intersect(block1.GetBlockLocation(), player.LinkPosition());
 
                     LinkBlockHandler.HandleCollision(player, block1, overlap);
-                }
-                else if (player.LinkPosition().Intersects(block1.GetBlockLocation()) && block1.getIndex() == 0)
-                {
-                    if (!playedSecret1 && roomManager.Room().RoomNum() == 0)
-                    {
+                } else if (player.LinkPosition().Intersects(block1.GetBlockLocation()) && block1.getIndex() == 0) {
+                    if (!playedSecret1 && roomManager.Room().RoomNum() == 0) {
                         Collision_soundEffects[9].Play();
                         playedSecret1 = true;
-                    }
-                    else if (!playedSecret2 && roomManager.Room().RoomNum() == 6)
-                    {
+                    } else if (!playedSecret2 && roomManager.Room().RoomNum() == 6) {
                         Collision_soundEffects[9].Play();
                         playedSecret2 = true;
                         roomManager.UnlockDoor(Direction.MoveLeft);
                     }
-                }
-                else if (player.LinkPosition().Intersects(block1.GetBlockLocation()) && block1.getIndex() == 7)
-                {
+                } else if (player.LinkPosition().Intersects(block1.GetBlockLocation()) && block1.getIndex() == 7) {
                     Collision_soundEffects[10].Play();
-                    roomManager.ChangeRoom(17);
+                    roomManager.ChangeRoom(GameConstants.VERTICALROOM);
                 }
 
-                foreach (INPC nPC in npcs)
-                {
-                    if (block1.GetBlockLocation().Intersects(nPC.GetNPCLocation()))
-                    {
+                foreach (INPC nPC in npcs) {
+                    if (block1.GetBlockLocation().Intersects(nPC.GetNPCLocation())) {
                         Rectangle overlap = Rectangle.Intersect(block1.GetBlockLocation(), nPC.GetNPCLocation());
                         BlockNPCHandler.HandleCollision(nPC, block1, overlap);
                     }
@@ -147,7 +136,7 @@ namespace Sprint0
                     if (projectile.GetProjectileLocation().Intersects(player.LinkPosition())) LinkProjectileHandler.HandleCollision(player, projectile, Collision_soundEffects[11].CreateInstance());
                 }
 
-                if (projectile.GetProjectileLocation().X < 120 || projectile.GetProjectileLocation().Y < 117 + (64 * 4)
+                if (projectile.GetProjectileLocation().X < 120 || projectile.GetProjectileLocation().Y < 117 + (GameConstants.HUDSIZE * GameConstants.SCALE)
                         || projectile.GetProjectileLocation().X + projectile.GetProjectileLocation().Width > cameraWallMaxX - 130 || projectile.GetProjectileLocation().Y > cameraWallMaxY - 170)
                 {
 
@@ -199,21 +188,21 @@ namespace Sprint0
         {
             new LinkWallHandler(player, roomManager, cameraWallMaxX, cameraWallMaxY);
 
-            if (roomManager.getRoomIndex() != 17 && !grabbed) {
+            if (roomManager.getRoomIndex() != GameConstants.VERTICALROOM && !grabbed) {
                 if (player.getLinkStateMachine().getXLoc() < 120) LinkWallHandler.HandleLeftWall();
-                if (player.getLinkStateMachine().getYLoc() < (117 + (64 * 4))) LinkWallHandler.HandleTopWall();
+                if (player.getLinkStateMachine().getYLoc() < (117 + (64 * GameConstants.SCALE))) LinkWallHandler.HandleTopWall();
                 if (player.getLinkStateMachine().getXLoc() > cameraWallMaxX - 175) LinkWallHandler.HandleRightWall();
                 if (player.getLinkStateMachine().getYLoc() > cameraWallMaxY - 185) LinkWallHandler.HandleBottomWall(); 
             } else if(grabbed) {
-                if(player.getLinkStateMachine().getXLoc() < 120 || player.getLinkStateMachine().getYLoc() < (117 + (64 * 4)) ||
+                if(player.getLinkStateMachine().getXLoc() < 120 || player.getLinkStateMachine().getYLoc() < (117 + (GameConstants.HUDSIZE * GameConstants.SCALE)) ||
                     player.getLinkStateMachine().getXLoc() > cameraWallMaxX - 175 || player.getLinkStateMachine().getYLoc() > cameraWallMaxY - 185)
                 {
                     roomManager.ChangeRoom(15);
                 }
             } else {
-                if (player.getLinkStateMachine().getYLoc() < 64 * 4) {
+                if (player.getLinkStateMachine().getYLoc() < GameConstants.HUDSIZE * GameConstants.SCALE) {
                     roomManager.ChangeRoom(0);
-                    player.SetPosition(new Rectangle((36 * 4) + 75 * 4, (64 * 4) + (36 * 4) + 44 * 4, 0, 0));
+                    player.SetPosition(new Rectangle((36 * GameConstants.SCALE) + 75 * GameConstants.SCALE, (GameConstants.HUDSIZE * GameConstants.SCALE) + (36 * GameConstants.SCALE) + 44 * GameConstants.SCALE, 0, 0));
                 }
                 if (player.getLinkStateMachine().getXLoc() < 120) LinkWallHandler.HandleLeftWall();
                 if (player.getLinkStateMachine().getXLoc() > cameraWallMaxX - 175) LinkWallHandler.HandleRightWall();
