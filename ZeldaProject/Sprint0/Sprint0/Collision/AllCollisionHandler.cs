@@ -32,41 +32,26 @@ namespace Sprint0
         public void CheckWalls(IPlayer player, List<INPC> npcs, RoomManager roomManager)
         {
             bool grabbed = false;
-
-            foreach (INPC npc in npcs)
-            {
-                if (!(npc is Wallmaster))
-                {
+            foreach (INPC npc in npcs) {
+                if (!(npc is Wallmaster)) {
                     new EnemyWallHandler(npc, cameraWallMaxX, cameraWallMaxY);
-
                     if (npc.GetNPCLocation().X < 120) EnemyWallHandler.HandleLeftWall();
                     if (npc.GetNPCLocation().Y < (117 + (64 * 4))) EnemyWallHandler.HandleTopWall();
                     if (npc.GetNPCLocation().X > cameraWallMaxX - 175) EnemyWallHandler.HandleRightWall();
                     if (npc.GetNPCLocation().Y > cameraWallMaxY - 175) EnemyWallHandler.HandleBottomWall();
-                }
-                else
-                {
-                    grabbed = grabbed || ((Wallmaster)npc).Grabbing();
-                }
-
+                } else grabbed = grabbed || ((Wallmaster)npc).Grabbing();
             }
 
             new LinkWallHandler(player, roomManager, cameraWallMaxX, cameraWallMaxY);
 
-            if (!grabbed && roomManager.getRoomIndex() != 17)
-            {
+            if (!grabbed && roomManager.getRoomIndex() != 17) {
                 if (player.getLinkStateMachine().getXLoc() < 120) LinkWallHandler.HandleLeftWall();
                 if (player.getLinkStateMachine().getYLoc() < (117 + (64 * 4))) LinkWallHandler.HandleTopWall();
                 if (player.getLinkStateMachine().getXLoc() > cameraWallMaxX - 175) LinkWallHandler.HandleRightWall();
                 if (player.getLinkStateMachine().getYLoc() > cameraWallMaxY - 185) LinkWallHandler.HandleBottomWall();
-            }
-            else if(grabbed)
-            {
-                roomManager.ChangeRoom(15);
-            } else //room 17
-            {
-                if (player.getLinkStateMachine().getYLoc() < 64 * 4)
-                {
+            } else if(grabbed) roomManager.ChangeRoom(15);
+            else {
+                if (player.getLinkStateMachine().getYLoc() < 64 * 4) {
                     roomManager.ChangeRoom(0);
                     player.SetPosition(new Rectangle((36 * 4) + 75 * 4, (64 * 4) + (36 * 4) + 44 * 4, 0, 0));
                 }
@@ -136,10 +121,7 @@ namespace Sprint0
                         roomManager.UnlockDoor(Direction.MoveLeft);
                     }
                 }
-                else if (player.LinkPosition().Intersects(block1.GetBlockLocation()) && block1.getIndex() == 7)
-                {
-                    roomManager.ChangeRoom(17);
-                }
+                else if (player.LinkPosition().Intersects(block1.GetBlockLocation()) && block1.getIndex() == 7) roomManager.ChangeRoom(17);
 
                 foreach (INPC nPC in npcs) {
                     if (block1.GetBlockLocation().Intersects(nPC.GetNPCLocation())) {
@@ -154,30 +136,24 @@ namespace Sprint0
         {
             List<INPC> DeadEnemies = new List<INPC>();
             foreach (IProjectile projectile in projectiles) {
-                if (projectile is IPlayerProjectile) {
+                if (projectile is IPlayerProjectile)
+                {
                     EnemyProjectileCollision(projectile, npcs, DeadEnemies, Collision_soundEffects);
                 }
-                else {
-                    if (projectile.GetProjectileLocation().Intersects(player.LinkPosition())) {
-                        LinkProjectileHandler.HandleCollision(player, projectile);
-                    }
+                else
+                {
+                    if (projectile.GetProjectileLocation().Intersects(player.LinkPosition())) LinkProjectileHandler.HandleCollision(player, projectile);
                 }
+
                 if (projectile.GetProjectileLocation().X < 120 || projectile.GetProjectileLocation().Y < 117 + (64 * 4)
                         || projectile.GetProjectileLocation().X + projectile.GetProjectileLocation().Width > cameraWallMaxX - 130 || projectile.GetProjectileLocation().Y > cameraWallMaxY - 170) {
 
-                    if (projectile is IBoomerang) {
-                        ((IBoomerang)projectile).GoBack();
-                    }
-                    else if(projectile is BombProjectile)
-                    {
-                        BombDoor.DetermineDoor(projectile, roomManager);
-                    }
-                    else
-                    {
-                        projectile.Hit();
-                    }
+                    if (projectile is IBoomerang) ((IBoomerang)projectile).GoBack();
+                    else if(projectile is BombProjectile) BombDoor.DetermineDoor(projectile, roomManager);
+                    else projectile.Hit();
                 }
-                foreach (INPC nPC in DeadEnemies) {
+                foreach (INPC nPC in DeadEnemies)
+                {
                     EnemyDrops.DropItem(nPC, items, itemsSheet);
                     npcs.Remove(nPC);
                 }
@@ -203,7 +179,8 @@ namespace Sprint0
             for (int i = 0; i < npcs.Count; i++) {
                 for (int j = i + 1; j < npcs.Count; j++) {
                     if(npcs[i] is Trap && npcs[j] is Trap && npcs[i].GetNPCLocation().Intersects(npcs[j].GetNPCLocation())) {
-                        TrapCollisionHandler.HandleCollision((Trap)npcs[i], (Trap)npcs[j]);
+                        ((Trap)npcs[i]).Return();
+                        ((Trap)npcs[j]).Return();
                     }
                 }
             }

@@ -342,6 +342,11 @@ namespace Sprint0
             return healthAndDamage.Health();
         }
 
+        public void SetMaxHealth(int health)
+        {
+            healthAndDamage.SetHealth(health);
+        }
+
         public int GetMaxHealth()
         {
             return healthAndDamage.GetMaxHealth();
