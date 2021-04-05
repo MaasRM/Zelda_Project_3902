@@ -4,11 +4,11 @@
 
 Jacob Kline, Jared Zins, Phil Brocker, Riley Maas, Nathan Schultz
 
-Jacob Kline: Review LinkBlockHandler.cs(Jared) for readability, Review LinkMoveBlock.cs(Jared) for maintainability
-Riley Maas: Review LinkWallHandler.cs(Phil) for readability, Review LinkItemHandler.cs(Phil) for maintainability
-Jared Zins: Review  NextRoomCommand.cs(Riley) for readability, Review EnemyProximityTrigger.cs(Nathan) for maintainability
-Phil Brocker: Review EnemyProjectileHandler.cs(Nathan) for readability, Review Sprint3.cs(Jacob) for maintainability
-Nathan Schultz: Review RoomManager.cs(Jacob) for readability, Review Room.cs(Riley) for maintainability
+Jacob Kline: Review TextSprites.cs(Jared) for readability, Review Sprint3.cs(Jared) for maintainability
+Riley Maas: Review BombDoor.cs(Phil) for readability, Review EnemyDrops.cs(Phil) for maintainability
+Jared Zins: Review  LinkHealthBar.cs(Riley) for readability, Review LinkEnemyHandler.cs(Nathan) for maintainability
+Phil Brocker: Review AllCollisionHandler(Nathan) for readability, Review RoomManager.cs(Jacob) for maintainability
+Nathan Schultz: Review SwordProjectile.cs(Jacob) for readability, LinkInventory.cs(Riley) for maintainability
 
 ************************************************************************************************************
 											Program Controls
