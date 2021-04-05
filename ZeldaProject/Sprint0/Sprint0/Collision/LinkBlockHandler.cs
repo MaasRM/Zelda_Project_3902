@@ -22,7 +22,7 @@ namespace Sprint0
             Rectangle blockRect = block.GetBlockLocation();
             bool blockMoved = false;
 
-            if (block.getIndex() != 5 && block.getIndex() != 0 && block.getIndex() != 9)
+            if (block.getIndex() != 5 && block.getIndex() != 0 && block.getIndex() != 9 && player.getLinkStateMachine().getAnimation() != Animation.Attack)
             {
                 if(block.getIndex() == 10)
                 {

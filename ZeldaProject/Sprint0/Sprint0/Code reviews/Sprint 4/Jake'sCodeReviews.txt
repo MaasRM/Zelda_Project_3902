@@ -12,12 +12,13 @@ Jacob Kline 4/5/2021 Sprint3
 TextSprites.cs - Jared Zins
 Minutes: 15
 Comments on readability:
-	- No fields necessary, empty constructor. Only 2 methods that boil down to handling a block-player collision. Very simple structure.
-	- HandleCollision method makes sense, takes in the player and block object and a rectangle for the overlap
-	- Makes a lot of sense to split the collision handling into two methods. GetOverlapDirection is very straight forward.
-	- My only critique of the class is not it may not be necessary. It's quite short and has a simple concrete purpose.
+	- Fields all make sense. The read only data is somewhat overwhelming with all the magic numbers.
+	- Only two methods, draw and update. Fits very well with the xna design framework.
+	- Update method very straight forward, just updates a counter.
+	- Draw method is a little more complex due to special cases but overall makes sense. Still have some magic numbers in the method
 
-Overall this class is very simple, readable and understandable
+Overall this class is very simple, readable and understandable. My only critique is the structure of the read only data as
+well as some magic numbers in the draw method.
 
 ************************************************************************************************************
 											Maintainability
