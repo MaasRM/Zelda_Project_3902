@@ -55,7 +55,13 @@ namespace Sprint0
                 Rectangle source = new Rectangle(letterSource[i], letterSource[i + 1], 7, 7);
                 spriteBatch.Draw(letterSheet, destination, source, Color.White);
             }
-            if(counter != 33) textSounds[0].Play();
+            if (counter != 33)
+            {
+                Rectangle destination = new Rectangle((letterDest[counter * 2] + 15) * scale, (64 * scale) + (letterDest[(counter * 2) + 1] + 40) * scale, 7 * scale, 7 * scale);
+                Rectangle source = new Rectangle(10, 56, 7, 7);
+                spriteBatch.Draw(letterSheet, destination, source, Color.White);
+                textSounds[0].Play();
+            }
         }
     }
 }
