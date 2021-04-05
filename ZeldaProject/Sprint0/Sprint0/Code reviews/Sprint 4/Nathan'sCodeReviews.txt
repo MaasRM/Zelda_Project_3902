@@ -13,12 +13,13 @@ SwordProjectile.cs - Jake Kline
 Minutes: 20 
 Comments on readability:
 	- Variables and methods have clear and distinct names.
-	- Only magic numebrs for source rectangles.
-	- Switch cases to parse xml are well organized
+	- Only magic numebrs for source rectangles and sound effects.
+	- Code is well organized into methods
+	- Nothing is too long. Small number fo fields and shorter methods.
 
 Overall this class is very readable. All the variables, fields, and methods have clear names which show their functions.
-The switch cases to read in from the xml are also well organized. The few magic numbers that exist are mainly there to
-set Rectangle values for drawing.
+The magic numbers that exist are mainly for rectangle locations and sound effetc indexes form the sound effect list.
+All methods are not too long and thus have clear and concise goals.
 
 
 
@@ -29,15 +30,14 @@ set Rectangle values for drawing.
 Nathan Schultz 4/5/2021 Sprint2
 LinkInventory.cs - Riley Maas
 Comments on maintainability:
-	- No magic numbers
-	- Fields have names which signify their functions
-	- Functions have clear names which show functionality
+	- Magic numbers are all for Rectangle locations.
+	- Fields and Mehtods clearly show use and functionality.
+	- Some of the magic numbers are repeated and may be more useful in constant values.
 
 Hypothetical Changes:
-	- Methods should be editied to have Pascal Case names
-	- Addition of references to nearby rooms for room switching in the future
+	- Try to make some of the magic numbers constants even if they are for rectangles.
 
-Mainting this file will not be difficult. All the fields and methods of the class have distinct names which
-imply functionality. Changing the names of the methods is the only thing revlevant tto Sprint 3 which could
-be improved. For future sprints references to nearby rooms could make room switching easier.
+Maintinang  the file will not be difficult so long as the sprite sheets stay the same. The use of magic numbers for Rectangle
+locations is not problematic for this reason, but if the sprite sheets did change, it would be more difficult to update
+the class.
 
