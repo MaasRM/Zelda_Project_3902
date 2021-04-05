@@ -34,8 +34,7 @@ namespace Sprint0
 
         public void Update()
         {
-            if(!stateMachine.Throwing() && stateMachine.TryToThrow())
-            {
+            if(!stateMachine.Throwing() && stateMachine.TryToThrow()) {
                 boomerang = new GoriyaBoomerang(goriyaSpriteSheet[0], stateMachine);
                 flyingBoomerang.IsLooped = true;
                 flyingBoomerang.Volume = 0.2f;
@@ -43,8 +42,7 @@ namespace Sprint0
                 game.AddProjectile(boomerang);
             }
 
-            if (!stateMachine.Throwing() || (roomAccess.getRoomIndex() != 1 && roomAccess.getRoomIndex() != 8))
-            {
+            if (!stateMachine.Throwing() || (roomAccess.getRoomIndex() != 1 && roomAccess.getRoomIndex() != 8)) {
                 flyingBoomerang.Stop();
                 stateMachine.BoomerangReturned();
                 game.RemoveProjectile(boomerang);
@@ -88,28 +86,12 @@ namespace Sprint0
             {
                 int damageFrame = stateMachine.GetDamageFrame();
 
-                if (damageFrame % 4 == 3)
-                {
-                    currentSheet = goriyaSpriteSheet[1];
-                    //contentManager.Load<Texture2D>("LinkSpriteSheetBlack");
-                }
-                else if (damageFrame % 4 == 2)
-                {
-                    currentSheet = goriyaSpriteSheet[2];
-                }
-                else if (damageFrame % 4 == 1)
-                {
-                    currentSheet = goriyaSpriteSheet[3];
-                }
-                else //damageFrameCount %4 == 0
-                {
-                    currentSheet = goriyaSpriteSheet[0];
-                }
+                if (damageFrame % 4 == 3) currentSheet = goriyaSpriteSheet[1];
+                else if (damageFrame % 4 == 2) currentSheet = goriyaSpriteSheet[2];
+                else if (damageFrame % 4 == 1) currentSheet = goriyaSpriteSheet[3];
+                else currentSheet = goriyaSpriteSheet[0];
             }
-            else
-            {
-                SetOriginalColor();
-            }
+            else SetOriginalColor();
         }
 
         private void SetOriginalColor()

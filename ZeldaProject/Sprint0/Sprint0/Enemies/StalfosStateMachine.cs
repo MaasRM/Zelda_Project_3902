@@ -67,43 +67,23 @@ namespace Sprint0
 
         public void Move()
         {
-            if(state == State.Normal || damageDirection == new Vector2(0,0))
-            {
+            if(state == State.Normal || damageDirection == new Vector2(0,0)) {
                 frame++;
 
-                if (frame % 8 == 0)
-                {
-                    direction = ChangeDirection();
-                }
+                if (frame % 8 == 0) direction = ChangeDirection();
 
-                if (direction == Direction.Up)
-                {
-                    yLoc -= moveDist * PIXELSCALER;
-                }
-
-                else if (direction == Direction.Down)
-                {
-                    yLoc += moveDist * PIXELSCALER;
-                }
-
-                else if (direction == Direction.Left)
-                {
-                    xLoc -= moveDist * PIXELSCALER;
-                }
-                else
-                {
-                    xLoc += moveDist * PIXELSCALER;
-                }
+                if (direction == Direction.Up) yLoc -= moveDist * PIXELSCALER;
+                else if (direction == Direction.Down) yLoc += moveDist * PIXELSCALER;
+                else if (direction == Direction.Left) xLoc -= moveDist * PIXELSCALER;
+                else xLoc += moveDist * PIXELSCALER;
                 damageFrames++;
             }
-            else if(state == State.Damaged)
-            {
+            else if(state == State.Damaged) {
                 xLoc += (int)damageDirection.X * PIXELSCALER;
                 yLoc += (int)damageDirection.Y * PIXELSCALER;
                 damageFrames++;
             }
-            else if(state == State.Stun)
-            {
+            else if(state == State.Stun) {
                 stunFrames++;
             }
 

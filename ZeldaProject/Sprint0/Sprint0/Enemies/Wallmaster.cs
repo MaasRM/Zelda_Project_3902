@@ -38,23 +38,14 @@ namespace Sprint0
             if(!stateMachine.IsWaiting())
             {
                 WallmasterStateMachine.Direction initial = stateMachine.GetInitialDirection();
-                WallmasterStateMachine.Direction second = stateMachine.GetInitialDirection();
+                WallmasterStateMachine.Direction second = stateMachine.GetSecondDirection();
 
                 bool directionLeft = initial == WallmasterStateMachine.Direction.Left || second == WallmasterStateMachine.Direction.Left;
                 bool directionDown = initial == WallmasterStateMachine.Direction.Down || second == WallmasterStateMachine.Direction.Down;
 
-                if (directionLeft && directionDown)
-                {
-                    flip = SpriteEffects.FlipHorizontally | SpriteEffects.FlipVertically;
-                }
-                else if (directionLeft)
-                {
-                    flip = SpriteEffects.FlipHorizontally;
-                }
-                else if (directionDown)
-                {
-                    flip = SpriteEffects.FlipVertically;
-                }
+                if (directionLeft && directionDown) flip = SpriteEffects.FlipHorizontally | SpriteEffects.FlipVertically;
+                else if (directionLeft) flip = SpriteEffects.FlipHorizontally;
+                else if (directionDown) flip = SpriteEffects.FlipVertically;
 
                 spriteBatch.Draw(currentSheet, destination, source, Color.White, 0, new Vector2(0, 0), flip, 0f);
             }   
@@ -66,23 +57,10 @@ namespace Sprint0
             {
                 int damageFrame = stateMachine.GetDamageFrame();
 
-                if (damageFrame % 4 == 3)
-                {
-                    currentSheet = wallmasterSpriteSheet[1];
-                    //contentManager.Load<Texture2D>("LinkSpriteSheetBlack");
-                }
-                else if (damageFrame % 4 == 2)
-                {
-                    currentSheet = wallmasterSpriteSheet[2];
-                }
-                else if (damageFrame % 4 == 1)
-                {
-                    currentSheet = wallmasterSpriteSheet[3];
-                }
-                else //damageFrameCount %4 == 0
-                {
-                    currentSheet = wallmasterSpriteSheet[0];
-                }
+                if (damageFrame % 4 == 3) currentSheet = wallmasterSpriteSheet[1];
+                else if (damageFrame % 4 == 2) currentSheet = wallmasterSpriteSheet[2];
+                else if (damageFrame % 4 == 1) currentSheet = wallmasterSpriteSheet[3];
+                else currentSheet = wallmasterSpriteSheet[0];
             }
             else
             {

@@ -1,25 +1,13 @@
 ﻿<Properties GitUserInfo="UsingMD" StartupConfiguration="{7DF9E545-60F3-43AB-B585-CBA6D0074959}|Default">
   <MonoDevelop.Ide.ItemProperties.Sprint0 PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench>
-    <Files>
-      <File FileName="Sprint0/Collision/LinkEnemyHandler.cs" Line="59" Column="34" />
-      <File FileName="Sprint0/Collision/LinkMoveBlockHandler.cs" Line="45" Column="79" />
-      <File FileName="Sprint0/Collision/LinkProjectileHandler.cs" Line="56" Column="34" />
-      <File FileName="Sprint0/Collision/LinkWallHandler.cs" Line="123" Column="18" />
-      <File FileName="Sprint0/Link/LinkStateMachine.cs" Line="1" Column="1" />
-      <File FileName="Sprint0/Collision/AllCollisionHandler.cs" Line="119" Column="58" />
-      <File FileName="Sprint0/Collision/LinkItemHandler.cs" Line="34" Column="32" />
-    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Sprint0" expanded="True">
             <Node name="Sprint0" expanded="True">
-              <Node name="Collision" expanded="True">
-                <Node name="LinkItemHandler.cs" selected="True" />
-              </Node>
-              <Node name="Items" expanded="True" />
-              <Node name="Link" expanded="True" />
+              <Node name="Enemies" expanded="True" />
+              <Node name="Interfaces" expanded="True" selected="True" />
             </Node>
           </Node>
         </State>

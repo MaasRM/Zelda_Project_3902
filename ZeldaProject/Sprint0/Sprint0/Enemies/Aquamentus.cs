@@ -61,7 +61,6 @@ namespace Sprint0
                 if (damageFrame % 4 == 3)
                 {
                     currentSheet = aquamentusSpriteSheet[1];
-                    //contentManager.Load<Texture2D>("LinkSpriteSheetBlack");
                 }
                 else if (damageFrame % 4 == 2)
                 {
@@ -71,7 +70,7 @@ namespace Sprint0
                 {
                     currentSheet = aquamentusSpriteSheet[3];
                 }
-                else //damageFrameCount %4 == 0
+                else
                 {
                     currentSheet = aquamentusSpriteSheet[0];
                 }
