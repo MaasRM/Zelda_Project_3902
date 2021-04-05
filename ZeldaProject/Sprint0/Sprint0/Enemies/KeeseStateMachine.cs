@@ -90,7 +90,7 @@ namespace Sprint0
             if(state == State.Normal)
             {
                 currFrame++;
-                if (currFrame == slowFrameCount || currFrame == fastFrameCount || currFrame == waitFrameCount)
+                if (currFrame == KeeseConstants.SLOWFRAMECOUNT || currFrame == fastFrameCount || currFrame == waitFrameCount)
                 {
                     ResetFrames();
                     ChangeMovement();
