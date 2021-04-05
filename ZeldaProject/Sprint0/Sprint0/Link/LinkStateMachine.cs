@@ -38,17 +38,11 @@ namespace Sprint0
         private Animation animation;
         private int xLoc;
         private int yLoc;
-        private const int linkMoveSpeed = 16; //May need to change value
         private bool isBusy;
         private int frame;
         private int swordProjFrame;
-        private int sizeFactor;
         private HealthAndDamageHandler healthAndDamage;
         public Vector2 damageVector { get; set; }
-        private const int xInit = 120;
-        private const int yInit = 128;
-        private const int STARTHEALTH = 18;
-        private const int SWORDPROJECTILEBUFFER = 20;
         private List<SoundEffect> soundEffects;
         private SoundEffectInstance lowHealth;
 
@@ -58,11 +52,10 @@ namespace Sprint0
             direction = Direction.Up;
             color = LinkColor.Green;
             animation = Animation.Idle;
-            xLoc = xInit * GameConstants.SCALE; //Original Position, probably needs to change
-            yLoc = yInit * GameConstants.SCALE;
+            xLoc = LinkConstants.xInit * Sprint0.GameConstants.SCALE; //Original Position
+            yLoc = LinkConstants.yInit * Sprint0.GameConstants.SCALE;
             isBusy = false;
-            healthAndDamage = new HealthAndDamageHandler(STARTHEALTH, 1);
-            sizeFactor = 4;
+            healthAndDamage = new HealthAndDamageHandler(LinkConstants.STARTHEALTH, 1);
             frame = 0;
             swordProjFrame = 0;
             damageVector = new Vector2(0, 0);
@@ -76,23 +69,23 @@ namespace Sprint0
             Rectangle ret;
             if (direction == Direction.Up && animation == Animation.Attack)
             {
-                ret = new Rectangle(this.xLoc, this.yLoc - (sizeFactor * 15), this.spriteFactory.getWidth() * sizeFactor, this.spriteFactory.getHeight() * sizeFactor);
+                ret = new Rectangle(this.xLoc, this.yLoc - (GameConstants.SCALE * 15), this.spriteFactory.getWidth() * GameConstants.SCALE, this.spriteFactory.getHeight() * GameConstants.SCALE);
             }
             else if (direction == Direction.Left && animation == Animation.Attack && frame == 1)
             {
-                ret = new Rectangle(this.xLoc - (sizeFactor * 11), this.yLoc, this.spriteFactory.getWidth() * sizeFactor, this.spriteFactory.getHeight() * sizeFactor);
+                ret = new Rectangle(this.xLoc - (GameConstants.SCALE * 11), this.yLoc, this.spriteFactory.getWidth() * GameConstants.SCALE, this.spriteFactory.getHeight() * GameConstants.SCALE);
             }
             else if (direction == Direction.Left && animation == Animation.Attack && frame == 2)
             {
-                ret = new Rectangle(this.xLoc - (sizeFactor * 7), this.yLoc, this.spriteFactory.getWidth() * sizeFactor, this.spriteFactory.getHeight() * sizeFactor);
+                ret = new Rectangle(this.xLoc - (GameConstants.SCALE * 7), this.yLoc, this.spriteFactory.getWidth() * GameConstants.SCALE, this.spriteFactory.getHeight() * GameConstants.SCALE);
             }
             else if (direction == Direction.Left && animation == Animation.Attack && frame == 3)
             {
-                ret = new Rectangle(this.xLoc - (sizeFactor * 3), this.yLoc, this.spriteFactory.getWidth() * sizeFactor, this.spriteFactory.getHeight() * sizeFactor);
+                ret = new Rectangle(this.xLoc - (GameConstants.SCALE * 3), this.yLoc, this.spriteFactory.getWidth() * GameConstants.SCALE, this.spriteFactory.getHeight() * GameConstants.SCALE);
             }
             else
             {
-                ret = new Rectangle(this.xLoc, this.yLoc, this.spriteFactory.getWidth() * sizeFactor, this.spriteFactory.getHeight() * sizeFactor);
+                ret = new Rectangle(this.xLoc, this.yLoc, this.spriteFactory.getWidth() * GameConstants.SCALE, this.spriteFactory.getHeight() * GameConstants.SCALE);
             }
 
             return ret;
@@ -128,8 +121,8 @@ namespace Sprint0
 
             if(color == LinkColor.Damaged)
             {
-                xLoc += (int)damageVector.X * GameConstants.SCALE;
-                yLoc += (int)damageVector.Y * GameConstants.SCALE;
+                xLoc += (int)damageVector.X * Sprint0.GameConstants.SCALE;
+                yLoc += (int)damageVector.Y * Sprint0.GameConstants.SCALE;
             }
 
             swordProjFrame++;
@@ -142,7 +135,7 @@ namespace Sprint0
                 if (this.direction == Direction.Up)
                 {
                     this.animation = Animation.Walk;
-                    yLoc -= linkMoveSpeed;
+                    yLoc -= LinkConstants.linkMoveSpeed;
                     if (frame == 0) frame = 1;
                     else frame = 0;
                 }
@@ -162,7 +155,7 @@ namespace Sprint0
                 if (this.direction == Direction.Down)
                 {
                     this.animation = Animation.Walk;
-                    yLoc += linkMoveSpeed;
+                    yLoc += LinkConstants.linkMoveSpeed;
                     if (frame == 0) frame = 1;
                     else frame = 0;
                 }
@@ -182,7 +175,7 @@ namespace Sprint0
                 if (this.direction == Direction.Left)
                 {
                     this.animation = Animation.Walk;
-                    xLoc -= linkMoveSpeed;
+                    xLoc -= LinkConstants.linkMoveSpeed;
                     if (frame == 0) frame = 1;
                     else frame = 0;
                 }
@@ -202,7 +195,7 @@ namespace Sprint0
                 if (this.direction == Direction.Right)
                 {
                     this.animation = Animation.Walk;
-                    xLoc += linkMoveSpeed;
+                    xLoc += LinkConstants.linkMoveSpeed;
                     if (frame == 0) frame = 1;
                     else frame = 0;
                 }
