@@ -12,9 +12,9 @@ namespace Sprint0
         private INPC npc;
 
 
-        public EnemyKey(Rectangle startPos, Rectangle source, Texture2D spriteSheet, INPC NPC)
+        public EnemyKey(Rectangle source, Texture2D spriteSheet, INPC NPC)
         {
-            destination = startPos;
+            destination = NPC.GetNPCLocation();
             spriteSource = source;
             sheet = spriteSheet;
             npc = NPC;

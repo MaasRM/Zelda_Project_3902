@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 namespace Sprint0
 {
-    public class SecretKey1 : IItem
+    public class SecretKey : IItem
     {
         private Rectangle destination;
         private Rectangle spriteSource;
@@ -12,7 +12,7 @@ namespace Sprint0
         private List<INPC> npcs;
 
 
-        public SecretKey1(Rectangle startPos, Rectangle source, Texture2D spriteSheet, List<INPC> NPCS)
+        public SecretKey(Rectangle startPos, Rectangle source, Texture2D spriteSheet, List<INPC> NPCS)
         {
             destination = startPos;
             spriteSource = source;
