@@ -263,14 +263,14 @@ namespace Sprint0
                 proj.Draw(this._spriteBatch);
             }
 
+            if (roomManager.getRoomIndex() == 5 && !roomManager.RoomChange())
+            {
+                textSprite.Draw(this._spriteBatch);
+            }
+
             if (!roomManager.RoomChange())
             {
                 link.Draw(this._spriteBatch);
-            }
-
-            if (roomManager.getRoomIndex() == 5)
-            {
-                textSprite.Draw(this._spriteBatch);
             }
 
             link.GetLinkInventory().Draw(this._spriteBatch);
