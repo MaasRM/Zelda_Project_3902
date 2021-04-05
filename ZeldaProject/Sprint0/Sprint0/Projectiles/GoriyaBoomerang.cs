@@ -13,11 +13,11 @@ namespace Sprint0
         private bool goBack;
         private int x;
         private int y;
-        private const int WIDTH = 8;
-        private const int HEIGHT = 16;
         private GoriyaStateMachine.Direction direction;
         private int frame;
         private SpriteEffects flip;
+        private const int WIDTH = 8;
+        private const int HEIGHT = 16;
         private const int maxframeCount = 21;
         private const int moveDist = 8;
         private const int PIXELSCALER = 4;
@@ -71,23 +71,19 @@ namespace Sprint0
             x = initial.X;
             y = initial.Y;
 
-            if (direction == GoriyaStateMachine.Direction.Down)
-            {
+            if (direction == GoriyaStateMachine.Direction.Down) {
                 x += initial.Width / 2 - WIDTH * PIXELSCALER / 2;
                 y += initial.Height;
             }
-            else if (direction == GoriyaStateMachine.Direction.Up)
-            {
+            else if (direction == GoriyaStateMachine.Direction.Up) {
                 x += initial.Width / 2 - WIDTH * PIXELSCALER / 2;
                 y -= HEIGHT * PIXELSCALER;
             }
-            else if (direction == GoriyaStateMachine.Direction.Left)
-            {
+            else if (direction == GoriyaStateMachine.Direction.Left) {
                 x -= WIDTH * PIXELSCALER;
                 y += initial.Height / 2 - HEIGHT * PIXELSCALER / 2;
             }
-            else
-            {
+            else {
                 x += initial.Width;
                 y += initial.Height / 2 - HEIGHT * PIXELSCALER / 2;
             }
@@ -100,34 +96,14 @@ namespace Sprint0
 
         private Rectangle GetSource()
         {
-            if (frame % 8 == 0 || frame % 8 == 1 || frame % 8 == 2)
-            {
-                flip = SpriteEffects.None;
-            }
-            else if (frame % 8 == 3 || frame % 8 == 4)
-            {
-                flip = SpriteEffects.FlipHorizontally;
-            }
-            else if (frame % 8 == 5)
-            {
-                flip = SpriteEffects.FlipHorizontally | SpriteEffects.FlipVertically;
-            }
-            else if (frame % 8 == 6 || frame % 8 == 7)
-            {
-                flip = SpriteEffects.FlipVertically;
-            }
-            if (frame % 4 == 0)
-            {
-                return new Rectangle(290, 11, 8, 15);
-            }
-            else if (frame % 4 == 1 || frame % 4 == 3)
-            {
-                return new Rectangle(299, 11, 8, 15);
-            }
-            else
-            {
-                return new Rectangle(308, 11, 8, 15);
-            }
+            if (frame % 8 == 0 || frame % 8 == 1 || frame % 8 == 2) flip = SpriteEffects.None;
+            else if (frame % 8 == 3 || frame % 8 == 4) flip = SpriteEffects.FlipHorizontally;
+            else if (frame % 8 == 5) flip = SpriteEffects.FlipHorizontally | SpriteEffects.FlipVertically;
+            else if (frame % 8 == 6 || frame % 8 == 7) flip = SpriteEffects.FlipVertically;
+
+            if (frame % 4 == 0) return new Rectangle(290, 11, 8, 15);
+            else if (frame % 4 == 1 || frame % 4 == 3) return new Rectangle(299, 11, 8, 15);
+            else return new Rectangle(308, 11, 8, 15);
         }
 
         public bool CheckForRemoval()
@@ -137,27 +113,12 @@ namespace Sprint0
             bool result;
             InitialPosition();
 
-            if (direction == GoriyaStateMachine.Direction.Down)
-            {
-                result = yTemp <= y;
-            }
-            else if (direction == GoriyaStateMachine.Direction.Up)
-            {
-                result = yTemp >= y;
-            }
-            else if (direction == GoriyaStateMachine.Direction.Left)
-            {
-                result = xTemp >= x;
-            }
-            else
-            {
-                result = xTemp <= x;
-            }
+            if (direction == GoriyaStateMachine.Direction.Down) result = yTemp <= y;
+            else if (direction == GoriyaStateMachine.Direction.Up) result = yTemp >= y;
+            else if (direction == GoriyaStateMachine.Direction.Left) result = xTemp >= x;
+            else result = xTemp <= x;
 
-            if(result)
-            {
-                goriyaState.BoomerangReturned();
-            }
+            if(result) goriyaState.BoomerangReturned();
 
             y = yTemp;
             x = xTemp;

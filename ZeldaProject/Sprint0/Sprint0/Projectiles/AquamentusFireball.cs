@@ -25,10 +25,11 @@ namespace Sprint0
         private double x, y;
         private int frame;
         private int gameMaxX, gameMaxY;
-        private const int WIDTH = 8;
-        private const int HEIGHT = 16;
         private Angle angle;
         private Position pos;
+
+        private const int WIDTH = 8;
+        private const int HEIGHT = 16;
         private const int xMoveDist = 5;
         private const int PIXELSCALER = 4;
         private const int DAMAGE = 1;
@@ -54,49 +55,24 @@ namespace Sprint0
         public void Update()
         {
             frame++;
-
             x -= xMoveDist * PIXELSCALER;
 
             if (angle == Angle.Above)
             {
-                if (pos == Position.Top)
-                {
-                    y -= xMoveDist * Math.Tan(DEGREE36 / RADTODEGREE) * PIXELSCALER;
-                }
-                else if(pos == Position.Center)
-                {
-                    y -= xMoveDist * Math.Tan(DEGREE22 / RADTODEGREE) * PIXELSCALER;
-                }
-                else
-                {
-                    y -= xMoveDist * Math.Tan(DEGREE5 / RADTODEGREE) * PIXELSCALER;
-                }
+                if (pos == Position.Top) y -= xMoveDist * Math.Tan(DEGREE36 / RADTODEGREE) * PIXELSCALER;
+                else if(pos == Position.Center) y -= xMoveDist * Math.Tan(DEGREE22 / RADTODEGREE) * PIXELSCALER;
+                else y -= xMoveDist * Math.Tan(DEGREE5 / RADTODEGREE) * PIXELSCALER;
             }
             else if (angle == Angle.Middle)
             {
-                if (pos == Position.Top)
-                {
-                    y -= xMoveDist * Math.Tan(DEGREE20 / RADTODEGREE) * PIXELSCALER;
-                }
-                else if (pos == Position.Bottom)
-                {
-                    y += xMoveDist * Math.Tan(DEGREE20 / RADTODEGREE) * PIXELSCALER;
-                }
+                if (pos == Position.Top) y -= xMoveDist * Math.Tan(DEGREE20 / RADTODEGREE) * PIXELSCALER;
+                else if (pos == Position.Bottom) y += xMoveDist * Math.Tan(DEGREE20 / RADTODEGREE) * PIXELSCALER;
             }
             else
             {
-                if (pos == Position.Top)
-                {
-                    y += xMoveDist * Math.Tan(DEGREE5 / RADTODEGREE) * PIXELSCALER;
-                }
-                else if (pos == Position.Center)
-                {
-                    y += xMoveDist * Math.Tan(DEGREE22 / RADTODEGREE) * PIXELSCALER;
-                }
-                else
-                {
-                    y += xMoveDist * Math.Tan(DEGREE36 / RADTODEGREE) * PIXELSCALER;
-                }
+                if (pos == Position.Top) y += xMoveDist * Math.Tan(DEGREE5 / RADTODEGREE) * PIXELSCALER;
+                else if (pos == Position.Center) y += xMoveDist * Math.Tan(DEGREE22 / RADTODEGREE) * PIXELSCALER;
+                else y += xMoveDist * Math.Tan(DEGREE36 / RADTODEGREE) * PIXELSCALER;
             }
         }
 
@@ -135,33 +111,18 @@ namespace Sprint0
             Rectangle linkPos = link.LinkPosition();
             int xLink = linkPos.X + linkPos.Width / 2;
             int yLink = linkPos.Y + linkPos.Height / 2;
-
             double xDiff = xLink - x;
             double yDiff = yLink - y;
-
             double linkAngle;
 
-            if(xDiff != 0)
-            {
+            if(xDiff != 0) {
                 linkAngle = Math.Atan(yDiff / xDiff) * RADTODEGREE;
 
-                if (linkAngle > DEGREE30)
-                {
-                    angle = Angle.Above;
-                }
-                else if (linkAngle < -1 * DEGREE30)
-                {
-                    angle = Angle.Below;
-                }
-                else
-                {
-                    angle = Angle.Middle;
-                }
+                if (linkAngle > DEGREE30) angle = Angle.Above;
+                else if (linkAngle < -1 * DEGREE30) angle = Angle.Below;
+                else angle = Angle.Middle;
             }
-            else
-            {
-                angle = Angle.Middle;
-            }
+            else angle = Angle.Middle;
         }
 
         public bool CheckForRemoval()

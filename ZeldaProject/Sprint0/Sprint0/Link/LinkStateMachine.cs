@@ -45,6 +45,8 @@ namespace Sprint0
         private int sizeFactor;
         private HealthAndDamageHandler healthAndDamage;
         private Vector2 damageVector;
+        private const int xInit = 120;
+        private const int yInit = 128;
         private const int scale = 4;
         private const int STARTHEALTH = 18;
         private const int SWORDPROJECTILEBUFFER = 20;
@@ -57,8 +59,8 @@ namespace Sprint0
             direction = Direction.MoveUp;
             color = LinkColor.Green;
             animation = Animation.Idle;
-            xLoc = 120 * scale; //Original Position, probably needs to change
-            yLoc = 128 * scale;
+            xLoc = xInit * scale; //Original Position, probably needs to change
+            yLoc = yInit * scale;
             isBusy = false;
             healthAndDamage = new HealthAndDamageHandler(STARTHEALTH, 1);
             sizeFactor = 4;

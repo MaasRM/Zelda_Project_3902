@@ -1,23 +1,14 @@
 ﻿<Properties GitUserInfo="UsingMD" StartupConfiguration="{7DF9E545-60F3-43AB-B585-CBA6D0074959}|Default">
   <MonoDevelop.Ide.ItemProperties.Sprint0 PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench>
-    <Files>
-      <File FileName="Sprint0/Rooms/RoomManager.cs" Line="145" Column="36" />
-      <File FileName="Sprint0/Interfaces/IBlock.cs" Line="19" Column="20" />
-      <File FileName="Sprint0/Interfaces/IItem.cs" Line="1" Column="1" />
-      <File FileName="Sprint0/Interfaces/INPC.cs" Line="1" Column="1" />
-      <File FileName="Sprint0/Block.cs" Line="118" Column="10" />
-      <File FileName="Sprint0/Rooms/Room.cs" Line="1" Column="1" />
-    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Sprint0" expanded="True">
             <Node name="Sprint0" expanded="True">
-              <Node name="Interfaces" expanded="True" />
-              <Node name="Rooms" expanded="True">
-                <Node name="RoomManager.cs" selected="True" />
-              </Node>
+              <Node name="Link" expanded="True" />
+              <Node name="Projectiles" expanded="True" />
+              <Node name="Sprint3.cs" selected="True" />
             </Node>
           </Node>
         </State>
