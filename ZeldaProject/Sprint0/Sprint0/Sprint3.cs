@@ -218,6 +218,7 @@ namespace Sprint0
                             controller.Update();
                         }
                     }
+                    textSprite.Update(roomManager.getRoomIndex());
                 }
             } else
             {

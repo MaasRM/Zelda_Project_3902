@@ -37,9 +37,19 @@ namespace Sprint0
             counter = 0;
         }
 
+        public void Update(int index)
+        {
+            if (index == 5)
+            {
+                if (counter < 33) counter++;
+            } else
+            {
+                counter = 0;
+            }
+        }
+
         public void Update()
         {
-            if(counter < 34) counter++;
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -50,7 +60,7 @@ namespace Sprint0
                 Rectangle source = new Rectangle(letterSource[i], letterSource[i + 1], 7, 7);
                 spriteBatch.Draw(letterSheet, destination, source, Color.White);
             }
-            //textSounds[0].Play();
+            if(counter != 33) textSounds[0].Play();
         }
     }
 }
