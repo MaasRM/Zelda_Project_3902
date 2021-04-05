@@ -31,7 +31,7 @@ namespace Sprint0
             int currentInRow = 0;
             int currentY = 148 + offset;
             int currentX = 710;
-            DrawMaxHearts(spriteBatch);
+            DrawMaxHearts(spriteBatch, offset);
             if (currentHealth % 2 == 0)
             {
                 int numberOfHearts = currentHealth / 2;
@@ -67,10 +67,10 @@ namespace Sprint0
             }
         }
 
-        public void DrawMaxHearts(SpriteBatch spriteBatch)
+        public void DrawMaxHearts(SpriteBatch spriteBatch, int offset)
         {
             int currentInRow = 0;
-            int currentY = 148;
+            int currentY = 148 + offset;
             int currentX = 710;
             if (maxHealth % 2 == 0)
             {

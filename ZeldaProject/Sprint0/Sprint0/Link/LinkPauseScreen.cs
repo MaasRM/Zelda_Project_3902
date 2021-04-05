@@ -11,21 +11,34 @@ namespace Sprint0
     {
         private Texture2D inventoryBackground;
         private Boolean isPaused;
+        private int currentYOffset;
+        private static int incrementYSize = 10;
 
         public LinkPauseScreen(Texture2D background)
         {
             isPaused = false;
             inventoryBackground = background;
-        }
-
-        public void Draw(SpriteBatch spriteBatch)
-        {
-            
+            currentYOffset = 0;
         }
 
         public void setGamePaused(Boolean val)
         {
             isPaused = val;
+        }
+
+        public void resetYOffset()
+        {
+            currentYOffset = 0;
+        }
+
+        public int getCurrentYOffset()
+        {
+            return currentYOffset;
+        }
+
+        public void incrementOffset()
+        {
+            currentYOffset += incrementYSize;
         }
 
         public Boolean isGamePaused()

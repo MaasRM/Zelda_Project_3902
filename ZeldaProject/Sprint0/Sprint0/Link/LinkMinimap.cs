@@ -29,13 +29,15 @@ namespace Sprint0
 
         public void Draw(SpriteBatch spriteBatch, int offset)
         {
+            Rectangle tempLinkMinimapDestination = linkMinimapDestination;
+            tempLinkMinimapDestination.Offset(0, offset);
             if (hasMap == true)
             {
                 foreach(int room in visitedRooms){
                     spriteBatch.Draw(minimapTexture, getMinimapRoomDestinationSprite(room, offset), roomMinimapSource, Color.White);
                 }
             }
-            spriteBatch.Draw(minimapTexture, linkMinimapDestination, linkMinimapSource, Color.White);
+            spriteBatch.Draw(minimapTexture, tempLinkMinimapDestination, linkMinimapSource, Color.White);
         }
 
         public Rectangle getLinkMinimapSourceSprite()
