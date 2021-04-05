@@ -8,7 +8,6 @@ namespace Sprint0
 	public class PauseController : IController
 	{
 		private Dictionary<Keys, ICommand> pauseCommands;
-		private ICommand linkIdleCommand;
 
 		public PauseController()
 		{
