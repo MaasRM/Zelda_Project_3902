@@ -63,25 +63,13 @@ namespace Sprint0
         {
             if(firing)
             {
-                if(frame % 2 == 0)
-                {
-                    return new Rectangle(1, 11, WIDTH, HEIGHT);
-                }
-                else
-                {
-                    return new Rectangle(26, 11, WIDTH, HEIGHT);
-                }
+                if(frame % 2 == 0) return new Rectangle(1, 11, WIDTH, HEIGHT);
+                else return new Rectangle(26, 11, WIDTH, HEIGHT);
             }
             else
             {
-                if (frame % 2 == 0)
-                {
-                    return new Rectangle(51, 11, WIDTH, HEIGHT);
-                }
-                else
-                {
-                    return new Rectangle(76, 11, WIDTH, HEIGHT);
-                }
+                if (frame % 2 == 0) return new Rectangle(51, 11, WIDTH, HEIGHT);
+                else return new Rectangle(76, 11, WIDTH, HEIGHT);
             }
         }
 
@@ -89,29 +77,13 @@ namespace Sprint0
         {
             frame++;
 
-            if (frame % 10 == 0)
-            {
-                direction = ChangeDirection();
-            }
+            if (frame % 10 == 0) direction = ChangeDirection();
+            if (direction == Direction.Left) xLoc -= moveDist * PIXELSCALER;
+            else xLoc += moveDist * PIXELSCALER;
 
-            if (direction == Direction.Left)
-            {
-                xLoc -= moveDist * PIXELSCALER;
-            }
-            else
-            {
-                xLoc += moveDist * PIXELSCALER;
-            }
+            if(firing) StopFiring();
 
-            if(firing)
-            {
-                StopFiring();
-            }
-
-            if(state == State.Damaged)
-            {
-                damageFrames++;
-            }
+            if(state == State.Damaged) damageFrames++;
 
             ReturnToNormal();
         }

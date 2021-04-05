@@ -52,23 +52,10 @@ namespace Sprint0
             {
                 int damageFrame = stateMachine.GetDamageFrame();
 
-                if (damageFrame % 4 == 3)
-                {
-                    currentSheet = stalfosSpriteSheet[1];
-                    //contentManager.Load<Texture2D>("LinkSpriteSheetBlack");
-                }
-                else if (damageFrame % 4 == 2)
-                {
-                    currentSheet = stalfosSpriteSheet[2];
-                }
-                else if (damageFrame % 4 == 1)
-                {
-                    currentSheet = stalfosSpriteSheet[3];
-                }
-                else //damageFrameCount %4 == 0
-                {
-                    currentSheet = stalfosSpriteSheet[0];
-                }
+                if (damageFrame % 4 == 3) currentSheet = stalfosSpriteSheet[1];
+                else if (damageFrame % 4 == 2) currentSheet = stalfosSpriteSheet[2];
+                else if (damageFrame % 4 == 1) currentSheet = stalfosSpriteSheet[3];
+                else currentSheet = stalfosSpriteSheet[0];
             }
             else
             {
