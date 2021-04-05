@@ -14,7 +14,7 @@ namespace Sprint0
             Left
         };
 
-        private const int DAMAGEVECTORSIZE = 6;
+        private const int DAMAGEVECTORSIZE = 3;
         private const int RECOILVECTORSIZE = 2;
 
         public LinkProjectileHandler()

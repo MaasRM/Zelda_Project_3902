@@ -13,7 +13,8 @@ namespace Sprint0
             Left
         };
 
-        private const int DAMAGEVECTORSIZE = 6;
+        private const int LINKDAMAGEVECTOR = 3;
+        private const int ENEMYDAMAGEVECTOR = 6;
 
         public LinkEnemyHandler()
         {
@@ -99,10 +100,10 @@ namespace Sprint0
 
         private static Vector2 PlayerDamageVector(OverlapInRelationToPlayer overlap)
         {
-            Vector2 up = new Vector2(0, -DAMAGEVECTORSIZE);
-            Vector2 right = new Vector2(DAMAGEVECTORSIZE, 0);
-            Vector2 down = new Vector2(0, DAMAGEVECTORSIZE);
-            Vector2 left = new Vector2(-DAMAGEVECTORSIZE, 0);
+            Vector2 up = new Vector2(0, -LINKDAMAGEVECTOR);
+            Vector2 right = new Vector2(LINKDAMAGEVECTOR, 0);
+            Vector2 down = new Vector2(0, LINKDAMAGEVECTOR);
+            Vector2 left = new Vector2(-LINKDAMAGEVECTOR, 0);
 
             if(overlap == OverlapInRelationToPlayer.Up)
             {
@@ -124,10 +125,10 @@ namespace Sprint0
 
         private static Vector2 EnemyDamageVector(OverlapInRelationToPlayer overlap)
         {
-            Vector2 up = new Vector2(0, -DAMAGEVECTORSIZE);
-            Vector2 right = new Vector2(DAMAGEVECTORSIZE, 0);
-            Vector2 down = new Vector2(0, DAMAGEVECTORSIZE);
-            Vector2 left = new Vector2(-DAMAGEVECTORSIZE, 0);
+            Vector2 up = new Vector2(0, -ENEMYDAMAGEVECTOR);
+            Vector2 right = new Vector2(ENEMYDAMAGEVECTOR, 0);
+            Vector2 down = new Vector2(0, ENEMYDAMAGEVECTOR);
+            Vector2 left = new Vector2(-ENEMYDAMAGEVECTOR, 0);
 
             if (overlap == OverlapInRelationToPlayer.Up)
             {
