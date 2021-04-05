@@ -29,36 +29,27 @@ namespace Sprint0
         {
             this.spritesheet = spritesheet;
             projectileDirection = stateMachine.getDirection();
-            if (projectileDirection == Direction.MoveUp)
-            {
+            if (projectileDirection == Direction.MoveUp) {
                 xLoc = stateMachine.getXLoc() + ArrowWidth / 2;
                 yLoc = stateMachine.getYLoc() - ArrowLength;
                 flip = SpriteEffects.None;
-            }
-            else if (projectileDirection == Direction.MoveDown)
-            {
+            } else if (projectileDirection == Direction.MoveDown) {
                 xLoc = stateMachine.getXLoc() + ArrowWidth / 2;
                 yLoc = stateMachine.getYLoc() + ArrowLength;
                 flip = SpriteEffects.FlipVertically;
-            }
-            else if (projectileDirection == Direction.MoveLeft)
-            {
+            } else if (projectileDirection == Direction.MoveLeft) {
                 xLoc = stateMachine.getXLoc() - ArrowWidth;
                 yLoc = stateMachine.getYLoc() + ArrowLength / 2;
                 flip = SpriteEffects.FlipHorizontally;
-            }
-            else //MoveRight
-            {
+            } else {
                 xLoc = stateMachine.getXLoc() + ArrowWidth;
                 yLoc = stateMachine.getYLoc() + ArrowLength / 2;
                 flip = SpriteEffects.None;
             }
-            if(projectileDirection == Direction.MoveUp || projectileDirection == Direction.MoveDown)
-            {
+            if(projectileDirection == Direction.MoveUp || projectileDirection == Direction.MoveDown) {
                 sourceRectangle = new Rectangle(1, 185, 8, 15);
                 destinationRectangle = new Rectangle(xLoc, yLoc, ArrowWidth, ArrowLength);
-            } else
-            {
+            } else {
                 sourceRectangle = new Rectangle(10, 188, 15, 8);
                 destinationRectangle = new Rectangle(xLoc, yLoc, ArrowLength, ArrowWidth);
             }
@@ -75,7 +66,8 @@ namespace Sprint0
                 else if (projectileDirection == Direction.MoveLeft) xLoc -= ArrowSpeed;
                 else xLoc += ArrowSpeed;
 
-                if(projectileDirection == Direction.MoveUp || projectileDirection == Direction.MoveDown) destinationRectangle = new Rectangle(xLoc, yLoc, ArrowWidth, ArrowLength);
+                if(projectileDirection == Direction.MoveUp || projectileDirection == Direction.MoveDown)
+                    destinationRectangle = new Rectangle(xLoc, yLoc, ArrowWidth, ArrowLength);
                 else destinationRectangle = new Rectangle(xLoc, yLoc, ArrowLength, ArrowWidth);
             }
             else

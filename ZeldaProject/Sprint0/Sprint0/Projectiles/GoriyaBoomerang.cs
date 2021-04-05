@@ -11,8 +11,7 @@ namespace Sprint0
         private GoriyaStateMachine goriyaState;
         private Texture2D spritesheet;
         private bool goBack;
-        private int x;
-        private int y;
+        private Vector2 loc;
         private GoriyaStateMachine.Direction direction;
         private int frame;
         private SpriteEffects flip;
@@ -41,17 +40,17 @@ namespace Sprint0
 
             if (!goBack)
             {
-                if (direction == GoriyaStateMachine.Direction.Down) y += moveDist * PIXELSCALER;
-                else if (direction == GoriyaStateMachine.Direction.Up) y -= moveDist * PIXELSCALER;
-                else if (direction == GoriyaStateMachine.Direction.Left) x -= moveDist * PIXELSCALER;
-                else x += moveDist * PIXELSCALER;
+                if (direction == GoriyaStateMachine.Direction.Down) loc.Y += moveDist * PIXELSCALER;
+                else if (direction == GoriyaStateMachine.Direction.Up) loc.Y -= moveDist * PIXELSCALER;
+                else if (direction == GoriyaStateMachine.Direction.Left) loc.X -= moveDist * PIXELSCALER;
+                else loc.X += moveDist * PIXELSCALER;
             }
             else if (goBack)
             {
-                if (direction == GoriyaStateMachine.Direction.Down) y -= moveDist * PIXELSCALER;
-                else if (direction == GoriyaStateMachine.Direction.Up) y += moveDist * PIXELSCALER;
-                else if (direction == GoriyaStateMachine.Direction.Left) x += moveDist * PIXELSCALER;
-                else x -= moveDist * PIXELSCALER;
+                if (direction == GoriyaStateMachine.Direction.Down) loc.Y -= moveDist * PIXELSCALER;
+                else if (direction == GoriyaStateMachine.Direction.Up) loc.Y += moveDist * PIXELSCALER;
+                else if (direction == GoriyaStateMachine.Direction.Left) loc.X += moveDist * PIXELSCALER;
+                else loc.X -= moveDist * PIXELSCALER;
             }
         }
 
@@ -68,30 +67,29 @@ namespace Sprint0
         private void InitialPosition()
         {
             Rectangle initial = goriyaState.GetDestination();
-            x = initial.X;
-            y = initial.Y;
+            loc = new Vector2(initial.X, initial.Y);
 
             if (direction == GoriyaStateMachine.Direction.Down) {
-                x += initial.Width / 2 - WIDTH * PIXELSCALER / 2;
-                y += initial.Height;
+                loc.X += initial.Width / 2 - WIDTH * PIXELSCALER / 2;
+                loc.Y += initial.Height;
             }
             else if (direction == GoriyaStateMachine.Direction.Up) {
-                x += initial.Width / 2 - WIDTH * PIXELSCALER / 2;
-                y -= HEIGHT * PIXELSCALER;
+                loc.X += initial.Width / 2 - WIDTH * PIXELSCALER / 2;
+                loc.Y -= HEIGHT * PIXELSCALER;
             }
             else if (direction == GoriyaStateMachine.Direction.Left) {
-                x -= WIDTH * PIXELSCALER;
-                y += initial.Height / 2 - HEIGHT * PIXELSCALER / 2;
+                loc.X -= WIDTH * PIXELSCALER;
+                loc.Y += initial.Height / 2 - HEIGHT * PIXELSCALER / 2;
             }
             else {
-                x += initial.Width;
-                y += initial.Height / 2 - HEIGHT * PIXELSCALER / 2;
+                loc.X += initial.Width;
+                loc.Y += initial.Height / 2 - HEIGHT * PIXELSCALER / 2;
             }
         }
 
         private Rectangle GetDestination()
         {
-            return new Rectangle(x, y, WIDTH * PIXELSCALER, HEIGHT * PIXELSCALER);
+            return new Rectangle((int)loc.X, (int)loc.Y, WIDTH * PIXELSCALER, HEIGHT * PIXELSCALER);
         }
 
         private Rectangle GetSource()
@@ -108,20 +106,20 @@ namespace Sprint0
 
         public bool CheckForRemoval()
         {
-            int xTemp = x;
-            int yTemp = y;
+            float xTemp = loc.X;
+            float yTemp = loc.Y;
             bool result;
             InitialPosition();
 
-            if (direction == GoriyaStateMachine.Direction.Down) result = yTemp <= y;
-            else if (direction == GoriyaStateMachine.Direction.Up) result = yTemp >= y;
-            else if (direction == GoriyaStateMachine.Direction.Left) result = xTemp >= x;
-            else result = xTemp <= x;
+            if (direction == GoriyaStateMachine.Direction.Down) result = yTemp <= loc.Y;
+            else if (direction == GoriyaStateMachine.Direction.Up) result = yTemp >= loc.Y;
+            else if (direction == GoriyaStateMachine.Direction.Left) result = xTemp >= loc.X;
+            else result = xTemp <= loc.X;
 
             if(result) goriyaState.BoomerangReturned();
 
-            y = yTemp;
-            x = xTemp;
+            loc.Y = yTemp;
+            loc.X = xTemp;
 
             return result;
         }

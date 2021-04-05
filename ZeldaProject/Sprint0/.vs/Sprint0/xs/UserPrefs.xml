@@ -2,17 +2,15 @@
   <MonoDevelop.Ide.ItemProperties.Sprint0 PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="Sprint0/Commands/ResetGameCommand.cs" Line="14" Column="25" />
-      <File FileName="Sprint0/Commands/QuitCommand.cs" Line="1" Column="1" />
-      <File FileName="Sprint0/Sprint3.cs" Line="161" Column="14" />
+      <File FileName="Sprint0/TextSprite.cs" Line="75" Column="14" />
+      <File FileName="Sprint0/GameConstants.cs" Line="7" Column="40" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Sprint0" expanded="True">
             <Node name="Sprint0" expanded="True">
-              <Node name="Commands" expanded="True" />
-              <Node name="Sprint3.cs" selected="True" />
+              <Node name="TextSprite.cs" selected="True" />
             </Node>
           </Node>
         </State>
