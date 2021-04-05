@@ -8,8 +8,6 @@ namespace Sprint0
 {
     class SwordProjectile : IProjectile, IPlayerProjectile
     {
-        //This class is for the sword beam mechanic when link is at full health. Not used in sprint 2
-
         private Rectangle sourceRectangle;
         private Rectangle destinationRectangle;
         private Texture2D spritesheet;
@@ -27,49 +25,44 @@ namespace Sprint0
             this.spritesheet = spritesheet;
             this.game = game;
             projectileDirection = stateMachine.getDirection();
-            if (projectileDirection == Direction.MoveUp)
-            {
+
+            InitializePos(stateMachine);
+
+            if (projectileDirection == Direction.MoveUp || projectileDirection == Direction.MoveDown) sourceRectangle = new Rectangle(1, 154, 8, 15);
+            else sourceRectangle = new Rectangle(10, 154, 15, 15);
+
+            destinationRectangle = new Rectangle(xLoc, yLoc, xSize, ySize);
+            frame = 0;
+            game.Link_soundEffects[7].Play();
+        }
+
+        private void InitializePos(LinkStateMachine stateMachine)
+        {
+            if (projectileDirection == Direction.MoveUp) {
                 xSize = SwordProjectileConstants.SwordWidth;
                 ySize = SwordProjectileConstants.SwordLength;
                 xLoc = stateMachine.getXLoc() + xSize / 2;
                 yLoc = stateMachine.getYLoc() - ySize;
                 flip = SpriteEffects.None;
-            }
-            else if (projectileDirection == Direction.MoveDown)
-            {
+            } else if (projectileDirection == Direction.MoveDown) {
                 xSize = SwordProjectileConstants.SwordWidth;
                 ySize = SwordProjectileConstants.SwordLength;
                 xLoc = stateMachine.getXLoc() + xSize / 2;
                 yLoc = stateMachine.getYLoc() + ySize;
                 flip = SpriteEffects.FlipVertically;
-            }
-            else if (projectileDirection == Direction.MoveLeft)
-            {
+            } else if (projectileDirection == Direction.MoveLeft) {
                 xSize = SwordProjectileConstants.SwordLength;
                 ySize = SwordProjectileConstants.SwordLength;
                 xLoc = stateMachine.getXLoc() - xSize;
                 yLoc = stateMachine.getYLoc() + ySize / 8;
                 flip = SpriteEffects.FlipHorizontally;
-            }
-            else //MoveRight
-            {
+            } else {
                 xSize = SwordProjectileConstants.SwordLength;
                 ySize = SwordProjectileConstants.SwordLength;
                 xLoc = stateMachine.getXLoc() + xSize;
                 yLoc = stateMachine.getYLoc() + ySize / 4;
                 flip = SpriteEffects.None;
             }
-            if (projectileDirection == Direction.MoveUp || projectileDirection == Direction.MoveDown)
-            {
-                sourceRectangle = new Rectangle(1, 154, 8, 15);
-            }
-            else
-            {
-                sourceRectangle = new Rectangle(10, 154, 15, 15);
-            }
-            destinationRectangle = new Rectangle(xLoc, yLoc, xSize, ySize);
-            frame = 0;
-            game.Link_soundEffects[7].Play();
         }
 
         public void Update()
