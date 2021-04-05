@@ -220,7 +220,7 @@ namespace Sprint0
                     }
                     if(roomManager.getRoomIndex() == 5)
                     {
-                        textSprite.Update();
+                        if(frame % 8 == 0) textSprite.Update();
                     } else
                     {
                         textSprite.Reset();
