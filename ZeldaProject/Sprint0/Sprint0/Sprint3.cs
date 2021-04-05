@@ -218,7 +218,7 @@ namespace Sprint0
                             controller.Update();
                         }
                     }
-                    if(roomManager.getRoomIndex() == 5)
+                    if(roomManager.getRoomIndex() == 5 && !roomManager.RoomChange())
                     {
                         if(frame % 8 == 0) textSprite.Update();
                     } else
