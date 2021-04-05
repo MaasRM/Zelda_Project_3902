@@ -15,7 +15,7 @@ namespace Sprint0
         public static void HandleCollision(IItem item, IPlayer player, List<INPC> npcs, List<SoundEffect> Collision_soundEffects, List<IItem> collidedItems)
         {
             if (!(item is Fire)) {
-                if (item is KeyItem) HandleKey(item, player, Collision_soundEffects, collidedItems);
+                if (item is KeyItem|| item is SecretKey || item is EnemyKey) HandleKey(item, player, Collision_soundEffects, collidedItems);
                 else if (item is HeartItem) HandleHeart(item, player, Collision_soundEffects, collidedItems);
                 else if (item is HeartContainerItem) HandleHeartContainer(item, player, Collision_soundEffects, collidedItems);
                 else if (item is BlueRupeeItem) HandleBlueRupee(item, player, Collision_soundEffects, collidedItems);
