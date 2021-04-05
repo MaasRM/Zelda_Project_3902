@@ -12,28 +12,31 @@ Jacob Kline 4/5/2021 Sprint3
 TextSprites.cs - Jared Zins
 Minutes: 15
 Comments on readability:
-	- No fields necessary, empty constructor. Only 2 methods that boil down to handling a block-player collision. Very simple structure.
-	- HandleCollision method makes sense, takes in the player and block object and a rectangle for the overlap
-	- Makes a lot of sense to split the collision handling into two methods. GetOverlapDirection is very straight forward.
-	- My only critique of the class is not it may not be necessary. It's quite short and has a simple concrete purpose.
+	- Fields all make sense. The read only data is somewhat overwhelming with all the magic numbers.
+	- Only two methods, draw and update. Fits very well with the xna design framework.
+	- Update method very straight forward, just updates a counter.
+	- Draw method is a little more complex due to special cases but overall makes sense. Still have some magic numbers in the method
 
-Overall this class is very simple, readable and understandable
+Overall this class is very simple, readable and understandable. My only critique is the structure of the read only data as
+well as some magic numbers in the draw method.
 
 ************************************************************************************************************
 											Maintainability
 ************************************************************************************************************
 
 Jacob Kline 4/5/2021 Sprint3
-Sprint3.cs - Jared Zins
+Sprint4.cs - Jared Zins
 Comments on maintainability:
-	- A couple magic numbers
-	- Enum for overlap direction is helpful
-	- Cool idea to change the block type once it reaches a certain distance away
+	- not too many changes other than sound so most comments will be in relation to that
+	- Lots of fields, most seam necessary and are straight forward
+	- Not much you can do to reduce the size of loadContent. Maybe make a read only list of the string filenames and loop through?
+	- These lists being passed around to all different classes makes the classes coupling a lot higher
 
 Hypothetical Changes:
-	- Since the behavoir of the block moving is a little buggy, I would maybe recommend locking the blocks movement to a specific
-		direction once the block starts moving. You could do this by adding an additional "blockMoveDirection" field to the block
-		class and only moving the block if the collision is in the same direction. Direction Enum will be helpful here. 
+	- I think it could be a good idea to make a soundManager class. Then these lists of sounds won't be passed all around and you can
+		just pass the soundManager around instead and get the sounds that way.
+	- The other thing I woud maybe change is making a read only list of strings that is the filenames of the soundbites. Then in LoadContent
+		you would just loop through the list and create and add the soundEffects that way.
 
-Overall this class is in good shape for maintaining it in the future. My recommendation is to lock the blocks movement in one direction
-once it is moved for the first time. Using the direction Enum, this functionality could be added somewhat easily.
+Overall this class is in good shape for maintaining it in the future. My biggest reccomendation is to create a soundManager class instead
+of having a bunch of sound data in the main class.
