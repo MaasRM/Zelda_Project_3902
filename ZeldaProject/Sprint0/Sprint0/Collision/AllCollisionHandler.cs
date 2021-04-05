@@ -68,7 +68,7 @@ namespace Sprint0
                 if (player.getLinkStateMachine().getYLoc() < 64 * 4)
                 {
                     roomManager.ChangeRoom(0);
-                    player.SetPosition(new Rectangle((36 * 4) + 80 * 4, (64 * 4) + (36 * 4) + 48 * 4, 0, 0));
+                    player.SetPosition(new Rectangle((36 * 4) + 75 * 4, (64 * 4) + (36 * 4) + 44 * 4, 0, 0));
                 }
                 if (player.getLinkStateMachine().getXLoc() < 120) LinkWallHandler.HandleLeftWall();
                 if (player.getLinkStateMachine().getXLoc() > cameraWallMaxX - 175) LinkWallHandler.HandleRightWall();
