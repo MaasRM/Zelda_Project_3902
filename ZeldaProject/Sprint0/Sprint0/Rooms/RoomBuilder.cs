@@ -65,7 +65,6 @@ namespace Sprint0
                 nextRoomNums[3] = int.Parse(currentRoom["Info"]["RightRoomNumber"].InnerText);
                 roomList.Add(new Room(blockList, itemList, npcList, floor, walls, topDoor, bottomDoor, leftDoor, rightDoor, roomNum, nextRoomNums));
             }
-
             return roomList;
         }
 
@@ -112,7 +111,7 @@ namespace Sprint0
                 case "Gel":
                     return new Gel(int.Parse(npcInfo["XLoc"].InnerText) * scale, (int.Parse(npcInfo["YLoc"].InnerText) + 64) * scale, GelStateMachine.GelColor.Teal, enemiesSheets[0]);
                 case "Goriya":
-                    return new Goriya(int.Parse(npcInfo["XLoc"].InnerText) * scale, (int.Parse(npcInfo["YLoc"].InnerText) + 64) * scale, GoriyaStateMachine.GoriyaColor.Red, enemiesSheets, game);
+                    return new Goriya(int.Parse(npcInfo["XLoc"].InnerText) * scale, (int.Parse(npcInfo["YLoc"].InnerText) + 64) * scale, GoriyaStateMachine.GoriyaColor.Red, enemiesSheets);
                 case "Keese":
                     return new Keese(int.Parse(npcInfo["XLoc"].InnerText) * scale, (int.Parse(npcInfo["YLoc"].InnerText) + 64) * scale, KeeseStateMachine.KeeseColor.Blue, enemiesSheets[0]);
                 case "OldMan":
