@@ -71,6 +71,10 @@ namespace Sprint0
                 game.SetItems(currentRoom.getItems());
                 game.SetNPCs(currentRoom.getNPCs());
             }
+            if((currentRoom.RoomNum() ==3 || currentRoom.RoomNum() == 10) && currentRoom.getNPCs().Count == 0)
+            {
+                UnlockDoor(Direction.MoveRight);
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch)

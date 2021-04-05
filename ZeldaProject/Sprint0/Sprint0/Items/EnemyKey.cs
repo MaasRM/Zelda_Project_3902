@@ -10,29 +10,50 @@ namespace Sprint0
         private Rectangle spriteSource;
         private Texture2D sheet;
         private INPC npc;
+        bool enemyAlive;
+        private const int width = 7;
+        private const int height = 15;
+        private const int scale = 4;
 
 
         public EnemyKey(Rectangle source, Texture2D spriteSheet, INPC NPC)
         {
-            destination = NPC.GetNPCLocation();
+            npc = NPC;
+            destination = new Rectangle(npc.GetNPCLocation().X, npc.GetNPCLocation().Y, width * scale, height * scale);
             spriteSource = source;
             sheet = spriteSheet;
-            npc = NPC;
+            enemyAlive = true;
         }
 
         public void Update()
         {
-            destination = npc.GetNPCLocation();
+            if(enemyAlive && ((IEnemy)npc).StillAlive())
+            {
+                destination = new Rectangle(npc.GetNPCLocation().X, npc.GetNPCLocation().Y, width * scale, height * scale);
+            }
+            else
+            {
+                enemyAlive = false;
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(sheet, destination, spriteSource, Color.White);           
+            if (!enemyAlive)
+            {
+                spriteBatch.Draw(sheet, destination, spriteSource, Color.White);
+            }
         }
 
         public Rectangle GetLocationRectangle()
         {
-            return destination;
+            if (!enemyAlive)
+            {
+                return destination;
+            } else
+            {
+                return new Rectangle(0, 0, 0, 0);
+            }
         }
     }
 }

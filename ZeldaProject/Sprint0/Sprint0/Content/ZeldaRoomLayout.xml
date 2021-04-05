@@ -523,7 +523,7 @@
 		</Blocks>
 		<Items>
 			<Item>
-				<ItemType>EnemyKey</ItemType>
+				<ItemType>EnemyKeyItem</ItemType>
 			</Item>
 		</Items>
 		<Enemies>
@@ -1968,7 +1968,7 @@
 		</Blocks>
 		<Items>
 			<Item>
-				<ItemType>EnemyKey</ItemType>
+				<ItemType>EnemyKeyItem</ItemType>
 			</Item>
 		</Items>
 		<Enemies>
