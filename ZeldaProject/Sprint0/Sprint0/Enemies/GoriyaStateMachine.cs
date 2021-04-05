@@ -69,13 +69,13 @@ namespace Sprint0
 
         public Rectangle GetSource()
         {
-            if(direction == Direction.Down || direction == Direction.Up)
+            if (direction == Direction.Down || direction == Direction.Up)
             {
                 return new Rectangle(222 + 17 * (int)direction, 11 + 17 * (int)color, WIDTHANDHEIGHT, WIDTHANDHEIGHT);
             }
             else
             {
-                if(frame % 2 == 0)
+                if (frame % 2 == 0)
                 {
                     return new Rectangle(256, 11 + 17 * (int)color, WIDTHANDHEIGHT, WIDTHANDHEIGHT);
                 }
@@ -98,13 +98,13 @@ namespace Sprint0
                 else if (direction == Direction.Left) xLoc -= moveDist * PIXELSCALER;
                 else xLoc += moveDist * PIXELSCALER;
             }
-            else if(state == State.Damaged)
+            else if (state == State.Damaged)
             {
                 xLoc += (int)damageDirection.X * PIXELSCALER;
                 yLoc += (int)damageDirection.Y * PIXELSCALER;
                 damageFrames++;
             }
-            else if(state == State.Stun)
+            else if (state == State.Stun)
             {
                 stunFrames++;
             }
@@ -133,7 +133,7 @@ namespace Sprint0
         {
             int num = RandomNumberGenerator.GetInt32(100);
 
-            if(num % 17 == 0)
+            if (num % 17 == 0)
             {
                 throwing = true;
                 damageFrames = 0;
@@ -158,6 +158,11 @@ namespace Sprint0
 
         public bool HasHealth()
         {
+            if (health == 0)
+            {
+                throwing = false;
+            }
+
             return health > 0;
         }
 
@@ -170,7 +175,7 @@ namespace Sprint0
                 stunFrames = 1;
                 damageFrames = 1;
 
-                if(!throwing)
+                if (!throwing)
                 {
                     damageDirection = direction;
                 }
@@ -185,7 +190,7 @@ namespace Sprint0
 
         public int GetDamage()
         {
-            if(color == GoriyaColor.Red)
+            if (color == GoriyaColor.Red)
             {
                 return 1;
             }
@@ -198,7 +203,7 @@ namespace Sprint0
 
         public void ReturnToNormal()
         {
-            if(damageFrames > 8 || stunFrames > 30)
+            if (damageFrames > 8 || stunFrames > 30)
             {
                 state = State.Normal;
                 stunFrames = 0;
