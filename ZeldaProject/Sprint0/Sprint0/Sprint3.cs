@@ -172,7 +172,7 @@ namespace Sprint0
         {
             int i;
             frame++;
-            if (GetPlayer().GetLinkInventory().GetLinkPauseScreen().isGamePaused() == false)
+            if (link.GetLinkInventory().GetLinkPauseScreen().isGamePaused() == false)
             {
                 if (frame % 4 == 0)
                 {

@@ -38,7 +38,7 @@ namespace Sprint0
                 {
                     new EnemyWallHandler(npc, cameraWallMaxX, cameraWallMaxY);
                     if (npc.GetNPCLocation().X < 120) EnemyWallHandler.HandleLeftWall();
-                    if (npc.GetNPCLocation().Y < (117 + (64 * GameConstants.SCALE))) EnemyWallHandler.HandleTopWall();
+                    if (npc.GetNPCLocation().Y < (117 + (GameConstants.HUDSIZE * GameConstants.SCALE))) EnemyWallHandler.HandleTopWall();
                     if (npc.GetNPCLocation().X > cameraWallMaxX - 175) EnemyWallHandler.HandleRightWall();
                     if (npc.GetNPCLocation().Y > cameraWallMaxY - 175) EnemyWallHandler.HandleBottomWall();
                 }
