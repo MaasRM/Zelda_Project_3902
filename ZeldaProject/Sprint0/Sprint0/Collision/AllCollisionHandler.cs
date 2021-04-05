@@ -60,16 +60,19 @@ namespace Sprint0
                 if (player.getLinkStateMachine().getXLoc() > cameraWallMaxX - 175) LinkWallHandler.HandleRightWall();
                 if (player.getLinkStateMachine().getYLoc() > cameraWallMaxY - 185) LinkWallHandler.HandleBottomWall();
             }
-            else if(!grabbed)
+            else if(grabbed)
             {
                 roomManager.ChangeRoom(15);
             } else //room 17
             {
-                if (player.getLinkStateMachine().getYLoc() < 0)
+                if (player.getLinkStateMachine().getYLoc() < 64 * 4)
                 {
                     roomManager.ChangeRoom(0);
-                    player.SetPosition(new Rectangle(80 * 4, 48 * 4, 0, 0));
+                    player.SetPosition(new Rectangle((36 * 4) + 75 * 4, (64 * 4) + (36 * 4) + 44 * 4, 0, 0));
                 }
+                if (player.getLinkStateMachine().getXLoc() < 120) LinkWallHandler.HandleLeftWall();
+                if (player.getLinkStateMachine().getXLoc() > cameraWallMaxX - 175) LinkWallHandler.HandleRightWall();
+                if (player.getLinkStateMachine().getYLoc() > cameraWallMaxY - 185) LinkWallHandler.HandleBottomWall();
             }
         }
 
@@ -147,7 +150,7 @@ namespace Sprint0
             }
         }
 
-        public void ProjectileCollisions(IPlayer player, List<INPC> npcs, List<IProjectile> projectiles, List<SoundEffect> Collision_soundEffects, List<IItem> items)
+        public void ProjectileCollisions(IPlayer player, List<INPC> npcs, List<IProjectile> projectiles, List<SoundEffect> Collision_soundEffects, List<IItem> items, RoomManager roomManager)
         {
             List<INPC> DeadEnemies = new List<INPC>();
             foreach (IProjectile projectile in projectiles) {
@@ -165,7 +168,12 @@ namespace Sprint0
                     if (projectile is IBoomerang) {
                         ((IBoomerang)projectile).GoBack();
                     }
-                    else {
+                    else if(projectile is BombProjectile)
+                    {
+                        BombDoor.DetermineDoor(projectile, roomManager);
+                    }
+                    else
+                    {
                         projectile.Hit();
                     }
                 }
