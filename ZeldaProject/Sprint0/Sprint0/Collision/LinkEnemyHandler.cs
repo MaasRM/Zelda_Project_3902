@@ -49,32 +49,14 @@ namespace Sprint0
             OverlapInRelationToPlayer overlapX = OverlapInRelationToPlayer.Right;
             OverlapInRelationToPlayer overlapY = OverlapInRelationToPlayer.Left;
 
-            if (overlap.Y == enemyPos.Y)
-            {
-                overlapY = OverlapInRelationToPlayer.Down;
-            }
-            else if (overlap.Y == playerPos.Y)
-            {
-                overlapY = OverlapInRelationToPlayer.Up;
-            }
+            if (overlap.Y == enemyPos.Y)  overlapY = OverlapInRelationToPlayer.Down;
+            else if (overlap.Y == playerPos.Y) overlapY = OverlapInRelationToPlayer.Up;
 
-            if (overlap.X == playerPos.X)
-            {
-                overlapX = OverlapInRelationToPlayer.Left;
-            }
-            else if (overlap.X == enemyPos.X)
-            {
-                overlapX = OverlapInRelationToPlayer.Right;
-            }
+            if (overlap.X == playerPos.X) overlapX = OverlapInRelationToPlayer.Left;
+            else if (overlap.X == enemyPos.X) overlapX = OverlapInRelationToPlayer.Right;
 
-            if (overlap.Height < overlap.Width)
-            {
-                return overlapY;
-            }
-            else
-            {
-                return overlapX;
-            }
+            if (overlap.Height < overlap.Width) return overlapY;
+            else return overlapX;
         }
 
         private static void WallmasterCollisionHandler(IPlayer player, Wallmaster wallmaster, OverlapInRelationToPlayer overlap)

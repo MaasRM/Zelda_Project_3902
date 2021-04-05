@@ -32,20 +32,11 @@ namespace Sprint0
                 }
                 else
                 {
-                    if (projectile is IBoomerang)
-                    {
-                        ((IBoomerang)projectile).GoBack();
-                    }
-                    else
-                    {
-                        DeflectProjectile(projectile, overlap);
-                    }
+                    if (projectile is IBoomerang) ((IBoomerang)projectile).GoBack();
+                    else DeflectProjectile(projectile, overlap);
                 }
             }
-            else
-            {
-                DamageThePlayer(player, projectile, overlap);
-            }
+            else DamageThePlayer(player, projectile, overlap);
 
             projectile.Hit();
         }
@@ -58,32 +49,14 @@ namespace Sprint0
             OverlapInRelationToPlayer overlapX = OverlapInRelationToPlayer.Right;
             OverlapInRelationToPlayer overlapY = OverlapInRelationToPlayer.Left;
 
-            if (overlap.Y == projPos.Y)
-            {
-                overlapY = OverlapInRelationToPlayer.Down;
-            }
-            else if (overlap.Y == playerPos.Y)
-            {
-                overlapY = OverlapInRelationToPlayer.Up;
-            }
+            if (overlap.Y == projPos.Y) overlapY = OverlapInRelationToPlayer.Down;
+            else if (overlap.Y == playerPos.Y) overlapY = OverlapInRelationToPlayer.Up;
 
-            if (overlap.X == playerPos.X)
-            {
-                overlapX = OverlapInRelationToPlayer.Left;
-            }
-            else if (overlap.X == projPos.X)
-            {
-                overlapX = OverlapInRelationToPlayer.Right;
-            }
+            if (overlap.X == playerPos.X) overlapX = OverlapInRelationToPlayer.Left;
+            else if (overlap.X == projPos.X) overlapX = OverlapInRelationToPlayer.Right;
 
-            if (overlap.Height < overlap.Width)
-            {
-                return overlapY;
-            }
-            else
-            {
-                return overlapX;
-            }
+            if (overlap.Height < overlap.Width) return overlapY;
+            else return overlapX;
         }
 
         private static void DamageThePlayer(IPlayer player, IProjectile projectile, OverlapInRelationToPlayer overlap)
