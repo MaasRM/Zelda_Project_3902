@@ -143,8 +143,8 @@ namespace Sprint0
             Enemy_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Key_Appear")); //done
 
             //Text sound effects
-            Text_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Text")); //to be implemented
-            Text_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Text_Slow")); //to be implemented
+            Text_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Text")); //done
+            Text_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Text_Slow")); //done
 
             //should probably be moved later
             MediaPlayer.Play(Dungeon_music);
