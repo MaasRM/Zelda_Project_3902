@@ -1,24 +1,12 @@
 ﻿<Properties GitUserInfo="UsingMD" StartupConfiguration="{7DF9E545-60F3-43AB-B585-CBA6D0074959}|Default">
   <MonoDevelop.Ide.ItemProperties.Sprint0 PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench>
-    <Files>
-      <File FileName="Sprint0/Enemies/AquamentusStateMachine.cs" Line="110" Column="1" />
-      <File FileName="Sprint0/AquamentusConstants.cs" Line="16" Column="1" />
-      <File FileName="Sprint0/Enemies/Gel.cs" Line="1" Column="1" />
-      <File FileName="Sprint0/Enemies/GelStateMachine.cs" Line="114" Column="10" />
-      <File FileName="Sprint0/GelConstants.cs" Line="9" Column="42" />
-      <File FileName="Sprint0/Enemies/GoriyaStateMachine.cs" Line="124" Column="1" />
-      <File FileName="Sprint0/EmptyClass.cs" Line="16" Column="2" />
-      <File FileName="Sprint0/GameConstants.cs" Line="6" Column="22" />
-    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Sprint0" expanded="True">
             <Node name="Sprint0" expanded="True">
-              <Node name="Enemies" expanded="True">
-                <Node name="GoriyaStateMachine.cs" selected="True" />
-              </Node>
+              <Node name="Enemies" expanded="True" />
             </Node>
           </Node>
         </State>
