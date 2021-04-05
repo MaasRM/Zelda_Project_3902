@@ -2688,7 +2688,7 @@
 			</Block>
 			<Block>
 				<BlockType>8</BlockType>
-				<XLoc>144</XLoc>
+				<XLoc>112</XLoc>
 				<YLoc>128</YLoc>
 			</Block>
 			<Block>
@@ -2730,6 +2730,86 @@
 				<BlockType>8</BlockType>
 				<XLoc>240</XLoc>
 				<YLoc>144</YLoc>
+			</Block>
+			<Block>
+				<BlockType>8</BlockType>
+				<XLoc>0</XLoc>
+				<YLoc>160</YLoc>
+			</Block>
+			<Block>
+				<BlockType>8</BlockType>
+				<XLoc>16</XLoc>
+				<YLoc>160</YLoc>
+			</Block>
+			<Block>
+				<BlockType>8</BlockType>
+				<XLoc>32</XLoc>
+				<YLoc>160</YLoc>
+			</Block>
+			<Block>
+				<BlockType>8</BlockType>
+				<XLoc>48</XLoc>
+				<YLoc>160</YLoc>
+			</Block>
+			<Block>
+				<BlockType>8</BlockType>
+				<XLoc>64</XLoc>
+				<YLoc>160</YLoc>
+			</Block>
+			<Block>
+				<BlockType>8</BlockType>
+				<XLoc>80</XLoc>
+				<YLoc>160</YLoc>
+			</Block>
+			<Block>
+				<BlockType>8</BlockType>
+				<XLoc>96</XLoc>
+				<YLoc>160</YLoc>
+			</Block>
+			<Block>
+				<BlockType>8</BlockType>
+				<XLoc>112</XLoc>
+				<YLoc>160</YLoc>
+			</Block>
+			<Block>
+				<BlockType>8</BlockType>
+				<XLoc>128</XLoc>
+				<YLoc>160</YLoc>
+			</Block>
+			<Block>
+				<BlockType>8</BlockType>
+				<XLoc>144</XLoc>
+				<YLoc>160</YLoc>
+			</Block>
+			<Block>
+				<BlockType>8</BlockType>
+				<XLoc>160</XLoc>
+				<YLoc>160</YLoc>
+			</Block>
+			<Block>
+				<BlockType>8</BlockType>
+				<XLoc>176</XLoc>
+				<YLoc>160</YLoc>
+			</Block>
+			<Block>
+				<BlockType>8</BlockType>
+				<XLoc>192</XLoc>
+				<YLoc>160</YLoc>
+			</Block>
+			<Block>
+				<BlockType>8</BlockType>
+				<XLoc>208</XLoc>
+				<YLoc>160</YLoc>
+			</Block>
+			<Block>
+				<BlockType>8</BlockType>
+				<XLoc>224</XLoc>
+				<YLoc>160</YLoc>
+			</Block>
+			<Block>
+				<BlockType>8</BlockType>
+				<XLoc>240</XLoc>
+				<YLoc>160</YLoc>
 			</Block>
 		</Blocks>
 		<Items>
