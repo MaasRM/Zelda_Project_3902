@@ -335,7 +335,7 @@ namespace Sprint0
         {
             if (!link.IsAlive())
             {
-                roomManager.ChangeRoom(15);
+                roomManager.ChangeRoom(GameConstants.STARTROOM);
                 link.Reset();
             }
         }
