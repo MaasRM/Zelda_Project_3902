@@ -27,12 +27,7 @@ namespace Sprint0
         private int lastFire;
         private int health;
         private int damageFrames;
-        private const int WIDTH = 24;
-        private const int HEIGHT = 32;
-        private const int MAXHEALTH = 16;
-        private const int FIRECOOLDOWN = 40;
-        private const int PIXELSCALER = 4;
-        private const int moveDist = 2;
+        
         private bool firing;
 
         public AquamentusStateMachine(int x, int y)
@@ -41,16 +36,16 @@ namespace Sprint0
             yLoc = y;
             frame = -1;
             damageFrames = 0;
-            lastFire = FIRECOOLDOWN * -1;
+            lastFire = AquamentusConstants.FIRECOOLDOWN * -1;
             firing = false;
-            health = MAXHEALTH;
+            health = AquamentusConstants.MAXHEALTH;
             direction = Direction.Left;
             state = State.Normal;
         }
 
         public Rectangle GetDestination()
         {
-            return new Rectangle(xLoc, yLoc, WIDTH * PIXELSCALER, HEIGHT * PIXELSCALER);
+            return new Rectangle(xLoc, yLoc, AquamentusConstants.WIDTH * GameConstants.SCALE, AquamentusConstants.HEIGHT * GameConstants.SCALE);
         }
 
         public void SetDestination(int x, int y)
@@ -63,13 +58,13 @@ namespace Sprint0
         {
             if(firing)
             {
-                if(frame % 2 == 0) return new Rectangle(1, 11, WIDTH, HEIGHT);
-                else return new Rectangle(26, 11, WIDTH, HEIGHT);
+                if(frame % 2 == 0) return new Rectangle(1, 11, AquamentusConstants.WIDTH, AquamentusConstants.HEIGHT);
+                else return new Rectangle(26, 11, AquamentusConstants.WIDTH, AquamentusConstants.HEIGHT);
             }
             else
             {
-                if (frame % 2 == 0) return new Rectangle(51, 11, WIDTH, HEIGHT);
-                else return new Rectangle(76, 11, WIDTH, HEIGHT);
+                if (frame % 2 == 0) return new Rectangle(51, 11, AquamentusConstants.WIDTH, AquamentusConstants.HEIGHT);
+                else return new Rectangle(76, 11, AquamentusConstants.WIDTH, AquamentusConstants.HEIGHT);
             }
         }
 
@@ -77,9 +72,9 @@ namespace Sprint0
         {
             frame++;
 
-            if (frame % 10 == 0) direction = ChangeDirection();
-            if (direction == Direction.Left) xLoc -= moveDist * PIXELSCALER;
-            else xLoc += moveDist * PIXELSCALER;
+            if (frame % AquamentusConstants.CHANGEDIRECTIONFRAME == 0) direction = ChangeDirection();
+            if (direction == Direction.Left) xLoc -= AquamentusConstants.moveDist * GameConstants.SCALE;
+            else xLoc += AquamentusConstants.moveDist * GameConstants.SCALE;
 
             if(firing) StopFiring();
 
@@ -102,11 +97,11 @@ namespace Sprint0
 
         public bool TryToFire()
         {
-            if(frame - lastFire >= FIRECOOLDOWN)
+            if(frame - lastFire >= AquamentusConstants.FIRECOOLDOWN)
             {
-                int num = RandomNumberGenerator.GetInt32(30);
+                int num = RandomNumberGenerator.GetInt32(AquamentusConstants.FIRECHANCE);
 
-                if(num % 15 == 0)
+                if(num % (AquamentusConstants.FIRECHANCE - 1) == 0)
                 {
                     firing = true;
                     lastFire = frame;
@@ -118,7 +113,7 @@ namespace Sprint0
 
         private void StopFiring()
         {
-            if(frame - lastFire == 8 && firing)
+            if(frame - lastFire == AquamentusConstants.DAMAGEANDFIREFRAMECOUNT && firing)
             {
                 firing = false;
             }
@@ -146,7 +141,7 @@ namespace Sprint0
 
         public void ReturnToNormal()
         {
-            if (damageFrames > 8)
+            if (damageFrames > AquamentusConstants.DAMAGEANDFIREFRAMECOUNT)
             {
                 state = State.Normal;
             }

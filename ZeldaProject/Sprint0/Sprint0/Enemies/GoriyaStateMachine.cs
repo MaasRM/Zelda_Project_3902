@@ -40,10 +40,6 @@ namespace Sprint0
         private int health;
         private int damageFrames;
         private int stunFrames;
-        private const int WIDTHANDHEIGHT = 16;
-        private const int MAXHEALTH = 3;
-        private const int PIXELSCALER = 4;
-        private const int moveDist = 2;
 
         public GoriyaStateMachine(int x, int y, GoriyaColor c)
         {
@@ -52,13 +48,13 @@ namespace Sprint0
             frame = -1;
             color = c;
             throwing = false;
-            health = MAXHEALTH;
+            health = GoriyaConstants.MAXHEALTH;
             state = State.Normal;
         }
 
         public Rectangle GetDestination()
         {
-            return new Rectangle(xLoc, yLoc, WIDTHANDHEIGHT * PIXELSCALER, WIDTHANDHEIGHT * PIXELSCALER);
+            return new Rectangle(xLoc, yLoc, GoriyaConstants.WIDTHANDHEIGHT * GameConstants.SCALE, GoriyaConstants.WIDTHANDHEIGHT * GameConstants.SCALE);
         }
 
         public void SetDestination(int x, int y)
@@ -71,17 +67,17 @@ namespace Sprint0
         {
             if (direction == Direction.Down || direction == Direction.Up)
             {
-                return new Rectangle(222 + 17 * (int)direction, 11 + 17 * (int)color, WIDTHANDHEIGHT, WIDTHANDHEIGHT);
+                return new Rectangle(222 + 17 * (int)direction, 11 + 17 * (int)color, GoriyaConstants.WIDTHANDHEIGHT, GoriyaConstants.WIDTHANDHEIGHT);
             }
             else
             {
                 if (frame % 2 == 0)
                 {
-                    return new Rectangle(256, 11 + 17 * (int)color, WIDTHANDHEIGHT, WIDTHANDHEIGHT);
+                    return new Rectangle(256, 11 + 17 * (int)color, GoriyaConstants.WIDTHANDHEIGHT, GoriyaConstants.WIDTHANDHEIGHT);
                 }
                 else
                 {
-                    return new Rectangle(273, 11 + 17 * (int)color, WIDTHANDHEIGHT, WIDTHANDHEIGHT);
+                    return new Rectangle(273, 11 + 17 * (int)color, GoriyaConstants.WIDTHANDHEIGHT, GoriyaConstants.WIDTHANDHEIGHT);
                 }
             }
         }
@@ -93,15 +89,15 @@ namespace Sprint0
             {
                 if (frame % 10 == 0) direction = ChangeDirection();
 
-                if (direction == Direction.Up) yLoc -= moveDist * PIXELSCALER;
-                else if (direction == Direction.Down) yLoc += moveDist * PIXELSCALER;
-                else if (direction == Direction.Left) xLoc -= moveDist * PIXELSCALER;
-                else xLoc += moveDist * PIXELSCALER;
+                if (direction == Direction.Up) yLoc -= GoriyaConstants.moveDist * GameConstants.SCALE;
+                else if (direction == Direction.Down) yLoc += GoriyaConstants.moveDist * GameConstants.SCALE;
+                else if (direction == Direction.Left) xLoc -= GoriyaConstants.moveDist * GameConstants.SCALE;
+                else xLoc += GoriyaConstants.moveDist * GameConstants.SCALE;
             }
             else if (state == State.Damaged)
             {
-                xLoc += (int)damageDirection.X * PIXELSCALER;
-                yLoc += (int)damageDirection.Y * PIXELSCALER;
+                xLoc += (int)damageDirection.X * GameConstants.SCALE;
+                yLoc += (int)damageDirection.Y * GameConstants.SCALE;
                 damageFrames++;
             }
             else if (state == State.Stun)
@@ -124,16 +120,16 @@ namespace Sprint0
 
         private static Direction ChangeDirection()
         {
-            int num = RandomNumberGenerator.GetInt32(4);
+            int num = RandomNumberGenerator.GetInt32(GoriyaConstants.CHANGEDIRECTION);
 
             return (Direction)num;
         }
 
         private void ThrowChance()
         {
-            int num = RandomNumberGenerator.GetInt32(100);
+            int num = RandomNumberGenerator.GetInt32(GoriyaConstants.THROWCHANCE);
 
-            if (num % 17 == 0)
+            if (num % (GoriyaConstants.THROWCHANCE - 1) == 0)
             {
                 throwing = true;
                 damageFrames = 0;
@@ -192,18 +188,18 @@ namespace Sprint0
         {
             if (color == GoriyaColor.Red)
             {
-                return 1;
+                return GoriyaConstants.REDDAMAGE;
             }
             else
             {
-                return 2;
+                return GoriyaConstants.BLUEDAMAGE;
             }
 
         }
 
         public void ReturnToNormal()
         {
-            if (damageFrames > 8 || stunFrames > 30)
+            if (damageFrames > GoriyaConstants.DAMAGEFRAMECOUNT || stunFrames > GoriyaConstants.STUNFRAMECOUNT)
             {
                 state = State.Normal;
                 stunFrames = 0;

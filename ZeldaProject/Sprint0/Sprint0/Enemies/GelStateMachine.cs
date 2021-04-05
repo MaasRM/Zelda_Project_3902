@@ -40,16 +40,10 @@ namespace Sprint0
         private int xLoc;
         private int yLoc;
         private int frame;
-        private const int moveDist = 2;
         private bool wait;
         private int waitFrames;
         public int stunFrames;
         private int health;
-        private const int WIDTH = 8;
-        private const int HEIGHT = 16;
-        private const int MAXHEALTH = 1;
-        private const int PIXELSCALER = 4;
-        private const int moveFrames = 10;
 
 
         public GelStateMachine(int x, int y, GelColor c)
@@ -59,14 +53,14 @@ namespace Sprint0
             frame = -1;
             color = c;
             wait = false;
-            health = MAXHEALTH;
+            health = GelConstants.MAXHEALTH;
             stunFrames = 0;
             state = State.Normal;
         }
 
         public Rectangle GetDestination()
         {
-            return new Rectangle(xLoc, yLoc, WIDTH * PIXELSCALER, HEIGHT * PIXELSCALER);
+            return new Rectangle(xLoc, yLoc, GelConstants.WIDTH * GameConstants.SCALE, GelConstants.HEIGHT * GameConstants.SCALE);
         }
 
         public void SetDestination(int x, int y)
@@ -79,11 +73,11 @@ namespace Sprint0
         {
             if (frame % 2 == 0)
             {
-                return new Rectangle(1 + 18 * ((int)color % 4), 11 + 17 * ((int)color % 2), WIDTH, HEIGHT);
+                return new Rectangle(1 + 18 * ((int)color % 4), 11 + 17 * ((int)color % 2), GelConstants.WIDTH, GelConstants.HEIGHT);
             }
             else
             {
-                return new Rectangle(10 + 18 * ((int)color % 4), 11 + 17 * ((int)color % 2), WIDTH, HEIGHT);
+                return new Rectangle(10 + 18 * ((int)color % 4), 11 + 17 * ((int)color % 2), GelConstants.WIDTH, GelConstants.HEIGHT);
             }
         }
 
@@ -92,7 +86,7 @@ namespace Sprint0
             if(state == State.Normal) {
                 frame++;
 
-                if (frame > waitFrames || frame > moveFrames) {
+                if (frame > waitFrames || frame > GelConstants.moveFrames) {
                     wait = !wait;
                     frame = 0;
                     waitFrames = (RandomNumberGenerator.GetInt32(6) + 2) * 5;
@@ -102,10 +96,10 @@ namespace Sprint0
 
                 if (!wait)
                 {
-                    if (direction == Direction.Up) yLoc -= moveDist * PIXELSCALER;
-                    else if (direction == Direction.Down) yLoc += moveDist * PIXELSCALER;
-                    else if (direction == Direction.Left) xLoc -= moveDist * PIXELSCALER;
-                    else xLoc += moveDist * PIXELSCALER;
+                    if (direction == Direction.Up) yLoc -= GelConstants.moveDist * GameConstants.SCALE;
+                    else if (direction == Direction.Down) yLoc += GelConstants.moveDist * GameConstants.SCALE;
+                    else if (direction == Direction.Left) xLoc -= GelConstants.moveDist * GameConstants.SCALE;
+                    else xLoc += GelConstants.moveDist * GameConstants.SCALE;
                 }
             }
             else if(state == State.Stun)
