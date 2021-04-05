@@ -151,7 +151,7 @@ namespace Sprint0
             MediaPlayer.Volume = 0.25f;
             MediaPlayer.IsRepeating = true;
 
-            textSprite = new TextSprite(dungeonSheet, this);
+            textSprite = new TextSprite(dungeonSheet, roomManager, this);
 
             XmlDocument doc = new XmlDocument();
             doc.Load(new FileStream("..\\..\\..\\Content\\ZeldaRoomLayout.xml", FileMode.Open));
@@ -218,13 +218,8 @@ namespace Sprint0
                             controller.Update();
                         }
                     }
-                    if(roomManager.getRoomIndex() == 5 && !roomManager.RoomChange())
-                    {
-                        if(frame % 8 == 0) textSprite.Update();
-                    } else
-                    {
-                        textSprite.Reset();
-                    }
+                    if(frame % 8 == 0) textSprite.Update();
+                    
                 }
                 
             } else
@@ -264,10 +259,7 @@ namespace Sprint0
                 proj.Draw(this._spriteBatch);
             }
 
-            if (roomManager.getRoomIndex() == 5 && !roomManager.RoomChange())
-            {
-                textSprite.Draw(this._spriteBatch);
-            }
+            textSprite.Draw(this._spriteBatch);
 
             if (!roomManager.RoomChange())
             {

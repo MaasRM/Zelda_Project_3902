@@ -12,6 +12,7 @@ namespace Sprint0
         private Texture2D letterSheet;
         private SoundEffectInstance textSound;
         private Sprint3 game;
+        private RoomManager roomManager;
         private int scale = 4;
         private int counter;
 
@@ -29,9 +30,10 @@ namespace Sprint0
               75, 55, 82, 55, 89, 55, 96, 55, 103, 55, 110, 55, 117, 55, 124, 55, 131, 55, 138, 55, 145, 55, 152, 55, 159, 55, 166, 55 //bottom 14 letters (28)
             };
 
-        public TextSprite(Texture2D dungeonSheet, Sprint3 game)
+        public TextSprite(Texture2D dungeonSheet, RoomManager manager, Sprint3 game)
         {
             this.game = game;
+            roomManager = manager;
             letterSheet = dungeonSheet;
             textSound = game.Text_soundEffects[1].CreateInstance();
             textSound.Volume = 0.25f;
@@ -41,34 +43,36 @@ namespace Sprint0
 
         public void Update()
         {
-            if (counter < 33) counter++;
-        }
-
-        public void Reset()
-        {
-            counter = 0;
+            if (roomManager.getRoomIndex() == 5 && !roomManager.RoomChange() && counter < 33) counter++;
+            else if(roomManager.getRoomIndex() != 5) counter = 0;
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            textSound.Play();
-            for (int i = 0; i <= counter * 2; i += 2)
+            if (roomManager.getRoomIndex() == 5 && !roomManager.RoomChange())
             {
-                Rectangle destination = new Rectangle((letterDest[i] + 8) * scale, (64 * scale) + (letterDest[i + 1] + 40) * scale, 7 * scale, 7 * scale);
-                Rectangle source = new Rectangle(letterSource[i], letterSource[i + 1], 7, 7);
-                spriteBatch.Draw(letterSheet, destination, source, Color.White);
-            }
-            if (counter < 33)
+                textSound.Play();
+                for (int i = 0; i <= counter * 2; i += 2)
+                {
+                    Rectangle destination = new Rectangle((letterDest[i] + 8) * scale, (64 * scale) + (letterDest[i + 1] + 40) * scale, 7 * scale, 7 * scale);
+                    Rectangle source = new Rectangle(letterSource[i], letterSource[i + 1], 7, 7);
+                    spriteBatch.Draw(letterSheet, destination, source, Color.White);
+                }
+                if (counter < 33)
+                {
+                    Rectangle destination = new Rectangle((letterDest[counter * 2] + 15) * scale, (64 * scale) + (letterDest[(counter * 2) + 1] + 40) * scale, 7 * scale, 7 * scale);
+                    Rectangle source = new Rectangle(10, 56, 7, 7);
+                    spriteBatch.Draw(letterSheet, destination, source, Color.White);
+                }
+                else if (counter >= 33)
+                {
+                    Rectangle destination = new Rectangle((letterDest[counter * 2] + 15) * scale, (64 * scale) + (letterDest[(counter * 2) + 1] + 40) * scale, 7 * scale, 7 * scale);
+                    Rectangle source = new Rectangle(10, 56, 7, 7);
+                    spriteBatch.Draw(letterSheet, destination, source, Color.White);
+                    textSound.Stop();
+                }
+            } else
             {
-                Rectangle destination = new Rectangle((letterDest[counter * 2] + 15) * scale, (64 * scale) + (letterDest[(counter * 2) + 1] + 40) * scale, 7 * scale, 7 * scale);
-                Rectangle source = new Rectangle(10, 56, 7, 7);
-                spriteBatch.Draw(letterSheet, destination, source, Color.White);
-            }
-            else if (counter >= 33)
-            {
-                Rectangle destination = new Rectangle((letterDest[counter * 2] + 15) * scale, (64 * scale) + (letterDest[(counter * 2) + 1] + 40) * scale, 7 * scale, 7 * scale);
-                Rectangle source = new Rectangle(10, 56, 7, 7);
-                spriteBatch.Draw(letterSheet, destination, source, Color.White);
                 textSound.Stop();
             }
         }
