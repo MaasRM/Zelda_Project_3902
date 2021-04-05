@@ -5,8 +5,8 @@ namespace Sprint0
 {
     public class QuitCommand : ICommand
     {
-        private Sprint3 game;
-        public QuitCommand(Sprint3 sprint)
+        private Sprint4 game;
+        public QuitCommand(Sprint4 sprint)
         {
             game = sprint;
         }

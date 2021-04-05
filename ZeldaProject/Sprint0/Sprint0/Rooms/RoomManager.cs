@@ -9,7 +9,7 @@ namespace Sprint0
 {
     public class RoomManager
     {
-        private Sprint3 game;
+        private Sprint4 game;
         private List<Room> roomList;
         private int roomIndex;
         private Room currentRoom;
@@ -20,7 +20,7 @@ namespace Sprint0
         private Room oldRoom;
         private Rectangle oldRoomLoc;
 
-        public RoomManager(Sprint3 game)
+        public RoomManager(Sprint4 game)
         {
             this.game = game;
             roomList = new List<Room>();

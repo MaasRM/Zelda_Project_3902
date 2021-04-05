@@ -6,8 +6,8 @@ namespace Sprint0
 {
     public class LinkUseBrownArrowCommand : ICommand
     {
-        private Sprint3 game;
-        public LinkUseBrownArrowCommand(Sprint3 sprint)
+        private Sprint4 game;
+        public LinkUseBrownArrowCommand(Sprint4 sprint)
         {
             game = sprint;
         }

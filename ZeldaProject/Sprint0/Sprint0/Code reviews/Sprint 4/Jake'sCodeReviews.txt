@@ -1,0 +1,39 @@
+﻿************************************************************************************************************
+								 Team 3, Jacob Kline Code Reviews
+************************************************************************************************************
+
+Jacob Kline: Review TextSprites.cs(Jared) for readability, Review Sprint3.cs(Jared) for maintainability
+
+************************************************************************************************************
+											Readability
+************************************************************************************************************
+
+Jacob Kline 4/5/2021 Sprint3
+TextSprites.cs - Jared Zins
+Minutes: 15
+Comments on readability:
+	- No fields necessary, empty constructor. Only 2 methods that boil down to handling a block-player collision. Very simple structure.
+	- HandleCollision method makes sense, takes in the player and block object and a rectangle for the overlap
+	- Makes a lot of sense to split the collision handling into two methods. GetOverlapDirection is very straight forward.
+	- My only critique of the class is not it may not be necessary. It's quite short and has a simple concrete purpose.
+
+Overall this class is very simple, readable and understandable
+
+************************************************************************************************************
+											Maintainability
+************************************************************************************************************
+
+Jacob Kline 4/5/2021 Sprint3
+Sprint3.cs - Jared Zins
+Comments on maintainability:
+	- A couple magic numbers
+	- Enum for overlap direction is helpful
+	- Cool idea to change the block type once it reaches a certain distance away
+
+Hypothetical Changes:
+	- Since the behavoir of the block moving is a little buggy, I would maybe recommend locking the blocks movement to a specific
+		direction once the block starts moving. You could do this by adding an additional "blockMoveDirection" field to the block
+		class and only moving the block if the collision is in the same direction. Direction Enum will be helpful here. 
+
+Overall this class is in good shape for maintaining it in the future. My recommendation is to lock the blocks movement in one direction
+once it is moved for the first time. Using the direction Enum, this functionality could be added somewhat easily.

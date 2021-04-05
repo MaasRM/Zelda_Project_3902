@@ -16,11 +16,6 @@ namespace Sprint0
         private int frame;
         private SpriteEffects flip;
 
-        private const int WIDTH = 8;
-        private const int HEIGHT = 16;
-        private const int maxframeCount = 21;
-        private const int moveDist = 8;
-
         public GoriyaBoomerang(Texture2D spritesheet, GoriyaStateMachine state)
         {
             goriyaState = state;
@@ -34,23 +29,23 @@ namespace Sprint0
         public void Update()
         {
             frame++;
-            if (frame > maxframeCount / 2) {
+            if (frame > GoriyaBoomerangConstants.maxframeCount / 2) {
                 GoBack();
             }
 
             if (!goBack)
             {
-                if (direction == GoriyaStateMachine.Direction.Down) loc.Y += moveDist * GameConstants.SCALE;
-                else if (direction == GoriyaStateMachine.Direction.Up) loc.Y -= moveDist * GameConstants.SCALE;
-                else if (direction == GoriyaStateMachine.Direction.Left) loc.X -= moveDist * GameConstants.SCALE;
-                else loc.X += moveDist * GameConstants.SCALE;
+                if (direction == GoriyaStateMachine.Direction.Down) loc.Y += GoriyaBoomerangConstants.moveDist * GameConstants.SCALE;
+                else if (direction == GoriyaStateMachine.Direction.Up) loc.Y -= GoriyaBoomerangConstants.moveDist * GameConstants.SCALE;
+                else if (direction == GoriyaStateMachine.Direction.Left) loc.X -= GoriyaBoomerangConstants.moveDist * GameConstants.SCALE;
+                else loc.X += GoriyaBoomerangConstants.moveDist * GameConstants.SCALE;
             }
             else if (goBack)
             {
-                if (direction == GoriyaStateMachine.Direction.Down) loc.Y -= moveDist * GameConstants.SCALE;
-                else if (direction == GoriyaStateMachine.Direction.Up) loc.Y += moveDist * GameConstants.SCALE;
-                else if (direction == GoriyaStateMachine.Direction.Left) loc.X += moveDist * GameConstants.SCALE;
-                else loc.X -= moveDist * GameConstants.SCALE;
+                if (direction == GoriyaStateMachine.Direction.Down) loc.Y -= GoriyaBoomerangConstants.moveDist * GameConstants.SCALE;
+                else if (direction == GoriyaStateMachine.Direction.Up) loc.Y += GoriyaBoomerangConstants.moveDist * GameConstants.SCALE;
+                else if (direction == GoriyaStateMachine.Direction.Left) loc.X += GoriyaBoomerangConstants.moveDist * GameConstants.SCALE;
+                else loc.X -= GoriyaBoomerangConstants.moveDist * GameConstants.SCALE;
             }
         }
 
@@ -70,26 +65,26 @@ namespace Sprint0
             loc = new Vector2(initial.X, initial.Y);
 
             if (direction == GoriyaStateMachine.Direction.Down) {
-                loc.X += initial.Width / 2 - WIDTH * GameConstants.SCALE / 2;
+                loc.X += initial.Width / 2 - GoriyaBoomerangConstants.WIDTH * GameConstants.SCALE / 2;
                 loc.Y += initial.Height;
             }
             else if (direction == GoriyaStateMachine.Direction.Up) {
-                loc.X += initial.Width / 2 - WIDTH * GameConstants.SCALE / 2;
-                loc.Y -= HEIGHT * GameConstants.SCALE;
+                loc.X += initial.Width / 2 - GoriyaBoomerangConstants.WIDTH * GameConstants.SCALE / 2;
+                loc.Y -= GoriyaBoomerangConstants.HEIGHT * GameConstants.SCALE;
             }
             else if (direction == GoriyaStateMachine.Direction.Left) {
-                loc.X -= WIDTH * GameConstants.SCALE;
-                loc.Y += initial.Height / 2 - HEIGHT * GameConstants.SCALE / 2;
+                loc.X -= GoriyaBoomerangConstants.WIDTH * GameConstants.SCALE;
+                loc.Y += initial.Height / 2 - GoriyaBoomerangConstants.HEIGHT * GameConstants.SCALE / 2;
             }
             else {
                 loc.X += initial.Width;
-                loc.Y += initial.Height / 2 - HEIGHT * GameConstants.SCALE / 2;
+                loc.Y += initial.Height / 2 - GoriyaBoomerangConstants.HEIGHT * GameConstants.SCALE / 2;
             }
         }
 
         private Rectangle GetDestination()
         {
-            return new Rectangle((int)loc.X, (int)loc.Y, WIDTH * GameConstants.SCALE, HEIGHT * GameConstants.SCALE);
+            return new Rectangle((int)loc.X, (int)loc.Y, GoriyaBoomerangConstants.WIDTH * GameConstants.SCALE, GoriyaBoomerangConstants.HEIGHT * GameConstants.SCALE);
         }
 
         private Rectangle GetSource()

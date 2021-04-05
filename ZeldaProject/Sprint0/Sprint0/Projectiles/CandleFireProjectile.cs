@@ -18,64 +18,58 @@ namespace Sprint0
         private bool flip;
         private Direction projectileDirection;
 
-        private const int candleSpeed = 12; //x4 specs
-        private const int candleSize = 60;
-        private const int DAMAGE = 1;
-        private const int LASTMOVINGFRAME = 10;
-        private const int REMOVEFRAME = 20;
-
         public CandleFireProjectile(Texture2D spritesheet, LinkStateMachine stateMachine, List<SoundEffect> Link_soundEffects)
         {
             projectileDirection = stateMachine.getDirection();
             if(projectileDirection == Direction.MoveUp)
             {
                 xLoc = stateMachine.getXLoc();
-                yLoc = stateMachine.getYLoc() - candleSize;
+                yLoc = stateMachine.getYLoc() - CandleFireConstants.candleSize;
             } 
             else if(projectileDirection == Direction.MoveDown)
             {
                 xLoc = stateMachine.getXLoc();
-                yLoc = stateMachine.getYLoc() + candleSize;
+                yLoc = stateMachine.getYLoc() + CandleFireConstants.candleSize;
             }
             else if (projectileDirection == Direction.MoveLeft)
             {
-                xLoc = stateMachine.getXLoc() - candleSize;
+                xLoc = stateMachine.getXLoc() - CandleFireConstants.candleSize;
                 yLoc = stateMachine.getYLoc();
             }
             else //MoveRight
             {
-                xLoc = stateMachine.getXLoc() + candleSize;
+                xLoc = stateMachine.getXLoc() + CandleFireConstants.candleSize;
                 yLoc = stateMachine.getYLoc();
             }
             flip = false;
             sourceRectangle = new Rectangle(191, 185, 15, 15);
-            destinationRectangle = new Rectangle(xLoc, yLoc, candleSize, candleSize);
+            destinationRectangle = new Rectangle(xLoc, yLoc, CandleFireConstants.candleSize, CandleFireConstants.candleSize);
             frame = 0;
             this.spritesheet = spritesheet;
             Link_soundEffects[3].Play();
         }
         public void Update()
         {
-            if (frame < LASTMOVINGFRAME)
+            if (frame < CandleFireConstants.LASTMOVINGFRAME)
             {
                 if (projectileDirection == Direction.MoveUp)
                 {
-                    yLoc -= candleSpeed;
+                    yLoc -= CandleFireConstants.candleSpeed;
                 }
                 else if (projectileDirection == Direction.MoveDown)
                 {
-                    yLoc += candleSpeed;
+                    yLoc += CandleFireConstants.candleSpeed;
                 }
                 else if (projectileDirection == Direction.MoveLeft)
                 {
-                    xLoc -= candleSpeed;
+                    xLoc -= CandleFireConstants.candleSpeed;
                 }
                 else //MoveRight
                 {
-                    xLoc += candleSpeed;
+                    xLoc += CandleFireConstants.candleSpeed;
                 }
             }
-            destinationRectangle = new Rectangle(xLoc, yLoc, candleSize, candleSize);
+            destinationRectangle = new Rectangle(xLoc, yLoc, CandleFireConstants.candleSize, CandleFireConstants.candleSize);
             flip = !flip;
             frame++;
         }
@@ -98,12 +92,12 @@ namespace Sprint0
 
         public bool CheckForRemoval()
         {
-            return frame >= REMOVEFRAME;
+            return frame >= CandleFireConstants.REMOVEFRAME;
         }
 
         public int GetDamage()
         {
-            return DAMAGE;
+            return CandleFireConstants.DAMAGE;
         }
 
         public void Hit()

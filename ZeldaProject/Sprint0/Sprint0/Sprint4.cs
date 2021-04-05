@@ -12,7 +12,7 @@ using Microsoft.Xna.Framework.Audio;
 
 namespace Sprint0
 {
-    public class Sprint3 : Game
+    public class Sprint4 : Game
     {
         private GraphicsDeviceManager _graphics;
         private ContentManager contentManager;
@@ -41,7 +41,7 @@ namespace Sprint0
         //text sprite
         private TextSprite textSprite;
 
-        public Sprint3()
+        public Sprint4()
         {
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
@@ -172,7 +172,7 @@ namespace Sprint0
         {
             int i;
             frame++;
-            if (GetPlayer().GetLinkInventory().GetLinkPauseScreen().isGamePaused() == false)
+            if (link.GetLinkInventory().GetLinkPauseScreen().isGamePaused() == false)
             {
                 if (frame % 4 == 0)
                 {

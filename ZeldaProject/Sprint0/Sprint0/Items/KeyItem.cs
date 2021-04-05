@@ -13,7 +13,7 @@ namespace Sprint0
         private SoundEffectInstance keyDrop;
 
 
-        public KeyItem(Rectangle startPos, Rectangle source, Texture2D spriteSheet, Sprint3 sprint3)
+        public KeyItem(Rectangle startPos, Rectangle source, Texture2D spriteSheet, Sprint4 sprint3)
         {
             destination = startPos;
             spriteSource = source;

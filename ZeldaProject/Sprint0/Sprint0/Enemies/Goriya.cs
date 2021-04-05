@@ -15,12 +15,12 @@ namespace Sprint0
         private Texture2D currentSheet;
         private Rectangle source;
         private Rectangle destination;
-        private Sprint3 game;
+        private Sprint4 game;
         private Tuple<int, int, GoriyaStateMachine.GoriyaColor> init;
         private SoundEffectInstance flyingBoomerang;
         private RoomManager roomAccess;
 
-        public Goriya(int x, int y, GoriyaStateMachine.GoriyaColor c, List<Texture2D> spriteSheet, Sprint3 game)
+        public Goriya(int x, int y, GoriyaStateMachine.GoriyaColor c, List<Texture2D> spriteSheet, Sprint4 game)
         {
             stateMachine = new GoriyaStateMachine(x, y, c);
             goriyaSpriteSheet = spriteSheet;
