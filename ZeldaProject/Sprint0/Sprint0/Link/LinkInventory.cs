@@ -124,7 +124,7 @@ namespace Sprint0
         public void DrawSecondaryWeapon(SpriteBatch spriteBatch)
         {
             Rectangle secondaryWeaponDestination = new Rectangle(514, 106, 9 * 4, 20 * 4);
-            Rectangle itemSource = new Rectangle(545, 145, 1, 1);
+            Rectangle itemSource = new Rectangle(530, 16, 1, 1);
 
             if (currentItem is BoomerangItem)
             {
