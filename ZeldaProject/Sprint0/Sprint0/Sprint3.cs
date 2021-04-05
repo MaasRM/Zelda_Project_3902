@@ -38,7 +38,8 @@ namespace Sprint0
         private Song Dungeon_music;
 
         //text sprite
-        TextSprite textSprite;
+        private TextSprite textSprite;
+        private bool written = false;
 
         public Sprint3()
         {
@@ -88,8 +89,6 @@ namespace Sprint0
             linkSheetList.Add(contentManager.Load<Texture2D>("LinkSpriteSheetBlue")); // 3 is blue
 
             Texture2D dungeonSheet = contentManager.Load<Texture2D>("Dungeon_Tileset");
-
-            textSprite = new TextSprite(dungeonSheet);
 
             enemySheets.Add(contentManager.Load<Texture2D>("Dungeon_Enemies"));
             enemySheets.Add(contentManager.Load<Texture2D>("Dungeon_Enemies_DamageOne"));
@@ -149,6 +148,8 @@ namespace Sprint0
             MediaPlayer.Play(Dungeon_music);
             MediaPlayer.Volume = 0.25f;
             MediaPlayer.IsRepeating = true;
+
+            textSprite = new TextSprite(dungeonSheet, this);
 
             XmlDocument doc = new XmlDocument();
             doc.Load(new FileStream("..\\..\\..\\Content\\ZeldaRoomLayout.xml", FileMode.Open));
@@ -239,12 +240,12 @@ namespace Sprint0
                 link.Draw(this._spriteBatch);
             }
 
-            link.GetLinkInventory().Draw(this._spriteBatch);
-
-            if(roomManager.getRoomIndex() == 5)
+            if (roomManager.getRoomIndex() == 5)
             {
-                //textSprite.Draw();
+                textSprite.Draw(this._spriteBatch);
             }
+
+            link.GetLinkInventory().Draw(this._spriteBatch);
 
             this._spriteBatch.End();
 
