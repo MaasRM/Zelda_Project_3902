@@ -202,16 +202,15 @@ namespace Sprint0
             roomIndex = newRoom;
             currentRoom = roomList[roomIndex];
             game.ClearProjectiles();
-            /* Have link spawn in the bottom middle of the starting room or the top left of the black and white room
+
             if (roomIndex == 15)
             {
-                game.GetPlayer().SetPosition();
+                game.GetPlayer().getLinkStateMachine().SetPositions(new Rectangle(120, 128, game.GetPlayer().LinkPosition().Width, game.GetPlayer().LinkPosition().Height));
             }
             else if (roomIndex == 17)
             {
-                game.GetPlayer().SetPosition();
+                game.GetPlayer().getLinkStateMachine().SetPositions(new Rectangle(48, 0, game.GetPlayer().LinkPosition().Width, game.GetPlayer().LinkPosition().Height));
             }
-            */
         }
 
         public bool RoomChange()

@@ -37,6 +37,9 @@ namespace Sprint0
         private Song Title_music;
         private Song Dungeon_music;
 
+        //text sprite
+        TextSprite textSprite;
+
         public Sprint3()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -75,6 +78,7 @@ namespace Sprint0
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
+
             List<Texture2D> enemySheets = new List<Texture2D>();
             List<Texture2D> bossSheets = new List<Texture2D>();
             List<Texture2D> linkSheetList = new List<Texture2D>();
@@ -84,6 +88,8 @@ namespace Sprint0
             linkSheetList.Add(contentManager.Load<Texture2D>("LinkSpriteSheetBlue")); // 3 is blue
 
             Texture2D dungeonSheet = contentManager.Load<Texture2D>("Dungeon_Tileset");
+
+            textSprite = new TextSprite(dungeonSheet);
 
             enemySheets.Add(contentManager.Load<Texture2D>("Dungeon_Enemies"));
             enemySheets.Add(contentManager.Load<Texture2D>("Dungeon_Enemies_DamageOne"));
@@ -108,7 +114,7 @@ namespace Sprint0
             //Collision sound effects
             Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Boss_Scream1")); //done
             Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Boss_Hit")); //done
-            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Door_Unlock"));
+            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Door_Unlock")); //done
             Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Enemy_Die")); //done
             Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Enemy_Hit")); //done
             Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Fanfare"));
@@ -234,6 +240,11 @@ namespace Sprint0
             }
 
             link.GetLinkInventory().Draw(this._spriteBatch);
+
+            if(roomManager.getRoomIndex() == 5)
+            {
+                //textSprite.Draw();
+            }
 
             this._spriteBatch.End();
 
