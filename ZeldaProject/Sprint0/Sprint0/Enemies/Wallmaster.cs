@@ -38,7 +38,7 @@ namespace Sprint0
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            if(!stateMachine.IsWaiting())
+            if(stateMachine.activity != WallmasterStateMachine.Activity.Waiting)
             {
                 WallmasterStateMachine.Direction initial = stateMachine.initialDirection;
                 WallmasterStateMachine.Direction second = stateMachine.GetSecondDirection();
@@ -83,7 +83,7 @@ namespace Sprint0
 
         public bool CanGrab()
         {
-            return stateMachine.GetActivity() == WallmasterStateMachine.Activity.Moving;
+            return stateMachine.activity == WallmasterStateMachine.Activity.Moving;
         }
 
         public bool Grabbing()

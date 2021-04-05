@@ -63,7 +63,7 @@ namespace Sprint0
             stunFrames = 0;
             damageFrames = 0;
             state = State.Normal;
-            damageDirection = new Vector2(0, 0);
+            damageDirection = new Vector2(1, 1);
             SetDirection();
         }
 
@@ -105,11 +105,6 @@ namespace Sprint0
             }
 
             ReturnToNormal();
-        }
-
-        public bool IsWaiting()
-        {
-            return activity == Activity.Waiting;
         }
 
         private void NormalMove()
@@ -186,18 +181,11 @@ namespace Sprint0
         public void GrabLink()
         {
             grab = true;
-        }
-
-        
+        } 
 
         public Direction GetSecondDirection()
         {
             return secondDirection;
-        }
-
-        public Activity GetActivity()
-        {
-            return activity;
         }
 
         public bool GetGrabStatus()
@@ -227,7 +215,7 @@ namespace Sprint0
                 state = State.Normal;
                 stunFrames = 0;
                 damageFrames = 0;
-                damageDirection = new Vector2(0, 0);
+                damageDirection = new Vector2(1, 1);
             }
         }
 
