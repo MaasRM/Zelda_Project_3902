@@ -35,7 +35,15 @@ namespace Sprint0
 
         public Rectangle GetLocationRectangle()
         {
-            return destination;
+            if(npcs.Count == 0)
+            {
+                return destination;
+            } 
+            else
+            {
+                return new Rectangle(0, 0, 0, 0);
+            }
+            
         }
     }
 }
