@@ -17,6 +17,7 @@ namespace Sprint0
         private List<IItem> linkItems;
         private IItem currentItem;
         private Texture2D inventoryBackground;
+        private LinkPauseScreen pauseScreen;
 
         public LinkInventory(Texture2D background)
         {
@@ -28,6 +29,7 @@ namespace Sprint0
             inventoryBackground = background;
             minimap = new LinkMinimap(inventoryBackground);
             healthBar = new LinkHealthBar(inventoryBackground);
+            pauseScreen = new LinkPauseScreen(inventoryBackground);
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -167,6 +169,11 @@ namespace Sprint0
                 }
                 linkItems.Add(item);
             }
+        }
+
+        public LinkPauseScreen GetLinkPauseScreen()
+        {
+            return pauseScreen;
         }
 
         public LinkHealthBar GetLinkHealthBar()
