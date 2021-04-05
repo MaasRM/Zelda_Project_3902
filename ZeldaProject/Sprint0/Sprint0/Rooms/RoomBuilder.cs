@@ -16,7 +16,6 @@ namespace Sprint0
         private Texture2D itemsSheet;
         private List<Texture2D> bossesSheets;
         private Texture2D npcSheet;
-        private const int scale = 4;
 
         public RoomBuilder(Sprint3 game, XmlDocument doc, Texture2D dungeon, List<Texture2D> enemies, Texture2D items, List<Texture2D> bosses, Texture2D npcs)
         {
@@ -72,7 +71,7 @@ namespace Sprint0
         {
             XmlNode parent = blockInfo.ParentNode;
             //Edited
-            return new Block(int.Parse(blockInfo["BlockType"].InnerText), dungeonSheet, (int.Parse(blockInfo["XLoc"].InnerText)) * scale, (int.Parse(blockInfo["YLoc"].InnerText) + 64) * scale);
+            return new Block(int.Parse(blockInfo["BlockType"].InnerText), dungeonSheet, (int.Parse(blockInfo["XLoc"].InnerText)) * GameConstants.SCALE, (int.Parse(blockInfo["YLoc"].InnerText) + GameConstants.HUDSIZE) * GameConstants.SCALE);
         }
 
         private IItem CreateItem(XmlNode itemInfo, List<INPC> npcList)
@@ -80,21 +79,21 @@ namespace Sprint0
             switch (itemInfo["ItemType"].InnerText)
             {
                 case "KeyItem":
-                    return new KeyItem(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText) * scale, (int.Parse(itemInfo["YLoc"].InnerText) + 64) * scale, 7 * scale, 15 * scale), new Rectangle(240, 0, 7, 15), itemsSheet, game);
+                    return new KeyItem(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText) * GameConstants.SCALE, (int.Parse(itemInfo["YLoc"].InnerText) + GameConstants.HUDSIZE) * GameConstants.SCALE, 7 * GameConstants.SCALE, 15 * GameConstants.SCALE), new Rectangle(240, 0, 7, 15), itemsSheet, game);
                 case "HeartContainerItem":
-                    return new HeartContainerItem(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText) * scale, (int.Parse(itemInfo["YLoc"].InnerText) + 64) * scale, 15 * scale, 15 * scale), new Rectangle(23, 0, 15, 15), itemsSheet);
+                    return new HeartContainerItem(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText) * GameConstants.SCALE, (int.Parse(itemInfo["YLoc"].InnerText) + GameConstants.HUDSIZE) * GameConstants.SCALE, 15 * GameConstants.SCALE, 15 * GameConstants.SCALE), new Rectangle(23, 0, 15, 15), itemsSheet);
                 case "TriforceShardItem":
-                    return new TriforceShardItem(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText) * scale, (int.Parse(itemInfo["YLoc"].InnerText) + 64) * scale, 15 * scale, 15 * scale), new Rectangle(272, 0, 15, 15), itemsSheet);
+                    return new TriforceShardItem(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText) * GameConstants.SCALE, (int.Parse(itemInfo["YLoc"].InnerText) + GameConstants.HUDSIZE) * GameConstants.SCALE, 15 * GameConstants.SCALE, 15 * GameConstants.SCALE), new Rectangle(272, 0, 15, 15), itemsSheet);
                 case "Fire":
-                    return new Fire(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText) * scale, (int.Parse(itemInfo["YLoc"].InnerText) + 64) * scale, 15 * scale, 15 * scale), new Rectangle(52, 11, 15, 15), npcSheet);
+                    return new Fire(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText) * GameConstants.SCALE, (int.Parse(itemInfo["YLoc"].InnerText) + GameConstants.HUDSIZE) * GameConstants.SCALE, 15 * GameConstants.SCALE, 15 * GameConstants.SCALE), new Rectangle(52, 11, 15, 15), npcSheet);
                 case "MapItem":
-                    return new MapItem(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText) * scale, (int.Parse(itemInfo["YLoc"].InnerText) + 64) * scale, 7 * scale, 15 * scale), new Rectangle(88, 0, 7, 15), itemsSheet);
+                    return new MapItem(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText) * GameConstants.SCALE, (int.Parse(itemInfo["YLoc"].InnerText) + GameConstants.HUDSIZE) * GameConstants.SCALE, 7 * GameConstants.SCALE, 15 * GameConstants.SCALE), new Rectangle(88, 0, 7, 15), itemsSheet);
                 case "CompassItem":
-                    return new CompassItem(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText) * scale, (int.Parse(itemInfo["YLoc"].InnerText) + 64) * scale, 15 * scale, 15 * scale), new Rectangle(256, 0, 15, 15), itemsSheet);
+                    return new CompassItem(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText) * GameConstants.SCALE, (int.Parse(itemInfo["YLoc"].InnerText) + GameConstants.HUDSIZE) * GameConstants.SCALE, 15 * GameConstants.SCALE, 15 * GameConstants.SCALE), new Rectangle(256, 0, 15, 15), itemsSheet);
                 case "BowItem":
-                    return new BowItem(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText) * scale, (int.Parse(itemInfo["YLoc"].InnerText) + 64) * scale, 7 * scale, 15 * scale), new Rectangle(144, 0, 7, 15), itemsSheet);
+                    return new BowItem(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText) * GameConstants.SCALE, (int.Parse(itemInfo["YLoc"].InnerText) + GameConstants.HUDSIZE) * GameConstants.SCALE, 7 * GameConstants.SCALE, 15 * GameConstants.SCALE), new Rectangle(144, 0, 7, 15), itemsSheet);
                 case "SecretKeyItem":
-                    return new SecretKey(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText) * scale, (int.Parse(itemInfo["YLoc"].InnerText) + 64) * scale, 7 * scale, 15 * scale), new Rectangle(240, 0, 7, 15), itemsSheet, npcList, game);
+                    return new SecretKey(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText) * GameConstants.SCALE, (int.Parse(itemInfo["YLoc"].InnerText) + GameConstants.HUDSIZE) * GameConstants.SCALE, 7 * GameConstants.SCALE, 15 * GameConstants.SCALE), new Rectangle(240, 0, 7, 15), itemsSheet, npcList, game);
                 case "EnemyKeyItem":
                     return new EnemyKey(new Rectangle(240, 0, 7, 15), itemsSheet, npcList[0], game);
                 default:
@@ -107,21 +106,21 @@ namespace Sprint0
             switch (npcInfo["EnemyType"].InnerText)
             {
                 case "Aquamentus":
-                    return new Aquamentus(int.Parse(npcInfo["XLoc"].InnerText) * scale, (int.Parse(npcInfo["YLoc"].InnerText) + 64) * scale, bossesSheets, game);
+                    return new Aquamentus(int.Parse(npcInfo["XLoc"].InnerText) * GameConstants.SCALE, (int.Parse(npcInfo["YLoc"].InnerText) + GameConstants.HUDSIZE) * GameConstants.SCALE, bossesSheets, game);
                 case "Gel":
-                    return new Gel(int.Parse(npcInfo["XLoc"].InnerText) * scale, (int.Parse(npcInfo["YLoc"].InnerText) + 64) * scale, GelStateMachine.GelColor.Teal, enemiesSheets[0]);
+                    return new Gel(int.Parse(npcInfo["XLoc"].InnerText) * GameConstants.SCALE, (int.Parse(npcInfo["YLoc"].InnerText) + GameConstants.HUDSIZE) * GameConstants.SCALE, GelStateMachine.GelColor.Teal, enemiesSheets[0]);
                 case "Goriya":
-                    return new Goriya(int.Parse(npcInfo["XLoc"].InnerText) * scale, (int.Parse(npcInfo["YLoc"].InnerText) + 64) * scale, GoriyaStateMachine.GoriyaColor.Red, enemiesSheets, game);
+                    return new Goriya(int.Parse(npcInfo["XLoc"].InnerText) * GameConstants.SCALE, (int.Parse(npcInfo["YLoc"].InnerText) + GameConstants.HUDSIZE) * GameConstants.SCALE, GoriyaStateMachine.GoriyaColor.Red, enemiesSheets, game);
                 case "Keese":
-                    return new Keese(int.Parse(npcInfo["XLoc"].InnerText) * scale, (int.Parse(npcInfo["YLoc"].InnerText) + 64) * scale, KeeseStateMachine.KeeseColor.Blue, enemiesSheets[0]);
+                    return new Keese(int.Parse(npcInfo["XLoc"].InnerText) * GameConstants.SCALE, (int.Parse(npcInfo["YLoc"].InnerText) + GameConstants.HUDSIZE) * GameConstants.SCALE, KeeseStateMachine.KeeseColor.Blue, enemiesSheets[0]);
                 case "OldMan":
-                    return new OldMan(int.Parse(npcInfo["XLoc"].InnerText) * scale, (int.Parse(npcInfo["YLoc"].InnerText) + 64) * scale, npcSheet);
+                    return new OldMan(int.Parse(npcInfo["XLoc"].InnerText) * GameConstants.SCALE, (int.Parse(npcInfo["YLoc"].InnerText) + GameConstants.HUDSIZE) * GameConstants.SCALE, npcSheet);
                 case "Stalfos":
-                    return new Stalfos(int.Parse(npcInfo["XLoc"].InnerText) * scale, (int.Parse(npcInfo["YLoc"].InnerText) + 64) * scale, enemiesSheets);
+                    return new Stalfos(int.Parse(npcInfo["XLoc"].InnerText) * GameConstants.SCALE, (int.Parse(npcInfo["YLoc"].InnerText) + GameConstants.HUDSIZE) * GameConstants.SCALE, enemiesSheets);
                 case "Trap":
-                    return new Trap(int.Parse(npcInfo["XLoc"].InnerText) * scale, (int.Parse(npcInfo["YLoc"].InnerText) + 64) * scale, enemiesSheets[0]);
+                    return new Trap(int.Parse(npcInfo["XLoc"].InnerText) * GameConstants.SCALE, (int.Parse(npcInfo["YLoc"].InnerText) + GameConstants.HUDSIZE) * GameConstants.SCALE, enemiesSheets[0]);
                 case "Wallmaster":
-                    return new Wallmaster(int.Parse(npcInfo["XLoc"].InnerText) * scale, (int.Parse(npcInfo["YLoc"].InnerText) + 64) * scale, enemiesSheets); //Should this be up?
+                    return new Wallmaster(int.Parse(npcInfo["XLoc"].InnerText) * GameConstants.SCALE, (int.Parse(npcInfo["YLoc"].InnerText) + GameConstants.HUDSIZE) * GameConstants.SCALE, enemiesSheets); //Should this be up?
                 default:
                     return new Aquamentus(0, 0, bossesSheets, game);
             }

@@ -7,5 +7,6 @@ namespace Sprint0
         public static int HUDSIZE = 64;
         public static int OLDMANROOM = 5;
         public static int VERTICALROOM = 17;
+        public static int STARTROOM = 15;
     }
 }

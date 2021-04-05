@@ -19,14 +19,12 @@ namespace Sprint0
         private Rectangle nextRoomLoc;
         private Room oldRoom;
         private Rectangle oldRoomLoc;
-        private const int scale = 4;
-        private const int FIRSTROOM = 15;
 
         public RoomManager(Sprint3 game)
         {
             this.game = game;
             roomList = new List<Room>();
-            roomIndex = 15;
+            roomIndex = GameConstants.STARTROOM;
             roomChange = false;
         }
 
@@ -35,7 +33,7 @@ namespace Sprint0
             dungeonSheet = dungeon;
             RoomBuilder builder = new RoomBuilder(game, xmlDoc, dungeon, enemies, items, bosses, npcs);
             roomList = builder.buildRoomList();
-            currentRoom = roomList[FIRSTROOM];
+            currentRoom = roomList[GameConstants.STARTROOM];
         }
 
         public void Update()
@@ -45,20 +43,20 @@ namespace Sprint0
                 switch (nextRoomDirection)
                 {
                     case Direction.MoveUp:
-                        nextRoomLoc = new Rectangle(nextRoomLoc.X, nextRoomLoc.Y + (5 * scale), 255 * scale, 175 * scale);
-                        oldRoomLoc = new Rectangle(oldRoomLoc.X, oldRoomLoc.Y + (5 * scale), 255 * scale, 175 * scale);
+                        nextRoomLoc = new Rectangle(nextRoomLoc.X, nextRoomLoc.Y + (5 * GameConstants.SCALE), 255 * GameConstants.SCALE, 175 * GameConstants.SCALE);
+                        oldRoomLoc = new Rectangle(oldRoomLoc.X, oldRoomLoc.Y + (5 * GameConstants.SCALE), 255 * GameConstants.SCALE, 175 * GameConstants.SCALE);
                         break;
                     case Direction.MoveDown:
-                        nextRoomLoc = new Rectangle(nextRoomLoc.X, nextRoomLoc.Y - (5 * scale), 255 * scale, 175 * scale);
-                        oldRoomLoc = new Rectangle(oldRoomLoc.X, oldRoomLoc.Y - (5 * scale), 255 * scale, 175 * scale);
+                        nextRoomLoc = new Rectangle(nextRoomLoc.X, nextRoomLoc.Y - (5 * GameConstants.SCALE), 255 * GameConstants.SCALE, 175 * GameConstants.SCALE);
+                        oldRoomLoc = new Rectangle(oldRoomLoc.X, oldRoomLoc.Y - (5 * GameConstants.SCALE), 255 * GameConstants.SCALE, 175 * GameConstants.SCALE);
                         break;
                     case Direction.MoveLeft:
-                        nextRoomLoc = new Rectangle(nextRoomLoc.X + (5 * scale), nextRoomLoc.Y, 255 * scale, 175 * scale);
-                        oldRoomLoc = new Rectangle(oldRoomLoc.X + (5 * scale), oldRoomLoc.Y, 255 * scale, 175 * scale);
+                        nextRoomLoc = new Rectangle(nextRoomLoc.X + (5 * GameConstants.SCALE), nextRoomLoc.Y, 255 * GameConstants.SCALE, 175 * GameConstants.SCALE);
+                        oldRoomLoc = new Rectangle(oldRoomLoc.X + (5 * GameConstants.SCALE), oldRoomLoc.Y, 255 * GameConstants.SCALE, 175 * GameConstants.SCALE);
                         break;
                     case Direction.MoveRight:
-                        nextRoomLoc = new Rectangle(nextRoomLoc.X - (5 * scale), nextRoomLoc.Y, 255 * scale, 175 * scale);
-                        oldRoomLoc = new Rectangle(oldRoomLoc.X - (5 * scale), oldRoomLoc.Y, 255 * scale, 175 * scale);
+                        nextRoomLoc = new Rectangle(nextRoomLoc.X - (5 * GameConstants.SCALE), nextRoomLoc.Y, 255 * GameConstants.SCALE, 175 * GameConstants.SCALE);
+                        oldRoomLoc = new Rectangle(oldRoomLoc.X - (5 * GameConstants.SCALE), oldRoomLoc.Y, 255 * GameConstants.SCALE, 175 * GameConstants.SCALE);
                         break;
                     default:
                         break;
@@ -82,22 +80,22 @@ namespace Sprint0
             Vector2 displacement = new Vector2(0, -64);
             if (roomChange)
             {
-                Rectangle nextRoomFloorLoc = new Rectangle(nextRoomLoc.X + (32 * scale), nextRoomLoc.Y + (32 * scale), 192 * scale, 112 * scale);
-                Rectangle nextRoomTopDoorLoc = new Rectangle(nextRoomLoc.X + (112 * scale), nextRoomLoc.Y + (0 * scale), 32 * scale, 32 * scale);
-                Rectangle nextRoomBottomDoorLoc = new Rectangle(nextRoomLoc.X + (112 * scale), nextRoomLoc.Y + (144 * scale), 32 * scale, 32 * scale);
-                Rectangle nextRoomLeftDoorLoc = new Rectangle(nextRoomLoc.X + (0 * scale), nextRoomLoc.Y + (72 * scale), 32 * scale, 32 * scale);
-                Rectangle nextRoomRightDoorLoc = new Rectangle(nextRoomLoc.X + (224 * scale), nextRoomLoc.Y + (72 * scale), 32 * scale, 32 * scale);
+                Rectangle nextRoomFloorLoc = new Rectangle(nextRoomLoc.X + (32 * GameConstants.SCALE), nextRoomLoc.Y + (32 * GameConstants.SCALE), 192 * GameConstants.SCALE, 112 * GameConstants.SCALE);
+                Rectangle nextRoomTopDoorLoc = new Rectangle(nextRoomLoc.X + (112 * GameConstants.SCALE), nextRoomLoc.Y + (0 * GameConstants.SCALE), 32 * GameConstants.SCALE, 32 * GameConstants.SCALE);
+                Rectangle nextRoomBottomDoorLoc = new Rectangle(nextRoomLoc.X + (112 * GameConstants.SCALE), nextRoomLoc.Y + (144 * GameConstants.SCALE), 32 * GameConstants.SCALE, 32 * GameConstants.SCALE);
+                Rectangle nextRoomLeftDoorLoc = new Rectangle(nextRoomLoc.X + (0 * GameConstants.SCALE), nextRoomLoc.Y + (72 * GameConstants.SCALE), 32 * GameConstants.SCALE, 32 * GameConstants.SCALE);
+                Rectangle nextRoomRightDoorLoc = new Rectangle(nextRoomLoc.X + (224 * GameConstants.SCALE), nextRoomLoc.Y + (72 * GameConstants.SCALE), 32 * GameConstants.SCALE, 32 * GameConstants.SCALE);
                 spriteBatch.Draw(dungeonSheet, nextRoomLoc, currentRoom.getWall(), Color.White, 0, displacement, SpriteEffects.None, 0f);
                 spriteBatch.Draw(dungeonSheet, nextRoomTopDoorLoc, currentRoom.getDoorSource(Direction.MoveUp), Color.White, 0, displacement, SpriteEffects.None, 0f);
                 spriteBatch.Draw(dungeonSheet, nextRoomBottomDoorLoc, currentRoom.getDoorSource(Direction.MoveDown), Color.White, 0, displacement, SpriteEffects.None, 0f);
                 spriteBatch.Draw(dungeonSheet, nextRoomLeftDoorLoc, currentRoom.getDoorSource(Direction.MoveLeft), Color.White, 0, displacement, SpriteEffects.None, 0f);
                 spriteBatch.Draw(dungeonSheet, nextRoomRightDoorLoc, currentRoom.getDoorSource(Direction.MoveRight), Color.White, 0, displacement, SpriteEffects.None, 0f);
                 spriteBatch.Draw(dungeonSheet, nextRoomFloorLoc, currentRoom.getFloor(), Color.White, 0, displacement, SpriteEffects.None, 0f);
-                Rectangle oldRoomFloorLoc = new Rectangle(oldRoomLoc.X + (32 * scale), oldRoomLoc.Y + (32 * scale), 192 * scale, 112 * scale);
-                Rectangle oldRoomTopDoorLoc = new Rectangle(oldRoomLoc.X + (112 * scale), oldRoomLoc.Y + (0 * scale), 32 * scale, 32 * scale);
-                Rectangle oldRoomBottomDoorLoc = new Rectangle(oldRoomLoc.X + (112 * scale), oldRoomLoc.Y + (144 * scale), 32 * scale, 32 * scale);
-                Rectangle oldRoomLeftDoorLoc = new Rectangle(oldRoomLoc.X + (0 * scale), oldRoomLoc.Y + (72 * scale), 32 * scale, 32 * scale);
-                Rectangle oldRoomRightDoorLoc = new Rectangle(oldRoomLoc.X + (224 * scale), oldRoomLoc.Y + (72 * scale), 32 * scale, 32 * scale);
+                Rectangle oldRoomFloorLoc = new Rectangle(oldRoomLoc.X + (32 * GameConstants.SCALE), oldRoomLoc.Y + (32 * GameConstants.SCALE), 192 * GameConstants.SCALE, 112 * GameConstants.SCALE);
+                Rectangle oldRoomTopDoorLoc = new Rectangle(oldRoomLoc.X + (112 * GameConstants.SCALE), oldRoomLoc.Y + (0 * GameConstants.SCALE), 32 * GameConstants.SCALE, 32 * GameConstants.SCALE);
+                Rectangle oldRoomBottomDoorLoc = new Rectangle(oldRoomLoc.X + (112 * GameConstants.SCALE), oldRoomLoc.Y + (144 * GameConstants.SCALE), 32 * GameConstants.SCALE, 32 * GameConstants.SCALE);
+                Rectangle oldRoomLeftDoorLoc = new Rectangle(oldRoomLoc.X + (0 * GameConstants.SCALE), oldRoomLoc.Y + (72 * GameConstants.SCALE), 32 * GameConstants.SCALE, 32 * GameConstants.SCALE);
+                Rectangle oldRoomRightDoorLoc = new Rectangle(oldRoomLoc.X + (224 * GameConstants.SCALE), oldRoomLoc.Y + (72 * GameConstants.SCALE), 32 * GameConstants.SCALE, 32 * GameConstants.SCALE);
                 spriteBatch.Draw(dungeonSheet, oldRoomLoc, oldRoom.getWall(), Color.White, 0, displacement, SpriteEffects.None, 0f);
                 spriteBatch.Draw(dungeonSheet, oldRoomTopDoorLoc, oldRoom.getDoorSource(Direction.MoveUp), Color.White, 0, displacement, SpriteEffects.None, 0f);
                 spriteBatch.Draw(dungeonSheet, oldRoomBottomDoorLoc, oldRoom.getDoorSource(Direction.MoveDown), Color.White, 0, displacement, SpriteEffects.None, 0f);
@@ -107,12 +105,12 @@ namespace Sprint0
             }
             else
             {
-                spriteBatch.Draw(dungeonSheet, new Rectangle(0 * scale, 0 * scale, 255 * scale, 175 * scale), currentRoom.getWall(), Color.White, 0, displacement, SpriteEffects.None, 0f);
-                spriteBatch.Draw(dungeonSheet, new Rectangle(112 * scale, 0 * scale, 32 * scale, 32 * scale), currentRoom.getDoorSource(Direction.MoveUp), Color.White, 0, displacement, SpriteEffects.None, 0f);
-                spriteBatch.Draw(dungeonSheet, new Rectangle(112 * scale, 144 * scale, 32 * scale, 32 * scale), currentRoom.getDoorSource(Direction.MoveDown), Color.White, 0, displacement, SpriteEffects.None, 0f);
-                spriteBatch.Draw(dungeonSheet, new Rectangle(0 * scale, 72 * scale, 32 * scale, 32 * scale), currentRoom.getDoorSource(Direction.MoveLeft), Color.White, 0, displacement, SpriteEffects.None, 0f);
-                spriteBatch.Draw(dungeonSheet, new Rectangle(224 * scale, 72 * scale, 32 * scale, 32 * scale), currentRoom.getDoorSource(Direction.MoveRight), Color.White, 0, displacement, SpriteEffects.None, 0f);
-                spriteBatch.Draw(dungeonSheet, new Rectangle(32 * scale, 32 * scale, 192 * scale, 112 * scale), currentRoom.getFloor(), Color.White, 0, displacement, SpriteEffects.None, 0f);
+                spriteBatch.Draw(dungeonSheet, new Rectangle(0 * GameConstants.SCALE, 0 * GameConstants.SCALE, 255 * GameConstants.SCALE, 175 * GameConstants.SCALE), currentRoom.getWall(), Color.White, 0, displacement, SpriteEffects.None, 0f);
+                spriteBatch.Draw(dungeonSheet, new Rectangle(112 * GameConstants.SCALE, 0 * GameConstants.SCALE, 32 * GameConstants.SCALE, 32 * GameConstants.SCALE), currentRoom.getDoorSource(Direction.MoveUp), Color.White, 0, displacement, SpriteEffects.None, 0f);
+                spriteBatch.Draw(dungeonSheet, new Rectangle(112 * GameConstants.SCALE, 144 * GameConstants.SCALE, 32 * GameConstants.SCALE, 32 * GameConstants.SCALE), currentRoom.getDoorSource(Direction.MoveDown), Color.White, 0, displacement, SpriteEffects.None, 0f);
+                spriteBatch.Draw(dungeonSheet, new Rectangle(0 * GameConstants.SCALE, 72 * GameConstants.SCALE, 32 * GameConstants.SCALE, 32 * GameConstants.SCALE), currentRoom.getDoorSource(Direction.MoveLeft), Color.White, 0, displacement, SpriteEffects.None, 0f);
+                spriteBatch.Draw(dungeonSheet, new Rectangle(224 * GameConstants.SCALE, 72 * GameConstants.SCALE, 32 * GameConstants.SCALE, 32 * GameConstants.SCALE), currentRoom.getDoorSource(Direction.MoveRight), Color.White, 0, displacement, SpriteEffects.None, 0f);
+                spriteBatch.Draw(dungeonSheet, new Rectangle(32 * GameConstants.SCALE, 32 * GameConstants.SCALE, 192 * GameConstants.SCALE, 112 * GameConstants.SCALE), currentRoom.getFloor(), Color.White, 0, displacement, SpriteEffects.None, 0f);
             }
 
         }
@@ -155,20 +153,20 @@ namespace Sprint0
         private void SetNextRoomLoc(Direction dir)
         {
             nextRoomDirection = dir;
-            oldRoomLoc = new Rectangle(0, 0, 255 * scale, 175 * scale);
+            oldRoomLoc = new Rectangle(0, 0, 255 * GameConstants.SCALE, 175 * GameConstants.SCALE);
             switch (dir)
             {
                 case Direction.MoveUp:
-                    nextRoomLoc = new Rectangle(0, 0 - (175 * scale), 255 * scale, 175 * scale);
+                    nextRoomLoc = new Rectangle(0, 0 - (175 * GameConstants.SCALE), 255 * GameConstants.SCALE, 175 * GameConstants.SCALE);
                     break;
                 case Direction.MoveDown:
-                    nextRoomLoc = new Rectangle(0, 0 + (175 * scale), 255 * scale, 175 * scale);
+                    nextRoomLoc = new Rectangle(0, 0 + (175 * GameConstants.SCALE), 255 * GameConstants.SCALE, 175 * GameConstants.SCALE);
                     break;
                 case Direction.MoveLeft:
-                    nextRoomLoc = new Rectangle(0 - (255 * scale), 0, 255 * scale, 175 * scale);
+                    nextRoomLoc = new Rectangle(0 - (255 * GameConstants.SCALE), 0, 255 * GameConstants.SCALE, 175 * GameConstants.SCALE);
                     break;
                 case Direction.MoveRight:
-                    nextRoomLoc = new Rectangle(0 + (255 * scale), 0, 255 * scale, 175 * scale);
+                    nextRoomLoc = new Rectangle(0 + (255 * GameConstants.SCALE), 0, 255 * GameConstants.SCALE, 175 * GameConstants.SCALE);
                     break;
                 default:
                     nextRoomLoc = new Rectangle(0, 0, 0, 0);
@@ -228,9 +226,9 @@ namespace Sprint0
             currentRoom = roomList[roomIndex];
             game.ClearProjectiles();
 
-            if (roomIndex == 17)
+            if (roomIndex == GameConstants.VERTICALROOM)
             {
-                game.GetPlayer().getLinkStateMachine().SetPositions(new Rectangle(48 * scale, 64 * scale, game.GetPlayer().LinkPosition().Width, game.GetPlayer().LinkPosition().Height));
+                game.GetPlayer().getLinkStateMachine().SetPositions(new Rectangle(48 * GameConstants.SCALE, GameConstants.HUDSIZE * GameConstants.SCALE, game.GetPlayer().LinkPosition().Width, game.GetPlayer().LinkPosition().Height));
             }
         }
 
