@@ -1,0 +1,45 @@
+﻿************************************************************************************************************
+								 Team 3, Phil Brocker Code Reviews
+************************************************************************************************************
+
+Phil Brocker: Review EnemyProjectileHandler.cs for readability, Review Sprint3.cs for maintainability
+
+************************************************************************************************************
+											Readability
+************************************************************************************************************
+
+Phil Brocker 3/4/2021 Sprint4
+AllCollisionHandler.cs - Nathan Schultz
+Minutes: 20 
+Comments on readability:
+	- Very long; over 250 lines 
+	- Each method has a very clear name that specifies what it does.
+	- Most of the methods call methods from other classes to handle the collision, but it is clear how the 
+	  collisions are detected
+	- Some of the methods have some magic numbers so it isn't clear what these numbers are. 
+	- All parameters are clear and make sense.
+
+This class is very readable and I was able to understand how all the methods worked very easily. The only 
+comment I have is that it might be easier to understand if their are constant variables instead of magic 
+numbers.
+
+************************************************************************************************************
+											Maintainability
+************************************************************************************************************  
+
+Phil Brocker 3/15/2021 Sprint3
+RoomManager.cs - Jake Kline
+Comments on maintainability:
+	- There are some magic numbers in a couple of the methods
+	- This is where the rooms are drawn, so using the xml document makes making changes to this easier as
+	  the makeup of the dungeon and rooms are stored in that
+	- There are a few different methods at the bottom that manipulate the rooms. This could lead to other
+	  methods being coupled with this method and changes in these could lead to unwanted changes elsewhere
+
+Hypothetical Changes:
+	- Using constant variables will make maintainability easier than having magic numbers. 
+	- The methods that are used to manipulate the rooms are fine if they are working correctly and are not 
+	  touched
+
+This file is in a good spot. Maintaining it for the future should not be difficult, and my suggestions for 
+making it easier to maintain are listed above.
