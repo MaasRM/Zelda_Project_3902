@@ -33,41 +33,25 @@ namespace Sprint0
 
         public void Update()
         {
+            stateMachine.Update();
             source = stateMachine.getSource();
             destination = stateMachine.getDestination();
-            /*
-            if (currentColor != stateMachine.getColor())
-            {
-                changeColor(currentColor, stateMachine.getColor());
-            }
-            */
 
             linkInventory.GetLinkHealthBar().setCurrentHealth(stateMachine.GetCurrentHealth());
             linkInventory.GetLinkHealthBar().setMaxHealth(stateMachine.GetMaxHealth());
 
-            if (stateMachine.getColor() == LinkColor.Damaged && damageFrameCount <= 8)
+            if (stateMachine.getColor() == LinkColor.Damaged && damageFrameCount <= 32)
             {
-                if (damageFrameCount % 4 == 0)
-                {
-                    linkSpriteSheet = linkSheetList[1];
-                    //contentManager.Load<Texture2D>("LinkSpriteSheetBlack");
-                }
-                else if (damageFrameCount % 4 == 3)
-                {
-                    linkSpriteSheet = linkSheetList[2];
-                }
-                else if (damageFrameCount % 4 == 2)
-                {
-                    linkSpriteSheet = linkSheetList[3];
-                }
-                else //damageFrameCount %4 == 1
-                {
-                    linkSpriteSheet = linkSheetList[0];
-                }
-                if (damageFrameCount == 8)
+                if (damageFrameCount % 16 < 4) linkSpriteSheet = linkSheetList[1];
+                else if (damageFrameCount % 16 >= 4 && damageFrameCount % 16 < 8) linkSpriteSheet = linkSheetList[2];
+                else if (damageFrameCount % 16 >= 8 && damageFrameCount % 16 < 12) linkSpriteSheet = linkSheetList[3];
+                else linkSpriteSheet = linkSheetList[0];
+                if (damageFrameCount == 32)
                 {
                     stateMachine.setOriginalColor();
+                    stateMachine.damageVector = new Vector2(0, 0);
                 }
+
                 damageFrameCount++;
             }
             else
@@ -76,7 +60,6 @@ namespace Sprint0
                 linkSpriteSheet = linkSheetList[0];
             }
             currentColor = stateMachine.getColor();
-            stateMachine.Update();
         }
 
         public void Draw(SpriteBatch spriteBatch)
