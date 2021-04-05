@@ -69,28 +69,14 @@ namespace Sprint0
         {
             frame++;
             sourceRectangle.Offset(35 * (int)Math.Pow(-1, (frame % 2) + 1), 0);
-            if (frame < SwordProjectileConstants.HITFRAME)
-            {
-                if (projectileDirection == Direction.Up)
-                {
-                    yLoc -= SwordProjectileConstants.SwordSpeed;
-                }
-                else if (projectileDirection == Direction.Down)
-                {
-                    yLoc += SwordProjectileConstants.SwordSpeed;
-                }
-                else if (projectileDirection == Direction.Left)
-                {
-                    xLoc -= SwordProjectileConstants.SwordSpeed;
-                }
-                else //MoveRight
-                {
-                    xLoc += SwordProjectileConstants.SwordSpeed;
-                }
+            if (frame < SwordProjectileConstants.HITFRAME) {
+
+                if (projectileDirection == Direction.Up) yLoc -= SwordProjectileConstants.SwordSpeed;
+                else if (projectileDirection == Direction.Down) yLoc += SwordProjectileConstants.SwordSpeed;
+                else if (projectileDirection == Direction.Left) xLoc -= SwordProjectileConstants.SwordSpeed;
+                else xLoc += SwordProjectileConstants.SwordSpeed;
                 destinationRectangle = new Rectangle(xLoc, yLoc, xSize, ySize);
-            } 
-            else
-            {
+            } else { 
                 game.Link_soundEffects[1].Play();
                 game.AddProjectile(new SwordBlastProjectile(spritesheet, xLoc - SwordProjectileConstants.XBLASTOFFSET, yLoc - SwordProjectileConstants.YBLASTOFFSET, Direction.Up, Direction.Left, SpriteEffects.None));
                 game.AddProjectile(new SwordBlastProjectile(spritesheet, xLoc, yLoc - SwordProjectileConstants.YBLASTOFFSET, Direction.Up, Direction.Right, SpriteEffects.FlipHorizontally));
