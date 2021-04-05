@@ -14,13 +14,13 @@ namespace Sprint0
 		private Boolean rightIsPressed;
 		private Boolean leftIsPressed;
 
-		public MouseController(Sprint3 game)
+		public MouseController(Sprint4 game)
 		{
 			nextRoom = new NextRoomCommand(game);
 			previousRoom = new PreviousRoomCommand(game);
 		}
 
-		public void SetCommands(Sprint3 game)
+		public void SetCommands(Sprint4 game)
         {
 
         }

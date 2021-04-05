@@ -15,7 +15,7 @@ namespace Sprint0
         private bool dropped;
 
 
-        public SecretKey(Rectangle startPos, Rectangle source, Texture2D spriteSheet, List<INPC> NPCS, Sprint3 game)
+        public SecretKey(Rectangle startPos, Rectangle source, Texture2D spriteSheet, List<INPC> NPCS, Sprint4 game)
         {
             destination = startPos;
             spriteSource = source;

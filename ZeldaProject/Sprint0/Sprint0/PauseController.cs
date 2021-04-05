@@ -14,7 +14,7 @@ namespace Sprint0
 			pauseCommands = new Dictionary<Keys, ICommand>();
 		}
 
-		public void SetCommands(Sprint3 game)
+		public void SetCommands(Sprint4 game)
 		{
 			/*pauseCommands.Add(Keys.W, new LinkFaceUpCommand(game));
 			pauseCommands.Add(Keys.Up, new LinkFaceUpCommand(game));

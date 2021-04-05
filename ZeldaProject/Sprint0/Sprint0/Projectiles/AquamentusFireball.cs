@@ -28,7 +28,7 @@ namespace Sprint0
         private Angle angle;
         private Position pos;
 
-        public AquamentusFireball(int x, int y, Position pos, Texture2D spritesheet, Sprint3 game)
+        public AquamentusFireball(int x, int y, Position pos, Texture2D spritesheet, Sprint4 game)
         {
             this.x = x;
             this.y = y;

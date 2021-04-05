@@ -11,7 +11,7 @@ namespace Sprint0
 
         private Texture2D letterSheet;
         private SoundEffectInstance textSound;
-        private Sprint3 game;
+        private Sprint4 game;
         private RoomManager roomManager;
         private int counter;
         private const int letterCount = 33;
@@ -30,7 +30,7 @@ namespace Sprint0
               75, 55, 82, 55, 89, 55, 96, 55, 103, 55, 110, 55, 117, 55, 124, 55, 131, 55, 138, 55, 145, 55, 152, 55, 159, 55, 166, 55 //bottom 14 letters (28)
             };
 
-        public TextSprite(Texture2D dungeonSheet, RoomManager manager, Sprint3 game)
+        public TextSprite(Texture2D dungeonSheet, RoomManager manager, Sprint4 game)
         {
             this.game = game;
             roomManager = manager;

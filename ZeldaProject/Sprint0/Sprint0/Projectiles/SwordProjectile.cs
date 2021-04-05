@@ -13,7 +13,7 @@ namespace Sprint0
         private Rectangle sourceRectangle;
         private Rectangle destinationRectangle;
         private Texture2D spritesheet;
-        private Sprint3 game;
+        private Sprint4 game;
         private int xLoc;
         private int yLoc;
         private int xSize;
@@ -22,7 +22,7 @@ namespace Sprint0
         private Direction projectileDirection;
         private SpriteEffects flip;
 
-        public SwordProjectile(Texture2D spritesheet, LinkStateMachine stateMachine, Sprint3 game)
+        public SwordProjectile(Texture2D spritesheet, LinkStateMachine stateMachine, Sprint4 game)
         {
             this.spritesheet = spritesheet;
             this.game = game;

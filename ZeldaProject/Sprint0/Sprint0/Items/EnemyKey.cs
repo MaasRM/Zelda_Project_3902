@@ -19,7 +19,7 @@ namespace Sprint0
         private SoundEffectInstance keyDrop;
 
 
-        public EnemyKey(Rectangle source, Texture2D spriteSheet, INPC NPC, Sprint3 game)
+        public EnemyKey(Rectangle source, Texture2D spriteSheet, INPC NPC, Sprint4 game)
         {
             npc = NPC;
             destination = new Rectangle(npc.GetNPCLocation().X, npc.GetNPCLocation().Y, width * scale, height * scale);

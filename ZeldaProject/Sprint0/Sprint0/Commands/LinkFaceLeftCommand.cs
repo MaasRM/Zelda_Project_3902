@@ -3,8 +3,8 @@ namespace Sprint0
 {
     public class LinkFaceLeftCommand : ICommand
     {
-        private Sprint3 game;
-        public LinkFaceLeftCommand(Sprint3 sprint)
+        private Sprint4 game;
+        public LinkFaceLeftCommand(Sprint4 sprint)
         {
             game = sprint;
         }
