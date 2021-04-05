@@ -18,11 +18,11 @@ namespace Sprint0
         //x then y so grouped in twos
         //size is always 7x7
         readonly private int[] letterSource = 
-            { 57, 11, 41, 11, 113, 11, 113, 19, 89, 11, 96, 11, 113, 11, 113, 19, //eastmost (16)
-              65, 27, 97, 19, 57, 11, 89, 19, 89, 19, 72, 11, 89, 19, 113, 11, 121, 11, 82, 19, 41, 11, // penninsula (22)
-              65, 74, 11, 19, 113, 11, // is (6)
+            { 57, 11, 41, 11, 113, 11, 113, 19, 89, 11, 97, 11, 113, 11, 113, 19, //eastmost (16)
+              65, 27, 97, 19, 57, 11, 89, 19, 89, 19, 73, 11, 89, 19, 113, 11, 121, 11, 82, 19, 41, 11, // penninsula (22)
+              65, 27, 73, 11, 113, 11, // is (6)
               65, 27, 113, 19, 65, 19, 57, 11, // the (8)
-              65, 27, 113, 11, 57, 11, 46, 11, 105, 19, 57, 11, 113, 19, 49, 27 // secret. (16)
+              65, 27, 113, 11, 57, 11, 49, 11, 105, 19, 57, 11, 113, 19, 49, 27 // secret. (16)
             };
         readonly private int[] letterDest =
             { 54, 48, 61, 48, 68, 48, 75, 48, 82, 48, 89, 48, 96, 48, 103, 48, 110, 48, 117, 48, 124, 48, 131, 48, 138, 48, 145, 48, 152, 48, 159, 48, 166, 48, 173, 48, 180, 48, 187, 48, //top 19 letters (40)
@@ -51,7 +51,7 @@ namespace Sprint0
         {
             for (int i = 0; i <= counter * 2; i += 2)
             {
-                Rectangle destination = new Rectangle((letterDest[i] + 37) * scale, (64 * scale) + (letterDest[i + 1] + 37) * scale, 7 * scale, 7 * scale);
+                Rectangle destination = new Rectangle((letterDest[i] + 8) * scale, (64 * scale) + (letterDest[i + 1] + 40) * scale, 7 * scale, 7 * scale);
                 Rectangle source = new Rectangle(letterSource[i], letterSource[i + 1], 7, 7);
                 spriteBatch.Draw(letterSheet, destination, source, Color.White);
             }
