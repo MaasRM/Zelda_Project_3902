@@ -42,14 +42,14 @@ namespace Sprint0
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            //for (int i = 0; i < letterSource.Length; i += 2)
-            //{
-                Rectangle destination = new Rectangle(letterDest[0], letterDest[0 + 1], 7 * scale, 7 * scale);
-                Rectangle source = new Rectangle(letterSource[0], letterSource[0 + 1], 7 * scale, 7 * scale);
+            for (int i = 0; i < letterSource.Length; i += 2)
+            {
+                Rectangle destination = new Rectangle(letterDest[i], letterDest[i + 1], 7 * scale, 7 * scale);
+                Rectangle source = new Rectangle((letterSource[i] + 37) * scale, (64 * scale) + (letterSource[i + 1] + 37) * scale, 7 * scale, 7 * scale);
                 spriteBatch.Draw(letterSheet, destination, source, Color.White);
                 //textSounds[0].Play();
                 //wait here for like half a second
-            //}
+            }
         }
     }
 }
