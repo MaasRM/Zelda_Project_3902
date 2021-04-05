@@ -26,10 +26,10 @@ namespace Sprint0
             maxHealth = 0;
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, int offset)
         {
             int currentInRow = 0;
-            int currentY = 148;
+            int currentY = 148 + offset;
             int currentX = 710;
             DrawMaxHearts(spriteBatch);
             if (currentHealth % 2 == 0)

@@ -1,0 +1,53 @@
+﻿************************************************************************************************************
+											Riley's Code Reviews
+************************************************************************************************************
+
+Riley Maas: Review LinkWallHandler.cs for readability, Review LinkItemHandler.cs for maintainability
+
+************************************************************************************************************
+											Readability
+************************************************************************************************************
+
+Riley Maas 4/5/2021 Sprint4
+BombDoor.cs - Phil Brocker
+Minutes: 21
+Comments on readability:
+	- 3 static instance data members present, their names are logical and take in very clear data
+	- There are for well-named methods in the class, each one is clearly named
+	- Method names reflect which wall collision is being handled for, simple and clear
+	- These methods have clear purpose, each one creates a newPosition rectangle in case Link moves into a wall
+			each adjusts Links position in one understandable line
+	- The methods called in each are well named as well, for example getLinkStateMachine().SetPositions(newPosition)
+
+	- No instance data is present, class name is descriptive
+	- Simple method present which describes determining if a bomb is in range of the door
+	- The method is clear in checking the bomb projectile's proximity to the door
+	- Easily readable and nothing left up to interpretation, makes sense
+
+All in all, the BombDoor class is simple and easy to read. It does a single task and doesn't require support from many
+other classes. The only thing that could be confusing would be the numbers used to check if the bomb is in front of the
+door, however with an understanding of the map this is very easy.
+
+************************************************************************************************************
+											Maintainability
+************************************************************************************************************
+
+Riley Maas 4/5/2021 Sprint4
+EnemyDrops.cs - Phil Brocker
+Comments on maintainability:
+	- Simple design, and should be flexable, as the one method takes in an INPC object which can be instantiated
+				as any type of enemy.
+	- Along with the INPC, the DropMethod takes in a list of IItems which holds the games items, and lastly a
+				Texture2D containing item sprites.
+	- The class loses some flexability as it adds items specifically associated with Zelda, however if other
+				classes were included in the game that used the IItem interface this could be updated with new items.
+	- Similarly, the method explicitly checks for specific Zelda enemy drops, however this could be refactored
+				to include new enemy types
+
+Hypothetical Changes:
+	- Methods to check the probability of a certain items being droped could be useful, however this is currently not needed
+	- Currently this method just adds flat drop rates, you could refactor it to keep track of what has been already dropped
+				in order to edit the rate of future drops.
+
+Overall, this class is maintainable and refactorable, the singular method only has one purpose and only utilizes flexable
+				classes which provide the ability to update functionality and utilize the class for different games.

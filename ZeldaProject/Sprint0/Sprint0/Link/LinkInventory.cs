@@ -34,98 +34,104 @@ namespace Sprint0
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            Rectangle inventorySource = new Rectangle(258, 12, 254, 54);
-            Rectangle inventoryDestination = new Rectangle(0, 0, 256 * GameConstants.SCALE, 64 * GameConstants.SCALE);
-            spriteBatch.Draw(inventoryBackground, inventoryDestination, inventorySource, Color.White);
-            Rectangle swordSource = new Rectangle(555, 137, 7, 15);
-            Rectangle swordDestination = new Rectangle(612, 106, 9 * GameConstants.SCALE, 20 * GameConstants.SCALE);
-            spriteBatch.Draw(inventoryBackground, swordDestination, swordSource, Color.White);
-            Rectangle counterSource = new Rectangle(519, 117, 7, 8);
-            Rectangle rupeeCounterDestination = new Rectangle(388, 72, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE);
-            Rectangle keyCounterDestination = new Rectangle(388, 148, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE);
-            Rectangle bombCounterDestination = new Rectangle(388, 185, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE);
-            spriteBatch.Draw(inventoryBackground, rupeeCounterDestination, counterSource, Color.White);
-            spriteBatch.Draw(inventoryBackground, keyCounterDestination, counterSource, Color.White);
-            spriteBatch.Draw(inventoryBackground, bombCounterDestination, counterSource, Color.White);
-            Rectangle baseMapSource = new Rectangle(519, 2, 63, 38);
-            Rectangle baseMapDestination = new Rectangle(64, 34, 65 * GameConstants.SCALE, 47 * GameConstants.SCALE);
-            spriteBatch.Draw(inventoryBackground, baseMapDestination, baseMapSource, Color.White);
-            Rectangle levelSource = new Rectangle(584, 1, 63, 7);
-            Rectangle levelDestination = new Rectangle(64, 34, 63 * GameConstants.SCALE, 8 * GameConstants.SCALE);
-            spriteBatch.Draw(inventoryBackground, levelDestination, levelSource, Color.White);
-            Rectangle levelNumberDestination = new Rectangle(256, 34, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE);
-            spriteBatch.Draw(inventoryBackground, levelNumberDestination, getNumberSourceRectangle(1), Color.White);
-            DrawItemCounts(spriteBatch);
-            DrawSecondaryWeapon(spriteBatch);
-            minimap.Draw(spriteBatch);
-            healthBar.Draw(spriteBatch);
+            if (pauseScreen.isGamePaused() == false)
+            {
+                Rectangle inventorySource = new Rectangle(258, 12, 254, 54);
+                Rectangle inventoryDestination = new Rectangle(0, 0, 256 * GameConstants.SCALE, 64 * GameConstants.SCALE);
+                spriteBatch.Draw(inventoryBackground, inventoryDestination, inventorySource, Color.White);
+                Rectangle swordSource = new Rectangle(555, 137, 7, 15);
+                Rectangle swordDestination = new Rectangle(612, 106, 9 * GameConstants.SCALE, 20 * GameConstants.SCALE);
+                spriteBatch.Draw(inventoryBackground, swordDestination, swordSource, Color.White);
+                Rectangle counterSource = new Rectangle(519, 117, 7, 8);
+                Rectangle rupeeCounterDestination = new Rectangle(388, 72, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE);
+                Rectangle keyCounterDestination = new Rectangle(388, 148, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE);
+                Rectangle bombCounterDestination = new Rectangle(388, 185, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE);
+                spriteBatch.Draw(inventoryBackground, rupeeCounterDestination, counterSource, Color.White);
+                spriteBatch.Draw(inventoryBackground, keyCounterDestination, counterSource, Color.White);
+                spriteBatch.Draw(inventoryBackground, bombCounterDestination, counterSource, Color.White);
+                Rectangle baseMapSource = new Rectangle(519, 2, 63, 38);
+                Rectangle baseMapDestination = new Rectangle(64, 34, 65 * GameConstants.SCALE, 47 * GameConstants.SCALE);
+                spriteBatch.Draw(inventoryBackground, baseMapDestination, baseMapSource, Color.White);
+                Rectangle levelSource = new Rectangle(584, 1, 63, 7);
+                Rectangle levelDestination = new Rectangle(64, 34, 63 * GameConstants.SCALE, 8 * GameConstants.SCALE);
+                spriteBatch.Draw(inventoryBackground, levelDestination, levelSource, Color.White);
+                Rectangle levelNumberDestination = new Rectangle(256, 34, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE);
+                spriteBatch.Draw(inventoryBackground, levelNumberDestination, getNumberSourceRectangle(1), Color.White);
+                DrawItemCounts(spriteBatch);
+                DrawSecondaryWeapon(spriteBatch, new Rectangle(514, 106, 9 * GameConstants.SCALE, 20 * GameConstants.SCALE));
+                minimap.Draw(spriteBatch, 0);
+                healthBar.Draw(spriteBatch, 0);
+            }
+            else
+            {
+                DrawPause(spriteBatch);
+            }
+        }
+
+        public void DrawPause(SpriteBatch spriteBatch)
+        {
+
         }
 
         public void DrawItemCounts(SpriteBatch spriteBatch)
         {
-            DrawRupeeCounts(spriteBatch);
-            DrawKeyCounts(spriteBatch);
-            DrawBombCounts(spriteBatch);
+            if (pauseScreen.isGamePaused() == false)
+            {
+                DrawRupeeCounts(spriteBatch, new Rectangle(452, 72, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE), new Rectangle(420, 72, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE));
+                DrawKeyCounts(spriteBatch, new Rectangle(452, 148, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE), new Rectangle(420, 148, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE));
+                DrawBombCounts(spriteBatch, new Rectangle(452, 185, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE), new Rectangle(420, 185, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE));
+            }
+            else
+            {
+
+            }
         }
 
-        public void DrawRupeeCounts(SpriteBatch spriteBatch)
+        public void DrawRupeeCounts(SpriteBatch spriteBatch, Rectangle rupeeCountOnes, Rectangle rupeeCountTens)
         {
-            Rectangle rupeeCountDestination = new Rectangle(452, 72, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE);
-            
             if (rupeeCount >= 10)
             {
-                spriteBatch.Draw(inventoryBackground, rupeeCountDestination, getNumberSourceRectangle(rupeeCount % 10), Color.White);
-                rupeeCountDestination = new Rectangle(420, 72, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE);
-                spriteBatch.Draw(inventoryBackground, rupeeCountDestination, getNumberSourceRectangle(rupeeCount / 10), Color.White);
+                spriteBatch.Draw(inventoryBackground, rupeeCountOnes, getNumberSourceRectangle(rupeeCount % 10), Color.White);
+                spriteBatch.Draw(inventoryBackground, rupeeCountTens, getNumberSourceRectangle(rupeeCount / 10), Color.White);
             }
             else
             {
-                spriteBatch.Draw(inventoryBackground, rupeeCountDestination, getNumberSourceRectangle(rupeeCount), Color.White);
-                rupeeCountDestination = new Rectangle(420, 72, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE);
-                spriteBatch.Draw(inventoryBackground, rupeeCountDestination, getNumberSourceRectangle(0), Color.White);
+                spriteBatch.Draw(inventoryBackground, rupeeCountOnes, getNumberSourceRectangle(rupeeCount), Color.White);
+                spriteBatch.Draw(inventoryBackground, rupeeCountTens, getNumberSourceRectangle(0), Color.White);
             }
         }
 
-        public void DrawKeyCounts(SpriteBatch spriteBatch)
+        public void DrawKeyCounts(SpriteBatch spriteBatch, Rectangle keyCountOnes, Rectangle keyCountTens)
         {
-            Rectangle keyCountDestination = new Rectangle(452, 148, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE);
-
             if (keyCount >= 10)
             {
-                spriteBatch.Draw(inventoryBackground, keyCountDestination, getNumberSourceRectangle(keyCount % 10), Color.White);
-                keyCountDestination = new Rectangle(420, 148, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE);
-                spriteBatch.Draw(inventoryBackground, keyCountDestination, getNumberSourceRectangle(keyCount / 10), Color.White);
+                spriteBatch.Draw(inventoryBackground, keyCountOnes, getNumberSourceRectangle(keyCount % 10), Color.White);
+                spriteBatch.Draw(inventoryBackground, keyCountTens, getNumberSourceRectangle(keyCount / 10), Color.White);
             }
             else
             {
-                spriteBatch.Draw(inventoryBackground, keyCountDestination, getNumberSourceRectangle(keyCount), Color.White);
-                keyCountDestination = new Rectangle(420, 148, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE);
-                spriteBatch.Draw(inventoryBackground, keyCountDestination, getNumberSourceRectangle(0), Color.White);
+                spriteBatch.Draw(inventoryBackground, keyCountOnes, getNumberSourceRectangle(keyCount), Color.White);
+                spriteBatch.Draw(inventoryBackground, keyCountTens, getNumberSourceRectangle(0), Color.White);
             }
         }
 
-        public void DrawBombCounts(SpriteBatch spriteBatch)
+        public void DrawBombCounts(SpriteBatch spriteBatch, Rectangle bombCountOnes, Rectangle bombCountTens)
         {
-            Rectangle bombCountDestination = new Rectangle(452, 185, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE);
-
             if (bombCount >= 10)
             {
-                spriteBatch.Draw(inventoryBackground, bombCountDestination, getNumberSourceRectangle(bombCount % 10), Color.White);
-                bombCountDestination = new Rectangle(420, 185, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE);
-                spriteBatch.Draw(inventoryBackground, bombCountDestination, getNumberSourceRectangle(bombCount / 10), Color.White);
+                spriteBatch.Draw(inventoryBackground, bombCountOnes, getNumberSourceRectangle(bombCount % 10), Color.White);
+                spriteBatch.Draw(inventoryBackground, bombCountTens, getNumberSourceRectangle(bombCount / 10), Color.White);
             }
             else
             {
-                spriteBatch.Draw(inventoryBackground, bombCountDestination, getNumberSourceRectangle(bombCount), Color.White);
-                bombCountDestination = new Rectangle(420, 185, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE);
-                spriteBatch.Draw(inventoryBackground, bombCountDestination, getNumberSourceRectangle(0), Color.White);
+                spriteBatch.Draw(inventoryBackground, bombCountOnes, getNumberSourceRectangle(bombCount), Color.White);
+                spriteBatch.Draw(inventoryBackground, bombCountTens, getNumberSourceRectangle(0), Color.White);
             }
 
         }
 
-        public void DrawSecondaryWeapon(SpriteBatch spriteBatch)
+        public void DrawSecondaryWeapon(SpriteBatch spriteBatch, Rectangle secondaryWeapon)
         {
-            Rectangle secondaryWeaponDestination = new Rectangle(514, 106, 9 * GameConstants.SCALE, 20 * GameConstants.SCALE);
             Rectangle itemSource = new Rectangle(530, 16, 1, 1);
 
             if (currentItem is BoomerangItem)
@@ -141,7 +147,7 @@ namespace Sprint0
                 itemSource = new Rectangle(604, 137, 7, 15);
             }
 
-            spriteBatch.Draw(inventoryBackground, secondaryWeaponDestination, itemSource, Color.White);
+            spriteBatch.Draw(inventoryBackground, secondaryWeapon, itemSource, Color.White);
         }
 
         public Rectangle getNumberSourceRectangle(int n)
