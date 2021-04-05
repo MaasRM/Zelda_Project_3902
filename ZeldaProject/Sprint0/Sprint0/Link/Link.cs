@@ -40,13 +40,13 @@ namespace Sprint0
             linkInventory.GetLinkHealthBar().setCurrentHealth(stateMachine.GetCurrentHealth());
             linkInventory.GetLinkHealthBar().setMaxHealth(stateMachine.GetMaxHealth());
 
-            if (stateMachine.getColor() == LinkColor.Damaged && damageFrameCount <= 32)
+            if (stateMachine.getColor() == LinkColor.Damaged && damageFrameCount <= 8)
             {
-                if (damageFrameCount % 16 < 4) linkSpriteSheet = linkSheetList[1];
-                else if (damageFrameCount % 16 >= 4 && damageFrameCount % 16 < 8) linkSpriteSheet = linkSheetList[2];
-                else if (damageFrameCount % 16 >= 8 && damageFrameCount % 16 < 12) linkSpriteSheet = linkSheetList[3];
+                if (damageFrameCount % 4 == 0) linkSpriteSheet = linkSheetList[1];
+                else if (damageFrameCount % 4 == 1) linkSpriteSheet = linkSheetList[2];
+                else if (damageFrameCount % 4 == 2) linkSpriteSheet = linkSheetList[3];
                 else linkSpriteSheet = linkSheetList[0];
-                if (damageFrameCount == 32)
+                if (damageFrameCount == 8)
                 {
                     stateMachine.setOriginalColor();
                     stateMachine.damageVector = new Vector2(0, 0);

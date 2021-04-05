@@ -13,7 +13,7 @@ namespace Sprint0
             Left
         };
 
-        private const int LINKDAMAGEVECTOR = 3;
+        private const int LINKDAMAGEVECTOR = 8;
         private const int ENEMYDAMAGEVECTOR = 6;
 
         public LinkEnemyHandler()

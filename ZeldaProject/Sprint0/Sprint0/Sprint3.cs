@@ -200,12 +200,12 @@ namespace Sprint0
                         if (projectiles[i].CheckForRemoval()) projectiles.RemoveAt(i);
                     }
 
+                    allCollisionHandler.CheckTraps(npcs);
+                    allCollisionHandler.CheckWalls(link, npcs, roomManager);
                     allCollisionHandler.PlayerItemCollisions(link, items, npcs, Collision_soundEffects);
                     allCollisionHandler.BlockCollisions(link, npcs, blocks, roomManager, Collision_soundEffects);
                     allCollisionHandler.ProjectileCollisions(link, npcs, projectiles, Collision_soundEffects, items, roomManager);
-                    allCollisionHandler.CheckTraps(npcs);
                     allCollisionHandler.PlayerEnemyCollisions(link, npcs, Collision_soundEffects, items);
-                    allCollisionHandler.CheckWalls(link, npcs, roomManager);
 
                     CheckPlayer();
 
@@ -226,6 +226,7 @@ namespace Sprint0
                         textSprite.Reset();
                     }
                 }
+                
             } else
             {
                 if (frame % 2 == 0)
