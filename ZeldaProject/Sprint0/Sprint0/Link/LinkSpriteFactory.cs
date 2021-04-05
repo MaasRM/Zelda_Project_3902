@@ -13,8 +13,8 @@ namespace Sprint0
         public LinkSpriteFactory()
         {
             //initial height and width
-            linkHeight = 15;
-            linkWidth = 15;
+            linkHeight = 16;
+            linkWidth = 16;
         }
 
         public Rectangle getSourceRectangle(Direction direction, LinkColor color, Animation animation, int frame)
@@ -22,167 +22,141 @@ namespace Sprint0
             //Use params to get proper rectangle from sprite sheet and update height and width
             ILinkRectangle linkRectangle;
             Rectangle retRectangle;
+
+            //generic
+            linkRectangle = FindLinkRectangle(direction, animation);
+            retRectangle = linkRectangle.getRectangle(color, frame);
+            linkHeight = FindLinkHeight(direction, animation, frame);
+            linkWidth = FindLinkWidth(direction, animation, frame);
+            return retRectangle;
+        }
+
+        private ILinkRectangle FindLinkRectangle(Direction direction, Animation animation)
+        {
+            ILinkRectangle retRectangle;
             if (direction == Direction.Up)
             {
                 if (animation == Animation.Idle)
                 {
-                    linkRectangle = new RectangleLinkMoveUpIdle();
-                    retRectangle = linkRectangle.getRectangle(color, frame);
-                    linkHeight = 16;
-                    linkWidth = 16;
-                } 
+                    retRectangle = new RectangleLinkMoveUpIdle();
+                }
                 else if (animation == Animation.Walk)
                 {
-                    linkRectangle = new RectangleLinkMoveUpWalk();
-                    retRectangle = linkRectangle.getRectangle(color, frame);
-                    linkHeight = 16;
-                    linkWidth = 16;
-                } 
+                    retRectangle = new RectangleLinkMoveUpWalk();
+                }
                 else if (animation == Animation.Attack)
                 {
-                    linkRectangle = new RectangleLinkMoveUpAttack();
-                    retRectangle = linkRectangle.getRectangle(color, frame);
-                    linkHeight = 30;
-                    linkWidth = 16;
-                } 
+                    retRectangle = new RectangleLinkMoveUpAttack();
+                }
                 else //Animation.UsingItem
                 {
-                    linkRectangle = new RectangleLinkMoveUpItem();
-                    retRectangle = linkRectangle.getRectangle(color, frame);
-                    linkHeight = 16;
-                    linkWidth = 16;
+                    retRectangle = new RectangleLinkMoveUpItem();
                 }
-            } 
+            }
             else if (direction == Direction.Down)
             {
                 if (animation == Animation.Idle)
                 {
-                    linkRectangle = new RectangleLinkMoveDownIdle();
-                    retRectangle = linkRectangle.getRectangle(color, frame);
-                    linkHeight = 16;
-                    linkWidth = 16;
+                    retRectangle = new RectangleLinkMoveDownIdle();
                 }
                 else if (animation == Animation.Walk)
                 {
-                    linkRectangle = new RectangleLinkMoveDownWalk();
-                    retRectangle = linkRectangle.getRectangle(color, frame);
-                    linkHeight = 16;
-                    linkWidth = 16;
+                    retRectangle = new RectangleLinkMoveDownWalk();
                 }
                 else if (animation == Animation.Attack)
                 {
-                    linkRectangle = new RectangleLinkMoveDownAttack();
-                    retRectangle = linkRectangle.getRectangle(color, frame);
-                    linkHeight = 30;
-                    linkWidth = 16;
+                    retRectangle = new RectangleLinkMoveDownAttack();
                 }
                 else //Animation.UsingItem
                 {
-                    linkRectangle = new RectangleLinkMoveDownItem();
-                    retRectangle = linkRectangle.getRectangle(color, frame);
-                    linkHeight = 16;
-                    linkWidth = 16;
+                    retRectangle = new RectangleLinkMoveDownItem();
                 }
-            } 
+            }
             else if (direction == Direction.Left)
             {
                 if (animation == Animation.Idle)
                 {
-                    linkRectangle = new RectangleLinkMoveRightIdle();
-                    retRectangle = linkRectangle.getRectangle(color, frame);
-                    linkHeight = 16;
-                    linkWidth = 16;
+                    retRectangle = new RectangleLinkMoveRightIdle();
                 }
                 else if (animation == Animation.Walk)
                 {
-                    linkRectangle = new RectangleLinkMoveRightWalk();
-                    retRectangle = linkRectangle.getRectangle(color, frame);
-                    linkHeight = 16;
-                    linkWidth = 16;
+                    retRectangle = new RectangleLinkMoveRightWalk();
                 }
                 else if (animation == Animation.Attack)
                 {
-                    linkRectangle = new RectangleLinkMoveRightAttack();
-                    retRectangle = linkRectangle.getRectangle(color, frame);
-                    if (frame == 0)
-                    {
-                        linkHeight = 16;
-                        linkWidth = 16;
-                    }
-                    else if (frame == 1)
-                    {
-                        linkHeight = 16;
-                        linkWidth = 26;
-                    }
-                    else if (frame == 2)
-                    {
-                        linkHeight = 16;
-                        linkWidth = 22;
-                    }
-                    else //frame == 3
-                    {
-                        linkHeight = 16;
-                        linkWidth = 18;
-                    }
+                    retRectangle = new RectangleLinkMoveRightAttack();
                 }
                 else //Animation.UsingItem
                 {
-                    linkRectangle = new RectangleLinkMoveRightItem();
-                    retRectangle = linkRectangle.getRectangle(color, frame);
-                    linkHeight = 16;
-                    linkWidth = 16;
+                    retRectangle = new RectangleLinkMoveRightItem();
                 }
-            } 
+            }
             else //Direction.MoveRight
             {
                 if (animation == Animation.Idle)
                 {
-                    linkRectangle = new RectangleLinkMoveRightIdle();
-                    retRectangle = linkRectangle.getRectangle(color, frame);
-                    linkHeight = 16;
-                    linkWidth = 16;
+                    retRectangle = new RectangleLinkMoveRightIdle();
                 }
                 else if (animation == Animation.Walk)
                 {
-                    linkRectangle = new RectangleLinkMoveRightWalk();
-                    retRectangle = linkRectangle.getRectangle(color, frame);
-                    linkHeight = 16;
-                    linkWidth = 16;
+                    retRectangle = new RectangleLinkMoveRightWalk();
                 }
                 else if (animation == Animation.Attack)
                 {
-                    linkRectangle = new RectangleLinkMoveRightAttack();
-                    retRectangle = linkRectangle.getRectangle(color, frame);
-                    if (frame == 0)
-                    {
-                        linkHeight = 16;
-                        linkWidth = 16;
-                    }
-                    else if (frame == 1)
-                    {
-                        linkHeight = 16;
-                        linkWidth = 27;
-                    }
-                    else if (frame == 2)
-                    {
-                        linkHeight = 16;
-                        linkWidth = 23;
-                    }
-                    else //frame == 3
-                    {
-                        linkHeight = 16;
-                        linkWidth = 19;
-                    }
+                    retRectangle = new RectangleLinkMoveRightAttack();
                 }
                 else //Animation.UsingItem
                 {
-                    linkRectangle = new RectangleLinkMoveRightItem();
-                    retRectangle = linkRectangle.getRectangle(color, frame);
-                    linkHeight = 16;
-                    linkWidth = 16;
+                    retRectangle = new RectangleLinkMoveRightItem();
                 }
             }
             return retRectangle;
+        }
+
+        private int FindLinkHeight(Direction direction, Animation animation, int frame)
+        {
+            int ret = LinkConstants.LINKSIZENORMAL;
+            if(animation == Animation.Attack && (direction == Direction.Up || direction == Direction.Down))
+            {
+                switch(frame)
+                {
+                    case 1:
+                        ret = LinkConstants.LINKSIZEATTACKYFRAME1;
+                        break;
+                    case 2:
+                        ret = LinkConstants.LINKSIZEATTACKYFRAME2;
+                        break;
+                    case 3:
+                        ret = LinkConstants.LINKSIZEATTACKYFRAME3;
+                        break;
+                    default:
+                        break;
+                }
+            }
+            return ret;
+        }
+
+        private int FindLinkWidth(Direction direction, Animation animation, int frame)
+        {
+            int ret = LinkConstants.LINKSIZENORMAL;
+            if (animation == Animation.Attack && (direction == Direction.Left || direction == Direction.Right))
+            {
+                switch (frame)
+                {
+                    case 1:
+                        ret = LinkConstants.LINKSIZEATTACKXFRAME1;
+                        break;
+                    case 2:
+                        ret = LinkConstants.LINKSIZEATTACKXFRAME2;
+                        break;
+                    case 3:
+                        ret = LinkConstants.LINKSIZEATTACKXFRAME3;
+                        break;
+                    default:
+                        break;
+                }
+            }
+            return ret;
         }
 
         public int getHeight()
