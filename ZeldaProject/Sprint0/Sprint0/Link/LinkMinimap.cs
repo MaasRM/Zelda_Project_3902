@@ -27,12 +27,12 @@ namespace Sprint0
             roomMinimapSource = new Rectangle(663, 109, 6, 2);
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, int offset)
         {
             if (hasMap == true)
             {
                 foreach(int room in visitedRooms){
-                    spriteBatch.Draw(minimapTexture, getMinimapRoomDestinationSprite(room), roomMinimapSource, Color.White);
+                    spriteBatch.Draw(minimapTexture, getMinimapRoomDestinationSprite(room, offset), roomMinimapSource, Color.White);
                 }
             }
             spriteBatch.Draw(minimapTexture, linkMinimapDestination, linkMinimapSource, Color.White);
@@ -48,48 +48,48 @@ namespace Sprint0
             hasMap = val;
         }
 
-        public void setLinkMinimapDestinationSprite(int roomNumber)
+        public void setLinkMinimapDestinationSprite(int roomNumber, int offset)
         {
             if (!visitedRooms.Contains(roomNumber)) { visitedRooms.Add(roomNumber); }
-            if (roomNumber == 0) { linkMinimapDestination = new Rectangle(129, 80, 4 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
-            else if (roomNumber == 1) { linkMinimapDestination = new Rectangle(162, 80, 4 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
-            else if (roomNumber == 2) { linkMinimapDestination = new Rectangle(164, 103, 4 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
-            else if (roomNumber == 3) { linkMinimapDestination = new Rectangle(226, 103, 4 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
-            else if (roomNumber == 4) { linkMinimapDestination = new Rectangle(259, 103, 4 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
-            else if (roomNumber == 5) { linkMinimapDestination = new Rectangle(96, 126, 4 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
-            else if (roomNumber == 6) { linkMinimapDestination = new Rectangle(129, 126, 4 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
-            else if (roomNumber == 7) { linkMinimapDestination = new Rectangle(162, 126, 4 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
-            else if (roomNumber == 8) { linkMinimapDestination = new Rectangle(194, 126, 4 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
-            else if (roomNumber == 9) { linkMinimapDestination = new Rectangle(226, 126, 4 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
-            else if (roomNumber == 10) { linkMinimapDestination = new Rectangle(129, 150, 4 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
-            else if (roomNumber == 11) { linkMinimapDestination = new Rectangle(162, 150, 4 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
-            else if (roomNumber == 12) { linkMinimapDestination = new Rectangle(194, 150, 4 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
-            else if (roomNumber == 13) { linkMinimapDestination = new Rectangle(162, 174, 4 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
-            else if (roomNumber == 14) { linkMinimapDestination = new Rectangle(129, 197, 4 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
-            else if (roomNumber == 15) { linkMinimapDestination = new Rectangle(162, 197, 4 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
-            else { linkMinimapDestination = new Rectangle(194, 197, 4 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
+            if (roomNumber == 0) { linkMinimapDestination = new Rectangle(129, 80 + offset, 4 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
+            else if (roomNumber == 1) { linkMinimapDestination = new Rectangle(162, 80 + offset, 4 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
+            else if (roomNumber == 2) { linkMinimapDestination = new Rectangle(164, 103 + offset, 4 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
+            else if (roomNumber == 3) { linkMinimapDestination = new Rectangle(226, 103 + offset, 4 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
+            else if (roomNumber == 4) { linkMinimapDestination = new Rectangle(259, 103 + offset, 4 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
+            else if (roomNumber == 5) { linkMinimapDestination = new Rectangle(96, 126 + offset, 4 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
+            else if (roomNumber == 6) { linkMinimapDestination = new Rectangle(129, 126 + offset, 4 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
+            else if (roomNumber == 7) { linkMinimapDestination = new Rectangle(162, 126 + offset, 4 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
+            else if (roomNumber == 8) { linkMinimapDestination = new Rectangle(194, 126 + offset, 4 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
+            else if (roomNumber == 9) { linkMinimapDestination = new Rectangle(226, 126 + offset, 4 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
+            else if (roomNumber == 10) { linkMinimapDestination = new Rectangle(129, 150 + offset, 4 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
+            else if (roomNumber == 11) { linkMinimapDestination = new Rectangle(162, 150 + offset, 4 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
+            else if (roomNumber == 12) { linkMinimapDestination = new Rectangle(194, 150 + offset, 4 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
+            else if (roomNumber == 13) { linkMinimapDestination = new Rectangle(162, 174 + offset, 4 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
+            else if (roomNumber == 14) { linkMinimapDestination = new Rectangle(129, 197 + offset, 4 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
+            else if (roomNumber == 15) { linkMinimapDestination = new Rectangle(162, 197 + offset, 4 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
+            else { linkMinimapDestination = new Rectangle(194, 197 + offset, 4 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
         }
 
-        public Rectangle getMinimapRoomDestinationSprite(int roomNumber)
+        public Rectangle getMinimapRoomDestinationSprite(int roomNumber, int offset)
         {
             Rectangle roomMinimapDestination;
-            if (roomNumber == 0) { roomMinimapDestination = new Rectangle(121, 80, 8 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
-            else if (roomNumber == 1) { roomMinimapDestination = new Rectangle(154, 80, 8 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
-            else if (roomNumber == 2) { roomMinimapDestination = new Rectangle(156, 103, 8 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
-            else if (roomNumber == 3) { roomMinimapDestination = new Rectangle(218, 103, 8 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
-            else if (roomNumber == 4) { roomMinimapDestination = new Rectangle(251, 103, 8 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
-            else if (roomNumber == 5) { roomMinimapDestination = new Rectangle(88, 126, 8 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
-            else if (roomNumber == 6) { roomMinimapDestination = new Rectangle(121, 126, 8 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
-            else if (roomNumber == 7) { roomMinimapDestination = new Rectangle(154, 126, 8 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
-            else if (roomNumber == 8) { roomMinimapDestination = new Rectangle(186, 126, 8 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
-            else if (roomNumber == 9) { roomMinimapDestination = new Rectangle(218, 126, 8 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
-            else if (roomNumber == 10) { roomMinimapDestination = new Rectangle(121, 150, 8 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
-            else if (roomNumber == 11) { roomMinimapDestination = new Rectangle(154, 150, 8 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
-            else if (roomNumber == 12) { roomMinimapDestination = new Rectangle(186, 150, 8 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
-            else if (roomNumber == 13) { roomMinimapDestination = new Rectangle(154, 174, 8 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
-            else if (roomNumber == 14) { roomMinimapDestination = new Rectangle(121, 197, 8 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
-            else if (roomNumber == 15) { roomMinimapDestination = new Rectangle(154, 197, 8 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
-            else { roomMinimapDestination = new Rectangle(186, 197, 8 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
+            if (roomNumber == 0) { roomMinimapDestination = new Rectangle(121, 80 + offset, 8 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
+            else if (roomNumber == 1) { roomMinimapDestination = new Rectangle(154, 80 + offset, 8 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
+            else if (roomNumber == 2) { roomMinimapDestination = new Rectangle(156, 103 + offset, 8 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
+            else if (roomNumber == 3) { roomMinimapDestination = new Rectangle(218, 103 + offset, 8 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
+            else if (roomNumber == 4) { roomMinimapDestination = new Rectangle(251, 103 + offset, 8 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
+            else if (roomNumber == 5) { roomMinimapDestination = new Rectangle(88, 126 + offset, 8 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
+            else if (roomNumber == 6) { roomMinimapDestination = new Rectangle(121, 126 + offset, 8 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
+            else if (roomNumber == 7) { roomMinimapDestination = new Rectangle(154, 126 + offset, 8 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
+            else if (roomNumber == 8) { roomMinimapDestination = new Rectangle(186, 126 + offset, 8 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
+            else if (roomNumber == 9) { roomMinimapDestination = new Rectangle(218, 126 + offset, 8 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
+            else if (roomNumber == 10) { roomMinimapDestination = new Rectangle(121, 150 + offset, 8 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
+            else if (roomNumber == 11) { roomMinimapDestination = new Rectangle(154, 150 + offset, 8 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
+            else if (roomNumber == 12) { roomMinimapDestination = new Rectangle(186, 150 + offset, 8 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
+            else if (roomNumber == 13) { roomMinimapDestination = new Rectangle(154, 174 + offset, 8 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
+            else if (roomNumber == 14) { roomMinimapDestination = new Rectangle(121, 197 + offset, 8 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
+            else if (roomNumber == 15) { roomMinimapDestination = new Rectangle(154, 197 + offset, 8 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
+            else { roomMinimapDestination = new Rectangle(186, 197 + offset, 8 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
             return roomMinimapDestination;
         }
     }
