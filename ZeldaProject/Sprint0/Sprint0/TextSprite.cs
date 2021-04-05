@@ -37,19 +37,14 @@ namespace Sprint0
             counter = 0;
         }
 
-        public void Update(int index)
-        {
-            if (index == 5)
-            {
-                if (counter < 33) counter++;
-            } else
-            {
-                counter = 0;
-            }
-        }
-
         public void Update()
         {
+            if (counter < 33) counter++;
+        }
+
+        public void Reset()
+        {
+            counter = 0;
         }
 
         public void Draw(SpriteBatch spriteBatch)

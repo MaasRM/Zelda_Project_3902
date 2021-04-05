@@ -218,7 +218,13 @@ namespace Sprint0
                             controller.Update();
                         }
                     }
-                    textSprite.Update(roomManager.getRoomIndex());
+                    if(roomManager.getRoomIndex() == 5)
+                    {
+                        textSprite.Update();
+                    } else
+                    {
+                        textSprite.Reset();
+                    }
                 }
             } else
             {
