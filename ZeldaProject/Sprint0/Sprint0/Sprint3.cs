@@ -221,7 +221,10 @@ namespace Sprint0
                 }
             } else
             {
-                pauseControls.Update();
+                if (frame % 2 == 0)
+                {
+                    pauseControls.Update();
+                }
             }
 
             base.Update(gameTime);

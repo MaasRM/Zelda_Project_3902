@@ -35,7 +35,6 @@ namespace Sprint0
 		public void Update()
 		{
 			Keys[] pressedKeys = Keyboard.GetState().GetPressedKeys();
-
 			foreach (Keys key in pressedKeys)
 			{
 				if (pauseCommands.ContainsKey(key))
