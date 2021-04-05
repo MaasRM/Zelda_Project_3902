@@ -42,9 +42,9 @@ namespace Sprint0
         private int frame;
         private int swordProjFrame;
         private HealthAndDamageHandler healthAndDamage;
-        public Vector2 damageVector { get; set; }
         private List<SoundEffect> soundEffects;
         private SoundEffectInstance lowHealth;
+        public Vector2 damageVector { get; set; }
 
         public LinkStateMachine(List<SoundEffect> Link_soundEffects)
         {
@@ -128,125 +128,51 @@ namespace Sprint0
             swordProjFrame++;
         }
 
-        public void faceUp()
+        public void Move(Direction dir)
         {
-            if (!isBusy && (color != LinkColor.Damaged || (damageVector.X == 0 && damageVector.Y == 0)))
-            {
-                if (this.direction == Direction.Up)
-                {
+            if (!isBusy && (color != LinkColor.Damaged || (damageVector.X == 0 && damageVector.Y == 0))) {
+                if (this.direction == dir) {
                     this.animation = Animation.Walk;
-                    yLoc -= LinkConstants.linkMoveSpeed;
+                    switch (dir) {
+                        case Direction.Up:
+                            yLoc -= LinkConstants.linkMoveSpeed;
+                            break;
+                        case Direction.Down:
+                            yLoc += LinkConstants.linkMoveSpeed;
+                            break;
+                        case Direction.Left:
+                            xLoc -= LinkConstants.linkMoveSpeed;
+                            break;
+                        case Direction.Right:
+                            xLoc += LinkConstants.linkMoveSpeed;
+                            break;
+                        default:
+                            break;
+                    }
                     if (frame == 0) frame = 1;
                     else frame = 0;
-                }
-                else
-                {
-                    this.direction = Direction.Up;
+                } else {
+                    this.direction = dir;
                     this.animation = Animation.Idle;
                     frame = 0;
                 }
             }
         }
 
-        public void faceDown()
+        public void setAnimation(Animation animation)
         {
-            if (!isBusy && (color != LinkColor.Damaged || (damageVector.X == 0 && damageVector.Y == 0)))
+            if (!isBusy && ((animation == Animation.Idle || animation == Animation.UsingItem) || (color != LinkColor.Damaged && animation == Animation.Attack)))
             {
-                if (this.direction == Direction.Down)
-                {
-                    this.animation = Animation.Walk;
-                    yLoc += LinkConstants.linkMoveSpeed;
-                    if (frame == 0) frame = 1;
-                    else frame = 0;
-                }
-                else
-                {
-                    this.direction = Direction.Down;
-                    this.animation = Animation.Idle;
-                    frame = 0;
-                }
-            }
-        }
-
-        public void faceLeft()
-        {
-            if (!isBusy && (color != LinkColor.Damaged || (damageVector.X == 0 && damageVector.Y == 0)))
-            {
-                if (this.direction == Direction.Left)
-                {
-                    this.animation = Animation.Walk;
-                    xLoc -= LinkConstants.linkMoveSpeed;
-                    if (frame == 0) frame = 1;
-                    else frame = 0;
-                }
-                else
-                {
-                    this.direction = Direction.Left;
-                    this.animation = Animation.Idle;
-                    frame = 0;
-                }
-            }
-        }
-
-        public void faceRight()
-        {
-            if (!isBusy && (color != LinkColor.Damaged || (damageVector.X == 0 && damageVector.Y == 0)))
-            {
-                if (this.direction == Direction.Right)
-                {
-                    this.animation = Animation.Walk;
-                    xLoc += LinkConstants.linkMoveSpeed;
-                    if (frame == 0) frame = 1;
-                    else frame = 0;
-                }
-                else
-                {
-                    this.direction = Direction.Right;
-                    this.animation = Animation.Idle;
-                    frame = 0;
-                }
-            }
-        }
-
-        public void setIdle()
-        {
-            if (!isBusy)
-            {
-                this.animation = Animation.Idle;
-                isBusy = false;
+                this.animation = animation;
+                if (animation == Animation.Attack || animation == Animation.UsingItem) isBusy = true;
+                if (animation == Animation.Attack) soundEffects[8].Play();
                 frame = 0;
             }
         }
 
-        public void setAttack()
+        public void setColor(LinkColor color)
         {
-            if (!isBusy && color != LinkColor.Damaged)
-            {
-                this.animation = Animation.Attack;
-                isBusy = true;
-                frame = 0;
-                soundEffects[8].Play();
-            }
-        }
-
-        public void setDamaged()
-        {
-            this.color = LinkColor.Damaged;
-        }
-
-        public void setOriginalColor()
-        {
-            this.color = LinkColor.Green;
-        }
-
-        public void setUseItem()
-        {
-            if (!isBusy)
-            {
-                this.animation = Animation.UsingItem;
-                isBusy = true;
-                frame = 0;
-            }
+            this.color = color;
         }
 
         public Boolean getIsBusy()
@@ -279,16 +205,6 @@ namespace Sprint0
             return this.yLoc;
         }
 
-        public void changeXLocation(int change) //Not used but may need later??
-        {
-            xLoc += change;
-        }
-
-        public void changeYLocation(int change) //Not used but may need later??
-        {
-            yLoc += change;
-        }
-
         public void MakeBusy()
         {
             isBusy = true;
@@ -312,7 +228,7 @@ namespace Sprint0
             {
                 healthAndDamage.GetDamaged(damage);
                 damageVector = direction;
-                setDamaged();
+                setColor(LinkColor.Damaged);
             }
         }
 
@@ -353,7 +269,7 @@ namespace Sprint0
         public bool ReadyToFire()
         {
             bool returnValue = false;
-            if(healthAndDamage.AtMaxHealth() && animation == Animation.Attack && swordProjFrame >= SWORDPROJECTILEBUFFER)
+            if(healthAndDamage.AtMaxHealth() && animation == Animation.Attack && swordProjFrame >= LinkConstants.SWORDPROJECTILEBUFFER)
             {
                 returnValue = true;
                 swordProjFrame = 0;

@@ -18,7 +18,7 @@ namespace Sprint0
             {
                 game.AddProjectile(new BrownBoomerangProjectile(game.GetPlayer().GetSpriteSheet(), game.GetPlayer().getLinkStateMachine(), game.Link_soundEffects));
             }
-            game.GetPlayer().getLinkStateMachine().setUseItem();
+            game.GetPlayer().getLinkStateMachine().setAnimation(Animation.UsingItem);
         }
     }
 }

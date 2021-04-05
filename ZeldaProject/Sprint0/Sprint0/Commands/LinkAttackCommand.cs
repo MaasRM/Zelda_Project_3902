@@ -12,7 +12,7 @@ namespace Sprint0
         public void Execute()
         {
             game.Link_soundEffects[8].Play();
-            this.game.GetPlayer().getLinkStateMachine().setAttack();
+            this.game.GetPlayer().getLinkStateMachine().setAnimation(Animation.Attack);
 
             if (game.GetPlayer().getLinkStateMachine().ReadyToFire())
             {

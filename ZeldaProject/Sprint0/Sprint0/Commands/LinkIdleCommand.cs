@@ -14,7 +14,7 @@ namespace Sprint0
 
         public void Execute()
         {
-            game.GetPlayer().getLinkStateMachine().setIdle();
+            game.GetPlayer().getLinkStateMachine().setAnimation(Animation.Idle);
         }
     }
 }

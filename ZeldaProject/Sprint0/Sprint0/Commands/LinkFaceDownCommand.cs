@@ -11,7 +11,7 @@ namespace Sprint0
 
         public void Execute()
         {
-            game.GetPlayer().getLinkStateMachine().faceDown();
+            game.GetPlayer().getLinkStateMachine().Move(Direction.Down);
         }
     }
 }

@@ -11,7 +11,7 @@ namespace Sprint0
 
         public void Execute()
         {
-            game.GetPlayer().getLinkStateMachine().setDamaged();
+            game.GetPlayer().getLinkStateMachine().setColor(LinkColor.Damaged);
         }
     }
 }

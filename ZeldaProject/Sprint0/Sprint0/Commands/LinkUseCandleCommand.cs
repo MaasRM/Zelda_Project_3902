@@ -18,7 +18,7 @@ namespace Sprint0.Commands
             {
                 game.AddProjectile(new CandleFireProjectile(game.GetPlayer().GetSpriteSheet(), game.GetPlayer().getLinkStateMachine(), game.Link_soundEffects));
             }
-            game.GetPlayer().getLinkStateMachine().setUseItem();
+            game.GetPlayer().getLinkStateMachine().setAnimation(Animation.UsingItem);
         }
     }
 }

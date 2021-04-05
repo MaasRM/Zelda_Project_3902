@@ -48,7 +48,7 @@ namespace Sprint0
                 else linkSpriteSheet = linkSheetList[0];
                 if (damageFrameCount == 8)
                 {
-                    stateMachine.setOriginalColor();
+                    stateMachine.setColor(LinkColor.Green);
                     stateMachine.damageVector = new Vector2(0, 0);
                 }
 
