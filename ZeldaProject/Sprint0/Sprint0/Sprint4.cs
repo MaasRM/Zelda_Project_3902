@@ -293,6 +293,11 @@ namespace Sprint0
             projectiles.Remove(projectile);
         }
 
+        public List<IProjectile> GetProjectiles()
+        {
+            return projectiles;
+        }
+
         public void RemoveItem(IItem item)
         {
             items.Remove(item);

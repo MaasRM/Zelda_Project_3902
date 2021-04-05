@@ -14,7 +14,12 @@ namespace Sprint0
 
         public void Execute()
         {
-            if (!game.GetPlayer().getLinkStateMachine().getIsBusy())
+            Boolean alreadyExists = false;
+            foreach (IProjectile proj in game.GetProjectiles())
+            {
+                if (proj is BrownArrowProjectile) alreadyExists = true;
+            }
+            if (!alreadyExists)
             {
                 game.AddProjectile(new BrownArrowProjectile(game.GetPlayer().GetSpriteSheet(), game.GetPlayer().getLinkStateMachine(), game.Link_soundEffects));
             }

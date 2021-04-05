@@ -175,11 +175,6 @@ namespace Sprint0
             this.color = color;
         }
 
-        public Boolean getIsBusy()
-        {
-            return this.isBusy;
-        }
-
         public Direction getDirection()
         {
             return this.direction;
@@ -269,7 +264,7 @@ namespace Sprint0
         public bool ReadyToFire()
         {
             bool returnValue = false;
-            if(healthAndDamage.AtMaxHealth() && animation == Animation.Attack && swordProjFrame >= LinkConstants.SWORDPROJECTILEBUFFER)
+            if(((healthAndDamage.AtMaxHealth() && animation == Animation.Attack) || animation == Animation.UsingItem) && swordProjFrame >= LinkConstants.SWORDPROJECTILEBUFFER)
             {
                 returnValue = true;
                 swordProjFrame = 0;
