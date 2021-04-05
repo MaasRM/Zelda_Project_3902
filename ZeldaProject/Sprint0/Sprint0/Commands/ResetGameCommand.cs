@@ -11,7 +11,7 @@ namespace Sprint0
 
         public void Execute()
         {
-            game.Dispose();
+            game.Exit();
             using (var game = new Sprint3())
                 game.Run();
         }

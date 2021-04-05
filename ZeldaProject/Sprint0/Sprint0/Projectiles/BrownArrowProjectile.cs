@@ -74,7 +74,9 @@ namespace Sprint0
                 else if (projectileDirection == Direction.MoveDown) yLoc += ArrowSpeed;
                 else if (projectileDirection == Direction.MoveLeft) xLoc -= ArrowSpeed;
                 else xLoc += ArrowSpeed;
-                destinationRectangle = new Rectangle(xLoc, yLoc, ArrowWidth, ArrowLength);
+
+                if(projectileDirection == Direction.MoveUp || projectileDirection == Direction.MoveDown) destinationRectangle = new Rectangle(xLoc, yLoc, ArrowWidth, ArrowLength);
+                else destinationRectangle = new Rectangle(xLoc, yLoc, ArrowLength, ArrowWidth);
             }
             else
             {
@@ -83,15 +85,12 @@ namespace Sprint0
                 {
                     if (frame == HITFRAME)
                     {
-                        yLoc -= ArrowLength / 2;
                         if (projectileDirection == Direction.MoveLeft) xLoc -= ArrowWidth / 2;
                         else xLoc += ArrowWidth / 2;
                     }
                     destinationRectangle = new Rectangle(xLoc, yLoc, ArrowLength, ArrowWidth);
-                } else
-                {
-                    destinationRectangle = new Rectangle(xLoc, yLoc, ArrowWidth, ArrowLength);
                 }
+                else destinationRectangle = new Rectangle(xLoc, yLoc, ArrowWidth, ArrowLength);
             }
             frame++;
         }

@@ -44,7 +44,7 @@ namespace Sprint0
         private int swordProjFrame;
         private int sizeFactor;
         private HealthAndDamageHandler healthAndDamage;
-        private Vector2 damageVector;
+        public Vector2 damageVector { get; set; }
         private const int xInit = 120;
         private const int yInit = 128;
         private const int scale = 4;
@@ -138,7 +138,7 @@ namespace Sprint0
 
         public void faceUp()
         {
-            if (!isBusy && color != LinkColor.Damaged)
+            if (!isBusy && (color != LinkColor.Damaged || (damageVector.X == 0 && damageVector.Y == 0)))
             {
                 if (this.direction == Direction.MoveUp)
                 {
@@ -158,7 +158,7 @@ namespace Sprint0
 
         public void faceDown()
         {
-            if (!isBusy && color != LinkColor.Damaged)
+            if (!isBusy && (color != LinkColor.Damaged || (damageVector.X == 0 && damageVector.Y == 0)))
             {
                 if (this.direction == Direction.MoveDown)
                 {
@@ -178,7 +178,7 @@ namespace Sprint0
 
         public void faceLeft()
         {
-            if (!isBusy && color != LinkColor.Damaged)
+            if (!isBusy && (color != LinkColor.Damaged || (damageVector.X == 0 && damageVector.Y == 0)))
             {
                 if (this.direction == Direction.MoveLeft)
                 {
@@ -198,7 +198,7 @@ namespace Sprint0
 
         public void faceRight()
         {
-            if (!isBusy && color != LinkColor.Damaged)
+            if (!isBusy && (color != LinkColor.Damaged || (damageVector.X == 0 && damageVector.Y == 0)))
             {
                 if (this.direction == Direction.MoveRight)
                 {
@@ -306,6 +306,7 @@ namespace Sprint0
         {
             yLoc = newPos.Y;
             xLoc = newPos.X;
+            damageVector = new Vector2(0, 0);
         }
 
         public void Heal(int newHealth)

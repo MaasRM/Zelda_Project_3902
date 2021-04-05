@@ -46,7 +46,7 @@ namespace Sprint0
             damageFrames = 0;
             health = MAXHEALTH;
             state = State.Normal;
-            damageDirection = new Vector2(0, 0);
+            damageDirection = new Vector2(1, 1);
         }
 
         public Rectangle GetDestination()
@@ -133,7 +133,7 @@ namespace Sprint0
                 state = State.Normal;
                 stunFrames = 0;
                 damageFrames = 0;
-                damageDirection = new Vector2(0, 0);
+                damageDirection = new Vector2(1, 1);
             }
         }
 

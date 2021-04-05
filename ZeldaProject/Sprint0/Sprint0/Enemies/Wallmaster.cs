@@ -14,15 +14,18 @@ namespace Sprint0
         private Rectangle source;
         private Rectangle destination;
         private SpriteEffects flip;
+        private HealthAndDamageHandler healthAndDamage;
+        private const int MAXHEALTH = 4;
         private const int DAMAGE = 1;
-        private Tuple<int, int, WallmasterStateMachine.Direction> init;
+        private Tuple<int, int> init;
 
-        public Wallmaster(int x, int y, WallmasterStateMachine.Direction d, List<Texture2D> spritesheet)
+        public Wallmaster(int x, int y, List<Texture2D> spritesheet)
         {
-            stateMachine = new WallmasterStateMachine(x, y, d);
+            stateMachine = new WallmasterStateMachine(x, y);
             wallmasterSpriteSheet = spritesheet;
             currentSheet = spritesheet[0];
-            init = new Tuple<int, int, WallmasterStateMachine.Direction>(x, y, d);
+            init = new Tuple<int, int>(x, y);
+            healthAndDamage = new HealthAndDamageHandler(MAXHEALTH, DAMAGE);
         }
 
         public void Update()
@@ -35,9 +38,9 @@ namespace Sprint0
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            if(!stateMachine.IsWaiting())
+            if(stateMachine.activity != WallmasterStateMachine.Activity.Waiting)
             {
-                WallmasterStateMachine.Direction initial = stateMachine.GetInitialDirection();
+                WallmasterStateMachine.Direction initial = stateMachine.initialDirection;
                 WallmasterStateMachine.Direction second = stateMachine.GetSecondDirection();
 
                 bool directionLeft = initial == WallmasterStateMachine.Direction.Left || second == WallmasterStateMachine.Direction.Left;
@@ -78,6 +81,11 @@ namespace Sprint0
             stateMachine.SetWallmaster();
         }
 
+        public bool CanGrab()
+        {
+            return stateMachine.activity == WallmasterStateMachine.Activity.Moving;
+        }
+
         public bool Grabbing()
         {
             return stateMachine.GetGrabStatus();
@@ -90,7 +98,7 @@ namespace Sprint0
 
         public void Reset()
         {
-            stateMachine = new WallmasterStateMachine(init.Item1, init.Item2, init.Item3);
+            stateMachine = new WallmasterStateMachine(init.Item1, init.Item2);
         }
 
         public Rectangle GetNPCLocation()
@@ -100,12 +108,13 @@ namespace Sprint0
 
         public int GetDamageValue()
         {
-            return DAMAGE;
+            return healthAndDamage.DealDamage();
         }
 
         public void SetDamageState(int damage, Vector2 direction)
         {
-            stateMachine.TakeDamage(damage, direction);
+            healthAndDamage.GetDamaged(damage);
+            stateMachine.SetDamageVector(direction);
         }
 
         public void SetPosition(Rectangle newPos)
@@ -116,17 +125,17 @@ namespace Sprint0
 
         public bool StillAlive()
         {
-            return stateMachine.HasHealth();
+            return healthAndDamage.IsAlive();
         }
 
         public void Stun()
         {
-            stateMachine.SetStun();
+            stateMachine.state = WallmasterStateMachine.State.Stun;
         }
 
         public bool IsDamaged()
         {
-            return stateMachine.IsDamaged();
+            return stateMachine.state == WallmasterStateMachine.State.Damaged;
         }
     }
 }

@@ -13,7 +13,7 @@ namespace Sprint0
             Left
         };
 
-        private const int DAMAGEVECTORSIZE = 3;
+        private const int DAMAGEVECTORSIZE = 6;
 
         public EnemyProjectileHandler()
         {
@@ -23,7 +23,10 @@ namespace Sprint0
         {
             OverlapInRelationToEnemy overlap = GetOverlapDirection(enemy, projectile);
 
-            if (projectile is BombProjectile && ((BombProjectile)projectile).Exploding()) DamageTheEnemy((IEnemy)enemy, projectile, overlap);
+            if (projectile is BombProjectile)
+            {
+                 if (((BombProjectile)projectile).Exploding()) DamageTheEnemy((IEnemy)enemy, projectile, overlap);
+            }
             else if (projectile is IBoomerang)
             {
                 if (enemy is Keese || enemy is Gel) DamageTheEnemy((IEnemy)enemy, projectile, overlap);

@@ -40,7 +40,6 @@ namespace Sprint0
 
         //text sprite
         private TextSprite textSprite;
-        private bool written = false;
 
         public Sprint3()
         {
@@ -119,11 +118,12 @@ namespace Sprint0
             Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Enemy_Die")); //done
             Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Enemy_Hit")); //done
             Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Fanfare"));
-            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Get_Heart")); //isn't activating on the keys?
+            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Get_Heart")); //done
             Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Get_Item")); //done
-            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Get_Rupee")); //add in rupees to test on otherwise done
+            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Get_Rupee")); //done
             Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Secret")); //done
-            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Stairs"));
+            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Stairs")); //done
+            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Shield")); //done
 
             //Link sound effects
             Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Arrow_Boomerang")); //done
@@ -140,11 +140,11 @@ namespace Sprint0
 
             //Enemy sound effects
             Enemy_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Arrow_Boomerang")); //done
-            Enemy_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Key_Appear")); 
+            Enemy_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Key_Appear")); //done
 
             //Text sound effects
-            Text_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Text")); //to be implemented
-            Text_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Text_Slow")); //to be implemented
+            Text_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Text")); //done
+            Text_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Text_Slow")); //done
 
             //should probably be moved later
             MediaPlayer.Play(Dungeon_music);
@@ -200,12 +200,12 @@ namespace Sprint0
                         if (projectiles[i].CheckForRemoval()) projectiles.RemoveAt(i);
                     }
 
+                    allCollisionHandler.CheckTraps(npcs);
+                    allCollisionHandler.CheckWalls(link, npcs, roomManager);
                     allCollisionHandler.PlayerItemCollisions(link, items, npcs, Collision_soundEffects);
                     allCollisionHandler.BlockCollisions(link, npcs, blocks, roomManager, Collision_soundEffects);
                     allCollisionHandler.ProjectileCollisions(link, npcs, projectiles, Collision_soundEffects, items, roomManager);
-                    allCollisionHandler.CheckTraps(npcs);
                     allCollisionHandler.PlayerEnemyCollisions(link, npcs, Collision_soundEffects, items);
-                    allCollisionHandler.CheckWalls(link, npcs, roomManager);
 
                     CheckPlayer();
 
@@ -218,10 +218,21 @@ namespace Sprint0
                             controller.Update();
                         }
                     }
+                    if(roomManager.getRoomIndex() == 5 && !roomManager.RoomChange())
+                    {
+                        if(frame % 8 == 0) textSprite.Update();
+                    } else
+                    {
+                        textSprite.Reset();
+                    }
                 }
+                
             } else
             {
-                pauseControls.Update();
+                if (frame % 2 == 0)
+                {
+                    pauseControls.Update();
+                }
             }
 
             base.Update(gameTime);
@@ -253,14 +264,14 @@ namespace Sprint0
                 proj.Draw(this._spriteBatch);
             }
 
+            if (roomManager.getRoomIndex() == 5 && !roomManager.RoomChange())
+            {
+                textSprite.Draw(this._spriteBatch);
+            }
+
             if (!roomManager.RoomChange())
             {
                 link.Draw(this._spriteBatch);
-            }
-
-            if (roomManager.getRoomIndex() == 5)
-            {
-                textSprite.Draw(this._spriteBatch);
             }
 
             link.GetLinkInventory().Draw(this._spriteBatch);

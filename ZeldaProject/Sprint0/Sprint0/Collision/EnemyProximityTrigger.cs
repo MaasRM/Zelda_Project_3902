@@ -5,7 +5,7 @@ namespace Sprint0
     public class EnemyProximityTrigger
     {
         private const int PIXELSCALER = 4;
-        private const int WALLMASTERYTRIGGERRADIUS = 20;
+        private const int WALLMASTERYTRIGGERRADIUS = 50;
 
         public EnemyProximityTrigger()
         {

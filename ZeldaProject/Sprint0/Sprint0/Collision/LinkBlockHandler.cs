@@ -30,7 +30,7 @@ namespace Sprint0
                 }
                 if(block.getIndex() != 10 || blockMoved)
                 {
-                    NonMobileBlockCollision(player, overlap, overlapSide);
+                    NonMobileBlockCollision(player, overlap, blockRect, overlapSide);
                 }
             } 
         }
@@ -52,24 +52,24 @@ namespace Sprint0
             else return overlapX;
         }
 
-        private static void NonMobileBlockCollision(IPlayer player, Rectangle overlap, OverlapInRelationToPlayer overlapSide)
+        private static void NonMobileBlockCollision(IPlayer player, Rectangle overlap, Rectangle blockRect, OverlapInRelationToPlayer overlapSide)
         {
-            if ((overlapSide == OverlapInRelationToPlayer.Up) && (player.getLinkStateMachine().getDirection() == Direction.MoveUp))
+            if (player.getLinkStateMachine().damageVector.Y < 0 || (overlapSide == OverlapInRelationToPlayer.Up) && (player.getLinkStateMachine().getDirection() == Direction.MoveUp))
             {
                 Rectangle newPosition = new Rectangle(player.getLinkStateMachine().getXLoc(), player.getLinkStateMachine().getYLoc() + overlap.Height, player.LinkPosition().Width, player.LinkPosition().Height);
                 player.getLinkStateMachine().SetPositions(newPosition);
             }
-            else if ((overlapSide == OverlapInRelationToPlayer.Down) && (player.getLinkStateMachine().getDirection() == Direction.MoveDown))
+            else if (player.getLinkStateMachine().damageVector.Y > 0 || (overlapSide == OverlapInRelationToPlayer.Down) && (player.getLinkStateMachine().getDirection() == Direction.MoveDown))
             {
                 Rectangle newPosition = new Rectangle(player.getLinkStateMachine().getXLoc(), player.getLinkStateMachine().getYLoc() - overlap.Height, player.LinkPosition().Width, player.LinkPosition().Height);
                 player.getLinkStateMachine().SetPositions(newPosition);
             }
-            else if ((overlapSide == OverlapInRelationToPlayer.Left) && (player.getLinkStateMachine().getDirection() == Direction.MoveLeft))
+            else if (player.getLinkStateMachine().damageVector.X < 0 || (overlapSide == OverlapInRelationToPlayer.Left) && (player.getLinkStateMachine().getDirection() == Direction.MoveLeft))
             {
                 Rectangle newPosition = new Rectangle(player.getLinkStateMachine().getXLoc() + overlap.Width, player.getLinkStateMachine().getYLoc(), player.LinkPosition().Width, player.LinkPosition().Height);
                 player.getLinkStateMachine().SetPositions(newPosition);
             }
-            else if ((overlapSide == OverlapInRelationToPlayer.Right) && (player.getLinkStateMachine().getDirection() == Direction.MoveRight))
+            else if (player.getLinkStateMachine().damageVector.X > 0 || (overlapSide == OverlapInRelationToPlayer.Right) && (player.getLinkStateMachine().getDirection() == Direction.MoveRight))
             {
                 Rectangle newPosition = new Rectangle(player.getLinkStateMachine().getXLoc() - overlap.Width, player.getLinkStateMachine().getYLoc(), player.LinkPosition().Width, player.LinkPosition().Height);
                 player.getLinkStateMachine().SetPositions(newPosition);

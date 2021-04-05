@@ -13,7 +13,8 @@ namespace Sprint0
             Left
         };
 
-        private const int DAMAGEVECTORSIZE = 3;
+        private const int LINKDAMAGEVECTOR = 8;
+        private const int ENEMYDAMAGEVECTOR = 6;
 
         public LinkEnemyHandler()
         {
@@ -67,20 +68,20 @@ namespace Sprint0
             int linkX = linkPos.X + linkPos.Width / 2;
             int linkY = linkPos.Y + linkPos.Height / 2;
 
-            if (!wallmaster.Grabbing() && linkX >= wallPos.X && linkX < wallPos.X + wallPos.Width && linkY > wallPos.Y && linkY < wallPos.Y + wallPos.Height)
+            if (wallmaster.CanGrab())
             {
                 wallmaster.GrabPlayer();
-                if(wallmaster.Grabbing())
-                {
-                    player.SetPosition(new Rectangle(wallPos.X, wallPos.Y, linkPos.Width, linkPos.Height));
-                    player.MakeImmobile();
-                }
+            }
+
+            if(!wallmaster.Grabbing())
+            {
+                DamageThePlayer(player, wallmaster.GetDamageValue(), overlap);
             }
             else
             {
-                DamageTheEnemy(wallmaster, player.GetMeleeDamage(), overlap);
+                player.SetPosition(new Rectangle(wallPos.X, wallPos.Y, linkPos.Width, linkPos.Height));
             }
-            
+
         }
 
         private static void DamageThePlayer(IPlayer player, int damage, OverlapInRelationToPlayer overlap)
@@ -99,10 +100,10 @@ namespace Sprint0
 
         private static Vector2 PlayerDamageVector(OverlapInRelationToPlayer overlap)
         {
-            Vector2 up = new Vector2(0, -DAMAGEVECTORSIZE);
-            Vector2 right = new Vector2(DAMAGEVECTORSIZE, 0);
-            Vector2 down = new Vector2(0, DAMAGEVECTORSIZE);
-            Vector2 left = new Vector2(-DAMAGEVECTORSIZE, 0);
+            Vector2 up = new Vector2(0, -LINKDAMAGEVECTOR);
+            Vector2 right = new Vector2(LINKDAMAGEVECTOR, 0);
+            Vector2 down = new Vector2(0, LINKDAMAGEVECTOR);
+            Vector2 left = new Vector2(-LINKDAMAGEVECTOR, 0);
 
             if(overlap == OverlapInRelationToPlayer.Up)
             {
@@ -124,10 +125,10 @@ namespace Sprint0
 
         private static Vector2 EnemyDamageVector(OverlapInRelationToPlayer overlap)
         {
-            Vector2 up = new Vector2(0, -DAMAGEVECTORSIZE);
-            Vector2 right = new Vector2(DAMAGEVECTORSIZE, 0);
-            Vector2 down = new Vector2(0, DAMAGEVECTORSIZE);
-            Vector2 left = new Vector2(-DAMAGEVECTORSIZE, 0);
+            Vector2 up = new Vector2(0, -ENEMYDAMAGEVECTOR);
+            Vector2 right = new Vector2(ENEMYDAMAGEVECTOR, 0);
+            Vector2 down = new Vector2(0, ENEMYDAMAGEVECTOR);
+            Vector2 left = new Vector2(-ENEMYDAMAGEVECTOR, 0);
 
             if (overlap == OverlapInRelationToPlayer.Up)
             {

@@ -10,18 +10,19 @@ namespace Sprint0
     {
 
         private Texture2D letterSheet;
-        private List<SoundEffect> textSounds;
+        private SoundEffectInstance textSound;
         private Sprint3 game;
         private int scale = 4;
+        private int counter;
 
         //x then y so grouped in twos
         //size is always 7x7
         readonly private int[] letterSource = 
-            { 57, 11, 41, 11, 113, 11, 113, 19, 89, 11, 96, 11, 113, 11, 113, 19, //eastmost (16)
-              65, 27, 97, 19, 57, 11, 89, 19, 89, 19, 72, 11, 89, 19, 113, 11, 121, 11, 82, 19, 41, 11, // penninsula (22)
-              65, 27, 89, 19, 113, 11, // is (6)
+            { 57, 11, 41, 11, 113, 11, 113, 19, 89, 11, 97, 11, 113, 11, 113, 19, //eastmost (16)
+              65, 27, 97, 19, 57, 11, 89, 19, 89, 19, 73, 11, 89, 19, 113, 11, 121, 11, 82, 19, 41, 11, // penninsula (22)
+              65, 27, 73, 11, 113, 11, // is (6)
               65, 27, 113, 19, 65, 19, 57, 11, // the (8)
-              65, 27, 113, 11, 57, 11, 46, 11, 105, 19, 57, 11, 113, 19, 49, 27 // secret. (16)
+              65, 27, 113, 11, 57, 11, 49, 11, 105, 19, 57, 11, 113, 19, 49, 27 // secret. (16)
             };
         readonly private int[] letterDest =
             { 54, 48, 61, 48, 68, 48, 75, 48, 82, 48, 89, 48, 96, 48, 103, 48, 110, 48, 117, 48, 124, 48, 131, 48, 138, 48, 145, 48, 152, 48, 159, 48, 166, 48, 173, 48, 180, 48, 187, 48, //top 19 letters (40)
@@ -32,23 +33,43 @@ namespace Sprint0
         {
             this.game = game;
             letterSheet = dungeonSheet;
-            textSounds = game.Text_soundEffects;
+            textSound = game.Text_soundEffects[1].CreateInstance();
+            textSound.Volume = 0.25f;
+            textSound.IsLooped = true;
+            counter = 0;
         }
 
         public void Update()
         {
+            if (counter < 33) counter++;
+        }
 
+        public void Reset()
+        {
+            counter = 0;
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            for (int i = 0; i < letterSource.Length; i += 2)
+            textSound.Play();
+            for (int i = 0; i <= counter * 2; i += 2)
             {
-                Rectangle destination = new Rectangle(letterDest[i], letterDest[i + 1], 7 * scale, 7 * scale);
-                Rectangle source = new Rectangle((letterSource[i] + 37) * scale, (64 * scale) + (letterSource[i + 1] + 37) * scale, 7 * scale, 7 * scale);
+                Rectangle destination = new Rectangle((letterDest[i] + 8) * scale, (64 * scale) + (letterDest[i + 1] + 40) * scale, 7 * scale, 7 * scale);
+                Rectangle source = new Rectangle(letterSource[i], letterSource[i + 1], 7, 7);
                 spriteBatch.Draw(letterSheet, destination, source, Color.White);
-                //textSounds[0].Play();
-                //wait here for like half a second
+            }
+            if (counter < 33)
+            {
+                Rectangle destination = new Rectangle((letterDest[counter * 2] + 15) * scale, (64 * scale) + (letterDest[(counter * 2) + 1] + 40) * scale, 7 * scale, 7 * scale);
+                Rectangle source = new Rectangle(10, 56, 7, 7);
+                spriteBatch.Draw(letterSheet, destination, source, Color.White);
+            }
+            else if (counter >= 33)
+            {
+                Rectangle destination = new Rectangle((letterDest[counter * 2] + 15) * scale, (64 * scale) + (letterDest[(counter * 2) + 1] + 40) * scale, 7 * scale, 7 * scale);
+                Rectangle source = new Rectangle(10, 56, 7, 7);
+                spriteBatch.Draw(letterSheet, destination, source, Color.White);
+                textSound.Stop();
             }
         }
     }
