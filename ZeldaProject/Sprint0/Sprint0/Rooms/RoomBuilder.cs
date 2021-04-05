@@ -80,7 +80,7 @@ namespace Sprint0
             switch (itemInfo["ItemType"].InnerText)
             {
                 case "KeyItem":
-                    return new KeyItem(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText) * scale, (int.Parse(itemInfo["YLoc"].InnerText) + 64) * scale, 7 * scale, 15 * scale), new Rectangle(240, 0, 7, 15), itemsSheet);
+                    return new KeyItem(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText) * scale, (int.Parse(itemInfo["YLoc"].InnerText) + 64) * scale, 7 * scale, 15 * scale), new Rectangle(240, 0, 7, 15), itemsSheet, game);
                 case "HeartContainerItem":
                     return new HeartContainerItem(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText) * scale, (int.Parse(itemInfo["YLoc"].InnerText) + 64) * scale, 15 * scale, 15 * scale), new Rectangle(23, 0, 15, 15), itemsSheet);
                 case "TriforceShardItem":
@@ -94,11 +94,11 @@ namespace Sprint0
                 case "BowItem":
                     return new BowItem(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText) * scale, (int.Parse(itemInfo["YLoc"].InnerText) + 64) * scale, 7 * scale, 15 * scale), new Rectangle(144, 0, 7, 15), itemsSheet);
                 case "SecretKeyItem":
-                    return new SecretKey(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText) * scale, (int.Parse(itemInfo["YLoc"].InnerText) + 64) * scale, 7 * scale, 15 * scale), new Rectangle(240, 0, 7, 15), itemsSheet, npcList);
+                    return new SecretKey(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText) * scale, (int.Parse(itemInfo["YLoc"].InnerText) + 64) * scale, 7 * scale, 15 * scale), new Rectangle(240, 0, 7, 15), itemsSheet, npcList, game);
                 case "EnemyKeyItem":
-                    return new EnemyKey(new Rectangle(240, 0, 7, 15), itemsSheet, npcList[0]);
+                    return new EnemyKey(new Rectangle(240, 0, 7, 15), itemsSheet, npcList[0], game);
                 default:
-                    return new KeyItem(new Rectangle(0, 0, 7, 15), new Rectangle(240, 0, 7, 15), itemsSheet);
+                    return new KeyItem(new Rectangle(0, 0, 7, 15), new Rectangle(240, 0, 7, 15), itemsSheet, game);
             }
         }
 
@@ -111,7 +111,7 @@ namespace Sprint0
                 case "Gel":
                     return new Gel(int.Parse(npcInfo["XLoc"].InnerText) * scale, (int.Parse(npcInfo["YLoc"].InnerText) + 64) * scale, GelStateMachine.GelColor.Teal, enemiesSheets[0]);
                 case "Goriya":
-                    return new Goriya(int.Parse(npcInfo["XLoc"].InnerText) * scale, (int.Parse(npcInfo["YLoc"].InnerText) + 64) * scale, GoriyaStateMachine.GoriyaColor.Red, enemiesSheets);
+                    return new Goriya(int.Parse(npcInfo["XLoc"].InnerText) * scale, (int.Parse(npcInfo["YLoc"].InnerText) + 64) * scale, GoriyaStateMachine.GoriyaColor.Red, enemiesSheets, game);
                 case "Keese":
                     return new Keese(int.Parse(npcInfo["XLoc"].InnerText) * scale, (int.Parse(npcInfo["YLoc"].InnerText) + 64) * scale, KeeseStateMachine.KeeseColor.Blue, enemiesSheets[0]);
                 case "OldMan":

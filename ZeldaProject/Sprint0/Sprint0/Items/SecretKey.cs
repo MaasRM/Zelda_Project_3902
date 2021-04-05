@@ -2,22 +2,27 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Audio;
 namespace Sprint0
 {
     public class SecretKey : IItem
     {
         private Rectangle destination;
         private Rectangle spriteSource;
+        private SoundEffectInstance keyDrop;
         private Texture2D sheet;
         private List<INPC> npcs;
+        private bool dropped;
 
 
-        public SecretKey(Rectangle startPos, Rectangle source, Texture2D spriteSheet, List<INPC> NPCS)
+        public SecretKey(Rectangle startPos, Rectangle source, Texture2D spriteSheet, List<INPC> NPCS, Sprint3 game)
         {
             destination = startPos;
             spriteSource = source;
             sheet = spriteSheet;
             npcs = NPCS;
+            dropped = false;
+            keyDrop = game.Enemy_soundEffects[1].CreateInstance();
         }
 
         public void Update()
@@ -27,8 +32,9 @@ namespace Sprint0
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            if(npcs.Count == 0)
+            if(npcs.Count == 0 )
             {
+                if (!dropped) keyDrop.Play(); dropped = true;
                 spriteBatch.Draw(sheet, destination, spriteSource, Color.White);
             }            
         }

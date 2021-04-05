@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Audio;
 namespace Sprint0
 {
     public class EnemyKey : IItem
@@ -14,15 +15,19 @@ namespace Sprint0
         private const int width = 7;
         private const int height = 15;
         private const int scale = 4;
+        private bool dropped;
+        private SoundEffectInstance keyDrop;
 
 
-        public EnemyKey(Rectangle source, Texture2D spriteSheet, INPC NPC)
+        public EnemyKey(Rectangle source, Texture2D spriteSheet, INPC NPC, Sprint3 game)
         {
             npc = NPC;
             destination = new Rectangle(npc.GetNPCLocation().X, npc.GetNPCLocation().Y, width * scale, height * scale);
             spriteSource = source;
             sheet = spriteSheet;
             enemyAlive = true;
+            dropped = false;
+            keyDrop = game.Enemy_soundEffects[1].CreateInstance();
         }
 
         public void Update()
@@ -41,6 +46,7 @@ namespace Sprint0
         {
             if (!enemyAlive)
             {
+                if (!dropped) keyDrop.Play(); dropped = true;
                 spriteBatch.Draw(sheet, destination, spriteSource, Color.White);
             }
         }

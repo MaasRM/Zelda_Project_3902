@@ -137,7 +137,11 @@ namespace Sprint0
                         roomManager.UnlockDoor(Direction.MoveLeft);
                     }
                 }
-                else if (player.LinkPosition().Intersects(block1.GetBlockLocation()) && block1.getIndex() == 7) roomManager.ChangeRoom(17);
+                else if (player.LinkPosition().Intersects(block1.GetBlockLocation()) && block1.getIndex() == 7)
+                {
+                    Collision_soundEffects[10].Play();
+                    roomManager.ChangeRoom(17);
+                }
 
                 foreach (INPC nPC in npcs)
                 {
@@ -161,7 +165,7 @@ namespace Sprint0
                 }
                 else
                 {
-                    if (projectile.GetProjectileLocation().Intersects(player.LinkPosition())) LinkProjectileHandler.HandleCollision(player, projectile);
+                    if (projectile.GetProjectileLocation().Intersects(player.LinkPosition())) LinkProjectileHandler.HandleCollision(player, projectile, Collision_soundEffects[11].CreateInstance());
                 }
 
                 if (projectile.GetProjectileLocation().X < 120 || projectile.GetProjectileLocation().Y < 117 + (64 * 4)

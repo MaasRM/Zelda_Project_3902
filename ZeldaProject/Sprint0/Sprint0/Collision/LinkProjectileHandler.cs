@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 namespace Sprint0
 {
@@ -20,7 +21,7 @@ namespace Sprint0
         {
         }
 
-        public static void HandleCollision(IPlayer player, IProjectile projectile)
+        public static void HandleCollision(IPlayer player, IProjectile projectile, SoundEffectInstance deflected)
         {
             OverlapInRelationToPlayer overlap = GetOverlapDirection(player, projectile);
 
@@ -32,6 +33,7 @@ namespace Sprint0
                 }
                 else
                 {
+                    deflected.Play();
                     if (projectile is IBoomerang) ((IBoomerang)projectile).GoBack();
                     else DeflectProjectile(projectile, overlap);
                 }
