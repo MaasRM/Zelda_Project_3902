@@ -15,9 +15,9 @@ namespace Sprint0
         private LinkHealthBar healthBar;
         private LinkMinimap minimap;
         private List<IItem> linkItems;
-        private IItem currentItem;
         private Texture2D inventoryBackground;
         private LinkPauseScreen pauseScreen;
+        public IItem currentItem { get; set; }
 
         public LinkInventory(Texture2D background)
         {
