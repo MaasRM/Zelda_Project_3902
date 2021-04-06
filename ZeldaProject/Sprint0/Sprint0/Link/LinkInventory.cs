@@ -40,6 +40,7 @@ namespace Sprint0
                 if (offset > 0)
                 {
                     pauseScreen.decrementOffset();
+                    pauseScreen.Draw(spriteBatch);
                 }
                 Rectangle inventorySource = new Rectangle(258, 12, 254, 54);
                 Rectangle inventoryDestination = new Rectangle(0, 0 + offset, 256 * GameConstants.SCALE, 64 * GameConstants.SCALE);
@@ -76,6 +77,7 @@ namespace Sprint0
         public void DrawPause(SpriteBatch spriteBatch)
         {
             int offset = pauseScreen.getCurrentYOffset();
+            pauseScreen.Draw(spriteBatch);
             Rectangle inventorySource = new Rectangle(258, 12, 254, 54);
             Rectangle inventoryDestination = new Rectangle(0, 0 + offset, 256 * GameConstants.SCALE, 64 * GameConstants.SCALE);
             spriteBatch.Draw(inventoryBackground, inventoryDestination, inventorySource, Color.White);
