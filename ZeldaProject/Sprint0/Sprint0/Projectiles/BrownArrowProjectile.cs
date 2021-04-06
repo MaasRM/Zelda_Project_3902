@@ -54,9 +54,9 @@ namespace Sprint0
         {
             if (frame < ArrowConstants.HITFRAME)
             {
-                if (projectileDirection == Direction.Up) yLoc -= ArrowConstants.BrownArrowSpeed;
-                else if (projectileDirection == Direction.Down) yLoc += ArrowConstants.BrownArrowSpeed;
-                else if (projectileDirection == Direction.Left) xLoc -= ArrowConstants.BrownArrowSpeed;
+                if (projectileDirection == Direction.Up) yLoc -= ArrowConstants.ARROWSPEED;
+                else if (projectileDirection == Direction.Down) yLoc += ArrowConstants.ARROWSPEED;
+                else if (projectileDirection == Direction.Left) xLoc -= ArrowConstants.ARROWSPEED;
                 else xLoc += ArrowConstants.ARROWSPEED;
 
                 if(projectileDirection == Direction.Up || projectileDirection == Direction.Down)
