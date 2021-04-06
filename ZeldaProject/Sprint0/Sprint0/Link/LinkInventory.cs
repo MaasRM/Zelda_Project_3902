@@ -34,11 +34,9 @@ namespace Sprint0
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (pauseScreen.isGamePaused() == false)
-            {
+            if (pauseScreen.isGamePaused() == false) {
                 int offset = pauseScreen.getCurrentYOffset();
-                if (offset > 0)
-                {
+                if (offset > 0) {
                     pauseScreen.decrementOffset();
                     pauseScreen.Draw(spriteBatch);
                 }
@@ -67,11 +65,7 @@ namespace Sprint0
                 DrawSecondaryWeapon(spriteBatch, new Rectangle(514, 106 + offset, 9 * GameConstants.SCALE, 20 * GameConstants.SCALE));
                 minimap.Draw(spriteBatch, offset);
                 healthBar.Draw(spriteBatch, offset);
-            }
-            else
-            {
-                DrawPause(spriteBatch);
-            }
+            } else DrawPause(spriteBatch);
         }
 
         public void DrawPause(SpriteBatch spriteBatch)
@@ -103,8 +97,7 @@ namespace Sprint0
             DrawSecondaryWeapon(spriteBatch, new Rectangle(514, 106 + offset, 9 * GameConstants.SCALE, 20 * GameConstants.SCALE));
             minimap.Draw(spriteBatch, offset);
             healthBar.Draw(spriteBatch, offset);
-            if (pauseScreen.getCurrentYOffset() < 700)
-            {
+            if (pauseScreen.getCurrentYOffset() < 700) {
                 pauseScreen.incrementOffset();
             }
         }
@@ -205,14 +198,6 @@ namespace Sprint0
                 }
                 linkItems.Add(item);
             }
-            else if (item is MapItem)
-            {
-                pauseScreen.setMap(true);
-            }
-            else if (item is CompassItem)
-            {
-                pauseScreen.setCompass(true);
-            }
         }
 
         public LinkPauseScreen GetLinkPauseScreen()
@@ -245,7 +230,6 @@ namespace Sprint0
             return keyCount;
         }
 
-
         public void addRupee(int num)
         {
             rupeeCount += num;
@@ -259,6 +243,16 @@ namespace Sprint0
         public void addBomb()
         {
             bombCount++;
+        }
+
+        public void RemoveBomb()
+        {
+            bombCount--;
+        }
+
+        public bool HasBomb()
+        {
+            return bombCount > 0;
         }
     }
 }
