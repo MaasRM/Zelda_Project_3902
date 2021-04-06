@@ -35,9 +35,6 @@ namespace Sprint0
                     player.GetLinkInventory().pauseScreen.setCompass(true);
                     Collision_soundEffects[7].Play();
                 }
-                else if (item is BoomerangItem) Collision_soundEffects[5].Play();
-                else if (item is BowItem) Collision_soundEffects[5].Play();
-                else if (item is TriforceShardItem) Collision_soundEffects[5].Play();
                 else HandleOtherItems(item, player, Collision_soundEffects, collidedItems);
             }  
         }
@@ -103,7 +100,8 @@ namespace Sprint0
         {
             player.getLinkStateMachine().setAnimation(Animation.PickUpItem);
             ((Link)player).GiveLinkItemPickup(item.GetSourceRectangle(), item.GetLocationRectangle(), item.GetSpriteSheet());
-            Collision_soundEffects[7].Play();
+            if (item is BoomerangItem || item is BowItem || item is TriforceShardItem) Collision_soundEffects[5].Play();
+            else Collision_soundEffects[5].Play();
             collidedItems.Add(item);
             player.GetLinkInventory().addItem(item);
         }
