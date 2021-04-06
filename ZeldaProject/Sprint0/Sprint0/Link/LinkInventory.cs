@@ -245,12 +245,12 @@ namespace Sprint0
             bombCount++;
         }
 
-        public void RemoveBomb()
+        public void removeBomb()
         {
             bombCount--;
         }
 
-        public bool HasBomb()
+        public bool hasBombs()
         {
             return bombCount > 0;
         }

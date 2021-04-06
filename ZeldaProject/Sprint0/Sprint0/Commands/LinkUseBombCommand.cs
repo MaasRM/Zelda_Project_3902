@@ -19,9 +19,10 @@ namespace Sprint0
             {
                 if (proj is BombProjectile) alreadyExists = true;
             }
-            if (!alreadyExists)
+            if (!alreadyExists && game.GetPlayer().GetLinkInventory().hasBombs())
             {
                 game.AddProjectile(new BombProjectile(game.GetPlayer().GetSpriteSheet(), game.GetPlayer().getLinkStateMachine(), game.Link_soundEffects));
+                game.GetPlayer().GetLinkInventory().removeBomb();
             }
             game.GetPlayer().getLinkStateMachine().setAnimation(Animation.UsingItem);
         }
