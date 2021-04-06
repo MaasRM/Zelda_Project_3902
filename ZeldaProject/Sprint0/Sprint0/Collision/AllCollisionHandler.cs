@@ -124,8 +124,8 @@ namespace Sprint0
                     if (projectile.GetProjectileLocation().Intersects(player.LinkPosition())) LinkProjectileHandler.HandleCollision(player, projectile, Collision_soundEffects[11].CreateInstance());
                 }
 
-                if (projectile.GetProjectileLocation().X < cameraWallMinX || projectile.GetProjectileLocation().Y < cameraWallMinY
-                        || projectile.GetProjectileLocation().X + projectile.GetProjectileLocation().Width > cameraWallMaxX|| projectile.GetProjectileLocation().Y > cameraWallMaxY)
+                if (projectile.GetProjectileLocation().X < cameraWallMinX - WallConstants.PROJECTILEEXTRA || projectile.GetProjectileLocation().Y < cameraWallMinY - WallConstants.PROJECTILEEXTRA
+                        || projectile.GetProjectileLocation().X + projectile.GetProjectileLocation().Width > cameraWallMaxX + WallConstants.PROJECTILEEXTRA || projectile.GetProjectileLocation().Y > cameraWallMaxY + WallConstants.PROJECTILEEXTRA)
                 {
 
                     if (projectile is IBoomerang) ((IBoomerang)projectile).GoBack();
@@ -195,7 +195,7 @@ namespace Sprint0
             } else {
                 if (player.getLinkStateMachine().getYLoc() < GameConstants.HUDSIZE * GameConstants.SCALE) {
                     roomManager.ChangeRoom(0);
-                    player.SetPosition(new Rectangle((GameConstants.WALLSIZE * GameConstants.SCALE) + GameConstants.STAIRROOMOFFSETX * GameConstants.SCALE, (GameConstants.HUDSIZE * GameConstants.SCALE) + (GameConstants.WALLSIZE * GameConstants.SCALE) + GameConstants.STAIRROOMOFFSETY * GameConstants.SCALE, 0, 0));
+                    player.SetPosition(new Rectangle((WallConstants.WALLSIZE * GameConstants.SCALE) + GameConstants.STAIRROOMOFFSETX * GameConstants.SCALE, (GameConstants.HUDSIZE * GameConstants.SCALE) + (WallConstants.WALLSIZE * GameConstants.SCALE) + GameConstants.STAIRROOMOFFSETY * GameConstants.SCALE, 0, 0));
                 }
                 if (player.getLinkStateMachine().getXLoc() < cameraWallMinX) LinkWallHandler.HandleLeftWall();
                 if (player.getLinkStateMachine().getXLoc() > cameraWallMaxX) LinkWallHandler.HandleRightWall();
