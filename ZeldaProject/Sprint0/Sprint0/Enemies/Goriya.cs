@@ -123,6 +123,10 @@ namespace Sprint0
 
         public bool StillAlive()
         {
+            if(!stateMachine.HasHealth())
+            {
+                StopThrowSound();
+            }
             return stateMachine.HasHealth();
         }
 

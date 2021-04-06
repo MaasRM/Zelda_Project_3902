@@ -2,18 +2,15 @@
   <MonoDevelop.Ide.ItemProperties.Sprint0 PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="Sprint0/Sprint4.cs" Line="157" Column="59" />
-      <File FileName="Sprint0/Link/LinkInventory.cs" Line="1" Column="1" />
-      <File FileName="Sprint0/GameConstants.cs" Line="10" Column="42" />
-      <File FileName="Sprint0/WallConstants.cs" Line="11" Column="47" />
-      <File FileName="Sprint0/Collision/AllCollisionHandler.cs" Line="128" Column="157" />
+      <File FileName="Sprint0/Enemies/Goriya.cs" Line="128" Column="34" />
+      <File FileName="Sprint0/Sprint4.cs" Line="157" Column="38" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Sprint0" expanded="True">
             <Node name="Sprint0" expanded="True">
-              <Node name="Collision" expanded="True" />
+              <Node name="Enemies" expanded="True" />
               <Node name="Sprint4.cs" selected="True" />
             </Node>
           </Node>
