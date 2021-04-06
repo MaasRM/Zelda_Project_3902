@@ -1,0 +1,15 @@
+﻿************************************************************************************************************
+											Team 3 Reflection file
+************************************************************************************************************
+
+Jacob Kline, Jared Zins, Phil Brocker, Riley Maas, Nathan Schultz
+
+Overall, we believe that that we once again performed efficiently for this sprint, however, we underestimated
+how much work we had to accomplish by the turn-in date. Additionally, we were able to work together very well
+during the days where we all met as a group, specifically when we were making final bug fixes and implementing
+final features the Monday that Sprint 4 was due. While all of us were able to spend a lot of time working 
+together, there was also a lot of times where we spent long periods working alone during the assignment
+period. This was because all of us had other acedemic and personal priorities such as, exams,  essays, 
+getting vaccinated, and going home for Easter. We alleviated this by working much harder during the times
+that we were able to work on them. Overall, we believe we worked very hard as a group and made substantial
+progress as a team.
