@@ -10,13 +10,13 @@ namespace Sprint0
 	public class KeyboardController : IController
 	{
 		private Dictionary<Keys, ICommand> linkActions;
-		private Dictionary<Keys, ICommand> otherCommands;
+		private Dictionary<Keys, ICommand> otherButtons;
 		private ICommand linkIdleCommand;
 
 		public KeyboardController()
 		{
 			linkActions = new Dictionary<Keys, ICommand>();
-			otherCommands = new Dictionary<Keys, ICommand>();
+			otherButtons = new Dictionary<Keys, ICommand>();
 		}
 
 		public void SetCommands(Sprint4 game)
@@ -52,9 +52,9 @@ namespace Sprint0
 			linkIdleCommand = new LinkIdleCommand(game);
 
 			//Commands for quit and reset			
-			otherCommands.Add(Keys.R, new ResetGameCommand(game));
-			otherCommands.Add(Keys.Q, new QuitCommand(game));
-			otherCommands.Add(Keys.Escape, new QuitCommand(game));
+			otherButtons.Add(Keys.R, new ResetGameCommand(game));
+			otherButtons.Add(Keys.Q, new QuitCommand(game));
+			otherButtons.Add(Keys.Escape, new QuitCommand(game));
 		}
 
 		public void Update()
