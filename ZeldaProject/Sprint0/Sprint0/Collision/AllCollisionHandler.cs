@@ -13,8 +13,7 @@ namespace Sprint0
         private int cameraWallMinY;
         private int cameraWallMaxX;
         private int cameraWallMaxY;
-        private bool playedSecret1;
-        private bool playedSecret2;
+        private List<bool> secrets;
         private Texture2D itemsSheet;
 
         public AllCollisionHandler(int x1, int x2, int y1, int y2, Texture2D items)
@@ -24,8 +23,9 @@ namespace Sprint0
             cameraWallMinY = y1;
             cameraWallMaxX = x2;
             cameraWallMaxY = y2;
-            playedSecret1 = false;
-            playedSecret2 = false;
+            secrets = new List<bool>();
+            secrets.Add(false);
+            secrets.Add(false);
             itemsSheet = items;
         }
 
@@ -95,22 +95,10 @@ namespace Sprint0
         public void BlockCollisions(IPlayer player, List<INPC> npcs, List<IBlock> blocks, RoomManager roomManager, List<SoundEffect> Collision_soundEffects)
         {
             foreach (IBlock block1 in blocks) {
-                if (player.LinkPosition().Intersects(block1.GetBlockLocation()) && (block1.getIndex() != 5) && (block1.getIndex() != 0) && (block1.getIndex() != 7)) {
+                if (player.LinkPosition().Intersects(block1.GetBlockLocation())) {
                     Rectangle overlap = Rectangle.Intersect(block1.GetBlockLocation(), player.LinkPosition());
 
-                    LinkBlockHandler.HandleCollision(player, block1, overlap);
-                } else if (player.LinkPosition().Intersects(block1.GetBlockLocation()) && block1.getIndex() == 0) {
-                    if (!playedSecret1 && roomManager.Room().RoomNum() == 0) {
-                        Collision_soundEffects[9].Play();
-                        playedSecret1 = true;
-                    } else if (!playedSecret2 && roomManager.Room().RoomNum() == 6) {
-                        Collision_soundEffects[9].Play();
-                        playedSecret2 = true;
-                        roomManager.UnlockDoor(Direction.Left);
-                    }
-                } else if (player.LinkPosition().Intersects(block1.GetBlockLocation()) && block1.getIndex() == 7) {
-                    Collision_soundEffects[10].Play();
-                    roomManager.ChangeRoom(GameConstants.VERTICALROOM);
+                    LinkBlockHandler.HandleCollision(player, block1, overlap, roomManager, Collision_soundEffects, secrets);
                 }
 
                 foreach (INPC nPC in npcs) {
