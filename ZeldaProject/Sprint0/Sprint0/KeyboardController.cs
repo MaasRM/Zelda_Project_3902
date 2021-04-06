@@ -45,11 +45,7 @@ namespace Sprint0
 			linkActions.Add(Keys.NumPad5, new LinkUseBombCommand(game));
 			linkActions.Add(Keys.D6, new LinkUseCandleCommand(game));
 			linkActions.Add(Keys.NumPad6, new LinkUseCandleCommand(game));
-<<<<<<< HEAD
 			linkActions.Add(Keys.I, new InventoryPauseCommand(game));
-=======
-			linkActions.Add(Keys.I, new InventoryCommand(game));
->>>>>>> Keyboard controller update
 			linkActions.Add(Keys.X, new LinkBItemCommand(game));
 			linkActions.Add(Keys.M, new LinkBItemCommand(game));
 
