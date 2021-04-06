@@ -46,6 +46,8 @@ namespace Sprint0
 			linkActions.Add(Keys.D6, new LinkUseCandleCommand(game));
 			linkActions.Add(Keys.NumPad6, new LinkUseCandleCommand(game));
 			linkActions.Add(Keys.I, new InventoryPauseCommand(game));
+			linkActions.Add(Keys.X, new LinkBItemCommand(game));
+			linkActions.Add(Keys.M, new LinkBItemCommand(game));
 
 			linkIdleCommand = new LinkIdleCommand(game);
 
