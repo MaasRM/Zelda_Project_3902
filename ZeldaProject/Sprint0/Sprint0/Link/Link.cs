@@ -89,33 +89,19 @@ namespace Sprint0
             Color red = new Color(216, 40, 0, 255);
             Color white = new Color(196, 212, 252, 255);
 
-            if (newColor == LinkColor.Green)
-            {
-                colorTo = green;
-            }
-            else if (newColor == LinkColor.Red)
-            {
-                colorTo = red;
-            }
-            else //LinkColor.White
-            {
-                colorTo = white;
-            }
+            if (newColor == LinkColor.Green) colorTo = green;
+            else if (newColor == LinkColor.Red) colorTo = red;
+            else colorTo = white;
 
-            if (currentColor == LinkColor.Green)
-            {
+            if (currentColor == LinkColor.Green) {
                 for (int i = 0; i < data.Length; i++)
                     if (data[i] == green)
                         data[i] = colorTo;
-            }
-            else if (currentColor == LinkColor.Red)
-            {
+            } else if (currentColor == LinkColor.Red) {
                 for (int i = 0; i < data.Length; i++)
                     if (data[i] == red)
                         data[i] = colorTo;
-            }
-            else //LinkColor.White
-            {
+            } else {
                 for (int i = 0; i < data.Length; i++)
                     if (data[i] == white)
                         data[i] = colorTo;
