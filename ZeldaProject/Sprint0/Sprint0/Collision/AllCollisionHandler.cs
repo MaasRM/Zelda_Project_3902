@@ -148,10 +148,15 @@ namespace Sprint0
                 {
                     if (projectile.GetProjectileLocation().Intersects(nPC.GetNPCLocation()))
                     {
-
                         EnemyProjectileHandler.HandleCollision(nPC, projectile);
 
-                        EnemyHitAndDeathSounds(nPC, DeadEnemies, Collision_soundEffects);
+                        if (!(projectile is SwordBlastProjectile))
+                        {
+                            if(!(projectile is BombProjectile) || ((projectile is BombProjectile) && ((BombProjectile)projectile).Exploding()))
+                            {
+                                EnemyHitAndDeathSounds(nPC, DeadEnemies, Collision_soundEffects);
+                            }
+                        }
                     }
                 }
             }
