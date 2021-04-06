@@ -52,12 +52,12 @@ namespace Sprint0
 
         public void Update()
         {
-            if (frame < ArrowConstants.BROWNHITFRAME)
+            if (frame < ArrowConstants.HITFRAME)
             {
                 if (projectileDirection == Direction.Up) yLoc -= ArrowConstants.BrownArrowSpeed;
                 else if (projectileDirection == Direction.Down) yLoc += ArrowConstants.BrownArrowSpeed;
                 else if (projectileDirection == Direction.Left) xLoc -= ArrowConstants.BrownArrowSpeed;
-                else xLoc += ArrowConstants.BrownArrowSpeed;
+                else xLoc += ArrowConstants.ARROWSPEED;
 
                 if(projectileDirection == Direction.Up || projectileDirection == Direction.Down)
                     destinationRectangle = new Rectangle(xLoc, yLoc, ArrowConstants.ArrowWidth, ArrowConstants.ArrowLength);
@@ -68,7 +68,7 @@ namespace Sprint0
                 sourceRectangle = new Rectangle(53, 185, 8, 15);
                 if (projectileDirection == Direction.Left || projectileDirection == Direction.Right)
                 {
-                    if (frame == ArrowConstants.BROWNHITFRAME)
+                    if (frame == ArrowConstants.HITFRAME)
                     {
                         if (projectileDirection == Direction.Left) xLoc -= ArrowConstants.ArrowWidth / 2;
                         else xLoc += ArrowConstants.ArrowWidth / 2;
@@ -92,7 +92,7 @@ namespace Sprint0
 
         public bool CheckForRemoval()
         {
-            return frame >= ArrowConstants.BROWNREMOVEFRAME;
+            return frame >= ArrowConstants.REMOVEFRAME;
         }
 
         public int GetDamage()
@@ -102,9 +102,9 @@ namespace Sprint0
 
         public void Hit()
         {
-            if (frame < ArrowConstants.BROWNHITFRAME)
+            if (frame < ArrowConstants.HITFRAME)
             {
-                frame = ArrowConstants.BROWNHITFRAME;
+                frame = ArrowConstants.HITFRAME;
             }
         }
     }
