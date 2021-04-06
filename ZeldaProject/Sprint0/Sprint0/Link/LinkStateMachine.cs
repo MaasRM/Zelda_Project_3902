@@ -27,7 +27,8 @@ namespace Sprint0
         Idle,
         Walk,
         Attack,
-        UsingItem
+        UsingItem,
+        PickUpItem
     }
 
     public class LinkStateMachine
@@ -114,6 +115,14 @@ namespace Sprint0
                         frame = 0;
                         isBusy = false;
                     }
+                } else if (this.animation == Animation.PickUpItem)
+                {
+                    frame++;
+                    if (frame >= 8)
+                    {
+                        frame = 0;
+                        isBusy = false;
+                    }
                 }
             }
 
@@ -157,10 +166,10 @@ namespace Sprint0
 
         public void setAnimation(Animation animation)
         {
-            if (!isBusy && ((animation == Animation.Idle || animation == Animation.UsingItem) || (color != LinkColor.Damaged && animation == Animation.Attack)))
+            if (!isBusy && ((animation == Animation.Idle || animation == Animation.UsingItem || animation == Animation.PickUpItem) || (color != LinkColor.Damaged && animation == Animation.Attack)))
             {
                 this.animation = animation;
-                if (animation == Animation.Attack || animation == Animation.UsingItem) isBusy = true;
+                if (animation == Animation.Attack || animation == Animation.UsingItem || animation == Animation.PickUpItem) isBusy = true;
                 if (animation == Animation.Attack) soundEffects[8].Play();
                 frame = 0;
             }
