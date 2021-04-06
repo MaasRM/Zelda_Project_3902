@@ -13,8 +13,8 @@ namespace Sprint0
         public LinkSpriteFactory()
         {
             //initial height and width
-            linkHeight = 16;
-            linkWidth = 16;
+            linkHeight = LinkConstants.LINKSIZENORMAL;
+            linkWidth = LinkConstants.LINKSIZENORMAL;
         }
 
         public Rectangle getSourceRectangle(Direction direction, LinkColor color, Animation animation, int frame)
@@ -34,81 +34,26 @@ namespace Sprint0
         private ILinkRectangle FindLinkRectangle(Direction direction, Animation animation)
         {
             ILinkRectangle retRectangle;
-            if (direction == Direction.Up)
-            {
-                if (animation == Animation.Idle)
-                {
-                    retRectangle = new RectangleLinkMoveUpIdle();
-                }
-                else if (animation == Animation.Walk)
-                {
-                    retRectangle = new RectangleLinkMoveUpWalk();
-                }
-                else if (animation == Animation.Attack)
-                {
-                    retRectangle = new RectangleLinkMoveUpAttack();
-                }
-                else //Animation.UsingItem
-                {
-                    retRectangle = new RectangleLinkMoveUpItem();
-                }
-            }
-            else if (direction == Direction.Down)
-            {
-                if (animation == Animation.Idle)
-                {
-                    retRectangle = new RectangleLinkMoveDownIdle();
-                }
-                else if (animation == Animation.Walk)
-                {
-                    retRectangle = new RectangleLinkMoveDownWalk();
-                }
-                else if (animation == Animation.Attack)
-                {
-                    retRectangle = new RectangleLinkMoveDownAttack();
-                }
-                else //Animation.UsingItem
-                {
-                    retRectangle = new RectangleLinkMoveDownItem();
-                }
-            }
-            else if (direction == Direction.Left)
-            {
-                if (animation == Animation.Idle)
-                {
-                    retRectangle = new RectangleLinkMoveRightIdle();
-                }
-                else if (animation == Animation.Walk)
-                {
-                    retRectangle = new RectangleLinkMoveRightWalk();
-                }
-                else if (animation == Animation.Attack)
-                {
-                    retRectangle = new RectangleLinkMoveRightAttack();
-                }
-                else //Animation.UsingItem
-                {
-                    retRectangle = new RectangleLinkMoveRightItem();
-                }
-            }
-            else //Direction.MoveRight
-            {
-                if (animation == Animation.Idle)
-                {
-                    retRectangle = new RectangleLinkMoveRightIdle();
-                }
-                else if (animation == Animation.Walk)
-                {
-                    retRectangle = new RectangleLinkMoveRightWalk();
-                }
-                else if (animation == Animation.Attack)
-                {
-                    retRectangle = new RectangleLinkMoveRightAttack();
-                }
-                else //Animation.UsingItem
-                {
-                    retRectangle = new RectangleLinkMoveRightItem();
-                }
+            if (direction == Direction.Up) {
+                if (animation == Animation.Idle) retRectangle = new RectangleLinkMoveUpIdle();
+                else if (animation == Animation.Walk) retRectangle = new RectangleLinkMoveUpWalk();
+                else if (animation == Animation.Attack) retRectangle = new RectangleLinkMoveUpAttack();
+                else retRectangle = new RectangleLinkMoveUpItem(); //Animation.UsingItem
+            } else if (direction == Direction.Down) {
+                if (animation == Animation.Idle) retRectangle = new RectangleLinkMoveDownIdle();
+                else if (animation == Animation.Walk) retRectangle = new RectangleLinkMoveDownWalk();
+                else if (animation == Animation.Attack) retRectangle = new RectangleLinkMoveDownAttack();
+                else retRectangle = new RectangleLinkMoveDownItem(); //Animation.UsingItem
+            } else if (direction == Direction.Left) {
+                if (animation == Animation.Idle) retRectangle = new RectangleLinkMoveRightIdle();
+                else if (animation == Animation.Walk) retRectangle = new RectangleLinkMoveRightWalk();
+                else if (animation == Animation.Attack)  retRectangle = new RectangleLinkMoveRightAttack();
+                else retRectangle = new RectangleLinkMoveRightItem(); //Animation.UsingItem
+            } else { //Direction.MoveRight
+                if (animation == Animation.Idle) retRectangle = new RectangleLinkMoveRightIdle();
+                else if (animation == Animation.Walk) retRectangle = new RectangleLinkMoveRightWalk();
+                else if (animation == Animation.Attack) retRectangle = new RectangleLinkMoveRightAttack();
+                else  retRectangle = new RectangleLinkMoveRightItem(); //Animation.UsingItem
             }
             return retRectangle;
         }
