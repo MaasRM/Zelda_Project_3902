@@ -101,7 +101,7 @@ namespace Sprint0
             player.getLinkStateMachine().setAnimation(Animation.PickUpItem);
             ((Link)player).GiveLinkItemPickup(item.GetSourceRectangle(), item.GetLocationRectangle(), item.GetSpriteSheet());
             if (item is BoomerangItem || item is BowItem || item is TriforceShardItem) Collision_soundEffects[5].Play();
-            else Collision_soundEffects[5].Play();
+            else Collision_soundEffects[7].Play();
             collidedItems.Add(item);
             player.GetLinkInventory().addItem(item);
         }
