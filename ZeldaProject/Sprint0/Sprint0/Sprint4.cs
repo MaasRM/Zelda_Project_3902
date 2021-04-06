@@ -163,7 +163,10 @@ namespace Sprint0
             }
 
             pauseControls.SetCommands(this);
-            allCollisionHandler = new AllCollisionHandler(this.GraphicsDevice.Viewport.Bounds.X, this.GraphicsDevice.Viewport.Bounds.Width, this.GraphicsDevice.Viewport.Bounds.Y, this.GraphicsDevice.Viewport.Bounds.Height, itemsSheet);
+            allCollisionHandler = new AllCollisionHandler(this.GraphicsDevice.Viewport.Bounds.X + GameConstants.LEFTWALL,
+                                        this.GraphicsDevice.Viewport.Bounds.Width - GameConstants.RIGHTWALL,
+                                        this.GraphicsDevice.Viewport.Bounds.Y + GameConstants.TOPWALL + GameConstants.HUDSIZE * GameConstants.SCALE,
+                                        this.GraphicsDevice.Viewport.Bounds.Height - GameConstants.BOTTOMWALL, itemsSheet);
 
             link = new Link(contentManager.Load<Texture2D>("LinkSpriteSheet"), linkSheetList, Link_soundEffects, inventory);
         }
