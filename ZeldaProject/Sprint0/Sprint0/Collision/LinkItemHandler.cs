@@ -20,7 +20,7 @@ namespace Sprint0
                 else if (item is HeartContainerItem) HandleHeartContainer(item, player, Collision_soundEffects, collidedItems);
                 else if (item is BlueRupeeItem) HandleBlueRupee(item, player, Collision_soundEffects, collidedItems);
                 else if (item is YellowRupeeItem) HandleYellowRupee(item, player, Collision_soundEffects, collidedItems);
-                else if (item is ClockItem) HandleClock(item, npcs, collidedItems);
+                else if (item is ClockItem) HandleClock(item, npcs, collidedItems, Collision_soundEffects);
                 else if (item is BombItem) HandleBomb(item, player, Collision_soundEffects, collidedItems);
                 else if (item is MapItem)
                 {
@@ -75,8 +75,9 @@ namespace Sprint0
             player.GetLinkInventory().addRupee(YELLOWRUPEEVLAUE);
         }
 
-        private static void HandleClock(IItem item, List<INPC> npcs, List<IItem> collidedItems)
+        private static void HandleClock(IItem item, List<INPC> npcs, List<IItem> collidedItems, List<SoundEffect> Collision_soundEffects)
         {
+            Collision_soundEffects[6].Play();
             collidedItems.Add(item);
             foreach (INPC nPC in npcs)
             {

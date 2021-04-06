@@ -22,6 +22,7 @@ namespace Sprint0
                 if (determineDrop >= 25 && determineDrop < 35) items.Add(new BlueRupeeItem(new Rectangle(npc.GetNPCLocation().X, npc.GetNPCLocation().Y, 8 * 4, 16 * 4), new Rectangle(72, 16, 8, 16), itemSheet));
                 if (determineDrop >= 35 && determineDrop < 45) items.Add(new HeartItem(new Rectangle(npc.GetNPCLocation().X, npc.GetNPCLocation().Y, 7 * 4, 8 * 4), new Rectangle(0, 0, 7, 8), itemSheet));
                 if (determineDrop >= 45 && determineDrop < 50) items.Add(new ClockItem(new Rectangle(npc.GetNPCLocation().X, npc.GetNPCLocation().Y, 11 * 4, 16 * 4), new Rectangle(58, 0, 11, 16), itemSheet));
+                
             }
 
             if(npc is Goriya) {
