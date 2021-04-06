@@ -1,4 +1,7 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using System.Collections.Generic;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 
 namespace Sprint0
 {
@@ -16,22 +19,35 @@ namespace Sprint0
         {
         }
 
-        public static void HandleCollision(IPlayer player, IBlock block, Rectangle overlap)
+        public static void HandleCollision(IPlayer player, IBlock block, Rectangle overlap, RoomManager roomManager, List<SoundEffect> Collision_soundEffects, List<bool> secrets)
         {
             OverlapInRelationToPlayer overlapSide = GetOverlapDirection(player, block, overlap);
             Rectangle blockRect = block.GetBlockLocation();
             bool blockMoved = false;
 
-            if (block.getIndex() != 5 && block.getIndex() != 0 && block.getIndex() != 9 && player.getLinkStateMachine().getAnimation() != Animation.Attack)
-            {
-                if(block.getIndex() == 10)
-                {
+            if (block.getIndex() != 5 && block.getIndex() != 9 && player.getLinkStateMachine().getAnimation() != Animation.Attack) {
+                if(block.getIndex() == 10 && !blockMoved) {
                     blockMoved = MobileBlcokCollision(block, overlap, blockRect, overlapSide);
                 }
-                if(block.getIndex() != 10 || blockMoved)
+
+                if (block.getIndex() == 0) {
+                    if (roomManager.Room().RoomNum() == 0 && !secrets[0])
+                    {
+                        SecretOneHandler(Collision_soundEffects, secrets);
+                    }
+                    else if (roomManager.Room().RoomNum() == 6 && !secrets[1])
+                    {
+                        SecretTwoHandler(roomManager, Collision_soundEffects, secrets);
+                    }
+                }
+                else if (block.getIndex() == 7)
+                {
+                    StairCaseCollision(roomManager, Collision_soundEffects);
+                }
+                else if (block.getIndex() != 10 || blockMoved)
                 {
                     NonMobileBlockCollision(player, overlap, blockRect, overlapSide);
-                }
+                } 
             } 
         }
 
@@ -104,6 +120,25 @@ namespace Sprint0
             }
 
             return blockMoved;
+        }
+
+        private static void SecretOneHandler(List<SoundEffect> Collision_soundEffects, List<bool> secrets)
+        {
+            Collision_soundEffects[9].Play();
+            secrets[0] = true;
+        }
+
+        private static void SecretTwoHandler(RoomManager roomManager, List<SoundEffect> Collision_soundEffects, List<bool> secrets)
+        {
+            Collision_soundEffects[9].Play();
+            secrets[1] = true;
+            roomManager.UnlockDoor(Direction.Left);
+        }
+
+        private static void StairCaseCollision(RoomManager roomManager, List<SoundEffect> Collision_soundEffects)
+        {
+            Collision_soundEffects[10].Play();
+            roomManager.ChangeRoom(GameConstants.VERTICALROOM);
         }
     }
 }

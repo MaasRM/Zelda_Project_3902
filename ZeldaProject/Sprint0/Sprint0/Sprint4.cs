@@ -174,7 +174,7 @@ namespace Sprint0
             frame++;
             if (frame % 4 == 0)
             {
-                if (link.GetLinkInventory().GetLinkPauseScreen().isGamePaused() == false)
+                if (link.GetLinkInventory().GetLinkPauseScreen().isGamePaused() == false && link.GetLinkInventory().GetLinkPauseScreen().getCurrentYOffset() == 0)
                 {
                     foreach (IBlock block in blocks)
                     {
