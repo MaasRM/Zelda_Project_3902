@@ -118,7 +118,7 @@ namespace Sprint0
                 } else if (this.animation == Animation.PickUpItem)
                 {
                     frame++;
-                    if (frame >= 8)
+                    if (frame >= 16)
                     {
                         frame = 0;
                         isBusy = false;

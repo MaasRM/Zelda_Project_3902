@@ -55,7 +55,7 @@ namespace Sprint0
                 else if (animation == Animation.Attack) retRectangle = new RectangleLinkMoveRightAttack();
                 else  retRectangle = new RectangleLinkMoveRightItem(); //Animation.UsingItem
             }
-            if (animation == Animation.Idle) retRectangle = new RectangleLinkPickUpItem();
+            if (animation == Animation.PickUpItem) retRectangle = new RectangleLinkPickUpItem();
             return retRectangle;
         }
 
