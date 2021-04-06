@@ -1133,6 +1133,9 @@
 			</Block>
 		</Blocks>
 		<Items>
+			<Item>
+				<ItemType>BoomerangItem</ItemType>
+			</Item>
 		</Items>
 		<Enemies>
 			<Enemy>

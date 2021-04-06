@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 namespace Sprint0
@@ -7,25 +8,41 @@ namespace Sprint0
     {
         private Rectangle destination;
         private Rectangle spriteSource;
+        private const int width = 7;
+        private const int height = 15;
         private Texture2D sheet;
+        private List<INPC> npcs;
+        bool enemiesAlive;
 
 
-        public BoomerangItem(Rectangle startPos, Rectangle source, Texture2D spriteSheet)
+        public BoomerangItem(Rectangle source, List<INPC> NPCS, Texture2D spriteSheet)
         {
-            destination = startPos;
+            npcs = NPCS;
+            destination = new Rectangle(npcs[0].GetNPCLocation().X, npcs[0].GetNPCLocation().Y, width * GameConstants.SCALE, height * GameConstants.SCALE);
             spriteSource = source;
             sheet = spriteSheet;
+            enemiesAlive = true;
         }
 
         public void Update()
         {
-
+            if (enemiesAlive && npcs.Count > 0)
+            {
+                destination = new Rectangle(npcs[0].GetNPCLocation().X, npcs[0].GetNPCLocation().Y, width * GameConstants.SCALE, height * GameConstants.SCALE);
+            }
+            else
+            {
+                enemiesAlive = false;
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
 
-            spriteBatch.Draw(sheet, destination, spriteSource, Color.White);
+            if (npcs.Count == 0)
+            {
+                spriteBatch.Draw(sheet, destination, spriteSource, Color.White);
+            }
 
         }
 

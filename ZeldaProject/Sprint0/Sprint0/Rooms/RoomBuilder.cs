@@ -96,6 +96,8 @@ namespace Sprint0
                     return new SecretKey(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText) * GameConstants.SCALE, (int.Parse(itemInfo["YLoc"].InnerText) + GameConstants.HUDSIZE) * GameConstants.SCALE, 7 * GameConstants.SCALE, 15 * GameConstants.SCALE), new Rectangle(240, 0, 7, 15), itemsSheet, npcList, game);
                 case "EnemyKeyItem":
                     return new EnemyKey(new Rectangle(240, 0, 7, 15), itemsSheet, npcList[0], game);
+                case "BoomerangItem":
+                    return new BoomerangItem(new Rectangle(129, 0, 7, 15), npcList, itemsSheet);
                 default:
                     return new KeyItem(new Rectangle(0, 0, 7, 15), new Rectangle(240, 0, 7, 15), itemsSheet, game);
             }
