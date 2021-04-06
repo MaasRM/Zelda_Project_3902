@@ -21,7 +21,7 @@ Use Second Item: X, M
 Quit: Q, Escape
 Restart: R
 Inventory/Pause: I
-Unpause: X, M
+Unpause: X, M, I
 Changing Room: Left and right mouse buttons
 
 ************************************************************************************************************
