@@ -30,6 +30,7 @@ Changing Room: Left and right mouse buttons
 - When Link walks into a block he will walk into it while still not walking through it. He will bounce back
 out to where he should be when releasing a movement key
 - Wallmasters will constantly play sound when grabbing Link
+- Goriya Boomerang noise will continue to play after goriya dies
 
 NOT A BUG: Link will not drop a bomb if he does not have any bombs
 
