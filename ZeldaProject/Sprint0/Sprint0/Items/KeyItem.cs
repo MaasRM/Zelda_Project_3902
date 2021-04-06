@@ -38,5 +38,14 @@ namespace Sprint0
         {
             return destination;
         }
+        public Rectangle GetSourceRectangle()
+        {
+            return spriteSource;
+        }
+
+        public Texture2D GetSpriteSheet()
+        {
+            return sheet;
+        }
     }
 }

@@ -61,5 +61,15 @@ namespace Sprint0
                 return new Rectangle(0, 0, 0, 0);
             }
         }
+
+        public Rectangle GetSourceRectangle()
+        {
+            return spriteSource;
+        }
+
+        public Texture2D GetSpriteSheet()
+        {
+            return sheet;
+        }
     }
 }

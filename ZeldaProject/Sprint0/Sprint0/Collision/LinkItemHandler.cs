@@ -26,6 +26,14 @@ namespace Sprint0
                 {
                     collidedItems.Add(item);
                     player.GetLinkInventory().GetLinkMinimap().setMinimap(true);
+                    player.GetLinkInventory().GetLinkPauseScreen().setMap(true);
+                }
+                else if (item is CompassItem)
+                {
+                    collidedItems.Add(item);
+                    //player.GetLinkInventory().GetLinkMinimap().setCompass(true);
+                    player.GetLinkInventory().GetLinkPauseScreen().setCompass(true);
+                    Collision_soundEffects[7].Play();
                 }
                 else HandleOtherItems(item, player, Collision_soundEffects, collidedItems);
             }  
@@ -91,6 +99,7 @@ namespace Sprint0
         private static void HandleOtherItems(IItem item, IPlayer player, List<SoundEffect> Collision_soundEffects, List<IItem> collidedItems)
         {
             player.getLinkStateMachine().setAnimation(Animation.PickUpItem);
+            ((Link)player).GiveLinkItemPickup(item.GetSourceRectangle(), item.GetLocationRectangle(), item.GetSpriteSheet());
             Collision_soundEffects[7].Play();
             collidedItems.Add(item);
             player.GetLinkInventory().addItem(item);

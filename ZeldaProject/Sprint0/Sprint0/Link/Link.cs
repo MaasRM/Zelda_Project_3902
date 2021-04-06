@@ -20,6 +20,11 @@ namespace Sprint0
         private LinkColor currentColor;
         private int damageFrameCount;
 
+        //only used when picking up an item
+        private Rectangle itemSource;
+        private Rectangle itemDestination;
+        private Texture2D itemSheet;
+
         public Link(Texture2D spriteSheet, List<Texture2D> linkSheetList, List<SoundEffect> Link_soundEffects,  Texture2D inventory)
         {
             stateMachine = new LinkStateMachine(Link_soundEffects);
@@ -72,6 +77,7 @@ namespace Sprint0
             {
                 spriteBatch.Draw(linkSpriteSheet, destination, source, Color.White);
             }
+            if(getLinkStateMachine().getAnimation() == Animation.PickUpItem) spriteBatch.Draw(itemSheet, itemDestination, itemSource, Color.White);
         }
 
         public void changeColor(LinkColor currentColor, LinkColor newColor)
@@ -185,6 +191,15 @@ namespace Sprint0
         public void Reset()
         {
             stateMachine = new LinkStateMachine(soundEffects);
+        }
+
+        public void GiveLinkItemPickup(Rectangle iSource, Rectangle iDest, Texture2D iSheet)
+        {
+            itemSource = iSource;
+            int xoff = 0;
+            if (iSource.X < LinkConstants.LINKSIZENORMAL) xoff = LinkConstants.LINKSIZENORMAL / 2;
+            itemDestination = new Rectangle(getLinkStateMachine().getXLoc() + xoff, getLinkStateMachine().getYLoc() - (LinkConstants.LINKSIZENORMAL * GameConstants.SCALE), iDest.Width, iDest.Height);
+            itemSheet = iSheet;
         }
     }
 }

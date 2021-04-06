@@ -10,5 +10,9 @@ namespace Sprint0
         public void Draw(SpriteBatch spriteBatch);
 
         public Rectangle GetLocationRectangle();
+
+        public Rectangle GetSourceRectangle();
+
+        public Texture2D GetSpriteSheet();
     }
 }
