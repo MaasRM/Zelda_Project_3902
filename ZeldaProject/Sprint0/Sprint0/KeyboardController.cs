@@ -69,9 +69,9 @@ namespace Sprint0
 					idleLink = false;
 					linkActions[key].Execute();
 				}
-				if (otherCommands.ContainsKey(key))
+				if (otherButtons.ContainsKey(key))
 				{
-					otherCommands[key].Execute();
+					otherButtons[key].Execute();
 				}
 			}
 			if(idleLink)
