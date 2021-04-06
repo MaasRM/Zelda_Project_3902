@@ -31,6 +31,7 @@ Changing Room: Left and right mouse buttons
 out to where he should be when releasing a movement key
 - Wallmasters will constantly play sound when grabbing Link
 
+NOT A BUG: Link will not drop a bomb if he does not have any bombs
 
 ************************************************************************************************************
 										Not Implentented (yet)
