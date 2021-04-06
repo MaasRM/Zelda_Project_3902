@@ -183,7 +183,7 @@ namespace Sprint0
         {
             itemSource = iSource;
             int xoff = 0;
-            if (iSource.X < LinkConstants.LINKSIZENORMAL) xoff = LinkConstants.LINKSIZENORMAL / 2;
+            if (iSource.Width < 15) xoff = LinkConstants.LINKSIZENORMAL * GameConstants.SCALE / 4;
             itemDestination = new Rectangle(getLinkStateMachine().getXLoc() + xoff, getLinkStateMachine().getYLoc() - (LinkConstants.LINKSIZENORMAL * GameConstants.SCALE), iDest.Width, iDest.Height);
             itemSheet = iSheet;
         }

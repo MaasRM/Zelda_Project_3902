@@ -24,7 +24,7 @@ namespace Sprint0
 			pauseCommands.Add(Keys.Right, new InventorySelectRightCommand(game));
 			pauseCommands.Add(Keys.S, new InventorySelectDownCommand(game));
 			pauseCommands.Add(Keys.Down, new InventorySelectDownCommand(game));
-			pauseCommands.Add(Keys.I, new InventoryCommand(game));
+			pauseCommands.Add(Keys.X, new InventoryUnPauseCommand(game));
 
 			//Commands for quit and reset			
 			pauseCommands.Add(Keys.R, new ResetGameCommand(game));
