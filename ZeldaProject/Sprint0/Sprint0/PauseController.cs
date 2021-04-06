@@ -16,14 +16,14 @@ namespace Sprint0
 
 		public void SetCommands(Sprint4 game)
 		{
-			/*pauseCommands.Add(Keys.W, new LinkFaceUpCommand(game));
-			pauseCommands.Add(Keys.Up, new LinkFaceUpCommand(game));
-			pauseCommands.Add(Keys.A, new LinkFaceLeftCommand(game));
-			pauseCommands.Add(Keys.Left, new LinkFaceLeftCommand(game));
-			pauseCommands.Add(Keys.D, new LinkFaceRightCommand(game));
-			pauseCommands.Add(Keys.Right, new LinkFaceRightCommand(game));
-			pauseCommands.Add(Keys.S, new LinkFaceDownCommand(game));
-			pauseCommands.Add(Keys.Down, new LinkFaceDownCommand(game)); */
+			pauseCommands.Add(Keys.W, new InventorySelectUpCommand(game));
+			pauseCommands.Add(Keys.Up, new InventorySelectUpCommand(game));
+			pauseCommands.Add(Keys.A, new InventorySelectLeftCommand(game));
+			pauseCommands.Add(Keys.Left, new InventorySelectLeftCommand(game));
+			pauseCommands.Add(Keys.D, new InventorySelectRightCommand(game));
+			pauseCommands.Add(Keys.Right, new InventorySelectRightCommand(game));
+			pauseCommands.Add(Keys.S, new InventorySelectDownCommand(game));
+			pauseCommands.Add(Keys.Down, new InventorySelectDownCommand(game));
 			pauseCommands.Add(Keys.I, new InventoryCommand(game));
 
 			//Commands for quit and reset			
