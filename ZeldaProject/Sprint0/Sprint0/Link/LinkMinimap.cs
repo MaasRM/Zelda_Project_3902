@@ -14,7 +14,9 @@ namespace Sprint0
         private Rectangle roomMinimapSource;
         private Texture2D minimapTexture;
         private Boolean hasMap;
+        private Boolean hasCompass;
         private List<int> visitedRooms;
+        private int bossFrames;
 
         public LinkMinimap(Texture2D inventory)
         {
@@ -22,9 +24,11 @@ namespace Sprint0
             visitedRooms = new List<int>();
             for(int n = 0; n <= 16; n++) { visitedRooms.Add(n); }
             hasMap = false;
+            hasCompass = false;
             linkMinimapSource = new Rectangle(519, 126, 2, 2);
             linkMinimapDestination = new Rectangle(162, 175, 4 * GameConstants.SCALE, 4 * GameConstants.SCALE);
             roomMinimapSource = new Rectangle(663, 109, 6, 2);
+            bossFrames = 0;
         }
 
         public void Draw(SpriteBatch spriteBatch, int offset)
@@ -38,6 +42,21 @@ namespace Sprint0
                 }
             }
             spriteBatch.Draw(minimapTexture, tempLinkMinimapDestination, linkMinimapSource, Color.White);
+            if (hasCompass == true)
+            {
+                Rectangle bossRoomSourceRed = new Rectangle(537, 126, 2, 2);
+                Rectangle bossRoomSourceBlue = new Rectangle(555, 127, 2, 2);
+                Rectangle bossRoomDestination = new Rectangle(226, 103 + offset, 4 * GameConstants.SCALE, 4 * GameConstants.SCALE);
+                if (bossFrames % 2 == 0)
+                {
+                    spriteBatch.Draw(minimapTexture, bossRoomDestination, bossRoomSourceRed, Color.White);
+                }
+                else
+                {
+                    spriteBatch.Draw(minimapTexture, bossRoomDestination, bossRoomSourceBlue, Color.White);
+                }
+                bossFrames++;
+            }
         }
 
         public Rectangle getLinkMinimapSourceSprite()
@@ -48,6 +67,11 @@ namespace Sprint0
         public void setMinimap(Boolean val)
         {
             hasMap = val;
+        }
+
+        public void setCompass(Boolean val)
+        {
+            hasCompass = val;
         }
 
         public void setLinkMinimapDestinationSprite(int roomNumber, int offset)
