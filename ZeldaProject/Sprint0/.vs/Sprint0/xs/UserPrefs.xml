@@ -2,25 +2,16 @@
   <MonoDevelop.Ide.ItemProperties.Sprint0 PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="Sprint0/Code reviews/Sprint 4/Nathan'sCodeReviews.txt" Line="23" Column="1" />
-      <File FileName="Sprint0/Projectiles/SwordProjectile.cs" Line="89" Column="10" />
-      <File FileName="Sprint0/Link/LinkInventory.cs" Line="138" Column="14" />
-      <File FileName="Sprint0/Link/LinkStateMachine.cs" Line="47" Column="50" />
+      <File FileName="Sprint0/Enemies/Goriya.cs" Line="128" Column="34" />
+      <File FileName="Sprint0/Sprint4.cs" Line="157" Column="38" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Sprint0" expanded="True">
             <Node name="Sprint0" expanded="True">
-              <Node name="Code reviews" expanded="True">
-                <Node name="Sprint 2" expanded="True" />
-                <Node name="Sprint 3" expanded="True" />
-                <Node name="Sprint 4" expanded="True">
-                  <Node name="Nathan'sCodeReviews.txt" selected="True" />
-                </Node>
-              </Node>
-              <Node name="Link" expanded="True" />
-              <Node name="Projectiles" expanded="True" />
+              <Node name="Enemies" expanded="True" />
+              <Node name="Sprint4.cs" selected="True" />
             </Node>
           </Node>
         </State>

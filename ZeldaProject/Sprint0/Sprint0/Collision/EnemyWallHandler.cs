@@ -6,14 +6,18 @@ namespace Sprint0
     public class EnemyWallHandler
     {
         static INPC npc;
+        static int minX;
+        static int minY;
         static int maxX;
         static int maxY;
 
-        public EnemyWallHandler(INPC enemy, int x, int y)
+        public EnemyWallHandler(INPC enemy, int x1, int x2, int y1, int y2)
         {
             npc = enemy;
-            maxX = x;
-            maxY = y;
+            minX = x1;
+            minY = y1;
+            maxX = x2;
+            maxY = y2;
         }
 
         public static void HandleLeftWall()
@@ -23,7 +27,7 @@ namespace Sprint0
                 ((Trap)npc).Return();
             }
 
-            Rectangle newPosition = new Rectangle(120, npc.GetNPCLocation().Y, npc.GetNPCLocation().Width, npc.GetNPCLocation().Height);
+            Rectangle newPosition = new Rectangle(minX, npc.GetNPCLocation().Y, npc.GetNPCLocation().Width, npc.GetNPCLocation().Height);
             npc.SetPosition(newPosition);
         }
 
@@ -34,7 +38,7 @@ namespace Sprint0
                 ((Trap)npc).Return();
             }
 
-            Rectangle newPosition = new Rectangle(npc.GetNPCLocation().X, 117 + (64 * 4), npc.GetNPCLocation().Width, npc.GetNPCLocation().Height);
+            Rectangle newPosition = new Rectangle(npc.GetNPCLocation().X, minY, npc.GetNPCLocation().Width, npc.GetNPCLocation().Height);
             npc.SetPosition(newPosition);
         }
 
@@ -45,7 +49,7 @@ namespace Sprint0
                 ((Trap)npc).Return();
             }
 
-            Rectangle newPosition = new Rectangle(maxX - 175, npc.GetNPCLocation().Y, npc.GetNPCLocation().Width, npc.GetNPCLocation().Height);
+            Rectangle newPosition = new Rectangle(maxX, npc.GetNPCLocation().Y, npc.GetNPCLocation().Width, npc.GetNPCLocation().Height);
             npc.SetPosition(newPosition);
         }
 
@@ -56,7 +60,7 @@ namespace Sprint0
                 ((Trap)npc).Return();
             }
 
-            Rectangle newPosition = new Rectangle(npc.GetNPCLocation().X, maxY-175, npc.GetNPCLocation().Width, npc.GetNPCLocation().Height);
+            Rectangle newPosition = new Rectangle(npc.GetNPCLocation().X, maxY, npc.GetNPCLocation().Width, npc.GetNPCLocation().Height);
             npc.SetPosition(newPosition);
         }
     }

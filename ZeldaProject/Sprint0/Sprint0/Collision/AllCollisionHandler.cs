@@ -36,11 +36,11 @@ namespace Sprint0
             {
                 if (!(npc is Wallmaster))
                 {
-                    new EnemyWallHandler(npc, cameraWallMaxX, cameraWallMaxY);
-                    if (npc.GetNPCLocation().X < 120) EnemyWallHandler.HandleLeftWall();
-                    if (npc.GetNPCLocation().Y < (117 + (GameConstants.HUDSIZE * GameConstants.SCALE))) EnemyWallHandler.HandleTopWall();
-                    if (npc.GetNPCLocation().X > cameraWallMaxX - 175) EnemyWallHandler.HandleRightWall();
-                    if (npc.GetNPCLocation().Y > cameraWallMaxY - 175) EnemyWallHandler.HandleBottomWall();
+                    new EnemyWallHandler(npc, cameraWallMinX, cameraWallMaxX, cameraWallMinY, cameraWallMaxY);
+                    if (npc.GetNPCLocation().X < cameraWallMinX) EnemyWallHandler.HandleLeftWall();
+                    if (npc.GetNPCLocation().Y < cameraWallMinY) EnemyWallHandler.HandleTopWall();
+                    if (npc.GetNPCLocation().X > cameraWallMaxX) EnemyWallHandler.HandleRightWall();
+                    if (npc.GetNPCLocation().Y > cameraWallMaxY) EnemyWallHandler.HandleBottomWall();
                 }
                 else grabbed = grabbed || ((Wallmaster)npc).Grabbing();
             }
@@ -124,8 +124,8 @@ namespace Sprint0
                     if (projectile.GetProjectileLocation().Intersects(player.LinkPosition())) LinkProjectileHandler.HandleCollision(player, projectile, Collision_soundEffects[11].CreateInstance());
                 }
 
-                if (projectile.GetProjectileLocation().X < 120 || projectile.GetProjectileLocation().Y < 117 + (GameConstants.HUDSIZE * GameConstants.SCALE)
-                        || projectile.GetProjectileLocation().X + projectile.GetProjectileLocation().Width > cameraWallMaxX - 130 || projectile.GetProjectileLocation().Y > cameraWallMaxY - 170)
+                if (projectile.GetProjectileLocation().X < cameraWallMinX - WallConstants.PROJECTILEEXTRA || projectile.GetProjectileLocation().Y < cameraWallMinY - WallConstants.PROJECTILEEXTRA
+                        || projectile.GetProjectileLocation().X + projectile.GetProjectileLocation().Width > cameraWallMaxX + WallConstants.PROJECTILEEXTRA || projectile.GetProjectileLocation().Y > cameraWallMaxY + WallConstants.PROJECTILEEXTRA)
                 {
 
                     if (projectile is IBoomerang) ((IBoomerang)projectile).GoBack();
@@ -148,10 +148,15 @@ namespace Sprint0
                 {
                     if (projectile.GetProjectileLocation().Intersects(nPC.GetNPCLocation()))
                     {
-
                         EnemyProjectileHandler.HandleCollision(nPC, projectile);
 
-                        EnemyHitAndDeathSounds(nPC, DeadEnemies, Collision_soundEffects);
+                        if (!(projectile is SwordBlastProjectile))
+                        {
+                            if(!(projectile is BombProjectile) || ((projectile is BombProjectile) && ((BombProjectile)projectile).Exploding()))
+                            {
+                                EnemyHitAndDeathSounds(nPC, DeadEnemies, Collision_soundEffects);
+                            }
+                        }
                     }
                 }
             }
@@ -174,27 +179,27 @@ namespace Sprint0
 
         private void HandleLinkAndWalls(IPlayer player, RoomManager roomManager, bool grabbed)
         {
-            new LinkWallHandler(player, roomManager, cameraWallMaxX, cameraWallMaxY);
+            new LinkWallHandler(player, roomManager, cameraWallMinX, cameraWallMaxX, cameraWallMinY, cameraWallMaxY);
 
             if (roomManager.getRoomIndex() != GameConstants.VERTICALROOM && !grabbed) {
-                if (player.getLinkStateMachine().getXLoc() < 120) LinkWallHandler.HandleLeftWall();
-                if (player.getLinkStateMachine().getYLoc() < (117 + (64 * GameConstants.SCALE))) LinkWallHandler.HandleTopWall();
-                if (player.getLinkStateMachine().getXLoc() > cameraWallMaxX - 175) LinkWallHandler.HandleRightWall();
-                if (player.getLinkStateMachine().getYLoc() > cameraWallMaxY - 185) LinkWallHandler.HandleBottomWall(); 
+                if (player.getLinkStateMachine().getXLoc() < cameraWallMinX) LinkWallHandler.HandleLeftWall();
+                if (player.getLinkStateMachine().getYLoc() < cameraWallMinY) LinkWallHandler.HandleTopWall();
+                if (player.getLinkStateMachine().getXLoc() > cameraWallMaxX) LinkWallHandler.HandleRightWall();
+                if (player.getLinkStateMachine().getYLoc() > cameraWallMaxY) LinkWallHandler.HandleBottomWall(); 
             } else if(grabbed) {
-                if(player.getLinkStateMachine().getXLoc() < 120 || player.getLinkStateMachine().getYLoc() < (117 + (GameConstants.HUDSIZE * GameConstants.SCALE)) ||
-                    player.getLinkStateMachine().getXLoc() > cameraWallMaxX - 175 || player.getLinkStateMachine().getYLoc() > cameraWallMaxY - 185)
+                if(player.getLinkStateMachine().getXLoc() < cameraWallMinX || player.getLinkStateMachine().getYLoc() < cameraWallMinY ||
+                    player.getLinkStateMachine().getXLoc() > cameraWallMaxX || player.getLinkStateMachine().getYLoc() > cameraWallMaxY)
                 {
-                    roomManager.ChangeRoom(15);
+                    roomManager.ChangeRoom(GameConstants.STARTROOM);
                 }
             } else {
                 if (player.getLinkStateMachine().getYLoc() < GameConstants.HUDSIZE * GameConstants.SCALE) {
                     roomManager.ChangeRoom(0);
-                    player.SetPosition(new Rectangle((36 * GameConstants.SCALE) + 75 * GameConstants.SCALE, (GameConstants.HUDSIZE * GameConstants.SCALE) + (36 * GameConstants.SCALE) + 44 * GameConstants.SCALE, 0, 0));
+                    player.SetPosition(new Rectangle((WallConstants.WALLSIZE * GameConstants.SCALE) + GameConstants.STAIRROOMOFFSETX * GameConstants.SCALE, (GameConstants.HUDSIZE * GameConstants.SCALE) + (WallConstants.WALLSIZE * GameConstants.SCALE) + GameConstants.STAIRROOMOFFSETY * GameConstants.SCALE, 0, 0));
                 }
-                if (player.getLinkStateMachine().getXLoc() < 120) LinkWallHandler.HandleLeftWall();
-                if (player.getLinkStateMachine().getXLoc() > cameraWallMaxX - 175) LinkWallHandler.HandleRightWall();
-                if (player.getLinkStateMachine().getYLoc() > cameraWallMaxY - 185) LinkWallHandler.HandleBottomWall();
+                if (player.getLinkStateMachine().getXLoc() < cameraWallMinX) LinkWallHandler.HandleLeftWall();
+                if (player.getLinkStateMachine().getXLoc() > cameraWallMaxX) LinkWallHandler.HandleRightWall();
+                if (player.getLinkStateMachine().getYLoc() > cameraWallMaxY) LinkWallHandler.HandleBottomWall();
             }
         }
 
