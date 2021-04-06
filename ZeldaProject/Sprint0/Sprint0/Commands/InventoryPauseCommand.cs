@@ -1,10 +1,10 @@
 ﻿using System;
 namespace Sprint0
 {
-    public class InventoryCommand : ICommand
+    public class InventoryPauseCommand : ICommand
     {
         private Sprint4 game;
-        public InventoryCommand(Sprint4 sprint)
+        public InventoryPauseCommand(Sprint4 sprint)
         {
             game = sprint;
         }

@@ -11,7 +11,7 @@ namespace Sprint0
 
         public void Execute()
         {
-            game.GetPlayer().GetLinkInventory().GetLinkPauseScreen().setGamePaused(false);
+            game.GetPlayer().GetLinkInventory().pauseScreen.setGamePaused(false);
         }
     }
 }
