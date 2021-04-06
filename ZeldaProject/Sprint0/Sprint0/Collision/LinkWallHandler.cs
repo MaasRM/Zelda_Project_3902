@@ -7,21 +7,25 @@ namespace Sprint0
     {
         static IPlayer player;
         static RoomManager room;
+        static int minX;
         static int maxX;
+        static int minY;
         static int maxY;
 
-        public LinkWallHandler(IPlayer link, RoomManager currentRoom, int x, int y)
+        public LinkWallHandler(IPlayer link, RoomManager currentRoom, int x1, int x2, int y1, int y2)
         {
             player = link;
             room = currentRoom;
-            maxX = x;
-            maxY = y;
+            minX = x1;
+            maxX = x2;
+            minY = y1;
+            maxY = y2;
         }
 
         public static void HandleLeftWall()
         {
             bool isSwapped;
-            if (player.getLinkStateMachine().getYLoc() > (288 + (64 * 4)) && player.getLinkStateMachine().getYLoc() + player.LinkPosition().Height < (416 + (64 * 4))) {
+            if (player.getLinkStateMachine().getYLoc() > DoorLocations.HORIDOORYMIN && player.getLinkStateMachine().getYLoc() + player.LinkPosition().Height < DoorLocations.HORIDOORYMAX) {
                 isSwapped = room.SwapRoom(Direction.Left);
                 if (!isSwapped && player.GetLinkInventory().getKeyCount() > 0) {
                     if (room.UnlockDoor(Direction.Left)) {
@@ -31,16 +35,16 @@ namespace Sprint0
                     }
                 }
                 if (isSwapped) {
-                    Rectangle newPosition = new Rectangle(maxX - 175, player.getLinkStateMachine().getYLoc(), player.LinkPosition().Width, player.LinkPosition().Height);
+                    Rectangle newPosition = new Rectangle(maxX, player.getLinkStateMachine().getYLoc(), player.LinkPosition().Width, player.LinkPosition().Height);
                     player.getLinkStateMachine().SetPositions(newPosition);
                 }
                 else {
-                    Rectangle newPosition = new Rectangle(120, player.getLinkStateMachine().getYLoc(), player.LinkPosition().Width, player.LinkPosition().Height);
+                    Rectangle newPosition = new Rectangle(minX, player.getLinkStateMachine().getYLoc(), player.LinkPosition().Width, player.LinkPosition().Height);
                     player.getLinkStateMachine().SetPositions(newPosition);
                 }
             }
             else {
-                Rectangle newPosition = new Rectangle(120, player.getLinkStateMachine().getYLoc(), player.LinkPosition().Width, player.LinkPosition().Height);
+                Rectangle newPosition = new Rectangle(minX, player.getLinkStateMachine().getYLoc(), player.LinkPosition().Width, player.LinkPosition().Height);
                 player.getLinkStateMachine().SetPositions(newPosition);
             }
         }
@@ -48,7 +52,7 @@ namespace Sprint0
         public static void HandleTopWall()
         {
             bool isSwapped;
-            if (player.getLinkStateMachine().getXLoc() > 448 && player.getLinkStateMachine().getXLoc() + player.LinkPosition().Width < 576) {
+            if (player.getLinkStateMachine().getXLoc() > DoorLocations.VERTDOORXMIN && player.getLinkStateMachine().getXLoc() + player.LinkPosition().Width < DoorLocations.VERTDOORXMAX) {
                 isSwapped = room.SwapRoom(Direction.Up);
                 if (!isSwapped && player.GetLinkInventory().getKeyCount() > 0) {
                     if (room.UnlockDoor(Direction.Up)) {
@@ -58,16 +62,16 @@ namespace Sprint0
                     }
                 }
                 if (isSwapped) {
-                    Rectangle newPosition = new Rectangle(player.getLinkStateMachine().getXLoc(), maxY - 185, player.LinkPosition().Width, player.LinkPosition().Height);
+                    Rectangle newPosition = new Rectangle(player.getLinkStateMachine().getXLoc(), maxY, player.LinkPosition().Width, player.LinkPosition().Height);
                     player.getLinkStateMachine().SetPositions(newPosition);
                 }
                 else {
-                    Rectangle newPosition = new Rectangle(player.getLinkStateMachine().getXLoc(), 117 + (64 * 4), player.LinkPosition().Width, player.LinkPosition().Height);
+                    Rectangle newPosition = new Rectangle(player.getLinkStateMachine().getXLoc(), minY, player.LinkPosition().Width, player.LinkPosition().Height);
                     player.getLinkStateMachine().SetPositions(newPosition);
                 }
             }
             else {
-                Rectangle newPosition = new Rectangle(player.getLinkStateMachine().getXLoc(), 117 + (64 * 4), player.LinkPosition().Width, player.LinkPosition().Height);
+                Rectangle newPosition = new Rectangle(player.getLinkStateMachine().getXLoc(), minY, player.LinkPosition().Width, player.LinkPosition().Height);
                 player.getLinkStateMachine().SetPositions(newPosition);
             }
         }
@@ -75,7 +79,7 @@ namespace Sprint0
         public static void HandleRightWall()
         {
             bool isSwapped;
-            if (player.getLinkStateMachine().getYLoc() > (288 + (64 * 4)) && player.getLinkStateMachine().getYLoc() + player.LinkPosition().Height < (416 + (64 * 4))) {
+            if (player.getLinkStateMachine().getYLoc() > DoorLocations.HORIDOORYMIN && player.getLinkStateMachine().getYLoc() + player.LinkPosition().Height < DoorLocations.HORIDOORYMAX) {
                 isSwapped = room.SwapRoom(Direction.Right);
                 if (!isSwapped && player.GetLinkInventory().getKeyCount() > 0) {
                     if (room.UnlockDoor(Direction.Right)) {
@@ -85,16 +89,16 @@ namespace Sprint0
                     }
                 }
                 if (isSwapped) {
-                    Rectangle newPosition = new Rectangle(120, player.getLinkStateMachine().getYLoc(), player.LinkPosition().Width, player.LinkPosition().Height);
+                    Rectangle newPosition = new Rectangle(minX, player.getLinkStateMachine().getYLoc(), player.LinkPosition().Width, player.LinkPosition().Height);
                     player.getLinkStateMachine().SetPositions(newPosition);
                 }
                 else {
-                    Rectangle newPosition = new Rectangle(maxX - 175, player.getLinkStateMachine().getYLoc(), player.LinkPosition().Width, player.LinkPosition().Height);
+                    Rectangle newPosition = new Rectangle(maxX, player.getLinkStateMachine().getYLoc(), player.LinkPosition().Width, player.LinkPosition().Height);
                     player.getLinkStateMachine().SetPositions(newPosition);
                 }
             }
             else {
-                Rectangle newPosition = new Rectangle(maxX - 175, player.getLinkStateMachine().getYLoc(), player.LinkPosition().Width, player.LinkPosition().Height);
+                Rectangle newPosition = new Rectangle(maxX, player.getLinkStateMachine().getYLoc(), player.LinkPosition().Width, player.LinkPosition().Height);
                 player.getLinkStateMachine().SetPositions(newPosition);
             }
         }
@@ -102,7 +106,7 @@ namespace Sprint0
         public static void HandleBottomWall()
         {
             bool isSwapped;
-            if (player.getLinkStateMachine().getXLoc() > 448 && player.getLinkStateMachine().getXLoc() + player.LinkPosition().Width < 576) {
+            if (player.getLinkStateMachine().getXLoc() > DoorLocations.VERTDOORXMIN && player.getLinkStateMachine().getXLoc() + player.LinkPosition().Width < DoorLocations.VERTDOORXMAX) {
                 isSwapped = room.SwapRoom(Direction.Down);
                 if (!isSwapped && player.GetLinkInventory().getKeyCount() > 0) {
                     if (room.UnlockDoor(Direction.Down)) {
@@ -112,16 +116,16 @@ namespace Sprint0
                     }
                 }
                 if (isSwapped) {
-                    Rectangle newPosition = new Rectangle(player.getLinkStateMachine().getXLoc(), 117 + (64 * 4), player.LinkPosition().Width, player.LinkPosition().Height);
+                    Rectangle newPosition = new Rectangle(player.getLinkStateMachine().getXLoc(), minY, player.LinkPosition().Width, player.LinkPosition().Height);
                     player.getLinkStateMachine().SetPositions(newPosition);
                 }
                 else {
-                    Rectangle newPosition = new Rectangle(player.getLinkStateMachine().getXLoc(), maxY - 185, player.LinkPosition().Width, player.LinkPosition().Height);
+                    Rectangle newPosition = new Rectangle(player.getLinkStateMachine().getXLoc(), maxY, player.LinkPosition().Width, player.LinkPosition().Height);
                     player.getLinkStateMachine().SetPositions(newPosition);
                 }
             }
             else {
-                Rectangle newPosition = new Rectangle(player.getLinkStateMachine().getXLoc(), maxY - 185, player.LinkPosition().Width, player.LinkPosition().Height);
+                Rectangle newPosition = new Rectangle(player.getLinkStateMachine().getXLoc(), maxY, player.LinkPosition().Width, player.LinkPosition().Height);
                 player.getLinkStateMachine().SetPositions(newPosition);
             }
         }

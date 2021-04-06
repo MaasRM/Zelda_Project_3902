@@ -1,26 +1,14 @@
 ﻿<Properties GitUserInfo="UsingMD" StartupConfiguration="{7DF9E545-60F3-43AB-B585-CBA6D0074959}|Default">
   <MonoDevelop.Ide.ItemProperties.Sprint0 PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench>
-    <Files>
-      <File FileName="Sprint0/Code reviews/Sprint 4/Nathan'sCodeReviews.txt" Line="23" Column="1" />
-      <File FileName="Sprint0/Projectiles/SwordProjectile.cs" Line="89" Column="10" />
-      <File FileName="Sprint0/Link/LinkInventory.cs" Line="138" Column="14" />
-      <File FileName="Sprint0/Link/LinkStateMachine.cs" Line="47" Column="50" />
-    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Sprint0" expanded="True">
             <Node name="Sprint0" expanded="True">
-              <Node name="Code reviews" expanded="True">
-                <Node name="Sprint 2" expanded="True" />
-                <Node name="Sprint 3" expanded="True" />
-                <Node name="Sprint 4" expanded="True">
-                  <Node name="Nathan'sCodeReviews.txt" selected="True" />
-                </Node>
+              <Node name="Collision" expanded="True">
+                <Node name="LinkWallHandler.cs" selected="True" />
               </Node>
-              <Node name="Link" expanded="True" />
-              <Node name="Projectiles" expanded="True" />
             </Node>
           </Node>
         </State>
