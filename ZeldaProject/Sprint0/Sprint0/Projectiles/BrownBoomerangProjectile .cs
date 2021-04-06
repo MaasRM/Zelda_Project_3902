@@ -15,7 +15,7 @@ namespace Sprint0
         private Texture2D spritesheet;
         private int xLoc;
         private int yLoc;
-        private int boomerangSpeed = LinkBoomerangConstants.BrownStart; //x4 specs
+        private int boomerangSpeed = LinkBoomerangConstants.StartSpeed; //x4 specs
         private int frame;
         private bool goBack;
         private Direction projectileDirection;
@@ -59,11 +59,11 @@ namespace Sprint0
                 else if (projectileDirection == Direction.Down) yLoc += boomerangSpeed;
                 else if (projectileDirection == Direction.Left) xLoc -= boomerangSpeed;
                 else xLoc += boomerangSpeed;
-                boomerangSpeed -= 1;
+                boomerangSpeed -= LinkBoomerangConstants.SpeedChange;
             }
             else {
                 goBack = true;
-                boomerangSpeed += 1;
+                boomerangSpeed += LinkBoomerangConstants.SpeedChange;
                 if(xLoc - stateMachine.getXLoc() >= boomerangSpeed) xLoc -= boomerangSpeed;
                 else if(xLoc - stateMachine.getXLoc() <= boomerangSpeed * -1) xLoc += boomerangSpeed;
                 if (yLoc - stateMachine.getYLoc() >= boomerangSpeed) yLoc -= boomerangSpeed;
