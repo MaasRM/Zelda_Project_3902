@@ -41,6 +41,11 @@ namespace Sprint0
             currentYOffset += incrementYSize;
         }
 
+        public void decrementOffset()
+        {
+            currentYOffset -= incrementYSize;
+        }
+
         public Boolean isGamePaused()
         {
             return isPaused;

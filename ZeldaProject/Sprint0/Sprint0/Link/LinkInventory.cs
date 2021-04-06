@@ -36,32 +36,36 @@ namespace Sprint0
         {
             if (pauseScreen.isGamePaused() == false)
             {
-                pauseScreen.resetYOffset();
+                int offset = pauseScreen.getCurrentYOffset();
+                if (offset > 0)
+                {
+                    pauseScreen.decrementOffset();
+                }
                 Rectangle inventorySource = new Rectangle(258, 12, 254, 54);
-                Rectangle inventoryDestination = new Rectangle(0, 0, 256 * GameConstants.SCALE, 64 * GameConstants.SCALE);
+                Rectangle inventoryDestination = new Rectangle(0, 0 + offset, 256 * GameConstants.SCALE, 64 * GameConstants.SCALE);
                 spriteBatch.Draw(inventoryBackground, inventoryDestination, inventorySource, Color.White);
                 Rectangle swordSource = new Rectangle(555, 137, 7, 15);
-                Rectangle swordDestination = new Rectangle(612, 106, 9 * GameConstants.SCALE, 20 * GameConstants.SCALE);
+                Rectangle swordDestination = new Rectangle(612, 106 + offset, 9 * GameConstants.SCALE, 20 * GameConstants.SCALE);
                 spriteBatch.Draw(inventoryBackground, swordDestination, swordSource, Color.White);
                 Rectangle counterSource = new Rectangle(519, 117, 7, 8);
-                Rectangle rupeeCounterDestination = new Rectangle(388, 72, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE);
-                Rectangle keyCounterDestination = new Rectangle(388, 148, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE);
-                Rectangle bombCounterDestination = new Rectangle(388, 185, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE);
+                Rectangle rupeeCounterDestination = new Rectangle(388, 72 + offset, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE);
+                Rectangle keyCounterDestination = new Rectangle(388, 148 + offset, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE);
+                Rectangle bombCounterDestination = new Rectangle(388, 185 + offset, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE);
                 spriteBatch.Draw(inventoryBackground, rupeeCounterDestination, counterSource, Color.White);
                 spriteBatch.Draw(inventoryBackground, keyCounterDestination, counterSource, Color.White);
                 spriteBatch.Draw(inventoryBackground, bombCounterDestination, counterSource, Color.White);
                 Rectangle baseMapSource = new Rectangle(519, 2, 63, 38);
-                Rectangle baseMapDestination = new Rectangle(64, 34, 65 * GameConstants.SCALE, 47 * GameConstants.SCALE);
+                Rectangle baseMapDestination = new Rectangle(64, 34 + offset, 65 * GameConstants.SCALE, 47 * GameConstants.SCALE);
                 spriteBatch.Draw(inventoryBackground, baseMapDestination, baseMapSource, Color.White);
                 Rectangle levelSource = new Rectangle(584, 1, 63, 7);
-                Rectangle levelDestination = new Rectangle(64, 34, 63 * GameConstants.SCALE, 8 * GameConstants.SCALE);
+                Rectangle levelDestination = new Rectangle(64, 34 + offset, 63 * GameConstants.SCALE, 8 * GameConstants.SCALE);
                 spriteBatch.Draw(inventoryBackground, levelDestination, levelSource, Color.White);
-                Rectangle levelNumberDestination = new Rectangle(256, 34, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE);
+                Rectangle levelNumberDestination = new Rectangle(256, 34 + offset, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE);
                 spriteBatch.Draw(inventoryBackground, levelNumberDestination, getNumberSourceRectangle(1), Color.White);
                 DrawItemCounts(spriteBatch);
-                DrawSecondaryWeapon(spriteBatch, new Rectangle(514, 106, 9 * GameConstants.SCALE, 20 * GameConstants.SCALE));
-                minimap.Draw(spriteBatch, 0);
-                healthBar.Draw(spriteBatch, 0);
+                DrawSecondaryWeapon(spriteBatch, new Rectangle(514, 106 + offset, 9 * GameConstants.SCALE, 20 * GameConstants.SCALE));
+                minimap.Draw(spriteBatch, offset);
+                healthBar.Draw(spriteBatch, offset);
             }
             else
             {
@@ -105,19 +109,10 @@ namespace Sprint0
 
         public void DrawItemCounts(SpriteBatch spriteBatch)
         {
-            if (pauseScreen.isGamePaused() == false)
-            {
-                DrawRupeeCounts(spriteBatch, new Rectangle(452, 72, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE), new Rectangle(420, 72, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE));
-                DrawKeyCounts(spriteBatch, new Rectangle(452, 148, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE), new Rectangle(420, 148, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE));
-                DrawBombCounts(spriteBatch, new Rectangle(452, 185, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE), new Rectangle(420, 185, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE));
-            }
-            else
-            {
-                int offset = pauseScreen.getCurrentYOffset();
-                DrawRupeeCounts(spriteBatch, new Rectangle(452, 72 + offset, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE), new Rectangle(420, 72 + offset, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE));
-                DrawKeyCounts(spriteBatch, new Rectangle(452, 148 + offset, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE), new Rectangle(420, 148 + offset, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE));
-                DrawBombCounts(spriteBatch, new Rectangle(452, 185 + offset, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE), new Rectangle(420, 185 + offset, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE));
-            }
+            int offset = pauseScreen.getCurrentYOffset();
+            DrawRupeeCounts(spriteBatch, new Rectangle(452, 72 + offset, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE), new Rectangle(420, 72 + offset, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE));
+            DrawKeyCounts(spriteBatch, new Rectangle(452, 148 + offset, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE), new Rectangle(420, 148 + offset, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE));
+            DrawBombCounts(spriteBatch, new Rectangle(452, 185 + offset, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE), new Rectangle(420, 185 + offset, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE));
         }
 
         public void DrawRupeeCounts(SpriteBatch spriteBatch, Rectangle rupeeCountOnes, Rectangle rupeeCountTens)
