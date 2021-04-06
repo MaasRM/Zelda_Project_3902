@@ -205,14 +205,6 @@ namespace Sprint0
                 }
                 linkItems.Add(item);
             }
-            else if (item is MapItem)
-            {
-                pauseScreen.setMap(true);
-            }
-            else if (item is CompassItem)
-            {
-                pauseScreen.setCompass(true);
-            }
         }
 
         public LinkPauseScreen GetLinkPauseScreen()
