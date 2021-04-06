@@ -26,8 +26,8 @@ namespace Sprint0
             currentYOffset = 0;
             pauseTopSourceRectangle = new Rectangle(1, 12, 255, 87);
             pauseBottomSourceRectangle = new Rectangle(258, 113, 255, 87);
-            hasMap = true;
-            hasCompass = true;
+            hasMap = false;
+            hasCompass = false;
             bossFrames = 0;
         }
 
