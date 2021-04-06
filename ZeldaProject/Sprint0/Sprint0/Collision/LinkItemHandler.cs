@@ -90,6 +90,7 @@ namespace Sprint0
 
         private static void HandleOtherItems(IItem item, IPlayer player, List<SoundEffect> Collision_soundEffects, List<IItem> collidedItems)
         {
+            player.getLinkStateMachine().setAnimation(Animation.PickUpItem);
             Collision_soundEffects[7].Play();
             collidedItems.Add(item);
             player.GetLinkInventory().addItem(item);
