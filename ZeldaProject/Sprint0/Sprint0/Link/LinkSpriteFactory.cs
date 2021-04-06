@@ -116,23 +116,7 @@ namespace Sprint0
         private int FindLinkHeight(Direction direction, Animation animation, int frame)
         {
             int ret = LinkConstants.LINKSIZENORMAL;
-            if(animation == Animation.Attack && (direction == Direction.Up || direction == Direction.Down))
-            {
-                switch(frame)
-                {
-                    case 1:
-                        ret = LinkConstants.LINKSIZEATTACKYFRAME1;
-                        break;
-                    case 2:
-                        ret = LinkConstants.LINKSIZEATTACKYFRAME2;
-                        break;
-                    case 3:
-                        ret = LinkConstants.LINKSIZEATTACKYFRAME3;
-                        break;
-                    default:
-                        break;
-                }
-            }
+            if (animation == Animation.Attack && (direction == Direction.Up || direction == Direction.Down)) ret = LinkConstants.LINKSIZEATTACKY;
             return ret;
         }
 
