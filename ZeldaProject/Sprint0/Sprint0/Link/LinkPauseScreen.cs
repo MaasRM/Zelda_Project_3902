@@ -76,7 +76,7 @@ namespace Sprint0
             spriteBatch.Draw(inventoryBackground, compassDestination, compassSource, Color.White);
             Rectangle bossRoomSourceRed = new Rectangle(537, 126, 2, 2);
             Rectangle bossRoomSourceBlue = new Rectangle(555, 127, 2, 2);
-            Rectangle bossRoomDestination = new Rectangle(718, -287 + currentYOffset, 2 * GameConstants.SCALE, 2 * GameConstants.SCALE);
+            Rectangle bossRoomDestination = new Rectangle(686, -287 + currentYOffset, 2 * GameConstants.SCALE, 2 * GameConstants.SCALE);
             if(bossFrames %2 == 0)
             {
                 spriteBatch.Draw(inventoryBackground, bossRoomDestination, bossRoomSourceRed, Color.White);
