@@ -25,14 +25,14 @@ namespace Sprint0
                 else if (item is MapItem)
                 {
                     collidedItems.Add(item);
-                    player.GetLinkInventory().GetLinkMinimap().setMinimap(true);
-                    player.GetLinkInventory().GetLinkPauseScreen().setMap(true);
+                    player.GetLinkInventory().linkMinimap.setMinimap(true);
+                    player.GetLinkInventory().pauseScreen.setMap(true);
                 }
                 else if (item is CompassItem)
                 {
                     collidedItems.Add(item);
                     //player.GetLinkInventory().GetLinkMinimap().setCompass(true);
-                    player.GetLinkInventory().GetLinkPauseScreen().setCompass(true);
+                    player.GetLinkInventory().pauseScreen.setCompass(true);
                     Collision_soundEffects[7].Play();
                 }
                 else HandleOtherItems(item, player, Collision_soundEffects, collidedItems);

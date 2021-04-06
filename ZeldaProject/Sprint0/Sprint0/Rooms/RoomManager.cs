@@ -64,7 +64,7 @@ namespace Sprint0
                 if (nextRoomLoc.X == 0 && nextRoomLoc.Y == 0) roomChange = false;
             } else
             {
-                game.GetPlayer().GetLinkInventory().GetLinkMinimap().setLinkMinimapDestinationSprite(roomIndex, 0);
+                game.GetPlayer().GetLinkInventory().linkMinimap.setLinkMinimapDestinationSprite(roomIndex, 0);
                 game.SetBlocks(currentRoom.getBlocks());
                 game.SetItems(currentRoom.getItems());
                 game.SetNPCs(currentRoom.getNPCs());

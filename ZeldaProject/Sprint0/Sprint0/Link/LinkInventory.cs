@@ -12,12 +12,14 @@ namespace Sprint0
         private int keyCount;
         private int bombCount;
         private int rupeeCount;
-        private LinkHealthBar healthBar;
-        private LinkMinimap minimap;
+        
         private List<IItem> linkItems;
         private Texture2D inventoryBackground;
-        private LinkPauseScreen pauseScreen;
+        public LinkMinimap linkMinimap { get; set; }
+        public LinkPauseScreen pauseScreen { get; set; }
+        public LinkHealthBar healthBar { get; set; }
         public IItem currentItem { get; set; }
+
 
         public LinkInventory(Texture2D background)
         {
@@ -27,7 +29,7 @@ namespace Sprint0
             linkItems = new List<IItem>();
             currentItem = null;
             inventoryBackground = background;
-            minimap = new LinkMinimap(inventoryBackground);
+            linkMinimap = new LinkMinimap(inventoryBackground);
             healthBar = new LinkHealthBar(inventoryBackground);
             pauseScreen = new LinkPauseScreen(inventoryBackground);
         }
@@ -63,7 +65,7 @@ namespace Sprint0
                 spriteBatch.Draw(inventoryBackground, levelNumberDestination, getNumberSourceRectangle(1), Color.White);
                 DrawItemCounts(spriteBatch);
                 DrawSecondaryWeapon(spriteBatch, new Rectangle(514, 106 + offset, 9 * GameConstants.SCALE, 20 * GameConstants.SCALE));
-                minimap.Draw(spriteBatch, offset);
+                linkMinimap.Draw(spriteBatch, offset);
                 healthBar.Draw(spriteBatch, offset);
             } else DrawPause(spriteBatch);
         }
@@ -95,7 +97,7 @@ namespace Sprint0
             spriteBatch.Draw(inventoryBackground, levelNumberDestination, getNumberSourceRectangle(1), Color.White);
             DrawItemCounts(spriteBatch);
             DrawSecondaryWeapon(spriteBatch, new Rectangle(514, 106 + offset, 9 * GameConstants.SCALE, 20 * GameConstants.SCALE));
-            minimap.Draw(spriteBatch, offset);
+            linkMinimap.Draw(spriteBatch, offset);
             healthBar.Draw(spriteBatch, offset);
             if (pauseScreen.getCurrentYOffset() < 700) {
                 pauseScreen.incrementOffset();
@@ -198,21 +200,6 @@ namespace Sprint0
                 }
                 linkItems.Add(item);
             }
-        }
-
-        public LinkPauseScreen GetLinkPauseScreen()
-        {
-            return pauseScreen;
-        }
-
-        public LinkHealthBar GetLinkHealthBar()
-        {
-            return healthBar;
-        }
-
-        public LinkMinimap GetLinkMinimap()
-        {
-            return minimap;
         }
 
         public void addKey()
