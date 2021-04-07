@@ -8,22 +8,31 @@ namespace Sprint0
 {
     public class Block : IBlock
     {
-        private Texture2D blockSpriteSheet;
+        private Texture2D DungeonBlockSheet;
+        private Texture2D OverworldBlockSheet;
         private Rectangle blockSource;
         private Rectangle blockDestination;
         private Rectangle startingPosition;
         private int blockIndex;
 
-        public Block(int blockNum, Texture2D spriteSheet, int x, int y)
+        public Block(int blockNum, Texture2D dungeon, Texture2D overworld, int x, int y)
         {
-            blockSpriteSheet = spriteSheet;
+            DungeonBlockSheet = dungeon;
+            OverworldBlockSheet = overworld;
             blockIndex = blockNum;
             blockDestination = new Rectangle(x, y, BlockConstants.WIDTHANDHEIGHT * GameConstants.SCALE, BlockConstants.WIDTHANDHEIGHT * GameConstants.SCALE);
             startingPosition = blockDestination;
 
-            blockSource = new Rectangle(BlockConstants.XSources[blockIndex % 4], BlockConstants.YSources[blockIndex / 4 % 3], BlockConstants.WIDTHANDHEIGHT, BlockConstants.WIDTHANDHEIGHT);
+            if (blockIndex < 11)
+            {
+                blockSource = new Rectangle(BlockConstants.DXSources[blockIndex % 4], BlockConstants.DYSources[blockIndex / 4 % 3], BlockConstants.WIDTHANDHEIGHT, BlockConstants.WIDTHANDHEIGHT);
+            }
+            else
+            {
+                blockSource = new Rectangle(BlockConstants.OXSources[blockIndex % 4], BlockConstants.OYSources[blockIndex / 4 % 3], BlockConstants.WIDTHANDHEIGHT, BlockConstants.WIDTHANDHEIGHT);
+            }
 
-            if (blockIndex == BlockConstants.MoveBlockIndex) blockSource = new Rectangle(BlockConstants.XSources[1], BlockConstants.YSources[0], BlockConstants.WIDTHANDHEIGHT, BlockConstants.WIDTHANDHEIGHT);
+            if (blockIndex == BlockConstants.MoveBlockIndex) blockSource = new Rectangle(BlockConstants.DXSources[1], BlockConstants.DYSources[0], BlockConstants.WIDTHANDHEIGHT, BlockConstants.WIDTHANDHEIGHT);
         }
 
         public void Update()
@@ -32,7 +41,14 @@ namespace Sprint0
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(blockSpriteSheet, blockDestination, blockSource, Color.White);
+            if (blockIndex < 11)
+            {
+                spriteBatch.Draw(DungeonBlockSheet, blockDestination, blockSource, Color.White);
+            }
+            else
+            {
+                spriteBatch.Draw(OverworldBlockSheet, blockDestination, blockSource, Color.White);
+            }
         }
 
         public Rectangle GetBlockLocation()

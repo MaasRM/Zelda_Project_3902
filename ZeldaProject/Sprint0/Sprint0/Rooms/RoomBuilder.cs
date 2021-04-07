@@ -12,16 +12,18 @@ namespace Sprint0
         private Sprint4 game;
         private XmlDocument xmlDoc;
         private Texture2D dungeonSheet;
+        private Texture2D overworldSheet;
         private List<Texture2D> enemiesSheets;
         private Texture2D itemsSheet;
         private List<Texture2D> bossesSheets;
         private Texture2D npcSheet;
 
-        public RoomBuilder(Sprint4 game, XmlDocument doc, Texture2D dungeon, List<Texture2D> enemies, Texture2D items, List<Texture2D> bosses, Texture2D npcs)
+        public RoomBuilder(Sprint4 game, XmlDocument doc, Texture2D dungeon, List<Texture2D> enemies, Texture2D items, List<Texture2D> bosses, Texture2D npcs, Texture2D overworld)
         {
             this.game = game;
             xmlDoc = doc;
             dungeonSheet = dungeon;
+            overworldSheet = overworld;
             enemiesSheets = enemies;
             itemsSheet = items;
             bossesSheets = bosses;
@@ -71,7 +73,7 @@ namespace Sprint0
         {
             XmlNode parent = blockInfo.ParentNode;
             //Edited
-            return new Block(int.Parse(blockInfo["BlockType"].InnerText), dungeonSheet, (int.Parse(blockInfo["XLoc"].InnerText)) * GameConstants.SCALE, (int.Parse(blockInfo["YLoc"].InnerText) + GameConstants.HUDSIZE) * GameConstants.SCALE);
+            return new Block(int.Parse(blockInfo["BlockType"].InnerText), dungeonSheet, overworldSheet, (int.Parse(blockInfo["XLoc"].InnerText)) * GameConstants.SCALE, (int.Parse(blockInfo["YLoc"].InnerText) + GameConstants.HUDSIZE) * GameConstants.SCALE);
         }
 
         private IItem CreateItem(XmlNode itemInfo, List<INPC> npcList)

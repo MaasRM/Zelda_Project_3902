@@ -87,27 +87,26 @@ namespace Sprint0
             List<Texture2D> enemySheets = new List<Texture2D>();
             List<Texture2D> bossSheets = new List<Texture2D>();
             List<Texture2D> linkSheetList = new List<Texture2D>();
+
             linkSheetList.Add(contentManager.Load<Texture2D>("LinkSpriteSheet")); // 0 is green
             linkSheetList.Add(contentManager.Load<Texture2D>("LinkSpriteSheetBlack")); // 1 is black
             linkSheetList.Add(contentManager.Load<Texture2D>("LinkSpriteSheetRed")); // 2 is red
             linkSheetList.Add(contentManager.Load<Texture2D>("LinkSpriteSheetBlue")); // 3 is blue
-
-            Texture2D dungeonSheet = contentManager.Load<Texture2D>("Dungeon_Tileset");
 
             enemySheets.Add(contentManager.Load<Texture2D>("Dungeon_Enemies"));
             enemySheets.Add(contentManager.Load<Texture2D>("Dungeon_Enemies_DamageOne"));
             enemySheets.Add(contentManager.Load<Texture2D>("Dungeon_Enemies_DamageTwo"));
             enemySheets.Add(contentManager.Load<Texture2D>("Dungeon_Enemies_DamageThree"));
 
-            Texture2D itemsSheet = contentManager.Load<Texture2D>("Dungeon_Items");
-
             bossSheets.Add(contentManager.Load<Texture2D>("Dungeon_Bosses"));
             bossSheets.Add(contentManager.Load<Texture2D>("Dungeon_Bosses_DamageOne"));
             bossSheets.Add(contentManager.Load<Texture2D>("Dungeon_Bosses_DamageTwo"));
             bossSheets.Add(contentManager.Load<Texture2D>("Dungeon_Bosses_DamageThree"));
 
+            Texture2D dungeonSheet = contentManager.Load<Texture2D>("Dungeon_Tileset");
+            Texture2D overworldSheet = contentManager.Load<Texture2D>("Overworld_Tileset");
             Texture2D npcSheet = contentManager.Load<Texture2D>("Zelda_NPCs");
-
+            Texture2D itemsSheet = contentManager.Load<Texture2D>("Dungeon_Items");
             Texture2D inventory = contentManager.Load<Texture2D>("HUD_Pause_Screen");
 
             //Songs
@@ -115,6 +114,8 @@ namespace Sprint0
             Overworld_music = Content.Load<Song>("Overworld");
             Dungeon_music = Content.Load<Song>("Dungeon");
             Ending_music = Content.Load<Song>("Ending");
+
+            //Implentment SongManager.cs to manage the 4 songs
 
 
             //Collision sound effects
@@ -161,7 +162,7 @@ namespace Sprint0
 
             XmlDocument doc = new XmlDocument();
             doc.Load(new FileStream("..\\..\\..\\Content\\ZeldaRoomLayout.xml", FileMode.Open));
-            roomManager.SetUpRooms(doc, dungeonSheet, enemySheets, itemsSheet, bossSheets, npcSheet);
+            roomManager.SetUpRooms(doc, dungeonSheet, enemySheets, itemsSheet, bossSheets, npcSheet, overworldSheet);
 
             foreach (IController controller in controllerList)
             {

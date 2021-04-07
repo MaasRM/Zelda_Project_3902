@@ -28,10 +28,10 @@ namespace Sprint0
             roomChange = false;
         }
 
-        public void SetUpRooms(XmlDocument xmlDoc, Texture2D dungeon, List<Texture2D> enemies, Texture2D items, List<Texture2D> bosses, Texture2D npcs)
+        public void SetUpRooms(XmlDocument xmlDoc, Texture2D dungeon, List<Texture2D> enemies, Texture2D items, List<Texture2D> bosses, Texture2D npcs, Texture2D overworld)
         {
             dungeonSheet = dungeon;
-            RoomBuilder builder = new RoomBuilder(game, xmlDoc, dungeon, enemies, items, bosses, npcs);
+            RoomBuilder builder = new RoomBuilder(game, xmlDoc, dungeon, enemies, items, bosses, npcs, overworld);
             roomList = builder.buildRoomList();
             currentRoom = roomList[GameConstants.STARTROOM];
         }
