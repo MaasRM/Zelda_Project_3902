@@ -72,6 +72,7 @@ namespace Sprint0
         {
             frame++;
 
+            if (xLoc < AquamentusConstants.LEFTMAX) direction = Direction.Right;
             if (frame % AquamentusConstants.CHANGEDIRECTIONFRAME == 0) direction = ChangeDirection();
             if (direction == Direction.Left) xLoc -= AquamentusConstants.moveDist * GameConstants.SCALE;
             else xLoc += AquamentusConstants.moveDist * GameConstants.SCALE;
@@ -113,7 +114,7 @@ namespace Sprint0
 
         private void StopFiring()
         {
-            if(frame - lastFire == AquamentusConstants.DAMAGEANDFIREFRAMECOUNT && firing)
+            if(frame - lastFire == AquamentusConstants.FIREFRAMECOUNT && firing)
             {
                 firing = false;
             }
@@ -141,7 +142,7 @@ namespace Sprint0
 
         public void ReturnToNormal()
         {
-            if (damageFrames > AquamentusConstants.DAMAGEANDFIREFRAMECOUNT)
+            if (damageFrames > AquamentusConstants.DAMAGEFRAMECOUNT)
             {
                 state = State.Normal;
             }
