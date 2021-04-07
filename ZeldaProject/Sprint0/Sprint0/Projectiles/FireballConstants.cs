@@ -5,7 +5,7 @@ namespace Sprint0
     {
         public const int WIDTH = 8;
         public const int HEIGHT = 16;
-        public const int xMoveDist = 5;
+        public const int MOVEDIST = 5;
         public const int DAMAGE = 1;
         public const double RADTODEGREE = 180 / Math.PI;
         public const double DEGREE36 = 36;

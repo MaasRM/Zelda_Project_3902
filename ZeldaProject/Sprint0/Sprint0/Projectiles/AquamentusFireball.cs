@@ -43,24 +43,24 @@ namespace Sprint0
         public void Update()
         {
             frame++;
-            x -= FireballConstants.xMoveDist * GameConstants.SCALE;
+            x -= FireballConstants.MOVEDIST * GameConstants.SCALE;
 
             if (angle == Angle.Above)
             {
-                if (pos == Position.Top) y -= FireballConstants.xMoveDist * Math.Tan(FireballConstants.DEGREE36 / FireballConstants.RADTODEGREE) * GameConstants.SCALE;
-                else if(pos == Position.Center) y -= FireballConstants.xMoveDist * Math.Tan(FireballConstants.DEGREE22 / FireballConstants.RADTODEGREE) * GameConstants.SCALE;
-                else y -= FireballConstants.xMoveDist * Math.Tan(FireballConstants.DEGREE5 / FireballConstants.RADTODEGREE) * GameConstants.SCALE;
+                if (pos == Position.Top) y -= FireballConstants.MOVEDIST * Math.Tan(FireballConstants.DEGREE36 / FireballConstants.RADTODEGREE) * GameConstants.SCALE;
+                else if (pos == Position.Center) y -= FireballConstants.MOVEDIST * Math.Tan(FireballConstants.DEGREE22 / FireballConstants.RADTODEGREE) * GameConstants.SCALE;
+                else y -= FireballConstants.MOVEDIST * Math.Tan(FireballConstants.DEGREE5 / FireballConstants.RADTODEGREE) * GameConstants.SCALE;
             }
             else if (angle == Angle.Middle)
             {
-                if (pos == Position.Top) y -= FireballConstants.xMoveDist * Math.Tan(FireballConstants.DEGREE20 / FireballConstants.RADTODEGREE) * GameConstants.SCALE;
-                else if (pos == Position.Bottom) y += FireballConstants.xMoveDist * Math.Tan(FireballConstants.DEGREE20 / FireballConstants.RADTODEGREE) * GameConstants.SCALE;
+                if (pos == Position.Top) y -= FireballConstants.MOVEDIST * Math.Tan(FireballConstants.DEGREE20 / FireballConstants.RADTODEGREE) * GameConstants.SCALE;
+                else if (pos == Position.Bottom) y += FireballConstants.MOVEDIST * Math.Tan(FireballConstants.DEGREE20 / FireballConstants.RADTODEGREE) * GameConstants.SCALE;
             }
             else
             {
-                if (pos == Position.Top) y += FireballConstants.xMoveDist * Math.Tan(FireballConstants.DEGREE5 / FireballConstants.RADTODEGREE) * GameConstants.SCALE;
-                else if (pos == Position.Center) y += FireballConstants.xMoveDist * Math.Tan(FireballConstants.DEGREE22 / FireballConstants.RADTODEGREE) * GameConstants.SCALE;
-                else y += FireballConstants.xMoveDist * Math.Tan(FireballConstants.DEGREE36 / FireballConstants.RADTODEGREE) * GameConstants.SCALE;
+                if (pos == Position.Top) y += FireballConstants.MOVEDIST * Math.Tan(FireballConstants.DEGREE5 / FireballConstants.RADTODEGREE) * GameConstants.SCALE;
+                else if (pos == Position.Center) y += FireballConstants.MOVEDIST * Math.Tan(FireballConstants.DEGREE22 / FireballConstants.RADTODEGREE) * GameConstants.SCALE;
+                else y += FireballConstants.MOVEDIST * Math.Tan(FireballConstants.DEGREE36 / FireballConstants.RADTODEGREE) * GameConstants.SCALE;
             }
         }
 
