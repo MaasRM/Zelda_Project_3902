@@ -36,7 +36,10 @@ namespace Sprint0
         public List<SoundEffect> Enemy_soundEffects;
         public List<SoundEffect> Text_soundEffects;
         private Song Title_music;
+        private Song Overworld_music;
         private Song Dungeon_music;
+        private Song Ending_music;
+
 
         //text sprite
         private TextSprite textSprite;
@@ -109,7 +112,10 @@ namespace Sprint0
 
             //Songs
             Title_music = Content.Load<Song>("Intro");
+            Overworld_music = Content.Load<Song>("Overworld");
             Dungeon_music = Content.Load<Song>("Dungeon");
+            Ending_music = Content.Load<Song>("Ending");
+
 
             //Collision sound effects
             Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Boss_Scream1")); //done
