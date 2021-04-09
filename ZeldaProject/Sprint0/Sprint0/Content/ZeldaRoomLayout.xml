@@ -3758,8 +3758,8 @@
 		<Enemies>
 		</Enemies>
 		<Background>
-			<XLoc>1</XLoc>
-			<YLoc>192</YLoc>
+			<XLoc>976</XLoc>
+			<YLoc>996</YLoc>
 		</Background>
 		<Doors>
 			<RightDoor>
@@ -4671,8 +4671,8 @@
 		<Enemies>
 		</Enemies>
 		<Background>
-			<XLoc>1</XLoc>
-			<YLoc>192</YLoc>
+			<XLoc>976</XLoc>
+			<YLoc>996</YLoc>
 		</Background>
 		<Doors>
 			<RightDoor>
