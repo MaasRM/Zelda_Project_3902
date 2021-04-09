@@ -172,6 +172,7 @@ namespace Sprint0
             
             //SongManager
             Songs = new SongManager(Title_music, Overworld_music, Dungeon_music, Ending_music);
+            roomManager.ChangeRoom(18);
         }
 
         protected override void Update(GameTime gameTime)
