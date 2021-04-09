@@ -154,6 +154,7 @@ namespace Sprint0
             hintSprite = new HintSprite(dungeonSheet, roomManager, this);
 
             XmlDocument doc = new XmlDocument();
+
             doc.Load(new FileStream("..\\..\\..\\Content\\ZeldaRoomLayout.xml", FileMode.Open));
             roomManager.SetUpRooms(doc, dungeonSheet, enemySheets, itemsSheet, bossSheets, npcSheet, overworldSheet);
 
