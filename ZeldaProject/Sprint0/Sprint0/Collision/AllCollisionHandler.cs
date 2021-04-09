@@ -204,13 +204,13 @@ namespace Sprint0
                 if (player.getLinkStateMachine().getXLoc() > cameraWallMaxX + (WallConstants.WALLSIZE * GameConstants.SCALE))
                 {
                     roomManager.ChangeRoom(19);
-                    player.SetPosition(new Rectangle(cameraWallMinX - (WallConstants.WALLSIZE * GameConstants.SCALE), GameConstants.STAIRROOMOFFSETY * GameConstants.SCALE, 0, 0));
+                    player.SetPosition(new Rectangle(cameraWallMinX - (WallConstants.WALLSIZE * GameConstants.SCALE), (WallConstants.WALLSIZE * 2 + WallConstants.BOTTOMWALL) / 2 * GameConstants.SCALE, 0, 0));
                 }
             } else if (roomManager.getRoomIndex() == GameConstants.SHOPROOM) {
                 if (player.getLinkStateMachine().getXLoc() < cameraWallMinX - (WallConstants.WALLSIZE * GameConstants.SCALE))
                 {
                     roomManager.ChangeRoom(18);
-                    player.SetPosition(new Rectangle(cameraWallMaxX + (WallConstants.WALLSIZE * GameConstants.SCALE), GameConstants.STAIRROOMOFFSETY * GameConstants.SCALE, 0, 0));
+                    player.SetPosition(new Rectangle(cameraWallMaxX + (WallConstants.WALLSIZE * GameConstants.SCALE), (WallConstants.WALLSIZE * 2 + WallConstants.BOTTOMWALL) / 2 * GameConstants.SCALE, 0, 0));
                 }
             }
         }
