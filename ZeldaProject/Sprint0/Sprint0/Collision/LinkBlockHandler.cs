@@ -25,7 +25,7 @@ namespace Sprint0
             Rectangle blockRect = block.GetBlockLocation();
             bool blockMoved = false;
 
-            if (block.getIndex() != 5 && block.getIndex() != 9 && block.getIndex() != 11 && block.getIndex() != 18 && block.getIndex() != 19 && block.getIndex() != 27 && block.getIndex() != 28 && player.getLinkStateMachine().getAnimation() != Animation.Attack) {
+            if (block.getIndex() != 5 && block.getIndex() != 9 && block.getIndex() != 11 && block.getIndex() != 18 && block.getIndex() != 19 && block.getIndex() != 27 && block.getIndex() != 28 && block.getIndex() != 39 && player.getLinkStateMachine().getAnimation() != Animation.Attack) {
                 if(block.getIndex() == 10 && !blockMoved) {
                     blockMoved = MobileBlcokCollision(block, overlap, blockRect, overlapSide);
                 }

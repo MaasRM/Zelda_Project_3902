@@ -8,7 +8,7 @@ namespace Sprint0
     {
         public static int LINKMOVESPEED = 16;
         public static int XINIT = 120;
-        public static int YINIT = 128;
+        public static int YINIT = 192;
         public static int STARTHEALTH = 18;
         public static int LINKSIZENORMAL = 16;
         public static int LINKSIZEATTACKY = 30;
