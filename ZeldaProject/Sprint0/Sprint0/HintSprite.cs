@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace Sprint0
 {
-    public class TextSprite : ISprite
+    public class HintSprite : ISprite
     {
 
         private Texture2D letterSheet;
@@ -30,7 +30,7 @@ namespace Sprint0
               75, 55, 82, 55, 89, 55, 96, 55, 103, 55, 110, 55, 117, 55, 124, 55, 131, 55, 138, 55, 145, 55, 152, 55, 159, 55, 166, 55 //bottom 14 letters (28)
             };
 
-        public TextSprite(Texture2D dungeonSheet, RoomManager manager, Sprint4 game)
+        public HintSprite(Texture2D dungeonSheet, RoomManager manager, Sprint4 game)
         {
             this.game = game;
             roomManager = manager;
