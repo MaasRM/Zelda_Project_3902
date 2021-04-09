@@ -33,7 +33,7 @@ namespace Sprint0
             dungeonSheet = dungeon;
             RoomBuilder builder = new RoomBuilder(game, xmlDoc, dungeon, enemies, items, bosses, npcs, overworld);
             roomList = builder.buildRoomList();
-            currentRoom = roomList[GameConstants.STARTROOM];
+            currentRoom = roomList[GameConstants.OUTSIDEROOM];
         }
 
         public void Update()

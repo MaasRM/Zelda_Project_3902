@@ -25,7 +25,7 @@ namespace Sprint0
             Rectangle blockRect = block.GetBlockLocation();
             bool blockMoved = false;
 
-            if (block.getIndex() != 5 && block.getIndex() != 9 && player.getLinkStateMachine().getAnimation() != Animation.Attack) {
+            if (block.getIndex() != 5 && block.getIndex() != 9 && block.getIndex() != 11 && block.getIndex() != 18 && block.getIndex() != 19 && block.getIndex() != 27 && block.getIndex() != 28 && player.getLinkStateMachine().getAnimation() != Animation.Attack) {
                 if(block.getIndex() == 10 && !blockMoved) {
                     blockMoved = MobileBlcokCollision(block, overlap, blockRect, overlapSide);
                 }
@@ -43,6 +43,10 @@ namespace Sprint0
                 else if (block.getIndex() == 7)
                 {
                     StairCaseCollision(roomManager, Collision_soundEffects);
+                }
+                else if (block.getIndex() == 41)
+                {
+                    EnterDungeonCollision(player, roomManager, Collision_soundEffects);
                 }
                 else if (block.getIndex() != 10 || blockMoved)
                 {
@@ -139,6 +143,13 @@ namespace Sprint0
         {
             Collision_soundEffects[10].Play();
             roomManager.ChangeRoom(GameConstants.VERTICALROOM);
+        }
+
+        private static void EnterDungeonCollision(IPlayer link, RoomManager roomManager, List<SoundEffect> Collision_soundEffects)
+        {
+            Collision_soundEffects[10].Play();
+            roomManager.ChangeRoom(GameConstants.STARTROOM);
+            link.SetPosition(new Rectangle(LinkConstants.XINIT * GameConstants.SCALE, LinkConstants.YINIT * GameConstants.SCALE, LinkConstants.LINKSIZENORMAL, LinkConstants.LINKSIZENORMAL));
         }
     }
 }
