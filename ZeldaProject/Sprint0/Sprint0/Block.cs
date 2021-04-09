@@ -29,7 +29,7 @@ namespace Sprint0
             }
             else
             {
-                blockSource = new Rectangle(BlockConstants.OXSources[blockIndex % 4], BlockConstants.OYSources[blockIndex / 4 % 3], BlockConstants.WIDTHANDHEIGHT, BlockConstants.WIDTHANDHEIGHT);
+                blockSource = new Rectangle(BlockConstants.OXSources[(blockIndex - 11) % 9], BlockConstants.OYSources[(blockIndex - 11) / 9 % 5], BlockConstants.WIDTHANDHEIGHT, BlockConstants.WIDTHANDHEIGHT);
             }
 
             if (blockIndex == BlockConstants.MoveBlockIndex) blockSource = new Rectangle(BlockConstants.DXSources[1], BlockConstants.DYSources[0], BlockConstants.WIDTHANDHEIGHT, BlockConstants.WIDTHANDHEIGHT);
