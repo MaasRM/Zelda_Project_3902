@@ -24,7 +24,7 @@ namespace Sprint0
         {
             this.game = game;
             roomList = new List<Room>();
-            roomIndex = GameConstants.STARTROOM;
+            roomIndex = GameConstants.OUTSIDEROOM;
             roomChange = false;
         }
 
