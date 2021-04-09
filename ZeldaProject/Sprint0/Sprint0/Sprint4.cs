@@ -39,10 +39,11 @@ namespace Sprint0
         private Song Overworld_music;
         private Song Dungeon_music;
         private Song Ending_music;
+        private SongManager Songs;
 
 
         //text sprite
-        private TextSprite textSprite;
+        private HintSprite hintSprite;
 
         public Sprint4()
         {
@@ -115,9 +116,6 @@ namespace Sprint0
             Dungeon_music = Content.Load<Song>("Dungeon");
             Ending_music = Content.Load<Song>("Ending");
 
-            //Implentment SongManager.cs to manage the 4 songs
-
-
             //Collision sound effects
             Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Boss_Scream1")); //done
             Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Boss_Hit")); //done
@@ -153,14 +151,10 @@ namespace Sprint0
             Text_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Text")); //done
             Text_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Text_Slow")); //done
 
-            //should probably be moved later
-            MediaPlayer.Play(Dungeon_music);
-            MediaPlayer.Volume = 0.25f;
-            MediaPlayer.IsRepeating = true;
-
-            textSprite = new TextSprite(dungeonSheet, roomManager, this);
+            hintSprite = new HintSprite(dungeonSheet, roomManager, this);
 
             XmlDocument doc = new XmlDocument();
+
             doc.Load(new FileStream("..\\..\\..\\Content\\ZeldaRoomLayout.xml", FileMode.Open));
             roomManager.SetUpRooms(doc, dungeonSheet, enemySheets, itemsSheet, bossSheets, npcSheet, overworldSheet);
 
@@ -176,6 +170,9 @@ namespace Sprint0
                                         this.GraphicsDevice.Viewport.Bounds.Height - WallConstants.BOTTOMWALL, itemsSheet);
 
             link = new Link(contentManager.Load<Texture2D>("LinkSpriteSheet"), linkSheetList, Link_soundEffects, inventory);
+            
+            //SongManager
+            Songs = new SongManager(Title_music, Overworld_music, Dungeon_music, Ending_music);
         }
 
         protected override void Update(GameTime gameTime)
@@ -228,7 +225,7 @@ namespace Sprint0
                             controller.Update();
                         }
                     }
-                    if(frame % 8 == 0) textSprite.Update();
+                    if(frame % 8 == 0) hintSprite.Update();
                     
                 } else
                 {
@@ -266,7 +263,7 @@ namespace Sprint0
                 proj.Draw(this._spriteBatch);
             }
 
-            textSprite.Draw(this._spriteBatch);
+            hintSprite.Draw(this._spriteBatch);
 
             if (!roomManager.RoomChange())
             {
