@@ -161,6 +161,7 @@ namespace Sprint0
             textSprite = new TextSprite(dungeonSheet, roomManager, this);
 
             XmlDocument doc = new XmlDocument();
+
             doc.Load(new FileStream("..\\..\\..\\Content\\ZeldaRoomLayout.xml", FileMode.Open));
             roomManager.SetUpRooms(doc, dungeonSheet, enemySheets, itemsSheet, bossSheets, npcSheet, overworldSheet);
 
