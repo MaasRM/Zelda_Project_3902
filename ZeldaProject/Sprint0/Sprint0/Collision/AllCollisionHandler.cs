@@ -181,12 +181,7 @@ namespace Sprint0
         {
             new LinkWallHandler(player, roomManager, cameraWallMinX, cameraWallMaxX, cameraWallMinY, cameraWallMaxY);
 
-            if (roomManager.getRoomIndex() != GameConstants.VERTICALROOM && roomManager.getRoomIndex() != GameConstants.OUTSIDEROOM && roomManager.getRoomIndex() != GameConstants.SHOPROOM && !grabbed) {
-                if (player.getLinkStateMachine().getXLoc() < cameraWallMinX) LinkWallHandler.HandleLeftWall();
-                if (player.getLinkStateMachine().getYLoc() < cameraWallMinY) LinkWallHandler.HandleTopWall();
-                if (player.getLinkStateMachine().getXLoc() > cameraWallMaxX) LinkWallHandler.HandleRightWall();
-                if (player.getLinkStateMachine().getYLoc() > cameraWallMaxY) LinkWallHandler.HandleBottomWall(); 
-            } else if(grabbed) {
+            if(grabbed) {
                 if(player.getLinkStateMachine().getXLoc() < cameraWallMinX || player.getLinkStateMachine().getYLoc() < cameraWallMinY ||
                     player.getLinkStateMachine().getXLoc() > cameraWallMaxX || player.getLinkStateMachine().getYLoc() > cameraWallMaxY)
                 {
@@ -204,14 +199,19 @@ namespace Sprint0
                 if (player.getLinkStateMachine().getXLoc() > cameraWallMaxX + (WallConstants.WALLSIZE * GameConstants.SCALE))
                 {
                     roomManager.ChangeRoom(19);
-                    player.SetPosition(new Rectangle(cameraWallMinX - (WallConstants.WALLSIZE * GameConstants.SCALE), (WallConstants.WALLSIZE * 2 + WallConstants.BOTTOMWALL) / 2 * GameConstants.SCALE, 0, 0));
+                    player.SetPosition(new Rectangle(cameraWallMinX - (WallConstants.WALLSIZE * GameConstants.SCALE), player.getLinkStateMachine().getYLoc(), 0, 0));
                 }
             } else if (roomManager.getRoomIndex() == GameConstants.SHOPROOM) {
                 if (player.getLinkStateMachine().getXLoc() < cameraWallMinX - (WallConstants.WALLSIZE * GameConstants.SCALE))
                 {
                     roomManager.ChangeRoom(18);
-                    player.SetPosition(new Rectangle(cameraWallMaxX + (WallConstants.WALLSIZE * GameConstants.SCALE), (WallConstants.WALLSIZE * 2 + WallConstants.BOTTOMWALL) / 2 * GameConstants.SCALE, 0, 0));
+                    player.SetPosition(new Rectangle(cameraWallMaxX + (WallConstants.WALLSIZE * GameConstants.SCALE), player.getLinkStateMachine().getYLoc(), 0, 0));
                 }
+            } else {
+                if (player.getLinkStateMachine().getXLoc() < cameraWallMinX) LinkWallHandler.HandleLeftWall();
+                if (player.getLinkStateMachine().getYLoc() < cameraWallMinY) LinkWallHandler.HandleTopWall();
+                if (player.getLinkStateMachine().getXLoc() > cameraWallMaxX) LinkWallHandler.HandleRightWall();
+                if (player.getLinkStateMachine().getYLoc() > cameraWallMaxY) LinkWallHandler.HandleBottomWall();
             }
         }
 
