@@ -84,7 +84,6 @@ namespace Sprint0
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-
             List<Texture2D> enemySheets = new List<Texture2D>();
             List<Texture2D> bossSheets = new List<Texture2D>();
             List<Texture2D> linkSheetList = new List<Texture2D>();
@@ -285,6 +284,10 @@ namespace Sprint0
         public RoomManager GetRoomManager()
         {
             return roomManager;
+        }
+        public SongManager GetSongManager()
+        {
+            return Songs;
         }
 
         public void AddProjectile(IProjectile projectile)
