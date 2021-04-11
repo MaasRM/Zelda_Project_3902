@@ -40,11 +40,11 @@ namespace Sprint0
         {
             if(stateMachine.activity != WallmasterStateMachine.Activity.Waiting)
             {
-                WallmasterStateMachine.Direction initial = stateMachine.initialDirection;
-                WallmasterStateMachine.Direction second = stateMachine.GetSecondDirection();
+                Direction initial = stateMachine.initialDirection;
+                Direction second = stateMachine.GetSecondDirection();
 
-                bool directionLeft = initial == WallmasterStateMachine.Direction.Left || second == WallmasterStateMachine.Direction.Left;
-                bool directionDown = initial == WallmasterStateMachine.Direction.Down || second == WallmasterStateMachine.Direction.Down;
+                bool directionLeft = initial == Direction.Left || second == Direction.Left;
+                bool directionDown = initial == Direction.Down || second == Direction.Down;
 
                 if (directionLeft && directionDown) flip = SpriteEffects.FlipHorizontally | SpriteEffects.FlipVertically;
                 else if (directionLeft) flip = SpriteEffects.FlipHorizontally;

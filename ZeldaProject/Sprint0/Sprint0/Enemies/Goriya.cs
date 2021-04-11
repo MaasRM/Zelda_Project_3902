@@ -55,7 +55,7 @@ namespace Sprint0
         {
             if (stateMachine.GetFrame() % 2 == 0)
             {
-                if (stateMachine.GetDirection() == GoriyaStateMachine.Direction.Left)
+                if (stateMachine.GetDirection() == Direction.Left)
                 {
                     spriteBatch.Draw(currentSheet, destination, source, Color.White, 0, new Vector2(0, 0), SpriteEffects.FlipHorizontally, 0f);
                 }
@@ -66,7 +66,7 @@ namespace Sprint0
             }
             else
             {
-                if (stateMachine.GetDirection() == GoriyaStateMachine.Direction.Right)
+                if (stateMachine.GetDirection() == Direction.Right)
                 {
                     spriteBatch.Draw(currentSheet, destination, source, Color.White);
                 }
