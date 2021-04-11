@@ -8,14 +8,6 @@ namespace Sprint0
 {
     public class GoriyaStateMachine
     {
-        public enum Direction
-        {
-            Down,
-            Up,
-            Left,
-            Right
-        }
-
         public enum GoriyaColor
         {
             Red,

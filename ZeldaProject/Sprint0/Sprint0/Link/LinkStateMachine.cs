@@ -11,7 +11,11 @@ namespace Sprint0
         Up,
         Down,
         Left,
-        Right
+        Right,
+        UpRight,
+        DownRight,
+        DownLeft,
+        UpLeft
     }
 
     public enum LinkColor

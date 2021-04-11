@@ -8,13 +8,6 @@ namespace Sprint0
 {
     public class StalfosStateMachine
     {
-        public enum Direction
-        {
-            Up,
-            Down,
-            Left,
-            Right
-        }
 
         private enum State
         {

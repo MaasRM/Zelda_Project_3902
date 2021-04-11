@@ -8,14 +8,6 @@ namespace Sprint0
 {
     public class WallmasterStateMachine
     {
-        public enum Direction
-        {
-            Up,
-            Down,
-            Left,
-            Right
-        }
-
         public enum Activity
         {
             Waiting,

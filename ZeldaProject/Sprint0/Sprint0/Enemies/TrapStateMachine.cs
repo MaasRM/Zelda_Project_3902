@@ -8,13 +8,6 @@ namespace Sprint0
 {
     public class TrapStateMachine
     {
-        public enum Direction
-        {
-            Up,
-            Down,
-            Left,
-            Right,
-        }
 
         public enum Activity
         {

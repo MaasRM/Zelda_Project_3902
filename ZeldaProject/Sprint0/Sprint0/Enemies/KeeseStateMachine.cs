@@ -7,18 +7,6 @@ namespace Sprint0
 {
     public class KeeseStateMachine
     {
-        public enum Direction
-        {
-            North,
-            NorthEast,
-            East,
-            SouthEast,
-            South,
-            SouthWest,
-            West,
-            NorthWest
-        }
-
         public enum KeeseColor
         {
             Blue, Red
@@ -112,22 +100,22 @@ namespace Sprint0
             if(state == State.Normal) {
                 if (currFrame % KeeseConstants.DIRECTIONCHANGEFRAME == 0) direction = ChangeDirection();
 
-                if (direction == Direction.North) yLoc -= KeeseConstants.axialMoveDist * GameConstants.SCALE;
-                else if (direction == Direction.NorthEast) {
+                if (direction == Direction.Up) yLoc -= KeeseConstants.axialMoveDist * GameConstants.SCALE;
+                else if (direction == Direction.UpRight) {
                     xLoc += KeeseConstants.diagonalMoveDist * GameConstants.SCALE;
                     yLoc -= KeeseConstants.diagonalMoveDist * GameConstants.SCALE;
                 }
-                else if (direction == Direction.East) xLoc += KeeseConstants.axialMoveDist * GameConstants.SCALE;
-                else if (direction == Direction.SouthEast) {
+                else if (direction == Direction.Right) xLoc += KeeseConstants.axialMoveDist * GameConstants.SCALE;
+                else if (direction == Direction.DownRight) {
                     xLoc += KeeseConstants.diagonalMoveDist * GameConstants.SCALE;
                     yLoc += KeeseConstants.diagonalMoveDist * GameConstants.SCALE;
                 }
-                else if (direction == Direction.South) yLoc += KeeseConstants.axialMoveDist * GameConstants.SCALE;
-                else if (direction == Direction.SouthWest) {
+                else if (direction == Direction.Down) yLoc += KeeseConstants.axialMoveDist * GameConstants.SCALE;
+                else if (direction == Direction.DownLeft) {
                     xLoc -= KeeseConstants.diagonalMoveDist * GameConstants.SCALE;
                     yLoc += KeeseConstants.diagonalMoveDist * GameConstants.SCALE;
                 }
-                else if (direction == Direction.West) xLoc -= KeeseConstants.axialMoveDist * GameConstants.SCALE;
+                else if (direction == Direction.Left) xLoc -= KeeseConstants.axialMoveDist * GameConstants.SCALE;
                 else {
                     xLoc -= KeeseConstants.diagonalMoveDist * GameConstants.SCALE;
                     yLoc -= KeeseConstants.diagonalMoveDist * GameConstants.SCALE;
