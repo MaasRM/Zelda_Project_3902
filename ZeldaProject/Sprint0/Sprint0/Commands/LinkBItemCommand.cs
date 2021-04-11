@@ -12,23 +12,34 @@ namespace Sprint0
         public void Execute()
         {
             IItem item = game.GetPlayer().GetLinkInventory().currentItem;
-            ICommand command;
+            ICommand command = new NothingCommand(game);
 
             if (item is BombItem)
             {
                 command = new LinkUseBombCommand(game);
-                command.Execute();
             }
             else if (item is BoomerangItem)
             {
                 command = new LinkUseBrownBoomerangCommand(game);
-                command.Execute();
+            }
+            else if (item is BlueBoomerangItem)
+            {
+                command = new LinkUseBlueBoomerangCommand(game);
             }
             else if (item is BowItem)
             {
                 command = new LinkUseBrownArrowCommand(game);
-                command.Execute();
             }
+            else if (item is BlueArrowItem)
+            {
+                command = new LinkUseBlueArrowCommand(game);
+            }
+            else if (item is CandleItem)
+            {
+                command = new LinkUseCandleCommand(game);
+            }
+
+            command.Execute();
         }
     }
 }
