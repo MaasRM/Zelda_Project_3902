@@ -9,9 +9,18 @@ namespace Sprint0
 {
     public class LinkInventory
     {
+        public enum Direction
+        {
+            Up,
+            Down,
+            Left,
+            Right
+        }
+
         private int keyCount;
         private int bombCount;
         private int rupeeCount;
+        private int currentItemIndex;
         
         private List<IItem> linkItems;
         private Texture2D inventoryBackground;
@@ -28,6 +37,7 @@ namespace Sprint0
             rupeeCount = 0;
             linkItems = new List<IItem>();
             currentItem = null;
+            currentItemIndex = 0;
             inventoryBackground = background;
             linkMinimap = new LinkMinimap(inventoryBackground);
             healthBar = new LinkHealthBar(inventoryBackground);
@@ -156,6 +166,67 @@ namespace Sprint0
 
         }
 
+        public void changeCurrentItem(Direction direction)
+        {
+            if (direction == Direction.Left)
+            {
+                incrementCurrentItem(-1);
+            }
+            else if (direction == Direction.Right)
+            {
+                incrementCurrentItem(1);
+            }
+            else if (direction == Direction.Up)
+            {
+                incrementCurrentItem(-4);
+            }
+            else if (direction == Direction.Down)
+            {
+                incrementCurrentItem(4);
+            }
+        }
+
+        public void incrementCurrentItem(int num)
+        {
+            int size = linkItems.Count;
+            if (num < 0 && currentItemIndex == 0) { }
+            else if (num < 0 && currentItemIndex > 0)
+            {
+                if (num == -4)
+                {
+                    if (size <= currentItemIndex + num)
+                    {
+                        currentItem = linkItems[currentItemIndex - 4];
+                        currentItemIndex -= 4;
+                    }
+                }
+                else
+                {
+                    currentItemIndex--;
+                    currentItem = linkItems[currentItemIndex];
+                }
+            }
+            else if (num > 0 && size > 0 && currentItemIndex < size)
+            {
+                if (num == 4)
+                {
+                    if (size > currentItemIndex + num)
+                    {
+                        currentItem = linkItems[currentItemIndex + 4];
+                        currentItemIndex += 4;
+                    }
+                }
+                else
+                {
+                    if (size > currentItemIndex + num)
+                    {
+                        currentItemIndex++;
+                        currentItem = linkItems[currentItemIndex];
+                    }
+                }
+            }
+        }
+
         public void DrawSecondaryWeapon(SpriteBatch spriteBatch, Rectangle secondaryWeapon)
         {
             Rectangle itemSource = new Rectangle(530, 16, 1, 1);
@@ -200,6 +271,7 @@ namespace Sprint0
                 if (linkItems.Count == 0)
                 {
                     currentItem = item;
+                    currentItemIndex = 0;
                     linkItems.Add(item);
                 }
                 else
@@ -243,11 +315,13 @@ namespace Sprint0
 
         public void removeBomb()
         {
+            int check = 0;
             bombCount--;
             foreach (IItem item in linkItems)
             {
-                if (item is BombItem) { linkItems.Remove(item); }
+                if (item is BombItem) { check = linkItems.IndexOf(item); }
             }
+            if (check >= 0) { linkItems.RemoveAt(check); }
         }
 
         public bool hasBombs()
