@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework.Input;
-using Sprint0.Commands;
 
 namespace Sprint0
 {

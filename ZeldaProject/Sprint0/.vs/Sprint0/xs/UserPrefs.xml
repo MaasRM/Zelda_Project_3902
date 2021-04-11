@@ -2,29 +2,17 @@
   <MonoDevelop.Ide.ItemProperties.Sprint0 PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench>
     <Files>
-<<<<<<< HEAD
-      <File FileName="Sprint0/Enemies/Goriya.cs" Line="128" Column="34" />
+      <File FileName="Sprint0/MouseController.cs" Line="5" Column="37" />
+      <File FileName="Sprint0/KeyboardController.cs" Line="5" Column="37" />
+      <File FileName="Sprint0/PauseController.cs" Line="3" Column="37" />
       <File FileName="Sprint0/Sprint4.cs" Line="157" Column="38" />
-=======
-      <File FileName="Sprint0/KeyboardController.cs" Line="47" Column="63" />
-      <File FileName="Sprint0/Commands/LinkBItemCommand.cs" />
-      <File FileName="Sprint0/Commands/LinkAttackCommand.cs" />
->>>>>>> Keyboard controller update
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Sprint0" expanded="True">
             <Node name="Sprint0" expanded="True">
-<<<<<<< HEAD
-              <Node name="Enemies" expanded="True" />
               <Node name="Sprint4.cs" selected="True" />
-=======
-              <Node name="Commands" expanded="True" />
-              <Node name="Items" expanded="True" />
-              <Node name="Link" expanded="True" />
-              <Node name="KeyboardController.cs" selected="True" />
->>>>>>> Keyboard controller update
             </Node>
           </Node>
         </State>
