@@ -8,14 +8,6 @@ namespace Sprint0
 {
     public class GoriyaStateMachine
     {
-        public enum Direction
-        {
-            Down,
-            Up,
-            Left,
-            Right
-        }
-
         public enum GoriyaColor
         {
             Red,
@@ -162,7 +154,7 @@ namespace Sprint0
             return health > 0;
         }
 
-        public void TakeDamage(int damage, Vector2 direction)
+        public void TakeDamage(int damage, Vector2 damageVector)
         {
             if (state != State.Damaged)
             {
@@ -173,7 +165,7 @@ namespace Sprint0
 
                 if (!throwing)
                 {
-                    damageDirection = direction;
+                    damageDirection = damageVector;
                 }
             }
         }

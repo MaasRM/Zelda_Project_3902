@@ -12,7 +12,7 @@ namespace Sprint0
         private Texture2D spritesheet;
         private bool goBack;
         private Vector2 loc;
-        private GoriyaStateMachine.Direction direction;
+        private Direction direction;
         private int frame;
         private SpriteEffects flip;
 
@@ -35,16 +35,16 @@ namespace Sprint0
 
             if (!goBack)
             {
-                if (direction == GoriyaStateMachine.Direction.Down) loc.Y += GoriyaBoomerangConstants.moveDist * GameConstants.SCALE;
-                else if (direction == GoriyaStateMachine.Direction.Up) loc.Y -= GoriyaBoomerangConstants.moveDist * GameConstants.SCALE;
-                else if (direction == GoriyaStateMachine.Direction.Left) loc.X -= GoriyaBoomerangConstants.moveDist * GameConstants.SCALE;
+                if (direction == Direction.Down) loc.Y += GoriyaBoomerangConstants.moveDist * GameConstants.SCALE;
+                else if (direction == Direction.Up) loc.Y -= GoriyaBoomerangConstants.moveDist * GameConstants.SCALE;
+                else if (direction == Direction.Left) loc.X -= GoriyaBoomerangConstants.moveDist * GameConstants.SCALE;
                 else loc.X += GoriyaBoomerangConstants.moveDist * GameConstants.SCALE;
             }
             else if (goBack)
             {
-                if (direction == GoriyaStateMachine.Direction.Down) loc.Y -= GoriyaBoomerangConstants.moveDist * GameConstants.SCALE;
-                else if (direction == GoriyaStateMachine.Direction.Up) loc.Y += GoriyaBoomerangConstants.moveDist * GameConstants.SCALE;
-                else if (direction == GoriyaStateMachine.Direction.Left) loc.X += GoriyaBoomerangConstants.moveDist * GameConstants.SCALE;
+                if (direction == Direction.Down) loc.Y -= GoriyaBoomerangConstants.moveDist * GameConstants.SCALE;
+                else if (direction == Direction.Up) loc.Y += GoriyaBoomerangConstants.moveDist * GameConstants.SCALE;
+                else if (direction == Direction.Left) loc.X += GoriyaBoomerangConstants.moveDist * GameConstants.SCALE;
                 else loc.X -= GoriyaBoomerangConstants.moveDist * GameConstants.SCALE;
             }
         }
@@ -64,15 +64,15 @@ namespace Sprint0
             Rectangle initial = goriyaState.GetDestination();
             loc = new Vector2(initial.X, initial.Y);
 
-            if (direction == GoriyaStateMachine.Direction.Down) {
+            if (direction == Direction.Down) {
                 loc.X += initial.Width / 2 - GoriyaBoomerangConstants.WIDTH * GameConstants.SCALE / 2;
                 loc.Y += initial.Height;
             }
-            else if (direction == GoriyaStateMachine.Direction.Up) {
+            else if (direction == Direction.Up) {
                 loc.X += initial.Width / 2 - GoriyaBoomerangConstants.WIDTH * GameConstants.SCALE / 2;
                 loc.Y -= GoriyaBoomerangConstants.HEIGHT * GameConstants.SCALE;
             }
-            else if (direction == GoriyaStateMachine.Direction.Left) {
+            else if (direction == Direction.Left) {
                 loc.X -= GoriyaBoomerangConstants.WIDTH * GameConstants.SCALE;
                 loc.Y += initial.Height / 2 - GoriyaBoomerangConstants.HEIGHT * GameConstants.SCALE / 2;
             }
@@ -106,9 +106,9 @@ namespace Sprint0
             bool result;
             InitialPosition();
 
-            if (direction == GoriyaStateMachine.Direction.Down) result = yTemp <= loc.Y;
-            else if (direction == GoriyaStateMachine.Direction.Up) result = yTemp >= loc.Y;
-            else if (direction == GoriyaStateMachine.Direction.Left) result = xTemp >= loc.X;
+            if (direction == Direction.Down) result = yTemp <= loc.Y;
+            else if (direction == Direction.Up) result = yTemp >= loc.Y;
+            else if (direction == Direction.Left) result = xTemp >= loc.X;
             else result = xTemp <= loc.X;
 
             if(result) goriyaState.BoomerangReturned();

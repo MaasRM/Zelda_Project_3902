@@ -8,14 +8,6 @@ namespace Sprint0
 {
     public class GelStateMachine
     {
-        public enum Direction
-        {
-            Up,
-            Down,
-            Left,
-            Right
-        }
-
         public enum GelColor
         {
             Teal,

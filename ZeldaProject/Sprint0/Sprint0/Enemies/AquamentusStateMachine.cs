@@ -7,11 +7,6 @@ namespace Sprint0
 {
     public class AquamentusStateMachine
     {
-        public enum Direction
-        {
-            Left,
-            Right
-        }
 
         private enum State
         {
