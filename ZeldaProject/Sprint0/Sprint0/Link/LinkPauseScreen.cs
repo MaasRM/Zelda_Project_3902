@@ -18,8 +18,9 @@ namespace Sprint0
         private Boolean hasMap;
         private Boolean hasCompass;
         private int bossFrames;
+        private List<IItem> linkItems;
 
-        public LinkPauseScreen(Texture2D background)
+        public LinkPauseScreen(Texture2D background, List<IItem> items)
         {
             isPaused = false;
             inventoryBackground = background;
@@ -29,6 +30,7 @@ namespace Sprint0
             hasMap = false;
             hasCompass = false;
             bossFrames = 0;
+            linkItems = items;
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -42,7 +44,48 @@ namespace Sprint0
             spriteBatch.Draw(inventoryBackground, pauseBottomDestination, pauseBottomSourceRectangle, Color.White);
             if (hasMap) { DrawPauseMap(spriteBatch); }
             if (hasCompass) { DrawPauseCompass(spriteBatch); }
-            
+            DrawInventoryItems(spriteBatch);
+        }
+
+        public void DrawInventoryItems(SpriteBatch spriteBatch)
+        {
+            int currentX = 530;
+            int currentY = -560 + currentYOffset;
+            int displacement = 1;
+            //700 - 188
+            foreach (IItem item in linkItems)
+            {
+                Rectangle inventoryDestination = new Rectangle(currentX, currentY, 7 * GameConstants.SCALE, 45);
+                spriteBatch.Draw(inventoryBackground, inventoryDestination, getInventoryItemSource(item), Color.White);
+                currentX += 24 * GameConstants.SCALE;
+                if (displacement % 5 == 0)
+                {
+                    currentY += 48 * GameConstants.SCALE;
+                    currentX = 530;
+                    displacement = 1;
+                }
+                displacement++;
+            }
+        }
+
+        public Rectangle getInventoryItemSource(IItem item)
+        {
+            Rectangle itemSource = new Rectangle(23, 70, 1, 1);
+
+            if (item is BoomerangItem)
+            {
+                itemSource = new Rectangle(584, 137, 8, 16);
+            }
+            else if (item is BowItem)
+            {
+                itemSource = new Rectangle(633, 137, 8, 16);
+            }
+            else if (item is BombItem)
+            {
+                itemSource = new Rectangle(604, 137, 8, 16);
+            }
+
+            return itemSource;
         }
 
         public void DrawPauseMap(SpriteBatch spriteBatch)
@@ -124,6 +167,11 @@ namespace Sprint0
         public void setCompass(Boolean val)
         {
             hasCompass = val;
+        }
+
+        public void updateLinkItemList(List<IItem> items)
+        {
+            linkItems = items;
         }
 
         public void resetYOffset()

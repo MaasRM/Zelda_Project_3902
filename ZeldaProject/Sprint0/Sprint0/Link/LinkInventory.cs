@@ -31,7 +31,7 @@ namespace Sprint0
             inventoryBackground = background;
             linkMinimap = new LinkMinimap(inventoryBackground);
             healthBar = new LinkHealthBar(inventoryBackground);
-            pauseScreen = new LinkPauseScreen(inventoryBackground);
+            pauseScreen = new LinkPauseScreen(inventoryBackground, linkItems);
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -102,6 +102,7 @@ namespace Sprint0
             if (pauseScreen.getCurrentYOffset() < 700) {
                 pauseScreen.incrementOffset();
             }
+
         }
 
         public void DrawItemCounts(SpriteBatch spriteBatch)
@@ -192,7 +193,7 @@ namespace Sprint0
 
         public void addItem(IItem item)
         {
-            if (item is BoomerangItem || item is BowItem || item is BombItem || item is Fire)
+            if (item is BoomerangItem || item is BowItem || item is BombItem || item is Fire && !linkItems.Contains(item))
             {
                 if (linkItems.Count == 0)
                 {
@@ -200,6 +201,7 @@ namespace Sprint0
                 }
                 linkItems.Add(item);
             }
+            pauseScreen.updateLinkItemList(linkItems);
         }
 
         public void addKey()
