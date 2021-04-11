@@ -162,17 +162,18 @@ namespace Sprint0
 
             if (currentItem is BoomerangItem)
             {
-                itemSource = new Rectangle(584, 137, 7, 15);
+                itemSource = new Rectangle(584, 137, 8, 16);
             }
             else if (currentItem is BowItem)
             {
-                itemSource = new Rectangle(633, 137, 7, 15);
+                itemSource = new Rectangle(633, 137, 8, 16);
             }
             else if (currentItem is BombItem)
             {
-                itemSource = new Rectangle(604, 137, 7, 15);
+                itemSource = new Rectangle(604, 137, 8, 16);
             }
 
+            pauseScreen.DrawSecondaryWeapon(spriteBatch, itemSource);
             spriteBatch.Draw(inventoryBackground, secondaryWeapon, itemSource, Color.White);
         }
 
@@ -193,13 +194,19 @@ namespace Sprint0
 
         public void addItem(IItem item)
         {
-            if (item is BoomerangItem || item is BowItem || item is BombItem || item is Fire && !linkItems.Contains(item))
+            int check = 0;
+            if (item is BoomerangItem || item is BowItem || item is BombItem || item is Fire)
             {
                 if (linkItems.Count == 0)
                 {
                     currentItem = item;
+                    linkItems.Add(item);
                 }
-                linkItems.Add(item);
+                else
+                {
+                    foreach (IItem checkItem in linkItems) { if (checkItem.GetType() == item.GetType()) { check++; } }
+                    if (check == 0) { linkItems.Add(item); }
+                }
             }
             pauseScreen.updateLinkItemList(linkItems);
         }
@@ -237,6 +244,10 @@ namespace Sprint0
         public void removeBomb()
         {
             bombCount--;
+            foreach (IItem item in linkItems)
+            {
+                if (item is BombItem) { linkItems.Remove(item); }
+            }
         }
 
         public bool hasBombs()

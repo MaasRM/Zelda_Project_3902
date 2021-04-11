@@ -58,14 +58,21 @@ namespace Sprint0
                 Rectangle inventoryDestination = new Rectangle(currentX, currentY, 7 * GameConstants.SCALE, 45);
                 spriteBatch.Draw(inventoryBackground, inventoryDestination, getInventoryItemSource(item), Color.White);
                 currentX += 24 * GameConstants.SCALE;
-                if (displacement % 5 == 0)
+                if (displacement % 4 == 0)
                 {
-                    currentY += 48 * GameConstants.SCALE;
+                    currentY += 46;
                     currentX = 530;
                     displacement = 1;
                 }
                 displacement++;
             }
+        }
+
+        public void DrawSecondaryWeapon(SpriteBatch spriteBatch, Rectangle itemSource)
+        {
+            Rectangle secondaryInventoryDestination = new Rectangle(280, -570 + currentYOffset, 7 * GameConstants.SCALE, 16 * GameConstants.SCALE);
+            //700 - 130
+            spriteBatch.Draw(inventoryBackground, secondaryInventoryDestination, itemSource, Color.White);
         }
 
         public Rectangle getInventoryItemSource(IItem item)
