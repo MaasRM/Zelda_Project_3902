@@ -221,19 +221,19 @@ namespace Sprint0
 
         public void ChangeRoom(int newRoom)
         {
-            Boolean fromShop = false;
+            Boolean fromShopOrWM = false;
             ResetRoomObjects();
             roomIndex = newRoom;
 
-            if(currentRoom.RoomNum() == GameConstants.SHOPROOM) fromShop = true;
+            if(currentRoom.RoomNum() == GameConstants.SHOPROOM || currentRoom.RoomNum() == GameConstants.WALLMASTERROOM) fromShopOrWM = true;
 
             currentRoom = roomList[roomIndex];
             game.ClearProjectiles();
 
             if (roomIndex == GameConstants.VERTICALROOM) game.GetPlayer().getLinkStateMachine().SetPositions(new Rectangle(48 * GameConstants.SCALE, GameConstants.HUDSIZE * GameConstants.SCALE, game.GetPlayer().LinkPosition().Width, game.GetPlayer().LinkPosition().Height));
 
-            if (roomIndex == GameConstants.STARTROOM) game.GetSongManager().Dungeon();
-            else if (roomIndex == GameConstants.OUTSIDEROOM && !fromShop) game.GetSongManager().Overworld();
+            if (roomIndex == GameConstants.STARTROOM && !fromShopOrWM) game.GetSongManager().Dungeon();
+            else if (roomIndex == GameConstants.OUTSIDEROOM && !fromShopOrWM) game.GetSongManager().Overworld();
         }
 
         public bool RoomChange()
