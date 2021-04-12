@@ -2,28 +2,16 @@
   <MonoDevelop.Ide.ItemProperties.Sprint0 PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="Sprint0/Link/Link.cs" Line="1" Column="1" />
-      <File FileName="Sprint0/Link/LinkStateMachine.cs" Line="18" Column="15" />
-      <File FileName="Sprint0/Enemies/AquamentusStateMachine.cs" Line="9" Column="6" />
-      <File FileName="Sprint0/Enemies/AquamentusConstants.cs" Line="1" Column="1" />
-      <File FileName="Sprint0/Enemies/GelStateMachine.cs" Line="10" Column="6" />
-      <File FileName="Sprint0/Enemies/Gel.cs" Line="1" Column="1" />
-      <File FileName="Sprint0/Enemies/GoriyaStateMachine.cs" Line="10" Column="6" />
-      <File FileName="Sprint0/Enemies/KeeseStateMachine.cs" Line="124" Column="43" />
-      <File FileName="Sprint0/Enemies/StalfosConstants.cs" Line="1" Column="1" />
-      <File FileName="Sprint0/Enemies/StalfosStateMachine.cs" Line="10" Column="6" />
-      <File FileName="Sprint0/Enemies/TrapStateMachine.cs" Line="10" Column="6" />
-      <File FileName="Sprint0/Enemies/WallmasterStateMachine.cs" Line="10" Column="6" />
-      <File FileName="Sprint0/Projectiles/GoriyaBoomerang.cs" Line="15" Column="17" />
+      <File FileName="Sprint0/Collision/EnemyProjectileHandler.cs" Line="73" Column="60" />
+      <File FileName="Sprint0/Enemies/Gibdo.cs" Line="139" Column="10" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Sprint0" expanded="True">
             <Node name="Sprint0" expanded="True">
-              <Node name="Enemies" expanded="True" />
-              <Node name="Projectiles" expanded="True">
-                <Node name="GoriyaBoomerang.cs" selected="True" />
+              <Node name="Collision" expanded="True">
+                <Node name="EnemyProjectileHandler.cs" selected="True" />
               </Node>
             </Node>
           </Node>
