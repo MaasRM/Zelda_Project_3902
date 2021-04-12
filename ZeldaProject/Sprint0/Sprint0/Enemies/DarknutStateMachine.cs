@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using System;
+using System.Security.Cryptography;
+
 namespace Sprint0
 {
     public class DarknutStateMachine
@@ -71,7 +74,7 @@ namespace Sprint0
         public void Move()
         {
             frame++;
-            if (!throwing && state == State.Normal)
+            if (state == State.Normal)
             {
                 if (frame % 10 == 0) direction = ChangeDirection();
 
@@ -165,7 +168,5 @@ namespace Sprint0
         {
             return damageFrames;
         }
-    }
-}
     }
 }
