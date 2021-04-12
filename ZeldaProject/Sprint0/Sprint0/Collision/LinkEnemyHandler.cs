@@ -157,5 +157,10 @@ namespace Sprint0
                 || (dir == Direction.Up && overlap == OverlapInRelationToPlayer.Up)
                 || (dir == Direction.Down && overlap == OverlapInRelationToPlayer.Down));
         }
+
+        private static bool CheckDarknutDirection(Darknut darknut, OverlapInRelationToPlayer overlap)
+        {
+            return true;
+        }
     }
 }

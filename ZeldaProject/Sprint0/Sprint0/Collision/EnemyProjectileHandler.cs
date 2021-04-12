@@ -25,12 +25,12 @@ namespace Sprint0
 
             if (projectile is BombProjectile)
             {
-                 if (((BombProjectile)projectile).Exploding()) DamageTheEnemy((IEnemy)enemy, projectile, overlap);
+                BombHandler((IEnemy)enemy, (BombProjectile)projectile, overlap);
             }
             else if (projectile is IBoomerang)
             {
                 if (enemy is Keese || enemy is Gel) DamageTheEnemy((IEnemy)enemy, projectile, overlap);
-                else StunEnemy((IEnemy)enemy);
+                else if (!(enemy is Darknut)) StunEnemy((IEnemy)enemy);
 
                 ((IBoomerang)projectile).GoBack();
             }
@@ -38,7 +38,13 @@ namespace Sprint0
             {
                 ((Gibdo)enemy).Burn();
             }
-            else DamageTheEnemy((IEnemy)enemy, projectile, overlap);
+            else
+            {
+                if(!(enemy is Darknut))
+                {
+                    DamageTheEnemy((IEnemy)enemy, projectile, overlap);
+                }
+            }
 
             projectile.Hit();
         }
@@ -84,6 +90,33 @@ namespace Sprint0
         private static void StunEnemy(IEnemy enemy)
         {
             enemy.Stun();
+        }
+
+        private static void BombHandler(IEnemy enemy, BombProjectile bomb, OverlapInRelationToEnemy overlap)
+        {
+            if (bomb.Exploding())
+            {
+                if (!(enemy is Darknut || enemy is Dodongo))
+                {
+                    DamageTheEnemy(enemy, bomb, overlap);
+                }
+                else if (enemy is Darknut && CheckDarknutDirection((Darknut)enemy, overlap))
+                {
+                    DamageTheEnemy(enemy, bomb, overlap);
+                }
+            }
+            else
+            {
+                if (enemy is Dodongo)
+                {
+
+                }
+            }
+        }
+
+        private static bool CheckDarknutDirection(Darknut darknut, OverlapInRelationToEnemy overlap)
+        {
+            return true;
         }
     }
 }
