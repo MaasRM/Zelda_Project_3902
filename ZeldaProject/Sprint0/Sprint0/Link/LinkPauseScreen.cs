@@ -33,7 +33,7 @@ namespace Sprint0
             linkItems = items;
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, int currentItemIndex)
         {
             Rectangle blackSpaceSource = new Rectangle(280, 30, 1, 1);
             Rectangle blackSpaceDestination = new Rectangle(0, -700 + currentYOffset, 256 * GameConstants.SCALE, 200 * GameConstants.SCALE);
@@ -44,10 +44,10 @@ namespace Sprint0
             spriteBatch.Draw(inventoryBackground, pauseBottomDestination, pauseBottomSourceRectangle, Color.White);
             if (hasMap) { DrawPauseMap(spriteBatch); }
             if (hasCompass) { DrawPauseCompass(spriteBatch); }
-            DrawInventoryItems(spriteBatch);
+            DrawInventoryItems(spriteBatch, currentItemIndex);
         }
 
-        public void DrawInventoryItems(SpriteBatch spriteBatch)
+        public void DrawInventoryItems(SpriteBatch spriteBatch, int currentItemIndex)
         {
             int currentX = 530;
             int currentY = -560 + currentYOffset;
@@ -57,6 +57,12 @@ namespace Sprint0
             {
                 Rectangle inventoryDestination = new Rectangle(currentX, currentY, 7 * GameConstants.SCALE, 45);
                 spriteBatch.Draw(inventoryBackground, inventoryDestination, getInventoryItemSource(item), Color.White);
+                if (currentItemIndex == linkItems.IndexOf(item))
+                {
+                    Rectangle currentWeaponSelectorDestination = new Rectangle(currentX - 16, currentY - 8, 14 * GameConstants.SCALE, 14 * GameConstants.SCALE);
+                    Rectangle selectorSource = new Rectangle(519, 137, 16, 16);
+                    spriteBatch.Draw(inventoryBackground, currentWeaponSelectorDestination, selectorSource, Color.White);
+                }
                 currentX += 24 * GameConstants.SCALE;
                 if (displacement % 4 == 0)
                 {
