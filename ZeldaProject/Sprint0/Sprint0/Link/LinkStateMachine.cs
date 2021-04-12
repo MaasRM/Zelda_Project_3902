@@ -22,7 +22,8 @@ namespace Sprint0
     {
         Green,
         Red,
-        White,
+        Black,
+        Blue,
         Damaged
     }
 
