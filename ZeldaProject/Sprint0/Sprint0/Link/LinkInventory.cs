@@ -332,5 +332,10 @@ namespace Sprint0
         {
             return bombCount > 0;
         }
+
+        public List<IItem> getLinkItems()
+        {
+            return linkItems;
+        }
     }
 }

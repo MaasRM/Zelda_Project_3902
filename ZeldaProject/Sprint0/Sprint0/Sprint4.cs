@@ -41,6 +41,9 @@ namespace Sprint0
         private Song Ending_music;
         private SongManager Songs;
 
+        //xml string
+        readonly String xmlLoc = "..\\..\\..\\Content\\ZeldaRoomLayout.xml";
+
 
         //text sprite
         private HintSprite hintSprite;
@@ -154,7 +157,7 @@ namespace Sprint0
 
             XmlDocument doc = new XmlDocument();
 
-            doc.Load(new FileStream("..\\..\\..\\Content\\ZeldaRoomLayout.xml", FileMode.Open));
+            doc.Load(new FileStream(xmlLoc, FileMode.Open));
             roomManager.SetUpRooms(doc, dungeonSheet, enemySheets, itemsSheet, bossSheets, npcSheet, overworldSheet);
 
             foreach (IController controller in controllerList)
@@ -342,6 +345,27 @@ namespace Sprint0
         {
             if (!link.IsAlive())
             {
+                List<Texture2D> enemySheets = new List<Texture2D>();
+                List<Texture2D> bossSheets = new List<Texture2D>();
+
+                enemySheets.Add(contentManager.Load<Texture2D>("Dungeon_Enemies"));
+                enemySheets.Add(contentManager.Load<Texture2D>("Dungeon_Enemies_DamageOne"));
+                enemySheets.Add(contentManager.Load<Texture2D>("Dungeon_Enemies_DamageTwo"));
+                enemySheets.Add(contentManager.Load<Texture2D>("Dungeon_Enemies_DamageThree"));
+
+                bossSheets.Add(contentManager.Load<Texture2D>("Dungeon_Bosses"));
+                bossSheets.Add(contentManager.Load<Texture2D>("Dungeon_Bosses_DamageOne"));
+                bossSheets.Add(contentManager.Load<Texture2D>("Dungeon_Bosses_DamageTwo"));
+                bossSheets.Add(contentManager.Load<Texture2D>("Dungeon_Bosses_DamageThree"));
+
+                Texture2D dungeonSheet = contentManager.Load<Texture2D>("Dungeon_Tileset");
+                Texture2D overworldSheet = contentManager.Load<Texture2D>("Overworld_Tileset");
+                Texture2D npcSheet = contentManager.Load<Texture2D>("Zelda_NPCs");
+                Texture2D itemsSheet = contentManager.Load<Texture2D>("Dungeon_Items");
+
+                XmlDocument doc = new XmlDocument();
+                doc.Load(new FileStream(xmlLoc, FileMode.Open));
+                roomManager.Reset(link.GetLinkInventory().getLinkItems(), doc, dungeonSheet, enemySheets, itemsSheet, bossSheets, npcSheet, overworldSheet);
                 roomManager.ChangeRoom(GameConstants.OUTSIDEROOM);
                 link.Reset();
             }

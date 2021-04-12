@@ -17,8 +17,9 @@ namespace Sprint0
         private Texture2D itemsSheet;
         private List<Texture2D> bossesSheets;
         private Texture2D npcSheet;
+        private List<IItem> noReset;
 
-        public RoomBuilder(Sprint4 game, XmlDocument doc, Texture2D dungeon, List<Texture2D> enemies, Texture2D items, List<Texture2D> bosses, Texture2D npcs, Texture2D overworld)
+        public RoomBuilder(Sprint4 game, XmlDocument doc, Texture2D dungeon, List<Texture2D> enemies, Texture2D items, List<Texture2D> bosses, Texture2D npcs, Texture2D overworld, List<IItem> noReset)
         {
             this.game = game;
             xmlDoc = doc;
@@ -28,6 +29,7 @@ namespace Sprint0
             itemsSheet = items;
             bossesSheets = bosses;
             npcSheet = npcs;
+            this.noReset = noReset;
         }
 
         public List<Room> buildRoomList()
@@ -50,7 +52,10 @@ namespace Sprint0
                 List<IItem> itemList = new List<IItem>();
                 for (int it = 0; it < currentRoom["Items"].ChildNodes.Count; it++)
                 {
-                    itemList.Add(CreateItem(currentRoom["Items"].ChildNodes[it], npcList));
+                    IItem currentItem = CreateItem(currentRoom["Items"].ChildNodes[it], npcList);
+                    Boolean add = true;
+                    foreach (IItem checkItem in noReset) if (checkItem.GetType() == currentItem.GetType()) add = false;
+                    if(add) itemList.Add(currentItem);
                 }
                 Rectangle floor = new Rectangle(int.Parse(currentRoom["Background"]["XLoc"].InnerText), int.Parse(currentRoom["Background"]["YLoc"].InnerText), 192, 112);
                 Rectangle walls = new Rectangle(521, 11, 255, 175);

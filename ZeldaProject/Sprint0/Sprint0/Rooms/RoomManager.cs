@@ -31,7 +31,7 @@ namespace Sprint0
         public void SetUpRooms(XmlDocument xmlDoc, Texture2D dungeon, List<Texture2D> enemies, Texture2D items, List<Texture2D> bosses, Texture2D npcs, Texture2D overworld)
         {
             dungeonSheet = dungeon;
-            RoomBuilder builder = new RoomBuilder(game, xmlDoc, dungeon, enemies, items, bosses, npcs, overworld);
+            RoomBuilder builder = new RoomBuilder(game, xmlDoc, dungeon, enemies, items, bosses, npcs, overworld, new List<IItem>());
             roomList = builder.buildRoomList();
             currentRoom = roomList[GameConstants.OUTSIDEROOM];
         }
@@ -249,6 +249,13 @@ namespace Sprint0
         public int getRoomIndex()
         {
             return roomIndex;
+        }
+
+        public void Reset(List<IItem> noReset, XmlDocument xmlDoc, Texture2D dungeon, List<Texture2D> enemies, Texture2D items, List<Texture2D> bosses, Texture2D npcs, Texture2D overworld)
+        {
+            RoomBuilder builder = new RoomBuilder(game, xmlDoc, dungeon, enemies, items, bosses, npcs, overworld, noReset);
+            roomList = builder.buildRoomList();
+            currentRoom = roomList[GameConstants.OUTSIDEROOM];
         }
 
         private void ResetRoomObjects()
