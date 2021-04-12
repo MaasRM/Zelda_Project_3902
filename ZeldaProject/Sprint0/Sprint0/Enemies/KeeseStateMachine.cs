@@ -48,6 +48,7 @@ namespace Sprint0
             movementIndex = -1;
             health = KeeseConstants.MAXHEALTH;
             stunFrames = 0;
+            direction = ChangeDirection()
         }
 
         public Rectangle GetDestination()
