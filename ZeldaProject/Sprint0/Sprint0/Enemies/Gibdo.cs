@@ -132,5 +132,10 @@ namespace Sprint0
             stalfos = new Stalfos(destination.X, destination.Y, gibdoSpriteSheet);
             burned = true;
         }
+
+        public bool IsBurned()
+        {
+            return burned;
+        }
     }
 }

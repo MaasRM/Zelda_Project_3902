@@ -80,34 +80,25 @@ namespace Sprint0
             if(getLinkStateMachine().getAnimation() == Animation.PickUpItem) spriteBatch.Draw(itemSheet, itemDestination, itemSource, Color.White);
         }
 
-        public void changeColor(LinkColor currentColor, LinkColor newColor)
+        public void changeColor(LinkColor newColor)
         {
-            Color[] data = new Color[linkSpriteSheet.Width * linkSpriteSheet.Height];
-            linkSpriteSheet.GetData(data);
-            Color colorTo;
-            Color green = new Color(128, 208, 16, 255);
-            Color red = new Color(216, 40, 0, 255);
-            Color white = new Color(196, 212, 252, 255);
-
-            if (newColor == LinkColor.Green) colorTo = green;
-            else if (newColor == LinkColor.Red) colorTo = red;
-            else colorTo = white;
-
-            if (currentColor == LinkColor.Green) {
-                for (int i = 0; i < data.Length; i++)
-                    if (data[i] == green)
-                        data[i] = colorTo;
-            } else if (currentColor == LinkColor.Red) {
-                for (int i = 0; i < data.Length; i++)
-                    if (data[i] == red)
-                        data[i] = colorTo;
-            } else {
-                for (int i = 0; i < data.Length; i++)
-                    if (data[i] == white)
-                        data[i] = colorTo;
+            stateMachine.setColor(newColor);
+            if (newColor == LinkColor.Green)
+            {
+                linkSpriteSheet = linkSheetList[0];
             }
-
-            linkSpriteSheet.SetData(data);
+            else if (newColor == LinkColor.Black)
+            {
+                linkSpriteSheet = linkSheetList[1];
+            }
+            else if (newColor == LinkColor.Red)
+            {
+                linkSpriteSheet = linkSheetList[2];
+            }
+            else if (newColor == LinkColor.Blue)
+            {
+                linkSpriteSheet = linkSheetList[3];
+            }
         }
 
         public LinkInventory GetLinkInventory()

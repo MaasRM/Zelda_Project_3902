@@ -34,6 +34,10 @@ namespace Sprint0
 
                 ((IBoomerang)projectile).GoBack();
             }
+            else if(projectile is CandleFireProjectile && enemy is Gibdo && ((Gibdo)enemy).IsBurned())
+            {
+                ((Gibdo)enemy).Burn();
+            }
             else DamageTheEnemy((IEnemy)enemy, projectile, overlap);
 
             projectile.Hit();

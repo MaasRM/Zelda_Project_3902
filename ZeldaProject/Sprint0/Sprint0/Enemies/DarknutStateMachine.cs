@@ -1,14 +1,9 @@
-﻿using Microsoft.Xna.Framework;
-using System;
-using System.Collections.Generic;
-using System.Security.Cryptography;
-using System.Text;
-
+﻿using System;
 namespace Sprint0
 {
-    public class GoriyaStateMachine
+    public class DarknutStateMachine
     {
-        public enum GoriyaColor
+        public enum DarknutColor
         {
             Red,
             Blue
@@ -22,32 +17,30 @@ namespace Sprint0
         }
 
         private Direction direction;
-        private GoriyaColor color;
+        private DarknutColor color;
         private State state;
         private Vector2 damageDirection;
         private int xLoc;
         private int yLoc;
         private int frame;
-        private bool throwing;
         private int health;
         private int damageFrames;
         private int stunFrames;
 
-        public GoriyaStateMachine(int x, int y, GoriyaColor c)
+        public DarknutStateMachine(int x, int y, DarknutColor c)
         {
             xLoc = x;
             yLoc = y;
             frame = -1;
             color = c;
-            throwing = false;
-            if(color == GoriyaColor.Red) health = GoriyaConstants.REDMAXHEALTH;
-            else health = GoriyaConstants.BLUEMAXHEALTH;
+            if (color == DarknutColor.Red) health = DarknutConstants.REDMAXHEALTH;
+            else health = DarknutConstants.BLUEMAXHEALTH;
             state = State.Normal;
         }
 
         public Rectangle GetDestination()
         {
-            return new Rectangle(xLoc, yLoc, GoriyaConstants.WIDTHANDHEIGHT * GameConstants.SCALE, GoriyaConstants.WIDTHANDHEIGHT * GameConstants.SCALE);
+            return new Rectangle(xLoc, yLoc, DarknutConstants.WIDTHANDHEIGHT * GameConstants.SCALE, DarknutConstants.WIDTHANDHEIGHT * GameConstants.SCALE);
         }
 
         public void SetDestination(int x, int y)
@@ -60,17 +53,17 @@ namespace Sprint0
         {
             if (direction == Direction.Down || direction == Direction.Up)
             {
-                return new Rectangle(222 + 17 * (int)direction, 11 + 17 * (int)color, GoriyaConstants.WIDTHANDHEIGHT, GoriyaConstants.WIDTHANDHEIGHT);
+                return new Rectangle(222 + 17 * (int)direction, 11 + 17 * (int)color, DarknutConstants.WIDTHANDHEIGHT, DarknutConstants.WIDTHANDHEIGHT);
             }
             else
             {
                 if (frame % 2 == 0)
                 {
-                    return new Rectangle(256, 11 + 17 * (int)color, GoriyaConstants.WIDTHANDHEIGHT, GoriyaConstants.WIDTHANDHEIGHT);
+                    return new Rectangle(256, 11 + 17 * (int)color, DarknutConstants.WIDTHANDHEIGHT, DarknutConstants.WIDTHANDHEIGHT);
                 }
                 else
                 {
-                    return new Rectangle(273, 11 + 17 * (int)color, GoriyaConstants.WIDTHANDHEIGHT, GoriyaConstants.WIDTHANDHEIGHT);
+                    return new Rectangle(273, 11 + 17 * (int)color, DarknutConstants.WIDTHANDHEIGHT, DarknutConstants.WIDTHANDHEIGHT);
                 }
             }
         }
@@ -82,10 +75,10 @@ namespace Sprint0
             {
                 if (frame % 10 == 0) direction = ChangeDirection();
 
-                if (direction == Direction.Up) yLoc -= GoriyaConstants.moveDist * GameConstants.SCALE;
-                else if (direction == Direction.Down) yLoc += GoriyaConstants.moveDist * GameConstants.SCALE;
-                else if (direction == Direction.Left) xLoc -= GoriyaConstants.moveDist * GameConstants.SCALE;
-                else xLoc += GoriyaConstants.moveDist * GameConstants.SCALE;
+                if (direction == Direction.Up) yLoc -= DarknutConstants.moveDist * GameConstants.SCALE;
+                else if (direction == Direction.Down) yLoc += DarknutConstants.moveDist * GameConstants.SCALE;
+                else if (direction == Direction.Left) xLoc -= DarknutConstants.moveDist * GameConstants.SCALE;
+                else xLoc += DarknutConstants.moveDist * GameConstants.SCALE;
             }
             else if (state == State.Damaged)
             {
@@ -113,45 +106,13 @@ namespace Sprint0
 
         private static Direction ChangeDirection()
         {
-            int num = RandomNumberGenerator.GetInt32(GoriyaConstants.CHANGEDIRECTION);
+            int num = RandomNumberGenerator.GetInt32(DarknutConstants.CHANGEDIRECTION);
 
             return (Direction)num;
         }
 
-        private void ThrowChance()
-        {
-            int num = RandomNumberGenerator.GetInt32(GoriyaConstants.THROWCHANCE);
-
-            if (num % (GoriyaConstants.THROWCHANCE - 1) == 0)
-            {
-                throwing = true;
-                damageFrames = 0;
-            }
-        }
-
-        public void BoomerangReturned()
-        {
-            throwing = false;
-        }
-
-        public bool TryToThrow()
-        {
-            ThrowChance();
-            return throwing;
-        }
-
-        public bool Throwing()
-        {
-            return throwing;
-        }
-
         public bool HasHealth()
         {
-            if (health == 0)
-            {
-                throwing = false;
-            }
-
             return health > 0;
         }
 
@@ -163,11 +124,6 @@ namespace Sprint0
                 state = State.Damaged;
                 stunFrames = 1;
                 damageFrames = 1;
-
-                if (!throwing)
-                {
-                    damageDirection = damageVector;
-                }
             }
         }
 
@@ -179,20 +135,20 @@ namespace Sprint0
 
         public int GetDamage()
         {
-            if (color == GoriyaColor.Red)
+            if (color == DarknutColor.Red)
             {
-                return GoriyaConstants.REDDAMAGE;
+                return DarknutConstants.REDDAMAGE;
             }
             else
             {
-                return GoriyaConstants.BLUEDAMAGE;
+                return DarknutConstants.BLUEDAMAGE;
             }
 
         }
 
         public void ReturnToNormal()
         {
-            if (damageFrames > GoriyaConstants.DAMAGEFRAMECOUNT || stunFrames > GoriyaConstants.STUNFRAMECOUNT)
+            if (damageFrames > DarknutConstants.DAMAGEFRAMECOUNT || stunFrames > DarknutConstants.STUNFRAMECOUNT)
             {
                 state = State.Normal;
                 stunFrames = 0;
@@ -209,5 +165,7 @@ namespace Sprint0
         {
             return damageFrames;
         }
+    }
+}
     }
 }
