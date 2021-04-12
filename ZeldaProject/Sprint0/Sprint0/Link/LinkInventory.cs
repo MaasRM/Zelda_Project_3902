@@ -243,6 +243,10 @@ namespace Sprint0
             {
                 itemSource = new Rectangle(604, 137, 8, 16);
             }
+            else if (currentItem is CandleItem)
+            {
+                itemSource = new Rectangle(653, 137, 8, 16);
+            }
 
             pauseScreen.DrawSecondaryWeapon(spriteBatch, itemSource);
             spriteBatch.Draw(inventoryBackground, secondaryWeapon, itemSource, Color.White);
@@ -266,7 +270,7 @@ namespace Sprint0
         public void addItem(IItem item)
         {
             int check = 0;
-            if (item is BoomerangItem || item is BowItem || item is BombItem || item is Fire)
+            if (item is BoomerangItem || item is BowItem || item is BombItem || item is Fire || item is CandleItem)
             {
                 if (linkItems.Count == 0)
                 {
