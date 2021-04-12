@@ -40,7 +40,8 @@ namespace Sprint0
             frame = -1;
             color = c;
             throwing = false;
-            health = GoriyaConstants.MAXHEALTH;
+            if(color == GoriyaColor.Red) health = GoriyaConstants.REDMAXHEALTH;
+            else health = GoriyaConstants.BLUEMAXHEALTH;
             state = State.Normal;
         }
 
