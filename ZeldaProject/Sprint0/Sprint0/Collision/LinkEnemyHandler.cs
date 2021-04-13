@@ -30,7 +30,8 @@ namespace Sprint0
             }
             else if (player.Attacking() && CheckAttackDirection(player, overlap))
             {
-                DamageTheEnemy((IEnemy)enemy, player.GetMeleeDamage(), overlap);
+                if (enemy is Darknut && !CheckDarknutDirection((Darknut)enemy, overlap)) DamageTheEnemy((IEnemy)enemy, player.GetMeleeDamage(), overlap);
+                else DamageTheEnemy((IEnemy)enemy, player.GetMeleeDamage(), overlap);
             }
             else if (enemy is Wallmaster)
             {
@@ -160,7 +161,12 @@ namespace Sprint0
 
         private static bool CheckDarknutDirection(Darknut darknut, OverlapInRelationToPlayer overlap)
         {
-            return true;
+            Direction dir = darknut.DarknutDirection();
+
+            return ((dir == Direction.Left && overlap == OverlapInRelationToPlayer.Right)
+                || (dir == Direction.Right && overlap == OverlapInRelationToPlayer.Left)
+                || (dir == Direction.Up && overlap == OverlapInRelationToPlayer.Down)
+                || (dir == Direction.Down && overlap == OverlapInRelationToPlayer.Up));
         }
     }
 }

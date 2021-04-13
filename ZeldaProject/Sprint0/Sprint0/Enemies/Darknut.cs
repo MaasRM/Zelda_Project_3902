@@ -114,5 +114,10 @@ namespace Sprint0
         {
             return stateMachine.IsDamaged();
         }
+
+        public Direction DarknutDirection()
+        {
+            return stateMachine.GetDirection();
+        }
     }
 }

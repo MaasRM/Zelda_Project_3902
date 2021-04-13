@@ -100,7 +100,7 @@ namespace Sprint0
                 {
                     DamageTheEnemy(enemy, bomb, overlap);
                 }
-                else if (enemy is Darknut && CheckDarknutDirection((Darknut)enemy, overlap))
+                else if (enemy is Darknut && !CheckDarknutDirection((Darknut)enemy, overlap))
                 {
                     DamageTheEnemy(enemy, bomb, overlap);
                 }
@@ -116,7 +116,12 @@ namespace Sprint0
 
         private static bool CheckDarknutDirection(Darknut darknut, OverlapInRelationToEnemy overlap)
         {
-            return true;
+            Direction dir = darknut.DarknutDirection();
+
+            return ((dir == Direction.Left && overlap == OverlapInRelationToEnemy.Left)
+                || (dir == Direction.Right && overlap == OverlapInRelationToEnemy.Right)
+                || (dir == Direction.Up && overlap == OverlapInRelationToEnemy.Up)
+                || (dir == Direction.Down && overlap == OverlapInRelationToEnemy.Down));
         }
     }
 }
