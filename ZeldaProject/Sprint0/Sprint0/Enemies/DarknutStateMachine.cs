@@ -54,19 +54,19 @@ namespace Sprint0
 
         public Rectangle GetSource()
         {
-            if (direction == Direction.Down || direction == Direction.Up)
+            if (direction == Direction.Up)
             {
-                return new Rectangle(222 + 17 * (int)direction, 11 + 17 * (int)color, DarknutConstants.WIDTHANDHEIGHT, DarknutConstants.WIDTHANDHEIGHT);
+                return new Rectangle(35, 90 + 17 * (int)color, DarknutConstants.WIDTHANDHEIGHT, DarknutConstants.WIDTHANDHEIGHT);
             }
             else
             {
-                if (frame % 2 == 0)
+                if(direction == Direction.Down)
                 {
-                    return new Rectangle(256, 11 + 17 * (int)color, DarknutConstants.WIDTHANDHEIGHT, DarknutConstants.WIDTHANDHEIGHT);
+                    return new Rectangle(1 + 17 * (frame % 2), 90 + 17 * (int)color, DarknutConstants.WIDTHANDHEIGHT, DarknutConstants.WIDTHANDHEIGHT);
                 }
                 else
                 {
-                    return new Rectangle(273, 11 + 17 * (int)color, DarknutConstants.WIDTHANDHEIGHT, DarknutConstants.WIDTHANDHEIGHT);
+                    return new Rectangle(52 + 17 * (frame % 2), 90 + 17 * (int)color, DarknutConstants.WIDTHANDHEIGHT, DarknutConstants.WIDTHANDHEIGHT);
                 }
             }
         }

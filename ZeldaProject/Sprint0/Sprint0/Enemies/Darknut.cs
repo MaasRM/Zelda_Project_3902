@@ -32,27 +32,13 @@ namespace Sprint0
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (stateMachine.GetFrame() % 2 == 0)
+            if ((stateMachine.GetFrame() % 2 == 0 && stateMachine.GetDirection() == Direction.Up) || stateMachine.GetDirection() == Direction.Left)
             {
-                if (stateMachine.GetDirection() == Direction.Left)
-                {
-                    spriteBatch.Draw(currentSheet, destination, source, Color.White, 0, new Vector2(0, 0), SpriteEffects.FlipHorizontally, 0f);
-                }
-                else
-                {
-                    spriteBatch.Draw(currentSheet, destination, source, Color.White);
-                }
+                spriteBatch.Draw(currentSheet, destination, source, Color.White, 0, new Vector2(0, 0), SpriteEffects.FlipHorizontally, 0f);
             }
             else
             {
-                if (stateMachine.GetDirection() == Direction.Right)
-                {
-                    spriteBatch.Draw(currentSheet, destination, source, Color.White);
-                }
-                else
-                {
-                    spriteBatch.Draw(currentSheet, destination, source, Color.White, 0, new Vector2(0, 0), SpriteEffects.FlipHorizontally, 0f);
-                }
+                spriteBatch.Draw(currentSheet, destination, source, Color.White);
             }
         }
 
