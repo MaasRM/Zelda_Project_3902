@@ -10,6 +10,8 @@ namespace Sprint0
         public const int FIRECOOLDOWN = 20;
         public const int CHANGEDIRECTIONFRAME = 8;
         public const int EYETRANSITIONFRAMES = 2;
+        public const int EYEOPENFRAMES = 10;
+        public const int CLOSEFRAMEMAX = 20;
         public static Direction[] Directions = { Direction.Right, Direction.Down, Direction.Up, Direction.Right, Direction.Left, Direction.Down, Direction.Up, Direction.Left };
     }
 }

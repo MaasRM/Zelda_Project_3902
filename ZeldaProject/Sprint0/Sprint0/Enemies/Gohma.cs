@@ -15,11 +15,12 @@ namespace Sprint0
         private Tuple<int, int, GohmaStateMachine.GohmaColor> init;
         private Sprint4 game;
 
-        public Gohma(int x, int y, GohmaStateMachine.GohmaColor c, Texture2D spriteSheet)
+        public Gohma(int x, int y, GohmaStateMachine.GohmaColor c, Texture2D spriteSheet, Sprint4 sprint)
         {
             stateMachine = new GohmaStateMachine(x, y, c);
             gohmaSpriteSheet = spriteSheet;
             init = new Tuple<int, int, GohmaStateMachine.GohmaColor>(x, y, c);
+            game = sprint;
         }
 
         public void Update()
@@ -33,6 +34,7 @@ namespace Sprint0
             {
                 int fireballX = destination.X + destination.Width / 2;
                 int fireballY = destination.Y + destination.Height / 2;
+                game.AddProjectile(new GohmaFireball(fireballX, fireballY, gohmaSpriteSheet, game));
             }
         }
 

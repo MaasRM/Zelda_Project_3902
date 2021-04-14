@@ -38,20 +38,22 @@ namespace Sprint0
         private int transitionFrame;
         private int eyeDirection;
         private int lastFire;
+        private int moveIndex;
 
         public GohmaStateMachine(int x, int y, GohmaColor c)
         {
-            direction = GohmaConstants.Directions[0];
+            direction = GohmaConstants.Directions[GohmaConstants.Directions.Length - 1];
             eye = Eye.Closed;
             state = State.Alive;
             frame = -1;
-            closeFrames = 1;
-            transitionFrame = 0;
+            closeFrames = SetCloseFrames();
+            transitionFrame = -1;
             eyeDirection = 1;
             lastFire = 0;
             xLoc = x;
             yLoc = y;
             color = c;
+            moveIndex = 0;
         }
 
         public Rectangle GetDestination()
@@ -67,12 +69,13 @@ namespace Sprint0
 
         public Rectangle GetSource()
         {
-            return new Rectangle();
+            return new Rectangle(298 + 49 * (int)eye, 105 + 17 * (int)color, GohmaConstants.WIDTH, GohmaConstants.HEIGHT);
         }
 
         public void Move()
         {
             frame++;
+            transitionFrame++;
 
             if (frame % GohmaConstants.CHANGEDIRECTIONFRAME == 0) direction = ChangeDirection();
 
@@ -80,6 +83,8 @@ namespace Sprint0
             else if(direction == Direction.Right) xLoc += GohmaConstants.moveDist * GameConstants.SCALE;
             else if (direction == Direction.Up) yLoc -= GohmaConstants.moveDist * GameConstants.SCALE;
             else yLoc += GohmaConstants.moveDist * GameConstants.SCALE;
+
+            EyeTransition();
         }
 
         public int GetFrame()
@@ -87,11 +92,13 @@ namespace Sprint0
             return frame;
         }
 
-        private static Direction ChangeDirection()
+        private Direction ChangeDirection()
         {
-            int num = RandomNumberGenerator.GetInt32(2);
+            moveIndex++;
 
-            return (Direction)num;
+            moveIndex = moveIndex % GohmaConstants.Directions.Length;
+
+            return GohmaConstants.Directions[moveIndex];
         }
 
         public bool TryToFire()
@@ -121,6 +128,29 @@ namespace Sprint0
         public bool EyeOpen()
         {
             return eye == Eye.Open;
+        }
+
+        private int SetCloseFrames()
+        {
+            return RandomNumberGenerator.GetInt32(GohmaConstants.CLOSEFRAMEMAX) * 2;
+        }
+
+        private void EyeTransition()
+        {
+            if (eye == Eye.Closed) eyeDirection = 1;
+            else if (eye == Eye.Open)
+            {
+                eyeDirection = -1;
+                closeFrames = SetCloseFrames();
+            }
+
+            if ((eye == Eye.Closed && transitionFrame >= closeFrames) ||
+                ((eye == Eye.Slightly || eye == Eye.Mostly) && transitionFrame >= GohmaConstants.EYETRANSITIONFRAMES) ||
+                (eye == Eye.Open && transitionFrame >= GohmaConstants.EYEOPENFRAMES))
+            {
+                transitionFrame = 0;
+                eye = (Eye)(((int)eye) + eyeDirection);
+            }
         }
     }
 }
