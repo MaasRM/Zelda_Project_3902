@@ -8,18 +8,15 @@ namespace Sprint0
     public class Dodongo : INPC, IEnemy
     {
         private DodongoStateMachine stateMachine;
-        private List<Texture2D> dodongoSpriteSheet;
-        private Texture2D currentSheet;
+        private Texture2D dodongoSpriteSheet;
         private Rectangle source;
         private Rectangle destination;
         private int DAMAGE = 2;
         private Tuple<int, int> init;
 
-        public Dodongo(int x, int y, List<Texture2D> spriteSheet)
+        public Dodongo(int x, int y, Texture2D spriteSheet)
         {
             stateMachine = new DodongoStateMachine(x, y);
-            dodongoSpriteSheet = spriteSheet;
-            currentSheet = spriteSheet[0];
             init = new Tuple<int, int>(x, y);
         }
 
@@ -38,11 +35,11 @@ namespace Sprint0
             {
                 if (stateMachine.GetDirection() == Direction.Left || ((stateMachine.GetDirection() == Direction.Up || stateMachine.GetDirection() == Direction.Down) && frame % 2 == 1))
                 {
-                    spriteBatch.Draw(currentSheet, destination, source, Color.White, 0, new Vector2(0, 0), SpriteEffects.FlipHorizontally, 0f);
+                    spriteBatch.Draw(dodongoSpriteSheet, destination, source, Color.White, 0, new Vector2(0, 0), SpriteEffects.FlipHorizontally, 0f);
                 }
                 else
                 {
-                    spriteBatch.Draw(currentSheet, destination, source, Color.White);
+                    spriteBatch.Draw(dodongoSpriteSheet, destination, source, Color.White);
                 }
             }
         }
