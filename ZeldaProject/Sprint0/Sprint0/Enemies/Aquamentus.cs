@@ -39,7 +39,7 @@ namespace Sprint0
                 if (stateMachine.TryToFire())
                 {
                     int fireballX = destination.X + destination.Width / 4;
-                    int fireballY = destination.Y + destination.Width / 4;
+                    int fireballY = destination.Y + destination.Height / 4;
                     game.AddProjectile(new AquamentusFireball(fireballX, fireballY, AquamentusFireball.Position.Top, aquamentusSpriteSheet[0], game));
                     game.AddProjectile(new AquamentusFireball(fireballX, fireballY, AquamentusFireball.Position.Center, aquamentusSpriteSheet[0], game));
                     game.AddProjectile(new AquamentusFireball(fireballX, fireballY, AquamentusFireball.Position.Bottom, aquamentusSpriteSheet[0], game));
