@@ -7,7 +7,7 @@ namespace Sprint0
 {
     public class DodongoStateMachine
     {
-        private enum State
+        public enum State
         {
             Normal,
             Eating,
@@ -22,6 +22,8 @@ namespace Sprint0
         private int frame;
         private int health;
         private int eatFrames;
+        private int bombDamage;
+        private int dyingFrames;
 
         public DodongoStateMachine(int x, int y)
         {
@@ -29,6 +31,7 @@ namespace Sprint0
             yLoc = y;
             frame = -1;
             eatFrames = 0;
+            dyingFrames = 0;
             health = DodongoConstants.MAXHEALTH;
             direction = Direction.Left;
             state = State.Normal;
@@ -54,16 +57,29 @@ namespace Sprint0
 
         public Rectangle GetSource()
         {
-            return new Rectangle(0, 0, 0, 0);
+            if(direction == Direction.Up)
+            {
+                if (state == State.Eating && eatFrames >= DodongoConstants.PAUSETOEAT) return new Rectangle(52, 58, DodongoConstants.VERTMOVEWIDTH, DodongoConstants.HEIGHT);
+                else return new Rectangle(35, 58, DodongoConstants.VERTMOVEWIDTH, DodongoConstants.HEIGHT);
+            }
+            else if (direction == Direction.Down && eatFrames >= DodongoConstants.PAUSETOEAT)
+            {
+                if (state == State.Eating) return new Rectangle(18, 58, DodongoConstants.VERTMOVEWIDTH, DodongoConstants.HEIGHT);
+                else return new Rectangle(1, 58, DodongoConstants.VERTMOVEWIDTH, DodongoConstants.HEIGHT);
+            }
+            else
+            {
+                if (state == State.Eating && eatFrames >= DodongoConstants.PAUSETOEAT) return new Rectangle(135, 58, DodongoConstants.HORIMOVEWIDTH, DodongoConstants.HEIGHT);
+                else return new Rectangle(69 + 33 * (frame % 2), 58, DodongoConstants.HORIMOVEWIDTH, DodongoConstants.HEIGHT);
+            }
         }
 
         public void Move()
         {
+            frame++;
             if (state == State.Normal)
             {
-                frame++;
-
-                if (frame % 8 == 0) direction = ChangeDirection();
+                if (frame % DodongoConstants.CHANGEDIRECTIONFRAME == 0) direction = ChangeDirection();
 
                 if (direction == Direction.Up) yLoc -= DodongoConstants.moveDist * GameConstants.SCALE;
                 else if (direction == Direction.Down) yLoc += DodongoConstants.moveDist * GameConstants.SCALE;
@@ -73,14 +89,33 @@ namespace Sprint0
             else if (state == State.Eating)
             {
                 eatFrames++;
+                if(eatFrames > DodongoConstants.EATFRAMECOUNT)
+                {
+                    health -= bombDamage;
+                    if (health <= 0) state = State.Dying;
+                    else state = State.Normal;
+                }
             }
-
-            ReturnToNormal();
+            else if(state == State.Dying)
+            {
+                dyingFrames++;
+                if (dyingFrames > DodongoConstants.DEATHFRAMES) state = State.Dead;
+            }
         }
 
         public int GetFrame()
         {
             return frame;
+        }
+
+        public Direction GetDirection()
+        {
+            return direction;
+        }
+
+        public State GetState()
+        {
+            return state;
         }
 
         private static Direction ChangeDirection()
@@ -90,30 +125,22 @@ namespace Sprint0
             return (Direction)num;
         }
 
-        public bool HasHealth()
+        public bool NotDead()
         {
             return state == State.Dead;
         }
 
-        public void TakeDamage(int damage)
+        public void Eat(int damage)
         {
-            if (state == State.Normal)
+            if(state == State.Normal)
             {
-                health -= damage;
+                bombDamage = damage;
                 state = State.Eating;
-                eatFrames = 1;
+                eatFrames = 0;
             }
         }
 
-        public void ReturnToNormal()
-        {
-            if (eatFrames > DodongoConstants.EATFRAMECOUNT)
-            {
-                state = State.Normal;
-            }
-        }
-
-        public bool IsDamaged()
+        public bool IsEating()
         {
             return state == State.Eating;
         }

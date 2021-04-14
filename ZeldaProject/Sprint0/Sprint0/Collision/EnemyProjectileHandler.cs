@@ -105,12 +105,9 @@ namespace Sprint0
                     DamageTheEnemy(enemy, bomb, overlap);
                 }
             }
-            else
+            else if(enemy is Dodongo)
             {
-                if (enemy is Dodongo)
-                {
-
-                }
+                DamageTheEnemy(enemy, bomb, overlap);
             }
         }
 

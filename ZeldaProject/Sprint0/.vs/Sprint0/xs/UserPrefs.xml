@@ -2,22 +2,18 @@
   <MonoDevelop.Ide.ItemProperties.Sprint0 PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="Sprint0/Collision/EnemyProjectileHandler.cs" Line="117" Column="9" />
-      <File FileName="Sprint0/Collision/LinkEnemyHandler.cs" Line="165" Column="6" />
-      <File FileName="Sprint0/Enemies/Darknut.cs" Line="1" Column="1" />
-      <File FileName="Sprint0/Enemies/DarknutStateMachine.cs" Line="163" Column="1" />
-      <File FileName="Sprint0/Enemies/KeeseStateMachine.cs" Line="53" Column="1" />
+      <File FileName="Sprint0/Enemies/Dodongo.cs" Line="15" Column="31" />
+      <File FileName="Sprint0/Enemies/DodongoConstants.cs" Line="12" Column="46" />
+      <File FileName="Sprint0/Enemies/DodongoStateMachine.cs" Line="26" Column="33" />
+      <File FileName="Sprint0/Collision/LinkEnemyHandler.cs" Line="47" Column="10" />
+      <File FileName="Sprint0/Collision/EnemyProjectileHandler.cs" Line="107" Column="14" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Sprint0" expanded="True">
             <Node name="Sprint0" expanded="True">
-              <Node name="Code reviews" expanded="True" />
-              <Node name="Collision" expanded="True">
-                <Node name="LinkEnemyHandler.cs" selected="True" />
-              </Node>
-              <Node name="Enemies" expanded="True" />
+              <Node name="Collision" selected="True" />
             </Node>
           </Node>
         </State>
