@@ -123,6 +123,7 @@ namespace Sprint0
         {
             if (state != State.Damaged)
             {
+                damageDirection = damageVector;
                 health -= damage;
                 state = State.Damaged;
                 stunFrames = 1;

@@ -17,6 +17,7 @@ namespace Sprint0
         public Dodongo(int x, int y, Texture2D spriteSheet)
         {
             stateMachine = new DodongoStateMachine(x, y);
+            dodongoSpriteSheet = spriteSheet;
             init = new Tuple<int, int>(x, y);
         }
 
