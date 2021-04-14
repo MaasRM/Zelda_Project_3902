@@ -17,7 +17,7 @@ namespace Sprint0
 
         public Shop(LinkInventory inv, Texture2D npcSheet, Texture2D dungeonSheet, RoomManager manager, Sprint4 game)
         {
-            OldMan = new OldMan(45 * GameConstants.SCALE, 185 * GameConstants.SCALE, npcSheet);
+            OldMan = new OldMan(ShopConstants.OLDMANX * GameConstants.SCALE, ShopConstants.OLDMANY * GameConstants.SCALE, npcSheet);
             oldManText = new ShopText(dungeonSheet, game);
             linkInv = inv;
             shopItems = new List<IItem>();
