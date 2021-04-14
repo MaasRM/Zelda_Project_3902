@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Sprint0.Shop
+namespace Sprint0
 {
     class Shop
     {
@@ -12,28 +12,43 @@ namespace Sprint0.Shop
         LinkInventory linkInv;
         List<IItem> shopItems;
         List<ItemText> itemPrices;
+        RoomManager roomManager;
         //sword upgrade, bombs, blue arrow/boomerang upgrade, armor/color upgrade
 
-        public Shop(LinkInventory inv, Texture2D npcSheet)
+        public Shop(LinkInventory inv, Texture2D npcSheet, Texture2D dungeonSheet, RoomManager manager, Sprint4 game)
         {
-            OldMan = new OldMan(100, 100, npcSheet);
-            oldManText = new ShopText();
+            OldMan = new OldMan(45 * GameConstants.SCALE, 185 * GameConstants.SCALE, npcSheet);
+            oldManText = new ShopText(dungeonSheet, game);
             linkInv = inv;
             shopItems = new List<IItem>();
             itemPrices = new List<ItemText>();
-        }
-
-        public void setUpShop()
-        {
-
+            roomManager = manager;
         }
 
         public void Update()
         {
-             
+            if (roomManager.getRoomIndex() == GameConstants.SHOPROOM)
+            {
+                UpdateItems();
+                oldManText.Update();
+            }
         }
 
-        public void Draw()
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            if (roomManager.getRoomIndex() == GameConstants.SHOPROOM)
+            {
+                OldMan.Draw(spriteBatch);
+                oldManText.Draw(spriteBatch);
+                foreach (ItemText x in itemPrices)
+                {
+                    //x.draw(spriteBatch);
+                }
+            }
+            else oldManText.Reset();
+        }
+
+        public void UpdateItems()
         {
 
         }

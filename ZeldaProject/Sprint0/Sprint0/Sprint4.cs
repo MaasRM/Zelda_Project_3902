@@ -27,6 +27,7 @@ namespace Sprint0
         private List<INPC> npcs;
         private List<IProjectile> projectiles;
         private RoomManager roomManager;
+        private Shop shop;
         private AllCollisionHandler allCollisionHandler;
         private PauseController pauseControls;
 
@@ -173,7 +174,8 @@ namespace Sprint0
                                         this.GraphicsDevice.Viewport.Bounds.Height - WallConstants.BOTTOMWALL, itemsSheet);
 
             link = new Link(contentManager.Load<Texture2D>("LinkSpriteSheet"), linkSheetList, Link_soundEffects, inventory);
-            
+            shop = new Shop(link.GetLinkInventory(), npcSheet, dungeonSheet, roomManager, this);
+
             //SongManager
             Songs = new SongManager(Title_music, Overworld_music, Dungeon_music, Ending_music);
         }
@@ -228,7 +230,11 @@ namespace Sprint0
                             controller.Update();
                         }
                     }
-                    if(frame % 8 == 0) hintSprite.Update();
+                    if (frame % 8 == 0)
+                    {
+                        hintSprite.Update();
+                        shop.Update();
+                    }
                     
                 } else
                 {
@@ -267,6 +273,7 @@ namespace Sprint0
             }
 
             hintSprite.Draw(this._spriteBatch);
+            shop.Draw(this._spriteBatch);
 
             if (!roomManager.RoomChange())
             {
