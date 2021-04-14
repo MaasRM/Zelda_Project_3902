@@ -122,12 +122,10 @@ namespace Sprint0
 
         public void TakeDamage()
         {
-            state = State.Dead;
-        }
-
-        public bool EyeOpen()
-        {
-            return eye == Eye.Open;
+            if(eye == Eye.Open)
+            {
+                state = State.Dead;
+            }
         }
 
         private int SetCloseFrames()

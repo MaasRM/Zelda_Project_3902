@@ -40,7 +40,15 @@ namespace Sprint0
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(gohmaSpriteSheet, destination, source, Color.White);
+            if(stateMachine.GetFrame() % 2 == 1)
+            {
+                spriteBatch.Draw(gohmaSpriteSheet, destination, source, Color.White, 0, new Vector2(0, 0), SpriteEffects.FlipHorizontally, 0f);
+            }
+            else
+            {
+                spriteBatch.Draw(gohmaSpriteSheet, destination, source, Color.White);
+            }
+
         }
 
         public void Reset()
@@ -82,11 +90,6 @@ namespace Sprint0
         {
             //Once hit, it's killed, so never damaged
             return false;
-        }
-
-        public bool EyeOpen()
-        {
-            return stateMachine.EyeOpen();
         }
     }
 }
