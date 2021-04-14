@@ -24,7 +24,7 @@ namespace Sprint0
         {
             OverlapInRelationToPlayer overlap = GetOverlapDirection(player, enemy);
 
-            if (enemy is Trap || enemy is Dodongo)
+            if (enemy is Trap || enemy is Dodongo || enemy is Gohma)
             {
                 DamageThePlayer(player, ((IEnemy)enemy).GetDamageValue(), overlap);
             }

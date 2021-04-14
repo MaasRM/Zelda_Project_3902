@@ -40,7 +40,7 @@ namespace Sprint0
             }
             else
             {
-                if(!(enemy is Darknut))
+                if(!(enemy is Darknut) && !(enemy is Gohma && !(projectile is BrownArrowProjectile || projectile is BlueArrowProjectile)))
                 {
                     DamageTheEnemy((IEnemy)enemy, projectile, overlap);
                 }
