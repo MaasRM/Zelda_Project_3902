@@ -23,5 +23,20 @@ namespace Sprint0.Shop
             itemPrices = new List<ItemText>();
         }
 
+        public void setUpShop()
+        {
+
+        }
+
+        public void Update()
+        {
+             
+        }
+
+        public void Draw()
+        {
+
+        }
+
     }
 }

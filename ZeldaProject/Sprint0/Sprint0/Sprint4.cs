@@ -156,8 +156,9 @@ namespace Sprint0
             hintSprite = new HintSprite(dungeonSheet, roomManager, this);
 
             XmlDocument doc = new XmlDocument();
-
-            doc.Load(new FileStream(xmlLoc, FileMode.Open));
+            FileStream file = new FileStream(xmlLoc, FileMode.Open);
+            doc.Load(file);
+            file.Close();
             roomManager.SetUpRooms(doc, dungeonSheet, enemySheets, itemsSheet, bossSheets, npcSheet, overworldSheet);
 
             foreach (IController controller in controllerList)
@@ -364,8 +365,10 @@ namespace Sprint0
                 Texture2D itemsSheet = contentManager.Load<Texture2D>("Dungeon_Items");
 
                 XmlDocument doc = new XmlDocument();
-                doc.Load(new FileStream(xmlLoc, FileMode.Open));
+                FileStream file = new FileStream(xmlLoc, FileMode.Open);
+                doc.Load(file);
                 roomManager.Reset(link.GetLinkInventory().getLinkItems(), doc, dungeonSheet, enemySheets, itemsSheet, bossSheets, npcSheet, overworldSheet);
+                file.Close();
                 roomManager.ChangeRoom(GameConstants.OUTSIDEROOM);
                 link.Reset();
             }
