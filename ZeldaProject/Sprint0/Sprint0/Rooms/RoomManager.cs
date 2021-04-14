@@ -146,6 +146,7 @@ namespace Sprint0
                 game.SetItems(new List<IItem>());
                 game.SetNPCs(new List<INPC>());
                 SetNextRoomLoc(dir);
+                ResetRoomObjects();
             }
             return roomChange;
         }
@@ -268,6 +269,11 @@ namespace Sprint0
             foreach (INPC npc in currentRoom.getNPCs())
             {
                 npc.Reset();
+
+                if(npc is Goriya)
+                {
+                    ((Goriya)npc).StopThrowSound();
+                }
             }
         }
     }

@@ -8,8 +8,8 @@ namespace Sprint0
 {
     public enum Direction
     {
-        Up,
         Down,
+        Up,
         Left,
         Right,
         UpRight,

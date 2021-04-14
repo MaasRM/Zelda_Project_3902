@@ -99,6 +99,7 @@ namespace Sprint0
         public void Reset()
         {
             stateMachine = new GoriyaStateMachine(init.Item1, init.Item2, init.Item3);
+            flyingBoomerang.Stop();
         }
 
         public Rectangle GetNPCLocation()
