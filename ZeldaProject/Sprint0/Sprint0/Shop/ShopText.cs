@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Sprint0
 {
-    class ShopText
+    public class ShopText
     {
         private Texture2D letterSheet;
         private SoundEffectInstance textSound;
@@ -67,6 +67,7 @@ namespace Sprint0
                     letterSource = ShopConstants.letterSource1;
                     break;
             }
+            counter = 0;
         }
 
         public void Reset()

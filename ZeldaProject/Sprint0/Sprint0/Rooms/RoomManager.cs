@@ -66,7 +66,7 @@ namespace Sprint0
             {
                 game.GetPlayer().GetLinkInventory().linkMinimap.setLinkMinimapDestinationSprite(roomIndex, 0);
                 game.SetBlocks(currentRoom.getBlocks());
-                game.SetItems(currentRoom.getItems());
+                if(roomIndex != GameConstants.SHOPROOM) game.SetItems(currentRoom.getItems());
                 game.SetNPCs(currentRoom.getNPCs());
             }
             if((currentRoom.RoomNum() ==3 || currentRoom.RoomNum() == 10) && currentRoom.getNPCs().Count == 0)

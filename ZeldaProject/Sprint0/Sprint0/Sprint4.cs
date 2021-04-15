@@ -174,7 +174,7 @@ namespace Sprint0
                                         this.GraphicsDevice.Viewport.Bounds.Height - WallConstants.BOTTOMWALL, itemsSheet);
 
             link = new Link(contentManager.Load<Texture2D>("LinkSpriteSheet"), linkSheetList, Link_soundEffects, inventory);
-            shop = new Shop(link.GetLinkInventory(), npcSheet, dungeonSheet, roomManager, this);
+            shop = new Shop(link.GetLinkInventory(), npcSheet, dungeonSheet, itemsSheet, roomManager, this);
 
             //SongManager
             Songs = new SongManager(Title_music, Overworld_music, Dungeon_music, Ending_music);
@@ -213,7 +213,7 @@ namespace Sprint0
                     }
 
                     allCollisionHandler.CheckTraps(npcs);
-                    allCollisionHandler.CheckWalls(link, npcs, roomManager);
+                    allCollisionHandler.CheckWalls(link, npcs, roomManager, shop);
                     allCollisionHandler.PlayerItemCollisions(link, items, npcs, Collision_soundEffects);
                     allCollisionHandler.BlockCollisions(link, npcs, blocks, roomManager, Collision_soundEffects);
                     allCollisionHandler.ProjectileCollisions(link, npcs, projectiles, Collision_soundEffects, items, roomManager);
@@ -324,6 +324,11 @@ namespace Sprint0
         public void SetBlocks(List<IBlock> newBlocks)
         {
             blocks = newBlocks;
+        }
+
+        public List<IItem> GetItems()
+        {
+            return items;
         }
 
         public void SetItems(List<IItem> newItems)

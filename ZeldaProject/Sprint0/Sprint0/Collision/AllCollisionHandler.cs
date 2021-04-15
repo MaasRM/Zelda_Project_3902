@@ -29,7 +29,7 @@ namespace Sprint0
             itemsSheet = items;
         }
 
-        public void CheckWalls(IPlayer player, List<INPC> npcs, RoomManager roomManager)
+        public void CheckWalls(IPlayer player, List<INPC> npcs, RoomManager roomManager, Shop shop)
         {
             bool grabbed = false;
             foreach (INPC npc in npcs)
@@ -45,7 +45,7 @@ namespace Sprint0
                 else grabbed = grabbed || ((Wallmaster)npc).Grabbing();
             }
 
-            HandleLinkAndWalls(player, roomManager, grabbed);
+            HandleLinkAndWalls(player, roomManager, grabbed, shop);
         }
 
         public void PlayerEnemyCollisions(IPlayer player, List<INPC> npcs, List<SoundEffect> Collision_soundEffects, List<IItem> items)
@@ -177,7 +177,7 @@ namespace Sprint0
             }
         }
 
-        private void HandleLinkAndWalls(IPlayer player, RoomManager roomManager, bool grabbed)
+        private void HandleLinkAndWalls(IPlayer player, RoomManager roomManager, bool grabbed, Shop shop)
         {
             new LinkWallHandler(player, roomManager, cameraWallMinX, cameraWallMaxX, cameraWallMinY, cameraWallMaxY);
 
@@ -198,13 +198,15 @@ namespace Sprint0
             } else if(roomManager.getRoomIndex() == GameConstants.OUTSIDEROOM) {
                 if (player.getLinkStateMachine().getXLoc() > cameraWallMaxX + (WallConstants.WALLSIZE * GameConstants.SCALE))
                 {
-                    roomManager.ChangeRoom(19);
+                    roomManager.ChangeRoom(GameConstants.SHOPROOM);
+                    shop.SetUpShop();
                     player.SetPosition(new Rectangle(cameraWallMinX - (WallConstants.WALLSIZE * GameConstants.SCALE), player.getLinkStateMachine().getYLoc(), 0, 0));
                 }
             } else if (roomManager.getRoomIndex() == GameConstants.SHOPROOM) {
                 if (player.getLinkStateMachine().getXLoc() < cameraWallMinX - (WallConstants.WALLSIZE * GameConstants.SCALE))
                 {
-                    roomManager.ChangeRoom(18);
+                    shop.TearDownShop();
+                    roomManager.ChangeRoom(GameConstants.OUTSIDEROOM);
                     player.SetPosition(new Rectangle(cameraWallMaxX + (WallConstants.WALLSIZE * GameConstants.SCALE), player.getLinkStateMachine().getYLoc(), 0, 0));
                 }
             } else {
