@@ -10,6 +10,7 @@ namespace Sprint0
         public const int OLDMANX = 45;
         public const int OLDMANY = 185;
         public const int LETTERSIZE = 7;
+        public const int LETTERCOUNT = 29;
         public const int UNDERSCOREX = 65;
         public const int UNDERSCOREY = 158;
         public const int DOLLARSIGNX = 65;

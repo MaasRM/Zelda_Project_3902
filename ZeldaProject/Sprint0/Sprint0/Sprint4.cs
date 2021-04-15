@@ -215,7 +215,7 @@ namespace Sprint0
 
                     allCollisionHandler.CheckTraps(npcs);
                     allCollisionHandler.CheckWalls(link, npcs, roomManager, shop);
-                    allCollisionHandler.PlayerItemCollisions(link, items, npcs, Collision_soundEffects);
+                    allCollisionHandler.PlayerItemCollisions(link, items, npcs, Collision_soundEffects, shop);
                     allCollisionHandler.BlockCollisions(link, npcs, blocks, roomManager, Collision_soundEffects);
                     allCollisionHandler.ProjectileCollisions(link, npcs, projectiles, Collision_soundEffects, items, roomManager);
                     allCollisionHandler.PlayerEnemyCollisions(link, npcs, Collision_soundEffects, items);

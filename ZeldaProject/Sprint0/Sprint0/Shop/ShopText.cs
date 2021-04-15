@@ -13,7 +13,6 @@ namespace Sprint0
         private SoundEffectInstance textSound;
         private Sprint4 game;
         private int counter;
-        private const int letterCount = 29;
         private int[] letterSource;
 
         public ShopText(Texture2D dungeonSheet, Sprint4 game)
@@ -29,7 +28,7 @@ namespace Sprint0
 
         public void Update()
         {
-            if (counter < letterCount) counter++;
+            if (counter < ShopConstants.LETTERCOUNT) counter++;
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -41,7 +40,7 @@ namespace Sprint0
                 Rectangle source = new Rectangle(letterSource[i], letterSource[i + 1], ShopConstants.LETTERSIZE, ShopConstants.LETTERSIZE);
                 spriteBatch.Draw(letterSheet, destination, source, Color.White);
             }
-            if (counter < letterCount)
+            if (counter < ShopConstants.LETTERCOUNT)
             {
                 Rectangle destination = new Rectangle((ShopConstants.letterDest[counter * 2] + ShopConstants.LETTERSIZE) * GameConstants.SCALE, (GameConstants.HUDSIZE * GameConstants.SCALE) + ShopConstants.letterDest[(counter * 2) + 1] * GameConstants.SCALE, ShopConstants.LETTERSIZE * GameConstants.SCALE, ShopConstants.LETTERSIZE * GameConstants.SCALE);
                 Rectangle source = new Rectangle(ShopConstants.UNDERSCOREX, ShopConstants.UNDERSCOREY, ShopConstants.LETTERSIZE, ShopConstants.LETTERSIZE);
@@ -75,6 +74,11 @@ namespace Sprint0
             letterSource = ShopConstants.letterSource1;
             counter = 0;
             textSound.Stop();
+        }
+
+        public Boolean isDone()
+        {
+            return counter == ShopConstants.LETTERCOUNT;
         }
     }
 }
