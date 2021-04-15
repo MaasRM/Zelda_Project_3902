@@ -41,7 +41,7 @@ namespace Sprint0
 
         public void SetHealth(int health)
         {
-            currentHealth = 0;
+            maxHealth = health;
             Heal(health);
         }
 

@@ -239,12 +239,12 @@ namespace Sprint0
                 else if (nPC is Goriya)
                 {
                     ((Goriya)nPC).StopThrowSound();
+                    Collision_soundEffects[3].Play();
                 }
                 else
                 {
                     Collision_soundEffects[3].Play();
                 }
-
                 DeadEnemies.Add(nPC);
             }
         }
