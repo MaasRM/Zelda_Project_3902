@@ -82,7 +82,7 @@ namespace Sprint0
                 if (item.GetLocationRectangle().Intersects(player.LinkPosition()))
                 {
                     LinkItemHandler.HandleCollision(item, player, npcs, Collision_soundEffects, collidedItems, shop);
-                    player.GetLinkInventory().addItem(item);
+                    if (!shop.IsShopCurrent() || (shop.IsShopAvailable() && shop.TryBuyItem(item))) player.GetLinkInventory().addItem(item);
                 }
             }
 
