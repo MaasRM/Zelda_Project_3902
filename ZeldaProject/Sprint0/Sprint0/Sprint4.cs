@@ -155,7 +155,7 @@ namespace Sprint0
             Text_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Text")); //done
             Text_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Text_Slow")); //done
 
-            hintSprite = new HintSprite(dungeonSheet, roomManager, this);
+            hintSprite = new HintSprite(dungeonSheet, roomManager, Text_soundEffects[1].CreateInstance());
 
             XmlDocument doc = new XmlDocument();
             FileStream file = new FileStream(xmlLoc, FileMode.Open);

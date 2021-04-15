@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Sprint0
 {
-    class TitleScreen
+    public class TitleScreen
     {
         Texture2D titleSheet;
         private List<Rectangle> paleTri;
