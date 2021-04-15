@@ -73,7 +73,7 @@ namespace Sprint0
             }
         }
 
-        public void PlayerItemCollisions(IPlayer player, List<IItem> items, List<INPC> npcs, List<SoundEffect> Collision_soundEffects)
+        public void PlayerItemCollisions(IPlayer player, List<IItem> items, List<INPC> npcs, List<SoundEffect> Collision_soundEffects, Shop shop)
         {
             List<IItem> collidedItems;
             collidedItems = new List<IItem>();
@@ -81,7 +81,7 @@ namespace Sprint0
             {
                 if (item.GetLocationRectangle().Intersects(player.LinkPosition()))
                 {
-                    LinkItemHandler.HandleCollision(item, player, npcs, Collision_soundEffects, collidedItems);
+                    LinkItemHandler.HandleCollision(item, player, npcs, Collision_soundEffects, collidedItems, shop);
                     player.GetLinkInventory().addItem(item);
                 }
             }

@@ -12,8 +12,9 @@ namespace Sprint0
         INPC OldMan;
         ShopText oldManText;
         LinkInventory linkInv;
-        List<IItem> shopItems;
-        List<ItemText> itemPrices;
+        Dictionary<IItem, ItemText> shopItems;
+        //List<IItem> shopItems;
+        //List<ItemText> itemPrices;
         RoomManager roomManager;
         Texture2D itemSheet;
         Texture2D dungeonSheet;
@@ -24,8 +25,7 @@ namespace Sprint0
             OldMan = new OldMan(ShopConstants.OLDMANX * GameConstants.SCALE, ShopConstants.OLDMANY * GameConstants.SCALE, npcSheet);
             oldManText = new ShopText(dungeonSheet, game);
             linkInv = inv;
-            shopItems = new List<IItem>();
-            itemPrices = new List<ItemText>();
+            shopItems = new Dictionary<IItem, ItemText>();
             roomManager = manager;
             this.dungeonSheet = dungeonSheet;
             this.itemSheet = itemSheet;
@@ -36,6 +36,14 @@ namespace Sprint0
             if (roomManager.getRoomIndex() == GameConstants.SHOPROOM)
             {
                 oldManText.Update();
+                Dictionary<IItem, ItemText> newShopItems = new Dictionary<IItem, ItemText>();
+                foreach (IItem item in game.GetItems())
+                {
+                    ItemText current;
+                    shopItems.TryGetValue(item, out current);
+                    newShopItems.Add(item, current);
+                }
+                shopItems = newShopItems;
             }
         }
 
@@ -45,9 +53,9 @@ namespace Sprint0
             {
                 OldMan.Draw(spriteBatch);
                 oldManText.Draw(spriteBatch);
-                foreach (ItemText x in itemPrices)
+                foreach (KeyValuePair<IItem, ItemText> x in shopItems)
                 {
-                    x.Draw(spriteBatch);
+                    x.Value.Draw(spriteBatch);
                 }
             }
             else oldManText.Reset();
@@ -56,7 +64,12 @@ namespace Sprint0
         public void SetUpShop()
         {
             UpdateItems();
-            game.SetItems(shopItems);
+            List<IItem> itemList = new List<IItem>();
+            foreach (KeyValuePair<IItem, ItemText> x in shopItems)
+            {
+                itemList.Add(x.Key);
+            }
+            game.SetItems(itemList);
         }
 
         public void TearDownShop()
@@ -69,10 +82,34 @@ namespace Sprint0
             //bombs, sword upgrade, blue arrow/boomerang upgrade, armor/color upgrade
             shopItems.Clear();
             BombItem bomb = new BombItem(new Rectangle(45 * GameConstants.SCALE, 110 * GameConstants.SCALE, 8 * GameConstants.SCALE, 14 * GameConstants.SCALE), new Rectangle(136, 0, 8, 14), itemSheet);
-            shopItems.Add(bomb);
+            ItemText bombText = new ItemText(ShopConstants.BOMBCOST, dungeonSheet, bomb.GetLocationRectangle());
+            shopItems.Add(bomb, bombText);
+        }
 
-            itemPrices.Clear();
-            itemPrices.Add(new ItemText(ShopConstants.BOMBCOST, dungeonSheet, bomb.GetLocationRectangle()));
+        public Boolean IsShopAvailable()
+        {
+            return oldManText.isDone();
+        }
+
+        public Boolean IsShopCurrent()
+        {
+            return roomManager.getRoomIndex() == GameConstants.SHOPROOM;
+        }
+
+        public Boolean TryBuyItem(IItem item)
+        {
+            ItemText text;
+            shopItems.TryGetValue(item, out text);
+            Boolean ret = text.GetPrice() <= linkInv.getRupeeCount();
+            if (ret)
+            {
+                linkInv.removeRupee(text.GetPrice());
+                oldManText.ChangeText(2);
+            } else
+            {
+                oldManText.ChangeText(3);
+            }
+            return ret;
         }
 
     }

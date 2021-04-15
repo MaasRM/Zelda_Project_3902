@@ -302,6 +302,11 @@ namespace Sprint0
             return keyCount;
         }
 
+        public int getRupeeCount()
+        {
+            return rupeeCount;
+        }
+
         public void addRupee(int num)
         {
             rupeeCount += num;

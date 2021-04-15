@@ -37,5 +37,10 @@ namespace Sprint0
                 spriteBatch.Draw(letterSheet, destination, source, Color.White);
             }
         }
+
+        public int GetPrice()
+        {
+            return int.Parse(price);
+        }
     }
 }
