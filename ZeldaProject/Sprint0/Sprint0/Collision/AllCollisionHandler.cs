@@ -79,10 +79,10 @@ namespace Sprint0
             collidedItems = new List<IItem>();
             foreach (IItem item in items)
             {
-                if (item.GetLocationRectangle().Intersects(player.LinkPosition()))
+                if (item.GetLocationRectangle().Intersects(player.LinkPosition()) && (!shop.IsShopCurrent() || (shop.IsShopAvailable() && shop.TryBuyItem(item))))
                 {
-                    LinkItemHandler.HandleCollision(item, player, npcs, Collision_soundEffects, collidedItems, shop);
-                    if (!shop.IsShopCurrent() || (shop.IsShopAvailable() && shop.TryBuyItem(item))) player.GetLinkInventory().addItem(item);
+                    LinkItemHandler.HandleCollision(item, player, npcs, Collision_soundEffects, collidedItems);
+                    player.GetLinkInventory().addItem(item);
                 }
             }
 

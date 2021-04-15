@@ -12,33 +12,30 @@ namespace Sprint0
         {
         }
 
-        public static void HandleCollision(IItem item, IPlayer player, List<INPC> npcs, List<SoundEffect> Collision_soundEffects, List<IItem> collidedItems, Shop shop)
+        public static void HandleCollision(IItem item, IPlayer player, List<INPC> npcs, List<SoundEffect> Collision_soundEffects, List<IItem> collidedItems)
         {
             if (!(item is Fire)) {
-                if (!shop.IsShopCurrent() || (shop.IsShopAvailable() && shop.TryBuyItem(item)))
-                {
-                    if (item is KeyItem || item is SecretKey || item is EnemyKey) HandleKey(item, player, Collision_soundEffects, collidedItems);
-                    else if (item is HeartItem) HandleHeart(item, player, Collision_soundEffects, collidedItems);
-                    else if (item is HeartContainerItem) HandleHeartContainer(item, player, Collision_soundEffects, collidedItems);
-                    else if (item is BlueRupeeItem) HandleBlueRupee(item, player, Collision_soundEffects, collidedItems);
-                    else if (item is YellowRupeeItem) HandleYellowRupee(item, player, Collision_soundEffects, collidedItems);
-                    else if (item is ClockItem) HandleClock(item, npcs, collidedItems, Collision_soundEffects);
-                    else if (item is BombItem) HandleBomb(item, player, Collision_soundEffects, collidedItems);
-                    else if (item is MapItem)
-                    {
-                        collidedItems.Add(item);
-                        player.GetLinkInventory().linkMinimap.setMinimap(true);
-                        player.GetLinkInventory().pauseScreen.setMap(true);
-                    }
-                    else if (item is CompassItem)
-                    {
-                        collidedItems.Add(item);
-                        player.GetLinkInventory().linkMinimap.setCompass(true);
-                        player.GetLinkInventory().pauseScreen.setCompass(true);
-                        Collision_soundEffects[7].Play();
-                    }
-                    else HandleOtherItems(item, player, Collision_soundEffects, collidedItems);
+               if (item is KeyItem || item is SecretKey || item is EnemyKey) HandleKey(item, player, Collision_soundEffects, collidedItems);
+               else if (item is HeartItem) HandleHeart(item, player, Collision_soundEffects, collidedItems);
+               else if (item is HeartContainerItem) HandleHeartContainer(item, player, Collision_soundEffects, collidedItems);
+               else if (item is BlueRupeeItem) HandleBlueRupee(item, player, Collision_soundEffects, collidedItems);
+               else if (item is YellowRupeeItem) HandleYellowRupee(item, player, Collision_soundEffects, collidedItems);
+               else if (item is ClockItem) HandleClock(item, npcs, collidedItems, Collision_soundEffects);
+               else if (item is BombItem) HandleBomb(item, player, Collision_soundEffects, collidedItems);
+               else if (item is MapItem)
+               {
+                    collidedItems.Add(item);
+                    player.GetLinkInventory().linkMinimap.setMinimap(true);
+                    player.GetLinkInventory().pauseScreen.setMap(true);
+               }
+               else if (item is CompassItem)
+               {
+                    collidedItems.Add(item);
+                    player.GetLinkInventory().linkMinimap.setCompass(true);
+                    player.GetLinkInventory().pauseScreen.setCompass(true);
+                    Collision_soundEffects[7].Play();
                 }
+                else HandleOtherItems(item, player, Collision_soundEffects, collidedItems);
             }  
         }
 
