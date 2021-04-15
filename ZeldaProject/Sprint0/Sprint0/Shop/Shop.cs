@@ -13,8 +13,6 @@ namespace Sprint0
         ShopText oldManText;
         LinkInventory linkInv;
         Dictionary<IItem, ItemText> shopItems;
-        //List<IItem> shopItems;
-        //List<ItemText> itemPrices;
         RoomManager roomManager;
         Texture2D itemSheet;
         Texture2D dungeonSheet;
