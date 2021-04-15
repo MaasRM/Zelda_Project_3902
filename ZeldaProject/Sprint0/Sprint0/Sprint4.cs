@@ -111,6 +111,7 @@ namespace Sprint0
             Texture2D npcSheet = contentManager.Load<Texture2D>("Zelda_NPCs");
             Texture2D itemsSheet = contentManager.Load<Texture2D>("Dungeon_Items");
             Texture2D inventory = contentManager.Load<Texture2D>("HUD_Pause_Screen");
+            Texture2D titleSheet = contentManager.Load<Texture2D>("TitleScreen");
 
             //Songs
             Title_music = Content.Load<Song>("Intro");
