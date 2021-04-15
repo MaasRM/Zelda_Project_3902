@@ -27,6 +27,7 @@ namespace Sprint0
         private List<INPC> npcs;
         private List<IProjectile> projectiles;
         private RoomManager roomManager;
+        private Shop shop;
         private AllCollisionHandler allCollisionHandler;
         private PauseController pauseControls;
 
@@ -157,8 +158,9 @@ namespace Sprint0
             hintSprite = new HintSprite(dungeonSheet, roomManager, this);
 
             XmlDocument doc = new XmlDocument();
-
-            doc.Load(new FileStream(xmlLoc, FileMode.Open));
+            FileStream file = new FileStream(xmlLoc, FileMode.Open);
+            doc.Load(file);
+            file.Close();
             roomManager.SetUpRooms(doc, dungeonSheet, enemySheets, itemsSheet, bossSheets, npcSheet, overworldSheet);
 
             foreach (IController controller in controllerList)
@@ -173,7 +175,8 @@ namespace Sprint0
                                         this.GraphicsDevice.Viewport.Bounds.Height - WallConstants.BOTTOMWALL, itemsSheet);
 
             link = new Link(contentManager.Load<Texture2D>("LinkSpriteSheet"), linkSheetList, Link_soundEffects, inventory);
-            
+            shop = new Shop(link.GetLinkInventory(), npcSheet, dungeonSheet, roomManager, this);
+
             //SongManager
             Songs = new SongManager(Title_music, Overworld_music, Dungeon_music, Ending_music);
         }
@@ -228,7 +231,11 @@ namespace Sprint0
                             controller.Update();
                         }
                     }
-                    if(frame % 8 == 0) hintSprite.Update();
+                    if (frame % 8 == 0)
+                    {
+                        hintSprite.Update();
+                        shop.Update();
+                    }
                     
                 } else
                 {
@@ -267,6 +274,7 @@ namespace Sprint0
             }
 
             hintSprite.Draw(this._spriteBatch);
+            shop.Draw(this._spriteBatch);
 
             if (!roomManager.RoomChange())
             {
@@ -365,8 +373,10 @@ namespace Sprint0
                 Texture2D itemsSheet = contentManager.Load<Texture2D>("Dungeon_Items");
 
                 XmlDocument doc = new XmlDocument();
-                doc.Load(new FileStream(xmlLoc, FileMode.Open));
+                FileStream file = new FileStream(xmlLoc, FileMode.Open);
+                doc.Load(file);
                 roomManager.Reset(link.GetLinkInventory().getLinkItems(), doc, dungeonSheet, enemySheets, itemsSheet, bossSheets, npcSheet, overworldSheet);
+                file.Close();
                 roomManager.ChangeRoom(GameConstants.OUTSIDEROOM);
                 link.Reset();
             }
