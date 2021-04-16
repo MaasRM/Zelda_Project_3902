@@ -16,7 +16,6 @@ namespace Sprint0
 		public void SetCommands(Sprint5 game)
 		{
 			titleCommands.Add(Keys.Enter, new StartGameCommand(game));
-			titleCommands.Add(Keys.T, new TopOfTitleScreenCommand(game));
 
 			//Commands for quit and reset			
 			titleCommands.Add(Keys.R, new ResetGameCommand(game));
