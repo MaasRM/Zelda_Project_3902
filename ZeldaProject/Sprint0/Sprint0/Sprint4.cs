@@ -20,6 +20,7 @@ namespace Sprint0
         private List<IController> controllerList;
         private IPlayer link;
         private int frame;
+        private Boolean title;
 
         //Tuples are immutable turns out, so just update these instead on room switch
         private List<IBlock> blocks;
@@ -30,6 +31,8 @@ namespace Sprint0
         private Shop shop;
         private AllCollisionHandler allCollisionHandler;
         private PauseController pauseControls;
+        private TitleScreen StartScreen;
+        private TitleController titleControls;
 
         //Sound
         public List<SoundEffect> Collision_soundEffects;
@@ -45,7 +48,6 @@ namespace Sprint0
         //xml string
         readonly String xmlLoc = "..\\..\\..\\Content\\ZeldaRoomLayout.xml";
 
-
         //text sprite
         private HintSprite hintSprite;
 
@@ -56,7 +58,7 @@ namespace Sprint0
             IsMouseVisible = true;
             contentManager = new ContentManager(Content.ServiceProvider, Content.RootDirectory);
             contentManager.RootDirectory = "Content";
-
+            title = true;
             controllerList = new List<IController>();
             frame = 0;
             roomManager = new RoomManager(this);
@@ -75,6 +77,7 @@ namespace Sprint0
             KeyboardController keyControls = new KeyboardController();
             MouseController mouseControls = new MouseController(this);
             pauseControls = new PauseController();
+            titleControls = new TitleController();
             controllerList.Add(keyControls);
             controllerList.Add(mouseControls);
             _graphics.PreferredBackBufferWidth = 255 * 4;
@@ -156,6 +159,7 @@ namespace Sprint0
             Text_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Text_Slow")); //done
 
             hintSprite = new HintSprite(dungeonSheet, roomManager, Text_soundEffects[1].CreateInstance());
+            StartScreen = new TitleScreen(titleSheet, this.GraphicsDevice.Viewport.Bounds.Width, this.GraphicsDevice.Viewport.Bounds.Height);
 
             XmlDocument doc = new XmlDocument();
             FileStream file = new FileStream(xmlLoc, FileMode.Open);
@@ -169,6 +173,8 @@ namespace Sprint0
             }
 
             pauseControls.SetCommands(this);
+            titleControls.SetCommands(this);
+
             allCollisionHandler = new AllCollisionHandler(this.GraphicsDevice.Viewport.Bounds.X + WallConstants.LEFTWALL,
                                         this.GraphicsDevice.Viewport.Bounds.Width - WallConstants.RIGHTWALL,
                                         this.GraphicsDevice.Viewport.Bounds.Y + WallConstants.TOPWALL + GameConstants.HUDSIZE * GameConstants.SCALE,
@@ -185,61 +191,71 @@ namespace Sprint0
         {
             int i;
             frame++;
+
             if (frame % 4 == 0)
             {
-                if (link.GetLinkInventory().pauseScreen.isGamePaused() == false && link.GetLinkInventory().pauseScreen.getCurrentYOffset() == 0)
+                if (!title)
                 {
-                    foreach (IBlock block in blocks)
+                    if (link.GetLinkInventory().pauseScreen.isGamePaused() == false && link.GetLinkInventory().pauseScreen.getCurrentYOffset() == 0)
                     {
-                        block.Update();
-                    }
-                    foreach (IItem item in items)
-                    {
-                        item.Update();
-                    }
-                    for (i = npcs.Count - 1; i >= 0; i--)
-                    {
-                        if (npcs[i] is Trap) EnemyProximityTrigger.CheckToTriggerTrap(link, (Trap)npcs[i]);
-                        if (npcs[i] is Wallmaster) EnemyProximityTrigger.CheckToTriggerWallmaster(link, (Wallmaster)npcs[i]);
-                        npcs[i].Update();
-                        if (npcs[i] is IEnemy)
+                        foreach (IBlock block in blocks)
                         {
-                            if (!((IEnemy)npcs[i]).StillAlive()) npcs.RemoveAt(i);
+                            block.Update();
                         }
-                    }
-                    for (i = projectiles.Count - 1; i >= 0; i--)
-                    {
-                        projectiles[i].Update();
-                        if (projectiles[i].CheckForRemoval()) projectiles.RemoveAt(i);
-                    }
-
-                    allCollisionHandler.CheckTraps(npcs);
-                    allCollisionHandler.CheckWalls(link, npcs, roomManager, shop);
-                    allCollisionHandler.PlayerItemCollisions(link, items, npcs, Collision_soundEffects, shop);
-                    allCollisionHandler.BlockCollisions(link, npcs, blocks, roomManager, Collision_soundEffects);
-                    allCollisionHandler.ProjectileCollisions(link, npcs, projectiles, Collision_soundEffects, items, roomManager);
-                    allCollisionHandler.PlayerEnemyCollisions(link, npcs, Collision_soundEffects, items);
-
-                    CheckPlayer();
-
-                    roomManager.Update();
-                    if (!roomManager.RoomChange())
-                    {
-                        link.Update();
-                        foreach (IController controller in controllerList)
+                        foreach (IItem item in items)
                         {
-                            controller.Update();
+                            item.Update();
                         }
+                        for (i = npcs.Count - 1; i >= 0; i--)
+                        {
+                            if (npcs[i] is Trap) EnemyProximityTrigger.CheckToTriggerTrap(link, (Trap)npcs[i]);
+                            if (npcs[i] is Wallmaster) EnemyProximityTrigger.CheckToTriggerWallmaster(link, (Wallmaster)npcs[i]);
+                            npcs[i].Update();
+                            if (npcs[i] is IEnemy)
+                            {
+                                if (!((IEnemy)npcs[i]).StillAlive()) npcs.RemoveAt(i);
+                            }
+                        }
+                        for (i = projectiles.Count - 1; i >= 0; i--)
+                        {
+                            projectiles[i].Update();
+                            if (projectiles[i].CheckForRemoval()) projectiles.RemoveAt(i);
+                        }
+
+                        allCollisionHandler.CheckTraps(npcs);
+                        allCollisionHandler.CheckWalls(link, npcs, roomManager, shop);
+                        allCollisionHandler.PlayerItemCollisions(link, items, npcs, Collision_soundEffects, shop);
+                        allCollisionHandler.BlockCollisions(link, npcs, blocks, roomManager, Collision_soundEffects);
+                        allCollisionHandler.ProjectileCollisions(link, npcs, projectiles, Collision_soundEffects, items, roomManager);
+                        allCollisionHandler.PlayerEnemyCollisions(link, npcs, Collision_soundEffects, items);
+
+                        CheckPlayer();
+
+                        roomManager.Update();
+                        if (!roomManager.RoomChange())
+                        {
+                            link.Update();
+                            foreach (IController controller in controllerList)
+                            {
+                                controller.Update();
+                            }
+                        }
+                        if (frame % 8 == 0)
+                        {
+                            hintSprite.Update();
+                            shop.Update();
+                        }
+
                     }
-                    if (frame % 8 == 0)
+                    else
                     {
-                        hintSprite.Update();
-                        shop.Update();
+                        pauseControls.Update();
                     }
-                    
-                } else
+                }
+                else
                 {
-                    pauseControls.Update();
+                    StartScreen.Update();
+                    titleControls.Update();
                 }
                 
             }
@@ -252,36 +268,42 @@ namespace Sprint0
             GraphicsDevice.Clear(Color.Black);
 
             this._spriteBatch.Begin();
+            if (!title)
+            {
+                //Call draw for Link, Enemies, Blocks, etc
+                roomManager.Draw(this._spriteBatch);
 
-            //Call draw for Link, Enemies, Blocks, etc
-            roomManager.Draw(this._spriteBatch);
-            
-            foreach (IBlock block in blocks)
-            {
-                block.Draw(this._spriteBatch);
-            }
-            foreach (IItem item in items)
-            {
-                item.Draw(this._spriteBatch);
-            }
-            foreach (INPC npc in npcs)
-            {
-                npc.Draw(this._spriteBatch);
-            }
-            foreach (IProjectile proj in projectiles)
-            {
-                proj.Draw(this._spriteBatch);
-            }
+                foreach (IBlock block in blocks)
+                {
+                    block.Draw(this._spriteBatch);
+                }
+                foreach (IItem item in items)
+                {
+                    item.Draw(this._spriteBatch);
+                }
+                foreach (INPC npc in npcs)
+                {
+                    npc.Draw(this._spriteBatch);
+                }
+                foreach (IProjectile proj in projectiles)
+                {
+                    proj.Draw(this._spriteBatch);
+                }
 
-            hintSprite.Draw(this._spriteBatch);
-            shop.Draw(this._spriteBatch);
+                hintSprite.Draw(this._spriteBatch);
+                shop.Draw(this._spriteBatch);
 
-            if (!roomManager.RoomChange())
-            {
-                link.Draw(this._spriteBatch);
+                if (!roomManager.RoomChange())
+                {
+                    link.Draw(this._spriteBatch);
+                }
+
+                link.GetLinkInventory().Draw(this._spriteBatch);
             }
-
-            link.GetLinkInventory().Draw(this._spriteBatch);
+            else
+            {
+                StartScreen.Draw(this._spriteBatch);
+            }
 
             this._spriteBatch.End();
 
@@ -340,6 +362,16 @@ namespace Sprint0
         public void SetNPCs(List<INPC> newNPCs)
         {
             npcs = newNPCs;
+        }
+
+        public void startGame()
+        {
+            title = false;
+        }
+
+        public TitleScreen TitleScreen()
+        {
+            return StartScreen;
         }
 
         public void ClearProjectiles()

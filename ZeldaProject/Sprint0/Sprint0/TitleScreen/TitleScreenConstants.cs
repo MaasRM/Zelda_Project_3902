@@ -13,6 +13,7 @@ namespace Sprint0
         public static int ROW3 = 461;
         public static int ROW4 = 686;
         public static int ROW5 = 911;
+        public static int STORYROW = 1238;
         public static int COLUMN1 = 1;
         public static int COLUMN2 = 258;
         public static int COLUMN3 = 515;
