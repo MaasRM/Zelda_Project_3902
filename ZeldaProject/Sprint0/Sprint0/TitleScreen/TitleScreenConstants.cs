@@ -8,20 +8,7 @@ namespace Sprint0
     {
         public static int TITLEWIDTH = 256;
         public static int TITLEHEIGHT = 224;
-        public static int ROW1 = 11;
-        public static int ROW2 = 236;
-        public static int ROW3 = 461;
-        public static int ROW4 = 686;
-        public static int ROW5 = 911;
-        public static int STORYROW = 1238;
-        public static int COLUMN1 = 1;
-        public static int COLUMN2 = 258;
-        public static int COLUMN3 = 515;
-        public static int COLUMN4 = 772;
-        public static int COLUMN5 = 1029;
-        public static int COLUMN6 = 1286;
-        public static int COLUMN7 = 1543;
-        public static int COLUMN8 = 1800;
-
+        public static int[] ROW = { 11, 236, 461, 686, 911, 1136 };
+        public static int[] COLUMN = { 1, 258, 515, 772, 1029, 1286, 1543, 1800 };
     }
 }

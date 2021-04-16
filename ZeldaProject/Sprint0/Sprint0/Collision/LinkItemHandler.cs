@@ -27,7 +27,8 @@ namespace Sprint0
                     collidedItems.Add(item);
                     player.GetLinkInventory().linkMinimap.setMinimap(true);
                     player.GetLinkInventory().pauseScreen.setMap(true);
-               }
+                    Collision_soundEffects[7].Play();
+                }
                else if (item is CompassItem)
                {
                     collidedItems.Add(item);
