@@ -82,6 +82,16 @@ namespace Sprint0
             BombItem bomb = new BombItem(new Rectangle(45 * GameConstants.SCALE, 110 * GameConstants.SCALE, 8 * GameConstants.SCALE, 14 * GameConstants.SCALE), new Rectangle(136, 0, 8, 14), itemSheet);
             ItemText bombText = new ItemText(ShopConstants.BOMBCOST, dungeonSheet, bomb.GetLocationRectangle());
             shopItems.Add(bomb, bombText);
+
+            foreach(IItem item in linkInv.getLinkItems())
+            {
+                if(item is BoomerangItem)
+                {
+                    BlueBoomerangItem blueBoomerang = new BlueBoomerangItem(new Rectangle(75 * GameConstants.SCALE, 110 * GameConstants.SCALE, 7 * GameConstants.SCALE, 15 * GameConstants.SCALE), new Rectangle(128, 16, 7, 15), itemSheet);
+                    ItemText blueBoomerangText = new ItemText(ShopConstants.BLUEBOOMERANGCOST, dungeonSheet, blueBoomerang.GetLocationRectangle());
+                    shopItems.Add(blueBoomerang, blueBoomerangText);
+                }
+            }
         }
 
         public Boolean IsShopAvailable()

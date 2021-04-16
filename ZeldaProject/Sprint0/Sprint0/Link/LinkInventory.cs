@@ -34,7 +34,7 @@ namespace Sprint0
         {
             keyCount = 0;
             bombCount = 0;
-            rupeeCount = 0;
+            rupeeCount = 99;
             linkItems = new List<IItem>();
             currentItem = null;
             currentItemIndex = 0;
