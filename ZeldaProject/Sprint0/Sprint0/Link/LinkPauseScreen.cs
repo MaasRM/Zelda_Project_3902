@@ -97,6 +97,10 @@ namespace Sprint0
             {
                 itemSource = new Rectangle(604, 137, 8, 16);
             }
+            else if (item is BlueBoomerangItem)
+            {
+                itemSource = new Rectangle(593, 137, 8, 16);
+            }
 
             return itemSource;
         }
