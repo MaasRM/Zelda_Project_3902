@@ -21,6 +21,7 @@ namespace Sprint0
         private IPlayer link;
         private int frame;
         private Boolean title;
+        private Boolean end;
 
         //Tuples are immutable turns out, so just update these instead on room switch
         private List<IBlock> blocks;
@@ -59,6 +60,7 @@ namespace Sprint0
             contentManager = new ContentManager(Content.ServiceProvider, Content.RootDirectory);
             contentManager.RootDirectory = "Content";
             title = true;
+            end = false;
             controllerList = new List<IController>();
             frame = 0;
             roomManager = new RoomManager(this);
@@ -194,7 +196,16 @@ namespace Sprint0
 
             if (frame % 4 == 0)
             {
-                if (!title)
+                if (title)
+                {
+                    StartScreen.Update();
+                    titleControls.Update();
+                }
+                else if (end)
+                {
+                    //when the game is ending
+                }
+                else
                 {
                     if (link.GetLinkInventory().pauseScreen.isGamePaused() == false && link.GetLinkInventory().pauseScreen.getCurrentYOffset() == 0)
                     {
@@ -252,12 +263,6 @@ namespace Sprint0
                         pauseControls.Update();
                     }
                 }
-                else
-                {
-                    StartScreen.Update();
-                    titleControls.Update();
-                }
-                
             }
 
             base.Update(gameTime);
@@ -268,7 +273,16 @@ namespace Sprint0
             GraphicsDevice.Clear(Color.Black);
 
             this._spriteBatch.Begin();
-            if (!title)
+            
+            if (title)
+            {
+                StartScreen.Draw(this._spriteBatch);
+            }
+            else if (end)
+            {
+                //when the game is ending
+            }
+            else
             {
                 //Call draw for Link, Enemies, Blocks, etc
                 roomManager.Draw(this._spriteBatch);
@@ -299,10 +313,6 @@ namespace Sprint0
                 }
 
                 link.GetLinkInventory().Draw(this._spriteBatch);
-            }
-            else
-            {
-                StartScreen.Draw(this._spriteBatch);
             }
 
             this._spriteBatch.End();
