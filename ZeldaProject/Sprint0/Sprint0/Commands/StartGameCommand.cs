@@ -3,8 +3,8 @@ namespace Sprint0
 {
     public class StartGameCommand : ICommand
     {
-        private Sprint4 game;
-        public StartGameCommand(Sprint4 sprint)
+        private Sprint5 game;
+        public StartGameCommand(Sprint5 sprint)
         {
             game = sprint;
         }

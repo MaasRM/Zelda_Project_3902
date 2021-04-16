@@ -13,7 +13,7 @@ namespace Sprint0
 			titleCommands = new Dictionary<Keys, ICommand>();
 		}
 
-		public void SetCommands(Sprint4 game)
+		public void SetCommands(Sprint5 game)
 		{
 			titleCommands.Add(Keys.Enter, new StartGameCommand(game));
 			titleCommands.Add(Keys.T, new TopOfTitleScreenCommand(game));

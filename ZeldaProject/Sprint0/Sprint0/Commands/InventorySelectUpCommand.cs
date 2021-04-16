@@ -11,8 +11,8 @@ namespace Sprint0
             Right
         }
 
-        private Sprint4 game;
-        public InventorySelectUpCommand(Sprint4 sprint)
+        private Sprint5 game;
+        public InventorySelectUpCommand(Sprint5 sprint)
         {
             game = sprint;
         }

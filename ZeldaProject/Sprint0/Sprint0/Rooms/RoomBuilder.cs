@@ -9,7 +9,7 @@ namespace Sprint0
 {
     class RoomBuilder
     {
-        private Sprint4 game;
+        private Sprint5 game;
         private XmlDocument xmlDoc;
         private Texture2D dungeonSheet;
         private Texture2D overworldSheet;
@@ -19,7 +19,7 @@ namespace Sprint0
         private Texture2D npcSheet;
         private List<IItem> noReset;
 
-        public RoomBuilder(Sprint4 game, XmlDocument doc, Texture2D dungeon, List<Texture2D> enemies, Texture2D items, List<Texture2D> bosses, Texture2D npcs, Texture2D overworld, List<IItem> noReset)
+        public RoomBuilder(Sprint5 game, XmlDocument doc, Texture2D dungeon, List<Texture2D> enemies, Texture2D items, List<Texture2D> bosses, Texture2D npcs, Texture2D overworld, List<IItem> noReset)
         {
             this.game = game;
             xmlDoc = doc;

@@ -18,7 +18,7 @@ namespace Sprint0
 			otherButtons = new Dictionary<Keys, ICommand>();
 		}
 
-		public void SetCommands(Sprint4 game)
+		public void SetCommands(Sprint5 game)
         {
 			linkActions.Add(Keys.W, new LinkFaceUpCommand(game));
 			linkActions.Add(Keys.Up, new LinkFaceUpCommand(game));

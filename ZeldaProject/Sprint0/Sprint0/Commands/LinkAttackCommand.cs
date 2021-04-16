@@ -3,8 +3,8 @@ namespace Sprint0
 {
     public class LinkAttackCommand: ICommand
     {
-        private Sprint4 game;
-        public LinkAttackCommand(Sprint4 sprint)
+        private Sprint5 game;
+        public LinkAttackCommand(Sprint5 sprint)
         {
             game = sprint;
         }

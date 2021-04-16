@@ -13,11 +13,11 @@ namespace Sprint0
         private Texture2D currentSheet;
         private Rectangle source;
         private Rectangle destination;
-        private Sprint4 game;
+        private Sprint5 game;
         private int DAMAGE = 2;
         private Tuple<int, int> init;
 
-        public Aquamentus(int x, int y, List<Texture2D> spriteSheet, Sprint4 game)
+        public Aquamentus(int x, int y, List<Texture2D> spriteSheet, Sprint5 game)
         {
             stateMachine = new AquamentusStateMachine(x, y);
             aquamentusSpriteSheet = spriteSheet;

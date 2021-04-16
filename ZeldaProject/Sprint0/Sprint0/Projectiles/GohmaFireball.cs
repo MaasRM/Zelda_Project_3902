@@ -12,7 +12,7 @@ namespace Sprint0
         private int frame;
         private int gameMaxX, gameMaxY;
 
-        public GohmaFireball(int x, int y, Texture2D spritesheet, Sprint4 game)
+        public GohmaFireball(int x, int y, Texture2D spritesheet, Sprint5 game)
         {
             this.x = x;
             this.y = y;

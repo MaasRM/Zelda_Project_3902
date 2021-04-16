@@ -13,9 +13,9 @@ namespace Sprint0
         private Rectangle destination;
         private const int DAMAGE = 2;
         private Tuple<int, int, GohmaStateMachine.GohmaColor> init;
-        private Sprint4 game;
+        private Sprint5 game;
 
-        public Gohma(int x, int y, GohmaStateMachine.GohmaColor c, Texture2D spriteSheet, Sprint4 sprint)
+        public Gohma(int x, int y, GohmaStateMachine.GohmaColor c, Texture2D spriteSheet, Sprint5 sprint)
         {
             stateMachine = new GohmaStateMachine(x, y, c);
             gohmaSpriteSheet = spriteSheet;

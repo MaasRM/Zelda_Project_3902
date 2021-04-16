@@ -10,8 +10,8 @@ namespace Sprint0
             Left,
             Right
         }
-        private Sprint4 game;
-        public InventorySelectDownCommand(Sprint4 sprint)
+        private Sprint5 game;
+        public InventorySelectDownCommand(Sprint5 sprint)
         {
             game = sprint;
         }

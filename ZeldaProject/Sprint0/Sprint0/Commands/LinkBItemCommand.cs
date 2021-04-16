@@ -3,8 +3,8 @@ namespace Sprint0
 {
     public class LinkBItemCommand : ICommand
     {
-        private Sprint4 game;
-        public LinkBItemCommand(Sprint4 sprint)
+        private Sprint5 game;
+        public LinkBItemCommand(Sprint5 sprint)
         {
             this.game = sprint;
         }
