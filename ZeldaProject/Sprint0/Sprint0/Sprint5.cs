@@ -145,7 +145,7 @@ namespace Sprint0
             Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Bomb_Drop")); //done
             Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Candle")); //done
             Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_LowHealth")); //done
-            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Recorder"));
+            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Recorder")); //done
             Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Refill_Loop"));
             Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Sword_Shoot")); //done
             Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Sword_Slash")); //done
