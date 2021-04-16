@@ -11,11 +11,11 @@ namespace Sprint0
     {
         private Texture2D letterSheet;
         private SoundEffectInstance textSound;
-        private Sprint4 game;
+        private Sprint5 game;
         private int counter;
         private int[] letterSource;
 
-        public ShopText(Texture2D dungeonSheet, Sprint4 game)
+        public ShopText(Texture2D dungeonSheet, Sprint5 game)
         {
             this.game = game;
             letterSheet = dungeonSheet;

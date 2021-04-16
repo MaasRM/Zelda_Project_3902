@@ -8,7 +8,7 @@ namespace Sprint0
 {
     public class Shop
     {
-        Sprint4 game;
+        Sprint5 game;
         INPC OldMan;
         ShopText oldManText;
         LinkInventory linkInv;
@@ -17,7 +17,7 @@ namespace Sprint0
         Texture2D itemSheet;
         Texture2D dungeonSheet;
 
-        public Shop(LinkInventory inv, Texture2D npcSheet, Texture2D dungeonSheet, Texture2D itemSheet, RoomManager manager, Sprint4 game)
+        public Shop(LinkInventory inv, Texture2D npcSheet, Texture2D dungeonSheet, Texture2D itemSheet, RoomManager manager, Sprint5 game)
         {
             this.game = game;
             OldMan = new OldMan(ShopConstants.OLDMANX * GameConstants.SCALE, ShopConstants.OLDMANY * GameConstants.SCALE, npcSheet);

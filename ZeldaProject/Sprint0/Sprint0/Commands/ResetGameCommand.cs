@@ -3,8 +3,8 @@ namespace Sprint0
 {
     public class ResetGameCommand : ICommand
     {
-        private Sprint4 game;
-        public ResetGameCommand(Sprint4 sprint)
+        private Sprint5 game;
+        public ResetGameCommand(Sprint5 sprint)
         {
             game = sprint;
         }
@@ -12,7 +12,7 @@ namespace Sprint0
         public void Execute()
         {
             game.Exit();
-            using (var game = new Sprint4())
+            using (var game = new Sprint5())
                 game.Run();
         }
     }

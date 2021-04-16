@@ -3,8 +3,8 @@ namespace Sprint0
 {
     public class TopOfTitleScreenCommand : ICommand
     {
-        private Sprint4 game;
-        public TopOfTitleScreenCommand(Sprint4 sprint)
+        private Sprint5 game;
+        public TopOfTitleScreenCommand(Sprint5 sprint)
         {
             game = sprint;
         }

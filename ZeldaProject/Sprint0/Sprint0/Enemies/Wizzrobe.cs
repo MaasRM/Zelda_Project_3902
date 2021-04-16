@@ -15,12 +15,12 @@ namespace Sprint0
         private Texture2D currentSheet;
         private Rectangle source;
         private Rectangle destination;
-        private Sprint4 game;
+        private Sprint5 game;
         private Tuple<int, int, WizzrobeStateMachine.WizzrobeColor> init;
         private SoundEffectInstance flyingBoomerang;
         private RoomManager roomAccess;
 
-        public Wizzrobe(int x, int y, WizzrobeStateMachine.WizzrobeColor c, List<Texture2D> spriteSheet, Sprint4 game)
+        public Wizzrobe(int x, int y, WizzrobeStateMachine.WizzrobeColor c, List<Texture2D> spriteSheet, Sprint5 game)
         {
             stateMachine = new WizzrobeStateMachine(x, y, c);
             wizzrobeSpriteSheet = spriteSheet;

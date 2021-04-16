@@ -3,8 +3,8 @@ namespace Sprint0
 {
     public class InventoryUnPauseCommand : ICommand
     {
-        private Sprint4 game;
-        public InventoryUnPauseCommand(Sprint4 sprint)
+        private Sprint5 game;
+        public InventoryUnPauseCommand(Sprint5 sprint)
         {
             game = sprint;
         }

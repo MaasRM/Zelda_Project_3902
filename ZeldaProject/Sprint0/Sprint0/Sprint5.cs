@@ -12,7 +12,7 @@ using Microsoft.Xna.Framework.Audio;
 
 namespace Sprint0
 {
-    public class Sprint4 : Game
+    public class Sprint5 : Game
     {
         private GraphicsDeviceManager _graphics;
         private ContentManager contentManager;
@@ -51,7 +51,7 @@ namespace Sprint0
         //text sprite
         private HintSprite hintSprite;
 
-        public Sprint4()
+        public Sprint5()
         {
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
@@ -416,6 +416,7 @@ namespace Sprint0
                 file.Close();
                 roomManager.ChangeRoom(GameConstants.OUTSIDEROOM);
                 link.Reset();
+                for (int i = 0; i <= link.GetLinkInventory().getKeyCount(); i++) link.GetLinkInventory().removeKey();
             }
         }
     }

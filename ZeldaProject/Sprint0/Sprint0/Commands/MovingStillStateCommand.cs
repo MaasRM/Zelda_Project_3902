@@ -7,8 +7,8 @@ namespace Sprint0
 {
     public class MovingStillStateCommand : ICommand
     {
-        private Sprint4 game;
-        public MovingStillStateCommand(Sprint4 sprint)
+        private Sprint5 game;
+        public MovingStillStateCommand(Sprint5 sprint)
         {
             game = sprint;
         }

@@ -5,8 +5,8 @@ namespace Sprint0
 {
     public class NextRoomCommand : ICommand
     {
-        private Sprint4 game;
-        public NextRoomCommand(Sprint4 sprint)
+        private Sprint5 game;
+        public NextRoomCommand(Sprint5 sprint)
         {
             game = sprint;
         }

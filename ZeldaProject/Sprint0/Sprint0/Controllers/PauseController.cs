@@ -13,7 +13,7 @@ namespace Sprint0
 			pauseCommands = new Dictionary<Keys, ICommand>();
 		}
 
-		public void SetCommands(Sprint4 game)
+		public void SetCommands(Sprint5 game)
 		{
 			pauseCommands.Add(Keys.W, new InventorySelectUpCommand(game));
 			pauseCommands.Add(Keys.Up, new InventorySelectUpCommand(game));
