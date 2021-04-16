@@ -25,6 +25,7 @@ namespace Sprint0
         private int stunFrames;
         private int damageFrames;
         private int health;
+        private bool burn;
 
         public GibdoStateMachine(int x, int y)
         {
@@ -36,6 +37,7 @@ namespace Sprint0
             health = GibdoConstants.MAXHEALTH;
             state = State.Normal;
             damageDirection = new Vector2(1, 1);
+            burn = false;
         }
 
         public Rectangle GetDestination()
@@ -51,7 +53,14 @@ namespace Sprint0
 
         public Rectangle GetSource()
         {
-            return new Rectangle(90, 90, GibdoConstants.WIDTHANDHEIGHT, GibdoConstants.WIDTHANDHEIGHT);
+            if (!burn)
+            {
+                return new Rectangle(90, 90, GibdoConstants.WIDTHANDHEIGHT, GibdoConstants.WIDTHANDHEIGHT);
+            }
+            else
+            {
+                return new Rectangle(1, 59, StalfosConstants.WIDTHANDHEIGHT, StalfosConstants.WIDTHANDHEIGHT);
+            }
         }
 
         public void Move()
@@ -137,6 +146,16 @@ namespace Sprint0
         public int GetDamageFrame()
         {
             return damageFrames;
+        }
+
+        public void Burn()
+        {
+            burn = true;
+        }
+
+        public bool IsBurned()
+        {
+            return burn;
         }
     }
 }

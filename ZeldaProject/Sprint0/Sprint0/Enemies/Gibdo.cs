@@ -10,11 +10,9 @@ namespace Sprint0
     {
         private GibdoStateMachine stateMachine;
         private List<Texture2D> gibdoSpriteSheet;
-        private Stalfos stalfos;
         private Texture2D currentSheet;
         private Rectangle source;
         private Rectangle destination;
-        private bool burned;
         private const int DAMAGE = 1;
         private Tuple<int, int> init;
 
@@ -23,45 +21,30 @@ namespace Sprint0
             stateMachine = new GibdoStateMachine(x, y);
             gibdoSpriteSheet = spriteSheet;
             currentSheet = spriteSheet[0];
-            burned = false;
             init = new Tuple<int, int>(x, y);
         }
 
         public void Update()
         {
-            if(!burned)
-            {
-                stateMachine.Move();
-                destination = stateMachine.GetDestination();
-                source = stateMachine.GetSource();
-                ChangeSpriteSheet();
-            }
-            else
-            {
-                stalfos.Update();
-                destination = stalfos.GetNPCLocation();
-            }
+            stateMachine.Move();
+            destination = stateMachine.GetDestination();
+            source = stateMachine.GetSource();
+            ChangeSpriteSheet();
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
             int frame = stateMachine.GetFrame();
 
-            if(!burned)
+            if (frame % 2 == 1)
             {
-                if (frame % 2 == 1)
-                {
-                    spriteBatch.Draw(currentSheet, destination, source, Color.White, 0, new Vector2(0, 0), SpriteEffects.FlipHorizontally, 0f);
-                }
-                else
-                {
-                    spriteBatch.Draw(currentSheet, destination, source, Color.White);
-                }
+                spriteBatch.Draw(currentSheet, destination, source, Color.White, 0, new Vector2(0, 0), SpriteEffects.FlipHorizontally, 0f);
             }
             else
             {
-                stalfos.Draw(spriteBatch);
+                spriteBatch.Draw(currentSheet, destination, source, Color.White);
             }
+
         }
 
         private void ChangeSpriteSheet()
@@ -89,7 +72,6 @@ namespace Sprint0
         public void Reset()
         {
             stateMachine = new GibdoStateMachine(init.Item1, init.Item2);
-            burned = false;
         }
 
         public Rectangle GetNPCLocation()
@@ -114,7 +96,7 @@ namespace Sprint0
 
         public bool StillAlive()
         {
-            return stateMachine.HasHealth() || (burned && stalfos.StillAlive());
+            return stateMachine.HasHealth();
         }
 
         public void Stun()
@@ -129,13 +111,12 @@ namespace Sprint0
 
         public void Burn()
         {
-            stalfos = new Stalfos(destination.X, destination.Y, gibdoSpriteSheet);
-            burned = true;
+            stateMachine.Burn();
         }
 
         public bool IsBurned()
         {
-            return burned;
+            return stateMachine.IsBurned();
         }
     }
 }
