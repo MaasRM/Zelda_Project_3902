@@ -358,5 +358,15 @@ namespace Sprint0
         {
             return linkItems;
         }
+
+        public void removeLinkItem(IItem itemToRemove)
+        {
+            int check = -1;
+            foreach (IItem item in linkItems)
+            {
+                if (item.GetType() == itemToRemove.GetType()) { check = linkItems.IndexOf(item); }
+            }
+            if (check >= 0) { linkItems.RemoveAt(check); }
+        }
     }
 }
