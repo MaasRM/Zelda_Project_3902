@@ -16,6 +16,7 @@ namespace Sprint0
         private Boolean hasMap;
         private Boolean hasCompass;
         private int bossFrames;
+        private DungeonMap theMap;
 
         public LinkMinimap(Texture2D inventory)
         {
@@ -26,9 +27,10 @@ namespace Sprint0
             linkMinimapDestination = new Rectangle(162, 175, 4 * GameConstants.SCALE, 4 * GameConstants.SCALE);
             roomMinimapSource = new Rectangle(663, 109, 6, 2);
             bossFrames = 0;
+            theMap = DungeonMap.Top;
         }
 
-        public void Draw(SpriteBatch spriteBatch, int offset, DungeonMap theMap)
+        public void Draw(SpriteBatch spriteBatch, int offset)
         {
             Rectangle tempLinkMinimapDestination = linkMinimapDestination;
             tempLinkMinimapDestination.Offset(0, offset);
@@ -78,6 +80,7 @@ namespace Sprint0
 
         public void setLinkMinimapDestinationSprite(int roomNumber, int offset)
         {
+            setLinkDungeonLocation(roomNumber);
             if (roomNumber == 0) { linkMinimapDestination = new Rectangle(129, 80 + offset, 4 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
             else if (roomNumber == 1) { linkMinimapDestination = new Rectangle(162, 80 + offset, 4 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
             else if (roomNumber == 2) { linkMinimapDestination = new Rectangle(164, 103 + offset, 4 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
@@ -97,6 +100,26 @@ namespace Sprint0
             else { linkMinimapDestination = new Rectangle(194, 197 + offset, 4 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
         }
 
+        public void setLinkDungeonLocation(int roomNumber)
+        {
+            if (roomNumber >= 0 && roomNumber <= 16)
+            {
+                theMap = DungeonMap.Top;
+            }
+            else if (roomNumber >= 20 && roomNumber <= 30)
+            {
+                theMap = DungeonMap.Left;
+            }
+            else if (roomNumber >= 31 && roomNumber <= 41)
+            {
+                theMap = DungeonMap.Right;
+            }
+        }
+
+        public DungeonMap getDungeonMap()
+        {
+            return theMap;
+        }
 
         public Rectangle getMinimapRoomDestinationSprite(int roomNumber, int offset)
         {

@@ -11,7 +11,7 @@ namespace Sprint0
     {
         Left,
         Right,
-        Main
+        Top
     }
     public enum RupeeKeyBomb
     {
@@ -57,11 +57,12 @@ namespace Sprint0
             linkMinimap = new LinkMinimap(inventoryBackground);
             healthBar = new LinkHealthBar(inventoryBackground);
             pauseScreen = new LinkPauseScreen(inventoryBackground, linkItems);
-            theMap = DungeonMap.Main;
+            theMap = DungeonMap.Top;
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
+            theMap = linkMinimap.getDungeonMap();
             if (pauseScreen.isGamePaused() == false) {
                 int offset = pauseScreen.getCurrentYOffset();
                 if (offset > 0) {
@@ -91,13 +92,14 @@ namespace Sprint0
                 spriteBatch.Draw(inventoryBackground, levelNumberDestination, getNumberSourceRectangle(1), Color.White);
                 DrawItemCounts(spriteBatch);
                 DrawSecondaryWeapon(spriteBatch, new Rectangle(514, 106 + offset, 9 * GameConstants.SCALE, 20 * GameConstants.SCALE));
-                linkMinimap.Draw(spriteBatch, offset, theMap);
+                linkMinimap.Draw(spriteBatch, offset);
                 healthBar.Draw(spriteBatch, offset);
             } else DrawPause(spriteBatch);
         }
 
         public void DrawPause(SpriteBatch spriteBatch)
         {
+            theMap = linkMinimap.getDungeonMap();
             int offset = pauseScreen.getCurrentYOffset();
             pauseScreen.Draw(spriteBatch, currentItemIndex, theMap);
             Rectangle inventorySource = new Rectangle(258, 12, 254, 54);
@@ -123,7 +125,7 @@ namespace Sprint0
             spriteBatch.Draw(inventoryBackground, levelNumberDestination, getNumberSourceRectangle(1), Color.White);
             DrawItemCounts(spriteBatch);
             DrawSecondaryWeapon(spriteBatch, new Rectangle(514, 106 + offset, 9 * GameConstants.SCALE, 20 * GameConstants.SCALE));
-            linkMinimap.Draw(spriteBatch, offset, theMap);
+            linkMinimap.Draw(spriteBatch, offset);
             healthBar.Draw(spriteBatch, offset);
             if (pauseScreen.getCurrentYOffset() < 700) {
                 pauseScreen.incrementOffset();
@@ -176,11 +178,6 @@ namespace Sprint0
             else if (theCount == RupeeKeyBomb.BombOnes) { retRectangle = new Rectangle(452, 185 + offset, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE); }
             else if (theCount == RupeeKeyBomb.BombTens) { retRectangle = new Rectangle(420, 185 + offset, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE); }
             return retRectangle;
-        }
-
-        public void updateDungeonLoction()
-        {
-            
         }
 
         public void changeCurrentItem(Direction direction)
