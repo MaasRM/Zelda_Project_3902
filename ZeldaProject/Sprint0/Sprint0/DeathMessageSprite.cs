@@ -93,5 +93,10 @@ namespace Sprint0
                 textSound.Stop();
             }
         }
+
+        public bool isDrawing()
+        {
+            return counter != 0;
+        }
     }
 }
