@@ -248,7 +248,7 @@ namespace Sprint0
 
                         roomManager.Update();
                         
-                        if (!roomManager.RoomChange())
+                        if (!roomManager.RoomChange() && !deathMessageSprite.isDrawing())
                         {
                             link.Update();
                             foreach (IController controller in controllerList)
@@ -312,12 +312,13 @@ namespace Sprint0
 
                 hintSprite.Draw(this._spriteBatch);
                 shop.Draw(this._spriteBatch);
-                deathMessageSprite.Draw(this._spriteBatch);
 
                 if (!roomManager.RoomChange())
                 {
                     link.Draw(this._spriteBatch);
                 }
+
+                deathMessageSprite.Draw(this._spriteBatch);
 
                 link.GetLinkInventory().Draw(this._spriteBatch);
             }
