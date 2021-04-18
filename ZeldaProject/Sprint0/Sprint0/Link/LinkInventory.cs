@@ -302,6 +302,7 @@ namespace Sprint0
                     if (check == 0) { linkItems.Add(item); }
                 }
             }
+            else if (item is TriforceShardItem) linkItems.Add(item);
             pauseScreen.updateLinkItemList(linkItems);
         }
 

@@ -12,8 +12,8 @@ namespace Sprint0
         public void Execute()
         {
             game.Exit();
-            using (var game = new Sprint5())
-                game.Run();
+            game = new Sprint5();
+            game.Run();
         }
     }
 }
