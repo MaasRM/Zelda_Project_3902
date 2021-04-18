@@ -110,6 +110,8 @@ namespace Sprint0
                     return new SecretKey(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText) * GameConstants.SCALE, (int.Parse(itemInfo["YLoc"].InnerText) + GameConstants.HUDSIZE) * GameConstants.SCALE, 7 * GameConstants.SCALE, 15 * GameConstants.SCALE), new Rectangle(240, 0, 7, 15), itemsSheet, npcList, game);
                 case "RecorderItem":
                     return new RecorderItem(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText) * GameConstants.SCALE, (int.Parse(itemInfo["YLoc"].InnerText) + GameConstants.HUDSIZE) * GameConstants.SCALE, 3 * GameConstants.SCALE, 15 * GameConstants.SCALE), new Rectangle(187, 0, 3, 15), itemsSheet);
+                case "BombItem":
+                    return new RecorderItem(new BombItem(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText) * GameConstants.SCALE, (int.Parse(itemInfo["YLoc"].InnerText) + GameConstants.HUDSIZE) * GameConstants.SCALE, 8 * GameConstants.SCALE, 14 * GameConstants.SCALE), new Rectangle(136, 0, 8, 14), itemsSheet));
                 case "EnemyKeyItem":
                     return new EnemyKey(new Rectangle(240, 0, 7, 15), itemsSheet, npcList[0], game);
                 case "BoomerangItem":
