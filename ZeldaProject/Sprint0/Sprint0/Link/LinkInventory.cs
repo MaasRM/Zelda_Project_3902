@@ -89,7 +89,9 @@ namespace Sprint0
                 Rectangle levelDestination = new Rectangle(64, 34 + offset, 63 * GameConstants.SCALE, 8 * GameConstants.SCALE);
                 spriteBatch.Draw(inventoryBackground, levelDestination, levelSource, Color.White);
                 Rectangle levelNumberDestination = new Rectangle(256, 34 + offset, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE);
-                spriteBatch.Draw(inventoryBackground, levelNumberDestination, getNumberSourceRectangle(1), Color.White);
+                if (theMap == DungeonMap.Top) { spriteBatch.Draw(inventoryBackground, levelNumberDestination, getNumberSourceRectangle(1), Color.White); }
+                else if (theMap == DungeonMap.Left) { spriteBatch.Draw(inventoryBackground, levelNumberDestination, getNumberSourceRectangle(2), Color.White); }
+                else if (theMap == DungeonMap.Right) { spriteBatch.Draw(inventoryBackground, levelNumberDestination, getNumberSourceRectangle(3), Color.White); }
                 DrawItemCounts(spriteBatch);
                 DrawSecondaryWeapon(spriteBatch, new Rectangle(514, 106 + offset, 9 * GameConstants.SCALE, 20 * GameConstants.SCALE));
                 linkMinimap.Draw(spriteBatch, offset);
@@ -122,7 +124,9 @@ namespace Sprint0
             Rectangle levelDestination = new Rectangle(64, 34 + offset, 63 * GameConstants.SCALE, 8 * GameConstants.SCALE);
             spriteBatch.Draw(inventoryBackground, levelDestination, levelSource, Color.White);
             Rectangle levelNumberDestination = new Rectangle(256, 34 + offset, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE);
-            spriteBatch.Draw(inventoryBackground, levelNumberDestination, getNumberSourceRectangle(1), Color.White);
+            if (theMap == DungeonMap.Top) { spriteBatch.Draw(inventoryBackground, levelNumberDestination, getNumberSourceRectangle(1), Color.White); }
+            else if (theMap == DungeonMap.Left) { spriteBatch.Draw(inventoryBackground, levelNumberDestination, getNumberSourceRectangle(2), Color.White); }
+            else if (theMap == DungeonMap.Right) { spriteBatch.Draw(inventoryBackground, levelNumberDestination, getNumberSourceRectangle(3), Color.White); }
             DrawItemCounts(spriteBatch);
             DrawSecondaryWeapon(spriteBatch, new Rectangle(514, 106 + offset, 9 * GameConstants.SCALE, 20 * GameConstants.SCALE));
             linkMinimap.Draw(spriteBatch, offset);
