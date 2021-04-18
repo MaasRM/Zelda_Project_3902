@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Graphics;
+
 namespace Sprint0
 {
     public class LinkItemHandler
@@ -111,6 +114,7 @@ namespace Sprint0
                 player.Heal(5);
             }
             else Collision_soundEffects[7].Play();
+            if (item is BlueBoomerangItem) player.GetLinkInventory().removeLinkItem(new BoomerangItem(new Rectangle(), new List<INPC>(), item.GetSpriteSheet()));
             collidedItems.Add(item);
             player.GetLinkInventory().addItem(item);
         }
