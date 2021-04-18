@@ -49,7 +49,7 @@ namespace Sprint0
         {
             keyCount = 0;
             bombCount = 0;
-            rupeeCount = 0;
+            rupeeCount = 99;
             linkItems = new List<IItem>();
             currentItem = null;
             currentItemIndex = 0;
@@ -253,6 +253,10 @@ namespace Sprint0
             {
                 itemSource = new Rectangle(633, 137, 8, 16);
             }
+            else if (currentItem is BlueArrowItem)
+            {
+                itemSource = new Rectangle(633, 137, 8, 16);
+            }
             else if (currentItem is BombItem)
             {
                 itemSource = new Rectangle(604, 137, 8, 16);
@@ -288,7 +292,7 @@ namespace Sprint0
         public void addItem(IItem item)
         {
             int check = 0;
-            if (item is BoomerangItem || item is BowItem || item is BombItem || item is BlueBoomerangItem || item is CandleItem)
+            if (item is BoomerangItem || item is BowItem || item is BlueArrowItem || item is BombItem || item is BlueBoomerangItem || item is CandleItem)
             {
                 if (linkItems.Count == 0)
                 {

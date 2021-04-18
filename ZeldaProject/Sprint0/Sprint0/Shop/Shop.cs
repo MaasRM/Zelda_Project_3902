@@ -91,6 +91,12 @@ namespace Sprint0
                     ItemText blueBoomerangText = new ItemText(ShopConstants.BLUEBOOMERANGCOST, dungeonSheet, blueBoomerang.GetLocationRectangle());
                     shopItems.Add(blueBoomerang, blueBoomerangText);
                 }
+                if (item is BowItem)
+                {
+                    BlueArrowItem blueArrow = new BlueArrowItem(new Rectangle(105 * GameConstants.SCALE, 110 * GameConstants.SCALE, 7 * GameConstants.SCALE, 15 * GameConstants.SCALE), new Rectangle(153, 16, 7, 15), itemSheet);
+                    ItemText blueArrowText = new ItemText(ShopConstants.BLUEARROWCOST, dungeonSheet, blueArrow.GetLocationRectangle());
+                    shopItems.Add(blueArrow, blueArrowText);
+                }
             }
         }
 
