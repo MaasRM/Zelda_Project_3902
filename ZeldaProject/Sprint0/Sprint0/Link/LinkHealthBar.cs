@@ -35,7 +35,7 @@ namespace Sprint0
             if (currentHealth % 2 == 0)
             {
                 int numberOfHearts = currentHealth / 2;
-                for(int n = 0; n <= numberOfHearts; n ++)
+                for(int n = 0; n < numberOfHearts; n ++)
                 {
                     spriteBatch.Draw(healthTexture, new Rectangle(currentX, currentY, 8 * GameConstants.SCALE, 8 * GameConstants.SCALE), fullHeartSource, Color.White);
                     currentInRow++;
@@ -51,7 +51,7 @@ namespace Sprint0
             else
             {
                 int numberOfHearts = (currentHealth-1) / 2;
-                for (int n = 0; n <= numberOfHearts; n++)
+                for (int n = 0; n < numberOfHearts; n++)
                 {
                     spriteBatch.Draw(healthTexture, new Rectangle(currentX, currentY, 8 * GameConstants.SCALE, 8 * GameConstants.SCALE), fullHeartSource, Color.White);
                     currentInRow++;
@@ -75,7 +75,7 @@ namespace Sprint0
             if (maxHealth % 2 == 0)
             {
                 int numberOfHearts = maxHealth / 2;
-                for (int n = 0; n <= numberOfHearts; n++)
+                for (int n = 0; n < numberOfHearts; n++)
                 {
                     spriteBatch.Draw(healthTexture, new Rectangle(currentX, currentY, 8 * GameConstants.SCALE, 8 * GameConstants.SCALE), emptyHeartSource, Color.White);
                     currentInRow++;
