@@ -18,7 +18,8 @@ namespace Sprint0
         public BoomerangItem(Rectangle source, List<INPC> NPCS, Texture2D spriteSheet)
         {
             npcs = NPCS;
-            destination = new Rectangle(npcs[0].GetNPCLocation().X, npcs[0].GetNPCLocation().Y, width * GameConstants.SCALE, height * GameConstants.SCALE);
+            if (NPCS.Count > 0) destination = new Rectangle(npcs[0].GetNPCLocation().X, npcs[0].GetNPCLocation().Y, width * GameConstants.SCALE, height * GameConstants.SCALE);
+            else destination = new Rectangle(0, 0, 0, 0);
             spriteSource = source;
             sheet = spriteSheet;
             enemiesAlive = true;
