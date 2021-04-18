@@ -10,13 +10,13 @@ namespace Sprint0
     public class LinkPauseScreen
     {
         private Texture2D inventoryBackground;
-        private Boolean isPaused;
+        private bool isPaused;
         private int currentYOffset;
         private static int incrementYSize = 10;
         private Rectangle pauseTopSourceRectangle;
         private Rectangle pauseBottomSourceRectangle;
-        private Boolean hasMap;
-        private Boolean hasCompass;
+        private bool hasMap;
+        private bool hasCompass;
         private int bossFrames;
         private List<IItem> linkItems;
 
@@ -171,17 +171,17 @@ namespace Sprint0
             return mapRoomDestination;
         }
 
-        public void setGamePaused(Boolean val)
+        public void setGamePaused(bool val)
         {
             isPaused = val;
         }
 
-        public void setMap(Boolean val)
+        public void setMap(bool val)
         {
             hasMap = val;
         }
 
-        public void setCompass(Boolean val)
+        public void setCompass(bool val)
         {
             hasCompass = val;
         }
@@ -211,7 +211,7 @@ namespace Sprint0
             currentYOffset -= incrementYSize;
         }
 
-        public Boolean isGamePaused()
+        public bool isGamePaused()
         {
             return isPaused;
         }
