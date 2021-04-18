@@ -1687,7 +1687,7 @@
 		<Info>
 			<RoomNumber>14</RoomNumber>
 			<TopRoomNumber>-1</TopRoomNumber>
-			<BottomRoomNumber>-22</BottomRoomNumber>
+			<BottomRoomNumber>22</BottomRoomNumber>
 			<LeftRoomNumber>-1</LeftRoomNumber>
 			<RightRoomNumber>15</RightRoomNumber>
 		</Info>
@@ -1893,7 +1893,7 @@
 		<Info>
 			<RoomNumber>16</RoomNumber>
 			<TopRoomNumber>-1</TopRoomNumber>
-			<BottomRoomNumber>-23</BottomRoomNumber>
+			<BottomRoomNumber>31</BottomRoomNumber>
 			<LeftRoomNumber>15</LeftRoomNumber>
 			<RightRoomNumber>-1</RightRoomNumber>
 		</Info>
@@ -4948,7 +4948,7 @@
 		<Enemies>
 			<Enemy>
 				<EnemyType>Dodongo</EnemyType>
-				<XLoc>192</XLoc>
+				<XLoc>52</XLoc>
 				<YLoc>52</YLoc>
 			</Enemy>
 		</Enemies>
@@ -5086,7 +5086,7 @@
 		</Enemies>
 		<Background>
 			<XLoc>1</XLoc>
-			<YLoc>367</YLoc>
+			<YLoc>767</YLoc>
 		</Background>
 		<Doors>
 			<RightDoor>
@@ -5376,7 +5376,7 @@
 		</Enemies>
 		<Background>
 			<XLoc>1</XLoc>
-			<YLoc>367</YLoc>
+			<YLoc>767</YLoc>
 		</Background>
 		<Doors>
 			<RightDoor>
@@ -5683,6 +5683,11 @@
 		<Items>
 		</Items>
 		<Enemies>
+			<Enemy>
+				<EnemyType>Gohma</EnemyType>
+				<XLoc>52</XLoc>
+				<YLoc>52</YLoc>
+			</Enemy>
 		</Enemies>
 		<Background>
 			<XLoc>1</XLoc>
@@ -5742,7 +5747,7 @@
 			<TopRoomNumber>36</TopRoomNumber>
 			<BottomRoomNumber>-1</BottomRoomNumber>
 			<LeftRoomNumber>38</LeftRoomNumber>
-			<RightRoomNumber>39</RightRoomNumber>
+			<RightRoomNumber>40</RightRoomNumber>
 		</Info>
 		<Blocks>
 			<Block>
