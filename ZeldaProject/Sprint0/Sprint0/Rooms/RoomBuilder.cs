@@ -132,6 +132,16 @@ namespace Sprint0
                     return new Trap(int.Parse(npcInfo["XLoc"].InnerText) * GameConstants.SCALE, (int.Parse(npcInfo["YLoc"].InnerText) + GameConstants.HUDSIZE) * GameConstants.SCALE, enemiesSheets[0]);
                 case "Wallmaster":
                     return new Wallmaster(int.Parse(npcInfo["XLoc"].InnerText) * GameConstants.SCALE, (int.Parse(npcInfo["YLoc"].InnerText) + GameConstants.HUDSIZE) * GameConstants.SCALE, enemiesSheets); //Should this be up?
+                case "Darknut":
+                    return new Darknut(int.Parse(npcInfo["XLoc"].InnerText) * GameConstants.SCALE, (int.Parse(npcInfo["YLoc"].InnerText) + GameConstants.HUDSIZE) * GameConstants.SCALE, DarknutStateMachine.DarknutColor.Red, enemiesSheets);
+                case "Zol":
+                    return new Zol(int.Parse(npcInfo["XLoc"].InnerText) * GameConstants.SCALE, (int.Parse(npcInfo["YLoc"].InnerText) + GameConstants.HUDSIZE) * GameConstants.SCALE, ZolStateMachine.ZolColor.Green, enemiesSheets[0]);
+                case "Gibdo":
+                    return new Gibdo(int.Parse(npcInfo["XLoc"].InnerText) * GameConstants.SCALE, (int.Parse(npcInfo["YLoc"].InnerText) + GameConstants.HUDSIZE) * GameConstants.SCALE, enemiesSheets);
+                case "Gohma":
+                    return new Gohma(int.Parse(npcInfo["XLoc"].InnerText) * GameConstants.SCALE, (int.Parse(npcInfo["YLoc"].InnerText) + GameConstants.HUDSIZE) * GameConstants.SCALE, GohmaStateMachine.GohmaColor.Red, enemiesSheets[0], game);
+                case "Dodongo":
+                    return new Dodongo(int.Parse(npcInfo["XLoc"].InnerText) * GameConstants.SCALE, (int.Parse(npcInfo["YLoc"].InnerText) + GameConstants.HUDSIZE) * GameConstants.SCALE, enemiesSheets[0]);
                 default:
                     return new Aquamentus(0, 0, bossesSheets, game);
             }
