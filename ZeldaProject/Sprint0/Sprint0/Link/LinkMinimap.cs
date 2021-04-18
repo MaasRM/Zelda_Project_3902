@@ -15,22 +15,17 @@ namespace Sprint0
         private Texture2D minimapTexture;
         private Boolean hasMap;
         private Boolean hasCompass;
-        private List<int> visitedRooms;
         private int bossFrames;
-        private DungeonMap theMap;
 
         public LinkMinimap(Texture2D inventory)
         {
             minimapTexture = inventory;
-            visitedRooms = new List<int>();
-            for(int n = 0; n <= 16; n++) { visitedRooms.Add(n); }
             hasMap = false;
             hasCompass = false;
             linkMinimapSource = new Rectangle(519, 126, 2, 2);
             linkMinimapDestination = new Rectangle(162, 175, 4 * GameConstants.SCALE, 4 * GameConstants.SCALE);
             roomMinimapSource = new Rectangle(663, 109, 6, 2);
             bossFrames = 0;
-            theMap = DungeonMap.Main;
         }
 
         public void Draw(SpriteBatch spriteBatch, int offset, DungeonMap theMap)
@@ -39,7 +34,7 @@ namespace Sprint0
             tempLinkMinimapDestination.Offset(0, offset);
             if (hasMap == true)
             {
-                foreach(int room in visitedRooms){
+                for (int room = 0; room <= 16; room++) {
                     spriteBatch.Draw(minimapTexture, getMinimapRoomDestinationSprite(room, offset), roomMinimapSource, Color.White);
                 }
             }
@@ -83,7 +78,6 @@ namespace Sprint0
 
         public void setLinkMinimapDestinationSprite(int roomNumber, int offset)
         {
-            if (!visitedRooms.Contains(roomNumber)) { visitedRooms.Add(roomNumber); }
             if (roomNumber == 0) { linkMinimapDestination = new Rectangle(129, 80 + offset, 4 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
             else if (roomNumber == 1) { linkMinimapDestination = new Rectangle(162, 80 + offset, 4 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
             else if (roomNumber == 2) { linkMinimapDestination = new Rectangle(164, 103 + offset, 4 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
@@ -102,6 +96,7 @@ namespace Sprint0
             else if (roomNumber == 15) { linkMinimapDestination = new Rectangle(162, 197 + offset, 4 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
             else { linkMinimapDestination = new Rectangle(194, 197 + offset, 4 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
         }
+
 
         public Rectangle getMinimapRoomDestinationSprite(int roomNumber, int offset)
         {

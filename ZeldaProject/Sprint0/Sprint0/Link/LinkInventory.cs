@@ -49,7 +49,7 @@ namespace Sprint0
         {
             keyCount = 0;
             bombCount = 0;
-            rupeeCount = 99;
+            rupeeCount = 0;
             linkItems = new List<IItem>();
             currentItem = null;
             currentItemIndex = 0;
@@ -172,10 +172,15 @@ namespace Sprint0
             if (theCount == RupeeKeyBomb.RupeeOnes) { retRectangle = new Rectangle(452, 72 + offset, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE); }
             else if (theCount == RupeeKeyBomb.RupeeTens) { retRectangle = new Rectangle(420, 72 + offset, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE); }
             else if (theCount == RupeeKeyBomb.KeyOnes) { retRectangle = new Rectangle(452, 148 + offset, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE); }
-            else if (theCount == RupeeKeyBomb.KeyTens) { retRectangle = new Rectangle(420, 72 + offset, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE); }
+            else if (theCount == RupeeKeyBomb.KeyTens) { retRectangle = new Rectangle(420, 148 + offset, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE); }
             else if (theCount == RupeeKeyBomb.BombOnes) { retRectangle = new Rectangle(452, 185 + offset, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE); }
             else if (theCount == RupeeKeyBomb.BombTens) { retRectangle = new Rectangle(420, 185 + offset, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE); }
             return retRectangle;
+        }
+
+        public void updateDungeonLoction()
+        {
+            
         }
 
         public void changeCurrentItem(Direction direction)
