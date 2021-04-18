@@ -139,9 +139,9 @@ namespace Sprint0
                 case "Gibdo":
                     return new Gibdo(int.Parse(npcInfo["XLoc"].InnerText) * GameConstants.SCALE, (int.Parse(npcInfo["YLoc"].InnerText) + GameConstants.HUDSIZE) * GameConstants.SCALE, enemiesSheets);
                 case "Gohma":
-                    return new Gohma(int.Parse(npcInfo["XLoc"].InnerText) * GameConstants.SCALE, (int.Parse(npcInfo["YLoc"].InnerText) + GameConstants.HUDSIZE) * GameConstants.SCALE, GohmaStateMachine.GohmaColor.Red, enemiesSheets[0], game);
+                    return new Gohma(int.Parse(npcInfo["XLoc"].InnerText) * GameConstants.SCALE, (int.Parse(npcInfo["YLoc"].InnerText) + GameConstants.HUDSIZE) * GameConstants.SCALE, GohmaStateMachine.GohmaColor.Red, bossesSheets[0], game);
                 case "Dodongo":
-                    return new Dodongo(int.Parse(npcInfo["XLoc"].InnerText) * GameConstants.SCALE, (int.Parse(npcInfo["YLoc"].InnerText) + GameConstants.HUDSIZE) * GameConstants.SCALE, enemiesSheets[0]);
+                    return new Dodongo(int.Parse(npcInfo["XLoc"].InnerText) * GameConstants.SCALE, (int.Parse(npcInfo["YLoc"].InnerText) + GameConstants.HUDSIZE) * GameConstants.SCALE, bossesSheets[0]);
                 default:
                     return new Aquamentus(0, 0, bossesSheets, game);
             }
