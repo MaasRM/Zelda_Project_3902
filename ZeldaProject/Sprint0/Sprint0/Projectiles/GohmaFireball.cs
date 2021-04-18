@@ -25,7 +25,7 @@ namespace Sprint0
         public void Update()
         {
             frame++;
-            y -= FireballConstants.MOVEDIST * GameConstants.SCALE;
+            y += FireballConstants.MOVEDIST * GameConstants.SCALE;
         }
 
         public void Draw(SpriteBatch spriteBatch)
