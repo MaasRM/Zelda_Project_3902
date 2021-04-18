@@ -34,7 +34,7 @@ namespace Sprint0
 
                 ((IBoomerang)projectile).GoBack();
             }
-            else if(projectile is CandleFireProjectile && enemy is Gibdo && ((Gibdo)enemy).IsBurned())
+            else if(projectile is CandleFireProjectile && enemy is Gibdo && !((Gibdo)enemy).IsBurned())
             {
                 ((Gibdo)enemy).Burn();
             }
