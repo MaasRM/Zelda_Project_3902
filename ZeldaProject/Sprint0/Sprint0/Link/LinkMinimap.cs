@@ -219,8 +219,8 @@ namespace Sprint0
             else if (roomNumber == 5) { roomMinimapDestination = new Rectangle(154, 126 + offset, 8 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
             else if (roomNumber == 6) { roomMinimapDestination = new Rectangle(220, 126 + offset, 8 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
             else if (roomNumber == 7) { roomMinimapDestination = new Rectangle(121, 150 + offset, 8 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
-            else if (roomNumber == 8) { roomMinimapDestination = new Rectangle(154, 126 + offset, 8 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
-            else if (roomNumber == 9) { roomMinimapDestination = new Rectangle(187, 126 + offset, 8 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
+            else if (roomNumber == 8) { roomMinimapDestination = new Rectangle(154, 150 + offset, 8 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
+            else if (roomNumber == 9) { roomMinimapDestination = new Rectangle(187, 150 + offset, 8 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
             else { roomMinimapDestination = new Rectangle(220, 150 + offset, 8 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
             return roomMinimapDestination;
         }
