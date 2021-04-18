@@ -249,11 +249,7 @@ namespace Sprint0
             {
                 itemSource = new Rectangle(584, 137, 8, 16);
             }
-            else if (currentItem is BowItem)
-            {
-                itemSource = new Rectangle(633, 137, 8, 16);
-            }
-            else if (currentItem is BlueArrowItem)
+            else if (currentItem is BowItem || currentItem is BlueArrowItem)
             {
                 itemSource = new Rectangle(633, 137, 8, 16);
             }
