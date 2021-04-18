@@ -10,14 +10,16 @@ namespace Sprint0
         private Rectangle frame2;
         private Rectangle spriteSource;
         private int frameIndex;
+        private int triForceIndex;
         private Texture2D sheet;
 
 
-        public TriforceShardItem(Rectangle startPos, Rectangle source, Texture2D spriteSheet)
+        public TriforceShardItem(Rectangle startPos, Rectangle source, Texture2D spriteSheet, int tfIndex)
         {
             destination = startPos;
             spriteSource = source;
             frameIndex = 0;
+            triForceIndex = tfIndex;
             sheet = spriteSheet;
             frame1 = source;
             frame2 = new Rectangle(source.X, source.Y + 16, source.Width, source.Height);
@@ -62,6 +64,11 @@ namespace Sprint0
         public Texture2D GetSpriteSheet()
         {
             return sheet;
+        }
+
+        public int getTriForceIndex()
+        {
+            return triForceIndex;
         }
     }
 }

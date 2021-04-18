@@ -54,7 +54,14 @@ namespace Sprint0
                 {
                     IItem currentItem = CreateItem(currentRoom["Items"].ChildNodes[it], npcList);
                     Boolean add = true;
-                    foreach (IItem checkItem in noReset) if (checkItem.GetType() == currentItem.GetType()) add = false;
+                    foreach (IItem checkItem in noReset)
+                    {
+                        if (checkItem.GetType() == currentItem.GetType())
+                        {
+                            if (checkItem is TriforceShardItem) add =  add && ((TriforceShardItem)currentItem).getTriForceIndex() != ((TriforceShardItem)checkItem).getTriForceIndex();
+                            else add = false;
+                        }
+                    }
                     if(add) itemList.Add(currentItem);
                 }
                 Rectangle floor = new Rectangle(int.Parse(currentRoom["Background"]["XLoc"].InnerText), int.Parse(currentRoom["Background"]["YLoc"].InnerText), 192, 112);
@@ -90,7 +97,7 @@ namespace Sprint0
                 case "HeartContainerItem":
                     return new HeartContainerItem(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText) * GameConstants.SCALE, (int.Parse(itemInfo["YLoc"].InnerText) + GameConstants.HUDSIZE) * GameConstants.SCALE, 15 * GameConstants.SCALE, 15 * GameConstants.SCALE), new Rectangle(23, 0, 15, 15), itemsSheet);
                 case "TriforceShardItem":
-                    return new TriforceShardItem(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText) * GameConstants.SCALE, (int.Parse(itemInfo["YLoc"].InnerText) + GameConstants.HUDSIZE) * GameConstants.SCALE, 15 * GameConstants.SCALE, 15 * GameConstants.SCALE), new Rectangle(272, 0, 15, 15), itemsSheet);
+                    return new TriforceShardItem(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText) * GameConstants.SCALE, (int.Parse(itemInfo["YLoc"].InnerText) + GameConstants.HUDSIZE) * GameConstants.SCALE, 15 * GameConstants.SCALE, 15 * GameConstants.SCALE), new Rectangle(272, 0, 15, 15), itemsSheet, int.Parse(itemInfo["Index"].InnerText));
                 case "Fire":
                     return new Fire(new Rectangle(int.Parse(itemInfo["XLoc"].InnerText) * GameConstants.SCALE, (int.Parse(itemInfo["YLoc"].InnerText) + GameConstants.HUDSIZE) * GameConstants.SCALE, 15 * GameConstants.SCALE, 15 * GameConstants.SCALE), new Rectangle(52, 11, 15, 15), npcSheet);
                 case "MapItem":
