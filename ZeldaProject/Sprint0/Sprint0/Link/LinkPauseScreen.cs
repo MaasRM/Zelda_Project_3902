@@ -33,7 +33,7 @@ namespace Sprint0
             linkItems = items;
         }
 
-        public void Draw(SpriteBatch spriteBatch, int currentItemIndex)
+        public void Draw(SpriteBatch spriteBatch, int currentItemIndex, DungeonMap theMap)
         {
             Rectangle blackSpaceSource = new Rectangle(280, 30, 1, 1);
             Rectangle blackSpaceDestination = new Rectangle(0, -700 + currentYOffset, 256 * GameConstants.SCALE, 200 * GameConstants.SCALE);

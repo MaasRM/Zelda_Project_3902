@@ -17,6 +17,7 @@ namespace Sprint0
         private Boolean hasCompass;
         private List<int> visitedRooms;
         private int bossFrames;
+        private DungeonMap theMap;
 
         public LinkMinimap(Texture2D inventory)
         {
@@ -29,9 +30,10 @@ namespace Sprint0
             linkMinimapDestination = new Rectangle(162, 175, 4 * GameConstants.SCALE, 4 * GameConstants.SCALE);
             roomMinimapSource = new Rectangle(663, 109, 6, 2);
             bossFrames = 0;
+            theMap = DungeonMap.Main;
         }
 
-        public void Draw(SpriteBatch spriteBatch, int offset)
+        public void Draw(SpriteBatch spriteBatch, int offset, DungeonMap theMap)
         {
             Rectangle tempLinkMinimapDestination = linkMinimapDestination;
             tempLinkMinimapDestination.Offset(0, offset);
@@ -57,6 +59,11 @@ namespace Sprint0
                 }
                 bossFrames++;
             }
+        }
+
+        public void DrawMainRooms(SpriteBatch spriteBatch, int offset)
+        {
+
         }
 
         public Rectangle getLinkMinimapSourceSprite()

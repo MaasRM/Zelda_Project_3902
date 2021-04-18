@@ -7,20 +7,29 @@ using System.Text;
 
 namespace Sprint0
 {
+    public enum DungeonMap
+    {
+        Left,
+        Right,
+        Main
+    }
+    public enum RupeeKeyBomb
+    {
+        RupeeOnes,
+        RupeeTens,
+        KeyOnes,
+        KeyTens,
+        BombOnes,
+        BombTens
+    }
+
     public class LinkInventory
     {
-        public enum Direction
-        {
-            Up,
-            Down,
-            Left,
-            Right
-        }
-
         private int keyCount;
         private int bombCount;
         private int rupeeCount;
         private int currentItemIndex;
+        private DungeonMap theMap;
         
         private List<IItem> linkItems;
         private Texture2D inventoryBackground;
@@ -28,7 +37,13 @@ namespace Sprint0
         public LinkPauseScreen pauseScreen { get; set; }
         public LinkHealthBar healthBar { get; set; }
         public IItem currentItem { get; set; }
-
+        public enum Direction
+        {
+            Up,
+            Down,
+            Left,
+            Right
+        }
 
         public LinkInventory(Texture2D background)
         {
@@ -42,6 +57,7 @@ namespace Sprint0
             linkMinimap = new LinkMinimap(inventoryBackground);
             healthBar = new LinkHealthBar(inventoryBackground);
             pauseScreen = new LinkPauseScreen(inventoryBackground, linkItems);
+            theMap = DungeonMap.Main;
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -50,7 +66,7 @@ namespace Sprint0
                 int offset = pauseScreen.getCurrentYOffset();
                 if (offset > 0) {
                     pauseScreen.decrementOffset();
-                    pauseScreen.Draw(spriteBatch, currentItemIndex);
+                    pauseScreen.Draw(spriteBatch, currentItemIndex, theMap);
                 }
                 Rectangle inventorySource = new Rectangle(258, 12, 254, 54);
                 Rectangle inventoryDestination = new Rectangle(0, 0 + offset, 256 * GameConstants.SCALE, 64 * GameConstants.SCALE);
@@ -75,7 +91,7 @@ namespace Sprint0
                 spriteBatch.Draw(inventoryBackground, levelNumberDestination, getNumberSourceRectangle(1), Color.White);
                 DrawItemCounts(spriteBatch);
                 DrawSecondaryWeapon(spriteBatch, new Rectangle(514, 106 + offset, 9 * GameConstants.SCALE, 20 * GameConstants.SCALE));
-                linkMinimap.Draw(spriteBatch, offset);
+                linkMinimap.Draw(spriteBatch, offset, theMap);
                 healthBar.Draw(spriteBatch, offset);
             } else DrawPause(spriteBatch);
         }
@@ -83,7 +99,7 @@ namespace Sprint0
         public void DrawPause(SpriteBatch spriteBatch)
         {
             int offset = pauseScreen.getCurrentYOffset();
-            pauseScreen.Draw(spriteBatch, currentItemIndex);
+            pauseScreen.Draw(spriteBatch, currentItemIndex, theMap);
             Rectangle inventorySource = new Rectangle(258, 12, 254, 54);
             Rectangle inventoryDestination = new Rectangle(0, 0 + offset, 256 * GameConstants.SCALE, 64 * GameConstants.SCALE);
             spriteBatch.Draw(inventoryBackground, inventoryDestination, inventorySource, Color.White);
@@ -107,7 +123,7 @@ namespace Sprint0
             spriteBatch.Draw(inventoryBackground, levelNumberDestination, getNumberSourceRectangle(1), Color.White);
             DrawItemCounts(spriteBatch);
             DrawSecondaryWeapon(spriteBatch, new Rectangle(514, 106 + offset, 9 * GameConstants.SCALE, 20 * GameConstants.SCALE));
-            linkMinimap.Draw(spriteBatch, offset);
+            linkMinimap.Draw(spriteBatch, offset, theMap);
             healthBar.Draw(spriteBatch, offset);
             if (pauseScreen.getCurrentYOffset() < 700) {
                 pauseScreen.incrementOffset();
@@ -118,52 +134,48 @@ namespace Sprint0
         public void DrawItemCounts(SpriteBatch spriteBatch)
         {
             int offset = pauseScreen.getCurrentYOffset();
-            DrawRupeeCounts(spriteBatch, new Rectangle(452, 72 + offset, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE), new Rectangle(420, 72 + offset, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE));
-            DrawKeyCounts(spriteBatch, new Rectangle(452, 148 + offset, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE), new Rectangle(420, 148 + offset, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE));
-            DrawBombCounts(spriteBatch, new Rectangle(452, 185 + offset, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE), new Rectangle(420, 185 + offset, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE));
-        }
-
-        public void DrawRupeeCounts(SpriteBatch spriteBatch, Rectangle rupeeCountOnes, Rectangle rupeeCountTens)
-        {
             if (rupeeCount >= 10)
             {
-                spriteBatch.Draw(inventoryBackground, rupeeCountOnes, getNumberSourceRectangle(rupeeCount % 10), Color.White);
-                spriteBatch.Draw(inventoryBackground, rupeeCountTens, getNumberSourceRectangle(rupeeCount / 10), Color.White);
+                spriteBatch.Draw(inventoryBackground, getTheItemCountDestination(RupeeKeyBomb.RupeeOnes, offset), getNumberSourceRectangle(rupeeCount % 10), Color.White);
+                spriteBatch.Draw(inventoryBackground, getTheItemCountDestination(RupeeKeyBomb.RupeeTens, offset), getNumberSourceRectangle(rupeeCount / 10), Color.White);
             }
             else
             {
-                spriteBatch.Draw(inventoryBackground, rupeeCountOnes, getNumberSourceRectangle(rupeeCount), Color.White);
-                spriteBatch.Draw(inventoryBackground, rupeeCountTens, getNumberSourceRectangle(0), Color.White);
+                spriteBatch.Draw(inventoryBackground, getTheItemCountDestination(RupeeKeyBomb.RupeeOnes, offset), getNumberSourceRectangle(rupeeCount), Color.White);
+                spriteBatch.Draw(inventoryBackground, getTheItemCountDestination(RupeeKeyBomb.RupeeTens, offset), getNumberSourceRectangle(0), Color.White);
             }
-        }
-
-        public void DrawKeyCounts(SpriteBatch spriteBatch, Rectangle keyCountOnes, Rectangle keyCountTens)
-        {
             if (keyCount >= 10)
             {
-                spriteBatch.Draw(inventoryBackground, keyCountOnes, getNumberSourceRectangle(keyCount % 10), Color.White);
-                spriteBatch.Draw(inventoryBackground, keyCountTens, getNumberSourceRectangle(keyCount / 10), Color.White);
+                spriteBatch.Draw(inventoryBackground, getTheItemCountDestination(RupeeKeyBomb.KeyOnes, offset), getNumberSourceRectangle(keyCount % 10), Color.White);
+                spriteBatch.Draw(inventoryBackground, getTheItemCountDestination(RupeeKeyBomb.KeyTens, offset), getNumberSourceRectangle(keyCount / 10), Color.White);
             }
             else
             {
-                spriteBatch.Draw(inventoryBackground, keyCountOnes, getNumberSourceRectangle(keyCount), Color.White);
-                spriteBatch.Draw(inventoryBackground, keyCountTens, getNumberSourceRectangle(0), Color.White);
+                spriteBatch.Draw(inventoryBackground, getTheItemCountDestination(RupeeKeyBomb.KeyOnes, offset), getNumberSourceRectangle(keyCount), Color.White);
+                spriteBatch.Draw(inventoryBackground, getTheItemCountDestination(RupeeKeyBomb.KeyTens, offset), getNumberSourceRectangle(0), Color.White);
+            }
+            if (bombCount >= 10)
+            {
+                spriteBatch.Draw(inventoryBackground, getTheItemCountDestination(RupeeKeyBomb.BombOnes, offset), getNumberSourceRectangle(bombCount % 10), Color.White);
+                spriteBatch.Draw(inventoryBackground, getTheItemCountDestination(RupeeKeyBomb.BombTens, offset), getNumberSourceRectangle(bombCount / 10), Color.White);
+            }
+            else
+            {
+                spriteBatch.Draw(inventoryBackground, getTheItemCountDestination(RupeeKeyBomb.BombOnes, offset), getNumberSourceRectangle(bombCount), Color.White);
+                spriteBatch.Draw(inventoryBackground, getTheItemCountDestination(RupeeKeyBomb.BombTens, offset), getNumberSourceRectangle(0), Color.White);
             }
         }
 
-        public void DrawBombCounts(SpriteBatch spriteBatch, Rectangle bombCountOnes, Rectangle bombCountTens)
+        public Rectangle getTheItemCountDestination(RupeeKeyBomb theCount, int offset)
         {
-            if (bombCount >= 10)
-            {
-                spriteBatch.Draw(inventoryBackground, bombCountOnes, getNumberSourceRectangle(bombCount % 10), Color.White);
-                spriteBatch.Draw(inventoryBackground, bombCountTens, getNumberSourceRectangle(bombCount / 10), Color.White);
-            }
-            else
-            {
-                spriteBatch.Draw(inventoryBackground, bombCountOnes, getNumberSourceRectangle(bombCount), Color.White);
-                spriteBatch.Draw(inventoryBackground, bombCountTens, getNumberSourceRectangle(0), Color.White);
-            }
-
+            Rectangle retRectangle = new Rectangle(0, 0, 0, 0);
+            if (theCount == RupeeKeyBomb.RupeeOnes) { retRectangle = new Rectangle(452, 72 + offset, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE); }
+            else if (theCount == RupeeKeyBomb.RupeeTens) { retRectangle = new Rectangle(420, 72 + offset, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE); }
+            else if (theCount == RupeeKeyBomb.KeyOnes) { retRectangle = new Rectangle(452, 148 + offset, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE); }
+            else if (theCount == RupeeKeyBomb.KeyTens) { retRectangle = new Rectangle(420, 72 + offset, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE); }
+            else if (theCount == RupeeKeyBomb.BombOnes) { retRectangle = new Rectangle(452, 185 + offset, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE); }
+            else if (theCount == RupeeKeyBomb.BombTens) { retRectangle = new Rectangle(420, 185 + offset, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE); }
+            return retRectangle;
         }
 
         public void changeCurrentItem(Direction direction)
