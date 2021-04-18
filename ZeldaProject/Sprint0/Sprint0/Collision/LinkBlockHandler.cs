@@ -142,7 +142,14 @@ namespace Sprint0
         private static void StairCaseCollision(RoomManager roomManager, List<SoundEffect> Collision_soundEffects)
         {
             Collision_soundEffects[10].Play();
-            roomManager.ChangeRoom(GameConstants.VERTICALROOM);
+            if(roomManager.getRoomIndex() < GameConstants.TOPBOTTOMSPLIT)
+            {
+                roomManager.ChangeRoom(GameConstants.VERTICALROOMTOP);
+            }
+            else
+            {
+                roomManager.ChangeRoom(GameConstants.VERTICALROOMBOTTOM);
+            }
         }
 
         private static void EnterDungeonCollision(IPlayer link, RoomManager roomManager, List<SoundEffect> Collision_soundEffects)
