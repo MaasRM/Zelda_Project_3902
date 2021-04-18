@@ -51,6 +51,7 @@ namespace Sprint0
 
         //text sprite
         private HintSprite hintSprite;
+        private DeathMessageSprite deathMessageSprite;
 
         public Sprint5()
         {
@@ -162,6 +163,7 @@ namespace Sprint0
 
             hintSprite = new HintSprite(dungeonSheet, roomManager, Text_soundEffects[1].CreateInstance());
             StartScreen = new TitleScreen(titleSheet, this.GraphicsDevice.Viewport.Bounds.Width, this.GraphicsDevice.Viewport.Bounds.Height);
+            
 
             XmlDocument doc = new XmlDocument();
             FileStream file = new FileStream(xmlLoc, FileMode.Open);
@@ -184,6 +186,7 @@ namespace Sprint0
 
             link = new Link(contentManager.Load<Texture2D>("LinkSpriteSheet"), linkSheetList, Link_soundEffects, inventory);
             shop = new Shop(link.GetLinkInventory(), npcSheet, dungeonSheet, itemsSheet, roomManager, this);
+            deathMessageSprite = new DeathMessageSprite(dungeonSheet, roomManager, Text_soundEffects[1].CreateInstance(), link);
 
             //SongManager
             Songs = new SongManager(Title_music, Overworld_music, Dungeon_music, Ending_music);
@@ -240,9 +243,11 @@ namespace Sprint0
                         allCollisionHandler.ProjectileCollisions(link, npcs, projectiles, Collision_soundEffects, items, roomManager);
                         allCollisionHandler.PlayerEnemyCollisions(link, npcs, Collision_soundEffects, items);
 
+                        deathMessageSprite.Update();
                         CheckPlayer();
 
                         roomManager.Update();
+                        
                         if (!roomManager.RoomChange())
                         {
                             link.Update();
@@ -255,6 +260,7 @@ namespace Sprint0
                         {
                             hintSprite.Update();
                             shop.Update();
+                            
                         }
 
                     }
@@ -306,6 +312,7 @@ namespace Sprint0
 
                 hintSprite.Draw(this._spriteBatch);
                 shop.Draw(this._spriteBatch);
+                deathMessageSprite.Draw(this._spriteBatch);
 
                 if (!roomManager.RoomChange())
                 {
