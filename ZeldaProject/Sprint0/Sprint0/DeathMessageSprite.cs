@@ -79,13 +79,13 @@ namespace Sprint0
                 spriteBatch.Draw(letterSheet, new Rectangle(0, 0, 256 * GameConstants.SCALE, 64 * GameConstants.SCALE), new Rectangle(280, 30, 1, 1), Color.White);
                 for (int i = 0; i <= counter * 2; i += 2)
                 {
-                    Rectangle destination = new Rectangle((letterDest[i] + 8) * GameConstants.SCALE, (GameConstants.HUDSIZE * GameConstants.SCALE) + (letterDest[i + 1] + 40) * GameConstants.SCALE, 7 * GameConstants.SCALE, 7 * GameConstants.SCALE);
+                    Rectangle destination = new Rectangle((letterDest[i] + 8) * GameConstants.SCALE, (GameConstants.GAMEWINDOWHEIGHT / 8) + (letterDest[i + 1] + 40) * GameConstants.SCALE, 7 * GameConstants.SCALE, 7 * GameConstants.SCALE);
                     Rectangle source = new Rectangle(letterSource[i], letterSource[i + 1], 7, 7);
                     spriteBatch.Draw(letterSheet, destination, source, Color.White);
                 }
                 if (counter < letterCount)
                 {
-                    Rectangle destination = new Rectangle((letterDest[counter * 2] + 15) * GameConstants.SCALE, (GameConstants.HUDSIZE * GameConstants.SCALE) + (letterDest[(counter * 2) + 1] + 40) * GameConstants.SCALE, 7 * GameConstants.SCALE, 7 * GameConstants.SCALE);
+                    Rectangle destination = new Rectangle((letterDest[counter * 2] + 15) * GameConstants.SCALE, (GameConstants.GAMEWINDOWHEIGHT / 8) + (letterDest[(counter * 2) + 1] + 40) * GameConstants.SCALE, 7 * GameConstants.SCALE, 7 * GameConstants.SCALE);
                     Rectangle source = new Rectangle(9, 56, 7, 7);
                     spriteBatch.Draw(letterSheet, destination, source, Color.White);
                 } else textSound.Stop();
