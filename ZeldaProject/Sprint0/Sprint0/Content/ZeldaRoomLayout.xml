@@ -5370,12 +5370,12 @@
 			<Block>
 				<BlockType>1</BlockType>
 				<XLoc>64</XLoc>
-				<YLoc>112</YLoc>
+				<YLoc>96</YLoc>
 			</Block>
 			<Block>
 				<BlockType>1</BlockType>
 				<XLoc>176</XLoc>
-				<YLoc>112</YLoc>
+				<YLoc>96</YLoc>
 			</Block>
 		</Blocks>
 		<Items>
@@ -5682,12 +5682,12 @@
 		<Items>
 			<Item>
 				<ItemType>BombItem</ItemType>
-				<XLoc>64</XLoc>
+				<XLoc>68</XLoc>
 				<YLoc>64</YLoc>
 			</Item>
 			<Item>
 				<ItemType>BombItem</ItemType>
-				<XLoc>176</XLoc>
+				<XLoc>180</XLoc>
 				<YLoc>64</YLoc>
 			</Item>
 		</Items>	
