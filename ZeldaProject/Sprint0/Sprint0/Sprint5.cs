@@ -318,9 +318,9 @@ namespace Sprint0
                     link.Draw(this._spriteBatch);
                 }
 
-                deathMessageSprite.Draw(this._spriteBatch);
-
                 link.GetLinkInventory().Draw(this._spriteBatch);
+
+                deathMessageSprite.Draw(this._spriteBatch);
             }
 
             this._spriteBatch.End();

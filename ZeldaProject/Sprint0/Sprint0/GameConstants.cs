@@ -15,5 +15,7 @@ namespace Sprint0
         public static int WALLMASTERROOM = 9;
         public static int STAIRROOMOFFSETX = 75;
         public static int STAIRROOMOFFSETY = 44;
+        public static int GAMEWINDOWHEIGHT = 956;
+        public static int GAMEWINDOWWIDTH = 1020;
     }
 }
