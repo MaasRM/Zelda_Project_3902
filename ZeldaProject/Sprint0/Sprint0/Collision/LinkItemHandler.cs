@@ -64,7 +64,10 @@ namespace Sprint0
             Collision_soundEffects[6].Play();
             collidedItems.Add(item);
             player.GetLinkInventory().addItem(item);
-            player.getLinkStateMachine().healthAndDamage.ChangeMaxHealth(player.getLinkStateMachine().healthAndDamage.GetMaxHealth() + 2);
+            if(player.getLinkStateMachine().healthAndDamage.GetMaxHealth() < LinkConstants.MAXIMUMHEALTH)
+            {
+                player.getLinkStateMachine().healthAndDamage.ChangeMaxHealth(player.getLinkStateMachine().healthAndDamage.GetMaxHealth() + 2);
+            }
             player.getLinkStateMachine().healthAndDamage.Heal(player.getLinkStateMachine().healthAndDamage.GetMaxHealth());
         }
 

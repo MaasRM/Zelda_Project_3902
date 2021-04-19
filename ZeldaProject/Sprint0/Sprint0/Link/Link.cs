@@ -141,7 +141,22 @@ namespace Sprint0
 
         public int GetMeleeDamage()
         {
-            return stateMachine.healthAndDamage.DealDamage();
+            double multiplier = 1.0;
+
+            if(stateMachine.getColor() == LinkColor.Red || stateMachine.getColor() == LinkColor.Black)
+            {
+                multiplier *= 2;
+            }
+            if(stateMachine.getColor() == LinkColor.Blue)
+            {
+                multiplier /= 2;
+            }
+
+            int finalDamage = (int)(stateMachine.healthAndDamage.DealDamage() * multiplier);
+
+            if (finalDamage == 0) finalDamage = 1;
+
+            return finalDamage;
         }
 
         public void Heal(int health)
@@ -153,9 +168,24 @@ namespace Sprint0
         {
             if(stateMachine.getColor() != LinkColor.Damaged)
             {
+                double multiplier = 1.0;
+
+                if (stateMachine.getColor() == LinkColor.Red || stateMachine.getColor() == LinkColor.Black)
+                {
+                    multiplier *= 2;
+                }
+                if (stateMachine.getColor() == LinkColor.Blue)
+                {
+                    multiplier /= 2;
+                }
+
+                int finalDamage = (int)(damage * multiplier);
+
+                if (finalDamage == 0) finalDamage = 1;
+
                 damageFrameCount = 0;
                 soundEffects[10].Play();
-                stateMachine.TakeDamage(damage, direction);
+                stateMachine.TakeDamage(finalDamage, direction);
             }
         }
 
