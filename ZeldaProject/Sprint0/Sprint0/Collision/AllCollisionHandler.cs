@@ -26,6 +26,8 @@ namespace Sprint0
             secrets = new List<bool>();
             secrets.Add(false);
             secrets.Add(false);
+            secrets.Add(false);
+            secrets.Add(false);
             itemsSheet = items;
         }
 

@@ -31,27 +31,14 @@ namespace Sprint0
                 }
 
                 if (block.getIndex() == 0) {
-                    if (roomManager.Room().RoomNum() == 0 && !secrets[0])
-                    {
-                        SecretOneHandler(Collision_soundEffects, secrets);
-                    }
-                    else if (roomManager.Room().RoomNum() == 6 && !secrets[1])
-                    {
-                        SecretTwoHandler(roomManager, Collision_soundEffects, secrets);
-                    }
+                    if (roomManager.Room().RoomNum() == 0 && !secrets[0]) SecretOneHandler(Collision_soundEffects, secrets);
+                    else if (roomManager.Room().RoomNum() == 6 && !secrets[1]) SecretTwoHandler(roomManager, Collision_soundEffects, secrets);
+                    else if (roomManager.Room().RoomNum() == 28 && !secrets[2]) SecretThreeHandler(Collision_soundEffects, secrets);
+                    else if (roomManager.Room().RoomNum() == 41 && !secrets[3]) SecretFourHandler(Collision_soundEffects, secrets);
                 }
-                else if (block.getIndex() == 7)
-                {
-                    StairCaseCollision(roomManager, Collision_soundEffects);
-                }
-                else if (block.getIndex() == 41)
-                {
-                    EnterDungeonCollision(player, roomManager, Collision_soundEffects);
-                }
-                else if (block.getIndex() != 10 || blockMoved)
-                {
-                    NonMobileBlockCollision(player, overlap, blockRect, overlapSide);
-                } 
+                else if (block.getIndex() == 7) StairCaseCollision(roomManager, Collision_soundEffects);
+                else if (block.getIndex() == 41) EnterDungeonCollision(player, roomManager, Collision_soundEffects);
+                else if (block.getIndex() != 10 || blockMoved) NonMobileBlockCollision(player, overlap, blockRect, overlapSide); 
             } 
         }
 
@@ -137,6 +124,18 @@ namespace Sprint0
             Collision_soundEffects[9].Play();
             secrets[1] = true;
             roomManager.UnlockDoor(Direction.Left);
+        }
+
+        private static void SecretThreeHandler(List<SoundEffect> Collision_soundEffects, List<bool> secrets)
+        {
+            Collision_soundEffects[9].Play();
+            secrets[2] = true;
+        }
+
+        private static void SecretFourHandler(List<SoundEffect> Collision_soundEffects, List<bool> secrets)
+        {
+            Collision_soundEffects[9].Play();
+            secrets[3] = true;
         }
 
         private static void StairCaseCollision(RoomManager roomManager, List<SoundEffect> Collision_soundEffects)
