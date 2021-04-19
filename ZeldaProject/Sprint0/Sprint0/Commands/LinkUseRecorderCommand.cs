@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework.Audio;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -14,7 +15,11 @@ namespace Sprint0
 
         public void Execute()
         {
-            game.Link_soundEffects[5].Play();
+            SoundEffectInstance temp = game.Link_soundEffects[5].CreateInstance();
+            temp.Volume = 0.10f;
+            temp.IsLooped = false;
+            temp.Play();
+
             game.GetRoomManager().ChangeRoom(GameConstants.OUTSIDEROOM);
             game.GetPlayer().getLinkStateMachine().setAnimation(Animation.UsingItem);
         }
