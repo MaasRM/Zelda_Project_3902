@@ -14,6 +14,11 @@ namespace Sprint0
         public void Execute()
         {
             game.GetRoomManager().PreviousRoom();
+            if (game.GetRoomManager().getRoomIndex() == GameConstants.SHOPROOM)
+            {
+                game.getShop().UpdateItems();
+                game.getShop().SetUpShop();
+            }
         }
     }
 }

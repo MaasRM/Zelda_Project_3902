@@ -371,6 +371,11 @@ namespace Sprint0
             return items;
         }
 
+        public Shop getShop()
+        {
+            return shop;
+        }
+
         public void SetItems(List<IItem> newItems)
         {
             items = newItems;
