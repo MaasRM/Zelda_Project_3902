@@ -108,6 +108,7 @@ namespace Sprint0
             else if(enemy is Dodongo)
             {
                 DamageTheEnemy(enemy, bomb, overlap);
+                bomb.Eaten();
             }
         }
 
