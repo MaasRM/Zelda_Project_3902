@@ -16,6 +16,7 @@ namespace Sprint0
         public const int DOLLARSIGNX = 65;
         public const int DOLLARSIGNY = 166;
         public const int BOMBCOST = 10;
+        public const int HEARTCONTAINERCOST = 50;
         public const int BLUEARROWCOST = 30;
         public const int BLUEBOOMERANGCOST = 50;
         public const int BLUESWORDCOST = 25;
