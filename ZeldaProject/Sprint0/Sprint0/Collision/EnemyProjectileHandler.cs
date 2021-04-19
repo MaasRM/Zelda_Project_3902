@@ -23,10 +23,7 @@ namespace Sprint0
         {
             OverlapInRelationToEnemy overlap = GetOverlapDirection(enemy, projectile);
 
-            if (projectile is BombProjectile)
-            {
-                BombHandler((IEnemy)enemy, (BombProjectile)projectile, overlap);
-            }
+            if (projectile is BombProjectile) BombHandler((IEnemy)enemy, (BombProjectile)projectile, overlap);
             else if (projectile is IBoomerang)
             {
                 if (enemy is Keese || enemy is Gel) DamageTheEnemy((IEnemy)enemy, projectile, overlap);
@@ -34,16 +31,11 @@ namespace Sprint0
 
                 ((IBoomerang)projectile).GoBack();
             }
-            else if(projectile is CandleFireProjectile && enemy is Gibdo && !((Gibdo)enemy).IsBurned())
-            {
-                ((Gibdo)enemy).Burn();
-            }
+            else if(projectile is CandleFireProjectile && enemy is Gibdo && !((Gibdo)enemy).IsBurned())((Gibdo)enemy).Burn();
+            else if(enemy is Gohma) GohmaHandler((Gohma)enemy, projectile, overlap);
             else
             {
-                if(!(enemy is Darknut) && !(enemy is Gohma && !(projectile is BrownArrowProjectile || projectile is BlueArrowProjectile)))
-                {
-                    DamageTheEnemy((IEnemy)enemy, projectile, overlap);
-                }
+                if(!(enemy is Darknut || enemy is Dodongo)) DamageTheEnemy((IEnemy)enemy, projectile, overlap);
             }
 
             projectile.Hit();
@@ -96,7 +88,7 @@ namespace Sprint0
         {
             if (bomb.Exploding())
             {
-                if (!(enemy is Darknut || enemy is Dodongo))
+                if (!(enemy is Darknut || enemy is Dodongo || enemy is Gohma))
                 {
                     DamageTheEnemy(enemy, bomb, overlap);
                 }
@@ -120,6 +112,23 @@ namespace Sprint0
                 || (dir == Direction.Right && overlap == OverlapInRelationToEnemy.Right)
                 || (dir == Direction.Up && overlap == OverlapInRelationToEnemy.Up)
                 || (dir == Direction.Down && overlap == OverlapInRelationToEnemy.Down));
+        }
+
+        private static void GohmaHandler(Gohma gohma, IProjectile projectile, OverlapInRelationToEnemy direction)
+        {
+            if(projectile is BrownArrowProjectile || projectile is BlueArrowProjectile)
+            {
+                if(direction == OverlapInRelationToEnemy.Down)
+                {
+                    Rectangle gohmaPos = gohma.GetNPCLocation();
+                    Rectangle overlap = Rectangle.Intersect(gohmaPos, projectile.GetProjectileLocation());
+
+                    if(overlap.X > gohmaPos.X + 3 * gohmaPos.Width / 4 && overlap.X > gohmaPos.X + 5 * gohmaPos.Width / 4)
+                    {
+                        DamageTheEnemy(gohma, projectile, direction);
+                    }
+                }
+            }
         }
     }
 }
