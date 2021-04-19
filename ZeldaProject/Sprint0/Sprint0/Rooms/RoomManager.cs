@@ -237,7 +237,8 @@ namespace Sprint0
             {
                 if(oldRoom == 25) game.GetPlayer().getLinkStateMachine().SetPositions(new Rectangle(48 * GameConstants.SCALE, GameConstants.HUDSIZE * GameConstants.SCALE, game.GetPlayer().LinkPosition().Width, game.GetPlayer().LinkPosition().Height));
                 else game.GetPlayer().getLinkStateMachine().SetPositions(new Rectangle(48 * GameConstants.SCALE, GameConstants.HUDSIZE * GameConstants.SCALE, game.GetPlayer().LinkPosition().Width, game.GetPlayer().LinkPosition().Height));
-            }
+            } else if (roomIndex == GameConstants.STARTROOM) game.GetPlayer().getLinkStateMachine().SetPositions(new Rectangle(LinkConstants.XINIT * GameConstants.SCALE, LinkConstants.YINIT * GameConstants.SCALE, game.GetPlayer().LinkPosition().Width, game.GetPlayer().LinkPosition().Height));
+            else if (roomIndex == GameConstants.OUTSIDEROOM && !fromShopOrWM) game.GetPlayer().getLinkStateMachine().SetPositions(new Rectangle(LinkConstants.XINIT * GameConstants.SCALE, LinkConstants.YINIT * GameConstants.SCALE, game.GetPlayer().LinkPosition().Width, game.GetPlayer().LinkPosition().Height));
 
             if (roomIndex == GameConstants.STARTROOM && !fromShopOrWM) game.GetSongManager().Dungeon();
             else if (roomIndex == GameConstants.OUTSIDEROOM && !fromShopOrWM) game.GetSongManager().Overworld();
