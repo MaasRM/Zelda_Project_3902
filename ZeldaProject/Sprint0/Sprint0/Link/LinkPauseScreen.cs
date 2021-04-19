@@ -43,7 +43,7 @@ namespace Sprint0
             spriteBatch.Draw(inventoryBackground, pauseTopDestination, pauseTopSourceRectangle, Color.White);
             spriteBatch.Draw(inventoryBackground, pauseBottomDestination, pauseBottomSourceRectangle, Color.White);
             if (hasMap) { DrawPauseMap(spriteBatch, theMap); }
-            if (hasCompass) { DrawPauseCompass(spriteBatch); }
+            if (hasCompass) { DrawPauseCompass(spriteBatch, theMap); }
             DrawInventoryItems(spriteBatch, currentItemIndex);
         }
 
@@ -126,9 +126,9 @@ namespace Sprint0
                 spriteBatch.Draw(inventoryBackground, getTopRoomDestination(11), new Rectangle(582, 108, 8, 8), Color.White);
                 spriteBatch.Draw(inventoryBackground, getTopRoomDestination(12), new Rectangle(537, 108, 8, 8), Color.White);
                 spriteBatch.Draw(inventoryBackground, getTopRoomDestination(13), new Rectangle(627, 108, 8, 8), Color.White);
-                spriteBatch.Draw(inventoryBackground, getTopRoomDestination(14), new Rectangle(528, 108, 8, 8), Color.White);
+                spriteBatch.Draw(inventoryBackground, getTopRoomDestination(14), new Rectangle(564, 108, 8, 8), Color.White);
                 spriteBatch.Draw(inventoryBackground, getTopRoomDestination(15), new Rectangle(618, 108, 8, 8), Color.White);
-                spriteBatch.Draw(inventoryBackground, getTopRoomDestination(16), new Rectangle(537, 108, 8, 8), Color.White);
+                spriteBatch.Draw(inventoryBackground, getTopRoomDestination(16), new Rectangle(573, 108, 8, 8), Color.White);
             }
             else if (theMap == DungeonMap.Left)
             {
@@ -170,15 +170,17 @@ namespace Sprint0
             spriteBatch.Draw(inventoryBackground, getRightRoomDestination(10), new Rectangle(609, 108, 8, 8), Color.White);
         }
 
-        public void DrawPauseCompass(SpriteBatch spriteBatch)
+        public void DrawPauseCompass(SpriteBatch spriteBatch, DungeonMap theMap)
         {
             Rectangle compassSource = new Rectangle(612, 156, 14, 16);
             Rectangle compassDestination = new Rectangle(175, -180 + currentYOffset, 14 * GameConstants.SCALE, 16 * GameConstants.SCALE);
             spriteBatch.Draw(inventoryBackground, compassDestination, compassSource, Color.White);
             Rectangle bossRoomSourceRed = new Rectangle(537, 126, 2, 2);
             Rectangle bossRoomSourceBlue = new Rectangle(555, 127, 2, 2);
-            Rectangle bossRoomDestination = new Rectangle(686, -287 + currentYOffset, 2 * GameConstants.SCALE, 2 * GameConstants.SCALE);
-            if(bossFrames %2 == 0)
+            Rectangle bossRoomDestination = new Rectangle(684, -287 + currentYOffset, 2 * GameConstants.SCALE, 2 * GameConstants.SCALE);
+            if (theMap == DungeonMap.Left) { bossRoomDestination = new Rectangle(590, -257 + currentYOffset, 2 * GameConstants.SCALE, 2 * GameConstants.SCALE); }
+            else if (theMap == DungeonMap.Right) { bossRoomDestination = new Rectangle(684, -223 + currentYOffset, 2 * GameConstants.SCALE, 2 * GameConstants.SCALE); }
+            if (bossFrames %2 == 0)
             {
                 spriteBatch.Draw(inventoryBackground, bossRoomDestination, bossRoomSourceRed, Color.White);
             }

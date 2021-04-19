@@ -46,6 +46,8 @@ namespace Sprint0
                 Rectangle bossRoomSourceRed = new Rectangle(537, 126, 2, 2);
                 Rectangle bossRoomSourceBlue = new Rectangle(555, 127, 2, 2);
                 Rectangle bossRoomDestination = new Rectangle(226, 103 + offset, 4 * GameConstants.SCALE, 4 * GameConstants.SCALE);
+                if (theMap == DungeonMap.Left) { bossRoomDestination = new Rectangle(129, 103 + offset, 4 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
+                else if (theMap == DungeonMap.Right) { bossRoomDestination = new Rectangle(228, 126 + offset, 4 * GameConstants.SCALE, 4 * GameConstants.SCALE); }
                 if (bossFrames % 2 == 0)
                 {
                     spriteBatch.Draw(minimapTexture, bossRoomDestination, bossRoomSourceRed, Color.White);
