@@ -96,5 +96,10 @@ namespace Sprint0
         {
             //do nothing
         }
+
+        public void Eaten()
+        {
+            frame = BombConstants.REMOVEFRAME;
+        }
     }
 }
