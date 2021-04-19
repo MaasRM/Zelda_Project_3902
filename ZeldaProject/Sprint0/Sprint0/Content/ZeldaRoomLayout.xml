@@ -6834,6 +6834,166 @@
 			<RightRoomNumber>34</RightRoomNumber>
 		</Info>
 		<Blocks>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>192</XLoc>
+				<YLoc>32</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>192</XLoc>
+				<YLoc>48</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>192</XLoc>
+				<YLoc>64</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>192</XLoc>
+				<YLoc>80</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>192</XLoc>
+				<YLoc>96</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>192</XLoc>
+				<YLoc>112</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>176</XLoc>
+				<YLoc>112</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>160</XLoc>
+				<YLoc>112</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>144</XLoc>
+				<YLoc>112</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>128</XLoc>
+				<YLoc>112</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>112</XLoc>
+				<YLoc>112</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>96</XLoc>
+				<YLoc>112</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>80</XLoc>
+				<YLoc>112</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>64</XLoc>
+				<YLoc>112</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>48</XLoc>
+				<YLoc>112</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>48</XLoc>
+				<YLoc>96</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>48</XLoc>
+				<YLoc>80</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>48</XLoc>
+				<YLoc>64</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>48</XLoc>
+				<YLoc>48</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>64</XLoc>
+				<YLoc>48</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>80</XLoc>
+				<YLoc>48</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>96</XLoc>
+				<YLoc>48</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>112</XLoc>
+				<YLoc>48</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>128</XLoc>
+				<YLoc>48</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>144</XLoc>
+				<YLoc>48</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>160</XLoc>
+				<YLoc>48</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>160</XLoc>
+				<YLoc>64</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>160</XLoc>
+				<YLoc>80</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>144</XLoc>
+				<YLoc>80</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>128</XLoc>
+				<YLoc>80</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>112</XLoc>
+				<YLoc>80</YLoc>
+			</Block>
+			<Block>
+				<BlockType>7</BlockType>
+				<XLoc>144</XLoc>
+				<YLoc>64</YLoc>
+			</Block>
 		</Blocks>
 		<Items>
 		</Items>
@@ -6867,6 +7027,86 @@
 			<RightRoomNumber>-1</RightRoomNumber>
 		</Info>
 		<Blocks>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>48</XLoc>
+				<YLoc>48</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>64</XLoc>
+				<YLoc>32</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>32</XLoc>
+				<YLoc>128</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>48</XLoc>
+				<YLoc>112</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>64</XLoc>
+				<YLoc>96</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>80</XLoc>
+				<YLoc>80</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>96</XLoc>
+				<YLoc>64</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>112</XLoc>
+				<YLoc>48</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>128</XLoc>
+				<YLoc>112</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>144</XLoc>
+				<YLoc>96</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>160</XLoc>
+				<YLoc>80</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>176</XLoc>
+				<YLoc>64</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>192</XLoc>
+				<YLoc>48</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>208</XLoc>
+				<YLoc>32</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>176</XLoc>
+				<YLoc>128</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>192</XLoc>
+				<YLoc>112</YLoc>
+			</Block>
         </Blocks>
 		<Items>
 		</Items>
@@ -7079,6 +7319,26 @@
 			<RightRoomNumber>-1</RightRoomNumber>
 		</Info>
 		<Blocks>
+			<Block>
+				<BlockType>2</BlockType>
+				<XLoc>32</XLoc>
+				<YLoc>32</YLoc>
+			</Block>
+			<Block>
+				<BlockType>2</BlockType>
+				<XLoc>32</XLoc>
+				<YLoc>128</YLoc>
+			</Block>
+			<Block>
+				<BlockType>3</BlockType>
+				<XLoc>208</XLoc>
+				<YLoc>32</YLoc>
+			</Block>
+			<Block>
+				<BlockType>3</BlockType>
+				<XLoc>208</XLoc>
+				<YLoc>128</YLoc>
+			</Block>
 		</Blocks>
 		<Items>
 		</Items>
@@ -7112,13 +7372,43 @@
 			<RightRoomNumber>-1</RightRoomNumber>
 		</Info>
 		<Blocks>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>48</XLoc>
+				<YLoc>80</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>80</XLoc>
+				<YLoc>112</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>160</XLoc>
+				<YLoc>112</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>192</XLoc>
+				<YLoc>80</YLoc>
+			</Block>
+			<Block>
+				<BlockType>2</BlockType>
+				<XLoc>32</XLoc>
+				<YLoc>128</YLoc>
+			</Block>
+			<Block>
+				<BlockType>3</BlockType>
+				<XLoc>208</XLoc>
+				<YLoc>128</YLoc>
+			</Block>
 		</Blocks>
 		<Items>
 		</Items>
 		<Enemies>
 			<Enemy>
 				<EnemyType>Gohma</EnemyType>
-				<XLoc>52</XLoc>
+				<XLoc>80</XLoc>
 				<YLoc>52</YLoc>
 			</Enemy>
 		</Enemies>
@@ -7150,6 +7440,36 @@
 			<RightRoomNumber>39</RightRoomNumber>
 		</Info>
 		<Blocks>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>112</XLoc>
+				<YLoc>64</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>128</XLoc>
+				<YLoc>64</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>112</XLoc>
+				<YLoc>80</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>128</XLoc>
+				<YLoc>80</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>112</XLoc>
+				<YLoc>96</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>128</XLoc>
+				<YLoc>96</YLoc>
+			</Block>
 		</Blocks>
 		<Items>
 		</Items>
@@ -7461,6 +7781,106 @@
 			<RightRoomNumber>41</RightRoomNumber>
 		</Info>
 		<Blocks>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>144</XLoc>
+				<YLoc>32</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>160</XLoc>
+				<YLoc>32</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>176</XLoc>
+				<YLoc>32</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>192</XLoc>
+				<YLoc>32</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>208</XLoc>
+				<YLoc>32</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>176</XLoc>
+				<YLoc>48</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>192</XLoc>
+				<YLoc>48</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>208</XLoc>
+				<YLoc>48</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>192</XLoc>
+				<YLoc>64</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>208</XLoc>
+				<YLoc>64</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>192</XLoc>
+				<YLoc>96</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>208</XLoc>
+				<YLoc>96</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>176</XLoc>
+				<YLoc>112</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>192</XLoc>
+				<YLoc>112</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>208</XLoc>
+				<YLoc>112</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>144</XLoc>
+				<YLoc>128</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>160</XLoc>
+				<YLoc>128</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>176</XLoc>
+				<YLoc>128</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>192</XLoc>
+				<YLoc>128</YLoc>
+			</Block>
+			<Block>
+				<BlockType>1</BlockType>
+				<XLoc>208</XLoc>
+				<YLoc>128</YLoc>
+			</Block>
 		</Blocks>
 		<Items>
 		</Items>
@@ -7494,6 +7914,146 @@
 			<RightRoomNumber>-1</RightRoomNumber>
 		</Info>
 		<Blocks>
+			<Block>
+				<BlockType>0</BlockType>
+				<XLoc>96</XLoc>
+				<YLoc>32</YLoc>
+			</Block>
+			<Block>
+				<BlockType>0</BlockType>
+				<XLoc>96</XLoc>
+				<YLoc>48</YLoc>
+			</Block>
+			<Block>
+				<BlockType>0</BlockType>
+				<XLoc>96</XLoc>
+				<YLoc>64</YLoc>
+			</Block>
+			<Block>
+				<BlockType>0</BlockType>
+				<XLoc>96</XLoc>
+				<YLoc>80</YLoc>
+			</Block>
+			<Block>
+				<BlockType>0</BlockType>
+				<XLoc>96</XLoc>
+				<YLoc>96</YLoc>
+			</Block>
+			<Block>
+				<BlockType>0</BlockType>
+				<XLoc>96</XLoc>
+				<YLoc>112</YLoc>
+			</Block>
+			<Block>
+				<BlockType>0</BlockType>
+				<XLoc>96</XLoc>
+				<YLoc>128</YLoc>
+			</Block>
+			<Block>
+				<BlockType>0</BlockType>
+				<XLoc>144</XLoc>
+				<YLoc>32</YLoc>
+			</Block>
+			<Block>
+				<BlockType>0</BlockType>
+				<XLoc>144</XLoc>
+				<YLoc>48</YLoc>
+			</Block>
+			<Block>
+				<BlockType>0</BlockType>
+				<XLoc>144</XLoc>
+				<YLoc>64</YLoc>
+			</Block>
+			<Block>
+				<BlockType>0</BlockType>
+				<XLoc>144</XLoc>
+				<YLoc>80</YLoc>
+			</Block>
+			<Block>
+				<BlockType>0</BlockType>
+				<XLoc>144</XLoc>
+				<YLoc>96</YLoc>
+			</Block>
+			<Block>
+				<BlockType>0</BlockType>
+				<XLoc>144</XLoc>
+				<YLoc>112</YLoc>
+			</Block>
+			<Block>
+				<BlockType>0</BlockType>
+				<XLoc>144</XLoc>
+				<YLoc>128</YLoc>
+			</Block>
+			<Block>
+				<BlockType>10</BlockType>
+				<XLoc>96</XLoc>
+				<YLoc>32</YLoc>
+			</Block>
+			<Block>
+				<BlockType>10</BlockType>
+				<XLoc>96</XLoc>
+				<YLoc>48</YLoc>
+			</Block>
+			<Block>
+				<BlockType>10</BlockType>
+				<XLoc>96</XLoc>
+				<YLoc>64</YLoc>
+			</Block>
+			<Block>
+				<BlockType>10</BlockType>
+				<XLoc>96</XLoc>
+				<YLoc>80</YLoc>
+			</Block>
+			<Block>
+				<BlockType>10</BlockType>
+				<XLoc>96</XLoc>
+				<YLoc>96</YLoc>
+			</Block>
+			<Block>
+				<BlockType>10</BlockType>
+				<XLoc>96</XLoc>
+				<YLoc>112</YLoc>
+			</Block>
+			<Block>
+				<BlockType>10</BlockType>
+				<XLoc>96</XLoc>
+				<YLoc>128</YLoc>
+			</Block>
+			<Block>
+				<BlockType>10</BlockType>
+				<XLoc>144</XLoc>
+				<YLoc>32</YLoc>
+			</Block>
+			<Block>
+				<BlockType>10</BlockType>
+				<XLoc>144</XLoc>
+				<YLoc>48</YLoc>
+			</Block>
+			<Block>
+				<BlockType>10</BlockType>
+				<XLoc>144</XLoc>
+				<YLoc>64</YLoc>
+			</Block>
+			<Block>
+				<BlockType>10</BlockType>
+				<XLoc>144</XLoc>
+				<YLoc>80</YLoc>
+			</Block>
+			<Block>
+				<BlockType>10</BlockType>
+				<XLoc>144</XLoc>
+				<YLoc>96</YLoc>
+			</Block>
+			<Block>
+				<BlockType>10</BlockType>
+				<XLoc>144</XLoc>
+				<YLoc>112</YLoc>
+			</Block>
+			<Block>
+				<BlockType>10</BlockType>
+				<XLoc>144</XLoc>
+				<YLoc>128</YLoc>
+			</Block>
 		</Blocks>
 		<Items>
 		</Items>
@@ -7523,8 +8083,8 @@
 			<RoomNumber>42</RoomNumber>
 			<TopRoomNumber>-1</TopRoomNumber>
 			<BottomRoomNumber>-1</BottomRoomNumber>
-			<LeftRoomNumber>27</LeftRoomNumber>
-			<RightRoomNumber>28</RightRoomNumber>
+			<LeftRoomNumber>25</LeftRoomNumber>
+			<RightRoomNumber>33</RightRoomNumber>
 		</Info>
 		<Blocks>
 			<Block>
@@ -7588,7 +8148,7 @@
 				<YLoc>0</YLoc>
 			</Block>
 			<Block>
-				<BlockType>8</BlockType>
+				<BlockType>9</BlockType>
 				<XLoc>192</XLoc>
 				<YLoc>0</YLoc>
 			</Block>
@@ -7668,7 +8228,7 @@
 				<YLoc>16</YLoc>
 			</Block>
 			<Block>
-				<BlockType>8</BlockType>
+				<BlockType>9</BlockType>
 				<XLoc>192</XLoc>
 				<YLoc>16</YLoc>
 			</Block>
@@ -7723,37 +8283,37 @@
 				<YLoc>32</YLoc>
 			</Block>
 			<Block>
-				<BlockType>4</BlockType>
+				<BlockType>8</BlockType>
 				<XLoc>112</XLoc>
 				<YLoc>32</YLoc>
 			</Block>
 			<Block>
-				<BlockType>4</BlockType>
+				<BlockType>8</BlockType>
 				<XLoc>128</XLoc>
 				<YLoc>32</YLoc>
 			</Block>
 			<Block>
-				<BlockType>4</BlockType>
+				<BlockType>8</BlockType>
 				<XLoc>144</XLoc>
 				<YLoc>32</YLoc>
 			</Block>
 			<Block>
-				<BlockType>4</BlockType>
+				<BlockType>8</BlockType>
 				<XLoc>160</XLoc>
 				<YLoc>32</YLoc>
 			</Block>
 			<Block>
-				<BlockType>4</BlockType>
+				<BlockType>8</BlockType>
 				<XLoc>176</XLoc>
 				<YLoc>32</YLoc>
 			</Block>
 			<Block>
-				<BlockType>4</BlockType>
+				<BlockType>9</BlockType>
 				<XLoc>192</XLoc>
 				<YLoc>32</YLoc>
 			</Block>
 			<Block>
-				<BlockType>4</BlockType>
+				<BlockType>8</BlockType>
 				<XLoc>208</XLoc>
 				<YLoc>32</YLoc>
 			</Block>
@@ -7803,37 +8363,37 @@
 				<YLoc>48</YLoc>
 			</Block>
 			<Block>
-				<BlockType>4</BlockType>
+				<BlockType>8</BlockType>
 				<XLoc>112</XLoc>
 				<YLoc>48</YLoc>
 			</Block>
 			<Block>
-				<BlockType>4</BlockType>
+				<BlockType>8</BlockType>
 				<XLoc>128</XLoc>
 				<YLoc>48</YLoc>
 			</Block>
 			<Block>
-				<BlockType>4</BlockType>
+				<BlockType>8</BlockType>
 				<XLoc>144</XLoc>
 				<YLoc>48</YLoc>
 			</Block>
 			<Block>
-				<BlockType>4</BlockType>
+				<BlockType>8</BlockType>
 				<XLoc>160</XLoc>
 				<YLoc>48</YLoc>
 			</Block>
 			<Block>
-				<BlockType>4</BlockType>
+				<BlockType>8</BlockType>
 				<XLoc>176</XLoc>
 				<YLoc>48</YLoc>
 			</Block>
 			<Block>
-				<BlockType>4</BlockType>
+				<BlockType>9</BlockType>
 				<XLoc>192</XLoc>
 				<YLoc>48</YLoc>
 			</Block>
 			<Block>
-				<BlockType>4</BlockType>
+				<BlockType>8</BlockType>
 				<XLoc>208</XLoc>
 				<YLoc>48</YLoc>
 			</Block>
@@ -7884,6 +8444,41 @@
 			</Block>
 			<Block>
 				<BlockType>8</BlockType>
+				<XLoc>112</XLoc>
+				<YLoc>64</YLoc>
+			</Block>
+			<Block>
+				<BlockType>8</BlockType>
+				<XLoc>128</XLoc>
+				<YLoc>64</YLoc>
+			</Block>
+			<Block>
+				<BlockType>8</BlockType>
+				<XLoc>144</XLoc>
+				<YLoc>64</YLoc>
+			</Block>
+			<Block>
+				<BlockType>8</BlockType>
+				<XLoc>160</XLoc>
+				<YLoc>64</YLoc>
+			</Block>
+			<Block>
+				<BlockType>8</BlockType>
+				<XLoc>176</XLoc>
+				<YLoc>64</YLoc>
+			</Block>
+			<Block>
+				<BlockType>9</BlockType>
+				<XLoc>192</XLoc>
+				<YLoc>64</YLoc>
+			</Block>
+			<Block>
+				<BlockType>8</BlockType>
+				<XLoc>208</XLoc>
+				<YLoc>64</YLoc>
+			</Block>
+			<Block>
+				<BlockType>8</BlockType>
 				<XLoc>224</XLoc>
 				<YLoc>64</YLoc>
 			</Block>
@@ -7948,12 +8543,12 @@
 				<YLoc>80</YLoc>
 			</Block>
 			<Block>
-				<BlockType>9</BlockType>
+				<BlockType>8</BlockType>
 				<XLoc>176</XLoc>
 				<YLoc>80</YLoc>
 			</Block>
 			<Block>
-				<BlockType>8</BlockType>
+				<BlockType>9</BlockType>
 				<XLoc>192</XLoc>
 				<YLoc>80</YLoc>
 			</Block>
@@ -8028,12 +8623,12 @@
 				<YLoc>96</YLoc>
 			</Block>
 			<Block>
-				<BlockType>9</BlockType>
+				<BlockType>4</BlockType>
 				<XLoc>176</XLoc>
 				<YLoc>96</YLoc>
 			</Block>
 			<Block>
-				<BlockType>4</BlockType>
+				<BlockType>9</BlockType>
 				<XLoc>192</XLoc>
 				<YLoc>96</YLoc>
 			</Block>
@@ -8069,7 +8664,7 @@
 			</Block>
 			<Block>
 				<BlockType>9</BlockType>
-				<XLoc>176</XLoc>
+				<XLoc>192</XLoc>
 				<YLoc>112</YLoc>
 			</Block>
 			<Block>
@@ -8324,11 +8919,6 @@
 			</Block>
 		</Blocks>
 		<Items>
-			<Item>
-				<ItemType>BowItem</ItemType>
-				<XLoc>128</XLoc>
-				<YLoc>64</YLoc>
-			</Item>
 		</Items>
 		<Enemies>
 		</Enemies>
