@@ -12,6 +12,7 @@ namespace Sprint0
         private Texture2D letterSheet;
         private SoundEffectInstance textSound;
         private RoomManager roomManager;
+        private LinkPauseScreen pauseScreen;
         private int counter;
         private const int letterCount = 33;
 
@@ -29,11 +30,12 @@ namespace Sprint0
               75, 55, 82, 55, 89, 55, 96, 55, 103, 55, 110, 55, 117, 55, 124, 55, 131, 55, 138, 55, 145, 55, 152, 55, 159, 55, 166, 55 //bottom 14 letters (28)
             };
 
-        public HintSprite(Texture2D dungeonSheet, RoomManager manager, SoundEffectInstance text)
+        public HintSprite(Texture2D dungeonSheet, RoomManager manager, SoundEffectInstance text, LinkPauseScreen pause)
         {
             roomManager = manager;
             letterSheet = dungeonSheet;
             textSound = text;
+            pauseScreen = pause;
             textSound.Volume = 0.25f;
             textSound.IsLooped = true;
             counter = 0;
@@ -49,7 +51,8 @@ namespace Sprint0
         {
             if (roomManager.getRoomIndex() == GameConstants.OLDMANROOM && !roomManager.RoomChange())
             {
-                textSound.Play();
+                if (pauseScreen.getCurrentYOffset() > 0 || pauseScreen.isGamePaused() == true) { textSound.Stop(); }
+                else { textSound.Play(); }
                 for (int i = 0; i <= counter * 2; i += 2)
                 {
                     Rectangle destination = new Rectangle((letterDest[i] + 8) * GameConstants.SCALE, (GameConstants.HUDSIZE * GameConstants.SCALE) + (letterDest[i + 1] + 40) * GameConstants.SCALE, 7 * GameConstants.SCALE, 7 * GameConstants.SCALE);
