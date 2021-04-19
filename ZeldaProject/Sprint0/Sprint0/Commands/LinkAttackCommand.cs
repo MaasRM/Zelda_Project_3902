@@ -19,7 +19,7 @@ namespace Sprint0
             {
                 if (proj is SwordProjectile || proj is SwordBlastProjectile) alreadyExists = true;
             }
-            if (!alreadyExists && game.GetPlayer().getLinkStateMachine().GetCurrentHealth() == LinkConstants.STARTHEALTH)
+            if (!alreadyExists && game.GetPlayer().getLinkStateMachine().healthAndDamage.Health() == LinkConstants.STARTHEALTH)
             {
                 game.AddProjectile(new SwordProjectile(game.GetPlayer().GetSpriteSheet(), game.GetPlayer().getLinkStateMachine(), game));
             }

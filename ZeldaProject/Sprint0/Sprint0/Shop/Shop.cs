@@ -83,17 +83,21 @@ namespace Sprint0
             ItemText bombText = new ItemText(ShopConstants.BOMBCOST, dungeonSheet, bomb.GetLocationRectangle());
             shopItems.Add(bomb, bombText);
 
-            foreach(IItem item in link.GetLinkInventory().getLinkItems())
+            HeartContainerItem heartContainer = new HeartContainerItem(new Rectangle(80 * GameConstants.SCALE, 110 * GameConstants.SCALE, 14 * GameConstants.SCALE, 14 * GameConstants.SCALE), new Rectangle(25, 0, 14, 14), itemSheet);
+            ItemText heartContainerText = new ItemText(ShopConstants.HEARTCONTAINERCOST, dungeonSheet, heartContainer.GetLocationRectangle());
+            shopItems.Add(heartContainer, heartContainerText);
+
+            foreach (IItem item in link.GetLinkInventory().getLinkItems())
             {
                 if(item is BoomerangItem)
                 {
-                    BlueBoomerangItem blueBoomerang = new BlueBoomerangItem(new Rectangle(85 * GameConstants.SCALE, 110 * GameConstants.SCALE, 7 * GameConstants.SCALE, 15 * GameConstants.SCALE), new Rectangle(128, 16, 7, 15), itemSheet);
+                    BlueBoomerangItem blueBoomerang = new BlueBoomerangItem(new Rectangle(110 * GameConstants.SCALE, 110 * GameConstants.SCALE, 7 * GameConstants.SCALE, 15 * GameConstants.SCALE), new Rectangle(128, 16, 7, 15), itemSheet);
                     ItemText blueBoomerangText = new ItemText(ShopConstants.BLUEBOOMERANGCOST, dungeonSheet, blueBoomerang.GetLocationRectangle());
                     shopItems.Add(blueBoomerang, blueBoomerangText);
                 }
                 if (item is BowItem)
                 {
-                    BlueArrowItem blueArrow = new BlueArrowItem(new Rectangle(120 * GameConstants.SCALE, 110 * GameConstants.SCALE, 7 * GameConstants.SCALE, 15 * GameConstants.SCALE), new Rectangle(153, 16, 7, 15), itemSheet);
+                    BlueArrowItem blueArrow = new BlueArrowItem(new Rectangle(140 * GameConstants.SCALE, 110 * GameConstants.SCALE, 7 * GameConstants.SCALE, 15 * GameConstants.SCALE), new Rectangle(153, 16, 7, 15), itemSheet);
                     ItemText blueArrowText = new ItemText(ShopConstants.BLUEARROWCOST, dungeonSheet, blueArrow.GetLocationRectangle());
                     shopItems.Add(blueArrow, blueArrowText);
                 }
@@ -101,17 +105,17 @@ namespace Sprint0
             IItem sword = link.GetLinkInventory().getLinkSword().getSword();
             if (sword is BrownSwordItem)
             {
-                BlueSwordItem blueSword = new BlueSwordItem(new Rectangle(155 * GameConstants.SCALE, 110 * GameConstants.SCALE, 7 * GameConstants.SCALE, 15 * GameConstants.SCALE), new Rectangle(104, 16, 7, 15), itemSheet);
+                BlueSwordItem blueSword = new BlueSwordItem(new Rectangle(170 * GameConstants.SCALE, 110 * GameConstants.SCALE, 7 * GameConstants.SCALE, 15 * GameConstants.SCALE), new Rectangle(104, 16, 7, 15), itemSheet);
                 ItemText blueSwordText = new ItemText(ShopConstants.BLUESWORDCOST, dungeonSheet, blueSword.GetLocationRectangle());
                 shopItems.Add(blueSword, blueSwordText);
             } else if (sword is BlueSwordItem)
             {
-                MagicSwordItem magicSword = new MagicSwordItem(new Rectangle(155 * GameConstants.SCALE, 110 * GameConstants.SCALE, 7 * GameConstants.SCALE, 15 * GameConstants.SCALE), new Rectangle(112, 0, 8, 15), itemSheet);
+                MagicSwordItem magicSword = new MagicSwordItem(new Rectangle(170 * GameConstants.SCALE, 110 * GameConstants.SCALE, 7 * GameConstants.SCALE, 15 * GameConstants.SCALE), new Rectangle(112, 0, 8, 15), itemSheet);
                 ItemText magicSwordText = new ItemText(ShopConstants.MAGICSWORDCOST, dungeonSheet, magicSword.GetLocationRectangle());
                 shopItems.Add(magicSword, magicSwordText);
             }
             LinkColor color = link.getLinkColor();
-            Rectangle armorDest = new Rectangle(190 * GameConstants.SCALE, 110 * GameConstants.SCALE, 15 * GameConstants.SCALE, 15 * GameConstants.SCALE);
+            Rectangle armorDest = new Rectangle(200 * GameConstants.SCALE, 110 * GameConstants.SCALE, 15 * GameConstants.SCALE, 15 * GameConstants.SCALE);
             switch (color)
             {
                 case LinkColor.Green:
