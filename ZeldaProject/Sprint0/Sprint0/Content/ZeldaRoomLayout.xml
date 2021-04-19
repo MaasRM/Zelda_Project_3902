@@ -6505,7 +6505,7 @@
 				<DoorType>Wall</DoorType>
 			</LeftDoor>
 			<UpDoor>
-				<DoorType>Wall</DoorType>
+				<DoorType>OpenDoor</DoorType>
 			</UpDoor>
 			<DownDoor>
 				<DoorType>OpenDoor</DoorType>
