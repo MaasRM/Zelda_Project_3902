@@ -80,6 +80,11 @@ namespace Sprint0
             if(getLinkStateMachine().getAnimation() == Animation.PickUpItem) spriteBatch.Draw(itemSheet, itemDestination, itemSource, Color.White);
         }
 
+        public LinkColor getLinkColor()
+        {
+            return currentColor;
+        }
+
         public void changeColor(LinkColor newColor)
         {
             stateMachine.setColor(newColor);

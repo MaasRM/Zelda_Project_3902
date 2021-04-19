@@ -18,27 +18,28 @@ namespace Sprint0
         public static void HandleCollision(IItem item, IPlayer player, List<INPC> npcs, List<SoundEffect> Collision_soundEffects, List<IItem> collidedItems)
         {
             if (!(item is Fire)) {
-               if (item is KeyItem || item is SecretKey || item is EnemyKey) HandleKey(item, player, Collision_soundEffects, collidedItems);
-               else if (item is HeartItem) HandleHeart(item, player, Collision_soundEffects, collidedItems);
-               else if (item is HeartContainerItem) HandleHeartContainer(item, player, Collision_soundEffects, collidedItems);
-               else if (item is BlueRupeeItem) HandleBlueRupee(item, player, Collision_soundEffects, collidedItems);
-               else if (item is YellowRupeeItem) HandleYellowRupee(item, player, Collision_soundEffects, collidedItems);
-               else if (item is ClockItem) HandleClock(item, npcs, collidedItems, Collision_soundEffects);
-               else if (item is BombItem) HandleBomb(item, player, collidedItems);
-               else if (item is MapItem)
-               {
+                if (item is KeyItem || item is SecretKey || item is EnemyKey) HandleKey(item, player, Collision_soundEffects, collidedItems);
+                else if (item is HeartItem) HandleHeart(item, player, Collision_soundEffects, collidedItems);
+                else if (item is HeartContainerItem) HandleHeartContainer(item, player, Collision_soundEffects, collidedItems);
+                else if (item is BlueRupeeItem) HandleBlueRupee(item, player, Collision_soundEffects, collidedItems);
+                else if (item is YellowRupeeItem) HandleYellowRupee(item, player, Collision_soundEffects, collidedItems);
+                else if (item is ClockItem) HandleClock(item, npcs, collidedItems, Collision_soundEffects);
+                else if (item is BombItem) HandleBomb(item, player, collidedItems);
+                else if (item is MapItem)
+                {
                     collidedItems.Add(item);
                     player.GetLinkInventory().linkMinimap.setMinimap(true);
                     player.GetLinkInventory().pauseScreen.setMap(true);
                     Collision_soundEffects[7].Play();
                 }
-               else if (item is CompassItem)
-               {
+                else if (item is CompassItem)
+                {
                     collidedItems.Add(item);
                     player.GetLinkInventory().linkMinimap.setCompass(true);
                     player.GetLinkInventory().pauseScreen.setCompass(true);
                     Collision_soundEffects[7].Play();
                 }
+                else if (item is RedLinkItem || item is BlueLinkItem || item is BlackLinkItem) HandleColorChange(player, item, Collision_soundEffects, collidedItems);
                 else HandleOtherItems(item, player, Collision_soundEffects, collidedItems);
             }  
         }
@@ -101,6 +102,15 @@ namespace Sprint0
                     ((IEnemy)nPC).Stun();
                 }
             }
+        }
+
+        private static void HandleColorChange(IPlayer player, IItem item, List<SoundEffect> Collision_soundEffects, List<IItem> collidedItems)
+        {
+            if (item is RedLinkItem) ((Link)player).changeColor(LinkColor.Red);
+            else if (item is BlueLinkItem) ((Link)player).changeColor(LinkColor.Blue);
+            else if (item is BlackLinkItem) ((Link)player).changeColor(LinkColor.Black);
+            Collision_soundEffects[5].Play();
+            collidedItems.Add(item);
         }
 
         private static void HandleOtherItems(IItem item, IPlayer player, List<SoundEffect> Collision_soundEffects, List<IItem> collidedItems)

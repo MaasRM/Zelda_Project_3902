@@ -15,5 +15,6 @@ namespace Sprint0
         public static int LINKSIZEATTACKXFRAME1 = 27;
         public static int LINKSIZEATTACKXFRAME2 = 23;
         public static int LINKSIZEATTACKXFRAME3 = 19;
+        public static int MAXRUPEECOUNT = 99;
     }
 }

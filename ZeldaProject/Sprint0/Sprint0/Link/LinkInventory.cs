@@ -337,6 +337,7 @@ namespace Sprint0
         public void ChangeRupee(int num)
         {
             rupeeCount += num;
+            if (rupeeCount > LinkConstants.MAXRUPEECOUNT) rupeeCount = LinkConstants.MAXRUPEECOUNT;
         }
 
         public void addBomb()

@@ -185,7 +185,7 @@ namespace Sprint0
                                         this.GraphicsDevice.Viewport.Bounds.Height - WallConstants.BOTTOMWALL, itemsSheet);
 
             link = new Link(contentManager.Load<Texture2D>("LinkSpriteSheet"), linkSheetList, Link_soundEffects, inventory);
-            shop = new Shop(link.GetLinkInventory(), npcSheet, dungeonSheet, itemsSheet, roomManager, this);
+            shop = new Shop(link, npcSheet, dungeonSheet, itemsSheet, roomManager, this);
             deathMessageSprite = new DeathMessageSprite(dungeonSheet, roomManager, Text_soundEffects[1].CreateInstance(), link);
 
             //SongManager
