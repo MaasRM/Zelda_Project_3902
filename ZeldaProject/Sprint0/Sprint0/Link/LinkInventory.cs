@@ -37,7 +37,8 @@ namespace Sprint0
         public LinkPauseScreen pauseScreen { get; set; }
         public LinkHealthBar healthBar { get; set; }
         public IItem currentItem { get; set; }
-        public LinkSword sword;
+        public LinkSword sword { get; set; }
+        public LinkTriForceShards shards { get; set; }
         public enum Direction
         {
             Up,
@@ -53,6 +54,7 @@ namespace Sprint0
             rupeeCount = 99;
             linkItems = new List<IItem>();
             sword = new LinkSword(new BrownSwordItem(new Rectangle(), new Rectangle(555, 137, 7, 16), background));
+            shards = new LinkTriForceShards();
             currentItem = null;
             currentItemIndex = 0;
             inventoryBackground = background;
@@ -293,7 +295,7 @@ namespace Sprint0
         public void addItem(IItem item)
         {
             int check = 0;
-            if (item is BoomerangItem || item is BowItem || item is BlueArrowItem || item is BombItem || item is BlueBoomerangItem || item is CandleItem || item is TriforceShardItem)
+            if (item is BoomerangItem || item is BowItem || item is BlueArrowItem || item is BombItem || item is BlueBoomerangItem || item is CandleItem)
             {
                 if (linkItems.Count == 0)
                 {
@@ -308,6 +310,7 @@ namespace Sprint0
                 }
             }
             else if (item is BlueSwordItem || item is MagicSwordItem) sword.setSword(item);
+            else if (item is TriforceShardItem) shards.addShard(item);
             pauseScreen.updateLinkItemList(linkItems);
         }
 
