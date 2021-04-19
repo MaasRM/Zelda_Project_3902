@@ -52,6 +52,7 @@ namespace Sprint0
         //text sprite
         private HintSprite hintSprite;
         private DeathMessageSprite deathMessageSprite;
+        private TriForceText triForceSprite;
 
         public Sprint5()
         {
@@ -163,6 +164,7 @@ namespace Sprint0
 
             link = new Link(contentManager.Load<Texture2D>("LinkSpriteSheet"), linkSheetList, Link_soundEffects, inventory);
             shop = new Shop(link, npcSheet, dungeonSheet, itemsSheet, roomManager, this);
+            triForceSprite = new TriForceText(dungeonSheet, npcSheet, this, link.GetLinkInventory().shards); 
             deathMessageSprite = new DeathMessageSprite(dungeonSheet, roomManager, Text_soundEffects[1].CreateInstance(), link);
             hintSprite = new HintSprite(dungeonSheet, roomManager, Text_soundEffects[1].CreateInstance(), link.GetLinkInventory().pauseScreen);
 
@@ -259,7 +261,7 @@ namespace Sprint0
                         {
                             hintSprite.Update();
                             shop.Update();
-                            
+                            if (roomManager.getRoomIndex() == GameConstants.OUTSIDEROOM && !deathMessageSprite.isDrawing()) triForceSprite.Update();
                         }
 
                     }
@@ -311,6 +313,7 @@ namespace Sprint0
 
                 hintSprite.Draw(this._spriteBatch);
                 shop.Draw(this._spriteBatch);
+                if (!deathMessageSprite.isDrawing()) triForceSprite.Draw(_spriteBatch);
 
                 if (!roomManager.RoomChange())
                 {
@@ -438,6 +441,7 @@ namespace Sprint0
                 file.Close();
                 roomManager.ChangeRoom(GameConstants.OUTSIDEROOM);
                 link.Reset();
+                triForceSprite.Reset();
                 for (int i = 0; i <= link.GetLinkInventory().getKeyCount(); i++) link.GetLinkInventory().removeKey();
             }
         }
