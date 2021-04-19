@@ -51,6 +51,7 @@ namespace Sprint0
             bombCount = 0;
             rupeeCount = 99;
             linkItems = new List<IItem>();
+            linkItems.Add(new BrownSwordItem(new Rectangle(), new Rectangle(), background));
             currentItem = null;
             currentItemIndex = 0;
             inventoryBackground = background;
@@ -72,9 +73,8 @@ namespace Sprint0
                 Rectangle inventorySource = new Rectangle(258, 12, 254, 54);
                 Rectangle inventoryDestination = new Rectangle(0, 0 + offset, 256 * GameConstants.SCALE, 64 * GameConstants.SCALE);
                 spriteBatch.Draw(inventoryBackground, inventoryDestination, inventorySource, Color.White);
-                Rectangle swordSource = new Rectangle(555, 137, 7, 15);
                 Rectangle swordDestination = new Rectangle(612, 106 + offset, 9 * GameConstants.SCALE, 20 * GameConstants.SCALE);
-                spriteBatch.Draw(inventoryBackground, swordDestination, swordSource, Color.White);
+                DrawPrimaryWeapon(spriteBatch, swordDestination);
                 Rectangle counterSource = new Rectangle(519, 117, 7, 8);
                 Rectangle rupeeCounterDestination = new Rectangle(388, 72 + offset, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE);
                 Rectangle keyCounterDestination = new Rectangle(388, 148 + offset, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE);
@@ -245,6 +245,21 @@ namespace Sprint0
             }
         }
 
+        public void DrawPrimaryWeapon(SpriteBatch spriteBatch, Rectangle primaryWeapon)
+        {
+            Rectangle itemSource = new Rectangle(530, 16, 1, 1);
+
+            foreach(IItem item in linkItems)
+            {
+                if (item is BrownSwordItem) itemSource = new Rectangle(554, 137, 8, 16);
+                else if (item is BlueSwordItem) itemSource = new Rectangle(563, 137, 8, 16);
+                else if (item is MagicSwordItem) itemSource = new Rectangle(573, 137, 8, 16);
+            }
+
+            //pauseScreen.DrawPrimaryWeapon(spriteBatch, itemSource);
+            spriteBatch.Draw(inventoryBackground, primaryWeapon, itemSource, Color.White);
+        }
+
         public void DrawSecondaryWeapon(SpriteBatch spriteBatch, Rectangle secondaryWeapon)
         {
             Rectangle itemSource = new Rectangle(530, 16, 1, 1);
@@ -306,7 +321,7 @@ namespace Sprint0
                     if (check == 0) { linkItems.Add(item); }
                 }
             }
-            else if (item is TriforceShardItem) linkItems.Add(item);
+            else if (item is TriforceShardItem || item is BlueSwordItem || item is MagicSwordItem) linkItems.Add(item);
             pauseScreen.updateLinkItemList(linkItems);
         }
 
@@ -330,14 +345,9 @@ namespace Sprint0
             return rupeeCount;
         }
 
-        public void addRupee(int num)
+        public void ChangeRupee(int num)
         {
             rupeeCount += num;
-        }
-
-        public void removeRupee(int num)
-        {
-            rupeeCount -= num;
         }
 
         public void addBomb()

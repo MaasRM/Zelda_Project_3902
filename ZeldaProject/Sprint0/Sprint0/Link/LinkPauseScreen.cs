@@ -263,6 +263,8 @@ namespace Sprint0
 
         public void updateLinkItemList(List<IItem> items)
         {
+            //linkItems.Clear();
+            //foreach(IItem item in items) if (item is BoomerangItem || item is BlueBoomerangItem || item is BowItem || item is BlueArrowItem || item is BombItem) linkItems.Add(item);
             linkItems = items;
         }
 

@@ -80,14 +80,14 @@ namespace Sprint0
         {
             Collision_soundEffects[8].Play();
             collidedItems.Add(item);
-            player.GetLinkInventory().addRupee(BLUERUPEEVALUE);
+            player.GetLinkInventory().ChangeRupee(BLUERUPEEVALUE);
         }
 
         private static void HandleYellowRupee(IItem item, IPlayer player, List<SoundEffect> Collision_soundEffects, List<IItem> collidedItems)
         {
             Collision_soundEffects[8].Play();
             collidedItems.Add(item);
-            player.GetLinkInventory().addRupee(YELLOWRUPEEVLAUE);
+            player.GetLinkInventory().ChangeRupee(YELLOWRUPEEVLAUE);
         }
 
         private static void HandleClock(IItem item, List<INPC> npcs, List<IItem> collidedItems, List<SoundEffect> Collision_soundEffects)
@@ -107,7 +107,7 @@ namespace Sprint0
         {
             player.getLinkStateMachine().setAnimation(Animation.PickUpItem);
             ((Link)player).GiveLinkItemPickup(item.GetSourceRectangle(), item.GetLocationRectangle(), item.GetSpriteSheet());
-            if (item is BoomerangItem || item is BlueBoomerangItem || item is BlueArrowItem || item is BowItem || item is RecorderItem || item is TriforceShardItem) Collision_soundEffects[5].Play();
+            if (item is BoomerangItem || item is BlueBoomerangItem || item is BlueArrowItem || item is BowItem || item is RecorderItem || item is TriforceShardItem || item is BlueSwordItem || item is MagicSwordItem) Collision_soundEffects[5].Play();
             else if (item is FairyItem)
             {
                 Collision_soundEffects[5].Play();
@@ -115,8 +115,9 @@ namespace Sprint0
             }
             else Collision_soundEffects[7].Play();
             if (item is BlueBoomerangItem) player.GetLinkInventory().removeLinkItem(new BoomerangItem(new Rectangle(), new List<INPC>(), item.GetSpriteSheet()));
-            if (item is BlueArrowItem) player.GetLinkInventory().removeLinkItem(new BowItem(new Rectangle(), new Rectangle(), item.GetSpriteSheet()));
-            collidedItems.Add(item);
+            else if (item is BlueArrowItem) player.GetLinkInventory().removeLinkItem(new BowItem(new Rectangle(), new Rectangle(), item.GetSpriteSheet()));
+            else if (item is BlueSwordItem) player.GetLinkInventory().removeLinkItem(new BrownSwordItem(new Rectangle(), new Rectangle(), item.GetSpriteSheet()));
+            else if (item is MagicSwordItem) player.GetLinkInventory().removeLinkItem(new BlueSwordItem(new Rectangle(), new Rectangle(), item.GetSpriteSheet()));
             collidedItems.Add(item);
             player.GetLinkInventory().addItem(item);
         }
