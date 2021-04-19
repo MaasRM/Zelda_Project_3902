@@ -76,6 +76,7 @@ namespace Sprint0
             {
                 spriteBatch.Draw(letterSheet, new Rectangle(0, 250, 1020, 750), new Rectangle(83, 38, 4, 4), Color.White);
                 textSound.Play();
+                spriteBatch.Draw(letterSheet, new Rectangle(0, 0, 256 * GameConstants.SCALE, 64 * GameConstants.SCALE), new Rectangle(280, 30, 1, 1), Color.White);
                 for (int i = 0; i <= counter * 2; i += 2)
                 {
                     Rectangle destination = new Rectangle((letterDest[i] + 8) * GameConstants.SCALE, (GameConstants.HUDSIZE * GameConstants.SCALE) + (letterDest[i + 1] + 40) * GameConstants.SCALE, 7 * GameConstants.SCALE, 7 * GameConstants.SCALE);
