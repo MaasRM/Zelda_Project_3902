@@ -161,9 +161,12 @@ namespace Sprint0
             Text_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Text")); //done
             Text_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Text_Slow")); //done
 
-            hintSprite = new HintSprite(dungeonSheet, roomManager, Text_soundEffects[1].CreateInstance());
+            link = new Link(contentManager.Load<Texture2D>("LinkSpriteSheet"), linkSheetList, Link_soundEffects, inventory);
+            shop = new Shop(link, npcSheet, dungeonSheet, itemsSheet, roomManager, this);
+            deathMessageSprite = new DeathMessageSprite(dungeonSheet, roomManager, Text_soundEffects[1].CreateInstance(), link);
+            hintSprite = new HintSprite(dungeonSheet, roomManager, Text_soundEffects[1].CreateInstance(), link.GetLinkInventory().pauseScreen);
+
             StartScreen = new TitleScreen(titleSheet, this.GraphicsDevice.Viewport.Bounds.Width, this.GraphicsDevice.Viewport.Bounds.Height);
-            
 
             XmlDocument doc = new XmlDocument();
             FileStream file = new FileStream(xmlLoc, FileMode.Open);
@@ -183,10 +186,6 @@ namespace Sprint0
                                         this.GraphicsDevice.Viewport.Bounds.Width - WallConstants.RIGHTWALL,
                                         this.GraphicsDevice.Viewport.Bounds.Y + WallConstants.TOPWALL + GameConstants.HUDSIZE * GameConstants.SCALE,
                                         this.GraphicsDevice.Viewport.Bounds.Height - WallConstants.BOTTOMWALL, itemsSheet);
-
-            link = new Link(contentManager.Load<Texture2D>("LinkSpriteSheet"), linkSheetList, Link_soundEffects, inventory);
-            shop = new Shop(link, npcSheet, dungeonSheet, itemsSheet, roomManager, this);
-            deathMessageSprite = new DeathMessageSprite(dungeonSheet, roomManager, Text_soundEffects[1].CreateInstance(), link);
 
             //SongManager
             Songs = new SongManager(Title_music, Overworld_music, Dungeon_music, Ending_music);

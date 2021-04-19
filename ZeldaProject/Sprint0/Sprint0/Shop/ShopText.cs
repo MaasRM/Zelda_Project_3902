@@ -33,7 +33,9 @@ namespace Sprint0
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            textSound.Play();
+            LinkPauseScreen pause = game.GetPlayer().GetLinkInventory().pauseScreen;
+            if (pause.getCurrentYOffset() > 0 || pause.isGamePaused() == true) { textSound.Stop(); }
+            else { textSound.Play(); }
             for (int i = 0; i <= counter * 2; i += 2)
             {
                 Rectangle destination = new Rectangle(ShopConstants.letterDest[i] * GameConstants.SCALE, (GameConstants.HUDSIZE * GameConstants.SCALE) + ShopConstants.letterDest[i + 1] * GameConstants.SCALE, ShopConstants.LETTERSIZE * GameConstants.SCALE, ShopConstants.LETTERSIZE * GameConstants.SCALE);
