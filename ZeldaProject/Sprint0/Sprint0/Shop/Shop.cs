@@ -27,7 +27,6 @@ namespace Sprint0
             roomManager = manager;
             this.dungeonSheet = dungeonSheet;
             this.itemSheet = itemSheet;
-            this.inventorySheet = inventorySheet;
         }
 
         public void Update()
