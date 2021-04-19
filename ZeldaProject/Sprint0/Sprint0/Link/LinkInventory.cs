@@ -37,6 +37,7 @@ namespace Sprint0
         public LinkPauseScreen pauseScreen { get; set; }
         public LinkHealthBar healthBar { get; set; }
         public IItem currentItem { get; set; }
+        public LinkSword sword;
         public enum Direction
         {
             Up,
@@ -51,7 +52,7 @@ namespace Sprint0
             bombCount = 0;
             rupeeCount = 99;
             linkItems = new List<IItem>();
-            linkItems.Add(new BrownSwordItem(new Rectangle(), new Rectangle(), background));
+            sword = new LinkSword(new BrownSwordItem(new Rectangle(), new Rectangle(555, 137, 7, 16), background));
             currentItem = null;
             currentItemIndex = 0;
             inventoryBackground = background;
@@ -74,7 +75,7 @@ namespace Sprint0
                 Rectangle inventoryDestination = new Rectangle(0, 0 + offset, 256 * GameConstants.SCALE, 64 * GameConstants.SCALE);
                 spriteBatch.Draw(inventoryBackground, inventoryDestination, inventorySource, Color.White);
                 Rectangle swordDestination = new Rectangle(612, 106 + offset, 9 * GameConstants.SCALE, 20 * GameConstants.SCALE);
-                DrawPrimaryWeapon(spriteBatch, swordDestination);
+                sword.Draw(spriteBatch, swordDestination);
                 Rectangle counterSource = new Rectangle(519, 117, 7, 8);
                 Rectangle rupeeCounterDestination = new Rectangle(388, 72 + offset, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE);
                 Rectangle keyCounterDestination = new Rectangle(388, 148 + offset, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE);
@@ -245,21 +246,6 @@ namespace Sprint0
             }
         }
 
-        public void DrawPrimaryWeapon(SpriteBatch spriteBatch, Rectangle primaryWeapon)
-        {
-            Rectangle itemSource = new Rectangle(530, 16, 1, 1);
-
-            foreach(IItem item in linkItems)
-            {
-                if (item is BrownSwordItem) itemSource = new Rectangle(554, 137, 8, 16);
-                else if (item is BlueSwordItem) itemSource = new Rectangle(563, 137, 8, 16);
-                else if (item is MagicSwordItem) itemSource = new Rectangle(573, 137, 8, 16);
-            }
-
-            //pauseScreen.DrawPrimaryWeapon(spriteBatch, itemSource);
-            spriteBatch.Draw(inventoryBackground, primaryWeapon, itemSource, Color.White);
-        }
-
         public void DrawSecondaryWeapon(SpriteBatch spriteBatch, Rectangle secondaryWeapon)
         {
             Rectangle itemSource = new Rectangle(530, 16, 1, 1);
@@ -307,7 +293,7 @@ namespace Sprint0
         public void addItem(IItem item)
         {
             int check = 0;
-            if (item is BoomerangItem || item is BowItem || item is BlueArrowItem || item is BombItem || item is BlueBoomerangItem || item is CandleItem || item is TriforceShardItem || item is BlueSwordItem || item is MagicSwordItem)
+            if (item is BoomerangItem || item is BowItem || item is BlueArrowItem || item is BombItem || item is BlueBoomerangItem || item is CandleItem || item is TriforceShardItem)
             {
                 if (linkItems.Count == 0)
                 {
@@ -321,6 +307,7 @@ namespace Sprint0
                     if (check == 0) { linkItems.Add(item); }
                 }
             }
+            else if (item is BlueSwordItem || item is MagicSwordItem) sword.setSword(item);
             pauseScreen.updateLinkItemList(linkItems);
         }
 
@@ -373,6 +360,11 @@ namespace Sprint0
         public List<IItem> getLinkItems()
         {
             return linkItems;
+        }
+
+        public IItem getLinkSword()
+        {
+            return sword.getSword();
         }
 
         public void removeLinkItem(IItem itemToRemove)

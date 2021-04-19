@@ -27,6 +27,7 @@ namespace Sprint0
             roomManager = manager;
             this.dungeonSheet = dungeonSheet;
             this.itemSheet = itemSheet;
+            this.inventorySheet = inventorySheet;
         }
 
         public void Update()
@@ -97,18 +98,18 @@ namespace Sprint0
                     ItemText blueArrowText = new ItemText(ShopConstants.BLUEARROWCOST, dungeonSheet, blueArrow.GetLocationRectangle());
                     shopItems.Add(blueArrow, blueArrowText);
                 }
-                if (item is BrownSwordItem)
-                {
-                    BlueSwordItem blueSword = new BlueSwordItem(new Rectangle(135 * GameConstants.SCALE, 110 * GameConstants.SCALE, 7 * GameConstants.SCALE, 15 * GameConstants.SCALE), new Rectangle(104, 16, 7, 15), itemSheet);
-                    ItemText blueSwordText = new ItemText(ShopConstants.BLUESWORDCOST, dungeonSheet, blueSword.GetLocationRectangle());
-                    shopItems.Add(blueSword, blueSwordText);
-                }
-                if (item is BlueSwordItem)
-                {
-                    MagicSwordItem magicSword = new MagicSwordItem(new Rectangle(135 * GameConstants.SCALE, 110 * GameConstants.SCALE, 7 * GameConstants.SCALE, 15 * GameConstants.SCALE), new Rectangle(112, 0, 8, 15), itemSheet);
-                    ItemText magicSwordText = new ItemText(ShopConstants.MAGICSWORDCOST, dungeonSheet, magicSword.GetLocationRectangle());
-                    shopItems.Add(magicSword, magicSwordText);
-                }
+            }
+            IItem sword = linkInv.getLinkSword();
+            if (sword is BrownSwordItem)
+            {
+                BlueSwordItem blueSword = new BlueSwordItem(new Rectangle(135 * GameConstants.SCALE, 110 * GameConstants.SCALE, 7 * GameConstants.SCALE, 15 * GameConstants.SCALE), new Rectangle(104, 16, 7, 15), itemSheet);
+                ItemText blueSwordText = new ItemText(ShopConstants.BLUESWORDCOST, dungeonSheet, blueSword.GetLocationRectangle());
+                shopItems.Add(blueSword, blueSwordText);
+            } else if (sword is BlueSwordItem)
+            {
+                MagicSwordItem magicSword = new MagicSwordItem(new Rectangle(135 * GameConstants.SCALE, 110 * GameConstants.SCALE, 7 * GameConstants.SCALE, 15 * GameConstants.SCALE), new Rectangle(112, 0, 8, 15), itemSheet);
+                ItemText magicSwordText = new ItemText(ShopConstants.MAGICSWORDCOST, dungeonSheet, magicSword.GetLocationRectangle());
+                shopItems.Add(magicSword, magicSwordText);
             }
         }
 
