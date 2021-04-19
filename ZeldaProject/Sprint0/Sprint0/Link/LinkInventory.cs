@@ -346,13 +346,19 @@ namespace Sprint0
 
         public void removeBomb()
         {
-            int check = 0;
+            int check = -1;
             bombCount--;
             foreach (IItem item in linkItems)
             {
-                if (item is BombItem) { check = linkItems.IndexOf(item); }
+                if (item is BombItem)
+                {
+                    check = linkItems.IndexOf(item);
+                }
             }
-            if (check >= 0) { linkItems.RemoveAt(check); }
+            if (check >= 0)
+            {
+                linkItems.RemoveAt(check);
+            }
         }
 
         public bool hasBombs()
@@ -375,9 +381,15 @@ namespace Sprint0
             int check = -1;
             foreach (IItem item in linkItems)
             {
-                if (item.GetType() == itemToRemove.GetType()) { check = linkItems.IndexOf(item); }
+                if (item.GetType() == itemToRemove.GetType())
+                {
+                    check = linkItems.IndexOf(item);
+                }
             }
-            if (check >= 0) { linkItems.RemoveAt(check); }
+            if (check >= 0)
+            {
+                linkItems.RemoveAt(check);
+            }
         }
     }
 }
