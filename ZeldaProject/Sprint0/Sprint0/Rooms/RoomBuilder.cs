@@ -58,7 +58,7 @@ namespace Sprint0
                     {
                         if (checkItem.GetType() == currentItem.GetType())
                         {
-                            if (checkItem is TriforceShardItem) add = add && ((TriforceShardItem)currentItem).getTriForceIndex() != ((TriforceShardItem)checkItem).getTriForceIndex();
+                            if (currentItem is TriforceShardItem) add = add && ((TriforceShardItem)currentItem).getTriForceIndex() != ((TriforceShardItem)checkItem).getTriForceIndex();
                             else add = false;
                         }
                     }

@@ -97,7 +97,7 @@ namespace Sprint0
 
         public bool isDrawing()
         {
-            return counter != 0;
+            return frameCount != 130;
         }
     }
 }

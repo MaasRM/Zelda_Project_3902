@@ -22,5 +22,10 @@ namespace Sprint0
             if(add )shards.Add(shard);
         }
 
+        public List<IItem> getShards()
+        {
+            return shards;
+        }
+
     }
 }

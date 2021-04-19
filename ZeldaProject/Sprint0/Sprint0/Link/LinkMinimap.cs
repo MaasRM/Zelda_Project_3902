@@ -70,9 +70,19 @@ namespace Sprint0
             hasMap = val;
         }
 
+        public bool hasMinimap()
+        {
+            return hasMap;
+        }
+
         public void setCompass(bool val)
         {
             hasCompass = val;
+        }
+
+        public bool HasCompass()
+        {
+            return hasCompass;
         }
 
         public void setLinkMinimapDestinationSprite(int roomNumber, int offset)

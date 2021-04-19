@@ -429,7 +429,7 @@ namespace Sprint0
                 XmlDocument doc = new XmlDocument();
                 FileStream file = new FileStream(xmlLoc, FileMode.Open);
                 doc.Load(file);
-                roomManager.Reset(link.GetLinkInventory().getLinkItems(), doc, dungeonSheet, enemySheets, itemsSheet, bossSheets, npcSheet, overworldSheet);
+                roomManager.Reset(link.GetLinkInventory().getNoResetItems(), doc, dungeonSheet, enemySheets, itemsSheet, bossSheets, npcSheet, overworldSheet);
                 file.Close();
                 roomManager.ChangeRoom(GameConstants.OUTSIDEROOM);
                 link.Reset();
