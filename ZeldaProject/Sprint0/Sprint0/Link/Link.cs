@@ -63,9 +63,24 @@ namespace Sprint0
             else
             {
                 damageFrameCount = 0;
-                linkSpriteSheet = linkSheetList[0];
+                switch(currentColor)
+                {
+                    case LinkColor.Green:
+                        linkSpriteSheet = linkSheetList[0];
+                        break;
+                    case LinkColor.Black:
+                        linkSpriteSheet = linkSheetList[1];
+                        break;
+                    case LinkColor.Red:
+                        linkSpriteSheet = linkSheetList[2];
+                        break;
+                    case LinkColor.Blue:
+                        linkSpriteSheet = linkSheetList[3];
+                        break;
+                    default:
+                        break;
+                }
             }
-            currentColor = stateMachine.getColor();
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -89,6 +104,7 @@ namespace Sprint0
         public void changeColor(LinkColor newColor)
         {
             stateMachine.setColor(newColor);
+            currentColor = newColor;
             if (newColor == LinkColor.Green)
             {
                 linkSpriteSheet = linkSheetList[0];

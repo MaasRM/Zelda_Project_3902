@@ -51,7 +51,7 @@ namespace Sprint0
         {
             keyCount = 0;
             bombCount = 0;
-            rupeeCount = 99;
+            rupeeCount = 0;
             linkItems = new List<IItem>();
             sword = new LinkSword(new BrownSwordItem(new Rectangle(), new Rectangle(555, 137, 7, 16), background));
             shards = new LinkTriForceShards();
