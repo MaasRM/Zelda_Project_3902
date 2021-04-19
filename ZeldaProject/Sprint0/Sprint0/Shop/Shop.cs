@@ -110,7 +110,7 @@ namespace Sprint0
                 ItemText magicSwordText = new ItemText(ShopConstants.MAGICSWORDCOST, dungeonSheet, magicSword.GetLocationRectangle());
                 shopItems.Add(magicSword, magicSwordText);
             }
-            LinkColor color = ((Link)link).getLinkColor();
+            LinkColor color = link.getLinkColor();
             Rectangle armorDest = new Rectangle(190 * GameConstants.SCALE, 110 * GameConstants.SCALE, 15 * GameConstants.SCALE, 15 * GameConstants.SCALE);
             switch (color)
             {

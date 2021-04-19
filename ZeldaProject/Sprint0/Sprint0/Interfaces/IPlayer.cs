@@ -10,6 +10,8 @@ namespace Sprint0
     {
         public void Update();
         public void Draw(SpriteBatch spriteBatch);
+        public LinkColor getLinkColor();
+        public void changeColor(LinkColor newColor);
         public LinkInventory GetLinkInventory();
         public LinkStateMachine getLinkStateMachine();
         public Texture2D GetSpriteSheet();

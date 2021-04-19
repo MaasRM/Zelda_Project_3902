@@ -106,9 +106,9 @@ namespace Sprint0
 
         private static void HandleColorChange(IPlayer player, IItem item, List<SoundEffect> Collision_soundEffects, List<IItem> collidedItems)
         {
-            if (item is RedLinkItem) ((Link)player).changeColor(LinkColor.Red);
-            else if (item is BlueLinkItem) ((Link)player).changeColor(LinkColor.Blue);
-            else if (item is BlackLinkItem) ((Link)player).changeColor(LinkColor.Black);
+            if (item is RedLinkItem) player.changeColor(LinkColor.Red);
+            else if (item is BlueLinkItem) player.changeColor(LinkColor.Blue);
+            else if (item is BlackLinkItem) player.changeColor(LinkColor.Black);
             Collision_soundEffects[7].Play();
             collidedItems.Add(item);
         }
