@@ -307,7 +307,7 @@ namespace Sprint0
         public void addItem(IItem item)
         {
             int check = 0;
-            if (item is BoomerangItem || item is BowItem || item is BlueArrowItem || item is BombItem || item is BlueBoomerangItem || item is CandleItem)
+            if (item is BoomerangItem || item is BowItem || item is BlueArrowItem || item is BombItem || item is BlueBoomerangItem || item is CandleItem || item is TriforceShardItem || item is BlueSwordItem || item is MagicSwordItem)
             {
                 if (linkItems.Count == 0)
                 {
@@ -321,7 +321,6 @@ namespace Sprint0
                     if (check == 0) { linkItems.Add(item); }
                 }
             }
-            else if (item is TriforceShardItem || item is BlueSwordItem || item is MagicSwordItem) linkItems.Add(item);
             pauseScreen.updateLinkItemList(linkItems);
         }
 

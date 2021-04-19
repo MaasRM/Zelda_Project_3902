@@ -19,7 +19,7 @@ namespace Sprint0
         public const int BLUEARROWCOST = 30;
         public const int BLUEBOOMERANGCOST = 50;
         public const int BLUESWORDCOST = 25;
-        public const int MAGICSWORDCOST = 25;
+        public const int MAGICSWORDCOST = 50;
         public static readonly int[] numberSource = { 1, 142, 1, 150, 9, 142, 9, 150, 17, 142, 17, 150, 25, 142, 25, 150, 33, 142, 33, 150};
         public static readonly int[] letterDest
             = { 95, 120, 102, 120, 109, 120, 116, 120, 123, 120, 130, 120, 137, 120, 144, 120, 151, 120, 158, 120, 165, 120,
