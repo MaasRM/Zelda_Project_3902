@@ -5341,10 +5341,10 @@
 				<DoorType>Wall</DoorType>
 			</LeftDoor>
 			<UpDoor>
-				<DoorType>OpenDoor</DoorType>
+				<DoorType>ClosedDoor</DoorType>
 			</UpDoor>
 			<DownDoor>
-				<DoorType>OpenDoor</DoorType>
+				<DoorType>LockedDoor</DoorType>
 			</DownDoor>
 		</Doors>
 	</Room>
@@ -5545,7 +5545,7 @@
 				<DoorType>OpenDoor</DoorType>
 			</UpDoor>
 			<DownDoor>
-				<DoorType>OpenDoor</DoorType>
+				<DoorType>BrokenWall</DoorType>
 			</DownDoor>
 		</Doors>
 	</Room>
@@ -6234,7 +6234,7 @@
 				<DoorType>OpenDoor</DoorType>
 			</UpDoor>
 			<DownDoor>
-				<DoorType>OpenDoor</DoorType>
+				<DoorType>BrokenWall</DoorType>
 			</DownDoor>
 		</Doors>
 	</Room>
@@ -6389,7 +6389,7 @@
 				<DoorType>OpenDoor</DoorType>
 			</LeftDoor>
 			<UpDoor>
-				<DoorType>OpenDoor</DoorType>
+				<DoorType>BrokenWall</DoorType>
 			</UpDoor>
 			<DownDoor>
 				<DoorType>Wall</DoorType>
@@ -6472,7 +6472,7 @@
 				<DoorType>Wall</DoorType>
 			</LeftDoor>
 			<UpDoor>
-				<DoorType>OpenDoor</DoorType>
+				<DoorType>BrokenWall</DoorType>
 			</UpDoor>
 			<DownDoor>
 				<DoorType>Wall</DoorType>
@@ -6658,7 +6658,7 @@
 				<DoorType>OpenDoor</DoorType>
 			</UpDoor>
 			<DownDoor>
-				<DoorType>OpenDoor</DoorType>
+				<DoorType>BrokenWall</DoorType>
 			</DownDoor>
 		</Doors>
 	</Room>
@@ -7011,7 +7011,7 @@
 				<DoorType>Wall</DoorType>
 			</LeftDoor>
 			<UpDoor>
-				<DoorType>OpenDoor</DoorType>
+				<DoorType>BrokenWall</DoorType>
 			</UpDoor>
 			<DownDoor>
 				<DoorType>Wall</DoorType>
@@ -7424,10 +7424,10 @@
 				<DoorType>Wall</DoorType>
 			</LeftDoor>
 			<UpDoor>
-				<DoorType>OpenDoor</DoorType>
+				<DoorType>ClosedDoor</DoorType>
 			</UpDoor>
 			<DownDoor>
-				<DoorType>OpenDoor</DoorType>
+				<DoorType>LockedDoor</DoorType>
 			</DownDoor>
 		</Doors>
 	</Room>
