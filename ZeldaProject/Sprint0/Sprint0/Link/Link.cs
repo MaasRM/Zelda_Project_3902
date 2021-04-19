@@ -48,10 +48,7 @@ namespace Sprint0
 
             if (stateMachine.getColor() == LinkColor.Damaged && damageFrameCount <= 8)
             {
-                if (damageFrameCount % 4 == 0) linkSpriteSheet = linkSheetList[1];
-                else if (damageFrameCount % 4 == 1) linkSpriteSheet = linkSheetList[2];
-                else if (damageFrameCount % 4 == 2) linkSpriteSheet = linkSheetList[3];
-                else linkSpriteSheet = linkSheetList[0];
+                linkSpriteSheet = linkSheetList[(damageFrameCount + 1) % 4];
                 if (damageFrameCount == 8)
                 {
                     stateMachine.setColor(LinkColor.Green);
@@ -63,23 +60,7 @@ namespace Sprint0
             else
             {
                 damageFrameCount = 0;
-                switch(currentColor)
-                {
-                    case LinkColor.Green:
-                        linkSpriteSheet = linkSheetList[0];
-                        break;
-                    case LinkColor.Black:
-                        linkSpriteSheet = linkSheetList[1];
-                        break;
-                    case LinkColor.Red:
-                        linkSpriteSheet = linkSheetList[2];
-                        break;
-                    case LinkColor.Blue:
-                        linkSpriteSheet = linkSheetList[3];
-                        break;
-                    default:
-                        break;
-                }
+                linkSpriteSheet = linkSheetList[(int)currentColor];
             }
         }
 

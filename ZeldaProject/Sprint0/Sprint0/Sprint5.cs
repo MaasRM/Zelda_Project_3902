@@ -99,8 +99,8 @@ namespace Sprint0
             List<Texture2D> linkSheetList = new List<Texture2D>();
 
             linkSheetList.Add(contentManager.Load<Texture2D>("LinkSpriteSheet")); // 0 is green
-            linkSheetList.Add(contentManager.Load<Texture2D>("LinkSpriteSheetBlack")); // 1 is black
-            linkSheetList.Add(contentManager.Load<Texture2D>("LinkSpriteSheetRed")); // 2 is red
+            linkSheetList.Add(contentManager.Load<Texture2D>("LinkSpriteSheetRed")); // 1 is red
+            linkSheetList.Add(contentManager.Load<Texture2D>("LinkSpriteSheetBlack")); // 2 is black
             linkSheetList.Add(contentManager.Load<Texture2D>("LinkSpriteSheetBlue")); // 3 is blue
 
             enemySheets.Add(contentManager.Load<Texture2D>("Dungeon_Enemies"));
