@@ -46,10 +46,10 @@ namespace Sprint0
         private int yLoc;
         private bool isBusy;
         private int frame;
-        private HealthAndDamageHandler healthAndDamage;
         private List<SoundEffect> soundEffects;
         private SoundEffectInstance lowHealth;
         public Vector2 damageVector { get; set; }
+        public HealthAndDamageHandler healthAndDamage { get; set; }
 
         public LinkStateMachine(List<SoundEffect> Link_soundEffects)
         {
@@ -222,11 +222,6 @@ namespace Sprint0
             damageVector = new Vector2(0, 0);
         }
 
-        public void Heal(int newHealth)
-        {
-            healthAndDamage.Heal(newHealth);
-        }
-
         public void TakeDamage(int damage, Vector2 direction)
         {
             if(color != LinkColor.Damaged)
@@ -249,26 +244,6 @@ namespace Sprint0
             }
 
             return healthAndDamage.IsAlive();
-        }
-
-        public int GetCurrentHealth()
-        {
-            return healthAndDamage.Health();
-        }
-
-        public void SetMaxHealth(int health)
-        {
-            healthAndDamage.SetHealth(health);
-        }
-
-        public int GetMaxHealth()
-        {
-            return healthAndDamage.GetMaxHealth();
-        }
-
-        public int GetDamage()
-        {
-            return healthAndDamage.DealDamage();
         }
     }
 }

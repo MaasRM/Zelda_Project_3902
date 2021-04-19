@@ -43,8 +43,8 @@ namespace Sprint0
             if(stateMachine.getAnimation() == Animation.Attack) source.Offset(linkInventory.getLinkSword().getXOffset(), 0);
             destination = stateMachine.getDestination();
 
-            linkInventory.healthBar.setCurrentHealth(stateMachine.GetCurrentHealth());
-            linkInventory.healthBar.setMaxHealth(stateMachine.GetMaxHealth());
+            linkInventory.healthBar.setCurrentHealth(stateMachine.healthAndDamage.Health());
+            linkInventory.healthBar.setMaxHealth(stateMachine.healthAndDamage.GetMaxHealth());
 
             if (stateMachine.getColor() == LinkColor.Damaged && damageFrameCount <= 8)
             {
@@ -141,12 +141,12 @@ namespace Sprint0
 
         public int GetMeleeDamage()
         {
-            return stateMachine.GetDamage();
+            return stateMachine.healthAndDamage.DealDamage();
         }
 
         public void Heal(int health)
         {
-            stateMachine.Heal(health);
+            stateMachine.healthAndDamage.Heal(health);
         }
 
         public void SetDamageState(int damage, Vector2 direction)

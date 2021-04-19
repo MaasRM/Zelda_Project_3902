@@ -56,7 +56,7 @@ namespace Sprint0
             Collision_soundEffects[6].Play();
             collidedItems.Add(item);
             player.GetLinkInventory().addItem(item);
-            player.getLinkStateMachine().Heal(2);
+            player.getLinkStateMachine().healthAndDamage.Heal(2);
         }
 
         private static void HandleHeartContainer(IItem item, IPlayer player, List<SoundEffect> Collision_soundEffects, List<IItem> collidedItems)
@@ -64,8 +64,8 @@ namespace Sprint0
             Collision_soundEffects[6].Play();
             collidedItems.Add(item);
             player.GetLinkInventory().addItem(item);
-            player.getLinkStateMachine().SetMaxHealth(player.getLinkStateMachine().GetMaxHealth() + 2);
-            player.getLinkStateMachine().Heal(player.getLinkStateMachine().GetMaxHealth());
+            player.getLinkStateMachine().healthAndDamage.ChangeMaxHealth(player.getLinkStateMachine().healthAndDamage.GetMaxHealth() + 2);
+            player.getLinkStateMachine().healthAndDamage.Heal(player.getLinkStateMachine().healthAndDamage.GetMaxHealth());
         }
 
         private static void HandleBomb(IItem item, IPlayer player, List<IItem> collidedItems)
@@ -126,8 +126,16 @@ namespace Sprint0
             else Collision_soundEffects[7].Play();
             if (item is BlueBoomerangItem) player.GetLinkInventory().removeLinkItem(new BoomerangItem(new Rectangle(), new List<INPC>(), item.GetSpriteSheet()));
             else if (item is BlueArrowItem) player.GetLinkInventory().removeLinkItem(new BowItem(new Rectangle(), new Rectangle(), item.GetSpriteSheet()));
-            else if (item is BlueSwordItem) player.GetLinkInventory().removeLinkItem(new BrownSwordItem(new Rectangle(), new Rectangle(), item.GetSpriteSheet()));
-            else if (item is MagicSwordItem) player.GetLinkInventory().removeLinkItem(new BlueSwordItem(new Rectangle(), new Rectangle(), item.GetSpriteSheet()));
+            else if (item is BlueSwordItem)
+            {
+                player.GetLinkInventory().removeLinkItem(new BrownSwordItem(new Rectangle(), new Rectangle(), item.GetSpriteSheet()));
+                player.getLinkStateMachine().healthAndDamage.SetDamage(player.getLinkStateMachine().healthAndDamage.DealDamage() * 2);
+            }
+            else if (item is MagicSwordItem)
+            {
+                player.GetLinkInventory().removeLinkItem(new BlueSwordItem(new Rectangle(), new Rectangle(), item.GetSpriteSheet()));
+                player.getLinkStateMachine().healthAndDamage.SetDamage(player.getLinkStateMachine().healthAndDamage.DealDamage() * 2);
+            }
             collidedItems.Add(item);
             player.GetLinkInventory().addItem(item);
         }
