@@ -278,7 +278,7 @@ namespace Sprint0
 
         public Rectangle getNumberSourceRectangle(int n)
         {
-            Rectangle source;
+            Rectangle source = new Rectangle(528, 117, 7, 8);
             if(n == 0) { source = new Rectangle(528, 117, 7, 8); }
             else if(n == 1) { source = new Rectangle(537, 117, 7, 8); }
             else if(n == 2) { source = new Rectangle(546, 117, 7, 8); }
@@ -286,8 +286,9 @@ namespace Sprint0
             else if(n == 4) { source = new Rectangle(564, 117, 7, 8); }
             else if(n == 5) { source = new Rectangle(573, 117, 7, 8); }
             else if(n == 6) { source = new Rectangle(582, 117, 7, 8); }
+            else if(n == 7) { source = new Rectangle(591, 117, 7, 8); }
             else if(n == 8) { source = new Rectangle(600, 117, 7, 8); }
-            else { source = new Rectangle(609, 117, 7, 8); }
+            else if(n == 9) { source = new Rectangle(609, 117, 7, 8); }
             return source;
         }
 
