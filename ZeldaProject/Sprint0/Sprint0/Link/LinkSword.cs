@@ -30,5 +30,13 @@ namespace Sprint0
             return currentSword;
         }
 
+        public int getXOffset()
+        {
+            int offset = 0;
+            if (currentSword is BlueSwordItem) offset = 93;
+            else if (currentSword is MagicSwordItem) offset = 186;
+            return offset;
+        }
+
     }
 }

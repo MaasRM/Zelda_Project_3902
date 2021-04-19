@@ -40,6 +40,7 @@ namespace Sprint0
         {
             stateMachine.Update();
             source = stateMachine.getSource();
+            if(stateMachine.getAnimation() == Animation.Attack) source.Offset(linkInventory.getLinkSword().getXOffset(), 0);
             destination = stateMachine.getDestination();
 
             linkInventory.healthBar.setCurrentHealth(stateMachine.GetCurrentHealth());

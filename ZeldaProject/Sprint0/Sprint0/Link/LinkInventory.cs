@@ -365,9 +365,9 @@ namespace Sprint0
             return linkItems;
         }
 
-        public IItem getLinkSword()
+        public LinkSword getLinkSword()
         {
-            return sword.getSword();
+            return sword;
         }
 
         public void removeLinkItem(IItem itemToRemove)

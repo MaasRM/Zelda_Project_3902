@@ -98,7 +98,7 @@ namespace Sprint0
                     shopItems.Add(blueArrow, blueArrowText);
                 }
             }
-            IItem sword = link.GetLinkInventory().getLinkSword();
+            IItem sword = link.GetLinkInventory().getLinkSword().getSword();
             if (sword is BrownSwordItem)
             {
                 BlueSwordItem blueSword = new BlueSwordItem(new Rectangle(155 * GameConstants.SCALE, 110 * GameConstants.SCALE, 7 * GameConstants.SCALE, 15 * GameConstants.SCALE), new Rectangle(104, 16, 7, 15), itemSheet);
