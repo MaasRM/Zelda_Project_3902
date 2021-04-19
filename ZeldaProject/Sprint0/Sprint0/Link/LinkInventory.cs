@@ -110,9 +110,8 @@ namespace Sprint0
             Rectangle inventorySource = new Rectangle(258, 12, 254, 54);
             Rectangle inventoryDestination = new Rectangle(0, 0 + offset, 256 * GameConstants.SCALE, 64 * GameConstants.SCALE);
             spriteBatch.Draw(inventoryBackground, inventoryDestination, inventorySource, Color.White);
-            Rectangle swordSource = new Rectangle(555, 137, 7, 15);
             Rectangle swordDestination = new Rectangle(612, 106 + offset, 9 * GameConstants.SCALE, 20 * GameConstants.SCALE);
-            spriteBatch.Draw(inventoryBackground, swordDestination, swordSource, Color.White);
+            sword.Draw(spriteBatch, swordDestination);
             Rectangle counterSource = new Rectangle(519, 117, 7, 8);
             Rectangle rupeeCounterDestination = new Rectangle(388, 72 + offset, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE);
             Rectangle keyCounterDestination = new Rectangle(388, 148 + offset, 8 * GameConstants.SCALE, 9 * GameConstants.SCALE);

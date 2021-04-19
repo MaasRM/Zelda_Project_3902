@@ -109,7 +109,7 @@ namespace Sprint0
             if (item is RedLinkItem) ((Link)player).changeColor(LinkColor.Red);
             else if (item is BlueLinkItem) ((Link)player).changeColor(LinkColor.Blue);
             else if (item is BlackLinkItem) ((Link)player).changeColor(LinkColor.Black);
-            Collision_soundEffects[5].Play();
+            Collision_soundEffects[7].Play();
             collidedItems.Add(item);
         }
 
