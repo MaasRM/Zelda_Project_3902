@@ -62,7 +62,7 @@ namespace Sprint0
                 if (state == State.Eating && eatFrames >= DodongoConstants.PAUSETOEAT) return new Rectangle(52, 58, DodongoConstants.VERTMOVEWIDTH, DodongoConstants.HEIGHT);
                 else return new Rectangle(35, 58, DodongoConstants.VERTMOVEWIDTH, DodongoConstants.HEIGHT);
             }
-            else if (direction == Direction.Down && eatFrames >= DodongoConstants.PAUSETOEAT)
+            else if (direction == Direction.Down && (state != State.Eating || eatFrames >= DodongoConstants.PAUSETOEAT))
             {
                 if (state == State.Eating) return new Rectangle(18, 58, DodongoConstants.VERTMOVEWIDTH, DodongoConstants.HEIGHT);
                 else return new Rectangle(1, 58, DodongoConstants.VERTMOVEWIDTH, DodongoConstants.HEIGHT);
@@ -92,6 +92,7 @@ namespace Sprint0
                 if(eatFrames > DodongoConstants.EATFRAMECOUNT)
                 {
                     health -= bombDamage;
+                    eatFrames = 0;
                     if (health <= 0) state = State.Dying;
                     else state = State.Normal;
                 }
@@ -127,7 +128,7 @@ namespace Sprint0
 
         public bool NotDead()
         {
-            return state == State.Dead;
+            return state != State.Dead;
         }
 
         public void Eat(int damage)

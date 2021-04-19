@@ -34,7 +34,7 @@ namespace Sprint0
 
             if(stateMachine.GetState() != DodongoStateMachine.State.Dying || frame % 2 == 0)
             {
-                if (stateMachine.GetDirection() == Direction.Left || ((stateMachine.GetDirection() == Direction.Up || stateMachine.GetDirection() == Direction.Down) && frame % 2 == 1))
+                if (stateMachine.GetDirection() == Direction.Left || ((stateMachine.GetDirection() == Direction.Up || stateMachine.GetDirection() == Direction.Down) && frame % 2 == 1 && stateMachine.GetState() != DodongoStateMachine.State.Eating))
                 {
                     spriteBatch.Draw(dodongoSpriteSheet, destination, source, Color.White, 0, new Vector2(0, 0), SpriteEffects.FlipHorizontally, 0f);
                 }
