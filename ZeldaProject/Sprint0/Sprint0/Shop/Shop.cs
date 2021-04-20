@@ -9,8 +9,8 @@ namespace Sprint0
     public class Shop
     {
         Sprint5 game;
-        INPC OldMan;
-        ShopText oldManText;
+        INPC merchant;
+        ShopText merchantText;
         IPlayer link;
         Dictionary<IItem, ItemText> shopItems;
         RoomManager roomManager;
@@ -20,8 +20,8 @@ namespace Sprint0
         public Shop(IPlayer link, Texture2D npcSheet, Texture2D dungeonSheet, Texture2D itemSheet, RoomManager manager, Sprint5 game)
         {
             this.game = game;
-            OldMan = new OldMan(ShopConstants.OLDMANX * GameConstants.SCALE, ShopConstants.OLDMANY * GameConstants.SCALE, npcSheet);
-            oldManText = new ShopText(dungeonSheet, game);
+            merchant = new Merchant(ShopConstants.OLDMANX * GameConstants.SCALE, ShopConstants.OLDMANY * GameConstants.SCALE, npcSheet);
+            merchantText = new ShopText(dungeonSheet, game);
             this.link = link;
             shopItems = new Dictionary<IItem, ItemText>();
             roomManager = manager;
@@ -33,7 +33,7 @@ namespace Sprint0
         {
             if (roomManager.getRoomIndex() == GameConstants.SHOPROOM)
             {
-                oldManText.Update();
+                merchantText.Update();
                 Dictionary<IItem, ItemText> newShopItems = new Dictionary<IItem, ItemText>();
                 foreach (IItem item in game.GetItems())
                 {
@@ -49,14 +49,14 @@ namespace Sprint0
         {
             if (roomManager.getRoomIndex() == GameConstants.SHOPROOM)
             {
-                OldMan.Draw(spriteBatch);
-                oldManText.Draw(spriteBatch);
+                merchant.Draw(spriteBatch);
+                merchantText.Draw(spriteBatch);
                 foreach (KeyValuePair<IItem, ItemText> x in shopItems)
                 {
                     x.Value.Draw(spriteBatch);
                 }
             }
-            else oldManText.Reset();
+            else merchantText.Reset();
         }
 
         public void SetUpShop()
@@ -140,7 +140,7 @@ namespace Sprint0
 
         public Boolean IsShopAvailable()
         {
-            return oldManText.isDone();
+            return merchantText.isDone();
         }
 
         public Boolean IsShopCurrent()
@@ -156,10 +156,10 @@ namespace Sprint0
             if (ret)
             {
                 link.GetLinkInventory().ChangeRupee(-1 * text.GetPrice());
-                oldManText.ChangeText(2);
+                merchantText.ChangeText(2);
             } else
             {
-                oldManText.ChangeText(3);
+                merchantText.ChangeText(3);
             }
             return ret;
         }
