@@ -445,5 +445,10 @@ namespace Sprint0
                 for (int i = 0; i <= link.GetLinkInventory().getKeyCount(); i++) link.GetLinkInventory().removeKey();
             }
         }
+
+        public void ResetTriForceText()
+        {
+            triForceSprite.Reset();
+        }
     }
 }

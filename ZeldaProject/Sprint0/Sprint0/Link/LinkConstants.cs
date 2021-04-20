@@ -19,7 +19,7 @@ namespace Sprint0
         public static int MAXIMUMHEALTH = 40;
 
         public const int ZELDAX = 60;
-        public const int ZELDAY = 170;
+        public const int ZELDAY = 172;
         public const int TRIFORCE1X = 60;
         public const int TRIFORCE1Y = 155;
         public const int TRIFORCE2X = 45;

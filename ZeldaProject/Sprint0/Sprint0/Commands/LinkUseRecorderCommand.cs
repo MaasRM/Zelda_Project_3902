@@ -21,6 +21,7 @@ namespace Sprint0
             temp.Play();
 
             game.GetRoomManager().ChangeRoom(GameConstants.OUTSIDEROOM);
+            game.ResetTriForceText();
             game.GetPlayer().getLinkStateMachine().setAnimation(Animation.UsingItem);
         }
     }
