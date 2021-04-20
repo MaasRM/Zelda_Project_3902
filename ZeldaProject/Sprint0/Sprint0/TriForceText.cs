@@ -10,22 +10,26 @@ namespace Sprint0
     class TriForceText
     {
         private Texture2D letterSheet;
+        private Texture2D itemSheet;
         private SoundEffectInstance textSound;
         private Sprint5 game;
         private int counter;
+        private int shardUpdate;
         private int[] letterSource;
 
         private INPC zelda;
         private LinkTriForceShards shards;
 
-        public TriForceText(Texture2D dungeonSheet, Texture2D npcSheet, Sprint5 game, LinkTriForceShards shards)
+        public TriForceText(Texture2D dungeonSheet, Texture2D npcSheet, Texture2D itemSheet,  Sprint5 game, LinkTriForceShards shards)
         {
             this.game = game;
             letterSheet = dungeonSheet;
+            this.itemSheet = itemSheet;
             textSound = game.Text_soundEffects[1].CreateInstance();
             textSound.Volume = 0.25f;
             textSound.IsLooped = true;
             counter = 0;
+            shardUpdate = 0;
             letterSource = LinkConstants.letterSource;
             zelda = new Zelda(LinkConstants.ZELDAX * GameConstants.SCALE, LinkConstants.ZELDAY * GameConstants.SCALE, npcSheet);
             this.shards = shards;
@@ -58,23 +62,52 @@ namespace Sprint0
                 }
                 else textSound.Stop();
                 zelda.Draw(spriteBatch);
-                foreach (IItem shard in shards.getShards())
-                {
-                    switch (((TriforceShardItem)shard).getTriForceIndex())
-                    {
-                        case 1:
-                            spriteBatch.Draw(shard.GetSpriteSheet(), new Rectangle(LinkConstants.TRIFORCE1X * GameConstants.SCALE, LinkConstants.TRIFORCE1Y * GameConstants.SCALE, 15 * GameConstants.SCALE, 15 * GameConstants.SCALE), shard.GetSourceRectangle(), Color.White);
-                            break;
-                        case 2:
-                            spriteBatch.Draw(shard.GetSpriteSheet(), new Rectangle(LinkConstants.TRIFORCE2X * GameConstants.SCALE, LinkConstants.TRIFORCE2Y * GameConstants.SCALE, 15 * GameConstants.SCALE, 15 * GameConstants.SCALE), shard.GetSourceRectangle(), Color.White);
-                            break;
-                        case 3:
-                            spriteBatch.Draw(shard.GetSpriteSheet(), new Rectangle(LinkConstants.TRIFORCE3X * GameConstants.SCALE, LinkConstants.TRIFORCE3Y * GameConstants.SCALE, 15 * GameConstants.SCALE, 15 * GameConstants.SCALE), shard.GetSourceRectangle(), Color.White);
-                            break;
-                    }
-                }
+                DrawShards(spriteBatch);
             }
             else textSound.Stop();
+        }
+
+        private void DrawShards(SpriteBatch spriteBatch)
+        {
+            bool one = false;
+            bool two = false;
+            bool three = false;
+            shardUpdate++;
+            if (shardUpdate > 2) shardUpdate = 0;
+            foreach (IItem shard in shards.getShards())
+            {
+                if (((TriforceShardItem)shard).getTriForceIndex() == 1)
+                {
+                    spriteBatch.Draw(itemSheet, new Rectangle(LinkConstants.TRIFORCE1X * GameConstants.SCALE, LinkConstants.TRIFORCE1Y * GameConstants.SCALE, 15 * GameConstants.SCALE, 15 * GameConstants.SCALE), shard.GetSourceRectangle(), Color.White);
+                    one = true;
+                }
+                if (((TriforceShardItem)shard).getTriForceIndex() == 2)
+                {
+                    spriteBatch.Draw(itemSheet, new Rectangle(LinkConstants.TRIFORCE2X * GameConstants.SCALE, LinkConstants.TRIFORCE2Y * GameConstants.SCALE, 15 * GameConstants.SCALE, 15 * GameConstants.SCALE), shard.GetSourceRectangle(), Color.White);
+                    two = true;
+                }
+                if (((TriforceShardItem)shard).getTriForceIndex() == 3)
+                {
+                    spriteBatch.Draw(itemSheet, new Rectangle(LinkConstants.TRIFORCE3X * GameConstants.SCALE, LinkConstants.TRIFORCE3Y * GameConstants.SCALE, 15 * GameConstants.SCALE, 15 * GameConstants.SCALE), shard.GetSourceRectangle(), Color.White);
+                    three = true;
+                }
+                if(shardUpdate == 0)shard.Update();
+            }
+            if (!one)
+            {
+                IItem emptyShard1 = new EmptyTriforceShardItem(new Rectangle(LinkConstants.TRIFORCE1X * GameConstants.SCALE, LinkConstants.TRIFORCE1Y * GameConstants.SCALE, 15 * GameConstants.SCALE, 15 * GameConstants.SCALE), new Rectangle(272, 31, 15, 15), itemSheet);
+                emptyShard1.Draw(spriteBatch);
+            }
+            if (!two)
+            {
+                IItem emptyShard2 = new EmptyTriforceShardItem(new Rectangle(LinkConstants.TRIFORCE2X * GameConstants.SCALE, LinkConstants.TRIFORCE2Y * GameConstants.SCALE, 15 * GameConstants.SCALE, 15 * GameConstants.SCALE), new Rectangle(272, 31, 15, 15), itemSheet);
+                emptyShard2.Draw(spriteBatch);
+            }
+            if (!three)
+            {
+                IItem emptyShard3 = new EmptyTriforceShardItem(new Rectangle(LinkConstants.TRIFORCE3X * GameConstants.SCALE, LinkConstants.TRIFORCE3Y * GameConstants.SCALE, 15 * GameConstants.SCALE, 15 * GameConstants.SCALE), new Rectangle(272, 31, 15, 15), itemSheet);
+                emptyShard3.Draw(spriteBatch);
+            }
         }
 
         public void Reset()

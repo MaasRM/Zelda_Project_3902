@@ -164,7 +164,7 @@ namespace Sprint0
 
             link = new Link(contentManager.Load<Texture2D>("LinkSpriteSheet"), linkSheetList, Link_soundEffects, inventory);
             shop = new Shop(link, npcSheet, dungeonSheet, itemsSheet, roomManager, this);
-            triForceSprite = new TriForceText(dungeonSheet, npcSheet, this, link.GetLinkInventory().shards); 
+            triForceSprite = new TriForceText(dungeonSheet, npcSheet, itemsSheet, this, link.GetLinkInventory().shards); 
             deathMessageSprite = new DeathMessageSprite(dungeonSheet, roomManager, Text_soundEffects[1].CreateInstance(), link);
             hintSprite = new HintSprite(dungeonSheet, roomManager, Text_soundEffects[1].CreateInstance(), link.GetLinkInventory().pauseScreen);
 
