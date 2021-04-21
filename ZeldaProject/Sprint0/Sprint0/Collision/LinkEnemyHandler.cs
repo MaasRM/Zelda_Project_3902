@@ -28,7 +28,7 @@ namespace Sprint0
             {
                 DamageThePlayer(player, ((IEnemy)enemy).GetDamageValue(), overlap);
             }
-            else if(enemy is Wizzrobe && !((Wizzrobe)enemy).IsTeleporting())
+            else if(enemy is Wizzrobe && ((Wizzrobe)enemy).IsTeleporting())
             {
                 //Don't do anything
             }

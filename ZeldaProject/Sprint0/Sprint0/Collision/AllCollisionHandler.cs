@@ -221,7 +221,7 @@ namespace Sprint0
                 {
                     Collision_soundEffects[1].Play();
                 }
-                else if (!(nPC is Wallmaster))
+                else if (!(nPC is Wallmaster) && !(nPC is Wizzrobe && ((Wizzrobe)nPC).IsTeleporting()))
                 {
                     Collision_soundEffects[4].Play();
                 }
