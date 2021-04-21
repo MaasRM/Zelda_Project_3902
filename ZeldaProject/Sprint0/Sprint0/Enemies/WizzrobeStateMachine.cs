@@ -21,33 +21,36 @@ namespace Sprint0
             Stun
         }
 
-        private Direction direction;
-        private WizzrobeColor color;
         private State state;
         private Vector2 damageDirection;
         private int xLoc;
         private int yLoc;
         private int frame;
-        private bool throwing;
+        private int postFireFrame;
         private int health;
         private int damageFrames;
         private int stunFrames;
+        private Sprint5 game;
 
-        public WizzrobeStateMachine(int x, int y, WizzrobeColor c)
+        public Direction direction { get; set; }
+        public WizzrobeColor color { get; set; }
+
+        public WizzrobeStateMachine(int x, int y, WizzrobeColor c, Sprint5 sprint)
         {
             xLoc = x;
             yLoc = y;
             frame = -1;
+            postFireFrame = WizzrobeConstants.FRAMESBEFORETELEPORT + WizzrobeConstants.TELEPORTFRAMES;
             color = c;
-            throwing = false;
-            if (color == WizzrobeColor.Red) health = GoriyaConstants.REDMAXHEALTH;
-            else health = GoriyaConstants.BLUEMAXHEALTH;
+            if (color == WizzrobeColor.Red) health = WizzrobeConstants.REDMAXHEALTH;
+            else health = WizzrobeConstants.BLUEMAXHEALTH;
             state = State.Normal;
+            game = sprint;
         }
 
         public Rectangle GetDestination()
         {
-            return new Rectangle(xLoc, yLoc, GoriyaConstants.WIDTHANDHEIGHT * GameConstants.SCALE, GoriyaConstants.WIDTHANDHEIGHT * GameConstants.SCALE);
+            return new Rectangle(xLoc, yLoc, WizzrobeConstants.WIDTHANDHEIGHT * GameConstants.SCALE, WizzrobeConstants.WIDTHANDHEIGHT * GameConstants.SCALE);
         }
 
         public void SetDestination(int x, int y)
@@ -58,45 +61,39 @@ namespace Sprint0
 
         public Rectangle GetSource()
         {
-            if (direction == Direction.Down || direction == Direction.Up)
+            if (direction == Direction.Up)
             {
-                return new Rectangle(222 + 17 * (int)direction, 11 + 17 * (int)color, GoriyaConstants.WIDTHANDHEIGHT, GoriyaConstants.WIDTHANDHEIGHT);
+                return new Rectangle(160 + 17 * (frame % 2), 90 + 17 * (int)color, WizzrobeConstants.WIDTHANDHEIGHT, WizzrobeConstants.WIDTHANDHEIGHT);
             }
             else
             {
-                if (frame % 2 == 0)
-                {
-                    return new Rectangle(256, 11 + 17 * (int)color, GoriyaConstants.WIDTHANDHEIGHT, GoriyaConstants.WIDTHANDHEIGHT);
-                }
-                else
-                {
-                    return new Rectangle(273, 11 + 17 * (int)color, GoriyaConstants.WIDTHANDHEIGHT, GoriyaConstants.WIDTHANDHEIGHT);
-                }
+                return new Rectangle(126 + 17 * (frame % 2), 90 + 17 * (int)color, WizzrobeConstants.WIDTHANDHEIGHT, WizzrobeConstants.WIDTHANDHEIGHT);
             }
         }
 
         public void Move()
         {
             frame++;
-            if (!throwing && state == State.Normal)
-            {
+            postFireFrame++;
+            if (state == State.Normal) {
                 if (frame % 10 == 0) direction = ChangeDirection();
 
-                if (direction == Direction.Up) yLoc -= GoriyaConstants.moveDist * GameConstants.SCALE;
-                else if (direction == Direction.Down) yLoc += GoriyaConstants.moveDist * GameConstants.SCALE;
-                else if (direction == Direction.Left) xLoc -= GoriyaConstants.moveDist * GameConstants.SCALE;
-                else xLoc += GoriyaConstants.moveDist * GameConstants.SCALE;
+                if (color == WizzrobeColor.Blue) {
+                    if (postFireFrame >= WizzrobeConstants.FRAMESBEFORETELEPORT + WizzrobeConstants.TELEPORTFRAMES) {
+                        if (direction == Direction.Up) yLoc -= GoriyaConstants.moveDist * GameConstants.SCALE;
+                        else if (direction == Direction.Down) yLoc += GoriyaConstants.moveDist * GameConstants.SCALE;
+                        else if (direction == Direction.Left) xLoc -= GoriyaConstants.moveDist * GameConstants.SCALE;
+                        else xLoc += GoriyaConstants.moveDist * GameConstants.SCALE;
+                    }
+                }
+                if (postFireFrame > WizzrobeConstants.FRAMESBEFORETELEPORT && postFireFrame < WizzrobeConstants.FRAMESBEFORETELEPORT + WizzrobeConstants.TELEPORTFRAMES) Teleport();
             }
-            else if (state == State.Damaged)
-            {
+            else if (state == State.Damaged) {
                 xLoc += (int)damageDirection.X * GameConstants.SCALE;
                 yLoc += (int)damageDirection.Y * GameConstants.SCALE;
                 damageFrames++;
             }
-            else if (state == State.Stun)
-            {
-                stunFrames++;
-            }
+            else if (state == State.Stun) stunFrames++;
 
             ReturnToNormal();
         }
@@ -113,61 +110,45 @@ namespace Sprint0
 
         private static Direction ChangeDirection()
         {
-            int num = RandomNumberGenerator.GetInt32(GoriyaConstants.CHANGEDIRECTION);
+            int num = RandomNumberGenerator.GetInt32(WizzrobeConstants.CHANGEDIRECTION);
 
             return (Direction)num;
         }
 
-        private void ThrowChance()
+        public bool FireChance()
         {
-            int num = RandomNumberGenerator.GetInt32(GoriyaConstants.THROWCHANCE);
+            bool fired = false;
 
-            if (num % (GoriyaConstants.THROWCHANCE - 1) == 0)
+            if(postFireFrame >= WizzrobeConstants.FRAMESBEFORETELEPORT + WizzrobeConstants.TELEPORTFRAMES && state == State.Normal)
             {
-                throwing = true;
-                damageFrames = 0;
+                int num = RandomNumberGenerator.GetInt32(WizzrobeConstants.FIRECHANCE);
+
+                if (num % (WizzrobeConstants.FIRECHANCE - 1) == 0)
+                {
+                    damageFrames = 0;
+                    postFireFrame = 0;
+                    fired = true;
+                }
             }
-        }
 
-        public void BoomerangReturned()
-        {
-            throwing = false;
-        }
-
-        public bool TryToThrow()
-        {
-            ThrowChance();
-            return throwing;
-        }
-
-        public bool Throwing()
-        {
-            return throwing;
+            return fired;
         }
 
         public bool HasHealth()
         {
-            if (health == 0)
-            {
-                throwing = false;
-            }
 
             return health > 0;
         }
 
         public void TakeDamage(int damage, Vector2 damageVector)
         {
-            if (state != State.Damaged)
+            if (state != State.Damaged && !Teleporting())
             {
                 health -= damage;
                 state = State.Damaged;
                 stunFrames = 1;
                 damageFrames = 1;
-
-                if (!throwing)
-                {
-                    damageDirection = damageVector;
-                }
+                damageDirection = damageVector;
             }
         }
 
@@ -208,6 +189,19 @@ namespace Sprint0
         public int GetDamageFrame()
         {
             return damageFrames;
+        }
+
+        private void Teleport()
+        {
+            xLoc = RandomNumberGenerator.GetInt32(game.GraphicsDevice.Viewport.Width - WallConstants.RIGHTWALL - WallConstants.LEFTWALL) + WallConstants.LEFTWALL;
+            yLoc = RandomNumberGenerator.GetInt32(game.GraphicsDevice.Viewport.Height - WallConstants.BOTTOMWALL - WallConstants.TOPWALL - GameConstants.HUDSIZE * GameConstants.SCALE) + WallConstants.LEFTWALL + GameConstants.HUDSIZE * GameConstants.SCALE;
+
+            ChangeDirection();
+        }
+
+        public bool Teleporting()
+        {
+            return postFireFrame < WizzrobeConstants.FRAMESBEFORETELEPORT || postFireFrame >= WizzrobeConstants.FRAMESBEFORETELEPORT + WizzrobeConstants.TELEPORTFRAMES;
         }
     }
 }

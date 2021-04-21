@@ -217,18 +217,18 @@ namespace Sprint0
         {
             if (((IEnemy)nPC).StillAlive())
             {
-                if (nPC is Aquamentus)
+                if (nPC is Aquamentus || nPC is Gohma || nPC is Dodongo)
                 {
                     Collision_soundEffects[1].Play();
                 }
-                else
+                else if (!(nPC is Wallmaster))
                 {
                     Collision_soundEffects[4].Play();
                 }
             }
             else
             {
-                if (nPC is Aquamentus)
+                if (nPC is Aquamentus || nPC is Gohma || nPC is Dodongo)
                 {
                     Collision_soundEffects[0].Play();
                 }

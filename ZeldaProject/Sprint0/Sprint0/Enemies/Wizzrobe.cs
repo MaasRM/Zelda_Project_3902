@@ -10,69 +10,47 @@ namespace Sprint0
     public class Wizzrobe : INPC, IEnemy
     {
         private WizzrobeStateMachine stateMachine;
-        private GoriyaBoomerang boomerang;
         private List<Texture2D> wizzrobeSpriteSheet;
         private Texture2D currentSheet;
         private Rectangle source;
         private Rectangle destination;
         private Sprint5 game;
         private Tuple<int, int, WizzrobeStateMachine.WizzrobeColor> init;
-        private SoundEffectInstance flyingBoomerang;
-        private RoomManager roomAccess;
 
         public Wizzrobe(int x, int y, WizzrobeStateMachine.WizzrobeColor c, List<Texture2D> spriteSheet, Sprint5 game)
         {
-            stateMachine = new WizzrobeStateMachine(x, y, c);
+            stateMachine = new WizzrobeStateMachine(x, y, c, game);
             wizzrobeSpriteSheet = spriteSheet;
             currentSheet = spriteSheet[0];
             init = new Tuple<int, int, WizzrobeStateMachine.WizzrobeColor>(x, y, c);
             this.game = game;
-            flyingBoomerang = game.Enemy_soundEffects[0].CreateInstance();
-            roomAccess = game.GetRoomManager();
 
         }
 
         public void Update()
         {
-            if (!stateMachine.Throwing() && stateMachine.TryToThrow())
-            {
-                flyingBoomerang.IsLooped = true;
-                flyingBoomerang.Volume = 0.2f;
-                flyingBoomerang.Play();
-                game.AddProjectile(boomerang);
-            }
-
-            StopThrowSound();
-
             stateMachine.Move();
+            
             destination = stateMachine.GetDestination();
             source = stateMachine.GetSource();
+
+            if (stateMachine.FireChance())
+            {
+                game.AddProjectile(new WizzrobeMagic(destination.X, destination.Y, wizzrobeSpriteSheet[0], stateMachine.GetDirection(), stateMachine.color));
+            }
+
             ChangeSpriteSheet();
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (stateMachine.GetFrame() % 2 == 0)
+            if (stateMachine.GetDirection() == Direction.Left)
             {
-                if (stateMachine.GetDirection() == Direction.Left)
-                {
-                    spriteBatch.Draw(currentSheet, destination, source, Color.White, 0, new Vector2(0, 0), SpriteEffects.FlipHorizontally, 0f);
-                }
-                else
-                {
-                    spriteBatch.Draw(currentSheet, destination, source, Color.White);
-                }
+                spriteBatch.Draw(currentSheet, destination, source, Color.White, 0, new Vector2(0, 0), SpriteEffects.FlipHorizontally, 0f);
             }
             else
             {
-                if (stateMachine.GetDirection() == Direction.Right)
-                {
-                    spriteBatch.Draw(currentSheet, destination, source, Color.White);
-                }
-                else
-                {
-                    spriteBatch.Draw(currentSheet, destination, source, Color.White, 0, new Vector2(0, 0), SpriteEffects.FlipHorizontally, 0f);
-                }
+                spriteBatch.Draw(currentSheet, destination, source, Color.White);
             }
         }
 
@@ -97,7 +75,7 @@ namespace Sprint0
 
         public void Reset()
         {
-            stateMachine = new WizzrobeStateMachine(init.Item1, init.Item2, init.Item3);
+            stateMachine = new WizzrobeStateMachine(init.Item1, init.Item2, init.Item3, game);
         }
 
         public Rectangle GetNPCLocation()
@@ -122,10 +100,6 @@ namespace Sprint0
 
         public bool StillAlive()
         {
-            if (!stateMachine.HasHealth())
-            {
-                StopThrowSound();
-            }
             return stateMachine.HasHealth();
         }
 
@@ -137,15 +111,6 @@ namespace Sprint0
         public bool IsDamaged()
         {
             return stateMachine.IsDamaged();
-        }
-
-        public void StopThrowSound()
-        {
-            if (!stateMachine.Throwing() || (roomAccess.getRoomIndex() != 1 && roomAccess.getRoomIndex() != 8))
-            {
-                flyingBoomerang.Stop();
-                stateMachine.BoomerangReturned();
-            }
         }
     }
 }

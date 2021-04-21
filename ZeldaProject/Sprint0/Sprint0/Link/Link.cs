@@ -184,7 +184,7 @@ namespace Sprint0
                 if (finalDamage == 0) finalDamage = 1;
 
                 damageFrameCount = 0;
-                soundEffects[10].Play();
+                if(!stateMachine.IsBusy())soundEffects[10].Play();
                 stateMachine.TakeDamage(finalDamage, direction);
             }
         }
