@@ -154,7 +154,7 @@ namespace Sprint0
                 case "Dodongo":
                     return new Dodongo(int.Parse(npcInfo["XLoc"].InnerText) * GameConstants.SCALE, (int.Parse(npcInfo["YLoc"].InnerText) + GameConstants.HUDSIZE) * GameConstants.SCALE, bossesSheets[0]);
                 case "Wizzrobe":
-                    return new Wizzrobe(int.Parse(npcInfo["XLoc"].InnerText) * GameConstants.SCALE, (int.Parse(npcInfo["YLoc"].InnerText) + GameConstants.HUDSIZE) * GameConstants.SCALE, (WizzrobeStateMachine.WizzrobeColor) int.Parse(npcInfo["Color"].InnerText), bossesSheets, game);
+                    return new Wizzrobe(int.Parse(npcInfo["XLoc"].InnerText) * GameConstants.SCALE, (int.Parse(npcInfo["YLoc"].InnerText) + GameConstants.HUDSIZE) * GameConstants.SCALE, (WizzrobeStateMachine.WizzrobeColor) int.Parse(npcInfo["Color"].InnerText), enemiesSheets, game);
                 default:
                     return new Aquamentus(0, 0, bossesSheets, game);
             }
