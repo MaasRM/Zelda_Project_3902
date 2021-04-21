@@ -250,16 +250,19 @@
 				<EnemyType>Goriya</EnemyType>
 				<XLoc>150</XLoc>
 				<YLoc>32</YLoc>
+				<Color>0</Color>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Goriya</EnemyType>
 				<XLoc>135</XLoc>
 				<YLoc>48</YLoc>
+				<Color>0</Color>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Goriya</EnemyType>
 				<XLoc>170</XLoc>
 				<YLoc>96</YLoc>
+				<Color>0</Color>
 			</Enemy>
 		</Enemies>
 		<Background>
@@ -959,16 +962,19 @@
 				<EnemyType>Gel</EnemyType>
 				<XLoc>80</XLoc>
 				<YLoc>80</YLoc>
+				<Color>0</Color>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Gel</EnemyType>
 				<XLoc>112</XLoc>
 				<YLoc>48</YLoc>
+				<Color>0</Color>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Gel</EnemyType>
 				<XLoc>112</XLoc>
 				<YLoc>112</YLoc>
+				<Color>0</Color>
 			</Enemy>
 		</Enemies>
 		<Background>
@@ -1062,26 +1068,31 @@
 				<EnemyType>Gel</EnemyType>
 				<XLoc>64</XLoc>
 				<YLoc>32</YLoc>
+				<Color>0</Color>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Gel</EnemyType>
 				<XLoc>144</XLoc>
 				<YLoc>32</YLoc>
+				<Color>0</Color>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Gel</EnemyType>
 				<XLoc>160</XLoc>
 				<YLoc>64</YLoc>
+				<Color>0</Color>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Gel</EnemyType>
 				<XLoc>84</XLoc>
 				<YLoc>64</YLoc>
+				<Color>0</Color>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Gel</EnemyType>
 				<XLoc>8</XLoc>
 				<YLoc>112</YLoc>
+				<Color>0</Color>
 			</Enemy>
 		</Enemies>
 		<Background>
@@ -1143,16 +1154,19 @@
 				<EnemyType>Goriya</EnemyType>
 				<XLoc>144</XLoc>
 				<YLoc>32</YLoc>
+				<Color>0</Color>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Goriya</EnemyType>
 				<XLoc>180</XLoc>
 				<YLoc>48</YLoc>
+				<Color>0</Color>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Goriya</EnemyType>
 				<XLoc>144</XLoc>
 				<YLoc>96</YLoc>
+				<Color>0</Color>
 			</Enemy>
 		</Enemies>
 		<Background>
@@ -1379,31 +1393,37 @@
 				<EnemyType>Keese</EnemyType>
 				<XLoc>160</XLoc>
 				<YLoc>33</YLoc>
+				<Color>0</Color>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Keese</EnemyType>
 				<XLoc>160</XLoc>
 				<YLoc>127</YLoc>
+				<Color>0</Color>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Keese</EnemyType>
 				<XLoc>84</XLoc>
 				<YLoc>64</YLoc>
+				<Color>0</Color>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Keese</EnemyType>
 				<XLoc>80</XLoc>
 				<YLoc>98</YLoc>
+				<Color>0</Color>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Keese</EnemyType>
 				<XLoc>34</XLoc>
 				<YLoc>82</YLoc>
+				<Color>0</Color>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Keese</EnemyType>
 				<XLoc>50</XLoc>
 				<YLoc>112</YLoc>
+				<Color>0</Color>
 			</Enemy>
 		</Enemies>
 		<Background>
@@ -1550,41 +1570,49 @@
 				<EnemyType>Keese</EnemyType>
 				<XLoc>80</XLoc>
 				<YLoc>32</YLoc>
+				<Color>0</Color>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Keese</EnemyType>
 				<XLoc>128</XLoc>
 				<YLoc>64</YLoc>
+				<Color>0</Color>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Keese</EnemyType>
 				<XLoc>128</XLoc>
 				<YLoc>96</YLoc>
+				<Color>0</Color>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Keese</EnemyType>
 				<XLoc>160</XLoc>
 				<YLoc>64</YLoc>
+				<Color>0</Color>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Keese</EnemyType>
 				<XLoc>160</XLoc>
 				<YLoc>96</YLoc>
+				<Color>0</Color>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Keese</EnemyType>
 				<XLoc>208</XLoc>
 				<YLoc>80</YLoc>
+				<Color>0</Color>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Keese</EnemyType>
 				<XLoc>192</XLoc>
 				<YLoc>48</YLoc>
+				<Color>0</Color>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Keese</EnemyType>
 				<XLoc>192</XLoc>
 				<YLoc>112</YLoc>
+				<Color>0</Color>
 			</Enemy>
 		</Enemies>
 		<Background>
@@ -1706,16 +1734,19 @@
 				<EnemyType>Keese</EnemyType>
 				<XLoc>48</XLoc>
 				<YLoc>48</YLoc>
+				<Color>0</Color>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Keese</EnemyType>
 				<XLoc>80</XLoc>
 				<YLoc>64</YLoc>
+				<Color>0</Color>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Keese</EnemyType>
 				<XLoc>48</XLoc>
 				<YLoc>112</YLoc>
+				<Color>0</Color>
 			</Enemy>
 		</Enemies>
 		<Background>
@@ -2828,21 +2859,25 @@
 				<EnemyType>Keese</EnemyType>
 				<XLoc>32</XLoc>
 				<YLoc>80</YLoc>
+				<Color>0</Color>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Keese</EnemyType>
 				<XLoc>96</XLoc>
 				<YLoc>80</YLoc>
+				<Color>0</Color>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Keese</EnemyType>
 				<XLoc>160</XLoc>
 				<YLoc>80</YLoc>
+				<Color>0</Color>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Keese</EnemyType>
 				<XLoc>224</XLoc>
 				<YLoc>80</YLoc>
+				<Color>0</Color>
 			</Enemy>
 		</Enemies>
 		<Background>
@@ -7410,6 +7445,7 @@
 				<EnemyType>Gohma</EnemyType>
 				<XLoc>80</XLoc>
 				<YLoc>52</YLoc>
+				<Color>0</Color>
 			</Enemy>
 		</Enemies>
 		<Background>
