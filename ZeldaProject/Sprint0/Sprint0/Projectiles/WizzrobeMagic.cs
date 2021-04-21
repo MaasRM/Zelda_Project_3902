@@ -24,7 +24,7 @@ namespace Sprint0
             direction = dir;
             color = c;
 
-            SetMovementVector();
+            SetUpMovement();
 
             if (c == WizzrobeStateMachine.WizzrobeColor.Red) damage = WizzrobeConstants.REDDAMAGE;
             else damage = WizzrobeConstants.BLUEDAMAGE;
@@ -44,7 +44,7 @@ namespace Sprint0
 
         public Rectangle GetProjectileLocation()
         {
-            return new Rectangle(xLoc, yLoc, FireballConstants.WIDTH * GameConstants.SCALE, FireballConstants.HEIGHT * GameConstants.SCALE);
+            return new Rectangle(xLoc, yLoc, WizzrobeConstants.WIDTHANDHEIGHT * GameConstants.SCALE, WizzrobeConstants.WIDTHANDHEIGHT * GameConstants.SCALE);
         }
 
         private Rectangle GetSource()
@@ -83,23 +83,27 @@ namespace Sprint0
             //Doesn't hit
         }
 
-        private void SetMovementVector()
+        private void SetUpMovement()
         {
             if(direction == Direction.Up)
             {
                 movement = new Vector2(0, -1);
+                xLoc -= WizzrobeConstants.WIDTHANDHEIGHT;
             }
             if (direction == Direction.Down)
             {
                 movement = new Vector2(0, 1);
+                xLoc += WizzrobeConstants.WIDTHANDHEIGHT;
             }
             if (direction == Direction.Left)
             {
                 movement = new Vector2(-1, 0);
+                yLoc -= WizzrobeConstants.WIDTHANDHEIGHT;
             }
             if (direction == Direction.Right)
             {
                 movement = new Vector2(1, 0);
+                yLoc += WizzrobeConstants.WIDTHANDHEIGHT;
             }
         }
     }
