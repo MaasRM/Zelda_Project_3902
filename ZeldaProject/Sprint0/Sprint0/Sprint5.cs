@@ -84,8 +84,8 @@ namespace Sprint0
             titleControls = new TitleController();
             controllerList.Add(keyControls);
             controllerList.Add(mouseControls);
-            _graphics.PreferredBackBufferWidth = 255 * 4;
-            _graphics.PreferredBackBufferHeight = (175 + 64) * 4;
+            _graphics.PreferredBackBufferWidth = 255 * GameConstants.SCALE;
+            _graphics.PreferredBackBufferHeight = (175 + GameConstants.HUDSIZE) * GameConstants.SCALE;
             _graphics.ApplyChanges();
             base.Initialize();
             roomManager.Update();
@@ -165,7 +165,7 @@ namespace Sprint0
             link = new Link(contentManager.Load<Texture2D>("LinkSpriteSheet"), linkSheetList, Link_soundEffects, inventory);
             shop = new Shop(link, npcSheet, dungeonSheet, itemsSheet, roomManager, this);
             triForceSprite = new TriForceText(dungeonSheet, npcSheet, itemsSheet, this, link.GetLinkInventory().shards); 
-            deathMessageSprite = new DeathMessageSprite(dungeonSheet, roomManager, Text_soundEffects[1].CreateInstance(), link);
+            deathMessageSprite = new DeathMessageSprite(dungeonSheet, roomManager, Text_soundEffects[1].CreateInstance(), link, this);
             hintSprite = new HintSprite(dungeonSheet, roomManager, Text_soundEffects[1].CreateInstance(), link.GetLinkInventory().pauseScreen);
 
             StartScreen = new TitleScreen(titleSheet, this.GraphicsDevice.Viewport.Bounds.Width, this.GraphicsDevice.Viewport.Bounds.Height);
