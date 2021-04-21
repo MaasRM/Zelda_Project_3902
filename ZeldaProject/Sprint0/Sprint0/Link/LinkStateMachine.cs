@@ -215,6 +215,11 @@ namespace Sprint0
             isBusy = true;
         }
 
+        public bool IsBusy()
+        {
+            return isBusy;
+        }
+
         public void SetPositions(Rectangle newPos)
         {
             yLoc = newPos.Y;
