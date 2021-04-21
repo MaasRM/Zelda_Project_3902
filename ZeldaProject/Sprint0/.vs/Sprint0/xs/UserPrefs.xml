@@ -2,9 +2,9 @@
   <MonoDevelop.Ide.ItemProperties.Sprint0 PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="Sprint0/Collision/EnemyProjectileHandler.cs" Line="42" Column="10" />
-      <File FileName="Sprint0/Link/Link.cs" Line="1" Column="1" />
-      <File FileName="Sprint0/Link/LinkStateMachine.cs" Line="25" Column="15" />
+      <File FileName="Sprint0/Enemies/Wizzrobe.cs" Line="54" Column="14" />
+      <File FileName="Sprint0/Enemies/WizzrobeStateMachine.cs" Line="73" Column="1" />
+      <File FileName="Sprint0/Enemies/GibdoStateMachine.cs" Line="1" Column="1" />
       <File FileName="Sprint0/Collision/LinkEnemyHandler.cs" Line="1" Column="1" />
     </Files>
     <Pads>
@@ -12,9 +12,12 @@
         <State name="__root__">
           <Node name="Sprint0" expanded="True">
             <Node name="Sprint0" expanded="True">
-              <Node name="Content" expanded="True">
-                <Node name="Dungeon_Tileset.png" selected="True" />
+              <Node name="Collision" expanded="True" />
+              <Node name="Content" expanded="True" />
+              <Node name="Enemies" expanded="True">
+                <Node name="Wizzrobe.cs" selected="True" />
               </Node>
+              <Node name="TextSprites" expanded="True" />
             </Node>
           </Node>
         </State>

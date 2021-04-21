@@ -15,6 +15,7 @@ namespace Sprint0
         private Direction direction;
         private int frame;
         private SpriteEffects flip;
+        private int damage;
 
         public GoriyaBoomerang(Texture2D spritesheet, GoriyaStateMachine state)
         {
@@ -24,6 +25,9 @@ namespace Sprint0
             frame = 0;
             goBack = false;
             this.spritesheet = spritesheet;
+
+            if (state.color == GoriyaStateMachine.GoriyaColor.Red) damage = GoriyaConstants.REDDAMAGE;
+            else damage = GoriyaConstants.BLUEDAMAGE;
         }
 
         public void Update()
@@ -126,7 +130,7 @@ namespace Sprint0
 
         public int GetDamage()
         {
-            return 1;
+            return damage;
         }
 
         public void Deflect(Vector2 deflection)

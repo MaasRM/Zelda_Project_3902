@@ -61,20 +61,13 @@ namespace Sprint0
 
         public Rectangle GetSource()
         {
-            if (direction == Direction.Down || direction == Direction.Up)
+            if (direction == Direction.Up)
             {
-                return new Rectangle(222 + 17 * (int)direction, 11 + 17 * (int)color, WizzrobeConstants.WIDTHANDHEIGHT, WizzrobeConstants.WIDTHANDHEIGHT);
+                return new Rectangle(160 + 17 * (frame % 2), 90 + 17 * (int)color, WizzrobeConstants.WIDTHANDHEIGHT, WizzrobeConstants.WIDTHANDHEIGHT);
             }
             else
             {
-                if (frame % 2 == 0)
-                {
-                    return new Rectangle(256, 11 + 17 * (int)color, WizzrobeConstants.WIDTHANDHEIGHT, WizzrobeConstants.WIDTHANDHEIGHT);
-                }
-                else
-                {
-                    return new Rectangle(273, 11 + 17 * (int)color, WizzrobeConstants.WIDTHANDHEIGHT, WizzrobeConstants.WIDTHANDHEIGHT);
-                }
+                return new Rectangle(126 + 17 * (frame % 2), 90 + 17 * (int)color, WizzrobeConstants.WIDTHANDHEIGHT, WizzrobeConstants.WIDTHANDHEIGHT);
             }
         }
 
