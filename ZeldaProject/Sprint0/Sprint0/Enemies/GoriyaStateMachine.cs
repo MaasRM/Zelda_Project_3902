@@ -22,7 +22,6 @@ namespace Sprint0
         }
 
         private Direction direction;
-        private GoriyaColor color;
         private State state;
         private Vector2 damageDirection;
         private int xLoc;
@@ -32,6 +31,8 @@ namespace Sprint0
         private int health;
         private int damageFrames;
         private int stunFrames;
+
+        public GoriyaColor color { get; set; }
 
         public GoriyaStateMachine(int x, int y, GoriyaColor c)
         {
