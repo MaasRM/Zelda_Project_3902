@@ -32,7 +32,8 @@ Title Screen Controls:
 Main Game Controls:
 	Move Link: W(Up), A(Left), S(Down), D(Right), Up Arrow, Left Arrow, Down Arrow, Right Arrow
 	Damage Link: E
-	Use Link Items: 1(Green Arrow), 2(Blue Arrow), 3(Normal Boomerang), 4(Blue Boomerang), 5(Bomb), 6(Fireball)
+	Use Link Items: 1(Green Arrow), 2(Blue Arrow), 3(Normal Boomerang), 4(Blue Boomerang), 5(Bomb),
+	6(Fireball), 7(Recorder)
 	Sword Attack: Z, N, Spacebar
 	Use "B button" Item: X, M
 	Open Inventory/Pause: I
@@ -56,11 +57,11 @@ Ending Sequence Controls:
 ************************************************************************************************************
 										Code Review Assignments
 ************************************************************************************************************
-Jacob Kline: Review (Jared) for readability, Review (Jared) for maintainability
-Riley Maas: Review (Phil) for readability, Review (Phil) for maintainability
-Jared Zins: Review  (Riley) for readability, Review (Nathan) for maintainability
-Phil Brocker: Review (Nathan) for readability, Review (Jacob) for maintainability
-Nathan Schultz: Review (Jacob) for readability, Review (Riley) for maintainability
+Jacob Kline: Review TitleScreen.cs (Jared) for readability, Review SongManager.cs (Jared) for maintainability
+Riley Maas: Review WinningScreen.cs (Phil) for readability, Review DeathMessageSprite.cs (Phil) for maintainability
+Jared Zins: Review  (Riley) for readability, Review GohmaStateMachine.cs (Nathan) for maintainability
+Phil Brocker: Review DarknutStateMachine.cs (Nathan) for readability, Review TriForceText.cs (Jacob) for maintainability
+Nathan Schultz: Review Shop.cs (Jacob) for readability, Review (Riley) for maintainability
 
 ************************************************************************************************************
 											Other Tools
