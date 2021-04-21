@@ -12,6 +12,7 @@ namespace Sprint0
         private Rectangle destinationRectangle;
         private Texture2D spritesheet;
         private Sprint5 game;
+        private int damage;
         private int xLoc;
         private int yLoc;
         private int xSize;
@@ -102,7 +103,7 @@ namespace Sprint0
 
         public int GetDamage()
         {
-            return SwordProjectileConstants.DAMAGE;
+            return damage;
         }
 
         public void Hit()
@@ -111,6 +112,24 @@ namespace Sprint0
             {
                 frame = SwordProjectileConstants.HITFRAME;
             }
+        }
+
+        private void DamageSet(LinkStateMachine stateMachine)
+        {
+            double multiplier = 1.0;
+
+            if (stateMachine.getColor() == LinkColor.Red || stateMachine.getColor() == LinkColor.Black)
+            {
+                multiplier *= 2;
+            }
+            if (stateMachine.getColor() == LinkColor.Blue)
+            {
+                multiplier /= 2;
+            }
+
+            damage = (int)(stateMachine.healthAndDamage.DealDamage() * multiplier);
+
+            if (damage == 0) damage = 1;
         }
     }
 }
