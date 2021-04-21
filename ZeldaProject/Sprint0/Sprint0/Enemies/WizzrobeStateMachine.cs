@@ -205,7 +205,7 @@ namespace Sprint0
 
         public bool Teleporting()
         {
-            return postFireFrame >= WizzrobeConstants.FRAMESBEFORETELEPORT || postFireFrame < WizzrobeConstants.FRAMESBEFORETELEPORT + WizzrobeConstants.TELEPORTFRAMES;
+            return postFireFrame >= WizzrobeConstants.FRAMESBEFORETELEPORT && postFireFrame < WizzrobeConstants.FRAMESBEFORETELEPORT + WizzrobeConstants.TELEPORTFRAMES;
         }
     }
 }
