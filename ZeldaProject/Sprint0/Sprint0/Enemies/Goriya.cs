@@ -143,7 +143,7 @@ namespace Sprint0
 
         public void StopThrowSound()
         {
-            if (!stateMachine.Throwing() || (roomAccess.getRoomIndex() != 1 && roomAccess.getRoomIndex() != 8))
+            if (!stateMachine.Throwing() || (roomAccess.getRoomIndex() != 1 && roomAccess.getRoomIndex() != 8 && roomAccess.getRoomIndex() != 29))
             {
                 flyingBoomerang.Stop();
                 stateMachine.BoomerangReturned();
