@@ -27,7 +27,7 @@ namespace Sprint0
 
             if (!player.Attacking() && CheckPlayerDirection(player, overlap))
             {
-                if(projectile is AquamentusFireball || projectile is GohmaFireball)
+                if(projectile is AquamentusFireball || projectile is GohmaFireball || projectile is WizzrobeMagic)
                 {
                     DamageThePlayer(player, projectile, overlap);
                 }
