@@ -52,7 +52,6 @@ Ending Sequence Controls:
 ************************************************************************************************************
 - When Link walks into a block he will walk into it while still not walking through it. He will bounce back
 	out to where he should be when releasing a movement key.
-- Wallmasters will constantly play sound when grabbing Link.
 
 ************************************************************************************************************
 										Code Review Assignments
