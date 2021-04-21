@@ -49,7 +49,8 @@ namespace Sprint0
             textSound = text;
             player = link;
             textSound.Volume = 0.25f;
-            textSound.IsLooped = true;          
+            textSound.IsLooped = true;
+            gameHeight = game.GraphicsDevice.Viewport.Bounds.Height;
         }
 
         public void Update()
