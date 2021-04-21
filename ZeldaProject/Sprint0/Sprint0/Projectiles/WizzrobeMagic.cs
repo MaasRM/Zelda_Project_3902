@@ -87,22 +87,22 @@ namespace Sprint0
         {
             if(direction == Direction.Up)
             {
-                movement = new Vector2(0, -1);
+                movement = new Vector2(0, -2);
                 xLoc -= WizzrobeConstants.WIDTHANDHEIGHT;
             }
             if (direction == Direction.Down)
             {
-                movement = new Vector2(0, 1);
+                movement = new Vector2(0, 2);
                 xLoc += WizzrobeConstants.WIDTHANDHEIGHT;
             }
             if (direction == Direction.Left)
             {
-                movement = new Vector2(-1, 0);
+                movement = new Vector2(-2, 0);
                 yLoc -= WizzrobeConstants.WIDTHANDHEIGHT;
             }
             if (direction == Direction.Right)
             {
-                movement = new Vector2(1, 0);
+                movement = new Vector2(2, 0);
                 yLoc += WizzrobeConstants.WIDTHANDHEIGHT;
             }
         }
