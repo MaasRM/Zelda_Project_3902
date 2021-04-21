@@ -5640,13 +5640,13 @@
 				<DoorType>Wall</DoorType>
 			</RightDoor>
 			<LeftDoor>
-				<DoorType>OpenDoor</DoorType>
+				<DoorType>Wall</DoorType>
 			</LeftDoor>
 			<UpDoor>
 				<DoorType>OpenDoor</DoorType>
 			</UpDoor>
 			<DownDoor>
-				<DoorType>Wall</DoorType>
+				<DoorType>OpenDoor</DoorType>
 			</DownDoor>
 		</Doors>
 	</Room>
