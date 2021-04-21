@@ -10,8 +10,8 @@ namespace Sprint0
     {
         public enum WizzrobeColor
         {
-            Red,
-            Blue
+            Blue,
+            Red
         }
 
         private enum State
@@ -154,8 +154,12 @@ namespace Sprint0
 
         public void SetStun()
         {
-            state = State.Stun;
-            stunFrames = 1;
+            if (!Teleporting())
+            {
+                state = State.Stun;
+                stunFrames = 1;
+            }
+                
         }
 
         public int GetDamage()

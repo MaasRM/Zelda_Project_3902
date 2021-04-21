@@ -28,6 +28,10 @@ namespace Sprint0
             {
                 DamageThePlayer(player, ((IEnemy)enemy).GetDamageValue(), overlap);
             }
+            else if(enemy is Wizzrobe && !((Wizzrobe)enemy).IsTeleporting())
+            {
+                //Don't do anything
+            }
             else if (player.Attacking() && CheckAttackDirection(player, overlap))
             {
                 if (enemy is Darknut && !CheckDarknutDirection((Darknut)enemy, overlap)) DamageTheEnemy((IEnemy)enemy, player.GetMeleeDamage(), overlap);
