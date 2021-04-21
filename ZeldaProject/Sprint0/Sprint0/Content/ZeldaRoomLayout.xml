@@ -5067,6 +5067,26 @@
 		<Items>
 		</Items>
 		<Enemies>
+			<Enemy>
+				<EnemyType>Stalfos</EnemyType>
+				<XLoc>160</XLoc>
+				<YLoc>32</YLoc>
+			</Enemy>
+			<Enemy>
+				<EnemyType>Stalfos</EnemyType>
+				<XLoc>48</XLoc>
+				<YLoc>128</YLoc>
+			</Enemy>
+			<Enemy>
+				<EnemyType>Gibdo</EnemyType>
+				<XLoc>112</XLoc>
+				<YLoc>64</YLoc>
+			</Enemy>
+			<Enemy>
+				<EnemyType>Gibdo</EnemyType>
+				<XLoc>144</XLoc>
+				<YLoc>96</YLoc>
+			</Enemy>
 		</Enemies>
 		<Background>
 			<XLoc>976</XLoc>
@@ -5325,6 +5345,18 @@
 			</Item>
 		</Items>
 		<Enemies>
+			<Enemy>
+				<EnemyType>Keese</EnemyType>
+				<XLoc>160</XLoc>
+				<YLoc>127</YLoc>
+				<Color>1</Color>
+			</Enemy>
+			<Enemy>
+				<EnemyType>Keese</EnemyType>
+				<XLoc>90</XLoc>
+				<YLoc>32</YLoc>
+				<Color>1</Color>
+			</Enemy>
 		</Enemies>
 		<Background>
 			<XLoc>976</XLoc>
@@ -5416,6 +5448,30 @@
 		<Items>
 		</Items>
 		<Enemies>
+			<Enemy>
+				<EnemyType>Zol</EnemyType>
+				<XLoc>96</XLoc>
+				<YLoc>80</YLoc>
+				<Color>0</Color>
+            </Enemy>
+			<Enemy>
+				<EnemyType>Zol</EnemyType>
+				<XLoc>144</XLoc>
+				<YLoc>80</YLoc>
+				<Color>0</Color>
+            </Enemy>
+			<Enemy>
+				<EnemyType>Zol</EnemyType>
+				<XLoc>48</XLoc>
+				<YLoc>112</YLoc>
+				<Color>0</Color>
+            </Enemy>
+			<Enemy>
+				<EnemyType>Zol</EnemyType>
+				<XLoc>192</XLoc>
+				<YLoc>112</YLoc>
+				<Color>0</Color>
+            </Enemy>
 		</Enemies>
 		<Background>
 			<XLoc>781</XLoc>
@@ -5564,6 +5620,16 @@
 		<Items>
 		</Items>
 		<Enemies>
+			<Enemy>
+				<EnemyType>Stalfos</EnemyType>
+				<XLoc>96</XLoc>
+				<YLoc>64</YLoc>
+            </Enemy>
+			<Enemy>
+				<EnemyType>Stalfos</EnemyType>
+				<XLoc>96</XLoc>
+				<YLoc>96</YLoc>
+            </Enemy>
 		</Enemies>
 		<Background>
 			<XLoc>781</XLoc>
@@ -5727,6 +5793,18 @@
 			</Item>
 		</Items>	
 		<Enemies>
+			<Enemy>
+				<EnemyType>Darknut</EnemyType>
+				<XLoc>64</XLoc>
+				<YLoc>80</YLoc>
+				<Color>0</Color>
+            </Enemy>
+			<Enemy>
+				<EnemyType>Darknut</EnemyType>
+				<XLoc>176</XLoc>
+				<YLoc>80</YLoc>
+				<Color>0</Color>
+            </Enemy>
 		</Enemies>
 		<Background>
 			<XLoc>196</XLoc>
@@ -5890,6 +5968,30 @@
 		<Items>
 		</Items>
 		<Enemies>
+			<Enemy>
+				<EnemyType>Wizzrobe</EnemyType>
+				<XLoc>32</XLoc>
+				<YLoc>32</YLoc>
+				<Color>0</Color>
+            </Enemy>
+			<Enemy>
+				<EnemyType>Wizzrobe</EnemyType>
+				<XLoc>208</XLoc>
+				<YLoc>128</YLoc>
+				<Color>0</Color>
+            </Enemy>
+			<Enemy>
+				<EnemyType>Wizzrobe</EnemyType>
+				<XLoc>160</XLoc>
+				<YLoc>80</YLoc>
+				<Color>1</Color>
+            </Enemy>
+			<Enemy>
+				<EnemyType>Wizzrobe</EnemyType>
+				<XLoc>80</XLoc>
+				<YLoc>80</YLoc>
+				<Color>1</Color>
+            </Enemy>
 		</Enemies>
 		<Background>
 			<XLoc>1</XLoc>
@@ -6522,6 +6624,24 @@
 			</Item>
 		</Items>
 		<Enemies>
+			<Enemy>
+				<EnemyType>Darknut</EnemyType>
+				<XLoc>64</XLoc>
+				<YLoc>80</YLoc>
+				<Color>0</Color>
+            </Enemy>
+			<Enemy>
+				<EnemyType>Darknut</EnemyType>
+				<XLoc>176</XLoc>
+				<YLoc>80</YLoc>
+				<Color>0</Color>
+            </Enemy>
+			<Enemy>
+				<EnemyType>Darknut</EnemyType>
+				<XLoc>192</XLoc>
+				<YLoc>96</YLoc>
+				<Color>1</Color>
+            </Enemy>
 		</Enemies>
 		<Background>
 			<XLoc>196</XLoc>
@@ -6705,6 +6825,24 @@
 		<Items>
 		</Items>
 		<Enemies>
+			<Enemy>
+				<EnemyType>Darknut</EnemyType>
+				<XLoc>80</XLoc>
+				<YLoc>112</YLoc>
+				<Color>1</Color>
+            </Enemy>
+			<Enemy>
+				<EnemyType>Darknut</EnemyType>
+				<XLoc>144</XLoc>
+				<YLoc>80</YLoc>
+				<Color>1</Color>
+            </Enemy>
+			<Enemy>
+				<EnemyType>Darknut</EnemyType>
+				<XLoc>192</XLoc>
+				<YLoc>96</YLoc>
+				<Color>1</Color>
+            </Enemy>
 		</Enemies>
 		<Background>
 			<XLoc>586</XLoc>
@@ -6868,6 +7006,30 @@
 		<Items>
 		</Items>
 		<Enemies>
+			<Enemy>
+				<EnemyType>Wizzrobe</EnemyType>
+				<XLoc>32</XLoc>
+				<YLoc>32</YLoc>
+				<Color>0</Color>
+            </Enemy>
+			<Enemy>
+				<EnemyType>Wizzrobe</EnemyType>
+				<XLoc>208</XLoc>
+				<YLoc>128</YLoc>
+				<Color>0</Color>
+            </Enemy>
+			<Enemy>
+				<EnemyType>Wizzrobe</EnemyType>
+				<XLoc>160</XLoc>
+				<YLoc>80</YLoc>
+				<Color>0</Color>
+            </Enemy>
+			<Enemy>
+				<EnemyType>Wizzrobe</EnemyType>
+				<XLoc>80</XLoc>
+				<YLoc>80</YLoc>
+				<Color>0</Color>
+            </Enemy>
 		</Enemies>
 		<Background>
 			<XLoc>1</XLoc>
