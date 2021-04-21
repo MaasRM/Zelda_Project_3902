@@ -73,6 +73,10 @@ namespace Sprint0
             {
                 UnlockDoor(Direction.Right);
             }
+            if ((currentRoom.RoomNum() == 23 || currentRoom.RoomNum() == 37) && currentRoom.getNPCs().Count == 0)
+            {
+                UnlockDoor(Direction.Up);
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch)
