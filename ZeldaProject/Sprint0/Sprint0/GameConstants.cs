@@ -3,19 +3,17 @@ namespace Sprint0
 {
     public static class GameConstants
     {
-        public static int SCALE = 4;
-        public static int HUDSIZE = 64;
-        public static int OLDMANROOM = 5;
-        public static int VERTICALROOMTOP = 17;
-        public static int VERTICALROOMBOTTOM = 42;
-        public static int TOPBOTTOMSPLIT = 20;
-        public static int STARTROOM = 15;
-        public static int OUTSIDEROOM = 18;
-        public static int SHOPROOM = 19;
-        public static int WALLMASTERROOM = 9;
-        public static int STAIRROOMOFFSETX = 75;
-        public static int STAIRROOMOFFSETY = 44;
-        public static int GAMEWINDOWHEIGHT = 956;
-        public static int GAMEWINDOWWIDTH = 1020;
+        public const int SCALE = 4;
+        public const int HUDSIZE = 64;
+        public const int OLDMANROOM = 5;
+        public const int VERTICALROOMTOP = 17;
+        public const int VERTICALROOMBOTTOM = 42;
+        public const int TOPBOTTOMSPLIT = 20;
+        public const int STARTROOM = 15;
+        public const int OUTSIDEROOM = 18;
+        public const int SHOPROOM = 19;
+        public const int WALLMASTERROOM = 9;
+        public const int STAIRROOMOFFSETX = 75;
+        public const int STAIRROOMOFFSETY = 44;
     }
 }
