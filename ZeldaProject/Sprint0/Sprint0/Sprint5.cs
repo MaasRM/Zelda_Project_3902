@@ -128,43 +128,43 @@ namespace Sprint0
             Ending_music = Content.Load<Song>("Ending");
 
             //Collision sound effects
-            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Boss_Scream1")); //done
-            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Boss_Hit")); //done
-            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Door_Unlock")); //done
-            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Enemy_Die")); //done
-            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Enemy_Hit")); //done
-            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Fanfare")); //done
-            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Get_Heart")); //done
-            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Get_Item")); //done
-            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Get_Rupee")); //done
-            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Secret")); //done
-            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Stairs")); //done
-            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Shield")); //done
+            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Boss_Scream1"));
+            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Boss_Hit"));
+            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Door_Unlock"));
+            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Enemy_Die"));
+            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Enemy_Hit"));
+            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Fanfare"));
+            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Get_Heart"));
+            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Get_Item"));
+            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Get_Rupee"));
+            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Secret"));
+            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Stairs"));
+            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Shield"));
+            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Boss_Scream2"));
 
             //Link sound effects
-            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Arrow_Boomerang")); //done
-            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Bomb_Blow")); //done
-            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Bomb_Drop")); //done
-            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Candle")); //done
-            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_LowHealth")); //done
-            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Recorder")); //done
-            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Refill_Loop"));
-            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Sword_Shoot")); //done
-            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Sword_Slash")); //done
-            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Link_Die")); //done
-            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Link_Hurt")); //done
+            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Arrow_Boomerang"));
+            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Bomb_Blow"));
+            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Bomb_Drop"));
+            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Candle"));
+            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_LowHealth"));
+            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Recorder"));
+            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Refill_Loop")); //not implemented
+            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Sword_Shoot"));
+            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Sword_Slash"));
+            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Link_Die"));
+            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Link_Hurt"));
 
             //Enemy sound effects
-            Enemy_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Arrow_Boomerang")); //done
-            Enemy_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Key_Appear")); //done
+            Enemy_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Arrow_Boomerang"));
+            Enemy_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Key_Appear"));
 
             //Text sound effects
-            Text_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Text")); //done
-            Text_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Text_Slow")); //done
+            Text_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Text"));
+            Text_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Text_Slow"));
 
             //SongManager
             Songs = new SongManager(Title_music, Overworld_music, Dungeon_music, Ending_music);
-
 
             link = new Link(contentManager.Load<Texture2D>("LinkSpriteSheet"), linkSheetList, Link_soundEffects, inventory);
             shop = new Shop(link, npcSheet, dungeonSheet, itemsSheet, roomManager, this);
@@ -184,7 +184,6 @@ namespace Sprint0
             {
                 controller.SetCommands(this);
             }
-
             pauseControls.SetCommands(this);
             titleControls.SetCommands(this);
 
