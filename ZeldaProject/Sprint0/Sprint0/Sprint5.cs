@@ -444,7 +444,7 @@ namespace Sprint0
                 link.Reset(link.getLinkStateMachine().healthAndDamage.GetMaxHealth());
                 link.Update();
                 triForceSprite.Reset();
-                for (int i = 0; i <= link.GetLinkInventory().getKeyCount(); i++) link.GetLinkInventory().removeKey();
+                while (link.GetLinkInventory().getKeyCount() > 0) link.GetLinkInventory().removeKey();
             }
         }
 
