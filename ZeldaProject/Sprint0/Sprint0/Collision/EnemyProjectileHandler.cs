@@ -26,7 +26,7 @@ namespace Sprint0
             if (projectile is BombProjectile) BombHandler((IEnemy)enemy, (BombProjectile)projectile, overlap);
             else if (projectile is IBoomerang)
             {
-                if (enemy is Keese || enemy is Gel) DamageTheEnemy((IEnemy)enemy, projectile, overlap);
+                if (enemy is Keese || enemy is Gel || enemy is Zol) DamageTheEnemy((IEnemy)enemy, projectile, overlap);
                 else if (!(enemy is Darknut)) StunEnemy((IEnemy)enemy);
 
                 ((IBoomerang)projectile).GoBack();
