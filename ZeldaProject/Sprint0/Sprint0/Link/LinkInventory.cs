@@ -374,7 +374,7 @@ namespace Sprint0
         public List<IItem> getNoResetItems()
         {
             List<IItem> noReset = new List<IItem>();
-            foreach (IItem item in linkItems) if(item is BoomerangItem || item is BowItem || item is CandleItem) noReset.Add(item);
+            foreach (IItem item in linkItems) if(item is BoomerangItem || item is BowItem || item is CandleItem || item is RecorderItem) noReset.Add(item);
             foreach (IItem item in shards.getShards()) noReset.Add(item);
             if (linkMinimap.hasMinimap()) noReset.Add(new MapItem(new Rectangle(), new Rectangle(), inventoryBackground));
             if(linkMinimap.HasCompass()) noReset.Add(new CompassItem(new Rectangle(), new Rectangle(), inventoryBackground));
