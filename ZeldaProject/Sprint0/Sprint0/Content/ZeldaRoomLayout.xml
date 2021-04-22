@@ -7756,9 +7756,9 @@
 		<Enemies>
 			<Enemy>
 				<EnemyType>Gohma</EnemyType>
-				<XLoc>80</XLoc>
+				<XLoc>104</XLoc>
 				<YLoc>52</YLoc>
-				<Color>0</Color>
+				<Color>1</Color>
 			</Enemy>
 		</Enemies>
 		<Background>
