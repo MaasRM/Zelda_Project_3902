@@ -442,6 +442,7 @@ namespace Sprint0
                 file.Close();
                 roomManager.ChangeRoom(GameConstants.OUTSIDEROOM);
                 link.Reset(link.getLinkStateMachine().healthAndDamage.GetMaxHealth());
+                link.Update();
                 triForceSprite.Reset();
                 for (int i = 0; i <= link.GetLinkInventory().getKeyCount(); i++) link.GetLinkInventory().removeKey();
             }

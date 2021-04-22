@@ -1917,7 +1917,7 @@
 				<DoorType>LockedDoor</DoorType>
 			</UpDoor>
 			<DownDoor>
-				<DoorType>OpenDoor</DoorType>
+				<DoorType>ClosedDoor</DoorType>
 			</DownDoor>
 		</Doors>
 	</Room>
