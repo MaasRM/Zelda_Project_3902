@@ -11,11 +11,9 @@ namespace Sprint0
 
         private Texture2D letterSheet;
         private SoundEffectInstance textSound;
-        private IPlayer player;
-        private int counter = 0;
-        private const int letterCount = 67;
-        private int frameCount = 130;
+        private int yDist = 0;
         private int gameHeight;
+        private const int letterSize = 7;
 
         //x then y so grouped in twos
         //size is always 7x7
@@ -78,11 +76,10 @@ namespace Sprint0
               485, 1283, 492, 1283, 499, 1283, 506, 1283, 513, 1283, 520, 1283, 527, 1283, 534, 1283, 541, 1283, 548, 1283 //Riley Maas (20)
             };
 
-        public WinningScreen(Texture2D dungeonSheet, RoomManager manager, SoundEffectInstance text, IPlayer link, Sprint5 game)
+        public WinningScreen(Texture2D dungeonSheet, RoomManager manager, SoundEffectInstance text, Sprint5 game)
         {
             letterSheet = dungeonSheet;
             textSound = text;
-            player = link;
             textSound.Volume = 0.25f;
             textSound.IsLooped = true;
             gameHeight = game.GraphicsDevice.Viewport.Bounds.Height;
@@ -90,51 +87,22 @@ namespace Sprint0
 
         public void Update()
         {
-            if (!player.IsAlive() && frameCount ==130)
-            {
-                frameCount = 0;
-            }
-            if (frameCount < 130) 
-            {
-                if (counter < letterCount) counter++;
-                frameCount++; 
-            }
-            else
-            {
-                counter = 0;
-                frameCount = 130;
-            }
-                
+            yDist++;     
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (frameCount < 130)
+            for (int i = 0; i < letterSource.Length / 2; i += 2)
             {
-                spriteBatch.Draw(letterSheet, new Rectangle(0, 250, 1020, 750), new Rectangle(83, 38, 4, 4), Color.White);
-                textSound.Play();
-                spriteBatch.Draw(letterSheet, new Rectangle(0, 0, 256 * GameConstants.SCALE, 64 * GameConstants.SCALE), new Rectangle(280, 30, 1, 1), Color.White);
-                for (int i = 0; i <= counter * 2; i += 2)
-                {
-                    Rectangle destination = new Rectangle((letterDest[i] + 8) * GameConstants.SCALE, (gameHeight / 8) + (letterDest[i + 1] + 40) * GameConstants.SCALE, 7 * GameConstants.SCALE, 7 * GameConstants.SCALE);
-                    Rectangle source = new Rectangle(letterSource[i], letterSource[i + 1], 7, 7);
-                    spriteBatch.Draw(letterSheet, destination, source, Color.White);
-                }
-                if (counter < letterCount)
-                {
-                    Rectangle destination = new Rectangle((letterDest[counter * 2] + 15) * GameConstants.SCALE, (gameHeight / 8) + (letterDest[(counter * 2) + 1] + 40) * GameConstants.SCALE, 7 * GameConstants.SCALE, 7 * GameConstants.SCALE);
-                    Rectangle source = new Rectangle(9, 56, 7, 7);
-                    spriteBatch.Draw(letterSheet, destination, source, Color.White);
-                } else textSound.Stop();
-            } else
-            {
-                textSound.Stop();
+                Rectangle source = new Rectangle(letterSource[i], letterSource[i + 1], letterSize, letterSize);
+                Rectangle destination = new Rectangle(letterDest[i], letterDest[i + 1]-yDist, letterSize * GameConstants.SCALE, letterSize * GameConstants.SCALE);
+                spriteBatch.Draw(letterSheet, destination, source, Color.White);
             }
         }
 
         public bool isDrawing()
         {
-            return frameCount != 130;
+            return false;
         }
     }
 }
