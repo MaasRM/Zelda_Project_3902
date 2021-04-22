@@ -7,7 +7,7 @@ namespace Sprint0
         public const int HEIGHT = 16;
         public const int moveDist = 2;
         public const int FIRECHANCE = 30;
-        public const int FIRECOOLDOWN = 20;
+        public const int FIRECOOLDOWN = 10;
         public const int CHANGEDIRECTIONFRAME = 8;
         public const int EYETRANSITIONFRAMES = 2;
         public const int EYEOPENFRAMES = 10;
