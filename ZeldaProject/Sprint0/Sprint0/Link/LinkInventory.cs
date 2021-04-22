@@ -270,6 +270,10 @@ namespace Sprint0
             else if (currentItem is BlueBoomerangItem)
             {
                 itemSource = new Rectangle(593, 137, 8, 16);
+            } 
+            else if (currentItem is RecorderItem)
+            {
+                itemSource = new Rectangle(664, 137, 8, 16);
             }
 
             pauseScreen.DrawSecondaryWeapon(spriteBatch, itemSource);
@@ -295,7 +299,7 @@ namespace Sprint0
         public void addItem(IItem item)
         {
             int check = 0;
-            if (item is BoomerangItem || item is BowItem || item is BlueArrowItem || item is BombItem || item is BlueBoomerangItem || item is CandleItem)
+            if (item is BoomerangItem || item is BowItem || item is BlueArrowItem || item is BombItem || item is BlueBoomerangItem || item is CandleItem || item is RecorderItem)
             {
                 if (linkItems.Count == 0)
                 {
