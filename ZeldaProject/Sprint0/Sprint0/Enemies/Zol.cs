@@ -22,7 +22,6 @@ namespace Sprint0
             ZolSpriteSheet = spriteSheet;
             currentSheet = spriteSheet[0];
             init = new Tuple<int, int, ZolStateMachine.ZolColor>(x, y, c);
-            ChangeSpriteSheet();
         }
 
         public void Update()
@@ -30,6 +29,7 @@ namespace Sprint0
             stateMachine.Move();
             destination = stateMachine.GetDestination();
             source = stateMachine.GetSource();
+            ChangeSpriteSheet();
         }
 
         public void Draw(SpriteBatch spriteBatch)
