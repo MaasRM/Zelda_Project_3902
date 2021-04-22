@@ -263,7 +263,6 @@ namespace Sprint0
                             shop.Update();
                             if (roomManager.getRoomIndex() == GameConstants.OUTSIDEROOM && !deathMessageSprite.isDrawing()) triForceSprite.Update();
                         }
-
                     }
                     else
                     {
@@ -408,7 +407,6 @@ namespace Sprint0
                     ((IBoomerang)proj).StopSound();
                 }
             }
-
             projectiles.Clear();
         }
 
@@ -435,12 +433,14 @@ namespace Sprint0
                 Texture2D npcSheet = contentManager.Load<Texture2D>("Zelda_NPCs");
                 Texture2D itemsSheet = contentManager.Load<Texture2D>("Dungeon_Items");
 
+                roomManager.ChangeRoom(GameConstants.OUTSIDEROOM);
+
                 XmlDocument doc = new XmlDocument();
                 FileStream file = new FileStream(xmlLoc, FileMode.Open);
                 doc.Load(file);
                 roomManager.Reset(link.GetLinkInventory().getNoResetItems(), doc, dungeonSheet, enemySheets, itemsSheet, bossSheets, npcSheet, overworldSheet);
                 file.Close();
-                roomManager.ChangeRoom(GameConstants.OUTSIDEROOM);
+
                 link.Reset(link.getLinkStateMachine().healthAndDamage.GetMaxHealth());
                 link.Update();
                 triForceSprite.Reset();
