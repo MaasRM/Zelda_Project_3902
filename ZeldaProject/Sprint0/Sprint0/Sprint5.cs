@@ -416,6 +416,7 @@ namespace Sprint0
         {
             if (!link.IsAlive())
             {
+                foreach (INPC npc in npcs) if (npc is Goriya) ((Goriya)npc).StopThrowSound();
                 List<Texture2D> enemySheets = new List<Texture2D>();
                 List<Texture2D> bossSheets = new List<Texture2D>();
 

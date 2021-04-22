@@ -38,6 +38,10 @@ namespace Sprint0
             {
                 command = new LinkUseCandleCommand(game);
             }
+            else if (item is RecorderItem)
+            {
+                command = new LinkUseRecorderCommand(game);
+            }
 
             command.Execute();
         }
