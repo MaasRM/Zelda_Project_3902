@@ -416,6 +416,7 @@ namespace Sprint0
         {
             if (!link.IsAlive())
             {
+                foreach (INPC npc in npcs) if (npc is Goriya) ((Goriya)npc).StopThrowSound();
                 List<Texture2D> enemySheets = new List<Texture2D>();
                 List<Texture2D> bossSheets = new List<Texture2D>();
 
@@ -441,6 +442,7 @@ namespace Sprint0
                 file.Close();
                 roomManager.ChangeRoom(GameConstants.OUTSIDEROOM);
                 link.Reset(link.getLinkStateMachine().healthAndDamage.GetMaxHealth());
+                link.Update();
                 triForceSprite.Reset();
                 for (int i = 0; i <= link.GetLinkInventory().getKeyCount(); i++) link.GetLinkInventory().removeKey();
             }
