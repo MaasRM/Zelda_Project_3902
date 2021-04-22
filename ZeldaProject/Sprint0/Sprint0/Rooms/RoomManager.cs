@@ -69,14 +69,7 @@ namespace Sprint0
                 if(roomIndex != GameConstants.SHOPROOM) game.SetItems(currentRoom.getItems());
                 game.SetNPCs(currentRoom.getNPCs());
             }
-            if((currentRoom.RoomNum() ==3 || currentRoom.RoomNum() == 10) && currentRoom.getNPCs().Count == 0)
-            {
-                UnlockDoor(Direction.Right);
-            }
-            if ((currentRoom.RoomNum() == 23 || currentRoom.RoomNum() == 37) && currentRoom.getNPCs().Count == 0)
-            {
-                UnlockDoor(Direction.Up);
-            }
+            OpenEnemyDoors();
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -286,5 +279,26 @@ namespace Sprint0
                 }
             }
         }
+
+        private void OpenEnemyDoors()
+        {
+            if ((currentRoom.RoomNum() == 3 || currentRoom.RoomNum() == 10 || currentRoom.RoomNum() == 40) && currentRoom.getNPCs().Count == 0)
+            {
+                UnlockDoor(Direction.Right);
+            }
+            if ((currentRoom.RoomNum() == 23 || currentRoom.RoomNum() == 24 || currentRoom.RoomNum() == 36 || currentRoom.RoomNum() == 37) && currentRoom.getNPCs().Count == 0)
+            {
+                UnlockDoor(Direction.Up);
+            }
+            if ((currentRoom.RoomNum() == 24 || currentRoom.RoomNum() == 36) && currentRoom.getNPCs().Count == 0)
+            {
+                UnlockDoor(Direction.Down);
+            }
+            if (currentRoom.RoomNum() == 40 && currentRoom.getNPCs().Count == 0)
+            {
+                UnlockDoor(Direction.Left);
+            }
+        }
+
     }
 }
