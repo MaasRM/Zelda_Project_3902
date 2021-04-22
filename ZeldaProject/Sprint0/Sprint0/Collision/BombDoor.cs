@@ -28,7 +28,7 @@ namespace Sprint0
                 }
             } else if(projectile.GetProjectileLocation().Y > 240 + (64 * 4) && projectile.GetProjectileLocation().Y + projectile.GetProjectileLocation().Height < 400 + (64 * 4))
             {
-                if (projectile.GetProjectileLocation().X < 120 && ((BombProjectile)projectile).Exploding())
+                if (projectile.GetProjectileLocation().X < 75 && ((BombProjectile)projectile).Exploding())
                 {
                     roomManager.BlowDoor(Direction.Left);
                 }
