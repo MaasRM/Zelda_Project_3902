@@ -65,7 +65,7 @@ namespace Sprint0
 
         public bool CheckForRemoval()
         {
-            return frame > LASTFRAME ;
+            return frame > LASTFRAME;
         }
 
         public int GetDamage()
