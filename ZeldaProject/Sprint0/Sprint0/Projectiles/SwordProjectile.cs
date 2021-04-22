@@ -32,6 +32,8 @@ namespace Sprint0
             if (projectileDirection == Direction.Up || projectileDirection == Direction.Down) sourceRectangle = new Rectangle(1, 154, 8, 15);
             else sourceRectangle = new Rectangle(10, 154, 15, 15);
 
+            DamageSet(stateMachine);
+
             destinationRectangle = new Rectangle(xLoc, yLoc, xSize, ySize);
             frame = 0;
             game.Link_soundEffects[7].Play();
