@@ -107,9 +107,11 @@ namespace Sprint0
             {
                 int num = RandomNumberGenerator.GetInt32(GohmaConstants.FIRECHANCE);
 
-                if (num % (GohmaConstants.FIRECHANCE - 1) == 0) lastFire = frame;
-
-                return true;
+                if (num % (GohmaConstants.FIRECHANCE - 1) == 0)
+                {
+                    lastFire = frame;
+                    return true;
+                }
             }
 
             return false;
