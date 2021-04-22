@@ -303,7 +303,7 @@ namespace Sprint0
         public void addItem(IItem item)
         {
             int check = 0;
-            if (item is BoomerangItem || item is BowItem || item is BlueArrowItem || item is BombItem || item is BlueBoomerangItem || item is CandleItem || item is RecorderItem)
+            if (item is BoomerangItem || item is BowItem || item is BlueArrowItem || item is BombItem || item is BlueBoomerangItem || item is CandleItem || item is RecorderItem || item is BombItem)
             {
                 if (linkItems.Count == 0)
                 {
@@ -355,19 +355,10 @@ namespace Sprint0
 
         public void removeBomb()
         {
-            int check = -1;
-            bombCount--;
-            foreach (IItem item in linkItems)
+            if(hasBombs())
             {
-                if (item is BombItem)
-                {
-                    check = linkItems.IndexOf(item);
-                }
-            }
-            if (check >= 0)
-            {
-                linkItems.RemoveAt(check);
-            }
+                bombCount--;
+            } 
         }
 
         public bool hasBombs()
