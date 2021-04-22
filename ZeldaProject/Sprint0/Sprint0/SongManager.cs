@@ -39,7 +39,9 @@ namespace Sprint0
             MediaPlayer.Stop();
             MediaPlayer.Play(Ending_music);
         }
-
-
+        public void Stop()
+        {
+            MediaPlayer.Stop();
+        }
     }
 }
