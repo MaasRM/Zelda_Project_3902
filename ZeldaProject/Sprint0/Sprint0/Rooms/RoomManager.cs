@@ -208,7 +208,20 @@ namespace Sprint0
         {
             int index = currentRoom.getAdjacentRoomIndex(dir);
             Boolean unlock = false;
-            if (index != -1 && (currentRoom.getDoorSource(dir).X == 815 + 66 || currentRoom.getDoorSource(dir).X == 815 + 99))
+            if (index != -1 && (currentRoom.getDoorSource(dir).X == 815 + 99))
+            {
+                currentRoom.setDoorSource(dir, new Rectangle(815 + 33, currentRoom.getDoorSource(dir).Y, 32, 32));
+                game.Collision_soundEffects[2].Play();
+                unlock = true;
+            }
+            return unlock;
+        }
+
+        public Boolean UseKeyOnDoor(Direction dir)
+        {
+            int index = currentRoom.getAdjacentRoomIndex(dir);
+            Boolean unlock = false;
+            if (index != -1 && (currentRoom.getDoorSource(dir).X == 815 + 66))
             {
                 currentRoom.setDoorSource(dir, new Rectangle(815 + 33, currentRoom.getDoorSource(dir).Y, 32, 32));
                 game.Collision_soundEffects[2].Play();

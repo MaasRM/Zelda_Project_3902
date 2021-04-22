@@ -22,7 +22,7 @@ namespace Sprint0
                 {
                     roomManager.BlowDoor(Direction.Up);
                 } 
-                else if(projectile.GetProjectileLocation().Y > 580 + (64 * 4) && ((BombProjectile)projectile).Exploding())
+                else if(projectile.GetProjectileLocation().Y > 560 + (64 * 4) && ((BombProjectile)projectile).Exploding())
                 {
                     roomManager.BlowDoor(Direction.Down);
                 }
