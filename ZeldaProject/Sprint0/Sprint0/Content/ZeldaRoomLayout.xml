@@ -5401,6 +5401,11 @@
 				<XLoc>52</XLoc>
 				<YLoc>52</YLoc>
 			</Enemy>
+			<Enemy>
+				<EnemyType>Dodongo</EnemyType>
+				<XLoc>176</XLoc>
+				<YLoc>96</YLoc>
+			</Enemy>
 		</Enemies>
 		<Background>
 			<XLoc>586</XLoc>
