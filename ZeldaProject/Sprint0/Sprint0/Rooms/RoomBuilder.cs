@@ -146,7 +146,7 @@ namespace Sprint0
                 case "Darknut":
                     return new Darknut(int.Parse(npcInfo["XLoc"].InnerText) * GameConstants.SCALE, (int.Parse(npcInfo["YLoc"].InnerText) + GameConstants.HUDSIZE) * GameConstants.SCALE, (DarknutStateMachine.DarknutColor) int.Parse(npcInfo["Color"].InnerText), enemiesSheets);
                 case "Zol":
-                    return new Zol(int.Parse(npcInfo["XLoc"].InnerText) * GameConstants.SCALE, (int.Parse(npcInfo["YLoc"].InnerText) + GameConstants.HUDSIZE) * GameConstants.SCALE, (ZolStateMachine.ZolColor) int.Parse(npcInfo["Color"].InnerText), enemiesSheets[0]);
+                    return new Zol(int.Parse(npcInfo["XLoc"].InnerText) * GameConstants.SCALE, (int.Parse(npcInfo["YLoc"].InnerText) + GameConstants.HUDSIZE) * GameConstants.SCALE, (ZolStateMachine.ZolColor) int.Parse(npcInfo["Color"].InnerText), enemiesSheets);
                 case "Gibdo":
                     return new Gibdo(int.Parse(npcInfo["XLoc"].InnerText) * GameConstants.SCALE, (int.Parse(npcInfo["YLoc"].InnerText) + GameConstants.HUDSIZE) * GameConstants.SCALE, enemiesSheets);
                 case "Gohma":
