@@ -140,6 +140,7 @@ namespace Sprint0
             Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Secret"));
             Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Stairs"));
             Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Shield"));
+            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Boss_Scream2"));
 
             //Link sound effects
             Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Arrow_Boomerang"));

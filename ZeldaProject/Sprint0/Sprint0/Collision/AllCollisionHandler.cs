@@ -230,10 +230,8 @@ namespace Sprint0
             }
             else
             {
-                if (nPC is Aquamentus || nPC is Gohma || nPC is Dodongo)
-                {
-                    Collision_soundEffects[0].Play();
-                }
+                if (nPC is Aquamentus) Collision_soundEffects[0].Play();
+                else if (nPC is Gohma || nPC is Dodongo) Collision_soundEffects[12].Play();
                 else if (nPC is Goriya)
                 {
                     ((Goriya)nPC).StopThrowSound();
