@@ -9356,6 +9356,21 @@
 			</Item>
 		</Items>
 		<Enemies>
+			<Enemy>
+				<EnemyType>Gibdo</EnemyType>
+				<XLoc>64</XLoc>
+				<YLoc>112</YLoc>
+			</Enemy>
+			<Enemy>
+				<EnemyType>Gibdo</EnemyType>
+				<XLoc>112</XLoc>
+				<YLoc>112</YLoc>
+			</Enemy>
+			<Enemy>
+				<EnemyType>Gibdo</EnemyType>
+				<XLoc>176</XLoc>
+				<YLoc>112</YLoc>
+			</Enemy>
 		</Enemies>
 		<Background>
 			<XLoc>976</XLoc>

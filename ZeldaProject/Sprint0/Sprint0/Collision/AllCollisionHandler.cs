@@ -249,13 +249,21 @@ namespace Sprint0
         {
             if (player.getLinkStateMachine().getYLoc() < GameConstants.HUDSIZE * GameConstants.SCALE)
             {
-                if (roomManager.getRoomIndex() == GameConstants.VERTICALROOMTOP) roomManager.ChangeRoom(0);
-                else
+                if (roomManager.getRoomIndex() == GameConstants.VERTICALROOMTOP)
                 {
-                    if (player.getLinkStateMachine().getXLoc() < (cameraWallMaxX - cameraWallMinX) / 2) roomManager.ChangeRoom(25);
-                    else roomManager.ChangeRoom(33);
+                    roomManager.ChangeRoom(0);
+                    player.SetPosition(new Rectangle((WallConstants.WALLSIZE * GameConstants.SCALE) + GameConstants.STAIRROOMOFFSETX * GameConstants.SCALE, (GameConstants.HUDSIZE * GameConstants.SCALE) + (WallConstants.WALLSIZE * GameConstants.SCALE) + GameConstants.STAIRROOMOFFSETY * GameConstants.SCALE, 0, 0));
                 }
-                player.SetPosition(new Rectangle((WallConstants.WALLSIZE * GameConstants.SCALE) + GameConstants.STAIRROOMOFFSETX * GameConstants.SCALE, (GameConstants.HUDSIZE * GameConstants.SCALE) + (WallConstants.WALLSIZE * GameConstants.SCALE) + GameConstants.STAIRROOMOFFSETY * GameConstants.SCALE, 0, 0));
+                else if (player.getLinkStateMachine().getXLoc() < (cameraWallMaxX - cameraWallMinX) / 2)
+                {
+                    roomManager.ChangeRoom(25);
+                    player.SetPosition(new Rectangle(192 * GameConstants.SCALE, (GameConstants.HUDSIZE * GameConstants.SCALE) +  80 * GameConstants.SCALE, 0, 0));
+                }
+                else 
+                {
+                    roomManager.ChangeRoom(33);
+                    player.SetPosition(new Rectangle(128 * GameConstants.SCALE, (GameConstants.HUDSIZE * GameConstants.SCALE) + 64 * GameConstants.SCALE, 0, 0));
+                }
             }
             if (player.getLinkStateMachine().getXLoc() < cameraWallMinX) LinkWallHandler.HandleLeftWall(npcs);
             if (player.getLinkStateMachine().getXLoc() > cameraWallMaxX) LinkWallHandler.HandleRightWall(npcs);
