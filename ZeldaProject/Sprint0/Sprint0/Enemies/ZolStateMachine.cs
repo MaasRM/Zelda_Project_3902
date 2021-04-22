@@ -99,8 +99,8 @@ namespace Sprint0
             }
             else if (state == State.Damaged) {
                 damageFrames++;
-                xLoc += (int)damageDirection.X;
-                yLoc += (int)damageDirection.Y;
+                xLoc += (int)damageDirection.X * GameConstants.SCALE;
+                yLoc += (int)damageDirection.Y * GameConstants.SCALE;
             }
             ReturnToNormal();
         }
