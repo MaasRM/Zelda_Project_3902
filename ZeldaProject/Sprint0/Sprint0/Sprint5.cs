@@ -162,6 +162,10 @@ namespace Sprint0
             Text_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Text")); //done
             Text_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Text_Slow")); //done
 
+            //SongManager
+            Songs = new SongManager(Title_music, Overworld_music, Dungeon_music, Ending_music);
+
+
             link = new Link(contentManager.Load<Texture2D>("LinkSpriteSheet"), linkSheetList, Link_soundEffects, inventory);
             shop = new Shop(link, npcSheet, dungeonSheet, itemsSheet, roomManager, this);
             triForceSprite = new TriForceText(dungeonSheet, npcSheet, itemsSheet, this, link.GetLinkInventory().shards); 
@@ -188,9 +192,6 @@ namespace Sprint0
                                         this.GraphicsDevice.Viewport.Bounds.Width - WallConstants.RIGHTWALL,
                                         this.GraphicsDevice.Viewport.Bounds.Y + WallConstants.TOPWALL + GameConstants.HUDSIZE * GameConstants.SCALE,
                                         this.GraphicsDevice.Viewport.Bounds.Height - WallConstants.BOTTOMWALL, itemsSheet);
-
-            //SongManager
-            Songs = new SongManager(Title_music, Overworld_music, Dungeon_music, Ending_music);
         }
 
         protected override void Update(GameTime gameTime)
