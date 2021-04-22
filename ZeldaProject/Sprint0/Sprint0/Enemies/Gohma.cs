@@ -32,7 +32,7 @@ namespace Sprint0
 
             if (stateMachine.TryToFire())
             {
-                int fireballX = destination.X + destination.Width / 2;
+                int fireballX = destination.X + destination.Width / 2 - destination.Width / 8;
                 int fireballY = destination.Y + destination.Height / 2;
                 game.AddProjectile(new GohmaFireball(fireballX, fireballY, gohmaSpriteSheet, game));
             }

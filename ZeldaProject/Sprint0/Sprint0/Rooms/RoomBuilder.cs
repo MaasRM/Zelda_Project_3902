@@ -130,11 +130,11 @@ namespace Sprint0
                 case "Aquamentus":
                     return new Aquamentus(int.Parse(npcInfo["XLoc"].InnerText) * GameConstants.SCALE, (int.Parse(npcInfo["YLoc"].InnerText) + GameConstants.HUDSIZE) * GameConstants.SCALE, bossesSheets, game);
                 case "Gel":
-                    return new Gel(int.Parse(npcInfo["XLoc"].InnerText) * GameConstants.SCALE, (int.Parse(npcInfo["YLoc"].InnerText) + GameConstants.HUDSIZE) * GameConstants.SCALE, GelStateMachine.GelColor.Teal, enemiesSheets[0]);
+                    return new Gel(int.Parse(npcInfo["XLoc"].InnerText) * GameConstants.SCALE, (int.Parse(npcInfo["YLoc"].InnerText) + GameConstants.HUDSIZE) * GameConstants.SCALE, (GelStateMachine.GelColor) int.Parse(npcInfo["Color"].InnerText), enemiesSheets[0]);
                 case "Goriya":
-                    return new Goriya(int.Parse(npcInfo["XLoc"].InnerText) * GameConstants.SCALE, (int.Parse(npcInfo["YLoc"].InnerText) + GameConstants.HUDSIZE) * GameConstants.SCALE, GoriyaStateMachine.GoriyaColor.Red, enemiesSheets, game);
+                    return new Goriya(int.Parse(npcInfo["XLoc"].InnerText) * GameConstants.SCALE, (int.Parse(npcInfo["YLoc"].InnerText) + GameConstants.HUDSIZE) * GameConstants.SCALE, (GoriyaStateMachine.GoriyaColor) int.Parse(npcInfo["Color"].InnerText), enemiesSheets, game);
                 case "Keese":
-                    return new Keese(int.Parse(npcInfo["XLoc"].InnerText) * GameConstants.SCALE, (int.Parse(npcInfo["YLoc"].InnerText) + GameConstants.HUDSIZE) * GameConstants.SCALE, KeeseStateMachine.KeeseColor.Blue, enemiesSheets[0]);
+                    return new Keese(int.Parse(npcInfo["XLoc"].InnerText) * GameConstants.SCALE, (int.Parse(npcInfo["YLoc"].InnerText) + GameConstants.HUDSIZE) * GameConstants.SCALE, (KeeseStateMachine.KeeseColor) int.Parse(npcInfo["Color"].InnerText), enemiesSheets[0]);
                 case "OldMan":
                     return new OldMan(int.Parse(npcInfo["XLoc"].InnerText) * GameConstants.SCALE, (int.Parse(npcInfo["YLoc"].InnerText) + GameConstants.HUDSIZE) * GameConstants.SCALE, npcSheet);
                 case "Stalfos":
@@ -142,17 +142,19 @@ namespace Sprint0
                 case "Trap":
                     return new Trap(int.Parse(npcInfo["XLoc"].InnerText) * GameConstants.SCALE, (int.Parse(npcInfo["YLoc"].InnerText) + GameConstants.HUDSIZE) * GameConstants.SCALE, enemiesSheets[0]);
                 case "Wallmaster":
-                    return new Wallmaster(int.Parse(npcInfo["XLoc"].InnerText) * GameConstants.SCALE, (int.Parse(npcInfo["YLoc"].InnerText) + GameConstants.HUDSIZE) * GameConstants.SCALE, enemiesSheets); //Should this be up?
+                    return new Wallmaster(int.Parse(npcInfo["XLoc"].InnerText) * GameConstants.SCALE, (int.Parse(npcInfo["YLoc"].InnerText) + GameConstants.HUDSIZE) * GameConstants.SCALE, enemiesSheets);
                 case "Darknut":
-                    return new Darknut(int.Parse(npcInfo["XLoc"].InnerText) * GameConstants.SCALE, (int.Parse(npcInfo["YLoc"].InnerText) + GameConstants.HUDSIZE) * GameConstants.SCALE, DarknutStateMachine.DarknutColor.Red, enemiesSheets);
+                    return new Darknut(int.Parse(npcInfo["XLoc"].InnerText) * GameConstants.SCALE, (int.Parse(npcInfo["YLoc"].InnerText) + GameConstants.HUDSIZE) * GameConstants.SCALE, (DarknutStateMachine.DarknutColor) int.Parse(npcInfo["Color"].InnerText), enemiesSheets);
                 case "Zol":
-                    return new Zol(int.Parse(npcInfo["XLoc"].InnerText) * GameConstants.SCALE, (int.Parse(npcInfo["YLoc"].InnerText) + GameConstants.HUDSIZE) * GameConstants.SCALE, ZolStateMachine.ZolColor.Green, enemiesSheets[0]);
+                    return new Zol(int.Parse(npcInfo["XLoc"].InnerText) * GameConstants.SCALE, (int.Parse(npcInfo["YLoc"].InnerText) + GameConstants.HUDSIZE) * GameConstants.SCALE, (ZolStateMachine.ZolColor) int.Parse(npcInfo["Color"].InnerText), enemiesSheets);
                 case "Gibdo":
                     return new Gibdo(int.Parse(npcInfo["XLoc"].InnerText) * GameConstants.SCALE, (int.Parse(npcInfo["YLoc"].InnerText) + GameConstants.HUDSIZE) * GameConstants.SCALE, enemiesSheets);
                 case "Gohma":
-                    return new Gohma(int.Parse(npcInfo["XLoc"].InnerText) * GameConstants.SCALE, (int.Parse(npcInfo["YLoc"].InnerText) + GameConstants.HUDSIZE) * GameConstants.SCALE, GohmaStateMachine.GohmaColor.Red, bossesSheets[0], game);
+                    return new Gohma(int.Parse(npcInfo["XLoc"].InnerText) * GameConstants.SCALE, (int.Parse(npcInfo["YLoc"].InnerText) + GameConstants.HUDSIZE) * GameConstants.SCALE, (GohmaStateMachine.GohmaColor) int.Parse(npcInfo["Color"].InnerText), bossesSheets[0], game);
                 case "Dodongo":
                     return new Dodongo(int.Parse(npcInfo["XLoc"].InnerText) * GameConstants.SCALE, (int.Parse(npcInfo["YLoc"].InnerText) + GameConstants.HUDSIZE) * GameConstants.SCALE, bossesSheets[0]);
+                case "Wizzrobe":
+                    return new Wizzrobe(int.Parse(npcInfo["XLoc"].InnerText) * GameConstants.SCALE, (int.Parse(npcInfo["YLoc"].InnerText) + GameConstants.HUDSIZE) * GameConstants.SCALE, (WizzrobeStateMachine.WizzrobeColor) int.Parse(npcInfo["Color"].InnerText), enemiesSheets, game);
                 default:
                     return new Aquamentus(0, 0, bossesSheets, game);
             }

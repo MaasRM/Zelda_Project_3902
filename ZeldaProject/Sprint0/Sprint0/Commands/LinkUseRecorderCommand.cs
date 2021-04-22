@@ -16,10 +16,11 @@ namespace Sprint0
         public void Execute()
         {
             SoundEffectInstance temp = game.Link_soundEffects[5].CreateInstance();
-            temp.Volume = 0.10f;
+            temp.Volume = 0.15f;
             temp.IsLooped = false;
             temp.Play();
 
+            game.GetSongManager().Overworld();
             game.GetRoomManager().ChangeRoom(GameConstants.OUTSIDEROOM);
             game.ResetTriForceText();
             game.GetPlayer().getLinkStateMachine().setAnimation(Animation.UsingItem);

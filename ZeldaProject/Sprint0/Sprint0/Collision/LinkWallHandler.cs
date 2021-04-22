@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 namespace Sprint0
@@ -22,15 +23,15 @@ namespace Sprint0
             maxY = y2;
         }
 
-        public static void HandleLeftWall()
+        public static bool HandleLeftWall(List<INPC> npcs)
         {
-            bool isSwapped;
+            bool isSwapped = false;
             if (player.getLinkStateMachine().getYLoc() > DoorLocations.HORIDOORYMIN && player.getLinkStateMachine().getYLoc() + player.LinkPosition().Height < DoorLocations.HORIDOORYMAX) {
                 isSwapped = room.SwapRoom(Direction.Left);
                 if (!isSwapped && player.GetLinkInventory().getKeyCount() > 0) {
-                    if (room.UnlockDoor(Direction.Left)) {
+                    if (room.UseKeyOnDoor(Direction.Left)) {
                         isSwapped = room.SwapRoom(Direction.Left);
-                        room.UnlockDoor(Direction.Right);
+                        room.UseKeyOnDoor(Direction.Right);
                         player.GetLinkInventory().removeKey();
                     }
                 }
@@ -47,17 +48,18 @@ namespace Sprint0
                 Rectangle newPosition = new Rectangle(minX, player.getLinkStateMachine().getYLoc(), player.LinkPosition().Width, player.LinkPosition().Height);
                 player.getLinkStateMachine().SetPositions(newPosition);
             }
+            return isSwapped;
         }
 
-        public static void HandleTopWall()
+        public static bool HandleTopWall(List<INPC> npcs)
         {
-            bool isSwapped;
+            bool isSwapped = false;
             if (player.getLinkStateMachine().getXLoc() > DoorLocations.VERTDOORXMIN && player.getLinkStateMachine().getXLoc() + player.LinkPosition().Width < DoorLocations.VERTDOORXMAX) {
                 isSwapped = room.SwapRoom(Direction.Up);
                 if (!isSwapped && player.GetLinkInventory().getKeyCount() > 0) {
-                    if (room.UnlockDoor(Direction.Up)) {
+                    if (room.UseKeyOnDoor(Direction.Up)) {
                         isSwapped = room.SwapRoom(Direction.Up);
-                        room.UnlockDoor(Direction.Down);
+                        room.UseKeyOnDoor(Direction.Down);
                         player.GetLinkInventory().removeKey();
                     }
                 }
@@ -74,17 +76,18 @@ namespace Sprint0
                 Rectangle newPosition = new Rectangle(player.getLinkStateMachine().getXLoc(), minY, player.LinkPosition().Width, player.LinkPosition().Height);
                 player.getLinkStateMachine().SetPositions(newPosition);
             }
+            return isSwapped;
         }
 
-        public static void HandleRightWall()
+        public static bool HandleRightWall(List<INPC> npcs)
         {
-            bool isSwapped;
+            bool isSwapped = false;
             if (player.getLinkStateMachine().getYLoc() > DoorLocations.HORIDOORYMIN && player.getLinkStateMachine().getYLoc() + player.LinkPosition().Height < DoorLocations.HORIDOORYMAX) {
                 isSwapped = room.SwapRoom(Direction.Right);
                 if (!isSwapped && player.GetLinkInventory().getKeyCount() > 0) {
-                    if (room.UnlockDoor(Direction.Right)) {
+                    if (room.UseKeyOnDoor(Direction.Right)) {
                         isSwapped = room.SwapRoom(Direction.Right);
-                        room.UnlockDoor(Direction.Left);
+                        room.UseKeyOnDoor(Direction.Left);
                         player.GetLinkInventory().removeKey();
                     }
                 }
@@ -101,17 +104,18 @@ namespace Sprint0
                 Rectangle newPosition = new Rectangle(maxX, player.getLinkStateMachine().getYLoc(), player.LinkPosition().Width, player.LinkPosition().Height);
                 player.getLinkStateMachine().SetPositions(newPosition);
             }
+            return isSwapped;
         }
 
-        public static void HandleBottomWall()
+        public static bool HandleBottomWall(List<INPC> npcs)
         {
-            bool isSwapped;
+            bool isSwapped = false;
             if (player.getLinkStateMachine().getXLoc() > DoorLocations.VERTDOORXMIN && player.getLinkStateMachine().getXLoc() + player.LinkPosition().Width < DoorLocations.VERTDOORXMAX) {
                 isSwapped = room.SwapRoom(Direction.Down);
                 if (!isSwapped && player.GetLinkInventory().getKeyCount() > 0) {
-                    if (room.UnlockDoor(Direction.Down)) {
+                    if (room.UseKeyOnDoor(Direction.Down)) {
                         isSwapped = room.SwapRoom(Direction.Down);
-                        room.UnlockDoor(Direction.Up);
+                        room.UseKeyOnDoor(Direction.Up);
                         player.GetLinkInventory().removeKey();
                     }
                 }
@@ -128,6 +132,7 @@ namespace Sprint0
                 Rectangle newPosition = new Rectangle(player.getLinkStateMachine().getXLoc(), maxY, player.LinkPosition().Width, player.LinkPosition().Height);
                 player.getLinkStateMachine().SetPositions(newPosition);
             }
+            return isSwapped;
         }
     }
 }

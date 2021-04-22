@@ -36,7 +36,7 @@ namespace Sprint0
                     else if (roomManager.Room().RoomNum() == 28 && !secrets[2]) SecretThreeHandler(Collision_soundEffects, secrets);
                     else if (roomManager.Room().RoomNum() == 41 && !secrets[3]) SecretFourHandler(Collision_soundEffects, secrets);
                 }
-                else if (block.getIndex() == 7) StairCaseCollision(roomManager, Collision_soundEffects);
+                else if (block.getIndex() == 7) StairCaseCollision(player, roomManager, Collision_soundEffects);
                 else if (block.getIndex() == 41) EnterDungeonCollision(player, roomManager, Collision_soundEffects);
                 else if (block.getIndex() != 10 || blockMoved) NonMobileBlockCollision(player, overlap, blockRect, overlapSide); 
             } 
@@ -138,7 +138,7 @@ namespace Sprint0
             secrets[3] = true;
         }
 
-        private static void StairCaseCollision(RoomManager roomManager, List<SoundEffect> Collision_soundEffects)
+        private static void StairCaseCollision(IPlayer player, RoomManager roomManager, List<SoundEffect> Collision_soundEffects)
         {
             Collision_soundEffects[10].Play();
             if(roomManager.getRoomIndex() < GameConstants.TOPBOTTOMSPLIT)

@@ -9,16 +9,18 @@ namespace Sprint0
     public class Zol : INPC, IEnemy
     {
         private ZolStateMachine stateMachine;
-        private Texture2D ZolSpriteSheet;
+        private List<Texture2D> ZolSpriteSheet;
+        private Texture2D currentSheet;
         private Rectangle source;
         private Rectangle destination;
         private const int DAMAGE = 1;
         private Tuple<int, int, ZolStateMachine.ZolColor> init;
 
-        public Zol(int x, int y, ZolStateMachine.ZolColor c, Texture2D spriteSheet)
+        public Zol(int x, int y, ZolStateMachine.ZolColor c, List<Texture2D> spriteSheet)
         {
             stateMachine = new ZolStateMachine(x, y, c);
             ZolSpriteSheet = spriteSheet;
+            currentSheet = spriteSheet[0];
             init = new Tuple<int, int, ZolStateMachine.ZolColor>(x, y, c);
         }
 
@@ -27,11 +29,34 @@ namespace Sprint0
             stateMachine.Move();
             destination = stateMachine.GetDestination();
             source = stateMachine.GetSource();
+            ChangeSpriteSheet();
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(ZolSpriteSheet, destination, source, Color.White);
+            spriteBatch.Draw(currentSheet, destination, source, Color.White);
+        }
+
+        private void ChangeSpriteSheet()
+        {
+            if (stateMachine.IsDamaged())
+            {
+                int damageFrame = stateMachine.GetDamageFrame();
+
+                if (damageFrame % 4 == 3) currentSheet = ZolSpriteSheet[1];
+                else if (damageFrame % 4 == 2) currentSheet = ZolSpriteSheet[2];
+                else if (damageFrame % 4 == 1) currentSheet = ZolSpriteSheet[3];
+                else currentSheet = ZolSpriteSheet[0];
+            }
+            else
+            {
+                SetOriginalColor();
+            }
+        }
+
+        private void SetOriginalColor()
+        {
+            currentSheet = ZolSpriteSheet[0];
         }
 
         public void Reset()
@@ -51,7 +76,7 @@ namespace Sprint0
 
         public void SetDamageState(int damage, Vector2 direction)
         {
-            stateMachine.TakeDamage(damage);
+            stateMachine.TakeDamage(damage, direction);
         }
         public void SetPosition(Rectangle newPos)
         {
@@ -71,7 +96,7 @@ namespace Sprint0
 
         public bool IsDamaged()
         {
-            return false;
+            return stateMachine.IsDamaged();
         }
     }
 }

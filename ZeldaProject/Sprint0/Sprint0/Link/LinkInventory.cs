@@ -270,6 +270,14 @@ namespace Sprint0
             else if (currentItem is BlueBoomerangItem)
             {
                 itemSource = new Rectangle(593, 137, 8, 16);
+            } 
+            else if (currentItem is RecorderItem)
+            {
+                itemSource = new Rectangle(664, 137, 8, 16);
+            }
+            else if (currentItem is RecorderItem)
+            {
+                itemSource = new Rectangle(664, 137, 8, 16);
             }
 
             pauseScreen.DrawSecondaryWeapon(spriteBatch, itemSource);
@@ -295,7 +303,7 @@ namespace Sprint0
         public void addItem(IItem item)
         {
             int check = 0;
-            if (item is BoomerangItem || item is BowItem || item is BlueArrowItem || item is BombItem || item is BlueBoomerangItem || item is CandleItem)
+            if (item is BoomerangItem || item is BowItem || item is BlueArrowItem || item is BombItem || item is BlueBoomerangItem || item is CandleItem || item is RecorderItem || item is BombItem)
             {
                 if (linkItems.Count == 0)
                 {
@@ -347,19 +355,10 @@ namespace Sprint0
 
         public void removeBomb()
         {
-            int check = -1;
-            bombCount--;
-            foreach (IItem item in linkItems)
+            if(hasBombs())
             {
-                if (item is BombItem)
-                {
-                    check = linkItems.IndexOf(item);
-                }
-            }
-            if (check >= 0)
-            {
-                linkItems.RemoveAt(check);
-            }
+                bombCount--;
+            } 
         }
 
         public bool hasBombs()
@@ -375,7 +374,7 @@ namespace Sprint0
         public List<IItem> getNoResetItems()
         {
             List<IItem> noReset = new List<IItem>();
-            foreach (IItem item in linkItems) if(item is BoomerangItem || item is BowItem || item is CandleItem) noReset.Add(item);
+            foreach (IItem item in linkItems) if(item is BoomerangItem || item is BowItem || item is CandleItem || item is RecorderItem) noReset.Add(item);
             foreach (IItem item in shards.getShards()) noReset.Add(item);
             if (linkMinimap.hasMinimap()) noReset.Add(new MapItem(new Rectangle(), new Rectangle(), inventoryBackground));
             if(linkMinimap.HasCompass()) noReset.Add(new CompassItem(new Rectangle(), new Rectangle(), inventoryBackground));

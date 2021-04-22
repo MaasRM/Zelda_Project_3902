@@ -101,6 +101,14 @@ namespace Sprint0
             {
                 itemSource = new Rectangle(593, 137, 8, 16);
             }
+            else if (item is CandleItem)
+            {
+                itemSource = new Rectangle(653, 137, 8, 16);
+            }
+            else if (item is RecorderItem)
+            {
+                itemSource = new Rectangle(664, 137, 8, 16);
+            }
 
             return itemSource;
         }

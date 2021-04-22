@@ -22,7 +22,7 @@ namespace Sprint0
         public int GetMeleeDamage();
         public void SetDamageState(int damage, Vector2 direction);
         public bool IsAlive();
-        public void Reset();
+        public void Reset(int health);
         public void Heal(int health);
     }
 }

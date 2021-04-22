@@ -250,16 +250,19 @@
 				<EnemyType>Goriya</EnemyType>
 				<XLoc>150</XLoc>
 				<YLoc>32</YLoc>
+				<Color>0</Color>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Goriya</EnemyType>
 				<XLoc>135</XLoc>
 				<YLoc>48</YLoc>
+				<Color>0</Color>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Goriya</EnemyType>
 				<XLoc>170</XLoc>
 				<YLoc>96</YLoc>
+				<Color>0</Color>
 			</Enemy>
 		</Enemies>
 		<Background>
@@ -959,16 +962,19 @@
 				<EnemyType>Gel</EnemyType>
 				<XLoc>80</XLoc>
 				<YLoc>80</YLoc>
+				<Color>0</Color>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Gel</EnemyType>
 				<XLoc>112</XLoc>
 				<YLoc>48</YLoc>
+				<Color>0</Color>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Gel</EnemyType>
 				<XLoc>112</XLoc>
 				<YLoc>112</YLoc>
+				<Color>0</Color>
 			</Enemy>
 		</Enemies>
 		<Background>
@@ -1062,26 +1068,31 @@
 				<EnemyType>Gel</EnemyType>
 				<XLoc>64</XLoc>
 				<YLoc>32</YLoc>
+				<Color>0</Color>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Gel</EnemyType>
 				<XLoc>144</XLoc>
 				<YLoc>32</YLoc>
+				<Color>0</Color>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Gel</EnemyType>
 				<XLoc>160</XLoc>
 				<YLoc>64</YLoc>
+				<Color>0</Color>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Gel</EnemyType>
 				<XLoc>84</XLoc>
 				<YLoc>64</YLoc>
+				<Color>0</Color>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Gel</EnemyType>
 				<XLoc>8</XLoc>
 				<YLoc>112</YLoc>
+				<Color>0</Color>
 			</Enemy>
 		</Enemies>
 		<Background>
@@ -1099,7 +1110,7 @@
 				<DoorType>OpenDoor</DoorType>
 			</UpDoor>
 			<DownDoor>
-				<DoorType>BrokenWall</DoorType>
+				<DoorType>Wall</DoorType>
 			</DownDoor>
 		</Doors>
 	</Room>
@@ -1143,16 +1154,19 @@
 				<EnemyType>Goriya</EnemyType>
 				<XLoc>144</XLoc>
 				<YLoc>32</YLoc>
+				<Color>0</Color>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Goriya</EnemyType>
 				<XLoc>180</XLoc>
 				<YLoc>48</YLoc>
+				<Color>0</Color>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Goriya</EnemyType>
 				<XLoc>144</XLoc>
 				<YLoc>96</YLoc>
+				<Color>0</Color>
 			</Enemy>
 		</Enemies>
 		<Background>
@@ -1170,7 +1184,7 @@
 				<DoorType>Wall</DoorType>
 			</UpDoor>
 			<DownDoor>
-				<DoorType>BrokenWall</DoorType>
+				<DoorType>Wall</DoorType>
 			</DownDoor>
 		</Doors>
 	</Room>
@@ -1379,31 +1393,37 @@
 				<EnemyType>Keese</EnemyType>
 				<XLoc>160</XLoc>
 				<YLoc>33</YLoc>
+				<Color>0</Color>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Keese</EnemyType>
 				<XLoc>160</XLoc>
 				<YLoc>127</YLoc>
+				<Color>0</Color>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Keese</EnemyType>
 				<XLoc>84</XLoc>
 				<YLoc>64</YLoc>
+				<Color>0</Color>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Keese</EnemyType>
 				<XLoc>80</XLoc>
 				<YLoc>98</YLoc>
+				<Color>0</Color>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Keese</EnemyType>
 				<XLoc>34</XLoc>
 				<YLoc>82</YLoc>
+				<Color>0</Color>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Keese</EnemyType>
 				<XLoc>50</XLoc>
 				<YLoc>112</YLoc>
+				<Color>0</Color>
 			</Enemy>
 		</Enemies>
 		<Background>
@@ -1501,7 +1521,7 @@
 				<DoorType>OpenDoor</DoorType>
 			</LeftDoor>
 			<UpDoor>
-				<DoorType>BrokenWall</DoorType>
+				<DoorType>Wall</DoorType>
 			</UpDoor>
 			<DownDoor>
 				<DoorType>OpenDoor</DoorType>
@@ -1550,41 +1570,49 @@
 				<EnemyType>Keese</EnemyType>
 				<XLoc>80</XLoc>
 				<YLoc>32</YLoc>
+				<Color>0</Color>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Keese</EnemyType>
 				<XLoc>128</XLoc>
 				<YLoc>64</YLoc>
+				<Color>0</Color>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Keese</EnemyType>
 				<XLoc>128</XLoc>
 				<YLoc>96</YLoc>
+				<Color>0</Color>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Keese</EnemyType>
 				<XLoc>160</XLoc>
 				<YLoc>64</YLoc>
+				<Color>0</Color>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Keese</EnemyType>
 				<XLoc>160</XLoc>
 				<YLoc>96</YLoc>
+				<Color>0</Color>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Keese</EnemyType>
 				<XLoc>208</XLoc>
 				<YLoc>80</YLoc>
+				<Color>0</Color>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Keese</EnemyType>
 				<XLoc>192</XLoc>
 				<YLoc>48</YLoc>
+				<Color>0</Color>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Keese</EnemyType>
 				<XLoc>192</XLoc>
 				<YLoc>112</YLoc>
+				<Color>0</Color>
 			</Enemy>
 		</Enemies>
 		<Background>
@@ -1599,7 +1627,7 @@
 				<DoorType>OpenDoor</DoorType>
 			</LeftDoor>
 			<UpDoor>
-				<DoorType>BrokenWall</DoorType>
+				<DoorType>Wall</DoorType>
 			</UpDoor>
 			<DownDoor>
 				<DoorType>Wall</DoorType>
@@ -1706,16 +1734,19 @@
 				<EnemyType>Keese</EnemyType>
 				<XLoc>48</XLoc>
 				<YLoc>48</YLoc>
+				<Color>0</Color>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Keese</EnemyType>
 				<XLoc>80</XLoc>
 				<YLoc>64</YLoc>
+				<Color>0</Color>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Keese</EnemyType>
 				<XLoc>48</XLoc>
 				<YLoc>112</YLoc>
+				<Color>0</Color>
 			</Enemy>
 		</Enemies>
 		<Background>
@@ -1886,7 +1917,7 @@
 				<DoorType>LockedDoor</DoorType>
 			</UpDoor>
 			<DownDoor>
-				<DoorType>OpenDoor</DoorType>
+				<DoorType>ClosedDoor</DoorType>
 			</DownDoor>
 		</Doors>
 	</Room>
@@ -2828,21 +2859,25 @@
 				<EnemyType>Keese</EnemyType>
 				<XLoc>32</XLoc>
 				<YLoc>80</YLoc>
+				<Color>0</Color>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Keese</EnemyType>
 				<XLoc>96</XLoc>
 				<YLoc>80</YLoc>
+				<Color>0</Color>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Keese</EnemyType>
 				<XLoc>160</XLoc>
 				<YLoc>80</YLoc>
+				<Color>0</Color>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Keese</EnemyType>
 				<XLoc>224</XLoc>
 				<YLoc>80</YLoc>
+				<Color>0</Color>
 			</Enemy>
 		</Enemies>
 		<Background>
@@ -5032,6 +5067,26 @@
 		<Items>
 		</Items>
 		<Enemies>
+			<Enemy>
+				<EnemyType>Stalfos</EnemyType>
+				<XLoc>160</XLoc>
+				<YLoc>32</YLoc>
+			</Enemy>
+			<Enemy>
+				<EnemyType>Stalfos</EnemyType>
+				<XLoc>48</XLoc>
+				<YLoc>128</YLoc>
+			</Enemy>
+			<Enemy>
+				<EnemyType>Gibdo</EnemyType>
+				<XLoc>112</XLoc>
+				<YLoc>64</YLoc>
+			</Enemy>
+			<Enemy>
+				<EnemyType>Gibdo</EnemyType>
+				<XLoc>144</XLoc>
+				<YLoc>96</YLoc>
+			</Enemy>
 		</Enemies>
 		<Background>
 			<XLoc>976</XLoc>
@@ -5290,6 +5345,24 @@
 			</Item>
 		</Items>
 		<Enemies>
+			<Enemy>
+				<EnemyType>Keese</EnemyType>
+				<XLoc>160</XLoc>
+				<YLoc>127</YLoc>
+				<Color>1</Color>
+			</Enemy>
+			<Enemy>
+				<EnemyType>Keese</EnemyType>
+				<XLoc>70</XLoc>
+				<YLoc>32</YLoc>
+				<Color>1</Color>
+			</Enemy>
+			<Enemy>
+				<EnemyType>Keese</EnemyType>
+				<XLoc>112</XLoc>
+				<YLoc>80</YLoc>
+				<Color>1</Color>
+			</Enemy>
 		</Enemies>
 		<Background>
 			<XLoc>976</XLoc>
@@ -5327,6 +5400,11 @@
 				<EnemyType>Dodongo</EnemyType>
 				<XLoc>52</XLoc>
 				<YLoc>52</YLoc>
+			</Enemy>
+			<Enemy>
+				<EnemyType>Dodongo</EnemyType>
+				<XLoc>176</XLoc>
+				<YLoc>96</YLoc>
 			</Enemy>
 		</Enemies>
 		<Background>
@@ -5381,6 +5459,30 @@
 		<Items>
 		</Items>
 		<Enemies>
+			<Enemy>
+				<EnemyType>Zol</EnemyType>
+				<XLoc>96</XLoc>
+				<YLoc>80</YLoc>
+				<Color>0</Color>
+            </Enemy>
+			<Enemy>
+				<EnemyType>Zol</EnemyType>
+				<XLoc>144</XLoc>
+				<YLoc>80</YLoc>
+				<Color>0</Color>
+            </Enemy>
+			<Enemy>
+				<EnemyType>Zol</EnemyType>
+				<XLoc>48</XLoc>
+				<YLoc>112</YLoc>
+				<Color>0</Color>
+            </Enemy>
+			<Enemy>
+				<EnemyType>Zol</EnemyType>
+				<XLoc>192</XLoc>
+				<YLoc>112</YLoc>
+				<Color>0</Color>
+            </Enemy>
 		</Enemies>
 		<Background>
 			<XLoc>781</XLoc>
@@ -5388,16 +5490,16 @@
 		</Background>
 		<Doors>
 			<RightDoor>
-				<DoorType>OpenDoor</DoorType>
+				<DoorType>Wall</DoorType>
 			</RightDoor>
 			<LeftDoor>
 				<DoorType>Wall</DoorType>
 			</LeftDoor>
 			<UpDoor>
-				<DoorType>OpenDoor</DoorType>
+				<DoorType>ClosedDoor</DoorType>
 			</UpDoor>
 			<DownDoor>
-				<DoorType>OpenDoor</DoorType>
+				<DoorType>ClosedDoor</DoorType>
 			</DownDoor>
 		</Doors>
 	</Room>
@@ -5529,6 +5631,16 @@
 		<Items>
 		</Items>
 		<Enemies>
+			<Enemy>
+				<EnemyType>Stalfos</EnemyType>
+				<XLoc>96</XLoc>
+				<YLoc>64</YLoc>
+            </Enemy>
+			<Enemy>
+				<EnemyType>Stalfos</EnemyType>
+				<XLoc>96</XLoc>
+				<YLoc>96</YLoc>
+            </Enemy>
 		</Enemies>
 		<Background>
 			<XLoc>781</XLoc>
@@ -5539,13 +5651,13 @@
 				<DoorType>Wall</DoorType>
 			</RightDoor>
 			<LeftDoor>
-				<DoorType>OpenDoor</DoorType>
+				<DoorType>Wall</DoorType>
 			</LeftDoor>
 			<UpDoor>
 				<DoorType>OpenDoor</DoorType>
 			</UpDoor>
 			<DownDoor>
-				<DoorType>BrokenWall</DoorType>
+				<DoorType>OpenDoor</DoorType>
 			</DownDoor>
 		</Doors>
 	</Room>
@@ -5692,6 +5804,18 @@
 			</Item>
 		</Items>	
 		<Enemies>
+			<Enemy>
+				<EnemyType>Darknut</EnemyType>
+				<XLoc>64</XLoc>
+				<YLoc>80</YLoc>
+				<Color>0</Color>
+            </Enemy>
+			<Enemy>
+				<EnemyType>Darknut</EnemyType>
+				<XLoc>176</XLoc>
+				<YLoc>80</YLoc>
+				<Color>0</Color>
+            </Enemy>
 		</Enemies>
 		<Background>
 			<XLoc>196</XLoc>
@@ -5705,7 +5829,7 @@
 				<DoorType>Wall</DoorType>
 			</LeftDoor>
 			<UpDoor>
-				<DoorType>OpenDoor</DoorType>
+				<DoorType>LockedDoor</DoorType>
 			</UpDoor>
 			<DownDoor>
 				<DoorType>Wall</DoorType>
@@ -5855,6 +5979,30 @@
 		<Items>
 		</Items>
 		<Enemies>
+			<Enemy>
+				<EnemyType>Wizzrobe</EnemyType>
+				<XLoc>32</XLoc>
+				<YLoc>32</YLoc>
+				<Color>0</Color>
+            </Enemy>
+			<Enemy>
+				<EnemyType>Wizzrobe</EnemyType>
+				<XLoc>208</XLoc>
+				<YLoc>128</YLoc>
+				<Color>0</Color>
+            </Enemy>
+			<Enemy>
+				<EnemyType>Wizzrobe</EnemyType>
+				<XLoc>160</XLoc>
+				<YLoc>80</YLoc>
+				<Color>1</Color>
+            </Enemy>
+			<Enemy>
+				<EnemyType>Wizzrobe</EnemyType>
+				<XLoc>80</XLoc>
+				<YLoc>80</YLoc>
+				<Color>1</Color>
+            </Enemy>
 		</Enemies>
 		<Background>
 			<XLoc>1</XLoc>
@@ -6228,13 +6376,13 @@
 				<DoorType>OpenDoor</DoorType>
 			</RightDoor>
 			<LeftDoor>
-				<DoorType>OpenDoor</DoorType>
+				<DoorType>LockedDoor</DoorType>
 			</LeftDoor>
 			<UpDoor>
 				<DoorType>OpenDoor</DoorType>
 			</UpDoor>
 			<DownDoor>
-				<DoorType>BrokenWall</DoorType>
+				<DoorType>Wall</DoorType>
 			</DownDoor>
 		</Doors>
 	</Room>
@@ -6374,8 +6522,31 @@
 			</Block>
 		</Blocks>
 		<Items>
+			<Item>
+				<ItemType>SecretKeyItem</ItemType>
+				<XLoc>128</XLoc>
+				<YLoc>48</YLoc>
+			</Item>
 		</Items>
 		<Enemies>
+			<Enemy>
+				<EnemyType>Goriya</EnemyType>
+				<XLoc>144</XLoc>
+				<YLoc>32</YLoc>
+				<Color>1</Color>
+			</Enemy>
+			<Enemy>
+				<EnemyType>Goriya</EnemyType>
+				<XLoc>180</XLoc>
+				<YLoc>48</YLoc>
+				<Color>1</Color>
+			</Enemy>
+			<Enemy>
+				<EnemyType>Goriya</EnemyType>
+				<XLoc>144</XLoc>
+				<YLoc>96</YLoc>
+				<Color>1</Color>
+			</Enemy>
 		</Enemies>
 		<Background>
 			<XLoc>196</XLoc>
@@ -6389,7 +6560,7 @@
 				<DoorType>OpenDoor</DoorType>
 			</LeftDoor>
 			<UpDoor>
-				<DoorType>BrokenWall</DoorType>
+				<DoorType>OpenDoor</DoorType>
 			</UpDoor>
 			<DownDoor>
 				<DoorType>Wall</DoorType>
@@ -6457,8 +6628,31 @@
 			</Block>
 		</Blocks>
 		<Items>
+			<Item>
+				<ItemType>RecorderItem</ItemType>
+				<XLoc>126</XLoc>
+				<YLoc>119</YLoc>
+			</Item>
 		</Items>
 		<Enemies>
+			<Enemy>
+				<EnemyType>Darknut</EnemyType>
+				<XLoc>64</XLoc>
+				<YLoc>80</YLoc>
+				<Color>0</Color>
+            </Enemy>
+			<Enemy>
+				<EnemyType>Darknut</EnemyType>
+				<XLoc>176</XLoc>
+				<YLoc>80</YLoc>
+				<Color>0</Color>
+            </Enemy>
+			<Enemy>
+				<EnemyType>Darknut</EnemyType>
+				<XLoc>112</XLoc>
+				<YLoc>96</YLoc>
+				<Color>1</Color>
+            </Enemy>
 		</Enemies>
 		<Background>
 			<XLoc>196</XLoc>
@@ -6472,7 +6666,7 @@
 				<DoorType>Wall</DoorType>
 			</LeftDoor>
 			<UpDoor>
-				<DoorType>BrokenWall</DoorType>
+				<DoorType>Wall</DoorType>
 			</UpDoor>
 			<DownDoor>
 				<DoorType>Wall</DoorType>
@@ -6642,6 +6836,24 @@
 		<Items>
 		</Items>
 		<Enemies>
+			<Enemy>
+				<EnemyType>Darknut</EnemyType>
+				<XLoc>80</XLoc>
+				<YLoc>112</YLoc>
+				<Color>1</Color>
+            </Enemy>
+			<Enemy>
+				<EnemyType>Darknut</EnemyType>
+				<XLoc>144</XLoc>
+				<YLoc>80</YLoc>
+				<Color>1</Color>
+            </Enemy>
+			<Enemy>
+				<EnemyType>Darknut</EnemyType>
+				<XLoc>192</XLoc>
+				<YLoc>96</YLoc>
+				<Color>1</Color>
+            </Enemy>
 		</Enemies>
 		<Background>
 			<XLoc>586</XLoc>
@@ -6658,7 +6870,7 @@
 				<DoorType>OpenDoor</DoorType>
 			</UpDoor>
 			<DownDoor>
-				<DoorType>BrokenWall</DoorType>
+				<DoorType>Wall</DoorType>
 			</DownDoor>
 		</Doors>
 	</Room>
@@ -6805,6 +7017,30 @@
 		<Items>
 		</Items>
 		<Enemies>
+			<Enemy>
+				<EnemyType>Wizzrobe</EnemyType>
+				<XLoc>32</XLoc>
+				<YLoc>32</YLoc>
+				<Color>0</Color>
+            </Enemy>
+			<Enemy>
+				<EnemyType>Wizzrobe</EnemyType>
+				<XLoc>208</XLoc>
+				<YLoc>128</YLoc>
+				<Color>0</Color>
+            </Enemy>
+			<Enemy>
+				<EnemyType>Wizzrobe</EnemyType>
+				<XLoc>160</XLoc>
+				<YLoc>80</YLoc>
+				<Color>0</Color>
+            </Enemy>
+			<Enemy>
+				<EnemyType>Wizzrobe</EnemyType>
+				<XLoc>80</XLoc>
+				<YLoc>80</YLoc>
+				<Color>0</Color>
+            </Enemy>
 		</Enemies>
 		<Background>
 			<XLoc>1</XLoc>
@@ -6998,6 +7234,54 @@
 		<Items>
 		</Items>
 		<Enemies>
+			<Enemy>
+				<EnemyType>Keese</EnemyType>
+				<XLoc>160</XLoc>
+				<YLoc>80</YLoc>
+				<Color>1</Color>
+			</Enemy>
+			<Enemy>
+				<EnemyType>Keese</EnemyType>
+				<XLoc>64</XLoc>
+				<YLoc>96</YLoc>
+				<Color>1</Color>
+			</Enemy>
+			<Enemy>
+				<EnemyType>Keese</EnemyType>
+				<XLoc>96</XLoc>
+				<YLoc>112</YLoc>
+				<Color>1</Color>
+			</Enemy>
+			<Enemy>
+				<EnemyType>Keese</EnemyType>
+				<XLoc>144</XLoc>
+				<YLoc>128</YLoc>
+				<Color>1</Color>
+			</Enemy>
+			<Enemy>
+				<EnemyType>Keese</EnemyType>
+				<XLoc>48</XLoc>
+				<YLoc>80</YLoc>
+				<Color>1</Color>
+			</Enemy>
+			<Enemy>
+				<EnemyType>Gel</EnemyType>
+				<XLoc>32</XLoc>
+				<YLoc>64</YLoc>
+				<Color>0</Color>
+			</Enemy>
+			<Enemy>
+				<EnemyType>Gel</EnemyType>
+				<XLoc>80</XLoc>
+				<YLoc>32</YLoc>
+				<Color>0</Color>
+			</Enemy>
+			<Enemy>
+				<EnemyType>Gel</EnemyType>
+				<XLoc>144</XLoc>
+				<YLoc>128</YLoc>
+				<Color>0</Color>
+			</Enemy>
 		</Enemies>
 		<Background>
 			<XLoc>781</XLoc>
@@ -7011,7 +7295,7 @@
 				<DoorType>Wall</DoorType>
 			</LeftDoor>
 			<UpDoor>
-				<DoorType>BrokenWall</DoorType>
+				<DoorType>Wall</DoorType>
 			</UpDoor>
 			<DownDoor>
 				<DoorType>Wall</DoorType>
@@ -7109,8 +7393,47 @@
 			</Block>
         </Blocks>
 		<Items>
+			<Item>
+				<ItemType>EnemyKeyItem</ItemType>
+			</Item>
 		</Items>
 		<Enemies>
+			<Enemy>
+				<EnemyType>Stalfos</EnemyType>
+				<XLoc>128</XLoc>
+				<YLoc>32</YLoc>
+				<Color>0</Color>
+			</Enemy>
+			<Enemy>
+				<EnemyType>Stalfos</EnemyType>
+				<XLoc>112</XLoc>
+				<YLoc>128</YLoc>
+				<Color>0</Color>
+			</Enemy>
+			<Enemy>
+				<EnemyType>Darknut</EnemyType>
+				<XLoc>64</XLoc>
+				<YLoc>64</YLoc>
+				<Color>0</Color>
+			</Enemy>
+			<Enemy>
+				<EnemyType>Darknut</EnemyType>
+				<XLoc>176</XLoc>
+				<YLoc>96</YLoc>
+				<Color>0</Color>
+			</Enemy>
+			<Enemy>
+				<EnemyType>Zol</EnemyType>
+				<XLoc>144</XLoc>
+				<YLoc>64</YLoc>
+				<Color>0</Color>
+			</Enemy>
+			<Enemy>
+				<EnemyType>Zol</EnemyType>
+				<XLoc>96</XLoc>
+				<YLoc>96</YLoc>
+				<Color>0</Color>
+			</Enemy>
 		</Enemies>
 		<Background>
 			<XLoc>976</XLoc>
@@ -7127,7 +7450,7 @@
 				<DoorType>OpenDoor</DoorType>
 			</UpDoor>
 			<DownDoor>
-				<DoorType>OpenDoor</DoorType>
+				<DoorType>LockedDoor</DoorType>
 			</DownDoor>
 		</Doors>
 	</Room>
@@ -7343,6 +7666,36 @@
 		<Items>
 		</Items>
 		<Enemies>
+			<Enemy>
+				<EnemyType>Wizzrobe</EnemyType>
+				<XLoc>80</XLoc>
+				<YLoc>96</YLoc>
+				<Color>1</Color>
+			</Enemy>
+			<Enemy>
+				<EnemyType>Wizzrobe</EnemyType>
+				<XLoc>160</XLoc>
+				<YLoc>96</YLoc>
+				<Color>1</Color>
+			</Enemy>
+			<Enemy>
+				<EnemyType>Wizzrobe</EnemyType>
+				<XLoc>120</XLoc>
+				<YLoc>72</YLoc>
+				<Color>0</Color>
+			</Enemy>
+			<Enemy>
+				<EnemyType>Wizzrobe</EnemyType>
+				<XLoc>48</XLoc>
+				<YLoc>48</YLoc>
+				<Color>0</Color>
+			</Enemy>
+			<Enemy>
+				<EnemyType>Wizzrobe</EnemyType>
+				<XLoc>192</XLoc>
+				<YLoc>48</YLoc>
+				<Color>0</Color>
+			</Enemy>
 		</Enemies>
 		<Background>
 			<XLoc>391</XLoc>
@@ -7356,10 +7709,10 @@
 				<DoorType>Wall</DoorType>
 			</LeftDoor>
 			<UpDoor>
-				<DoorType>OpenDoor</DoorType>
+				<DoorType>ClosedDoor</DoorType>
 			</UpDoor>
 			<DownDoor>
-				<DoorType>OpenDoor</DoorType>
+				<DoorType>ClosedDoor</DoorType>
 			</DownDoor>
 		</Doors>
 	</Room>
@@ -7408,8 +7761,9 @@
 		<Enemies>
 			<Enemy>
 				<EnemyType>Gohma</EnemyType>
-				<XLoc>80</XLoc>
+				<XLoc>104</XLoc>
 				<YLoc>52</YLoc>
+				<Color>1</Color>
 			</Enemy>
 		</Enemies>
 		<Background>
@@ -7472,8 +7826,25 @@
 			</Block>
 		</Blocks>
 		<Items>
+			<Item>
+				<ItemType>KeyItem</ItemType>
+				<XLoc>48</XLoc>
+				<YLoc>80</YLoc>
+			</Item>
 		</Items>
 		<Enemies>
+			<Enemy>
+				<EnemyType>Darknut</EnemyType>
+				<XLoc>120</XLoc>
+				<YLoc>40</YLoc>
+				<Color>1</Color>
+            </Enemy>
+			<Enemy>
+				<EnemyType>Darknut</EnemyType>
+				<XLoc>120</XLoc>
+				<YLoc>120</YLoc>
+				<Color>1</Color>
+            </Enemy>
 		</Enemies>
 		<Background>
 			<XLoc>586</XLoc>
@@ -7487,7 +7858,7 @@
 				<DoorType>Wall</DoorType>
 			</LeftDoor>
 			<UpDoor>
-				<DoorType>Wallv</DoorType>
+				<DoorType>Wall</DoorType>
 			</UpDoor>
 			<DownDoor>
 				<DoorType>Wall</DoorType>
@@ -7759,7 +8130,7 @@
 		</Background>
 		<Doors>
 			<RightDoor>
-				<DoorType>OpenDoor</DoorType>
+				<DoorType>LockedDoor</DoorType>
 			</RightDoor>
 			<LeftDoor>
 				<DoorType>OpenDoor</DoorType>
@@ -7885,6 +8256,24 @@
 		<Items>
 		</Items>
 		<Enemies>
+			<Enemy>
+				<EnemyType>Darknut</EnemyType>
+				<XLoc>128</XLoc>
+				<YLoc>48</YLoc>
+				<Color>0</Color>
+            </Enemy>
+			<Enemy>
+				<EnemyType>Darknut</EnemyType>
+				<XLoc>128</XLoc>
+				<YLoc>112</YLoc>
+				<Color>0</Color>
+            </Enemy>
+			<Enemy>
+				<EnemyType>Darknut</EnemyType>
+				<XLoc>128</XLoc>
+				<YLoc>80</YLoc>
+				<Color>1</Color>
+            </Enemy>
 		</Enemies>
 		<Background>
 			<XLoc>781</XLoc>
@@ -7892,10 +8281,10 @@
 		</Background>
 		<Doors>
 			<RightDoor>
-				<DoorType>OpenDoor</DoorType>
+				<DoorType>ClosedDoor</DoorType>
 			</RightDoor>
 			<LeftDoor>
-				<DoorType>OpenDoor</DoorType>
+				<DoorType>ClosedDoor</DoorType>
 			</LeftDoor>
 			<UpDoor>
 				<DoorType>Wall</DoorType>
@@ -8056,8 +8445,49 @@
 			</Block>
 		</Blocks>
 		<Items>
+			<Item>
+				<ItemType>SecretKeyItem</ItemType>
+				<XLoc>190</XLoc>
+				<YLoc>80</YLoc>
+			</Item>
 		</Items>
 		<Enemies>
+			<Enemy>
+				<EnemyType>Keese</EnemyType>
+				<XLoc>48</XLoc>
+				<YLoc>76</YLoc>
+				<Color>0</Color>
+			</Enemy>
+			<Enemy>
+				<EnemyType>Keese</EnemyType>
+				<XLoc>90</XLoc>
+				<YLoc>42</YLoc>
+				<Color>0</Color>
+			</Enemy>
+			<Enemy>
+				<EnemyType>Keese</EnemyType>
+				<XLoc>160</XLoc>
+				<YLoc>123</YLoc>
+				<Color>0</Color>
+			</Enemy>
+			<Enemy>
+				<EnemyType>Keese</EnemyType>
+				<XLoc>203</XLoc>
+				<YLoc>56</YLoc>
+				<Color>0</Color>
+			</Enemy>
+			<Enemy>
+				<EnemyType>Keese</EnemyType>
+				<XLoc>132</XLoc>
+				<YLoc>114</YLoc>
+				<Color>0</Color>
+			</Enemy>
+			<Enemy>
+				<EnemyType>Keese</EnemyType>
+				<XLoc>56</XLoc>
+				<YLoc>93</YLoc>
+				<Color>0</Color>
+			</Enemy>
 		</Enemies>
 		<Background>
 			<XLoc>196</XLoc>
@@ -8071,7 +8501,7 @@
 				<DoorType>OpenDoor</DoorType>
 			</LeftDoor>
 			<UpDoor>
-				<DoorType>OpenDoor</DoorType>
+				<DoorType>LockedDoor</DoorType>
 			</UpDoor>
 			<DownDoor>
 				<DoorType>Wall</DoorType>
@@ -8919,8 +9349,28 @@
 			</Block>
 		</Blocks>
 		<Items>
+			<Item>
+				<ItemType>CandleItem</ItemType>
+				<XLoc>124</XLoc>
+				<YLoc>112</YLoc>
+			</Item>
 		</Items>
 		<Enemies>
+			<Enemy>
+				<EnemyType>Gibdo</EnemyType>
+				<XLoc>64</XLoc>
+				<YLoc>112</YLoc>
+			</Enemy>
+			<Enemy>
+				<EnemyType>Gibdo</EnemyType>
+				<XLoc>112</XLoc>
+				<YLoc>112</YLoc>
+			</Enemy>
+			<Enemy>
+				<EnemyType>Gibdo</EnemyType>
+				<XLoc>176</XLoc>
+				<YLoc>112</YLoc>
+			</Enemy>
 		</Enemies>
 		<Background>
 			<XLoc>976</XLoc>

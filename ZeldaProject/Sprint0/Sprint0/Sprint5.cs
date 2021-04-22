@@ -128,39 +128,43 @@ namespace Sprint0
             Ending_music = Content.Load<Song>("Ending");
 
             //Collision sound effects
-            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Boss_Scream1")); //done
-            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Boss_Hit")); //done
-            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Door_Unlock")); //done
-            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Enemy_Die")); //done
-            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Enemy_Hit")); //done
-            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Fanfare")); //done
-            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Get_Heart")); //done
-            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Get_Item")); //done
-            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Get_Rupee")); //done
-            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Secret")); //done
-            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Stairs")); //done
-            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Shield")); //done
+            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Boss_Scream1"));
+            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Boss_Hit"));
+            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Door_Unlock"));
+            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Enemy_Die"));
+            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Enemy_Hit"));
+            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Fanfare"));
+            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Get_Heart"));
+            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Get_Item"));
+            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Get_Rupee"));
+            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Secret"));
+            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Stairs"));
+            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Shield"));
+            Collision_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Boss_Scream2"));
 
             //Link sound effects
-            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Arrow_Boomerang")); //done
-            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Bomb_Blow")); //done
-            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Bomb_Drop")); //done
-            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Candle")); //done
-            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_LowHealth")); //done
-            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Recorder")); //done
-            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Refill_Loop"));
-            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Sword_Shoot")); //done
-            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Sword_Slash")); //done
-            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Link_Die")); //done
-            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Link_Hurt")); //done
+            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Arrow_Boomerang"));
+            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Bomb_Blow"));
+            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Bomb_Drop"));
+            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Candle"));
+            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_LowHealth"));
+            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Recorder"));
+            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Refill_Loop")); //not implemented
+            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Sword_Shoot"));
+            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Sword_Slash"));
+            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Link_Die"));
+            Link_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Link_Hurt"));
 
             //Enemy sound effects
-            Enemy_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Arrow_Boomerang")); //done
-            Enemy_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Key_Appear")); //done
+            Enemy_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Arrow_Boomerang"));
+            Enemy_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Key_Appear"));
 
             //Text sound effects
-            Text_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Text")); //done
-            Text_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Text_Slow")); //done
+            Text_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Text"));
+            Text_soundEffects.Add(Content.Load<SoundEffect>("SoundEffects/LOZ_Text_Slow"));
+
+            //SongManager
+            Songs = new SongManager(Title_music, Overworld_music, Dungeon_music, Ending_music);
 
             link = new Link(contentManager.Load<Texture2D>("LinkSpriteSheet"), linkSheetList, Link_soundEffects, inventory);
             shop = new Shop(link, npcSheet, dungeonSheet, itemsSheet, roomManager, this);
@@ -180,7 +184,6 @@ namespace Sprint0
             {
                 controller.SetCommands(this);
             }
-
             pauseControls.SetCommands(this);
             titleControls.SetCommands(this);
 
@@ -188,9 +191,6 @@ namespace Sprint0
                                         this.GraphicsDevice.Viewport.Bounds.Width - WallConstants.RIGHTWALL,
                                         this.GraphicsDevice.Viewport.Bounds.Y + WallConstants.TOPWALL + GameConstants.HUDSIZE * GameConstants.SCALE,
                                         this.GraphicsDevice.Viewport.Bounds.Height - WallConstants.BOTTOMWALL, itemsSheet);
-
-            //SongManager
-            Songs = new SongManager(Title_music, Overworld_music, Dungeon_music, Ending_music);
         }
 
         protected override void Update(GameTime gameTime)
@@ -263,7 +263,6 @@ namespace Sprint0
                             shop.Update();
                             if (roomManager.getRoomIndex() == GameConstants.OUTSIDEROOM && !deathMessageSprite.isDrawing()) triForceSprite.Update();
                         }
-
                     }
                     else
                     {
@@ -408,7 +407,6 @@ namespace Sprint0
                     ((IBoomerang)proj).StopSound();
                 }
             }
-
             projectiles.Clear();
         }
 
@@ -416,6 +414,7 @@ namespace Sprint0
         {
             if (!link.IsAlive())
             {
+                foreach (INPC npc in npcs) if (npc is Goriya) ((Goriya)npc).StopThrowSound();
                 List<Texture2D> enemySheets = new List<Texture2D>();
                 List<Texture2D> bossSheets = new List<Texture2D>();
 
@@ -434,15 +433,18 @@ namespace Sprint0
                 Texture2D npcSheet = contentManager.Load<Texture2D>("Zelda_NPCs");
                 Texture2D itemsSheet = contentManager.Load<Texture2D>("Dungeon_Items");
 
+                roomManager.ChangeRoom(GameConstants.OUTSIDEROOM);
+
                 XmlDocument doc = new XmlDocument();
                 FileStream file = new FileStream(xmlLoc, FileMode.Open);
                 doc.Load(file);
                 roomManager.Reset(link.GetLinkInventory().getNoResetItems(), doc, dungeonSheet, enemySheets, itemsSheet, bossSheets, npcSheet, overworldSheet);
                 file.Close();
-                roomManager.ChangeRoom(GameConstants.OUTSIDEROOM);
-                link.Reset();
+
+                link.Reset(link.getLinkStateMachine().healthAndDamage.GetMaxHealth());
+                link.Update();
                 triForceSprite.Reset();
-                for (int i = 0; i <= link.GetLinkInventory().getKeyCount(); i++) link.GetLinkInventory().removeKey();
+                while (link.GetLinkInventory().getKeyCount() > 0) link.GetLinkInventory().removeKey();
             }
         }
 

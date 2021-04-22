@@ -51,7 +51,7 @@ namespace Sprint0
         public Vector2 damageVector { get; set; }
         public HealthAndDamageHandler healthAndDamage { get; set; }
 
-        public LinkStateMachine(List<SoundEffect> Link_soundEffects)
+        public LinkStateMachine(List<SoundEffect> Link_soundEffects, int linkHealth)
         {
             spriteFactory = new LinkSpriteFactory();
             direction = Direction.Up;
@@ -60,7 +60,7 @@ namespace Sprint0
             xLoc = LinkConstants.XINIT * Sprint0.GameConstants.SCALE; //Original Position
             yLoc = LinkConstants.YINIT * Sprint0.GameConstants.SCALE;
             isBusy = false;
-            healthAndDamage = new HealthAndDamageHandler(LinkConstants.STARTHEALTH, 1);
+            healthAndDamage = new HealthAndDamageHandler(linkHealth, 1);
             frame = 0;
             damageVector = new Vector2(0, 0);
             soundEffects = Link_soundEffects;

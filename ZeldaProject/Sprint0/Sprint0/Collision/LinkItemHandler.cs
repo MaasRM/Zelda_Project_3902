@@ -25,6 +25,7 @@ namespace Sprint0
                 else if (item is YellowRupeeItem) HandleYellowRupee(item, player, Collision_soundEffects, collidedItems);
                 else if (item is ClockItem) HandleClock(item, npcs, collidedItems, Collision_soundEffects);
                 else if (item is BombItem) HandleBomb(item, player, collidedItems);
+                else if (item is FairyItem) HandleFairy(player, Collision_soundEffects);
                 else if (item is MapItem)
                 {
                     collidedItems.Add(item);
@@ -44,6 +45,13 @@ namespace Sprint0
             }  
         }
 
+
+        private static void HandleFairy(IPlayer player, List<SoundEffect> Collision_soundEffects)
+        {
+            Collision_soundEffects[5].Play();
+            player.Heal(5);
+        }
+
         private static void HandleKey(IItem item, IPlayer player, List<SoundEffect> Collision_soundEffects, List<IItem> collidedItems)
         {
             Collision_soundEffects[6].Play();
@@ -61,7 +69,7 @@ namespace Sprint0
 
         private static void HandleHeartContainer(IItem item, IPlayer player, List<SoundEffect> Collision_soundEffects, List<IItem> collidedItems)
         {
-            Collision_soundEffects[6].Play();
+            Collision_soundEffects[5].Play();
             collidedItems.Add(item);
             player.GetLinkInventory().addItem(item);
             if(player.getLinkStateMachine().healthAndDamage.GetMaxHealth() < LinkConstants.MAXIMUMHEALTH)
@@ -120,13 +128,9 @@ namespace Sprint0
         {
             player.getLinkStateMachine().setAnimation(Animation.PickUpItem);
             ((Link)player).GiveLinkItemPickup(item.GetSourceRectangle(), item.GetLocationRectangle(), item.GetSpriteSheet());
-            if (item is BoomerangItem || item is BlueBoomerangItem || item is BlueArrowItem || item is BowItem || item is RecorderItem || item is TriforceShardItem || item is BlueSwordItem || item is MagicSwordItem) Collision_soundEffects[5].Play();
-            else if (item is FairyItem)
-            {
-                Collision_soundEffects[5].Play();
-                player.Heal(5);
-            }
+            if (item is BoomerangItem || item is BlueBoomerangItem || item is BlueArrowItem || item is BowItem || item is RecorderItem || item is CandleItem || item is TriforceShardItem || item is BlueSwordItem || item is MagicSwordItem) Collision_soundEffects[5].Play();
             else Collision_soundEffects[7].Play();
+
             if (item is BlueBoomerangItem) player.GetLinkInventory().removeLinkItem(new BoomerangItem(new Rectangle(), new List<INPC>(), item.GetSpriteSheet()));
             else if (item is BlueArrowItem) player.GetLinkInventory().removeLinkItem(new BowItem(new Rectangle(), new Rectangle(), item.GetSpriteSheet()));
             else if (item is BlueSwordItem)

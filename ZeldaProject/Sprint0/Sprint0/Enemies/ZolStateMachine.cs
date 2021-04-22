@@ -21,18 +21,21 @@ namespace Sprint0
         private enum State
         {
             Normal,
+            Damaged,
             Stun
         }
 
         private Direction direction;
         private ZolColor color;
         private State state;
+        private Vector2 damageDirection;
         private int xLoc;
         private int yLoc;
         private int frame;
         private bool wait;
         private int waitFrames;
-        public int stunFrames;
+        private int stunFrames;
+        private int damageFrames;
         private int health;
 
 
@@ -45,6 +48,7 @@ namespace Sprint0
             wait = false;
             health = ZolConstants.MAXHEALTH;
             stunFrames = 0;
+            damageFrames = 0;
             state = State.Normal;
         }
 
@@ -57,6 +61,7 @@ namespace Sprint0
         {
             xLoc = x;
             yLoc = y;
+            ChangeDirection();
         }
 
         public Rectangle GetSource()
@@ -75,32 +80,39 @@ namespace Sprint0
         {
             if(state == State.Normal) {
                 frame++;
-
                 if (frame > waitFrames || frame > ZolConstants.moveFrames) {
                     wait = !wait;
                     frame = 0;
                     waitFrames = (RandomNumberGenerator.GetInt32(6) + 2) * 5;
                 }
-
                 if (frame == 0) direction = ChangeDirection();
 
-                if (!wait)
-                {
+                if (!wait) {
                     if (direction == Direction.Up) yLoc -= ZolConstants.moveDist * GameConstants.SCALE;
                     else if (direction == Direction.Down) yLoc += ZolConstants.moveDist * GameConstants.SCALE;
                     else if (direction == Direction.Left) xLoc -= ZolConstants.moveDist * GameConstants.SCALE;
                     else xLoc += ZolConstants.moveDist * GameConstants.SCALE;
                 }
             }
-            else if(state == State.Stun)
-            {
+            else if(state == State.Stun) {
                 stunFrames++;
             }
+            else if (state == State.Damaged) {
+                damageFrames++;
+                xLoc += (int)damageDirection.X * GameConstants.SCALE;
+                yLoc += (int)damageDirection.Y * GameConstants.SCALE;
+            }
+            ReturnToNormal();
         }
 
         public int GetFrame()
         {
             return frame;
+        }
+
+        public int GetDamageFrame()
+        {
+            return damageFrames;
         }
 
         private static Direction ChangeDirection()
@@ -115,10 +127,17 @@ namespace Sprint0
             return health > 0;
         }
 
-        public void TakeDamage(int damage)
+        public void TakeDamage(int damage, Vector2 direction)
         {
-            
-            health -= damage;
+            if (state != State.Damaged)
+            {
+                health -= damage;
+                state = State.Damaged;
+                stunFrames = 1;
+                damageFrames = 1;
+
+                damageDirection = direction;
+            }
         }
 
         public void SetStun()
@@ -129,10 +148,15 @@ namespace Sprint0
 
         public void ReturnToNormal()
         {
-            if (stunFrames > 30)
+            if (stunFrames > 30 || damageFrames > 8)
             {
                 state = State.Normal;
             }
+        }
+
+        public bool IsDamaged()
+        {
+            return state == State.Damaged;
         }
     }
 }

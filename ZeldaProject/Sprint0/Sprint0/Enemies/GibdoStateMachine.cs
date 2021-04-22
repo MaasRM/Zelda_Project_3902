@@ -49,6 +49,7 @@ namespace Sprint0
         {
             xLoc = x;
             yLoc = y;
+            ChangeDirection();
         }
 
         public Rectangle GetSource()

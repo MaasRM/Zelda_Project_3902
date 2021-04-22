@@ -52,16 +52,15 @@ Ending Sequence Controls:
 ************************************************************************************************************
 - When Link walks into a block he will walk into it while still not walking through it. He will bounce back
 	out to where he should be when releasing a movement key.
-- Wallmasters will constantly play sound when grabbing Link.
 
 ************************************************************************************************************
 										Code Review Assignments
 ************************************************************************************************************
 Jacob Kline: Review TitleScreen.cs (Jared) for readability, Review SongManager.cs (Jared) for maintainability
 Riley Maas: Review WinningScreen.cs (Phil) for readability, Review DeathMessageSprite.cs (Phil) for maintainability
-Jared Zins: Review  (Riley) for readability, Review GohmaStateMachine.cs (Nathan) for maintainability
+Jared Zins: Review  LinkMiniMap.cs (Riley) for readability, Review GohmaStateMachine.cs (Nathan) for maintainability
 Phil Brocker: Review DarknutStateMachine.cs (Nathan) for readability, Review TriForceText.cs (Jacob) for maintainability
-Nathan Schultz: Review Shop.cs (Jacob) for readability, Review (Riley) for maintainability
+Nathan Schultz: Review Shop.cs (Jacob) for readability, Review LinkPauseScreen.cs (Riley) for maintainability
 
 ************************************************************************************************************
 											Other Tools

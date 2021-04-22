@@ -10,8 +10,8 @@ namespace Sprint0
     {
         public enum WizzrobeColor
         {
-            Red,
-            Blue
+            Blue,
+            Red
         }
 
         private enum State
@@ -57,6 +57,7 @@ namespace Sprint0
         {
             xLoc = x;
             yLoc = y;
+            ChangeDirection();
         }
 
         public Rectangle GetSource()
@@ -154,8 +155,12 @@ namespace Sprint0
 
         public void SetStun()
         {
-            state = State.Stun;
-            stunFrames = 1;
+            if (!Teleporting())
+            {
+                state = State.Stun;
+                stunFrames = 1;
+            }
+                
         }
 
         public int GetDamage()
@@ -201,7 +206,7 @@ namespace Sprint0
 
         public bool Teleporting()
         {
-            return postFireFrame < WizzrobeConstants.FRAMESBEFORETELEPORT || postFireFrame >= WizzrobeConstants.FRAMESBEFORETELEPORT + WizzrobeConstants.TELEPORTFRAMES;
+            return postFireFrame >= WizzrobeConstants.FRAMESBEFORETELEPORT && postFireFrame < WizzrobeConstants.FRAMESBEFORETELEPORT + WizzrobeConstants.TELEPORTFRAMES;
         }
     }
 }

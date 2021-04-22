@@ -16,6 +16,7 @@ namespace Sprint0
         private const int letterCount = 67;
         private int frameCount = 130;
         private int gameHeight;
+        SongManager songManager;
 
         //x then y so grouped in twos
         //size is always 7x7
@@ -49,7 +50,9 @@ namespace Sprint0
             textSound = text;
             player = link;
             textSound.Volume = 0.25f;
-            textSound.IsLooped = true;          
+            textSound.IsLooped = true;
+            gameHeight = game.GraphicsDevice.Viewport.Bounds.Height;
+            songManager = game.GetSongManager();
         }
 
         public void Update()
@@ -57,6 +60,7 @@ namespace Sprint0
             if (!player.IsAlive() && frameCount ==130)
             {
                 frameCount = 0;
+                songManager.Stop();
             }
             if (frameCount < 130) 
             {
@@ -89,7 +93,12 @@ namespace Sprint0
                     Rectangle destination = new Rectangle((letterDest[counter * 2] + 15) * GameConstants.SCALE, (gameHeight / 8) + (letterDest[(counter * 2) + 1] + 40) * GameConstants.SCALE, 7 * GameConstants.SCALE, 7 * GameConstants.SCALE);
                     Rectangle source = new Rectangle(9, 56, 7, 7);
                     spriteBatch.Draw(letterSheet, destination, source, Color.White);
-                } else textSound.Stop();
+                }
+                else
+                {
+                    textSound.Stop();
+                    songManager.Overworld();
+                }
             } else
             {
                 textSound.Stop();

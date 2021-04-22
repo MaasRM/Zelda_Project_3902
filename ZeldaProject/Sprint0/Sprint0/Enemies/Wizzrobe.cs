@@ -44,13 +44,16 @@ namespace Sprint0
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (stateMachine.GetDirection() == Direction.Left)
+            if(!stateMachine.Teleporting())
             {
-                spriteBatch.Draw(currentSheet, destination, source, Color.White, 0, new Vector2(0, 0), SpriteEffects.FlipHorizontally, 0f);
-            }
-            else
-            {
-                spriteBatch.Draw(currentSheet, destination, source, Color.White);
+                if (stateMachine.GetDirection() == Direction.Left)
+                {
+                    spriteBatch.Draw(currentSheet, destination, source, Color.White, 0, new Vector2(0, 0), SpriteEffects.FlipHorizontally, 0f);
+                }
+                else
+                {
+                    spriteBatch.Draw(currentSheet, destination, source, Color.White);
+                }
             }
         }
 
@@ -111,6 +114,11 @@ namespace Sprint0
         public bool IsDamaged()
         {
             return stateMachine.IsDamaged();
+        }
+
+        public bool IsTeleporting()
+        {
+            return stateMachine.Teleporting();
         }
     }
 }
