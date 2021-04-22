@@ -7388,18 +7388,20 @@
 			</Block>
         </Blocks>
 		<Items>
-			<ItemType>EnemyKeyItem</ItemType>
+			<Item>
+				<ItemType>EnemyKeyItem</ItemType>
+			</Item>
 		</Items>
 		<Enemies>
 			<Enemy>
 				<EnemyType>Stalfos</EnemyType>
 				<XLoc>128</XLoc>
-				<YLoc>80</YLoc>
+				<YLoc>32</YLoc>
 				<Color>0</Color>
 			</Enemy>
 			<Enemy>
 				<EnemyType>Stalfos</EnemyType>
-				<XLoc>160</XLoc>
+				<XLoc>112</XLoc>
 				<YLoc>128</YLoc>
 				<Color>0</Color>
 			</Enemy>
