@@ -27,7 +27,7 @@ namespace Sprint0
 
         public Link(Texture2D spriteSheet, List<Texture2D> linkSheetList, List<SoundEffect> Link_soundEffects,  Texture2D inventory)
         {
-            stateMachine = new LinkStateMachine(Link_soundEffects);
+            stateMachine = new LinkStateMachine(Link_soundEffects, LinkConstants.STARTHEALTH);
             this.linkSheetList = linkSheetList;
             linkSpriteSheet = spriteSheet;
             currentColor = LinkColor.Green;
@@ -198,9 +198,9 @@ namespace Sprint0
             return stateMachine.HasHealth();
         }
 
-        public void Reset()
+        public void Reset(int linkHealth)
         {
-            stateMachine = new LinkStateMachine(soundEffects);
+            stateMachine = new LinkStateMachine(soundEffects, linkHealth);
         }
 
         public void GiveLinkItemPickup(Rectangle iSource, Rectangle iDest, Texture2D iSheet)

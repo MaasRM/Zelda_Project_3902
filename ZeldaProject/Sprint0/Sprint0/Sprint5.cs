@@ -440,7 +440,7 @@ namespace Sprint0
                 roomManager.Reset(link.GetLinkInventory().getNoResetItems(), doc, dungeonSheet, enemySheets, itemsSheet, bossSheets, npcSheet, overworldSheet);
                 file.Close();
                 roomManager.ChangeRoom(GameConstants.OUTSIDEROOM);
-                link.Reset();
+                link.Reset(link.getLinkStateMachine().healthAndDamage.GetMaxHealth());
                 triForceSprite.Reset();
                 for (int i = 0; i <= link.GetLinkInventory().getKeyCount(); i++) link.GetLinkInventory().removeKey();
             }
