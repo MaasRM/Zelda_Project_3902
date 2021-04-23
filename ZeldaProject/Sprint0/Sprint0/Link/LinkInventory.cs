@@ -275,10 +275,6 @@ namespace Sprint0
             {
                 itemSource = new Rectangle(664, 137, 8, 16);
             }
-            else if (currentItem is RecorderItem)
-            {
-                itemSource = new Rectangle(664, 137, 8, 16);
-            }
 
             pauseScreen.DrawSecondaryWeapon(spriteBatch, itemSource);
             spriteBatch.Draw(inventoryBackground, secondaryWeapon, itemSource, Color.White);
