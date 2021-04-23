@@ -1,0 +1,53 @@
+﻿************************************************************************************************************
+											Riley's Code Reviews
+************************************************************************************************************
+
+Riley Maas: Review WinningScreen.cs for readability, Review DeathMessageSprite.cs for maintainability
+
+************************************************************************************************************
+											Readability
+************************************************************************************************************
+
+Riley Maas 4/23/2021 Sprint5
+WinningScreen.cs - Phil Brocker
+Minutes: 22
+Comments on readability:
+	- 1 static instance data member and 4 normal instance data members provided, with names that make sense
+	- 2 readonly data members are also given, these arrays clearly holding source rectangle x and y values
+	- Many comments left explaing each line, necessary, however seems ineffcient
+	- Only 3 methods are given, each one well named and simple: Update(), Draw(), and isDrawing()
+	- These methods all have a clear purpose, making the screen scroll in Update and Drawing the words in Draw()
+	- 3 instance data members are present, this includes a texture sheet for the letters, which is well named,
+				A soundEffectInstance, and a game class
+
+All in all, the WinningScreen class is simple and easy to read. This class has only a single task and it does 
+it simply and efficiently. There is some coupling as it takes in a game class, but very little overall.
+
+************************************************************************************************************
+											Maintainability
+************************************************************************************************************
+
+Riley Maas 4/23/2021 Sprint5
+DeathMessageSprite.cs - Phil Brocker
+Comments on maintainability:
+	- Similar to the WinningScreen class, flexable and simple design, only issue would be changing the actual
+				words that appear when you die, as these are tied to specific spriteSheet locations
+	- DeathMessageSprite takes in more objects from other classes increasing coupling, as on top of a texture2D
+				sheet, game class, and soundeffect instance, it also adds a RoomManager and an IPlayer
+	- Simple design, and should be flexable, as these objects can be changed or updated and still work
+	- The methods remain simple, however, only containing Update(), Draw(), and isDrawing()
+				each of these methods clean and maintainable, as they simply check for frame counts which is locally
+				created and using player to check if the player is alive, which implements IPlayer, meaning this
+				could be refactored for other games
+	- The class loses some flexability with the wording, as like the WinningScreen method, there are specific x and y
+				arrays for the letters that make up the sentences on the DeathScreen, meaning to change these messages
+				you'd need to edit these arrays.
+
+Hypothetical Changes:
+	- Include a method that can simply get specifc letters or words, as this would allow you to not have to manually
+				create arrays of ints to determine what words should be drawn.
+
+Overall, this class is maintainable and refactorable, the methods here have a single purpose and limit complexity. The
+				only change that would help in the future would be the addition of a method that'll automattically
+				print words to the screen depending on what gets passed into it. However, all other parts are easily
+				updated.
