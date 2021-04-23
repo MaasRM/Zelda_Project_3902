@@ -106,7 +106,7 @@ namespace Sprint0
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            Rectangle ZRect = new Rectangle(gameMid, gameHeight - yDist, LinkConstants.LINKSIZENORMAL * GameConstants.SCALE, LinkConstants.LINKSIZENORMAL * GameConstants.SCALE);
+            Rectangle ZRect = new Rectangle(gameMid, gameHeight - yDist - 25, LinkConstants.LINKSIZENORMAL * GameConstants.SCALE, LinkConstants.LINKSIZENORMAL * GameConstants.SCALE);
 
             for (int i = 0; i < letterSource.Length; i += 2)
             {
@@ -119,8 +119,8 @@ namespace Sprint0
             link.SetPosition(new Rectangle(ZRect.X - 1, ZRect.Y - 50 * GameConstants.SCALE, ZRect.Width, ZRect.Height));
             link.Draw(spriteBatch);
             shards[0].SetLocationRectangle(new Rectangle(link.GetNPCLocation().X, link.GetNPCLocation().Y - 32 * GameConstants.SCALE, 15 * GameConstants.SCALE, 15 * GameConstants.SCALE));
-            shards[1].SetLocationRectangle(new Rectangle(link.GetNPCLocation().X - 32 * GameConstants.SCALE, link.GetNPCLocation().Y + 4 * GameConstants.SCALE, 15 * GameConstants.SCALE, 15 * GameConstants.SCALE));
-            shards[2].SetLocationRectangle(new Rectangle(link.GetNPCLocation().X + 32 * GameConstants.SCALE, link.GetNPCLocation().Y + 4 * GameConstants.SCALE, 15 * GameConstants.SCALE, 15 * GameConstants.SCALE));
+            shards[1].SetLocationRectangle(new Rectangle(link.GetNPCLocation().X - 6 * GameConstants.SCALE, link.GetNPCLocation().Y - 21 * GameConstants.SCALE, 15 * GameConstants.SCALE, 15 * GameConstants.SCALE));
+            shards[2].SetLocationRectangle(new Rectangle(link.GetNPCLocation().X + 6 * GameConstants.SCALE, link.GetNPCLocation().Y - 21 * GameConstants.SCALE, 15 * GameConstants.SCALE, 15 * GameConstants.SCALE));
             shards[0].Draw(spriteBatch);
             shards[1].Draw(spriteBatch);
             shards[2].Draw(spriteBatch);

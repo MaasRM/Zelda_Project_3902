@@ -118,8 +118,7 @@ namespace Sprint0
             Rectangle mapSource = new Rectangle(601, 156, 7, 16);
             Rectangle mapDestination = new Rectangle(190, -300 + currentYOffset, 7 * GameConstants.SCALE, 16 * GameConstants.SCALE);
             spriteBatch.Draw(inventoryBackground, mapDestination, mapSource, Color.White);
-            if (theMap == DungeonMap.Top)
-            {
+            if (theMap == DungeonMap.Top) {
                 spriteBatch.Draw(inventoryBackground, getTopRoomDestination(0), new Rectangle(528, 108, 8, 8), Color.White);
                 spriteBatch.Draw(inventoryBackground, getTopRoomDestination(1), new Rectangle(573, 108, 8, 8), Color.White);
                 spriteBatch.Draw(inventoryBackground, getTopRoomDestination(2), new Rectangle(627, 108, 8, 8), Color.White);
@@ -138,12 +137,10 @@ namespace Sprint0
                 spriteBatch.Draw(inventoryBackground, getTopRoomDestination(15), new Rectangle(618, 108, 8, 8), Color.White);
                 spriteBatch.Draw(inventoryBackground, getTopRoomDestination(16), new Rectangle(573, 108, 8, 8), Color.White);
             }
-            else if (theMap == DungeonMap.Left)
-            {
+            else if (theMap == DungeonMap.Left) {
                 DrawLeftPauseMap(spriteBatch);
             }
-            else if (theMap == DungeonMap.Right)
-            {
+            else if (theMap == DungeonMap.Right) {
                 DrawRightPauseMap(spriteBatch);
             }
         }
