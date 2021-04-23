@@ -1,0 +1,38 @@
+﻿************************************************************************************************************
+								 Team 3, Jacob Kline Code Reviews
+************************************************************************************************************
+
+Jacob Kline: Review TitleScreen.cs (Jared) for readability, Review SongManager.cs (Jared) for maintainability
+
+************************************************************************************************************
+											Readability
+************************************************************************************************************
+
+Jacob Kline 4/5/2021 Sprint3
+TitleScreen.cs - Jared Zins
+Minutes: 20
+Comments on readability:
+	- A lot of fields, you may want to cut down on these because there's 18
+	- Only 4 methods. All make sense and are useful.
+	- I like the InitializeLists method. Its a clean way to get all of your sprite locations
+	- Draw method is a little more complex due to special cases but overall makes sense. Still have some magic numbers in the method
+
+Overall this class is fairly readable and understandable once you understand the layout of the spritesheet.
+My only critique is magic numbers in the draw method and too many fields.
+
+************************************************************************************************************
+											Maintainability
+************************************************************************************************************
+
+Jacob Kline 4/5/2021 Sprint3
+SongManager.cs - Jared Zins
+Comments on maintainability:
+	- very good way to handle the song sounds for the game
+	- Not many fields, one for each song
+	- Same thing with the methods, one for each cong to clear the current sounds playing and play the song
+	- This class is super simple and could easily have ne functionality added on
+
+Hypothetical Changes:
+	- If you need add another song, this would be very straightforward. Add another field and corresponding method.
+
+Overall this class is in great shape for maintaining it in the future.
