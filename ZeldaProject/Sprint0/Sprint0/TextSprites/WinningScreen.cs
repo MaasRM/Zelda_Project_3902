@@ -10,8 +10,10 @@ namespace Sprint0
     {
 
         private Texture2D letterSheet;
+        private Texture2D zeldaSheet;
         private SoundEffectInstance textSound;
         private int yDist;
+        private int gameMid;
         private int gameHeight;
         private Zelda zelda;
         private const int letterSize = 7;
@@ -80,27 +82,33 @@ namespace Sprint0
         public WinningScreen(Texture2D dungeonSheet, Texture2D NPCsheet, SoundEffectInstance text, Sprint5 game)
         {
             letterSheet = dungeonSheet;
+            zeldaSheet = NPCsheet;
             textSound = text;
             textSound.Volume = 0.25f;
             textSound.IsLooped = true;
-            gameHeight = game.GraphicsDevice.Viewport.Bounds.Height;
-            zelda = new Zelda(100, 100, NPCsheet);
+            gameMid = game.GraphicsDevice.Viewport.Width / 2 - 16;
+            gameHeight = game.GraphicsDevice.Viewport.Height;
+            zelda = new Zelda(gameMid, game.GraphicsDevice.Viewport.Height, NPCsheet);
             yDist = 0;
         }
 
         public void Update()
         {
-            yDist+=2;     
+            yDist+=2;
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
+            Rectangle ZRect = new Rectangle(gameMid, gameHeight - yDist, LinkConstants.LINKSIZENORMAL * GameConstants.SCALE, LinkConstants.LINKSIZENORMAL * GameConstants.SCALE);
+
             for (int i = 0; i < letterSource.Length; i += 2)
             {
                 Rectangle source = new Rectangle(letterSource[i], letterSource[i + 1], letterSize, letterSize);
-                Rectangle destination = new Rectangle(letterDest[i], letterDest[i + 1]-yDist, letterSize*GameConstants.SCALE, letterSize*GameConstants.SCALE);
+                Rectangle destination = new Rectangle(letterDest[i], letterDest[i + 1] - yDist, letterSize*GameConstants.SCALE, letterSize*GameConstants.SCALE);
                 spriteBatch.Draw(letterSheet, destination, source, Color.White);
             }
+            zelda.SetPosition(ZRect);
+            zelda.Draw(spriteBatch);
         }
 
         public bool isDrawing()
