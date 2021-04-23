@@ -299,7 +299,7 @@ namespace Sprint0
             {
                 StartScreen.Draw(this._spriteBatch);
             }
-            else if (end)
+            else if (end && link.getLinkStateMachine().getAnimation() != Animation.PickUpItem)
             {
                 winningScreen.Draw(this._spriteBatch);
             }
