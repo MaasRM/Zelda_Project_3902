@@ -5,7 +5,7 @@ namespace Sprint0
     {
         public const int WIDTHANDHEIGHT = 16;
         public const int REDMAXHEALTH = 3;
-        public const int BLUEMAXHEALTH = 6;
+        public const int BLUEMAXHEALTH = 5;
         public const int moveDist = 2;
         public const int STUNFRAMECOUNT = 30;
         public const int DAMAGEFRAMECOUNT = 8;

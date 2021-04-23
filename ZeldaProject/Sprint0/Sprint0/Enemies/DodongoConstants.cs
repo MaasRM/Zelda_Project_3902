@@ -9,7 +9,7 @@ namespace Sprint0
         public const int MAXHEALTH = 8;
         public const int moveDist = 2;
         public const int EATFRAMECOUNT = 16;
-        public const int CHANGEDIRECTIONFRAME = 10;
+        public const int CHANGEDIRECTIONFRAME = 16;
         public const int PAUSETOEAT = 6;
         public const int DEATHFRAMES = 16;
     }
