@@ -8,6 +8,6 @@ namespace Sprint0
         public static int RIGHTWALL = 175;
         public static int BOTTOMWALL = 185;
         public static int WALLSIZE = 36;
-        public static int PROJECTILEEXTRA = 48;
+        public static int PROJECTILEEXTRA = 56;
     }
 }
