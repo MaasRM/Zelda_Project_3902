@@ -56,6 +56,14 @@ namespace Sprint0
         private TriForceText triForceSprite;
         private WinningScreen winningScreen;
 
+        //spritesheets
+        Texture2D dungeonSheet;
+        Texture2D overworldSheet;
+        Texture2D npcSheet;
+        Texture2D itemsSheet;
+        List<Texture2D> enemySheets;
+        List<Texture2D> bossSheets;
+
         public Sprint5()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -80,6 +88,8 @@ namespace Sprint0
 
         protected override void Initialize()
         {
+            enemySheets = new List<Texture2D>();
+            bossSheets = new List<Texture2D>();
             KeyboardController keyControls = new KeyboardController();
             MouseController mouseControls = new MouseController(this);
             pauseControls = new PauseController();
@@ -97,8 +107,6 @@ namespace Sprint0
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            List<Texture2D> enemySheets = new List<Texture2D>();
-            List<Texture2D> bossSheets = new List<Texture2D>();
             List<Texture2D> linkSheetList = new List<Texture2D>();
 
             linkSheetList.Add(contentManager.Load<Texture2D>("LinkSpriteSheet")); // 0 is green
@@ -116,10 +124,10 @@ namespace Sprint0
             bossSheets.Add(contentManager.Load<Texture2D>("Dungeon_Bosses_DamageTwo"));
             bossSheets.Add(contentManager.Load<Texture2D>("Dungeon_Bosses_DamageThree"));
 
-            Texture2D dungeonSheet = contentManager.Load<Texture2D>("Dungeon_Tileset");
-            Texture2D overworldSheet = contentManager.Load<Texture2D>("Overworld_Tileset");
-            Texture2D npcSheet = contentManager.Load<Texture2D>("Zelda_NPCs");
-            Texture2D itemsSheet = contentManager.Load<Texture2D>("Dungeon_Items");
+            dungeonSheet = contentManager.Load<Texture2D>("Dungeon_Tileset");
+            overworldSheet = contentManager.Load<Texture2D>("Overworld_Tileset");
+            npcSheet = contentManager.Load<Texture2D>("Zelda_NPCs");
+            itemsSheet = contentManager.Load<Texture2D>("Dungeon_Items");
             Texture2D inventory = contentManager.Load<Texture2D>("HUD_Pause_Screen");
             Texture2D titleSheet = contentManager.Load<Texture2D>("TitleScreen");
 
@@ -425,23 +433,6 @@ namespace Sprint0
             if (!link.IsAlive())
             {
                 foreach (INPC npc in npcs) if (npc is Goriya) ((Goriya)npc).StopThrowSound();
-                List<Texture2D> enemySheets = new List<Texture2D>();
-                List<Texture2D> bossSheets = new List<Texture2D>();
-
-                enemySheets.Add(contentManager.Load<Texture2D>("Dungeon_Enemies"));
-                enemySheets.Add(contentManager.Load<Texture2D>("Dungeon_Enemies_DamageOne"));
-                enemySheets.Add(contentManager.Load<Texture2D>("Dungeon_Enemies_DamageTwo"));
-                enemySheets.Add(contentManager.Load<Texture2D>("Dungeon_Enemies_DamageThree"));
-
-                bossSheets.Add(contentManager.Load<Texture2D>("Dungeon_Bosses"));
-                bossSheets.Add(contentManager.Load<Texture2D>("Dungeon_Bosses_DamageOne"));
-                bossSheets.Add(contentManager.Load<Texture2D>("Dungeon_Bosses_DamageTwo"));
-                bossSheets.Add(contentManager.Load<Texture2D>("Dungeon_Bosses_DamageThree"));
-
-                Texture2D dungeonSheet = contentManager.Load<Texture2D>("Dungeon_Tileset");
-                Texture2D overworldSheet = contentManager.Load<Texture2D>("Overworld_Tileset");
-                Texture2D npcSheet = contentManager.Load<Texture2D>("Zelda_NPCs");
-                Texture2D itemsSheet = contentManager.Load<Texture2D>("Dungeon_Items");
 
                 roomManager.ChangeRoom(GameConstants.OUTSIDEROOM);
 
