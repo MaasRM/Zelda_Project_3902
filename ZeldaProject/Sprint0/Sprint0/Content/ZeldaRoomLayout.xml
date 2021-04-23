@@ -676,11 +676,6 @@
 			</Block>
 		</Blocks>
 		<Items>
-			<Item>
-				<ItemType>HeartContainerItem</ItemType>
-				<XLoc>192</XLoc>
-				<YLoc>80</YLoc>
-			</Item>
 		</Items>
 		<Enemies>
 			<Enemy>
