@@ -209,7 +209,7 @@ namespace Sprint0
                     StartScreen.Update();
                     titleControls.Update();
                 }
-                else if (end)
+                else if (end && link.getLinkStateMachine().getAnimation() != Animation.PickUpItem)
                 {
                     if(!songPlayed)
                     {
@@ -401,11 +401,6 @@ namespace Sprint0
         public void startGame()
         {
             title = false;
-        }
-
-        public TitleScreen TitleScreen()
-        {
-            return StartScreen;
         }
 
         public void ClearProjectiles()
