@@ -22,6 +22,7 @@ namespace Sprint0
         private int frame;
         private Boolean title;
         private Boolean end;
+        private Boolean songPlayed = false;
 
         //Tuples are immutable turns out, so just update these instead on room switch
         private List<IBlock> blocks;
@@ -210,6 +211,11 @@ namespace Sprint0
                 }
                 else if (end)
                 {
+                    if(!songPlayed)
+                    {
+                        Songs.Ending();
+                        songPlayed = true;
+                    }
                     winningScreen.Update();
                     if (!winningScreen.isDrawing()) this.Exit(); //reset
                 }
