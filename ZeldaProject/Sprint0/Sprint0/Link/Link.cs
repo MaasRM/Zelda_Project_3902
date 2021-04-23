@@ -143,11 +143,11 @@ namespace Sprint0
         {
             double multiplier = 1.0;
 
-            if(stateMachine.getColor() == LinkColor.Red || stateMachine.getColor() == LinkColor.Black)
+            if(currentColor == LinkColor.Red || currentColor == LinkColor.Black)
             {
                 multiplier *= 2;
             }
-            if(stateMachine.getColor() == LinkColor.Blue)
+            if(currentColor == LinkColor.Blue)
             {
                 multiplier /= 2;
             }
@@ -170,11 +170,11 @@ namespace Sprint0
             {
                 double multiplier = 1.0;
 
-                if (stateMachine.getColor() == LinkColor.Red || stateMachine.getColor() == LinkColor.Black)
+                if (currentColor == LinkColor.Red)
                 {
                     multiplier *= 2;
                 }
-                if (stateMachine.getColor() == LinkColor.Blue)
+                if (currentColor == LinkColor.Blue || currentColor == LinkColor.Black)
                 {
                     multiplier /= 2;
                 }
