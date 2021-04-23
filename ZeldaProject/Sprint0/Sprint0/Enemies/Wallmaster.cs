@@ -16,7 +16,7 @@ namespace Sprint0
         private SpriteEffects flip;
         private HealthAndDamageHandler healthAndDamage;
         private const int MAXHEALTH = 4;
-        private const int DAMAGE = 1;
+        private const int DAMAGE = 2;
         private Tuple<int, int> init;
 
         public Wallmaster(int x, int y, List<Texture2D> spritesheet)

@@ -13,7 +13,7 @@ namespace Sprint0
         private Texture2D currentSheet;
         private Rectangle source;
         private Rectangle destination;
-        private const int DAMAGE = 1;
+        private const int DAMAGE = 2;
         private Tuple<int, int> init;
 
         public Gibdo(int x, int y, List<Texture2D> spriteSheet)

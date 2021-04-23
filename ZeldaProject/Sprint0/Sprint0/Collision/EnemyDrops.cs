@@ -54,7 +54,7 @@ namespace Sprint0
             }
 
             if(npc is Aquamentus || npc is Gohma || npc is Dodongo) {
-                items.Add(new HeartContainerItem(new Rectangle(npc.GetNPCLocation().X, npc.GetNPCLocation().Y, 7 * GameConstants.SCALE, 8 * GameConstants.SCALE), new Rectangle(23, 0, 15, 15), itemSheet));
+                items.Add(new HeartContainerItem(new Rectangle(npc.GetNPCLocation().X, npc.GetNPCLocation().Y, 15 * GameConstants.SCALE, 15 * GameConstants.SCALE), new Rectangle(23, 0, 15, 15), itemSheet));
                 if (determineDrop >= 50 && determineDrop < 80) items.Add(new BlueRupeeItem(new Rectangle(npc.GetNPCLocation().X, npc.GetNPCLocation().Y, 8 * GameConstants.SCALE, 16 * GameConstants.SCALE), new Rectangle(72, 0, 8, 16), itemSheet));
                 if (determineDrop >= 80 && determineDrop < 100) items.Add(new FairyItem(new Rectangle(npc.GetNPCLocation().X, npc.GetNPCLocation().Y, 8 * GameConstants.SCALE, 16 * GameConstants.SCALE), new Rectangle(40, 0, 8, 16), itemSheet));
             }

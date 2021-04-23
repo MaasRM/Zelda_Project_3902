@@ -23,19 +23,25 @@ namespace Sprint0
         {
             OverlapInRelationToEnemy overlap = GetOverlapDirection(enemy, projectile);
 
-            if (projectile is BombProjectile) BombHandler((IEnemy)enemy, (BombProjectile)projectile, overlap);
-            else if (projectile is IBoomerang)
+            if(!(projectile is SwordBlastProjectile))
             {
-                if (enemy is Keese || enemy is Gel || enemy is Zol) DamageTheEnemy((IEnemy)enemy, projectile, overlap);
-                else if (!(enemy is Darknut)) StunEnemy((IEnemy)enemy);
+                if (projectile is BombProjectile) BombHandler((IEnemy)enemy, (BombProjectile)projectile, overlap);
+                else if (projectile is IBoomerang)
+                {
+                    if (enemy is Keese || enemy is Gel || enemy is Zol) DamageTheEnemy((IEnemy)enemy, projectile, overlap);
+                    else if (!(enemy is Darknut)) StunEnemy((IEnemy)enemy);
 
-                ((IBoomerang)projectile).GoBack();
-            }
-            else if(projectile is CandleFireProjectile && enemy is Gibdo && !((Gibdo)enemy).IsBurned())((Gibdo)enemy).Burn();
-            else if(enemy is Gohma) GohmaHandler((Gohma)enemy, projectile, overlap);
-            else
-            {
-                if(!(enemy is Darknut || enemy is Dodongo)) DamageTheEnemy((IEnemy)enemy, projectile, overlap);
+                    ((IBoomerang)projectile).GoBack();
+                }
+                else if (projectile is CandleFireProjectile && enemy is Gibdo && !((Gibdo)enemy).IsBurned()) ((Gibdo)enemy).Burn();
+                else if (enemy is Gohma) GohmaHandler((Gohma)enemy, projectile, overlap);
+                else
+                {
+                    if (!(enemy is Dodongo))
+                    {
+                        if(!(enemy is Darknut) || (projectile is SwordProjectile && !CheckDarknutDirection((Darknut)enemy, overlap))) DamageTheEnemy((IEnemy)enemy, projectile, overlap);
+                    }
+                }
             }
 
             projectile.Hit();
@@ -123,7 +129,7 @@ namespace Sprint0
                     Rectangle gohmaPos = gohma.GetNPCLocation();
                     Rectangle overlap = Rectangle.Intersect(gohmaPos, projectile.GetProjectileLocation());
 
-                    if(overlap.X > gohmaPos.X + 3 * gohmaPos.Width / 4 && overlap.X > gohmaPos.X + 5 * gohmaPos.Width / 4)
+                    if(overlap.X > gohmaPos.X + (gohmaPos.Width / 4) && overlap.X < gohmaPos.X + (3 * gohmaPos.Width / 4))
                     {
                         DamageTheEnemy(gohma, projectile, direction);
                     }
