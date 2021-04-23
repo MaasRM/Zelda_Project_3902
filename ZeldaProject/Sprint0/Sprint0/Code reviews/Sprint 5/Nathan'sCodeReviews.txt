@@ -13,13 +13,13 @@ Shop.cs - Jake Kline
 Minutes: 20 
 Comments on readability:
 	- Variables and methods have clear and distinct names.
-	- Only magic numebrs for source rectangles and sound effects.
+	- Only magic numebrs for source rectangles of the shop items.
 	- Code is well organized into methods
-	- Nothing is too long. Small number fo fields and shorter methods.
+	- Nothing is too long. Small number of fields and shorter methods.
 
 Overall this class is very readable. All the variables, fields, and methods have clear names which show their functions.
-The magic numbers that exist are mainly for rectangle locations and sound effetc indexes form the sound effect list.
-All methods are not too long and thus have clear and concise goals.
+The magic numbers that exist are mainly for rectangle locations for the different items in the shop. All methods are not
+too long and thus have clear and concise goals.
 
 
 
@@ -30,14 +30,15 @@ All methods are not too long and thus have clear and concise goals.
 Nathan Schultz 4/23/2021 Sprint5
 LinkPauseScreen.cs - Riley Maas
 Comments on maintainability:
-	- Magic numbers are all for Rectangle locations.
+	- Magic numbers are all for Rectangle locations and room numbers in relation to map.
 	- Fields and Mehtods clearly show use and functionality.
-	- Some of the magic numbers are repeated and may be more useful in constant values.
+	- Some repated magic numbers which could be set to constants, altough most are only repeated once or twice
 
 Hypothetical Changes:
-	- Try to make some of the magic numbers constants even if they are for rectangles.
+	- Try to make some of the magic numbers constants.
 
-Maintinang  the file will not be difficult so long as the sprite sheets stay the same. The use of magic numbers for Rectangle
-locations is not problematic for this reason, but if the sprite sheets did change, it would be more difficult to update
-the class.
+Maintinang  the file will not be difficult so long as the sprite sheets and room locations stay the same. The use
+of magic numbers for Rectangle locations is not problematic for this reason, but if the sprite sheets did change,
+it would be more difficult to update the class. Given that everything that needs to be scaled has a multiplication by
+a scale constant, the only real updates would be the positions of HUD contents if they needed to be moved
 
