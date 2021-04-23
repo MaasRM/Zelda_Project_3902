@@ -21,7 +21,7 @@ namespace Sprint0
             }
             if (!alreadyExists && game.GetPlayer().getLinkStateMachine().healthAndDamage.Health() == game.GetPlayer().getLinkStateMachine().healthAndDamage.GetMaxHealth())
             {
-                game.AddProjectile(new SwordProjectile(game.GetPlayer().GetSpriteSheet(), game.GetPlayer().getLinkStateMachine(), game));
+                game.AddProjectile(new SwordProjectile(game.GetPlayer().GetSpriteSheet(), game.GetPlayer().getLinkStateMachine(), game.GetPlayer().getLinkColor(), game));
             }
         }
     }

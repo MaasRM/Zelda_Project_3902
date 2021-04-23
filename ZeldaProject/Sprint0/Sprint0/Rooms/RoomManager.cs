@@ -233,11 +233,11 @@ namespace Sprint0
         public void ChangeRoom(int newRoom)
         {
             Boolean fromShopOrWM = false;
-            ResetRoomObjects();
             int oldRoom = roomIndex;
             roomIndex = newRoom;
+            ResetRoomObjects();
 
-            if(currentRoom.RoomNum() == GameConstants.SHOPROOM || currentRoom.RoomNum() == GameConstants.WALLMASTERROOM) fromShopOrWM = true;
+            if (currentRoom.RoomNum() == GameConstants.SHOPROOM || currentRoom.RoomNum() == GameConstants.WALLMASTERROOM) fromShopOrWM = true;
 
             currentRoom = roomList[roomIndex];
             game.ClearProjectiles();

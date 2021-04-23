@@ -1,0 +1,43 @@
+﻿************************************************************************************************************
+								 Team 3, Nathan Schultz Code Reviews
+************************************************************************************************************
+
+Nathan Schultz: Review Shop.cs for readability, LinkPauseScreen.cs for maintainability
+
+************************************************************************************************************
+											Readability
+************************************************************************************************************
+
+Nathan Schultz 4/23/2021 Sprint5
+Shop.cs - Jake Kline
+Minutes: 20 
+Comments on readability:
+	- Variables and methods have clear and distinct names.
+	- Only magic numebrs for source rectangles and sound effects.
+	- Code is well organized into methods
+	- Nothing is too long. Small number fo fields and shorter methods.
+
+Overall this class is very readable. All the variables, fields, and methods have clear names which show their functions.
+The magic numbers that exist are mainly for rectangle locations and sound effetc indexes form the sound effect list.
+All methods are not too long and thus have clear and concise goals.
+
+
+
+************************************************************************************************************
+											Maintainability
+************************************************************************************************************
+
+Nathan Schultz 4/23/2021 Sprint5
+LinkPauseScreen.cs - Riley Maas
+Comments on maintainability:
+	- Magic numbers are all for Rectangle locations.
+	- Fields and Mehtods clearly show use and functionality.
+	- Some of the magic numbers are repeated and may be more useful in constant values.
+
+Hypothetical Changes:
+	- Try to make some of the magic numbers constants even if they are for rectangles.
+
+Maintinang  the file will not be difficult so long as the sprite sheets stay the same. The use of magic numbers for Rectangle
+locations is not problematic for this reason, but if the sprite sheets did change, it would be more difficult to update
+the class.
+

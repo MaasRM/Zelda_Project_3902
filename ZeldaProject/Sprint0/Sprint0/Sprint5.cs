@@ -173,7 +173,7 @@ namespace Sprint0
             triForceSprite = new TriForceText(dungeonSheet, npcSheet, itemsSheet, this, link.GetLinkInventory().shards); 
             deathMessageSprite = new DeathMessageSprite(dungeonSheet, roomManager, Text_soundEffects[1].CreateInstance(), link, this);
             hintSprite = new HintSprite(dungeonSheet, roomManager, Text_soundEffects[1].CreateInstance(), link.GetLinkInventory().pauseScreen);
-            winningScreen = new WinningScreen(dungeonSheet, Text_soundEffects[1].CreateInstance(), this);
+            winningScreen = new WinningScreen(dungeonSheet, npcSheet, Text_soundEffects[1].CreateInstance(), this);
 
             StartScreen = new TitleScreen(titleSheet, this.GraphicsDevice.Viewport.Bounds.Width, this.GraphicsDevice.Viewport.Bounds.Height);
 
@@ -209,7 +209,7 @@ namespace Sprint0
                     StartScreen.Update();
                     titleControls.Update();
                 }
-                else if (end)
+                else if (end && link.getLinkStateMachine().getAnimation() != Animation.PickUpItem)
                 {
                     if(!songPlayed)
                     {
@@ -217,7 +217,10 @@ namespace Sprint0
                         songPlayed = true;
                     }
                     winningScreen.Update();
-                    if (!winningScreen.isDrawing()) this.Exit(); //reset
+                    if (!winningScreen.isDrawing())
+                    {
+                        new ResetGameCommand(this).Execute(); //reset                       
+                    }
                 }
                 else
                 {
@@ -401,11 +404,6 @@ namespace Sprint0
         public void startGame()
         {
             title = false;
-        }
-
-        public TitleScreen TitleScreen()
-        {
-            return StartScreen;
         }
 
         public void ClearProjectiles()

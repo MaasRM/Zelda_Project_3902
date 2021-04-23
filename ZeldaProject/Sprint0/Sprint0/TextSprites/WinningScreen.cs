@@ -13,6 +13,7 @@ namespace Sprint0
         private SoundEffectInstance textSound;
         private int yDist;
         private int gameHeight;
+        private Zelda zelda;
         private const int letterSize = 7;
 
         //x then y so grouped in twos
@@ -76,13 +77,14 @@ namespace Sprint0
               380, 1780, 408, 1780, 436, 1780, 464, 1780, 492, 1780, 520, 1780, 548, 1780, 576, 1780, 604, 1780, 632, 1780 //Riley Maas (20)
             };
 
-        public WinningScreen(Texture2D dungeonSheet, SoundEffectInstance text, Sprint5 game)
+        public WinningScreen(Texture2D dungeonSheet, Texture2D NPCsheet, SoundEffectInstance text, Sprint5 game)
         {
             letterSheet = dungeonSheet;
             textSound = text;
             textSound.Volume = 0.25f;
             textSound.IsLooped = true;
             gameHeight = game.GraphicsDevice.Viewport.Bounds.Height;
+            zelda = new Zelda(100, 100, NPCsheet);
             yDist = 0;
         }
 

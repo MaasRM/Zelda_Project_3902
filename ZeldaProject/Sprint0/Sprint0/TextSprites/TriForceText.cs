@@ -17,7 +17,7 @@ namespace Sprint0
         private int shardUpdate;
         private int[] letterSource;
 
-        private INPC zelda;
+        private INPC oldWoman;
         private LinkTriForceShards shards;
 
         public TriForceText(Texture2D dungeonSheet, Texture2D npcSheet, Texture2D itemSheet,  Sprint5 game, LinkTriForceShards shards)
@@ -31,7 +31,7 @@ namespace Sprint0
             counter = 0;
             shardUpdate = 0;
             letterSource = LinkConstants.letterSource;
-            zelda = new Zelda(LinkConstants.ZELDAX * GameConstants.SCALE, LinkConstants.ZELDAY * GameConstants.SCALE, npcSheet);
+            oldWoman = new OldWoman(LinkConstants.ZELDAX * GameConstants.SCALE, LinkConstants.ZELDAY * GameConstants.SCALE, npcSheet);
             this.shards = shards;
         }
 
@@ -61,7 +61,7 @@ namespace Sprint0
                     spriteBatch.Draw(letterSheet, destination, source, Color.White);
                 }
                 else textSound.Stop();
-                zelda.Draw(spriteBatch);
+                oldWoman.Draw(spriteBatch);
                 DrawShards(spriteBatch);
             }
             else textSound.Stop();
