@@ -129,7 +129,7 @@ namespace Sprint0
                     Rectangle gohmaPos = gohma.GetNPCLocation();
                     Rectangle overlap = Rectangle.Intersect(gohmaPos, projectile.GetProjectileLocation());
 
-                    if(overlap.X > gohmaPos.X + 3 * gohmaPos.Width / 4 && overlap.X > gohmaPos.X + 5 * gohmaPos.Width / 4)
+                    if(overlap.X > gohmaPos.X + (gohmaPos.Width / 4) && overlap.X < gohmaPos.X + (3 * gohmaPos.Width / 4))
                     {
                         DamageTheEnemy(gohma, projectile, direction);
                     }
