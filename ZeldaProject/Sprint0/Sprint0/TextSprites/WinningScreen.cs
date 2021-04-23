@@ -11,7 +11,7 @@ namespace Sprint0
 
         private Texture2D letterSheet;
         private SoundEffectInstance textSound;
-        private int yDist = 0;
+        private int yDist;
         private int gameHeight;
         private const int letterSize = 7;
 
@@ -76,18 +76,19 @@ namespace Sprint0
               485, 1283, 492, 1283, 499, 1283, 506, 1283, 513, 1283, 520, 1283, 527, 1283, 534, 1283, 541, 1283, 548, 1283 //Riley Maas (20)
             };
 
-        public WinningScreen(Texture2D dungeonSheet, RoomManager manager, SoundEffectInstance text, Sprint5 game)
+        public WinningScreen(Texture2D dungeonSheet, SoundEffectInstance text, Sprint5 game)
         {
             letterSheet = dungeonSheet;
             textSound = text;
             textSound.Volume = 0.25f;
             textSound.IsLooped = true;
             gameHeight = game.GraphicsDevice.Viewport.Bounds.Height;
+            yDist = 0;
         }
 
         public void Update()
         {
-            yDist++;     
+            yDist+=4;     
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -95,7 +96,7 @@ namespace Sprint0
             for (int i = 0; i < letterSource.Length / 2; i += 2)
             {
                 Rectangle source = new Rectangle(letterSource[i], letterSource[i + 1], letterSize, letterSize);
-                Rectangle destination = new Rectangle(letterDest[i], letterDest[i + 1]-yDist, letterSize * GameConstants.SCALE, letterSize * GameConstants.SCALE);
+                Rectangle destination = new Rectangle(letterDest[i], letterDest[i + 1]-yDist, letterSize, letterSize);
                 spriteBatch.Draw(letterSheet, destination, source, Color.White);
             }
         }
