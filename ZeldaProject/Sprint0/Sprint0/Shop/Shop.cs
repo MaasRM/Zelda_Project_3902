@@ -87,9 +87,16 @@ namespace Sprint0
             ItemText heartContainerText = new ItemText(ShopConstants.HEARTCONTAINERCOST, dungeonSheet, heartContainer.GetLocationRectangle());
             shopItems.Add(heartContainer, heartContainerText);
 
+            ItemUpgrades();
+            SwordUpgrades();
+            ArmorUpgrades();
+        }
+
+        private void ItemUpgrades()
+        {
             foreach (IItem item in link.GetLinkInventory().getLinkItems())
             {
-                if(item is BoomerangItem)
+                if (item is BoomerangItem)
                 {
                     BlueBoomerangItem blueBoomerang = new BlueBoomerangItem(new Rectangle(110 * GameConstants.SCALE, 110 * GameConstants.SCALE, 7 * GameConstants.SCALE, 15 * GameConstants.SCALE), new Rectangle(128, 16, 7, 15), itemSheet);
                     ItemText blueBoomerangText = new ItemText(ShopConstants.BLUEBOOMERANGCOST, dungeonSheet, blueBoomerang.GetLocationRectangle());
@@ -102,18 +109,27 @@ namespace Sprint0
                     shopItems.Add(blueArrow, blueArrowText);
                 }
             }
+        }
+
+        private void SwordUpgrades()
+        {
             IItem sword = link.GetLinkInventory().getLinkSword().getSword();
             if (sword is BrownSwordItem)
             {
                 BlueSwordItem blueSword = new BlueSwordItem(new Rectangle(170 * GameConstants.SCALE, 110 * GameConstants.SCALE, 7 * GameConstants.SCALE, 15 * GameConstants.SCALE), new Rectangle(104, 16, 7, 15), itemSheet);
                 ItemText blueSwordText = new ItemText(ShopConstants.BLUESWORDCOST, dungeonSheet, blueSword.GetLocationRectangle());
                 shopItems.Add(blueSword, blueSwordText);
-            } else if (sword is BlueSwordItem)
+            }
+            else if (sword is BlueSwordItem)
             {
                 MagicSwordItem magicSword = new MagicSwordItem(new Rectangle(170 * GameConstants.SCALE, 110 * GameConstants.SCALE, 7 * GameConstants.SCALE, 15 * GameConstants.SCALE), new Rectangle(112, 0, 8, 15), itemSheet);
                 ItemText magicSwordText = new ItemText(ShopConstants.MAGICSWORDCOST, dungeonSheet, magicSword.GetLocationRectangle());
                 shopItems.Add(magicSword, magicSwordText);
             }
+        }
+
+        private void ArmorUpgrades()
+        {
             LinkColor color = link.getLinkColor();
             Rectangle armorDest = new Rectangle(200 * GameConstants.SCALE, 110 * GameConstants.SCALE, 15 * GameConstants.SCALE, 15 * GameConstants.SCALE);
             switch (color)
@@ -138,17 +154,17 @@ namespace Sprint0
             }
         }
 
-        public Boolean IsShopAvailable()
+        public bool IsShopAvailable()
         {
             return merchantText.isDone();
         }
 
-        public Boolean IsShopCurrent()
+        public bool IsShopCurrent()
         {
             return roomManager.getRoomIndex() == GameConstants.SHOPROOM;
         }
 
-        public Boolean TryBuyItem(IItem item)
+        public bool TryBuyItem(IItem item)
         {
             ItemText text;
             shopItems.TryGetValue(item, out text);
