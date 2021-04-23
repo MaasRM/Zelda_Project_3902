@@ -199,6 +199,7 @@ namespace Sprint0
         {
             int i;
             frame++;
+            end = (link.GetLinkInventory().shards.getShards().Count == 3);
 
             if (frame % 4 == 0)
             {
