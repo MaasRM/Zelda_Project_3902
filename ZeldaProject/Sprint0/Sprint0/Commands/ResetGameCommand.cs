@@ -11,9 +11,7 @@ namespace Sprint0
 
         public void Execute()
         {
-            game.Exit();
-            game = new Sprint5();
-            game.Run();
+            game.Reset();
         }
     }
 }

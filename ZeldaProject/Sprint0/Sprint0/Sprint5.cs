@@ -48,7 +48,7 @@ namespace Sprint0
         private SongManager Songs;
 
         //xml string
-        readonly String xmlLoc = "..\\..\\..\\Content\\ZeldaRoomLayout.xml";
+        readonly String xmlLoc = "..\\.\\.\\Content\\ZeldaRoomLayout.xml";
 
         //text sprite
         private HintSprite hintSprite;
@@ -61,8 +61,11 @@ namespace Sprint0
         Texture2D overworldSheet;
         Texture2D npcSheet;
         Texture2D itemsSheet;
+        Texture2D inventory;
+        Texture2D titleSheet;
         List<Texture2D> enemySheets;
         List<Texture2D> bossSheets;
+        List<Texture2D> linkSheetList;
 
         public Sprint5()
         {
@@ -107,7 +110,7 @@ namespace Sprint0
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            List<Texture2D> linkSheetList = new List<Texture2D>();
+            linkSheetList = new List<Texture2D>();
 
             linkSheetList.Add(contentManager.Load<Texture2D>("LinkSpriteSheet")); // 0 is green
             linkSheetList.Add(contentManager.Load<Texture2D>("LinkSpriteSheetRed")); // 1 is red
@@ -128,8 +131,8 @@ namespace Sprint0
             overworldSheet = contentManager.Load<Texture2D>("Overworld_Tileset");
             npcSheet = contentManager.Load<Texture2D>("Zelda_NPCs");
             itemsSheet = contentManager.Load<Texture2D>("Dungeon_Items");
-            Texture2D inventory = contentManager.Load<Texture2D>("HUD_Pause_Screen");
-            Texture2D titleSheet = contentManager.Load<Texture2D>("TitleScreen");
+            inventory = contentManager.Load<Texture2D>("HUD_Pause_Screen");
+            titleSheet = contentManager.Load<Texture2D>("TitleScreen");
 
             //Songs
             Title_music = Content.Load<Song>("Intro");
@@ -452,6 +455,40 @@ namespace Sprint0
         public void ResetTriForceText()
         {
             triForceSprite.Reset();
+        }
+
+        public void Reset()
+        {
+            roomManager.ChangeRoom(19);
+            link.Heal(2);
+            foreach (INPC npc in npcs) if (npc is Goriya) ((Goriya)npc).StopThrowSound();
+            Songs.Stop();
+            Songs = new SongManager(Title_music, Overworld_music, Dungeon_music, Ending_music);
+            frame = 0;
+            roomManager = new RoomManager(this);
+            link = new Link(contentManager.Load<Texture2D>("LinkSpriteSheet"), linkSheetList, Link_soundEffects, inventory);
+            shop.StopSound();
+            shop = new Shop(link, npcSheet, dungeonSheet, itemsSheet, roomManager, this);
+            triForceSprite.Reset();
+            triForceSprite = new TriForceText(dungeonSheet, npcSheet, itemsSheet, this, link.GetLinkInventory().shards);
+            deathMessageSprite.Reset();
+            deathMessageSprite = new DeathMessageSprite(dungeonSheet, roomManager, Text_soundEffects[1].CreateInstance(), link, this);
+            hintSprite.Reset();
+            hintSprite = new HintSprite(dungeonSheet, roomManager, Text_soundEffects[1].CreateInstance(), link.GetLinkInventory().pauseScreen);
+            winningScreen.Reset();
+            winningScreen = new WinningScreen(dungeonSheet, npcSheet, linkSheetList[0], itemsSheet, Text_soundEffects[1].CreateInstance(), this);
+
+            StartScreen = new TitleScreen(titleSheet, this.GraphicsDevice.Viewport.Bounds.Width, this.GraphicsDevice.Viewport.Bounds.Height);
+
+            XmlDocument doc = new XmlDocument();
+            FileStream file = new FileStream(xmlLoc, FileMode.Open);
+            doc.Load(file);
+            file.Close();
+            roomManager.SetUpRooms(doc, dungeonSheet, enemySheets, itemsSheet, bossSheets, npcSheet, overworldSheet);
+            roomManager.Update();
+            title = true;
+            end = false;
+            songPlayed = false;
         }
     }
 }

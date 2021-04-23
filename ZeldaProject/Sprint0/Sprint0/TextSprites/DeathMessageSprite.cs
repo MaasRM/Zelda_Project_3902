@@ -109,5 +109,11 @@ namespace Sprint0
         {
             return frameCount != 130;
         }
+
+        public void Reset()
+        {
+            counter = 0;
+            textSound.Stop();
+        }
     }
 }

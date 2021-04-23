@@ -70,5 +70,11 @@ namespace Sprint0
                 textSound.Stop();
             }
         }
+
+        public void Reset()
+        {
+            counter = 0;
+            textSound.Stop();
+        }
     }
 }

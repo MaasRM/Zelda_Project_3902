@@ -180,5 +180,10 @@ namespace Sprint0
             return ret;
         }
 
+        public void StopSound()
+        {
+            merchantText.Reset();
+        }
+
     }
 }

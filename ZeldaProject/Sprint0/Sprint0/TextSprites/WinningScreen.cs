@@ -130,5 +130,10 @@ namespace Sprint0
         {
             return yDist < 2000;
         }
+
+        public void Reset()
+        {
+            textSound.Stop();
+        }
     }
 }
