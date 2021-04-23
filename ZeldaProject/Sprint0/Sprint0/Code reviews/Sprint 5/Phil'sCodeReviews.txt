@@ -1,0 +1,45 @@
+﻿************************************************************************************************************
+								 Team 3, Phil Brocker Code Reviews
+************************************************************************************************************
+
+Phil Brocker: Review EnemyProjectileHandler.cs for readability, Review Sprint3.cs for maintainability
+
+************************************************************************************************************
+											Readability
+************************************************************************************************************
+
+Phil Brocker 4/23/2021 Sprint5
+DarknutStateMachine.cs - Nathan Schultz
+Minutes: 13 
+Comments on readability:
+	- Each method has a very clear name that specifies what it does.
+	- It is formatted similarly to the other enemy state machines. This makes it easy to understand most of
+	  the enemy state machines after looking at just one of them
+	- Some of the methods have some magic numbers so it isn't clear what these numbers are. 
+	- All parameters are clear and make sense.
+
+This class is very readable and I was able to understand how all the methods worked very easily. The only 
+comment I have is that it might be easier to understand if their are constant variables instead of magic 
+numbers.
+
+************************************************************************************************************
+											Maintainability
+************************************************************************************************************  
+
+Phil Brocker 4/23/2021 Sprint5
+TriforceText.cs - Jake Kline
+Comments on maintainability:
+	- There are some magic numbers in a couple of the methods
+	- DrawShards has many if statements which could make changing the code difficult if you don't know what
+	  each one is checking for
+	- Having a Draw method and a DrawShards method could be confusing for somone if they come in to try and
+	  update the class
+	- The method seems to have high cohesion and low coupling. Some information from other classes is 
+	  required to display the correct number of triforce shards
+
+Hypothetical Changes:
+	- Using constant variables will make maintainability easier than having magic numbers. 
+	- The two draw methods could be named differently or combined if possible to make future chagnes easier
+
+This file is in a good spot. Maintaining it for the future should not be difficult, and my suggestions for 
+making it easier to maintain are listed above.
