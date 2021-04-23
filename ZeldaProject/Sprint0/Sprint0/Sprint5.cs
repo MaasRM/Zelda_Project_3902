@@ -48,7 +48,7 @@ namespace Sprint0
         private SongManager Songs;
 
         //xml string
-        readonly String xmlLoc = "..\\.\\.\\Content\\ZeldaRoomLayout.xml";
+        readonly String xmlLoc = "..\\..\\..\\Content\\ZeldaRoomLayout.xml";
 
         //text sprite
         private HintSprite hintSprite;
