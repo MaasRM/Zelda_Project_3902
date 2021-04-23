@@ -10,12 +10,13 @@ namespace Sprint0
     {
 
         private Texture2D letterSheet;
-        private Texture2D zeldaSheet;
         private SoundEffectInstance textSound;
         private int yDist;
         private int gameMid;
         private int gameHeight;
         private Zelda zelda;
+        private IdleLink link;
+        private List<TriforceShardItem> shards;
         private const int letterSize = 7;
 
         //x then y so grouped in twos
@@ -79,21 +80,27 @@ namespace Sprint0
               380, 1780, 408, 1780, 436, 1780, 464, 1780, 492, 1780, 520, 1780, 548, 1780, 576, 1780, 604, 1780, 632, 1780 //Riley Maas (20)
             };
 
-        public WinningScreen(Texture2D dungeonSheet, Texture2D NPCsheet, SoundEffectInstance text, Sprint5 game)
+        public WinningScreen(Texture2D dungeonSheet, Texture2D NPCsheet, Texture2D Linksheet, Texture2D itemsSheet, SoundEffectInstance text, Sprint5 game)
         {
             letterSheet = dungeonSheet;
-            zeldaSheet = NPCsheet;
             textSound = text;
             textSound.Volume = 0.25f;
             textSound.IsLooped = true;
             gameMid = game.GraphicsDevice.Viewport.Width / 2 - 16;
             gameHeight = game.GraphicsDevice.Viewport.Height;
             zelda = new Zelda(gameMid, game.GraphicsDevice.Viewport.Height, NPCsheet);
+            link = new IdleLink(gameMid, game.GraphicsDevice.Viewport.Height, Linksheet);
+            shards = new List<TriforceShardItem>();
+            shards.Add(new TriforceShardItem(link.GetNPCLocation(), new Rectangle(272, 0, 15, 15), itemsSheet, 1));
+            shards.Add(new TriforceShardItem(link.GetNPCLocation(), new Rectangle(272, 0, 15, 15), itemsSheet, 2));
+            shards.Add(new TriforceShardItem(link.GetNPCLocation(), new Rectangle(272, 0, 15, 15), itemsSheet, 3));
             yDist = 0;
         }
 
         public void Update()
         {
+            zelda.Update();
+            foreach (TriforceShardItem shard in shards) shard.Update();
             yDist+=2;
         }
 
@@ -109,6 +116,14 @@ namespace Sprint0
             }
             zelda.SetPosition(ZRect);
             zelda.Draw(spriteBatch);
+            link.SetPosition(new Rectangle(ZRect.X - 1, ZRect.Y - 50 * GameConstants.SCALE, ZRect.Width, ZRect.Height));
+            link.Draw(spriteBatch);
+            shards[0].SetLocationRectangle(new Rectangle(link.GetNPCLocation().X, link.GetNPCLocation().Y - 32 * GameConstants.SCALE, 15 * GameConstants.SCALE, 15 * GameConstants.SCALE));
+            shards[1].SetLocationRectangle(new Rectangle(link.GetNPCLocation().X - 32 * GameConstants.SCALE, link.GetNPCLocation().Y + 4 * GameConstants.SCALE, 15 * GameConstants.SCALE, 15 * GameConstants.SCALE));
+            shards[2].SetLocationRectangle(new Rectangle(link.GetNPCLocation().X + 32 * GameConstants.SCALE, link.GetNPCLocation().Y + 4 * GameConstants.SCALE, 15 * GameConstants.SCALE, 15 * GameConstants.SCALE));
+            shards[0].Draw(spriteBatch);
+            shards[1].Draw(spriteBatch);
+            shards[2].Draw(spriteBatch);
         }
 
         public bool isDrawing()

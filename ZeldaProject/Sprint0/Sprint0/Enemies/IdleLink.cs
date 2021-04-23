@@ -6,37 +6,25 @@ using System.Text;
 
 namespace Sprint0
 {
-    public class Zelda : INPC
+    public class IdleLink : INPC
     {
         private Texture2D oldManSpriteSheet;
         private Rectangle source;
         private Rectangle destination;
         private Tuple<int, int> init;
-        public const int WIDTHANDHEIGHT = 16;
-        int count;
+        public const int WIDTHANDHEIGHT = 15;
 
-        public Zelda(int x, int y, Texture2D spriteSheet)
+        public IdleLink(int x, int y, Texture2D spriteSheet)
         {
             destination = new Rectangle(x, y, WIDTHANDHEIGHT * GameConstants.SCALE, WIDTHANDHEIGHT * GameConstants.SCALE);
-            source = new Rectangle(1, 42, WIDTHANDHEIGHT, WIDTHANDHEIGHT);
+            source = new Rectangle(230, 11, WIDTHANDHEIGHT, WIDTHANDHEIGHT); ;
             oldManSpriteSheet = spriteSheet;
             init = new Tuple<int, int>(x, y);
-            count = 0;
         }
 
         public void Update()
         {
-            count++;
-            if (source.X == 1 && count == 10)
-            {
-                source = new Rectangle(18, 42, WIDTHANDHEIGHT, WIDTHANDHEIGHT);
-                count = 0;
-            }
-            else if (count == 10)
-            {
-                source = new Rectangle(1, 42, WIDTHANDHEIGHT, WIDTHANDHEIGHT);
-                count = 0;
-            }
+
         }
 
         public void Draw(SpriteBatch spriteBatch)

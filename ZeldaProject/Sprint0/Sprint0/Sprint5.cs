@@ -173,7 +173,7 @@ namespace Sprint0
             triForceSprite = new TriForceText(dungeonSheet, npcSheet, itemsSheet, this, link.GetLinkInventory().shards); 
             deathMessageSprite = new DeathMessageSprite(dungeonSheet, roomManager, Text_soundEffects[1].CreateInstance(), link, this);
             hintSprite = new HintSprite(dungeonSheet, roomManager, Text_soundEffects[1].CreateInstance(), link.GetLinkInventory().pauseScreen);
-            winningScreen = new WinningScreen(dungeonSheet, npcSheet, Text_soundEffects[1].CreateInstance(), this);
+            winningScreen = new WinningScreen(dungeonSheet, npcSheet, linkSheetList[0], itemsSheet, Text_soundEffects[1].CreateInstance(), this);
 
             StartScreen = new TitleScreen(titleSheet, this.GraphicsDevice.Viewport.Bounds.Width, this.GraphicsDevice.Viewport.Bounds.Height);
 

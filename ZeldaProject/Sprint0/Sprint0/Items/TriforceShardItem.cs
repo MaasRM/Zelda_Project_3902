@@ -56,6 +56,11 @@ namespace Sprint0
             return destination;
         }
 
+        public void SetLocationRectangle(Rectangle dest)
+        {
+            destination = dest;
+        }
+
         public Rectangle GetSourceRectangle()
         {
             return spriteSource;
