@@ -103,7 +103,7 @@ namespace Sprint0
 
         public bool isDrawing()
         {
-            return false;
+            return yDist < 2000;
         }
     }
 }

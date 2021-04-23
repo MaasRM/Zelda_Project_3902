@@ -211,6 +211,7 @@ namespace Sprint0
                 else if (end)
                 {
                     winningScreen.Update();
+                    if (!winningScreen.isDrawing()) this.Exit(); //reset
                 }
                 else
                 {
