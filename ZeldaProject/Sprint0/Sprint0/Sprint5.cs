@@ -217,7 +217,10 @@ namespace Sprint0
                         songPlayed = true;
                     }
                     winningScreen.Update();
-                    if (!winningScreen.isDrawing()) this.Exit(); //reset
+                    if (!winningScreen.isDrawing())
+                    {
+                        new ResetGameCommand(this).Execute(); //reset                       
+                    }
                 }
                 else
                 {
