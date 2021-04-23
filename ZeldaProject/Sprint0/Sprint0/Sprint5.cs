@@ -288,7 +288,7 @@ namespace Sprint0
             }
             else if (end)
             {
-                winningScreen.Update();
+                winningScreen.Draw(this._spriteBatch);
             }
             else
             {
