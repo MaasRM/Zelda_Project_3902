@@ -211,7 +211,9 @@ namespace Sprint0
                 }
                 else if (end && link.getLinkStateMachine().getAnimation() != Animation.PickUpItem)
                 {
-                    if(!songPlayed)
+                    link.Heal(LinkConstants.MAXIMUMHEALTH);
+
+                    if (!songPlayed)
                     {
                         Songs.Ending();
                         songPlayed = true;
