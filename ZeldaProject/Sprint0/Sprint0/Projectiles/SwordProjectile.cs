@@ -21,7 +21,7 @@ namespace Sprint0
         private Direction projectileDirection;
         private SpriteEffects flip;
 
-        public SwordProjectile(Texture2D spritesheet, LinkStateMachine stateMachine, Sprint5 game)
+        public SwordProjectile(Texture2D spritesheet, LinkStateMachine stateMachine, LinkColor c, Sprint5 game)
         {
             this.spritesheet = spritesheet;
             this.game = game;
@@ -32,7 +32,7 @@ namespace Sprint0
             if (projectileDirection == Direction.Up || projectileDirection == Direction.Down) sourceRectangle = new Rectangle(1, 154, 8, 15);
             else sourceRectangle = new Rectangle(10, 154, 15, 15);
 
-            DamageSet(stateMachine);
+            DamageSet(stateMachine, c);
 
             destinationRectangle = new Rectangle(xLoc, yLoc, xSize, ySize);
             frame = 0;
@@ -116,15 +116,15 @@ namespace Sprint0
             }
         }
 
-        private void DamageSet(LinkStateMachine stateMachine)
+        private void DamageSet(LinkStateMachine stateMachine, LinkColor c)
         {
             double multiplier = 1.0;
 
-            if (stateMachine.getColor() == LinkColor.Red || stateMachine.getColor() == LinkColor.Black)
+            if (c == LinkColor.Red || c == LinkColor.Black)
             {
                 multiplier *= 2;
             }
-            if (stateMachine.getColor() == LinkColor.Blue)
+            if (c == LinkColor.Blue)
             {
                 multiplier /= 2;
             }
