@@ -96,7 +96,7 @@ namespace Sprint0
             for (int i = 0; i < letterSource.Length; i += 2)
             {
                 Rectangle source = new Rectangle(letterSource[i], letterSource[i + 1], letterSize, letterSize);
-                Rectangle destination = new Rectangle(letterDest[i], letterDest[i + 1]-yDist, letterSize, letterSize);
+                Rectangle destination = new Rectangle(letterDest[i], letterDest[i + 1]-yDist, letterSize*GameConstants.SCALE, letterSize*GameConstants.SCALE);
                 spriteBatch.Draw(letterSheet, destination, source, Color.White);
             }
         }
